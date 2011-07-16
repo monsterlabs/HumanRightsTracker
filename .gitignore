@@ -1,0 +1,3 @@
+tools/database/Gemfile.lock
+tools/database/database.log
+db/human_rigths_tracker.sqlite3
