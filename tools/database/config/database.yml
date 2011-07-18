@@ -4,3 +4,4 @@ adapter: sqlite3
 database: ../../db/human_rigths_tracker.sqlite3
 pool: 5
 timeout: 5000
+encoding: utf8

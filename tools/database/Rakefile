@@ -3,15 +3,46 @@ require "bundler"
 require "yaml"
 require "active_record"
 require "active_record/railtie"
-
+require "csv"
 Bundler.setup
 Bundler.require :default
+
+%w(country state city marital_status).each do |model_name|
+  if File.exist? "./models/#{model_name}.rb"
+    require "./models/#{model_name}"
+  end
+end
 
 task :default => :migrate
 
 desc "Migrate the database through scripts in db/migrate. Target specific version with VERSION=x"
 task :migrate => :environment do
   ActiveRecord::Migrator.migrate('migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil )
+end
+
+desc "Load seeds in to the database."
+task :seeds => :environment do
+ Country.destroy_all
+ CSV.foreach("seeds/countries.csv", :col_sep => "|") do |row|
+   @country = Country.new(:code => row[0].strip,
+                          :name => row[1].strip,
+                         :citizen => row[2].strip)
+   @country.save
+ end
+
+ @country = Country.find_by_code('MX')
+ State.destroy_all
+ CSV.foreach("seeds/states_mx.csv", :col_sep => "|") do |row|
+   @state = State.new(:name => row[0].strip, :country_id => @country.id)
+   @state.save
+ end
+
+ MaritalStatus.destroy_all
+ CSV.foreach("seeds/marital_statuses.csv", :col_sep => "|") do |row|
+   @marital_status = MaritalStatus.new(:name => row[0].strip)
+   @marital_status.save
+ end
+
 end
 
 task :environment do
