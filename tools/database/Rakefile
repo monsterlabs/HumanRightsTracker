@@ -7,7 +7,8 @@ require "csv"
 Bundler.setup
 Bundler.require :default
 
-%w(country state city marital_status).each do |model_name|
+%w(country state city marital_status scholarity_level religion
+   ethnic_group).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
   end
@@ -22,26 +23,38 @@ end
 
 desc "Load seeds in to the database."
 task :seeds => :environment do
- Country.destroy_all
- CSV.foreach("seeds/countries.csv", :col_sep => "|") do |row|
-   @country = Country.new(:code => row[0].strip,
-                          :name => row[1].strip,
-                         :citizen => row[2].strip)
-   @country.save
- end
+  Country.destroy_all
+  CSV.foreach("seeds/countries.csv", :col_sep => "|") do |row|
+    Country.create(:code => row[0].strip,
+                    :name => row[1].strip,
+                    :citizen => row[2].strip)
+  end
 
- @country = Country.find_by_code('MX')
- State.destroy_all
- CSV.foreach("seeds/states_mx.csv", :col_sep => "|") do |row|
-   @state = State.new(:name => row[0].strip, :country_id => @country.id)
-   @state.save
- end
+  @country = Country.find_by_code('MX')
+  State.destroy_all
+  CSV.foreach("seeds/states_mx.csv", :col_sep => "|") do |row|
+    State.create(:name => row[0].strip, :country_id => @country.id)
+  end
 
- MaritalStatus.destroy_all
- CSV.foreach("seeds/marital_statuses.csv", :col_sep => "|") do |row|
-   @marital_status = MaritalStatus.new(:name => row[0].strip)
-   @marital_status.save
- end
+  MaritalStatus.destroy_all
+  CSV.foreach("seeds/marital_statuses.csv", :col_sep => "|") do |row|
+    MaritalStatus.create(:name => row[0].strip)
+  end
+
+  Religion.destroy_all
+  CSV.foreach("seeds/religions.csv", :col_sep => "|") do |row|
+    Religion.create(:name => row[0].strip)
+  end
+
+  EthnicGroup.destroy_all
+  CSV.foreach("seeds/ethnic_groups.csv", :col_sep => "|") do |row|
+    EthnicGroup.create(:name => row[0].strip)
+  end
+
+  ScholarityLevel.destroy_all
+  CSV.foreach("seeds/scholarity_levels.csv", :col_sep => "|") do |row|
+   ScholarityLevel.create(:name => row[0].strip)
+  end
 
 end
 
