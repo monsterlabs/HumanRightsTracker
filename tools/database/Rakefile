@@ -3,8 +3,9 @@ require "bundler"
 require "yaml"
 require "active_record"
 require "active_record/railtie"
+
 Bundler.setup
-Bundler.require(:default)
+Bundler.require :default
 
 task :default => :migrate
 
