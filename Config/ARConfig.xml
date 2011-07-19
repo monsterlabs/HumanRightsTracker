@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<activerecord
+    isDebug="true"
+    pluralizeTableNames="true">
+  <config>
+    <add
+      key="connection.driver_class"
+      value="HumanRightsTracker.Sqlite.MonoSqliteDriver, HumanRightsTracker" />
+    <add
+      key="dialect"
+      value="NHibernate.Dialect.SQLiteDialect" />
+    <add
+      key="connection.provider"
+      value="NHibernate.Connection.DriverConnectionProvider" />
+  	<add
+      key="connection.connection_string"
+      value="Data Source=db/human_rights_tracker.sqlite3" />
+    <add value="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle" 
+      key="proxyfactory.factory_class" />
+  </config>
+</activerecord>

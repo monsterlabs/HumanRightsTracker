@@ -14,7 +14,20 @@
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <placeholder />
+      <widget class="Gtk.Fixed" id="fixed1">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Label" id="label2">
+            <property name="MemberName">label</property>
+            <property name="LabelProp" translatable="yes">label2</property>
+          </widget>
+          <packing>
+            <property name="X">177</property>
+            <property name="Y">131</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
 </stetic-interface>
