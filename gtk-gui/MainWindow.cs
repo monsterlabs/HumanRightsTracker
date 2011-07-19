@@ -3,9 +3,23 @@
 
 public partial class MainWindow
 {
-	private global::Gtk.Fixed fixed1;
+	private global::Gtk.Fixed fixed3;
 
-	private global::Gtk.Label label2;
+	private global::Gtk.Frame frame4;
+
+	private global::Gtk.Alignment GtkAlignment;
+
+	private global::Gtk.Table table3;
+
+	private global::Gtk.Label label4;
+
+	private global::Gtk.Label label5;
+
+	private global::Gtk.Entry login;
+
+	private global::Gtk.Entry password;
+
+	private global::Gtk.Button button1;
 
 	private global::Gtk.Label error_message;
 
@@ -17,27 +31,90 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.fixed1 = new global::Gtk.Fixed ();
-		this.fixed1.Name = "fixed1";
-		this.fixed1.HasWindow = false;
-		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.label2 = new global::Gtk.Label ();
-		this.label2.Name = "label2";
-		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("label2");
-		this.fixed1.Add (this.label2);
-		global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label2]));
-		w1.X = 794;
-		w1.Y = 32;
-		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.fixed3 = new global::Gtk.Fixed ();
+		this.fixed3.Name = "fixed3";
+		this.fixed3.HasWindow = false;
+		// Container child fixed3.Gtk.Fixed+FixedChild
+		this.frame4 = new global::Gtk.Frame ();
+		this.frame4.Name = "frame4";
+		this.frame4.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child frame4.Gtk.Container+ContainerChild
+		this.GtkAlignment = new global::Gtk.Alignment (0f, 0f, 1f, 1f);
+		this.GtkAlignment.Name = "GtkAlignment";
+		this.GtkAlignment.LeftPadding = ((uint)(12));
+		// Container child GtkAlignment.Gtk.Container+ContainerChild
+		this.table3 = new global::Gtk.Table (((uint)(2)), ((uint)(2)), false);
+		this.table3.Name = "table3";
+		this.table3.RowSpacing = ((uint)(6));
+		this.table3.ColumnSpacing = ((uint)(6));
+		// Container child table3.Gtk.Table+TableChild
+		this.label4 = new global::Gtk.Label ();
+		this.label4.Name = "label4";
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("User");
+		this.table3.Add (this.label4);
+		global::Gtk.Table.TableChild w1 = ((global::Gtk.Table.TableChild)(this.table3[this.label4]));
+		w1.XOptions = ((global::Gtk.AttachOptions)(4));
+		w1.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table3.Gtk.Table+TableChild
+		this.label5 = new global::Gtk.Label ();
+		this.label5.Name = "label5";
+		this.label5.LabelProp = global::Mono.Unix.Catalog.GetString ("Password");
+		this.table3.Add (this.label5);
+		global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table3[this.label5]));
+		w2.TopAttach = ((uint)(1));
+		w2.BottomAttach = ((uint)(2));
+		w2.XOptions = ((global::Gtk.AttachOptions)(4));
+		w2.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table3.Gtk.Table+TableChild
+		this.login = new global::Gtk.Entry ();
+		this.login.CanFocus = true;
+		this.login.Name = "login";
+		this.login.IsEditable = true;
+		this.login.InvisibleChar = '●';
+		this.table3.Add (this.login);
+		global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table3[this.login]));
+		w3.LeftAttach = ((uint)(1));
+		w3.RightAttach = ((uint)(2));
+		w3.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table3.Gtk.Table+TableChild
+		this.password = new global::Gtk.Entry ();
+		this.password.CanFocus = true;
+		this.password.Name = "password";
+		this.password.IsEditable = true;
+		this.password.Visibility = false;
+		this.password.InvisibleChar = '●';
+		this.table3.Add (this.password);
+		global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table3[this.password]));
+		w4.TopAttach = ((uint)(1));
+		w4.BottomAttach = ((uint)(2));
+		w4.LeftAttach = ((uint)(1));
+		w4.RightAttach = ((uint)(2));
+		w4.YOptions = ((global::Gtk.AttachOptions)(4));
+		this.GtkAlignment.Add (this.table3);
+		this.frame4.Add (this.GtkAlignment);
+		this.fixed3.Add (this.frame4);
+		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed3[this.frame4]));
+		w7.X = 340;
+		w7.Y = 211;
+		// Container child fixed3.Gtk.Fixed+FixedChild
+		this.button1 = new global::Gtk.Button ();
+		this.button1.CanFocus = true;
+		this.button1.Name = "button1";
+		this.button1.UseUnderline = true;
+		this.button1.Label = global::Mono.Unix.Catalog.GetString ("Login");
+		this.fixed3.Add (this.button1);
+		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed3[this.button1]));
+		w8.X = 449;
+		w8.Y = 308;
+		// Container child fixed3.Gtk.Fixed+FixedChild
 		this.error_message = new global::Gtk.Label ();
 		this.error_message.Name = "error_message";
-		this.error_message.Xalign = 0f;
-		this.error_message.LabelProp = global::Mono.Unix.Catalog.GetString ("label1");
-		this.fixed1.Add (this.error_message);
-		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.error_message]));
-		w2.X = 608;
-		w2.Y = 213;
-		this.Add (this.fixed1);
+		this.error_message.LabelProp = global::Mono.Unix.Catalog.GetString ("label6");
+		this.fixed3.Add (this.error_message);
+		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed3[this.error_message]));
+		w9.X = 455;
+		w9.Y = 145;
+		this.Add (this.fixed3);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
@@ -45,5 +122,6 @@ public partial class MainWindow
 		this.DefaultHeight = 550;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.button1.Clicked += new global::System.EventHandler (this.authenticate);
 	}
 }

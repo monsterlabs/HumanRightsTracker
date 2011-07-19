@@ -12,6 +12,7 @@ namespace HumanRightsTracker
 		{
 			XmlConfigurationSource config = new XmlConfigurationSource("Config/ARConfig.xml");
 			ActiveRecordStarter.Initialize(config, 
+			                               typeof(User),
 			                               typeof(Country), 
 			                               typeof(Religion),
 			                               typeof(EthnicGroup),

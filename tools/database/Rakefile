@@ -7,7 +7,7 @@ require "csv"
 Bundler.setup
 Bundler.require :default
 
-%w(country state city marital_status scholarity_level religion
+%w(user country state city marital_status scholarity_level religion
    ethnic_group).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
@@ -23,6 +23,13 @@ end
 
 desc "Load seeds in to the database."
 task :seeds => :environment do
+  User.destroy_all
+  CSV.foreach("seeds/users.csv", :col_sep => "|") do |row|
+    User.create(:login => row[0].strip,
+                    :password => row[1].strip,
+                    :salt => row[2].strip)
+  end
+
   Country.destroy_all
   CSV.foreach("seeds/countries.csv", :col_sep => "|") do |row|
     Country.create(:code => row[0].strip,

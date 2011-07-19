@@ -14,7 +14,7 @@ namespace HumanRightsTracker.Models
 		[PrimaryKey]
         public int Id { get; protected set; }
 		
-		[Property, ValidateNonEmpty]
+		[Property, ValidateNonEmpty, ValidateIsUnique]
         public String Login { get; set; }
 		
 		[Property, ValidateNonEmpty]
@@ -26,7 +26,7 @@ namespace HumanRightsTracker.Models
 		public static User authenticate(String login, String password)
 		{
 			User u = User.FindOne(Expression.Eq("Login", login));
-			if (u.Password.Equals(encrypt(password, u.Salt)))
+			if (u != null && u.Password.Equals(encrypt(password, u.Salt)))
 			{
 				return u;	
 			}
