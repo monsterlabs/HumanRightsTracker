@@ -3,3 +3,4 @@ tools/database/database.log
 db/human_rights_tracker.sqlite3
 bin/*
 HumanRightsTracker.userprefs
+HumanRightsTracker.pidb
