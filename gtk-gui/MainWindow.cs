@@ -24,14 +24,14 @@ public partial class MainWindow
 		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("label2");
 		this.fixed1.Add (this.label2);
 		global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label2]));
-		w1.X = 177;
-		w1.Y = 131;
+		w1.X = 794;
+		w1.Y = 32;
 		this.Add (this.fixed1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 400;
-		this.DefaultHeight = 300;
+		this.DefaultWidth = 882;
+		this.DefaultHeight = 550;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 	}

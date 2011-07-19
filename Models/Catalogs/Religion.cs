@@ -4,13 +4,13 @@ using Castle.ActiveRecord.Framework;
 
 namespace HumanRightsTracker.Models
 {
-	[ActiveRecord("countries")]
-	public class Country : ActiveRecordLinqBase<Country>
+	[ActiveRecord("religions")]
+	public class Religion : ActiveRecordLinqBase<Religion>
 	{
 		[PrimaryKey]
         public int Id { get; protected set; }
 		
 		[Property]
-        public String Code { get; set; }
+        public String Name { get; set; }
 	}
 }

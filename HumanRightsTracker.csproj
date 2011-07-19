@@ -88,8 +88,19 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Models\Country.cs" />
     <Compile Include="Sqlite\MonoSqliteDriver.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Catalogs\City.cs" />
+    <Compile Include="Models\Catalogs\Country.cs" />
+    <Compile Include="Models\Catalogs\State.cs" />
+    <Compile Include="Models\Catalogs\MaritalStatus.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Catalogs\Religion.cs" />
+    <Compile Include="Models\Catalogs\ScholarityLevel.cs" />
+    <Compile Include="Models\Catalogs\EthnicGroup.cs" />
+    <Compile Include="Models\PersonDetail.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -101,6 +112,7 @@
     <Folder Include="Config\" />
     <Folder Include="Models\" />
     <Folder Include="Sqlite\" />
+    <Folder Include="Models\Catalogs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\ARConfig.xml">

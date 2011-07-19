@@ -8,7 +8,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/HumanRightsTracker.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="882 550">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -23,8 +23,8 @@
             <property name="LabelProp" translatable="yes">label2</property>
           </widget>
           <packing>
-            <property name="X">177</property>
-            <property name="Y">131</property>
+            <property name="X">794</property>
+            <property name="Y">32</property>
           </packing>
         </child>
       </widget>
