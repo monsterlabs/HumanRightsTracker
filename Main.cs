@@ -16,7 +16,9 @@ namespace HumanRightsTracker
 			                               typeof(Religion),
 			                               typeof(EthnicGroup),
 			                               typeof(MaritalStatus),
-			                               typeof(ScholarityLevel)
+			                               typeof(ScholarityLevel),
+			                               typeof(State),
+			                               typeof(City)
 			                               );
 			
 			Application.Init ();
