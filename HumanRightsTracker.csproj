@@ -118,6 +118,8 @@
     <None Include="Config\ARConfig.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="db\human_rights_tracker.sqlite3" />
+    <None Include="db\human_rights_tracker.sqlite3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
