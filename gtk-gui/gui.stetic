@@ -27,6 +27,17 @@
             <property name="Y">32</property>
           </packing>
         </child>
+        <child>
+          <widget class="Gtk.Label" id="error_message">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">label1</property>
+          </widget>
+          <packing>
+            <property name="X">608</property>
+            <property name="Y">213</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>

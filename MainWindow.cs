@@ -9,6 +9,14 @@ public partial class MainWindow : Gtk.Window
 	{
 		Build ();
 		label2.Text = Country.FindFirst().Code;
+		
+		Religion r = new Religion();
+		r.Name = "test";
+		if (r.IsValid()) {
+			r.Save();
+			error_message.Text = "Religion saved";
+		} else
+			error_message.Text = String.Join(",",r.ValidationErrorMessages);
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)

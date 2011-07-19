@@ -7,6 +7,8 @@ public partial class MainWindow
 
 	private global::Gtk.Label label2;
 
+	private global::Gtk.Label error_message;
+
 	protected virtual void Build ()
 	{
 		global::Stetic.Gui.Initialize (this);
@@ -26,6 +28,15 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label2]));
 		w1.X = 794;
 		w1.Y = 32;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.error_message = new global::Gtk.Label ();
+		this.error_message.Name = "error_message";
+		this.error_message.Xalign = 0f;
+		this.error_message.LabelProp = global::Mono.Unix.Catalog.GetString ("label1");
+		this.fixed1.Add (this.error_message);
+		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.error_message]));
+		w2.X = 608;
+		w2.Y = 213;
 		this.Add (this.fixed1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
