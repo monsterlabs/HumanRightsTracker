@@ -70,7 +70,7 @@ public partial class MainWindow
 		this.image3 = new global::Gtk.Image ();
 		this.image3.Name = "image3";
 		this.image3.Xalign = 1f;
-		this.image3.Pixbuf = new global::Gdk.Pixbuf (global::System.IO.Path.Combine (global::System.AppDomain.CurrentDomain.BaseDirectory, "./images/logo.jpg"));
+		this.image3.Pixbuf = global::Gdk.Pixbuf.LoadFromResource ("HumanRightsTracker.images.logo.jpg");
 		this.fixed3.Add (this.image3);
 		global::Gtk.Fixed.FixedChild w4 = ((global::Gtk.Fixed.FixedChild)(this.fixed3[this.image3]));
 		w4.X = 37;
@@ -91,7 +91,6 @@ public partial class MainWindow
 		w5.Y = 261;
 		// Container child fixed3.Gtk.Fixed+FixedChild
 		this.label3 = new global::Gtk.Label ();
-		this.label3.Name = "label3";
 		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Human Rights Tracker");
 		this.fixed3.Add (this.label3);
 		global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed3[this.label3]));

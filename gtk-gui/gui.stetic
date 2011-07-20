@@ -51,7 +51,7 @@
           <widget class="Gtk.Image" id="image3">
             <property name="MemberName" />
             <property name="Xalign">1</property>
-            <property name="Pixbuf">file:./images/logo.jpg</property>
+            <property name="Pixbuf">resource:HumanRightsTracker.images.logo.jpg</property>
           </widget>
           <packing>
             <property name="X">37</property>
