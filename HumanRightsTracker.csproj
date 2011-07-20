@@ -88,18 +88,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Sqlite\MonoSqliteDriver.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Catalogs\City.cs" />
-    <Compile Include="Models\Catalogs\Country.cs" />
-    <Compile Include="Models\Catalogs\State.cs" />
-    <Compile Include="Models\Catalogs\MaritalStatus.cs" />
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Image.cs" />
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\Catalogs\Religion.cs" />
-    <Compile Include="Models\Catalogs\ScholarityLevel.cs" />
-    <Compile Include="Models\Catalogs\EthnicGroup.cs" />
-    <Compile Include="Models\PersonDetail.cs" />
     <Compile Include="LoginWindow.cs" />
     <Compile Include="gtk-gui\LoginWindow.cs" />
     <Compile Include="gtk-gui\HumanRightsTracker.MainWindow.cs" />
@@ -113,9 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
-    <Folder Include="Models\" />
     <Folder Include="Sqlite\" />
-    <Folder Include="Models\Catalogs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\ARConfig.xml">
@@ -124,5 +110,15 @@
     <None Include="db\human_rights_tracker.sqlite3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Views\Views.csproj">
+      <Project>{0D986191-8BA2-473F-9659-43A545D0594B}</Project>
+      <Name>Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="Models\Models.csproj">
+      <Project>{C56BF470-8394-49EB-8D73-75A94EFB42CA}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
