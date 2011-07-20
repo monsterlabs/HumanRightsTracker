@@ -90,8 +90,8 @@
     <Compile Include="Sqlite\MonoSqliteDriver.cs" />
     <Compile Include="LoginWindow.cs" />
     <Compile Include="gtk-gui\LoginWindow.cs" />
-    <Compile Include="gtk-gui\HumanRightsTracker.MainWindow.cs" />
     <Compile Include="MainWindow.cs" />
+    <Compile Include="gtk-gui\HumanRightsTracker.MainWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
