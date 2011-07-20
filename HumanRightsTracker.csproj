@@ -85,8 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
-    <Compile Include="MainWindow.cs" />
-    <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Sqlite\MonoSqliteDriver.cs" />
@@ -102,6 +100,10 @@
     <Compile Include="Models\Catalogs\ScholarityLevel.cs" />
     <Compile Include="Models\Catalogs\EthnicGroup.cs" />
     <Compile Include="Models\PersonDetail.cs" />
+    <Compile Include="LoginWindow.cs" />
+    <Compile Include="gtk-gui\LoginWindow.cs" />
+    <Compile Include="gtk-gui\HumanRightsTracker.MainWindow.cs" />
+    <Compile Include="MainWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
