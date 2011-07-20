@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using Gtk;
 using Castle.ActiveRecord.Framework.Config;
 using Castle.ActiveRecord;
@@ -11,7 +12,8 @@ namespace HumanRightsTracker
 		public static void Main (string[] args)
 		{
 			XmlConfigurationSource config = new XmlConfigurationSource("Config/ARConfig.xml");
-			ActiveRecordStarter.Initialize(Models, config);
+			Assembly asm = Assembly.Load("Models");
+			ActiveRecordStarter.Initialize(asm, config);
 			
 			Application.Init ();
 			LoginWindow win = new LoginWindow ();
