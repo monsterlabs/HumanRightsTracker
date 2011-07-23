@@ -5,16 +5,16 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-	[ActiveRecord("religions")]
-	public class Religion : ActiveRecordValidationBase<Religion>
-	{
-		[PrimaryKey]
+    [ActiveRecord("religions")]
+    public class Religion : ActiveRecordValidationBase<Religion>
+    {
+        [PrimaryKey]
         public int Id { get; protected set; }
-		
-		[Property]
+
+        [Property]
         [ValidateNonEmpty]
         [ValidateIsUnique]
-   		public String Name { get; set; }
-				
-	}
+        public String Name { get; set; }
+        
+    }
 }

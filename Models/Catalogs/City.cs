@@ -5,17 +5,17 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-	[ActiveRecord("cities")]
-	public class City : ActiveRecordValidationBase<City>
-	{
-		[PrimaryKey]
+    [ActiveRecord("cities")]
+    public class City : ActiveRecordValidationBase<City>
+    {
+        [PrimaryKey]
         public int Id { get; protected set; }
-		
-		[Property]
-		[ValidateNonEmpty]
+
+        [Property]
+        [ValidateNonEmpty]
         public String Name { get; set; }
-		
-		[BelongsTo("state_id")]
+
+        [BelongsTo("state_id")]
         public State State { get; set; }
-	}
+    }
 }

@@ -4,20 +4,20 @@ using Castle.ActiveRecord.Framework;
 
 namespace HumanRightsTracker.Models
 {
-	[ActiveRecord("images")]
-	public class Image : ActiveRecordLinqBase<Image>
-	{
-		[PrimaryKey]
+    [ActiveRecord("images")]
+    public class Image : ActiveRecordLinqBase<Image>
+    {
+        [PrimaryKey]
         public int Id { get; protected set; }
-		
-		[Property]
+
+        [Property]
         public Byte[] Original { get; set; }
-		[Property]
+        [Property]
         public Byte[] Thumbnail { get; set; }
-		
-		[Property]
+
+        [Property]
         public String ImageableType { get; set; }
-		[Property]
+        [Property]
         public int ImageableId { get; set; }
-	}
+    }
 }

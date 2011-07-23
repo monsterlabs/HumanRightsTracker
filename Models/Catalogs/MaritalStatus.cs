@@ -5,15 +5,15 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-	[ActiveRecord("marital_statuses")]
-	public class MaritalStatus : ActiveRecordValidationBase<MaritalStatus>
-	{
-		[PrimaryKey]
+    [ActiveRecord("marital_statuses")]
+    public class MaritalStatus : ActiveRecordValidationBase<MaritalStatus>
+    {
+        [PrimaryKey]
         public int Id { get; protected set; }
-		
-		[Property]
-		[ValidateNonEmpty]
+
+        [Property]
+        [ValidateNonEmpty]
         [ValidateIsUnique]
         public String Name { get; set; }
-	}
+    }
 }
