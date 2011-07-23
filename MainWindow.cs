@@ -1,5 +1,7 @@
 using System;
 using Gtk;
+using HumanRightsTracker.Models;
+
 namespace HumanRightsTracker
 {
 	public partial class MainWindow : Window
@@ -14,6 +16,13 @@ namespace HumanRightsTracker
 			Application.Quit ();
 			a.RetVal = true;
 		}
-	}
+        protected virtual void PersonSelected (object sender, System.EventArgs e)
+        {
+            Person person = (Person) sender;
+            show.Person = person;
+        }
+        
+        
+    }
 }
 

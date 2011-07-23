@@ -103,10 +103,10 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="label1">
+              <widget class="Gtk.Label" id="label2">
                 <property name="MemberName" />
                 <property name="Xalign">1</property>
-                <property name="LabelProp" translatable="yes">Scholarity Level:</property>
+                <property name="LabelProp" translatable="yes">Marital Status:</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -184,10 +184,10 @@
               </packing>
             </child>
             <child>
-              <widget class="Views.CatalogSelector" id="scholarity">
+              <widget class="Views.CatalogSelector" id="marital_status">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
-                <property name="Model">ScholarityLevel</property>
+                <property name="Model">MaritalStatus</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>

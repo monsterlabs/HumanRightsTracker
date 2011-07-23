@@ -39,6 +39,12 @@ namespace Views
 
         public Object Active {
             get { return collection[combobox.Active]; }
+            set
+            {
+                MethodInfo nameMethod = t.GetMethod ("get_Id");
+                int id = (int)nameMethod.Invoke (value, null);
+                combobox.Active = id - 1;
+            }
         }
 
         public void FilterBy (ICriterion[] criteria)

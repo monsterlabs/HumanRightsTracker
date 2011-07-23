@@ -20,6 +20,8 @@ namespace Views.People
                     lastname.Text = person.Lastname;
                     firstname.Text = person.Firstname;
                     birthday.CurrentDate = person.Birthday;
+                    sex.Active = person.Gender ? 1 : 0;
+                    marital_status.Active = person.MaritalStatus;
                 }
             }
         }
