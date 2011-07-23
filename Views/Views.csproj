@@ -34,12 +34,28 @@
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="Mono.Posix" />
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Castle\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="gtk-gui\generated.cs" />
-    <Compile Include="CatalogSelector.cs" />
+    <Compile Include="People\Show.cs" />
+    <Compile Include="gtk-gui\Views.People.Show.cs" />
+    <Compile Include="Widgets\PlaceSelector.cs" />
+    <Compile Include="gtk-gui\Views.PlaceSelector.cs" />
+    <Compile Include="Widgets\CatalogSelector.cs" />
     <Compile Include="gtk-gui\Views.CatalogSelector.cs" />
+    <Compile Include="Widgets\DateSelector.cs" />
+    <Compile Include="gtk-gui\Views.DateSelector.cs" />
+    <Compile Include="Windows\DateSelectorWindow.cs" />
+    <Compile Include="gtk-gui\Views.DateSelectorWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -52,5 +68,10 @@
       <Project>{C56BF470-8394-49EB-8D73-75A94EFB42CA}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="People\" />
+    <Folder Include="Widgets\" />
+    <Folder Include="Windows\" />
   </ItemGroup>
 </Project>
