@@ -15,6 +15,10 @@ namespace HumanRightsTracker.Models
 		[ValidateNonEmpty]
         public String Name { get; set; }
 		
+		[Property("country_id")]
+		[ValidateNonEmpty]
+        public int CountryId { get; set; }
+		
 		[BelongsTo("country_id")]
         public Country Country { get; set; }
 	}
