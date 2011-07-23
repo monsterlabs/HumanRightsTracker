@@ -2,7 +2,7 @@ class CreateCities < ActiveRecord::Migration
   def self.up
     create_table :cities do |t|
       t.string :name, :null => false
-      t.references :city
+      t.references :state
     end
   end
 
