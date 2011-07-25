@@ -35,5 +35,13 @@ namespace HumanRightsTracker.Models
         public City City { get; set; }
         [BelongsTo("marital_status_id")]
         public MaritalStatus MaritalStatus { get; set; }
+
+        public String Fullname
+        {
+            get
+            {
+                return Lastname + " " +  Firstname;
+            }
+        }
     }
 }
