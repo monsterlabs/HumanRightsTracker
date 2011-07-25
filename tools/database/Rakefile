@@ -8,7 +8,7 @@ Bundler.setup
 Bundler.require :default
 
 %w(user country state city marital_status scholarity_level religion
-   ethnic_group).each do |model_name|
+   ethnic_group date_type).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
   end
@@ -61,6 +61,11 @@ task :seeds => :environment do
   ScholarityLevel.destroy_all
   CSV.foreach("seeds/scholarity_levels.csv", :col_sep => "|") do |row|
    ScholarityLevel.create(:name => row[0].strip)
+  end
+
+  DateType.destroy_all
+  CSV.foreach("seeds/date_types.csv") do |row|
+    DateType.create(:name => row[0].strip)
   end
 
 end
