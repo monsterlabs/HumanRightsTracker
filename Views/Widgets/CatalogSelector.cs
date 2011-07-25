@@ -47,9 +47,21 @@ namespace Views
             }
             set
             {
-                MethodInfo nameMethod = t.GetMethod ("get_Id");
-                int id = (int)nameMethod.Invoke (value, null);
-                combobox.Active = id - 1;
+                MethodInfo nameMethod = t.GetMethod ("get_Name");
+                String name = nameMethod.Invoke (value, null) as String;
+                int i = 0;
+                foreach (Object o in collection)
+                {
+                    String oName = nameMethod.Invoke (o, null) as String;
+                    if (oName == name)
+                    {
+                        combobox.Active = i;
+                        break;
+                    }
+                    ++i;
+                }
+
+
             }
         }
 

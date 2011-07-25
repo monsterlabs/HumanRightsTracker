@@ -46,7 +46,7 @@ namespace Views
         {
             Gtk.NodeSelection selection = (Gtk.NodeSelection) o;
             PersonNode node = (PersonNode) selection.SelectedNode;
-            if (SelectionChanged != null)
+            if (SelectionChanged != null && node != null)
                 SelectionChanged(node.Person, args);
         }
 

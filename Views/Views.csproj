@@ -56,8 +56,10 @@
     <Compile Include="gtk-gui\Views.DateSelector.cs" />
     <Compile Include="Windows\DateSelectorWindow.cs" />
     <Compile Include="gtk-gui\Views.DateSelectorWindow.cs" />
-    <Compile Include="Widgets\PeopleList.cs" />
     <Compile Include="gtk-gui\Views.PeopleList.cs" />
+    <Compile Include="gtk-gui\Views.PeopleTab.cs" />
+    <Compile Include="People\PeopleTab.cs" />
+    <Compile Include="People\PeopleList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

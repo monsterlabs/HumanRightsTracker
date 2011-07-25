@@ -1,6 +1,5 @@
 using System;
 using Gtk;
-using HumanRightsTracker.Models;
 
 namespace HumanRightsTracker
 {
@@ -9,7 +8,7 @@ namespace HumanRightsTracker
         public MainWindow () : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            this.Default = peoplelist.SearchButton;
+            //this.Default = peoplelist.SearchButton;
         }
 
         protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -17,12 +16,6 @@ namespace HumanRightsTracker
             Application.Quit ();
             a.RetVal = true;
         }
-        protected virtual void PersonSelected (object sender, System.EventArgs e)
-        {
-            Person person = (Person) sender;
-            show.Person = person;
-        }
-        
         
     }
 }
