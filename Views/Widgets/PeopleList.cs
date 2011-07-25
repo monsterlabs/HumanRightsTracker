@@ -1,5 +1,7 @@
 using System;
 using HumanRightsTracker.Models;
+using NHibernate.Criterion;
+
 namespace Views
 {
     [Gtk.TreeNode (ListOnly=true)]
@@ -48,6 +50,15 @@ namespace Views
                 SelectionChanged(node.Person, args);
         }
 
+        protected virtual void onSearch (object sender, System.EventArgs e)
+        {
+            people = Person.FindAll(new ICriterion[] { Restrictions.InsensitiveLike("Firstname", searchEntry.Text, MatchMode.Anywhere)});
+            store.Clear();
+            foreach (Person p in people)
+                store.AddNode(new PersonNode(p));
+        }
+
+
         Gtk.NodeStore store;
         Gtk.NodeStore Store {
             get {
@@ -62,6 +73,8 @@ namespace Views
                 return store;
             }
         }
+
+        public Gtk.Button SearchButton { get { return searchButton; } }
     }
 }
 

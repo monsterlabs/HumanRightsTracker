@@ -139,6 +139,7 @@ Copyright 2011 @ i(dh)eas
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="ActivatesDefault">True</property>
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
@@ -160,6 +161,7 @@ Copyright 2011 @ i(dh)eas
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="ActivatesDefault">True</property>
                 <property name="Visibility">False</property>
                 <property name="InvisibleChar">●</property>
               </widget>
@@ -188,6 +190,8 @@ Copyright 2011 @ i(dh)eas
         <child>
           <widget class="Gtk.Button" id="button1">
             <property name="MemberName" />
+            <property name="CanDefault">True</property>
+            <property name="HasDefault">True</property>
             <property name="CanFocus">True</property>
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Login</property>
@@ -214,10 +218,22 @@ Copyright 2011 @ i(dh)eas
     </child>
   </widget>
   <widget class="Gtk.Window" id="HumanRightsTracker.MainWindow" design-size="808 542">
-    <action-group name="Default" />
+    <action-group name="Default">
+      <action id="addAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-add</property>
+      </action>
+      <action id="removeAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-remove</property>
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
@@ -233,10 +249,37 @@ Copyright 2011 @ i(dh)eas
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Views.PeopleList" id="peoplelist">
+                  <widget class="Gtk.VBox" id="vbox3">
                     <property name="MemberName" />
-                    <property name="Events">ButtonPressMask</property>
-                    <signal name="SelectionChanged" handler="PersonSelected" />
+                    <property name="Spacing">6</property>
+                    <child>
+                      <widget class="Views.PeopleList" id="peoplelist">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <signal name="SelectionChanged" handler="PersonSelected" />
+                      </widget>
+                      <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Toolbar" id="toolbar1">
+                        <property name="MemberName" />
+                        <property name="ShowArrow">False</property>
+                        <property name="ButtonStyle">Icons</property>
+                        <node name="toolbar1" type="Toolbar">
+                          <node type="Toolitem" action="addAction" />
+                          <node type="Toolitem" action="removeAction" />
+                        </node>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
                   </widget>
                   <packing>
                     <property name="Position">0</property>

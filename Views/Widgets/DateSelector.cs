@@ -5,6 +5,7 @@ namespace Views
     public partial class DateSelector : Gtk.Bin
     {
         DateTime currentDate;
+        bool isEditable;
 
         public DateSelector ()
         {
@@ -33,6 +34,19 @@ namespace Views
         private void OnPopupDateChanged (object sender, DateEventArgs args)
         {
             CurrentDate = args.Date;
+        }
+
+        public bool IsEditable {
+            get {
+                return this.isEditable;
+            }
+            set {
+                isEditable = value;
+                dateEntry.Visible = value;
+                button1.Visible = value;
+                text.Visible = !value;
+                text.Text = dateEntry.Text;
+            }
         }
     }
 }
