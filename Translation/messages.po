@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2011-07-25 15:03:07-0500\n"
-"PO-Revision-Date: 2011-07-25 15:03:07-0500\n"
+"POT-Creation-Date: 2011-07-26 10:49:13-0500\n"
+"PO-Revision-Date: 2011-07-26 10:49:13-0500\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -10,89 +10,100 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../gtk-gui/LoginWindow.cs:38
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:43
+#: ../gtk-gui/LoginWindow.cs:25
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:26
 msgid "MainWindow"
 msgstr ""
 
-#: ../gtk-gui/LoginWindow.cs:94
+#: ../gtk-gui/LoginWindow.cs:81
 msgid "Human Rights Tracker"
 msgstr ""
 
-#: ../gtk-gui/LoginWindow.cs:108
+#: ../gtk-gui/LoginWindow.cs:95
 msgid "User"
 msgstr ""
 
-#: ../gtk-gui/LoginWindow.cs:117
+#: ../gtk-gui/LoginWindow.cs:104
 msgid "Password"
 msgstr ""
 
-#: ../gtk-gui/LoginWindow.cs:163
+#: ../gtk-gui/LoginWindow.cs:150
 msgid "Login"
 msgstr ""
 
-#: ../gtk-gui/LoginWindow.cs:171
+#: ../gtk-gui/LoginWindow.cs:158
 msgid "Wrong password"
 msgstr ""
 
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:106
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:41
 msgid "People"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.People.Show.cs:70
-msgid "Lastname"
+#: ../Views/People/Show.cs:51
+msgid "Cancel"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.People.Show.cs:82
-msgid "Firstname"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:128
-msgid "label7"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:132
-msgid "Male"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:133
-msgid "Female"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:148
-msgid "Marital Status:"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:159
-msgid "Sex:"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:169
-msgid "Birthday:"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:181
-msgid "Birthplace:"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:210
-msgid "label1"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:227
+#: ../Views/People/Show.cs:54
+#: ../Views/gtk-gui/Views.People.Show.cs:220
 msgid "Edit"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.PlaceSelector.cs:33
-#: ../Views/gtk-gui/Views.CatalogSelector.cs:25
+#: ../Views/gtk-gui/Views.People.Show.cs:53
+msgid "Lastname"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:65
+msgid "Firstname"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:111
+msgid "label7"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:115
+msgid "Male"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:116
+msgid "Female"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:131
+msgid "Marital Status:"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:142
+msgid "Sex:"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:152
+msgid "Birthday:"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:164
+msgid "Birthplace:"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:193
+msgid "label1"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:210
+#: ../Views/gtk-gui/Views.CaseShow.cs:105
+msgid "Save"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:27
+#: ../Views/gtk-gui/Views.CatalogSelector.cs:23
 msgid "text"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.DateSelector.cs:44
+#: ../Views/gtk-gui/Views.DateSelector.cs:40
+#: ../Views/gtk-gui/Views.DateFieldsSelector.cs:69
 msgid "Change"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.DateSelector.cs:54
+#: ../Views/gtk-gui/Views.DateSelector.cs:50
 msgid "label4"
 msgstr ""
 
@@ -100,7 +111,28 @@ msgstr ""
 msgid "DateSelectorWindow"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.PeopleList.cs:48
+#: ../Views/gtk-gui/Views.PeopleList.cs:43
+#: ../Views/gtk-gui/Views.CaseList.cs:43
 msgid "Search"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PeopleTab.cs:67
+msgid "_Add"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PeopleTab.cs:93
+msgid "Remove"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:70
+msgid "Name"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:78
+msgid "Start Date"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:88
+msgid "End Date"
 msgstr ""
 

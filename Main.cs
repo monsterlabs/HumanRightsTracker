@@ -14,7 +14,9 @@ namespace HumanRightsTracker
 			XmlConfigurationSource config = new XmlConfigurationSource("Config/ARConfig.xml");
 			Assembly asm = Assembly.Load("Models");
 			ActiveRecordStarter.Initialize(asm, config);
-			
+
+            Mono.Unix.Catalog.Init("i8n1", "locale");
+
 			Application.Init ();
 			LoginWindow win = new LoginWindow ();
 			win.Show ();
