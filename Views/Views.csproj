@@ -60,6 +60,16 @@
     <Compile Include="gtk-gui\Views.PeopleTab.cs" />
     <Compile Include="People\PeopleTab.cs" />
     <Compile Include="People\PeopleList.cs" />
+    <Compile Include="Widgets\DateTypeAndDateSelector.cs" />
+    <Compile Include="gtk-gui\Views.DateTypeAndDateSelector.cs" />
+    <Compile Include="gtk-gui\Views.DateFieldsSelector.cs" />
+    <Compile Include="Widgets\DetailedDateSelector.cs" />
+    <Compile Include="Cases\CaseList.cs" />
+    <Compile Include="gtk-gui\Views.CaseList.cs" />
+    <Compile Include="Cases\CasesTab.cs" />
+    <Compile Include="gtk-gui\Views.CasesTab.cs" />
+    <Compile Include="Cases\CaseShow.cs" />
+    <Compile Include="gtk-gui\Views.CaseShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -77,5 +87,6 @@
     <Folder Include="People\" />
     <Folder Include="Widgets\" />
     <Folder Include="Windows\" />
+    <Folder Include="Cases\" />
   </ItemGroup>
 </Project>
