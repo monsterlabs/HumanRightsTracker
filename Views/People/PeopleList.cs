@@ -10,20 +10,17 @@ namespace Views
         public PersonNode (Person person)
         {
             Person = person;
+            // TODO Photo pixbuff implementation
             Photo = "";
-            //TODO Fullname property for Person model.
-            Name = person.Firstname + " " +  person.Lastname;
+            Name = person.Fullname;
         }
 
         public Person Person;
-
         [Gtk.TreeNodeValue (Column=0)]
         public string Photo;
-
         [Gtk.TreeNodeValue (Column=1)]
         public string Name;
     }
-
 
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PeopleList : Gtk.Bin
@@ -31,10 +28,9 @@ namespace Views
         Person[] people;
 
         public event EventHandler SelectionChanged;
-
         public PeopleList ()
         {
-        this.Build ();
+            this.Build ();
             tree.NodeStore = Store;
             tree.AppendColumn ("Photo", new Gtk.CellRendererText (), "text", 0);
             tree.AppendColumn ("Name", new Gtk.CellRendererText (), "text", 1);
@@ -44,37 +40,54 @@ namespace Views
 
         protected void OnSelectionChanged (object o, System.EventArgs args)
         {
-            Gtk.NodeSelection selection = (Gtk.NodeSelection) o;
-            PersonNode node = (PersonNode) selection.SelectedNode;
-            if (SelectionChanged != null && node != null)
-                SelectionChanged(node.Person, args);
+            Gtk.NodeSelection selection = (Gtk.NodeSelection)o;
+            PersonNode node = (PersonNode)selection.SelectedNode;
+            if (SelectionChanged != null)
+            {
+                Person p = null;
+                if (node != null)
+                    p = node.Person;
+                SelectionChanged (p, args);
+            }
         }
 
         protected virtual void onSearch (object sender, System.EventArgs e)
         {
-            people = Person.FindAll(new ICriterion[] { Restrictions.InsensitiveLike("Firstname", searchEntry.Text, MatchMode.Anywhere)});
-            store.Clear();
+            people = Person.FindAll (new ICriterion[] { Restrictions.InsensitiveLike("Firstname", searchEntry.Text, MatchMode.Anywhere)});
+            tree.NodeStore.Clear ();
             foreach (Person p in people)
-                store.AddNode(new PersonNode(p));
+                tree.NodeStore.AddNode (new PersonNode (p));
         }
 
-
         Gtk.NodeStore store;
+
         Gtk.NodeStore Store {
             get {
                 if (store == null) {
-                    people = Person.FindAll();
-
-                    store = new Gtk.NodeStore (typeof (PersonNode));
-
-                    foreach (Person p in people)
-                        store.AddNode(new PersonNode(p));
+                    ReloadStore();
                 }
                 return store;
             }
         }
 
         public Gtk.Button SearchButton { get { return searchButton; } }
+
+        public void ReloadStore ()
+        {
+            people = Person.FindAll ();
+
+            store = new Gtk.NodeStore (typeof(PersonNode));
+
+            foreach (Person p in people)
+                store.AddNode (new PersonNode (p));
+            if (people.Length > 0)
+                tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+        }
+
+        public void UnselectAll ()
+        {
+            tree.NodeSelection.UnselectAll();
+        }
     }
 }
 

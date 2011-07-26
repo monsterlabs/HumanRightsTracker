@@ -21,12 +21,21 @@ namespace Views
 
         public void SetPlace(Country theCountry, State theState, City theCity)
         {
-            if (theCountry != null)
-                country.Active = theCountry;
-            if (theState != null)
-                state.Active = theState;
-            if (theCity != null)
-                city.Active = theCity;
+            country.Active = theCountry;
+            state.Active = theState;
+            city.Active = theCity;
+        }
+
+        public Country Country {
+            get { return country.Active as Country; }
+        }
+
+        public new State State {
+            get { return state.Active as State; }
+        }
+
+        public City City {
+            get { return city.Active as City; }
         }
 
         public bool IsEditable {

@@ -9,7 +9,6 @@
   </import>
   <widget class="Gtk.Bin" id="Views.People.Show" design-size="560 482">
     <property name="MemberName" />
-    <property name="Visible">False</property>
     <child>
       <widget class="Gtk.VBox" id="vbox2">
         <property name="MemberName" />
@@ -33,7 +32,7 @@
                 <property name="Tooltip" translatable="yes">Lastname</property>
                 <property name="CanFocus">True</property>
                 <property name="Text" translatable="yes">Lastname</property>
-                <property name="IsEditable">False</property>
+                <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
@@ -47,7 +46,7 @@
                 <property name="Tooltip" translatable="yes">Firstname</property>
                 <property name="CanFocus">True</property>
                 <property name="Text" translatable="yes">Firstname</property>
-                <property name="IsEditable">False</property>
+                <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
@@ -269,10 +268,25 @@ Female</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox6">
+          <widget class="Gtk.HButtonBox" id="buttons">
             <property name="MemberName" />
-            <property name="Size">1</property>
-            <property name="LayoutStyle">End</property>
+            <property name="Size">2</property>
+            <property name="LayoutStyle">Edge</property>
+            <child>
+              <widget class="Gtk.Button" id="saveButton">
+                <property name="MemberName" />
+                <property name="Visible">False</property>
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Save</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnSave" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
             <child>
               <widget class="Gtk.Button" id="editButton">
                 <property name="MemberName" />
@@ -283,6 +297,7 @@ Female</property>
                 <signal name="Clicked" handler="OnToggleEdit" />
               </widget>
               <packing>
+                <property name="Position">1</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
               </packing>
@@ -467,11 +482,13 @@ Female</property>
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-add</property>
+        <signal name="Activated" handler="onAdd" />
       </action>
       <action id="removeAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-remove</property>
+        <signal name="Activated" handler="onRemove" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -482,47 +499,63 @@ Female</property>
         <property name="CanFocus">True</property>
         <property name="Position">263</property>
         <child>
-          <widget class="Gtk.VBox" id="vbox1">
+          <widget class="Gtk.VBox" id="vbox4">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.VBox" id="vbox3">
+              <widget class="Views.PeopleList" id="peoplelist">
                 <property name="MemberName" />
-                <property name="Spacing">6</property>
+                <property name="Events">ButtonPressMask</property>
+                <signal name="SelectionChanged" handler="PersonSelected" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.HButtonBox" id="hbuttonbox1">
+                <property name="MemberName" />
+                <property name="Size">2</property>
+                <property name="LayoutStyle">Start</property>
                 <child>
-                  <widget class="Views.PeopleList" id="peoplelist">
+                  <widget class="Gtk.Button" id="addButton">
                     <property name="MemberName" />
-                    <property name="Events">ButtonPressMask</property>
-                    <signal name="SelectionChanged" handler="PersonSelected" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextAndIcon</property>
+                    <property name="Icon">stock:gtk-add Menu</property>
+                    <property name="Label" translatable="yes">_Add</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="onAdd" />
                   </widget>
                   <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Toolbar" id="toolbar1">
+                  <widget class="Gtk.Button" id="removeButton">
                     <property name="MemberName" />
-                    <property name="ShowArrow">False</property>
-                    <property name="ButtonStyle">Icons</property>
-                    <node name="toolbar1" type="Toolbar">
-                      <node type="Toolitem" />
-                      <node type="Toolitem" />
-                      <node type="Toolitem" action="addAction" />
-                      <node type="Toolitem" action="removeAction" />
-                    </node>
+                    <property name="Sensitive">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextAndIcon</property>
+                    <property name="Icon">stock:gtk-remove Menu</property>
+                    <property name="Label" translatable="yes">Remove</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="onRemove" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
                   </packing>
                 </child>
               </widget>
               <packing>
-                <property name="Position">0</property>
+                <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -543,6 +576,8 @@ Female</property>
                   <widget class="Views.People.Show" id="show">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="IsEditing">False</property>
+                    <signal name="PersonCreated" handler="OnPersonCreated" />
                   </widget>
                 </child>
               </widget>

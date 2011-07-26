@@ -1,5 +1,7 @@
 using System;
 using HumanRightsTracker.Models;
+using Mono.Unix;
+
 namespace Views.People
 {
     [System.ComponentModel.ToolboxItem(true)]
@@ -7,6 +9,8 @@ namespace Views.People
     {
         public Person person;
         protected bool isEditing;
+
+        public event EventHandler PersonCreated;
 
         public Show ()
         {
@@ -19,8 +23,8 @@ namespace Views.People
             set {
                 person = value;
                 if (person != null) {
-                    lastname.Text = person.Lastname;
-                    firstname.Text = person.Firstname;
+                    lastname.Text = person.Lastname == null ? "" : person.Lastname;
+                    firstname.Text = person.Firstname == null ? "" : person.Firstname;
                     birthday.CurrentDate = person.Birthday;
                     sex.Active = person.Gender ? 1 : 0;
                     marital_status.Active = person.MaritalStatus;
@@ -38,16 +42,18 @@ namespace Views.People
             IsEditing = !IsEditing;
         }
 
-        protected bool IsEditing
+        public bool IsEditing
         {
             get { return this.isEditing; }
             set
             {
                 isEditing = value;
                 if (value) {
-                    editButton.Label = "Cancel";
+                    editButton.Label = Catalog.GetString("Cancel");
+                    saveButton.Visible = true;
                 } else {
-                    editButton.Label = "Edit";
+                    editButton.Label = Catalog.GetString("Edit");
+                    saveButton.Visible = false;
                 }
                 firstname.Visible = value;
                 lastname.Visible = value;
@@ -61,6 +67,27 @@ namespace Views.People
             }
         }
 
+        protected void OnSave (object sender, System.EventArgs e)
+        {
+            person.Lastname = lastname.Text;
+            person.Firstname = firstname.Text;
+            person.Birthday = birthday.CurrentDate;
+            person.Country = birthplace.Country;
+            person.MaritalStatus = marital_status.Active as MaritalStatus;
+            person.Gender = sex.Active == 1;
+
+            if (person.IsValid())
+            {
+                person.Save();
+                this.IsEditing = false;
+                if (person.Id == 0 && PersonCreated != null)
+                    PersonCreated (person, e);
+            } else
+            {
+                Console.WriteLine( String.Join(",", person.ValidationErrorMessages));
+            }
+
+        }
     }
 }
         

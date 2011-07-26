@@ -27,13 +27,13 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public DateTime Birthday { get; set; }
 
-        [BelongsTo("country_id")]
+        [BelongsTo("country_id"), ValidateNonEmpty]
         public Country Country { get; set; }
         [BelongsTo("state_id")]
         public State State { get; set; }
         [BelongsTo("city_id")]
         public City City { get; set; }
-        [BelongsTo("marital_status_id")]
+        [BelongsTo("marital_status_id"), ValidateNonEmpty]
         public MaritalStatus MaritalStatus { get; set; }
 
         public String Fullname
