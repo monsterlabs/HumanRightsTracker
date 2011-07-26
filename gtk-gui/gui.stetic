@@ -254,6 +254,25 @@ Copyright 2011 @ i(dh)eas
             <property name="type">tab</property>
           </packing>
         </child>
+        <child>
+          <widget class="Views.CasesTab" id="casestab1">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="Xalign">1</property>
+            <property name="LabelProp" translatable="yes">Cases</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
