@@ -1,5 +1,6 @@
 using System;
 using Gtk;
+using Views;
 
 namespace HumanRightsTracker
 {
@@ -8,7 +9,8 @@ namespace HumanRightsTracker
         public MainWindow () : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            //this.Default = peoplelist.SearchButton;
+            peopletab1.InitialSetup ();
+            this.Default = peopletab1.DefaultButton ();
         }
 
         protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -17,6 +19,13 @@ namespace HumanRightsTracker
             a.RetVal = true;
         }
         
+        protected void OnChangeTab (object o, Gtk.SwitchPageArgs args)
+        {
+            Gtk.Notebook n = o as Notebook;
+            TabWithDefaultButton tab = n.CurrentPageWidget as TabWithDefaultButton;
+            this.Default = tab.DefaultButton ();
+            return;
+        }
     }
 }
 

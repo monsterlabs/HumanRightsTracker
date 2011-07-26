@@ -23,7 +23,7 @@ public partial class LoginWindow : Gtk.Window
 		{
 			// show the main view
 			HumanRightsTracker.MainWindow mw = new HumanRightsTracker.MainWindow ();
-			mw.Show ();
+			//mw.ShowNow ();
 			this.Hide();
 		} else {
 			error_message.Visible = true;

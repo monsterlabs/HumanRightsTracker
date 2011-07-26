@@ -577,7 +577,7 @@ Female</property>
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
                     <property name="IsEditing">False</property>
-                    <signal name="PersonCreated" handler="OnPersonCreated" />
+                    <signal name="PersonSaved" handler="OnPersonSaved" />
                   </widget>
                 </child>
               </widget>

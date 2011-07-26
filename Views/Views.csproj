@@ -70,6 +70,7 @@
     <Compile Include="gtk-gui\Views.CasesTab.cs" />
     <Compile Include="Cases\CaseShow.cs" />
     <Compile Include="gtk-gui\Views.CaseShow.cs" />
+    <Compile Include="TabWithDefaultButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

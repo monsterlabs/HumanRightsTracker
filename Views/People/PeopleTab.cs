@@ -4,7 +4,7 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class PeopleTab : Gtk.Bin
+    public partial class PeopleTab : Gtk.Bin, TabWithDefaultButton
     {
         public PeopleTab ()
         {
@@ -28,6 +28,7 @@ namespace Views
         protected void onAdd (object sender, System.EventArgs e)
         {
             Person p = new Person();
+            p.Birthday = new DateTime (1980, 1, 1);
             peoplelist.UnselectAll();
             show.Person = p;
             show.IsEditing = true;
@@ -43,7 +44,17 @@ namespace Views
             return;
         }
 
-        protected void OnPersonCreated (object sender, System.EventArgs e)
+        public Gtk.Button DefaultButton ()
+        {
+            return peoplelist.SearchButton;
+        }
+
+        public void InitialSetup ()
+        {
+            show.Hide ();
+        }
+
+        protected void OnPersonSaved (object sender, System.EventArgs e)
         {
             peoplelist.ReloadStore();
         }

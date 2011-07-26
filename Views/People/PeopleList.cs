@@ -64,7 +64,7 @@ namespace Views
         Gtk.NodeStore Store {
             get {
                 if (store == null) {
-                    ReloadStore();
+                    NewStore();
                 }
                 return store;
             }
@@ -73,6 +73,18 @@ namespace Views
         public Gtk.Button SearchButton { get { return searchButton; } }
 
         public void ReloadStore ()
+        {
+            people = Person.FindAll ();
+
+            tree.NodeStore.Clear ();
+
+            foreach (Person p in people)
+                tree.NodeStore.AddNode (new PersonNode (p));
+            if (people.Length > 0)
+                tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+        }
+
+        public void NewStore ()
         {
             people = Person.FindAll ();
 

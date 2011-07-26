@@ -10,7 +10,7 @@ namespace Views.People
         public Person person;
         protected bool isEditing;
 
-        public event EventHandler PersonCreated;
+        public event EventHandler PersonSaved;
 
         public Show ()
         {
@@ -80,8 +80,8 @@ namespace Views.People
             {
                 person.Save();
                 this.IsEditing = false;
-                if (person.Id == 0 && PersonCreated != null)
-                    PersonCreated (person, e);
+                if (PersonSaved != null)
+                    PersonSaved (person, e);
             } else
             {
                 Console.WriteLine( String.Join(",", person.ValidationErrorMessages));
