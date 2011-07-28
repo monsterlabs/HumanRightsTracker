@@ -29,6 +29,7 @@ namespace Views.People
                     sex.Active = person.Gender ? 1 : 0;
                     marital_status.Active = person.MaritalStatus;
                     birthplace.SetPlace(person.Country, person.State, person.City);
+                    imageselector1.Image = person.Photo;
 
                     sexText.Text = sex.ActiveText;
                     fullnameText.Text = person.Fullname;
@@ -64,6 +65,7 @@ namespace Views.People
                 marital_status.IsEditable = value;
                 birthday.IsEditable = value;
                 birthplace.IsEditable = value;
+                imageselector1.IsEditable = value;
             }
         }
 
@@ -78,13 +80,18 @@ namespace Views.People
 
             if (person.IsValid())
             {
-                person.Save();
+                person.Save ();
+                Image photo = imageselector1.Image;
+                photo.ImageableId = person.Id;
+                photo.ImageableType = "People";
+                photo.Save ();
+
                 this.IsEditing = false;
                 if (PersonSaved != null)
                     PersonSaved (person, e);
             } else
             {
-                Console.WriteLine( String.Join(",", person.ValidationErrorMessages));
+                Console.WriteLine( String.Join(",", person.ValidationErrorMessages) );
             }
 
         }

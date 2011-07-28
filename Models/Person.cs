@@ -2,6 +2,7 @@ using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
+using NHibernate.Criterion;
 
 namespace HumanRightsTracker.Models
 {
@@ -42,6 +43,19 @@ namespace HumanRightsTracker.Models
             {
                 return Lastname + " " +  Firstname;
             }
+        }
+
+        public Image Photo
+        {
+            get
+            {
+                Image photo = Image.FindOne (new ICriterion[] { Restrictions.And (
+                        Restrictions.Eq ("ImageableId", this.Id),
+                        Restrictions.Eq ("ImageableType", "People")
+                )});
+                return photo;
+            }
+
         }
     }
 }

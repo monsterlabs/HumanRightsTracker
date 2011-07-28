@@ -18,15 +18,6 @@
             <property name="MemberName" />
             <property name="HasWindow">False</property>
             <child>
-              <widget class="Gtk.Image" id="image3">
-                <property name="MemberName" />
-              </widget>
-              <packing>
-                <property name="X">19</property>
-                <property name="Y">13</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.Entry" id="lastname">
                 <property name="MemberName" />
                 <property name="Tooltip" translatable="yes">Lastname</property>
@@ -259,6 +250,17 @@ Female</property>
               <packing>
                 <property name="X">94</property>
                 <property name="Y">35</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Views.ImageSelector" id="imageselector1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsEditable">False</property>
+              </widget>
+              <packing>
+                <property name="X">15</property>
+                <property name="Y">18</property>
               </packing>
             </child>
           </widget>
@@ -1032,6 +1034,39 @@ Female</property>
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
           </widget>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.ImageSelector" design-size="144 82">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Image" id="image8">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.FileChooserButton" id="filechooserbutton2">
+            <property name="MemberName" />
+            <signal name="SelectionChanged" handler="OnFileSelected" />
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
         </child>
       </widget>
     </child>

@@ -71,6 +71,8 @@
     <Compile Include="Cases\CaseShow.cs" />
     <Compile Include="gtk-gui\Views.CaseShow.cs" />
     <Compile Include="TabWithDefaultButton.cs" />
+    <Compile Include="Widgets\ImageSelector.cs" />
+    <Compile Include="gtk-gui\Views.ImageSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
