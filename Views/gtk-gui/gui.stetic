@@ -768,7 +768,7 @@ Female</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CaseList" design-size="364 530">
+  <widget class="Gtk.Bin" id="Views.CaseList" design-size="279 534">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -780,7 +780,7 @@ Female</property>
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Entry" id="entry9">
+              <widget class="Gtk.Entry" id="searchEntry">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -792,15 +792,33 @@ Female</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button5">
+              <widget class="Gtk.Button" id="searchButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Search</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="onSearch" />
               </widget>
               <packing>
                 <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="reloadButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-refresh Menu</property>
+                <property name="Label" translatable="yes" />
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnReloadButtonClicked" />
+              </widget>
+              <packing>
+                <property name="Position">2</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -819,7 +837,7 @@ Female</property>
             <property name="MemberName" />
             <property name="Spacing">8</property>
             <child>
-              <widget class="Gtk.TreeView" id="treeview6">
+              <widget class="Gtk.TreeView" id="alphabetTreeView">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
               </widget>
@@ -829,14 +847,14 @@ Female</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+              <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
                 <property name="MemberName" />
+                <property name="CanFocus">True</property>
                 <property name="ShadowType">In</property>
                 <child>
-                  <widget class="Gtk.TreeView" id="treeview7">
+                  <widget class="Gtk.NodeView" id="CaseNodeView">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="ShowScrollbars">True</property>
                   </widget>
                 </child>
               </widget>
@@ -1012,7 +1030,7 @@ Female</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CasesTab" design-size="533 488">
+  <widget class="Gtk.Bin" id="Views.CasesTab" design-size="536 488">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -1021,7 +1039,7 @@ Female</property>
         <property name="CanFocus">True</property>
         <property name="Position">219</property>
         <child>
-          <widget class="Views.CaseList" id="caselist1">
+          <widget class="Views.CaseList" id="caselist">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
           </widget>

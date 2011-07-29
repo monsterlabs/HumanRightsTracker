@@ -2,6 +2,7 @@ using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
+using NHibernate.Criterion;
 
 namespace HumanRightsTracker.Models
 {
@@ -18,10 +19,10 @@ namespace HumanRightsTracker.Models
 
         [Property]
         [ValidateNonEmpty]
-        public DateTime StartDate { get; set; }
+        public DateTime start_date { get; set; }
 
         [Property]
-        public DateTime EndDate { get; set; }
+        public DateTime end_date { get; set; }
 
         [BelongsTo("start_date_type_id")]
         public DateType StartDateType { get; set; }
