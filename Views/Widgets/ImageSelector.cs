@@ -48,6 +48,7 @@ namespace Views
         {
             set
             {
+                image = value;
                 if (value != null)
                 {
                     image = value;
