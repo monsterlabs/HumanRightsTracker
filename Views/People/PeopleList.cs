@@ -55,7 +55,10 @@ namespace Views
 
         protected virtual void onSearch (object sender, System.EventArgs e)
         {
-            people = Person.FindAll (new ICriterion[] { Restrictions.InsensitiveLike("Firstname", searchEntry.Text, MatchMode.Anywhere)});
+            people = Person.FindAll (new ICriterion[] { Restrictions.Or (
+                        Restrictions.InsensitiveLike("Firstname", searchEntry.Text, MatchMode.Anywhere),
+                        Restrictions.InsensitiveLike("Lastname", searchEntry.Text, MatchMode.Anywhere)
+                     )});
             tree.NodeStore.Clear ();
             foreach (Person p in people)
                 tree.NodeStore.AddNode (new PersonNode (p));
