@@ -7,7 +7,7 @@
   <import>
     <widget-library name="../bin/Debug/Views.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="Views.People.Show" design-size="560 482">
+  <widget class="Gtk.Bin" id="Views.People.Show" design-size="790 482">
     <property name="MemberName" />
     <child>
       <widget class="Gtk.VBox" id="vbox2">
@@ -27,8 +27,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="X">94</property>
-                <property name="Y">29</property>
+                <property name="X">130</property>
+                <property name="Y">42</property>
               </packing>
             </child>
             <child>
@@ -41,8 +41,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="X">276</property>
-                <property name="Y">29</property>
+                <property name="X">318</property>
+                <property name="Y">42</property>
               </packing>
             </child>
             <child>
@@ -239,7 +239,7 @@ Female</property>
               </widget>
               <packing>
                 <property name="X">82</property>
-                <property name="Y">96</property>
+                <property name="Y">122</property>
               </packing>
             </child>
             <child>
@@ -248,8 +248,8 @@ Female</property>
                 <property name="LabelProp" translatable="yes">label1</property>
               </widget>
               <packing>
-                <property name="X">94</property>
-                <property name="Y">35</property>
+                <property name="X">130</property>
+                <property name="Y">46</property>
               </packing>
             </child>
             <child>
@@ -579,7 +579,6 @@ Female</property>
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
                     <property name="IsEditing">False</property>
-                    <signal name="PersonSaved" handler="OnPersonSaved" />
                   </widget>
                 </child>
               </widget>

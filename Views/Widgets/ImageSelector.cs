@@ -33,11 +33,15 @@ namespace Views
         protected void OnFileSelected (object sender, System.EventArgs e)
         {
             String filename = filechooserbutton2.Filename;
-            String type = filename.Substring (filename.LastIndexOf('.') + 1);
-            image8.File = filename;
+            Gdk.Pixbuf source = new Gdk.Pixbuf (filename);
             if (image == null)
                 image = new Image ();
-            image.Original = image8.Pixbuf.SaveToBuffer("jpeg");
+            Gdk.Pixbuf original = GetThumbnail (source, 500);
+            Gdk.Pixbuf thumbnail = GetThumbnail (source, 100);
+
+            image.Original = original.SaveToBuffer ("jpeg");
+            image.Thumbnail = thumbnail.SaveToBuffer ("jpeg");
+            image8.Pixbuf = thumbnail;
         }
 
         public Image Image
@@ -47,7 +51,7 @@ namespace Views
                 if (value != null)
                 {
                     image = value;
-                    Gdk.Pixbuf buffer = new Gdk.Pixbuf (value.Original);
+                    Gdk.Pixbuf buffer = new Gdk.Pixbuf (value.Thumbnail);
                     image8.Pixbuf = buffer;
                 } else
                 {
@@ -58,6 +62,22 @@ namespace Views
             get
             {
                 return image;
+            }
+        }
+
+        public Gdk.Pixbuf GetThumbnail (Gdk.Pixbuf original, int squareDim)
+        {
+            int height = original.Height;
+            int width = original.Width;
+
+            if (height > width)
+            {
+                int newWidth = (width * squareDim)/height;
+                return original.ScaleSimple (newWidth, squareDim, Gdk.InterpType.Bilinear);
+            } else
+            {
+                int newHeight = (height * squareDim)/width;
+                return original.ScaleSimple (squareDim, newHeight, Gdk.InterpType.Bilinear);
             }
         }
     }

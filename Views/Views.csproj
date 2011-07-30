@@ -79,6 +79,7 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="images\Missing.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
@@ -91,5 +92,6 @@
     <Folder Include="Widgets\" />
     <Folder Include="Windows\" />
     <Folder Include="Cases\" />
+    <Folder Include="images\" />
   </ItemGroup>
 </Project>

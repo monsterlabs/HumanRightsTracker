@@ -238,7 +238,7 @@ Copyright 2011 @ i(dh)eas
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">1</property>
+        <property name="CurrentPage">0</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
           <widget class="Views.PeopleTab" id="peopletab1">

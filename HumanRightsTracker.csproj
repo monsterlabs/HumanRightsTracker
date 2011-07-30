@@ -102,6 +102,7 @@
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Sqlite\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\ARConfig.xml">

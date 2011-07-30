@@ -10,14 +10,16 @@ namespace Views
         public PersonNode (Person person)
         {
             Person = person;
-            // TODO Photo pixbuff implementation
-            Photo = "";
+            if (person.Photo != null)
+                Photo = new Gdk.Pixbuf (person.Photo.Thumbnail);
+            else
+                Photo = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
             Name = person.Fullname;
         }
 
         public Person Person;
         [Gtk.TreeNodeValue (Column=0)]
-        public string Photo;
+        public Gdk.Pixbuf Photo;
         [Gtk.TreeNodeValue (Column=1)]
         public string Name;
     }
@@ -32,7 +34,7 @@ namespace Views
         {
             this.Build ();
             tree.NodeStore = Store;
-            tree.AppendColumn ("Photo", new Gtk.CellRendererText (), "text", 0);
+            tree.AppendColumn ("Photo", new Gtk.CellRendererPixbuf (), "pixbuf", 0);
             tree.AppendColumn ("Name", new Gtk.CellRendererText (), "text", 1);
 
             tree.NodeSelection.Changed += new System.EventHandler (OnSelectionChanged);
