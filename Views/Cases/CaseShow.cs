@@ -1,5 +1,6 @@
 using System;
-
+using HumanRightsTracker.Models;
+using Mono.Unix;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
@@ -8,7 +9,10 @@ namespace Views
         public CaseShow ()
         {
             this.Build ();
+            nameEntry.Text = "";
         }
+
+
     }
 }
 
