@@ -74,6 +74,7 @@
     <Compile Include="Windows\ValidationErrorsDialog.cs" />
     <Compile Include="gtk-gui\Views.ValidationErrorsDialog.cs" />
     <Compile Include="gtk-gui\Views.DetailedDateSelector.cs" />
+    <Compile Include="Cases\CaseShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
