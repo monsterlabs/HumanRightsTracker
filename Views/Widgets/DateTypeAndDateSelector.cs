@@ -6,9 +6,15 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class DateTypeAndDateSelector : Gtk.Bin
     {
+        public CatalogSelector dateTypeSelector;
+        public DetailedDateSelector detailedDateSelector;
+        //public DetailedDateSelector detailedDateSelector;
+
         public DateTypeAndDateSelector ()
         {
             this.Build ();
+        //    this.dateTypeSelector = dateType;
+        //    this.detailedDateSelector = datefield;
         }
 
         protected void OnChangeType (object sender, System.EventArgs e)
@@ -24,6 +30,8 @@ namespace Views
             {
                 datefield.YearOnly ();
             }
+            this.dateTypeSelector = dateType;
+            this.detailedDateSelector = datefield;
         }
     }
 }

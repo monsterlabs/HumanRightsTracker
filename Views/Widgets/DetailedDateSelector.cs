@@ -3,12 +3,12 @@ using System;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class DateFieldsSelector : Gtk.Bin
+    public partial class DetailedDateSelector : Gtk.Bin
     {
         DateTime currentDate;
         bool isEditable;
 
-        public DateFieldsSelector ()
+        public DetailedDateSelector ()
         {
             this.Build ();
             currentDate = DateTime.Now;

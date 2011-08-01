@@ -658,7 +658,7 @@ Female</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="286 31">
+  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="308 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -681,7 +681,7 @@ Female</property>
           </packing>
         </child>
         <child>
-          <widget class="Views.DateFieldsSelector" id="datefield">
+          <widget class="Views.DetailedDateSelector" id="datefield">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
             <property name="CurrentDate">0</property>
@@ -695,7 +695,7 @@ Female</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateFieldsSelector" design-size="249 31">
+  <widget class="Gtk.Bin" id="Views.DetailedDateSelector" design-size="249 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -890,7 +890,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CaseShow" design-size="458 134">
+  <widget class="Gtk.Bin" id="Views.CaseShow" design-size="783 453">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -905,53 +905,13 @@ December</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
             <child>
-              <widget class="Views.DateTypeAndDateSelector" id="datetypeanddateselector5">
-                <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
-                <property name="LeftAttach">1</property>
-                <property name="RightAttach">2</property>
-                <property name="AutoSize">True</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">True</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Views.DateTypeAndDateSelector" id="datetypeanddateselector6">
+              <widget class="Views.DateTypeAndDateSelector" id="endDateEntry">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
                 <property name="BottomAttach">3</property>
-                <property name="LeftAttach">1</property>
-                <property name="RightAttach">2</property>
-                <property name="AutoSize">True</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">True</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Entry" id="entry12">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="IsEditable">True</property>
-                <property name="InvisibleChar">●</property>
-              </widget>
-              <packing>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
@@ -1019,6 +979,46 @@ December</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>
+            <child>
+              <widget class="Gtk.Entry" id="nameEntry">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
+              </widget>
+              <packing>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">True</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Views.DateTypeAndDateSelector" id="startDateEntry">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">True</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -1028,15 +1028,27 @@ December</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Button" id="button16">
+          <widget class="Gtk.HButtonBox" id="hbuttonbox5">
             <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Type">TextOnly</property>
-            <property name="Label" translatable="yes">Save</property>
-            <property name="UseUnderline">True</property>
+            <property name="Size">0</property>
           </widget>
           <packing>
             <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="button83">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">GtkButton</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

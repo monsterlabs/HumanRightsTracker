@@ -62,19 +62,18 @@
     <Compile Include="People\PeopleList.cs" />
     <Compile Include="Widgets\DateTypeAndDateSelector.cs" />
     <Compile Include="gtk-gui\Views.DateTypeAndDateSelector.cs" />
-    <Compile Include="gtk-gui\Views.DateFieldsSelector.cs" />
     <Compile Include="Widgets\DetailedDateSelector.cs" />
     <Compile Include="Cases\CaseList.cs" />
     <Compile Include="gtk-gui\Views.CaseList.cs" />
     <Compile Include="Cases\CasesTab.cs" />
     <Compile Include="gtk-gui\Views.CasesTab.cs" />
-    <Compile Include="Cases\CaseShow.cs" />
     <Compile Include="gtk-gui\Views.CaseShow.cs" />
     <Compile Include="TabWithDefaultButton.cs" />
     <Compile Include="Widgets\ImageSelector.cs" />
     <Compile Include="gtk-gui\Views.ImageSelector.cs" />
     <Compile Include="Windows\ValidationErrorsDialog.cs" />
     <Compile Include="gtk-gui\Views.ValidationErrorsDialog.cs" />
+    <Compile Include="gtk-gui\Views.DetailedDateSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
