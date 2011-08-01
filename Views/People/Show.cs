@@ -82,9 +82,12 @@ namespace Views.People
             {
                 person.Save ();
                 Image photo = imageselector1.Image;
-                photo.ImageableId = person.Id;
-                photo.ImageableType = "People";
-                photo.Save ();
+                if (photo != null)
+                {
+                    photo.ImageableId = person.Id;
+                    photo.ImageableType = "People";
+                    photo.Save ();
+                }
 
                 this.IsEditing = false;
                 if (PersonSaved != null)

@@ -16,7 +16,8 @@ namespace Views
 
         protected virtual void onCountryChanged (object sender, System.EventArgs e)
         {
-            state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) });
+            if (country.Active != null)
+                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) });
         }
 
         public void SetPlace(Country theCountry, State theState, City theCity)

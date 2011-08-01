@@ -410,6 +410,7 @@ Female</property>
             <property name="MemberName" />
             <property name="IsTextCombo">True</property>
             <property name="Items" translatable="yes" />
+            <signal name="Changed" handler="onChanged" />
           </widget>
         </child>
       </widget>
@@ -657,7 +658,7 @@ Female</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="217 33">
+  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="286 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -665,10 +666,12 @@ Female</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Views.CatalogSelector" id="catalogselector1">
+          <widget class="Views.CatalogSelector" id="dateType">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
+            <property name="Model">DateType</property>
             <property name="IsEditable">False</property>
+            <signal name="Changed" handler="OnChangeType" />
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -678,21 +681,21 @@ Female</property>
           </packing>
         </child>
         <child>
-          <widget class="Views.DateFieldsSelector" id="datefieldsselector1">
+          <widget class="Views.DateFieldsSelector" id="datefield">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
+            <property name="CurrentDate">0</property>
+            <property name="IsEditable">False</property>
           </widget>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateFieldsSelector" design-size="178 28">
+  <widget class="Gtk.Bin" id="Views.DateFieldsSelector" design-size="249 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -711,6 +714,7 @@ Female</property>
                 <property name="WidthChars">2</property>
                 <property name="MaxLength">2</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Activated" handler="OnChangeDay" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -718,17 +722,28 @@ Female</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="month">
+              <widget class="Gtk.ComboBox" id="month">
                 <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="IsEditable">True</property>
-                <property name="WidthChars">2</property>
-                <property name="MaxLength">2</property>
-                <property name="InvisibleChar">●</property>
+                <property name="IsTextCombo">True</property>
+                <property name="Items" translatable="yes">January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December</property>
+                <signal name="Changed" handler="OnChangeMonth" />
               </widget>
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
             <child>
@@ -739,28 +754,32 @@ Female</property>
                 <property name="WidthChars">4</property>
                 <property name="MaxLength">4</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Activated" handler="OnChangeYear" />
               </widget>
               <packing>
                 <property name="Position">2</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
+            <child>
+              <widget class="Gtk.Button" id="change">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Change</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="openSelector" />
+              </widget>
+              <packing>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="X">8</property>
-            <property name="Y">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Button" id="change">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Type">TextOnly</property>
-            <property name="Label" translatable="yes">Change</property>
-            <property name="UseUnderline">True</property>
-          </widget>
-          <packing>
-            <property name="X">119</property>
             <property name="Y">2</property>
           </packing>
         </child>
@@ -896,9 +915,8 @@ Female</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
+                <property name="XExpand">True</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
@@ -917,9 +935,8 @@ Female</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
+                <property name="XExpand">True</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
@@ -938,9 +955,8 @@ Female</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
+                <property name="XExpand">True</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>

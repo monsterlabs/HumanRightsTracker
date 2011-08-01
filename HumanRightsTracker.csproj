@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>false</ConsolePause>
+    <additionalargs>-pkg:gtk-sharp-2.0</additionalargs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
