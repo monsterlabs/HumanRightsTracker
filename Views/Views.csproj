@@ -73,6 +73,8 @@
     <Compile Include="TabWithDefaultButton.cs" />
     <Compile Include="Widgets\ImageSelector.cs" />
     <Compile Include="gtk-gui\Views.ImageSelector.cs" />
+    <Compile Include="Windows\ValidationErrorsDialog.cs" />
+    <Compile Include="gtk-gui\Views.ValidationErrorsDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

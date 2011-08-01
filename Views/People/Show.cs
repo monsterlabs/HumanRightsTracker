@@ -95,6 +95,7 @@ namespace Views.People
             } else
             {
                 Console.WriteLine( String.Join(",", person.ValidationErrorMessages) );
+                new ValidationErrorsDialog (person.PropertiesValidationErrorMessages);
             }
 
         }
