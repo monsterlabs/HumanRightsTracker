@@ -63,6 +63,8 @@
     <Compile Include="User.cs" />
     <Compile Include="Catalogs\DateType.cs" />
     <Compile Include="Case.cs" />
+    <Compile Include="Catalogs\ InstitutionType.cs" />
+    <Compile Include="Institution.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

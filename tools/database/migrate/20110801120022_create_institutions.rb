@@ -4,6 +4,8 @@ class CreateInstitutions < ActiveRecord::Migration
       t.string :name, :null => false
       t.string :abbrev, :location, :phone, :fax, :url
       t.references :institution_type
+      t.references :country, :null => false
+      t.references :state, :city
     end
   end
 
