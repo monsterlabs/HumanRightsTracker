@@ -23,19 +23,19 @@ namespace Views
             set {
                 institution = value;
                 if (institution != null) {
-                    nameEntry.Text = institution.Name;
-                    abbrevEntry.Text = institution.Abbrev;
+                    nameEntry.Text = institution.Name == null ? "" : institution.Name;
+                    abbrevEntry.Text = institution.Abbrev == null ? "" : institution.Abbrev;
                     institutionTypeSelector.Active = institution.InstitutionType;
 
-                    locationEntry.Text = institution.Location;
+                    locationEntry.Text = institution.Location == null ? "" : institution.Location;
                     countrySelector.Active = institution.Country;
                     stateSelector.Active = institution.State;
                     citySelector.Active = institution.City;
 
-                    phoneEntry.Text = institution.Phone;
-                    faxEntry.Text = institution.Fax;
-                    emailEntry.Text = institution.Email;
-                    urlEntry.Text = institution.Url;
+                    phoneEntry.Text = institution.Phone == null ? "" : institution.Phone;
+                    faxEntry.Text = institution.Fax == null ? "" : institution.Fax;
+                    emailEntry.Text = institution.Email == null ? "" : institution.Email;
+                    urlEntry.Text = institution.Url == null ? "" : institution.Url;
                 }
                 isEditing = false;
             }

@@ -14,46 +14,25 @@ namespace HumanRightsTracker.Models
 
         [Property]
         [ValidateNonEmpty]
-        public String Name {
-            get { return (Name == null) ? "" : Name; }
-            set { Name = value; }
-        }
+        public String Name { get; set; }
 
         [Property]
-        public String Abbrev {
-            get { return (Abbrev == null) ? "" : Abbrev; }
-            set { Abbrev = value; }
-        }
+        public String Abbrev { get; set; }
 
         [Property]
-        public String Location {
-           get { return (Location == null) ? "" : Location; }
-           set { Location = value; }
-        }
+        public String Location { get; set; }
 
         [Property]
-        public String Phone {
-            get { return (Phone == null) ? "" : Phone; }
-            set { Phone = value; }
-        }
+        public String Phone { get; set; }
 
         [Property]
-        public String Fax {
-            get { return (Fax == null) ? "" : Fax; }
-            set { Fax = value; }
-        }
+        public String Fax { get; set; }
 
         [Property]
-        public String Email {
-            get { return (Email == null) ? "" : Email; }
-            set { Email = value; }
-        }
+        public String Email { get; set; }
 
         [Property]
-        public String Url {
-            get { return (Url == null) ? "" : Url; }
-            set { Url = value; }
-        }
+        public String Url { get; set; }
 
         [BelongsTo("institution_type_id")]
         public InstitutionType InstitutionType { get; set; }
