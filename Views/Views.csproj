@@ -79,6 +79,8 @@
     <Compile Include="gtk-gui\Views.InstitutionList.cs" />
     <Compile Include="Institutions\InstitutionsTab.cs" />
     <Compile Include="gtk-gui\Views.InstitutionsTab.cs" />
+    <Compile Include="Institutions\InstitutionShow.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
