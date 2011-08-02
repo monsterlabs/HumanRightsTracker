@@ -81,6 +81,10 @@
     <Compile Include="gtk-gui\Views.InstitutionsTab.cs" />
     <Compile Include="Institutions\InstitutionShow.cs" />
     <Compile Include="gtk-gui\Views.InstitutionShow.cs" />
+    <Compile Include="Acts\ActsShow.cs" />
+    <Compile Include="gtk-gui\Views.ActsShow.cs" />
+    <Compile Include="People\PeopleSelector.cs" />
+    <Compile Include="gtk-gui\Views.PeopleSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -102,5 +106,6 @@
     <Folder Include="Cases\" />
     <Folder Include="images\" />
     <Folder Include="Institutions\" />
+    <Folder Include="Acts\" />
   </ItemGroup>
 </Project>

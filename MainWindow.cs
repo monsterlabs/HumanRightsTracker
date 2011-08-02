@@ -23,7 +23,8 @@ namespace HumanRightsTracker
         {
             Gtk.Notebook n = o as Notebook;
             TabWithDefaultButton tab = n.CurrentPageWidget as TabWithDefaultButton;
-            this.Default = tab.DefaultButton ();
+            if (tab != null)
+                this.Default = tab.DefaultButton ();
             return;
         }
     }
