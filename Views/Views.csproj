@@ -75,6 +75,10 @@
     <Compile Include="gtk-gui\Views.DetailedDateSelector.cs" />
     <Compile Include="Cases\CaseShow.cs" />
     <Compile Include="gtk-gui\Views.CaseShow.cs" />
+    <Compile Include="Institutions\InstitutionList.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionList.cs" />
+    <Compile Include="Institutions\InstitutionsTab.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionsTab.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -95,5 +99,6 @@
     <Folder Include="Windows\" />
     <Folder Include="Cases\" />
     <Folder Include="images\" />
+    <Folder Include="Institutions\" />
   </ItemGroup>
 </Project>

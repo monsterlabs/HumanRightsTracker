@@ -238,7 +238,7 @@ Copyright 2011 @ i(dh)eas
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">0</property>
+        <property name="CurrentPage">2</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
           <widget class="Views.PeopleTab" id="peopletab1">
@@ -269,6 +269,24 @@ Copyright 2011 @ i(dh)eas
             <property name="MemberName" />
             <property name="Xalign">1</property>
             <property name="LabelProp" translatable="yes">Cases</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Views.InstitutionsTab" id="institutionstab1">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label3">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Institutions</property>
           </widget>
           <packing>
             <property name="type">tab</property>
