@@ -32,6 +32,25 @@ namespace Views
                 }
             }
         }
+
+        protected void OnChangeClicked (object sender, System.EventArgs e)
+        {
+            new PeopleSelectorWindow (OnPersonSelected);
+        }
+
+        protected void OnPersonSelected (object sender, PersonEventArgs args)
+        {
+            if (args.Person != null)
+            {
+                Person p = args.Person;
+                fullname.Text = p.Fullname;
+                if (p.Photo != null)
+                    photo.Pixbuf = new Gdk.Pixbuf (p.Photo.Thumbnail);
+                else
+                    photo.Pixbuf = null;
+            }
+            return;
+        }
     }
 }
 

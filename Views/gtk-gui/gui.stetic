@@ -282,6 +282,7 @@ Female</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Save</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnSave" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -645,6 +646,7 @@ Female</property>
               <widget class="Gtk.NodeView" id="tree">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
+                <signal name="RowActivated" handler="OnRowActivated" />
               </widget>
             </child>
           </widget>
@@ -2320,6 +2322,7 @@ December</property>
         <child>
           <widget class="Gtk.Image" id="photo">
             <property name="MemberName" />
+            <property name="Visible">False</property>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -2331,6 +2334,7 @@ December</property>
         <child>
           <widget class="Gtk.Label" id="fullname">
             <property name="MemberName" />
+            <property name="Visible">False</property>
             <property name="LabelProp" translatable="yes">Person Name</property>
           </widget>
           <packing>
@@ -2351,6 +2355,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Change</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnChangeClicked" />
               </widget>
               <packing>
                 <property name="X">8</property>
@@ -2365,6 +2370,18 @@ December</property>
             <property name="Fill">False</property>
           </packing>
         </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="506 370">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">PeopleSelectionWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Views.PeopleList" id="peoplelist1">
+        <property name="MemberName" />
+        <property name="Events">ButtonPressMask</property>
+        <signal name="SelectionWithDoubleClick" handler="OnSelection" />
       </widget>
     </child>
   </widget>

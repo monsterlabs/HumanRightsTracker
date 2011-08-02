@@ -30,6 +30,8 @@ namespace Views
         Person[] people;
 
         public event EventHandler SelectionChanged;
+        public event EventHandler SelectionWithDoubleClick;
+
         public PeopleList ()
         {
             this.Build ();
@@ -104,6 +106,16 @@ namespace Views
         public void UnselectAll ()
         {
             tree.NodeSelection.UnselectAll();
+        }
+
+        protected void OnRowActivated (object o, Gtk.RowActivatedArgs args)
+        {
+            if (SelectionWithDoubleClick != null)
+            {
+                Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
+                Person p = ((PersonNode)selection.SelectedNode).Person;
+                SelectionWithDoubleClick (p, args);
+            }
         }
     }
 }
