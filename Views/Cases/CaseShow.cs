@@ -4,14 +4,14 @@ using Mono.Unix;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class CaseEdit : Gtk.Bin
+    public partial class CaseShow : Gtk.Bin
     {
         public Case mycase;
         protected bool isEditing;
 
         public event EventHandler CaseSaved;
 
-        public CaseEdit ()
+        public CaseShow ()
         {
             this.Build ();
             this.isEditing = false;
@@ -23,21 +23,14 @@ namespace Views
                 mycase = value;
                 if (mycase != null) {
                     nameEntry.Text = mycase.Name == null ? "" : mycase.Name;
+                    startDateSelector.setDate(mycase.start_date);
+                    startDateSelector.setDateType(mycase.StartDateType);
 
-                    startDateTypeAndDateSelector.dateTypeSelector.Active = mycase.StartDateType;
-                    startDateTypeAndDateSelector.detailedDateSelector.CurrentDate = mycase.start_date;
-
-                    endDateTypeAndDateSelector.dateTypeSelector.Active = mycase.EndDateType;
-                    endDateTypeAndDateSelector.detailedDateSelector.CurrentDate = mycase.end_date;
-
+                    endDateSelector.setDate(mycase.end_date);
+                    endDateSelector.setDateType(mycase.EndDateType);
                 }
                 isEditing = false;
             }
-        }
-
-        protected virtual void OnToggleEdit (object sender, System.EventArgs e)
-        {
-            isEditing = !isEditing;
         }
 
         public bool IsEditing
@@ -54,19 +47,20 @@ namespace Views
                     saveButton.Visible = false;
                 }
                 nameEntry.Visible = value;
-                startDateTypeAndDateSelector.Visible = value;
-                endDateTypeAndDateSelector.Visible = value;
+                startDateSelector.Visible = value;
+                endDateSelector.Visible = value;
             }
         }
 
-        protected void OnSave (object sender, System.EventArgs e)
+
+        protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
             mycase.Name = nameEntry.Text;
-            mycase.StartDateType = startDateTypeAndDateSelector.dateTypeSelector.Active as DateType;
-            mycase.start_date = startDateTypeAndDateSelector.detailedDateSelector.CurrentDate;
+            mycase.start_date = startDateSelector.SelectedDate ();
+            mycase.StartDateType = startDateSelector.SelectedDateType ();
 
-            mycase.EndDateType = endDateTypeAndDateSelector.dateTypeSelector.Active as DateType;
-            mycase.end_date = endDateTypeAndDateSelector.detailedDateSelector.CurrentDate;
+            mycase.end_date = endDateSelector.SelectedDate ();
+            mycase.EndDateType = endDateSelector.SelectedDateType ();
 
             if (mycase.IsValid())
             {
@@ -79,8 +73,13 @@ namespace Views
                 Console.WriteLine( String.Join(",", mycase.ValidationErrorMessages) );
                 new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages);
             }
-
         }
+
+        protected void OnToggleEdit (object sender, System.EventArgs e)
+        {
+            isEditing = !isEditing;
+        }
+
     }
 }
 
