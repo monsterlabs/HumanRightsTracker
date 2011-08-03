@@ -113,5 +113,11 @@ namespace Views
             foreach (Institution i in institutions)
                 institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
         }
+
+  
+        protected void OnAlphabetlistFocusChildSet (object o, Gtk.FocusChildSetArgs args)
+        {
+            throw new System.NotImplementedException ();
+        }
     }
 }

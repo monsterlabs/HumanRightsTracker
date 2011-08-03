@@ -1265,7 +1265,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InstitutionList" design-size="354 673">
+  <widget class="Gtk.Bin" id="Views.InstitutionList" design-size="354 679">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -1334,9 +1334,11 @@ December</property>
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.TreeView" id="treeView">
+              <widget class="Views.AlphabetList" id="alphabetlist">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
+                <property name="Events">ButtonPressMask, FocusChangeMask</property>
+                <signal name="FocusChildSet" handler="OnAlphabetlistFocusChildSet" after="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -2381,7 +2383,16 @@ December</property>
       <widget class="Views.PeopleList" id="peoplelist1">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
-        <signal name="SelectionWithDoubleClick" handler="OnSelection" />
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.AlphabetList" design-size="31 405">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.TreeView" id="alphabetList">
+        <property name="MemberName" />
+        <property name="CanFocus">True</property>
       </widget>
     </child>
   </widget>
