@@ -10,6 +10,8 @@ namespace HumanRightsTracker
         {
             this.Build ();
             peopletab1.InitialSetup ();
+            casestab1.InitialSetup ();
+            institutionstab1.InitialSetup ();
             this.Default = peopletab1.DefaultButton ();
         }
 
