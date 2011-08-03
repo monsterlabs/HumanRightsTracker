@@ -8,7 +8,8 @@ Bundler.setup
 Bundler.require :default
 
 %w(user country state city marital_status scholarity_level religion
-   ethnic_group date_type institution_type human_rights_violation).each do |model_name|
+   ethnic_group date_type institution_type human_rights_violation
+   role).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
   end
@@ -79,7 +80,10 @@ task :seeds => :environment do
     HumanRightsViolation.create(:id => row[0].to_i, :name => row[2].strip, :parent_id => row[1].to_i)
   end
 
-
+  Role.destroy_all
+  CSV.foreach("seeds/roles.csv") do |row|
+    Role.create(:name => row[0].strip)
+  end
 end
 
 task :environment do
