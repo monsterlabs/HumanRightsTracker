@@ -89,6 +89,8 @@
     <Compile Include="gtk-gui\Views.PeopleSelectorWindow.cs" />
     <Compile Include="Widgets\AlphabetList.cs" />
     <Compile Include="gtk-gui\Views.AlphabetList.cs" />
+    <Compile Include="People\PersonRow.cs" />
+    <Compile Include="gtk-gui\Views.PersonRow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -1,55 +1,30 @@
 using System;
 using HumanRightsTracker.Models;
+using System.Collections.Generic;
 
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PeopleSelector : Gtk.Bin
     {
-        Person person;
+        List<Person> people = new List<Person>(3);
 
         public PeopleSelector ()
         {
             this.Build ();
         }
 
-        public Person Person
-        {
-            get {return person;}
-            set
-            {
-                person = value;
-                if (person != null)
-                {
-                    if (person.Photo != null)
-                        photo.Pixbuf = new Gdk.Pixbuf (person.Photo.Thumbnail);
-                    fullname.Text = person.Fullname;
-                    photo.Show ();
-                    fullname.Show ();
-                } else {
-                    photo.Hide ();
-                    fullname.Hide ();
-                }
-            }
-        }
-
-        protected void OnChangeClicked (object sender, System.EventArgs e)
-        {
-            new PeopleSelectorWindow (OnPersonSelected);
-        }
-
         protected void OnPersonSelected (object sender, PersonEventArgs args)
         {
-            if (args.Person != null)
-            {
-                Person p = args.Person;
-                fullname.Text = p.Fullname;
-                if (p.Photo != null)
-                    photo.Pixbuf = new Gdk.Pixbuf (p.Photo.Thumbnail);
-                else
-                    photo.Pixbuf = null;
-            }
+            peopleList.PackStart (new PersonRow(args.Person));
+            peopleList.ShowAll ();
+            people.Add (args.Person);
             return;
+        }
+
+        protected void OnAddClicked (object sender, System.EventArgs e)
+        {
+            new PeopleSelectorWindow (OnPersonSelected);
         }
     }
 }
