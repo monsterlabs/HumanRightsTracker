@@ -23,7 +23,9 @@ namespace Views
                 if (person != null)
                 {
                     if (person.Photo != null)
-                        photo.Pixbuf = new Gdk.Pixbuf (person.Photo.Thumbnail);
+                    {
+                        photo.Pixbuf = new Gdk.Pixbuf (person.Photo.Icon);
+                    }
                     fullname.Text = person.Fullname;
                     photo.Show ();
                     fullname.Show ();

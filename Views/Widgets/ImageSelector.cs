@@ -38,9 +38,11 @@ namespace Views
                 image = new Image ();
             Gdk.Pixbuf original = GetThumbnail (source, 500);
             Gdk.Pixbuf thumbnail = GetThumbnail (source, 100);
+            Gdk.Pixbuf icon = GetThumbnail (source, 48);
 
             image.Original = original.SaveToBuffer ("jpeg");
             image.Thumbnail = thumbnail.SaveToBuffer ("jpeg");
+            image.Icon = icon.SaveToBuffer ("jpeg");
             image8.Pixbuf = thumbnail;
         }
 
