@@ -14,6 +14,8 @@ namespace HumanRightsTracker.Models
         public Byte[] Original { get; set; }
         [Property]
         public Byte[] Thumbnail { get; set; }
+        [Property]
+        public Byte[] Icon { get; set; }
 
         [Property("imageable_type")]
         public String ImageableType { get; set; }

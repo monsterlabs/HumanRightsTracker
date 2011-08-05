@@ -7,7 +7,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PeopleSelector : Gtk.Bin
     {
-        List<Person> people = new List<Person>(3);
+        HashSet<Person> people = new HashSet<Person>();
 
         public PeopleSelector ()
         {
@@ -16,15 +16,27 @@ namespace Views
 
         protected void OnPersonSelected (object sender, PersonEventArgs args)
         {
-            peopleList.PackStart (new PersonRow(args.Person));
-            peopleList.ShowAll ();
-            people.Add (args.Person);
+            if (people.Add (args.Person))
+            {
+                peopleList.PackStart (new PersonRow(args.Person, OnRemoved));
+                peopleList.ShowAll ();
+            }
+
             return;
         }
 
         protected void OnAddClicked (object sender, System.EventArgs e)
         {
             new PeopleSelectorWindow (OnPersonSelected);
+        }
+
+        protected void OnRemoved (object sender, System.EventArgs e)
+        {
+            PersonRow row = sender as PersonRow;
+            people.Remove (row.Person);
+            peopleList.Remove (row);
+
+            return;
         }
     }
 }
