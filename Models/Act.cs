@@ -1,9 +1,12 @@
 using System;
+using Castle.ActiveRecord;
+using Castle.ActiveRecord.Framework;
+using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("acts")]
-    public class Act : ActiveRecordLinqBase<Act>
+    public class Act : ActiveRecordValidationBase<Act>
     {
         [PrimaryKey]
         public int Id { get; protected set; }

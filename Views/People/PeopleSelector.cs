@@ -7,7 +7,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PeopleSelector : Gtk.Bin
     {
-        List<Person> people = new List<Person>(3);
+        HashSet<Person> people = new HashSet<Person>();
 
         public PeopleSelector ()
         {
