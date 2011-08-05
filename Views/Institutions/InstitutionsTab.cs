@@ -9,6 +9,7 @@ namespace Views
         public InstitutionsTab ()
         {
             this.Build ();
+            alphabetlist1.SetEventHandlerOnSelectionChanged(LetterOnSelectionChanged);
         }
 
         public Gtk.Button DefaultButton ()
@@ -31,6 +32,16 @@ namespace Views
             } else {
                 show.Hide();
                 removeButton.Sensitive = false;
+            }
+        }
+
+        protected void LetterOnSelectionChanged (object o, System.EventArgs args)
+        {
+            if (o != null) {
+                Gtk.NodeSelection selection = (Gtk.NodeSelection) o;
+                LetterNode node = (LetterNode) selection.SelectedNode;
+                institutionlist.Search(node.Letter);
+                Console.WriteLine(node.Letter);
             }
         }
 

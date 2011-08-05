@@ -37,8 +37,6 @@ namespace Views
             institutionNodeView.NodeStore = Store;
             institutionNodeView.AppendColumn ("Photo", new Gtk.CellRendererPixbuf (), "pixbuf", 0);
             institutionNodeView.AppendColumn ("Name", new Gtk.CellRendererText (), "text", 1);
-
-            institutionNodeView.NodeSelection.Changed += new System.EventHandler (OnSelectionChanged);
         }
 
         protected void OnSelectionChanged (object o, System.EventArgs args)
@@ -53,7 +51,6 @@ namespace Views
                 SelectionChanged (i, args);
             }
         }
-
 
         Gtk.NodeStore store;
 
@@ -97,6 +94,15 @@ namespace Views
             institutionNodeView.NodeSelection.UnselectAll();
         }
 
+        public void Search(string searchString) {
+          institutions = Institution.FindAll (new ICriterion[] { Restrictions.InsensitiveLike("Name", searchString, MatchMode.Anywhere)});
+
+          institutionNodeView.NodeStore.Clear ();
+          foreach (Institution i in institutions)
+            institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
+
+        }
+
         protected void OnSearch (object sender, System.EventArgs e)
         {
           institutions = Institution.FindAll (new ICriterion[] { Restrictions.InsensitiveLike("Name", searchEntry.Text, MatchMode.Anywhere)});
@@ -114,10 +120,5 @@ namespace Views
                 institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
         }
 
-  
-        protected void OnAlphabetlistFocusChildSet (object o, Gtk.FocusChildSetArgs args)
-        {
-            throw new System.NotImplementedException ();
-        }
     }
 }
