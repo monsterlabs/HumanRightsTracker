@@ -2464,6 +2464,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Remove</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnRemove" />
               </widget>
               <packing>
                 <property name="Expand">False</property>

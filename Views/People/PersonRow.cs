@@ -7,11 +7,13 @@ namespace Views
     public partial class PersonRow : Gtk.Bin
     {
         Person person;
+        public event EventHandler Removed;
 
-        public PersonRow (Person person)
+        public PersonRow (Person person, EventHandler removed)
         {
             this.Build ();
             this.Person = person;
+            this.Removed = removed;
         }
 
         public Person Person
@@ -34,6 +36,12 @@ namespace Views
                     fullname.Hide ();
                 }
             }
+        }
+
+        protected void OnRemove (object sender, System.EventArgs e)
+        {
+            if (Removed != null)
+                Removed (this, e);
         }
     }
 }
