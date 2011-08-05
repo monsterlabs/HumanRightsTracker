@@ -14,7 +14,7 @@ namespace HumanRightsTracker.Models
         [BelongsTo("case_id")]
         public Case Case { get; set; }
         [BelongsTo("human_rights_violation_id")]
-        public State State { get; set; }
+        public HumanRightsViolation HumanRightsViolation { get; set; }
 
         [Property]
         [ValidateNonEmpty]
