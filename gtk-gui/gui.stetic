@@ -303,6 +303,7 @@ Copyright 2011 @ i(dh)eas
           <widget class="Views.ActsShow" id="actsshow1">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
+            <property name="IsEditing">False</property>
           </widget>
           <packing>
             <property name="Position">3</property>

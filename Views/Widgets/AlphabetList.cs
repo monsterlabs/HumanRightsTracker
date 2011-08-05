@@ -17,9 +17,8 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class AlphabetList : Gtk.Bin
     {
-
+        public event EventHandler OnLetterSelectionChanged;
         Gtk.NodeStore store;
-        Gtk.NodeView alphabetView;
 
         Gtk.NodeStore Store {
             get {
@@ -35,7 +34,7 @@ namespace Views
             this.Build ();
             alphabetNodeView.NodeStore = Store;
             alphabetNodeView.AppendColumn ("-", new Gtk.CellRendererText (), "text", 0);
-            this.alphabetView = alphabetNodeView;
+            alphabetNodeView.NodeSelection.Changed += OnChange;
         }
 
         public void NewStore ()
@@ -52,8 +51,12 @@ namespace Views
             return "ABCDEFGHIJKLMNÑOPQRSTUVQXYZ";
         }
 
-        public void SetEventHandlerOnSelectionChanged(EventHandler e) {
-            alphabetView.NodeSelection.Changed += new System.EventHandler(e);
+        public void OnChange (object sender, EventArgs args)
+        {
+            if (OnLetterSelectionChanged != null)
+            {
+                OnLetterSelectionChanged (sender, args);
+            }
         }
     }
 }
