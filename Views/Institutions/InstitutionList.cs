@@ -105,11 +105,7 @@ namespace Views
 
         protected void OnSearch (object sender, System.EventArgs e)
         {
-          institutions = Institution.FindAll (new ICriterion[] { Restrictions.InsensitiveLike("Name", searchEntry.Text, MatchMode.Anywhere)});
-
-          institutionNodeView.NodeStore.Clear ();
-          foreach (Institution i in institutions)
-            institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
+          Search(searchEntry.Text);
         }
 
         protected void OnReloadButtonClicked (object sender, System.EventArgs e)
