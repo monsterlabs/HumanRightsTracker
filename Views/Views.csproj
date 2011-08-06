@@ -93,6 +93,10 @@
     <Compile Include="gtk-gui\Views.PersonRow.cs" />
     <Compile Include="Acts\ActsList.cs" />
     <Compile Include="gtk-gui\Views.ActsList.cs" />
+    <Compile Include="Acts\ActRow.cs" />
+    <Compile Include="gtk-gui\Views.ActRow.cs" />
+    <Compile Include="Acts\NewActWindow.cs" />
+    <Compile Include="gtk-gui\Views.NewActWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
