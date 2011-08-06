@@ -3184,6 +3184,7 @@ December</property>
       </widget>
     </child>
   </widget>
+<<<<<<< HEAD
   <widget class="Gtk.Bin" id="Views.BooleanRadioButton" design-size="206 22">
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -3208,7 +3209,6 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">radiobutton2</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -3249,10 +3249,7 @@ December</property>
               </packing>
             </child>
           </widget>
-        </child>
-      </widget>
-    </child>
-  </widget>
+=======
   <widget class="Gtk.Bin" id="Views.ActRow" design-size="411 32">
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -3310,10 +3307,13 @@ December</property>
             <property name="AutoSize">False</property>
             <property name="Expand">False</property>
           </packing>
+>>>>>>> acts
         </child>
       </widget>
     </child>
   </widget>
+<<<<<<< HEAD
+=======
   <widget class="Gtk.Window" id="Views.NewActWindow" design-size="603 254">
     <property name="MemberName" />
     <property name="Title" translatable="yes">NewActWindow</property>
@@ -3328,4 +3328,5 @@ December</property>
       </widget>
     </child>
   </widget>
+>>>>>>> acts
 </stetic-interface>

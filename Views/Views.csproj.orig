@@ -93,12 +93,15 @@
     <Compile Include="gtk-gui\Views.PersonRow.cs" />
     <Compile Include="Acts\ActsList.cs" />
     <Compile Include="gtk-gui\Views.ActsList.cs" />
+<<<<<<< HEAD
     <Compile Include="Widgets\BooleanRadioButton.cs" />
     <Compile Include="gtk-gui\Views.BooleanRadioButton.cs" />
+=======
     <Compile Include="Acts\ActRow.cs" />
     <Compile Include="gtk-gui\Views.ActRow.cs" />
     <Compile Include="Acts\NewActWindow.cs" />
     <Compile Include="gtk-gui\Views.NewActWindow.cs" />
+>>>>>>> acts
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

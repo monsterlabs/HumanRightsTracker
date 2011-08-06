@@ -7,7 +7,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PeopleSelector : Gtk.Bin
     {
-        HashSet<Person> people = new HashSet<Person>();
+        HashSet<Person> people = new HashSet<Person>(new ARComparer<Person>());
 
         public PeopleSelector ()
         {
