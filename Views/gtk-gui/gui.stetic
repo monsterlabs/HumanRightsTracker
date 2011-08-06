@@ -296,6 +296,7 @@ Female</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Edit</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnToggleEdit" />
               </widget>
               <packing>
                 <property name="Position">1</property>
