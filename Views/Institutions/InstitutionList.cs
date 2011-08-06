@@ -116,5 +116,13 @@ namespace Views
                 institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
         }
 
+        protected void OnSearchByLetter (object sender, System.EventArgs e)
+        {
+            if (sender != null) {
+                Gtk.NodeSelection selection = (Gtk.NodeSelection)sender;
+                LetterNode node = (LetterNode) selection.SelectedNode;
+                Search(node.Letter);
+            }
+        }
     }
 }
