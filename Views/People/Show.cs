@@ -26,13 +26,12 @@ namespace Views.People
                     lastname.Text = person.Lastname == null ? "" : person.Lastname;
                     firstname.Text = person.Firstname == null ? "" : person.Firstname;
                     birthday.CurrentDate = person.Birthday;
-                    sex.Active = person.Gender ? 1 : 0;
-                    marital_status.Active = person.MaritalStatus;
-                    birthplace.SetPlace(person.Country, person.State, person.City);
-                    imageselector1.Image = person.Photo;
+                    gender.Activate = person.Gender;
 
-                    sexText.Text = sex.ActiveText;
-                    fullnameText.Text = person.Fullname;
+                    marital_status.Active = person.MaritalStatus;
+                    //birthplace.SetPlace(person.Country, person.State, person.City);
+                    imageselector1.Image = person.Photo;
+                    ///fullnameText.Text = person.Fullname;
                 }
                 IsEditing = false;
             }
@@ -58,13 +57,13 @@ namespace Views.People
                 }
                 firstname.Visible = value;
                 lastname.Visible = value;
-                sex.Visible = value;
+                gender.IsEditable = value;
                 sexText.Visible = !value;
-                fullnameText.Visible = !value;
+                //fullnameText.Visible = !value;
 
                 marital_status.IsEditable = value;
                 birthday.IsEditable = value;
-                birthplace.IsEditable = value;
+                //birthplace.IsEditable = value;
                 imageselector1.IsEditable = value;
             }
         }
@@ -74,9 +73,9 @@ namespace Views.People
             person.Lastname = lastname.Text;
             person.Firstname = firstname.Text;
             person.Birthday = birthday.CurrentDate;
-            person.Country = birthplace.Country;
+            //person.Country = birthplace.Country;
             person.MaritalStatus = marital_status.Active as MaritalStatus;
-            person.Gender = sex.Active == 1;
+            person.Gender = gender.Value ();
 
             if (person.IsValid())
             {

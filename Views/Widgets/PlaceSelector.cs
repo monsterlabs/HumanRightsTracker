@@ -48,8 +48,8 @@ namespace Views
                 country.Visible = value;
                 state.Visible = value;
                 city.Visible = value;
-                text3.Visible = !value;
-                text3.Text = PlaceName();
+                text11.Visible = !value;
+                text11.Text = PlaceName();
             }
         }
 
