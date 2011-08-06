@@ -24,6 +24,11 @@ namespace Views
                 act = value;
                 if (act != null) {
                     // TODO: fill the info
+                    humanRightsViolation.Active = act.HumanRightsViolation;
+                    initialDate.setDate (act.start_date);
+                    initialDate.setDateType (act.StartDateType);
+                    finalDate.setDate (act.end_date);
+                    finalDate.setDateType (act.EndDateType);
                 }
                 IsEditing = false;
             }
@@ -38,12 +43,15 @@ namespace Views
             act.StartDateType = initialDate.SelectedDateType ();
 
             if (act.CaseId < 1 && ActSaved != null)
+            {
                 ActSaved (this.Act, e);
+                return;
+            }
 
             if (act.IsValid())
             {
                 act.Save ();
-
+                // TODO: Save victims and perpetrators
                 this.IsEditing = false;
                 if (ActSaved != null)
                     ActSaved (this.Act, e);

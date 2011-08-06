@@ -3,17 +3,27 @@ using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class NewActWindow : Gtk.Window
+    public partial class ActDetailWindow : Gtk.Window
     {
         public event EventHandler OnActSaved = null;
 
-        public NewActWindow (int case_id, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        public ActDetailWindow (int case_id, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             show.Act = new Act();
             show.Act.CaseId = case_id;
             show.IsEditing = true;
+            this.OnActSaved = onSave;
+            this.TransientFor = parent;
+        }
+
+        public ActDetailWindow (Act act, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            show.Act = act;
+            show.IsEditing = false;
             this.OnActSaved = onSave;
             this.TransientFor = parent;
         }
@@ -27,7 +37,8 @@ namespace Views
 
         protected void OnCancel (object sender, System.EventArgs e)
         {
-            this.Destroy ();
+            if (show.Act.Id < 1)
+                this.Destroy ();
         }
     }
 }

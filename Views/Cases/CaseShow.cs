@@ -28,6 +28,7 @@ namespace Views
 
                     endDateSelector.setDate(mycase.end_date);
                     endDateSelector.setDateType(mycase.EndDateType);
+                    actslist1.CaseId = value.Id;
                 }
                 isEditing = false;
             }
@@ -65,6 +66,13 @@ namespace Views
             if (mycase.IsValid())
             {
                 mycase.Save ();
+
+                foreach (Act a in actslist1.Acts)
+                {
+                    a.CaseId = mycase.Id;
+                    a.Save ();
+                }
+
                 this.IsEditing = false;
                 if (CaseSaved != null)
                     CaseSaved (mycase, e);

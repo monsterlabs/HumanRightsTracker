@@ -7,7 +7,7 @@ namespace Views
     public partial class PersonRow : Gtk.Bin
     {
         Person person;
-        public event EventHandler Removed;
+        public new event EventHandler Removed;
 
         public PersonRow (Person person, EventHandler removed)
         {

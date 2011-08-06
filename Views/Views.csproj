@@ -97,8 +97,8 @@
     <Compile Include="gtk-gui\Views.BooleanRadioButton.cs" />
     <Compile Include="Acts\ActRow.cs" />
     <Compile Include="gtk-gui\Views.ActRow.cs" />
-    <Compile Include="Acts\NewActWindow.cs" />
-    <Compile Include="gtk-gui\Views.NewActWindow.cs" />
+    <Compile Include="Acts\ActDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.ActDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

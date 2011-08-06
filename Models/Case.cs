@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
@@ -9,6 +10,8 @@ namespace HumanRightsTracker.Models
     [ActiveRecord("cases")]
     public class Case : ActiveRecordValidationBase<Case>
     {
+        protected IList acts;
+
         [PrimaryKey]
         public int Id { get; protected set; }
 

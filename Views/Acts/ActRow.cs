@@ -7,16 +7,18 @@ namespace Views
     public partial class ActRow : Gtk.Bin
     {
         Act act;
+        public new event EventHandler Removed;
 
         public ActRow ()
         {
             this.Build ();
         }
 
-        public ActRow (Act act)
+        public ActRow (Act act, EventHandler removed)
         {
             this.Build ();
             Act = act;
+            this.Removed = removed;
         }
 
         public Act Act
@@ -26,9 +28,25 @@ namespace Views
             {
                 act = value;
                 title.Text = value.HumanRightsViolation.Name;
+                startDate.Text = value.start_date.ToShortDateString ();
             }
         }
 
+        protected void OnDelete (object sender, System.EventArgs e)
+        {
+            if (Removed != null)
+                Removed (this, e);
+        }
+
+        protected void OnDetail (object sender, System.EventArgs e)
+        {
+            new ActDetailWindow (this.Act, OnDetailReturned, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnDetailReturned (object sender, System.EventArgs e)
+        {
+            this.Act = sender as Act;
+        }
     }
 }
 
