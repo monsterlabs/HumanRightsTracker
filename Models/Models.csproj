@@ -67,6 +67,7 @@
     <Compile Include="Institution.cs" />
     <Compile Include="Catalogs\HumanRightsViolation.cs" />
     <Compile Include="Act.cs" />
+    <Compile Include="ARComparer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
