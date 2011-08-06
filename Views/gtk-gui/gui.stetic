@@ -579,6 +579,7 @@ Female</property>
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
                     <property name="IsEditing">False</property>
+                    <signal name="PersonSaved" handler="OnPersonSaved" />
                   </widget>
                 </child>
               </widget>
@@ -974,6 +975,7 @@ December</property>
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
                     <property name="IsEditing">False</property>
+                    <signal name="CaseSaved" handler="OnCaseSaved" />
                   </widget>
                 </child>
               </widget>
@@ -1460,6 +1462,7 @@ December</property>
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
             <property name="IsEditing">False</property>
+            <signal name="InstitutionSaved" handler="OnInstitutionSaved" />
           </widget>
         </child>
       </widget>
