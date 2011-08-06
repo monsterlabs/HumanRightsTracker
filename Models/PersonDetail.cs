@@ -1,29 +1,42 @@
 using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
+using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("person_details")]
-    public class PersonDetail : ActiveRecordLinqBase<PersonDetail>
+    public class PersonDetail : ActiveRecordValidationBase<PersonDetail>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
 
-        [Property]
+
+        [Property("number_of_children")]
         public int NumberOfChildren { get; set; }
-        [Property]
+
+
+        [Property("most_recent_job")]
         public String MostRecentJob { get; set; }
-        [Property]
+
+        [Property("is_spanish_speaker")]
+        public Boolean IsSpanishSpeaker { get; set; }
+
+
+        [Property("indigenous_group")]
         public String IndigenousGroup { get; set; }
 
         [BelongsTo("ethnic_group_id")]
         public EthnicGroup EthnicGroup { get; set; }
+
         [BelongsTo("scholarity_level_id")]
         public ScholarityLevel ScholarityLevel { get; set; }
+
         [BelongsTo("religion_id")]
         public Religion Religion { get; set; }
+
         [BelongsTo("person_id")]
         public Person Person { get; set; }
+
     }
 }

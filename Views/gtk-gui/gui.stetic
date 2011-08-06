@@ -313,7 +313,7 @@ Female</property>
                         <property name="MemberName" />
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Views.PlaceSelector" id="placeselector1">
+                          <widget class="Views.PlaceSelector" id="birthplace">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="IsEditable">False</property>
@@ -332,15 +332,12 @@ Female</property>
                             <property name="RowSpacing">6</property>
                             <property name="ColumnSpacing">6</property>
                             <child>
-                              <widget class="Gtk.Entry" id="entry2">
+                              <widget class="Gtk.Label" id="label14">
                                 <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="IsEditable">True</property>
-                                <property name="InvisibleChar">●</property>
+                                <property name="Xalign">0</property>
+                                <property name="LabelProp" translatable="yes">Settlement</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">1</property>
-                                <property name="BottomAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -353,12 +350,15 @@ Female</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="Gtk.Label" id="label14">
+                              <widget class="Gtk.Entry" id="settlement">
                                 <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Settlement</property>
+                                <property name="CanFocus">True</property>
+                                <property name="IsEditable">True</property>
+                                <property name="InvisibleChar">●</property>
                               </widget>
                               <packing>
+                                <property name="TopAttach">1</property>
+                                <property name="BottomAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -423,74 +423,7 @@ Female</property>
                           <placeholder />
                         </child>
                         <child>
-                          <widget class="Views.BooleanRadioButton" id="booleanradiobutton1">
-                            <property name="MemberName" />
-                            <property name="Events">ButtonPressMask</property>
-                            <property name="Labels">Yes
-No</property>
-                            <property name="IsEditable">False</property>
-                            <property name="Activate">False</property>
-                          </widget>
-                          <packing>
-                            <property name="TopAttach">7</property>
-                            <property name="BottomAttach">8</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
-                            <property name="XFill">True</property>
-                            <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
-                            <property name="YFill">True</property>
-                            <property name="YShrink">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Views.CatalogSelector" id="catalogselector1">
-                            <property name="MemberName" />
-                            <property name="Events">ButtonPressMask</property>
-                            <property name="Model">Religion</property>
-                            <property name="IsEditable">False</property>
-                          </widget>
-                          <packing>
-                            <property name="TopAttach">1</property>
-                            <property name="BottomAttach">2</property>
-                            <property name="LeftAttach">1</property>
-                            <property name="RightAttach">2</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
-                            <property name="XFill">True</property>
-                            <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
-                            <property name="YFill">True</property>
-                            <property name="YShrink">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Views.CatalogSelector" id="catalogselector3">
-                            <property name="MemberName" />
-                            <property name="Events">ButtonPressMask</property>
-                            <property name="Model">ScholarityLevel</property>
-                            <property name="IsEditable">False</property>
-                          </widget>
-                          <packing>
-                            <property name="TopAttach">3</property>
-                            <property name="BottomAttach">4</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
-                            <property name="XFill">True</property>
-                            <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
-                            <property name="YFill">True</property>
-                            <property name="YShrink">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Views.CatalogSelector" id="catalogselector4">
+                          <widget class="Views.CatalogSelector" id="ethnic_group">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">EthnicGroup</property>
@@ -511,57 +444,11 @@ No</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.Entry" id="entry3">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="IsEditable">True</property>
-                            <property name="InvisibleChar">●</property>
-                          </widget>
-                          <packing>
-                            <property name="TopAttach">3</property>
-                            <property name="BottomAttach">4</property>
-                            <property name="LeftAttach">1</property>
-                            <property name="RightAttach">2</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
-                            <property name="XFill">True</property>
-                            <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
-                            <property name="YFill">True</property>
-                            <property name="YShrink">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.Entry" id="entry4">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="IsEditable">True</property>
-                            <property name="InvisibleChar">●</property>
-                          </widget>
-                          <packing>
-                            <property name="TopAttach">5</property>
-                            <property name="BottomAttach">6</property>
-                            <property name="LeftAttach">1</property>
-                            <property name="RightAttach">2</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
-                            <property name="XFill">True</property>
-                            <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
-                            <property name="YFill">True</property>
-                            <property name="YShrink">False</property>
-                          </packing>
-                        </child>
-                        <child>
                           <widget class="Gtk.Fixed" id="fixed17">
                             <property name="MemberName" />
                             <property name="HasWindow">False</property>
                             <child>
-                              <widget class="Gtk.Entry" id="entry1">
+                              <widget class="Gtk.Entry" id="number_of_children">
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
                                 <property name="IsEditable">True</property>
@@ -586,8 +473,55 @@ No</property>
                           </packing>
                         </child>
                         <child>
+                          <widget class="Gtk.Entry" id="indigenous_group">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">5</property>
+                            <property name="BottomAttach">6</property>
+                            <property name="LeftAttach">1</property>
+                            <property name="RightAttach">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Views.BooleanRadioButton" id="is_spanish_speaker">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                            <property name="Labels">Yes
+No</property>
+                            <property name="IsEditable">False</property>
+                            <property name="Activate">False</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">7</property>
+                            <property name="BottomAttach">8</property>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
+                        </child>
+                        <child>
                           <widget class="Gtk.Label" id="label10">
                             <property name="MemberName" />
+                            <property name="Xalign">0</property>
                             <property name="LabelProp" translatable="yes">Scholarity Label</property>
                           </widget>
                           <packing>
@@ -607,6 +541,7 @@ No</property>
                         <child>
                           <widget class="Gtk.Label" id="label11">
                             <property name="MemberName" />
+                            <property name="Xalign">0</property>
                             <property name="LabelProp" translatable="yes">Most Recent Job</property>
                           </widget>
                           <packing>
@@ -628,6 +563,7 @@ No</property>
                         <child>
                           <widget class="Gtk.Label" id="label12">
                             <property name="MemberName" />
+                            <property name="Xalign">0</property>
                             <property name="LabelProp" translatable="yes">Ethnic Group</property>
                           </widget>
                           <packing>
@@ -647,6 +583,7 @@ No</property>
                         <child>
                           <widget class="Gtk.Label" id="label13">
                             <property name="MemberName" />
+                            <property name="Xalign">0</property>
                             <property name="LabelProp" translatable="yes">Indigenous Group</property>
                           </widget>
                           <packing>
@@ -712,6 +649,73 @@ No</property>
                           <packing>
                             <property name="LeftAttach">1</property>
                             <property name="RightAttach">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Entry" id="most_recent_job">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">3</property>
+                            <property name="BottomAttach">4</property>
+                            <property name="LeftAttach">1</property>
+                            <property name="RightAttach">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Views.CatalogSelector" id="religion">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                            <property name="Model">Religion</property>
+                            <property name="IsEditable">False</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">1</property>
+                            <property name="BottomAttach">2</property>
+                            <property name="LeftAttach">1</property>
+                            <property name="RightAttach">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Views.CatalogSelector" id="scholarity_level">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                            <property name="Model">ScholarityLevel</property>
+                            <property name="IsEditable">False</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">3</property>
+                            <property name="BottomAttach">4</property>
                             <property name="AutoSize">True</property>
                             <property name="XOptions">Fill</property>
                             <property name="YOptions">Fill</property>

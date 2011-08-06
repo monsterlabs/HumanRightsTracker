@@ -3,6 +3,7 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
+using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
@@ -36,6 +37,14 @@ namespace HumanRightsTracker.Models
         public City City { get; set; }
         [BelongsTo("marital_status_id"), ValidateNonEmpty]
         public MaritalStatus MaritalStatus { get; set; }
+
+        private IList details = new ArrayList();
+        [HasMany(typeof(PersonDetail))]
+        public IList PersonDetails
+        {
+            get { return details; }
+            set { details = value; }
+        }
 
         public String Fullname
         {
