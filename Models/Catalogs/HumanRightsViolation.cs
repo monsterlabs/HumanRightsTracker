@@ -19,8 +19,8 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public String Name { get; set; }
 
-        [Property("parent_id")]
-        public int ParentId { get; set; }
+        [Property("category_id")]
+        public int CategoryId { get; set; }
 
         //[BelongsTo("parent_id")]
         //public HumanRightsViolation Parent { get; set; }
