@@ -48,8 +48,22 @@ namespace Views
                 country.Visible = value;
                 state.Visible = value;
                 city.Visible = value;
-                text11.Visible = !value;
-                text11.Text = PlaceName();
+
+                Country cnty = country.Active as Country;
+                if (cnty != null) {
+                    country_label.Text = cnty.Name;
+                    country_label.Visible = !value;
+                }
+                State s = state.Active as State;
+                if (s != null) {
+                    state_label.Text = s.Name;
+                    state_label.Visible = !value;
+                }
+                City c = city.Active as City;
+                if (c != null) {
+                    city_label.Text = (city.Active as City).Name;
+                    city_label.Visible = !value;
+                }
             }
         }
 

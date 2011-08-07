@@ -99,6 +99,8 @@
     <Compile Include="gtk-gui\Views.ActRow.cs" />
     <Compile Include="Acts\ActDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.ActDetailWindow.cs" />
+    <Compile Include="Widgets\EditableLabel.cs" />
+    <Compile Include="gtk-gui\Views.EditableLabel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

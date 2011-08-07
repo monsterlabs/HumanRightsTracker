@@ -29,18 +29,18 @@ namespace Views.People
                     firstname.Text = person.Firstname == null ? "" : person.Firstname;
                     birthday.CurrentDate = person.Birthday;
                     gender.Activate = person.Gender;
-
                     marital_status.Active = person.MaritalStatus;
                     birthplace.SetPlace(person.Country, person.State, person.City);
+                    settlement.Text = person.Settlement == null ? "" : person.Settlement;
                     imageselector1.Image = person.Photo;
-                    ///fullnameText.Text = person.Fullname;
+
                     if (person.PersonDetails.Count == 0) {
                         person_detail = new PersonDetail ();
                         personDetailExist = false;
                     } else {
                         person_detail = (PersonDetail)person.PersonDetails[0];
                         personDetailExist = true;
-                        number_of_children.Text = person_detail.NumberOfChildren.ToString();
+                        number_of_sons.Text = person_detail.NumberOfSons.ToString();
                         religion.Active = person_detail.Religion;
                         scholarity_level.Active = person_detail.ScholarityLevel;
                         most_recent_job.Text = person_detail.MostRecentJob == null ? "" : person_detail.MostRecentJob;
@@ -72,22 +72,30 @@ namespace Views.People
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                firstname.Visible = value;
-                lastname.Visible = value;
-                gender.IsEditable = value;
-                sexText.Visible = !value;
-                //fullnameText.Visible = !value;
 
+                // Person
+                lastname.IsEditable = value;
+                firstname.IsEditable = value;
+                settlement.IsEditable = value;
+                gender.IsEditable = value;
                 marital_status.IsEditable = value;
                 birthday.IsEditable = value;
-                //birthplace.IsEditable = value;
+                birthplace.IsEditable = value;
                 imageselector1.IsEditable = value;
+
+                //Person Details
+                number_of_sons.IsEditable = value;
+                scholarity_level.IsEditable = value;
+                most_recent_job.IsEditable = value;
+                religion.IsEditable = value;
+                ethnic_group.IsEditable = value;
+                indigenous_group.IsEditable = value;
             }
         }
 
         protected void OnSave (object sender, System.EventArgs e)
         {
-            person_detail.NumberOfChildren = int.Parse(number_of_children.Text);
+            person_detail.NumberOfSons = int.Parse(number_of_sons.Text);
             person_detail.ScholarityLevel = scholarity_level.Active as ScholarityLevel;
             person_detail.MostRecentJob = most_recent_job.Text;
             person_detail.Religion = religion.Active as Religion;
@@ -105,6 +113,7 @@ namespace Views.People
             person.Country = birthplace.Country;
             person.MaritalStatus = marital_status.Active as MaritalStatus;
             person.Gender = gender.Value ();
+            person.Settlement = settlement.Text;
 
             if (person.IsValid())
             {

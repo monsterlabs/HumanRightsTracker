@@ -12,8 +12,8 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
 
-        [Property("number_of_children")]
-        public int NumberOfChildren { get; set; }
+        [Property("number_of_sons")]
+        public int NumberOfSons { get; set; }
 
 
         [Property("most_recent_job")]

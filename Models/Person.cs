@@ -29,6 +29,9 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public DateTime Birthday { get; set; }
 
+        [Property]
+        public String Settlement { get; set; }
+
         [BelongsTo("country_id"), ValidateNonEmpty]
         public Country Country { get; set; }
         [BelongsTo("state_id")]
