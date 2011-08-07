@@ -54,16 +54,20 @@ namespace Views
                 SelectionChanged (p, args);
             }
         }
-
-        protected virtual void onSearch (object sender, System.EventArgs e)
-        {
+        public void Search(string searchString) {
             people = Person.FindAll (new ICriterion[] { Restrictions.Or (
-                        Restrictions.InsensitiveLike("Firstname", searchEntry.Text, MatchMode.Anywhere),
-                        Restrictions.InsensitiveLike("Lastname", searchEntry.Text, MatchMode.Anywhere)
+                        Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
+                        Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
                      )});
             tree.NodeStore.Clear ();
             foreach (Person p in people)
                 tree.NodeStore.AddNode (new PersonNode (p));
+
+        }
+
+        protected virtual void onSearch (object sender, System.EventArgs e)
+        {
+            Search(searchEntry.Text);
         }
 
         Gtk.NodeStore store;
@@ -116,6 +120,20 @@ namespace Views
                 Person p = ((PersonNode)selection.SelectedNode).Person;
                 SelectionWithDoubleClick (p, args);
             }
+        }
+
+        protected void OnSearchByLetter (object sender, System.EventArgs e)
+        {
+            if (sender != null) {
+                Gtk.NodeSelection selection = (Gtk.NodeSelection)sender;
+                LetterNode node = (LetterNode) selection.SelectedNode;
+                Search(node.Letter);
+            }
+        }
+
+        protected void OnReloadButtonClicked (object sender, System.EventArgs e)
+        {
+            ReloadStore ();
         }
     }
 }

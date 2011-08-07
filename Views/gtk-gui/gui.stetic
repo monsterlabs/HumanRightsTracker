@@ -772,9 +772,8 @@ No</property>
           </widget>
           <packing>
             <property name="Position">1</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
             <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>
@@ -1001,6 +1000,7 @@ No</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">False</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -1158,7 +1158,7 @@ No</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PeopleList" design-size="300 500">
+  <widget class="Gtk.Bin" id="Views.PeopleList" design-size="314 500">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -1175,6 +1175,7 @@ No</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="ActivatesDefault">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -1198,6 +1199,24 @@ No</property>
                 <property name="Fill">False</property>
               </packing>
             </child>
+            <child>
+              <widget class="Gtk.Button" id="reloadButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-refresh Menu</property>
+                <property name="Label" translatable="yes" />
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnReloadButtonClicked" />
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -1207,16 +1226,38 @@ No</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+          <widget class="Gtk.HBox" id="hbox3">
             <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="ShadowType">In</property>
+            <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.NodeView" id="tree">
+              <widget class="Views.AlphabetList" id="alphabetlist1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <signal name="OnLetterSelectionChanged" handler="OnSearchByLetter" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">False</property>
+                <property name="Expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <signal name="RowActivated" handler="OnRowActivated" />
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.NodeView" id="tree">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <signal name="RowActivated" handler="OnRowActivated" />
+                  </widget>
+                </child>
               </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
             </child>
           </widget>
           <packing>
@@ -1282,6 +1323,7 @@ No</property>
                 <property name="IsEditable">True</property>
                 <property name="WidthChars">2</property>
                 <property name="MaxLength">2</property>
+                <property name="InvisibleChar">●</property>
                 <signal name="Activated" handler="OnChangeDay" />
               </widget>
               <packing>
@@ -1321,6 +1363,7 @@ December</property>
                 <property name="IsEditable">True</property>
                 <property name="WidthChars">4</property>
                 <property name="MaxLength">4</property>
+                <property name="InvisibleChar">●</property>
                 <signal name="Activated" handler="OnChangeYear" />
               </widget>
               <packing>
@@ -1369,6 +1412,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -1745,6 +1789,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="LeftAttach">1</property>
@@ -1886,6 +1931,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -2103,6 +2149,7 @@ December</property>
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
                   </widget>
                   <packing>
                     <property name="LeftAttach">4</property>
@@ -2222,6 +2269,7 @@ December</property>
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
                   </widget>
                   <packing>
                     <property name="LeftAttach">2</property>
@@ -2385,6 +2433,7 @@ December</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
                             <property name="LeftAttach">1</property>
@@ -2465,6 +2514,7 @@ December</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
@@ -2486,6 +2536,7 @@ December</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
                             <property name="LeftAttach">3</property>
@@ -2581,6 +2632,7 @@ December</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
                             <property name="LeftAttach">1</property>
@@ -2600,6 +2652,7 @@ December</property>
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
@@ -3362,6 +3415,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="AutoSize">True</property>
