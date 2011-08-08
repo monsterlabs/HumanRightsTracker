@@ -27,6 +27,7 @@ public partial class LoginWindow : Gtk.Window
 			this.Hide();
 		} else {
 			error_message.Visible = true;
+            password.Text = "";
 		}
 	}
 	
