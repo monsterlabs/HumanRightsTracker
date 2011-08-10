@@ -37,6 +37,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("institution_type_id")]
         public InstitutionType InstitutionType { get; set; }
 
+        [BelongsTo("institution_category_id")]
+        public InstitutionCategory InstitutionCategory { get; set; }
 
         [BelongsTo("country_id"), ValidateNonEmpty]
         public Country Country { get; set; }

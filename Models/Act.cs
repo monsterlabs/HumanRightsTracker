@@ -17,6 +17,23 @@ namespace HumanRightsTracker.Models
         [BelongsTo("human_rights_violation_id")]
         public HumanRightsViolation HumanRightsViolation { get; set; }
 
+        [Property("settlement")]
+        public String Settlement { get; set; }
+
+        [Property("affected_people_numer")]
+        public int AffectedPeopleNumber { get; set; }
+
+        [Property("summary")]
+        public String Summary { get; set; }
+        [Property("narrative_information")]
+        public String NarrativeInformation { get; set; }
+        [Property("comments")]
+        public String Comments { get; set; }
+        [Property("affiliation_group")]
+        public String AffiliationGroup { get; set; }
+        [Property("VictimObservations")]
+        public String VictimObservations { get; set; }
+
         [Property]
         [ValidateNonEmpty]
         public DateTime start_date { get; set; }
@@ -29,6 +46,21 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("end_date_type_id")]
         public DateType EndDateType { get; set; }
+
+        [BelongsTo("country_id")]
+        public Country Country { get; set; }
+
+        [BelongsTo("city_id")]
+        public City City { get; set; }
+
+        [BelongsTo("act_status_id")]
+        public ActStatus ActStatus { get; set; }
+        [BelongsTo("victim_status_id")]
+        public VictimStatus VictimStatus { get; set; }
+        [BelongsTo("affiliation_type_id")]
+        public AffiliationType AffiliationType { get; set; }
+        [BelongsTo("location_type_id")]
+        public LocationType LocationType { get; set; }
 
     }
 }
