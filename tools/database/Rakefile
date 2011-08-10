@@ -10,7 +10,7 @@ Bundler.require :default
 %w(user country state city marital_status scholarity_level religion
    ethnic_group date_type institution_type human_rights_violation
    human_rights_violation_category role act_status affiliation_type
-   intervention_type location_type victim_status
+   intervention_type location_type victim_status institution_category
    ).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
@@ -116,6 +116,12 @@ task :seeds => :environment do
   CSV.foreach("seeds/victim_statuses.csv") do |row|
     VictimStatuses.create(:name => row[0].strip)
   end
+
+  InstitutionCategory.destroy_all
+  CSV.foreach("seeds/institution_categories.csv") do |row|
+    InstitutionCategory.create(:name => row[0].strip)
+  end
+
 end
 
 task :environment do
