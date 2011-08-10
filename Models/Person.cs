@@ -26,6 +26,9 @@ namespace HumanRightsTracker.Models
         public Boolean Gender { get; set; }
 
         [Property]
+        public String Alias { get; set; }
+
+        [Property]
         [ValidateNonEmpty]
         public DateTime Birthday { get; set; }
 
