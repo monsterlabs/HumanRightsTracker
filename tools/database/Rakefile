@@ -9,7 +9,9 @@ Bundler.require :default
 
 %w(user country state city marital_status scholarity_level religion
    ethnic_group date_type institution_type human_rights_violation
-   human_rights_violation_category role).each do |model_name|
+   human_rights_violation_category role act_status affiliation_type
+   intervention_type location_type victim_status
+   ).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
   end
@@ -87,10 +89,33 @@ task :seeds => :environment do
 
   HumanRightsViolationCategory.destroy_all
   CSV.foreach("seeds/human_rights_violation_categories.csv", :col_sep => "|") do |row|
-    p row
     HumanRightsViolationCategory.create(:id => row[0].to_i, :name => row[1].strip)
   end
 
+  AffiliationType.destroy_all
+  CSV.foreach("seeds/affiliation_types.csv") do |row|
+    AffiliationType.create(:name => row[0].strip)
+  end
+
+  ActStatus.destroy_all
+  CSV.foreach("seeds/act_statuses.csv") do |row|
+    ActStatus.create(:name => row[0].strip)
+  end
+
+  InterventionType.destroy_all
+  CSV.foreach("seeds/intervention_types.csv") do |row|
+    InterventionType.create(:name => row[0].strip)
+  end
+
+  LocationType.destroy_all
+  CSV.foreach("seeds/location_types.csv") do |row|
+    LocationType.create(:name => row[0].strip)
+  end
+
+  VictimStatus.destroy_all
+  CSV.foreach("seeds/victim_statuses.csv") do |row|
+    VictimStatuses.create(:name => row[0].strip)
+  end
 end
 
 task :environment do
