@@ -7,12 +7,12 @@ namespace Views
     {
         public event EventHandler OnActSaved = null;
 
-        public ActDetailWindow (int case_id, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        public ActDetailWindow (Case c, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             show.Act = new Act();
-            show.Act.CaseId = case_id;
+            show.Act.Case = c;
             show.IsEditing = true;
             this.OnActSaved = onSave;
             this.TransientFor = parent;
