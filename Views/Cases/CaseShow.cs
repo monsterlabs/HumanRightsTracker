@@ -28,7 +28,7 @@ namespace Views
 
                     endDateSelector.setDate(mycase.end_date);
                     endDateSelector.setDateType(mycase.EndDateType);
-                    actslist1.CaseId = value.Id;
+                    actslist1.Case = value;
                 }
                 isEditing = false;
             }
@@ -69,7 +69,7 @@ namespace Views
 
                 foreach (Act a in actslist1.Acts)
                 {
-                    a.CaseId = mycase.Id;
+                    a.Case = mycase;
                     a.Save ();
                 }
 

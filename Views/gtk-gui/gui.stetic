@@ -1847,7 +1847,6 @@ December</property>
                   <widget class="Views.ActsList" id="actslist1">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="CaseId">0</property>
                   </widget>
                 </child>
               </widget>

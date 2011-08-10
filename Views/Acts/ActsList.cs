@@ -10,7 +10,7 @@ namespace Views
     public partial class ActsList : Gtk.Bin
     {
         List<Act> acts;
-        int case_id;
+        Case c;
 
         public ActsList ()
         {
@@ -23,12 +23,12 @@ namespace Views
             get {return acts;}
         }
 
-        public int CaseId
+        public Case Case
         {
-            get { return case_id; }
+            get { return c; }
             set
             {
-                case_id = value;
+                c = value;
                 ReloadList ();
             }
         }
@@ -39,7 +39,10 @@ namespace Views
             {
                 w.Destroy();
             }
-            acts = new List<Act> (Act.FindAll (new ICriterion[] { Restrictions.Eq("CaseId", case_id) }));
+            if (c.Id < 1) {
+                return;
+            }
+            acts = new List<Act> (Act.FindAll (new ICriterion[] { Restrictions.Eq("Case", c) }));
             foreach (Act a in acts)
             {
                 actsList.PackStart (new ActRow (a, OnActRowRemoved));
@@ -49,7 +52,7 @@ namespace Views
 
         protected void OnNewAct (object sender, System.EventArgs e)
         {
-            new ActDetailWindow (case_id, OnNewActReturned, (Gtk.Window)this.Toplevel);
+            new ActDetailWindow (c, OnNewActReturned, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnNewActReturned (object sender, EventArgs args)

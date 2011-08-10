@@ -11,8 +11,8 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
-        [Property("case_id")]
-        public int CaseId {get; set;}
+        [BelongsTo("case_id")]
+        public Case Case { get; set;}
 
         [BelongsTo("human_rights_violation_id")]
         public HumanRightsViolation HumanRightsViolation { get; set; }
