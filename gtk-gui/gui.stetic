@@ -9,7 +9,7 @@
     <widget-library name="../Views/bin/Debug/Views.dll" />
     <widget-library name="../bin/Debug/HumanRightsTracker.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="LoginWindow" design-size="598 392">
+  <widget class="Gtk.Window" id="LoginWindow" design-size="598 361">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -68,7 +68,7 @@
             <property name="Text" translatable="yes">
 Sistema de Monitoreo de Derechos Humanos
 
-Copyright 2011 @ i(dh)eas 
+Copyright 2011 © i(dh)eas 
 </property>
             <property name="LeftMargin">7</property>
             <property name="RightMargin">7</property>
@@ -212,6 +212,16 @@ Copyright 2011 @ i(dh)eas
           <packing>
             <property name="X">375</property>
             <property name="Y">39</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="image79">
+            <property name="MemberName" />
+            <property name="Pixbuf">resource:HumanRightsTracker.images.idheas.jpg</property>
+          </widget>
+          <packing>
+            <property name="X">325</property>
+            <property name="Y">261</property>
           </packing>
         </child>
       </widget>
