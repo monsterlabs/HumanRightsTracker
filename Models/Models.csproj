@@ -63,11 +63,17 @@
     <Compile Include="User.cs" />
     <Compile Include="Catalogs\DateType.cs" />
     <Compile Include="Case.cs" />
-    <Compile Include="Catalogs\ InstitutionType.cs" />
     <Compile Include="Institution.cs" />
     <Compile Include="Catalogs\HumanRightsViolation.cs" />
     <Compile Include="Act.cs" />
     <Compile Include="ARComparer.cs" />
+    <Compile Include="Catalogs\InstitutionType.cs" />
+    <Compile Include="Catalogs\ActStatus.cs" />
+    <Compile Include="Catalogs\VictimStatus.cs" />
+    <Compile Include="Catalogs\AffiliationType.cs" />
+    <Compile Include="Catalogs\InterventionType.cs" />
+    <Compile Include="Catalogs\LocationType.cs" />
+    <Compile Include="Catalogs\InstitutionCategory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
