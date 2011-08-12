@@ -9,7 +9,7 @@
     <widget-library name="../Views/bin/Debug/Views.dll" />
     <widget-library name="../bin/Debug/HumanRightsTracker.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="LoginWindow" design-size="598 361">
+  <widget class="Gtk.Window" id="LoginWindow" design-size="598 389">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -57,26 +57,6 @@
           <packing>
             <property name="X">37</property>
             <property name="Y">37</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.TextView" id="textview4">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Editable">False</property>
-            <property name="CursorVisible">False</property>
-            <property name="Text" translatable="yes">
-Sistema de Monitoreo de Derechos Humanos
-
-Copyright 2011 © i(dh)eas 
-</property>
-            <property name="LeftMargin">7</property>
-            <property name="RightMargin">7</property>
-            <property name="Indent">4</property>
-          </widget>
-          <packing>
-            <property name="X">42</property>
-            <property name="Y">261</property>
           </packing>
         </child>
         <child>
@@ -215,13 +195,63 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Image" id="image79">
+          <widget class="Gtk.Frame" id="frame1">
             <property name="MemberName" />
-            <property name="Pixbuf">resource:HumanRightsTracker.images.idheas.jpg</property>
+            <property name="ShadowType">None</property>
+            <property name="BorderWidth">15</property>
+            <child>
+              <widget class="Gtk.Alignment" id="GtkAlignment">
+                <property name="MemberName" />
+                <property name="Xalign">0</property>
+                <property name="Yalign">0</property>
+                <property name="LeftPadding">12</property>
+                <child>
+                  <widget class="Gtk.HBox" id="hbox1">
+                    <property name="MemberName" />
+                    <property name="Spacing">6</property>
+                    <child>
+                      <widget class="Gtk.TextView" id="textview4">
+                        <property name="MemberName" />
+                        <property name="CanFocus">True</property>
+                        <property name="Editable">False</property>
+                        <property name="CursorVisible">False</property>
+                        <property name="Text" translatable="yes">
+Sistema de Monitoreo de Derechos Humanos
+
+Copyright 2011 © i(dh)eas 
+</property>
+                        <property name="LeftMargin">7</property>
+                        <property name="RightMargin">7</property>
+                        <property name="Indent">4</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Image" id="image79">
+                        <property name="MemberName" />
+                        <property name="Pixbuf">resource:HumanRightsTracker.images.idheas.jpg</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <placeholder />
+            </child>
           </widget>
           <packing>
-            <property name="X">325</property>
-            <property name="Y">261</property>
+            <property name="X">28</property>
+            <property name="Y">247</property>
           </packing>
         </child>
       </widget>
