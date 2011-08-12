@@ -75,6 +75,7 @@
     <Compile Include="Catalogs\LocationType.cs" />
     <Compile Include="Catalogs\InstitutionCategory.cs" />
     <Compile Include="Intervention.cs" />
+    <Compile Include="Catalogs\HumanRightsViolationCategory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
