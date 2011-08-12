@@ -9,6 +9,11 @@ namespace Views
         Person person;
         public new event EventHandler Removed;
 
+        public PersonRow ()
+        {
+            this.Build ();
+        }
+
         public PersonRow (Person person, EventHandler removed)
         {
             this.Build ();

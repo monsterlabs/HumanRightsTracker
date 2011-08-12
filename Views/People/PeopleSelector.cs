@@ -12,6 +12,7 @@ namespace Views
         public PeopleSelector ()
         {
             this.Build ();
+            row.Destroy ();
         }
 
         protected void OnPersonSelected (object sender, PersonEventArgs args)
