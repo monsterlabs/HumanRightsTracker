@@ -40,10 +40,19 @@ task :seeds => :environment do
                     :citizen => row[2].strip)
   end
 
-  @country = Country.find_by_code('MX')
-  State.destroy_all
-  CSV.foreach("seeds/states_mx.csv", :col_sep => "|") do |row|
-    State.create(:name => row[0].strip, :country_id => @country.id)
+
+  %w(MX).each do |code|
+    @country = Country.find_by_code(code)
+    State.destroy_all
+    CSV.foreach("seeds/states_#{code.downcase}.csv", :col_sep => "|") do |row|
+      State.create(:name => row[0].strip, :country_id => @country.id)
+    end
+    
+    City.destroy_all
+    CSV.foreach("seeds/cities_#{code.downcase}.csv", :col_sep => "|") do |row|
+      state = State.find_by_name(row[0].strip)
+      City.create(:name => row[1].strip, :state_id => @country.id)
+    end
   end
 
   MaritalStatus.destroy_all
