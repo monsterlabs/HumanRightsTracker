@@ -252,6 +252,7 @@ Female</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">MaritalStatus</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">True</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">5</property>
@@ -420,6 +421,7 @@ Female</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">EthnicGroup</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">5</property>
@@ -670,6 +672,7 @@ No</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">Religion</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
@@ -693,6 +696,7 @@ No</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">ScholarityLevel</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
@@ -809,6 +813,7 @@ No</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">Country</property>
                     <property name="IsEditable">False</property>
+                    <property name="HideAddButton">True</property>
                     <signal name="Changed" handler="onCountryChanged" />
                   </widget>
                 </child>
@@ -843,6 +848,7 @@ No</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">State</property>
                     <property name="IsEditable">False</property>
+                    <property name="HideAddButton">False</property>
                   </widget>
                 </child>
               </widget>
@@ -878,6 +884,7 @@ No</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">City</property>
                     <property name="IsEditable">False</property>
+                    <property name="HideAddButton">False</property>
                   </widget>
                 </child>
               </widget>
@@ -960,26 +967,55 @@ No</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CatalogSelector" design-size="31 29">
+  <widget class="Gtk.Bin" id="Views.CatalogSelector" design-size="67 29">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <widget class="Gtk.Fixed" id="fixed5">
+      <widget class="Gtk.HBox" id="hbox2">
         <property name="MemberName" />
-        <property name="HasWindow">False</property>
+        <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Label" id="text">
+          <widget class="Gtk.Fixed" id="fixed2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">text</property>
+            <property name="HasWindow">False</property>
+            <child>
+              <widget class="Gtk.Label" id="text">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">text</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.ComboBox" id="combobox">
+                <property name="MemberName" />
+                <property name="IsTextCombo">True</property>
+                <property name="Items" translatable="yes" />
+              </widget>
+            </child>
           </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
         </child>
         <child>
-          <widget class="Gtk.ComboBox" id="combobox">
+          <widget class="Gtk.Button" id="addButton">
             <property name="MemberName" />
-            <property name="IsTextCombo">True</property>
-            <property name="Items" translatable="yes" />
-            <signal name="Changed" handler="onChanged" />
+            <property name="Visible">False</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextAndIcon</property>
+            <property name="Icon">stock:gtk-add Menu</property>
+            <property name="Label" translatable="yes" />
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnAddButtonClicked" />
           </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
         </child>
       </widget>
     </child>
@@ -1281,6 +1317,7 @@ No</property>
             <property name="Events">ButtonPressMask</property>
             <property name="Model">DateType</property>
             <property name="IsEditable">False</property>
+            <property name="HideAddButton">False</property>
             <signal name="Changed" handler="OnChangeType" />
           </widget>
           <packing>
@@ -2187,6 +2224,7 @@ December</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">InstitutionType</property>
                     <property name="IsEditable">False</property>
+                    <property name="HideAddButton">False</property>
                   </widget>
                   <packing>
                     <property name="TopAttach">1</property>
@@ -2313,6 +2351,7 @@ December</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">City</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
@@ -2336,6 +2375,7 @@ December</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">Country</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="LeftAttach">3</property>
@@ -2454,6 +2494,7 @@ December</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">State</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
@@ -2762,6 +2803,7 @@ December</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">HumanRightsViolationCategory</property>
                     <property name="IsEditable">False</property>
+                    <property name="HideAddButton">False</property>
                   </widget>
                   <packing>
                     <property name="LeftAttach">1</property>
@@ -2804,6 +2846,7 @@ December</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">HumanRightsViolation</property>
                     <property name="IsEditable">False</property>
+                    <property name="HideAddButton">False</property>
                   </widget>
                   <packing>
                     <property name="TopAttach">1</property>
@@ -3482,6 +3525,165 @@ December</property>
               </packing>
             </child>
           </widget>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Dialog" id="Views.EditCatalogDialog" design-size="400 300">
+    <property name="MemberName" />
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="Buttons">2</property>
+    <property name="HelpButton">False</property>
+    <child internal-child="VBox">
+      <widget class="Gtk.VBox" id="dialog1_VBox">
+        <property name="MemberName" />
+        <property name="BorderWidth">2</property>
+        <child>
+          <widget class="Views.EditCatalogRecord" id="recordEntries">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+    <child internal-child="ActionArea">
+      <widget class="Gtk.HButtonBox" id="dialog1_ActionArea">
+        <property name="MemberName" />
+        <property name="Spacing">10</property>
+        <property name="BorderWidth">5</property>
+        <property name="Size">2</property>
+        <property name="LayoutStyle">End</property>
+        <child>
+          <widget class="Gtk.Button" id="buttonCancel">
+            <property name="MemberName" />
+            <property name="CanDefault">True</property>
+            <property name="CanFocus">True</property>
+            <property name="UseStock">True</property>
+            <property name="Type">StockItem</property>
+            <property name="StockId">gtk-cancel</property>
+            <property name="ResponseId">-6</property>
+            <property name="label">gtk-cancel</property>
+          </widget>
+          <packing>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="buttonOk">
+            <property name="MemberName" />
+            <property name="CanDefault">True</property>
+            <property name="CanFocus">True</property>
+            <property name="UseStock">True</property>
+            <property name="Type">StockItem</property>
+            <property name="StockId">gtk-ok</property>
+            <property name="ResponseId">-5</property>
+            <signal name="Clicked" handler="OnButtonOkClicked" />
+            <property name="label">gtk-ok</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.EditCatalogRecord" design-size="381 224">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Name</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="nameEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label2">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Notes</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TextView" id="notesEntry">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="Text" translatable="yes" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="parentNameLabel">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Parent name</property>
+          </widget>
+          <packing>
+            <property name="Position">4</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="parentValueLabel">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Parent value</property>
+          </widget>
+          <packing>
+            <property name="Position">5</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
         </child>
       </widget>
     </child>

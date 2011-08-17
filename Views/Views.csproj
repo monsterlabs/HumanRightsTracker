@@ -101,6 +101,10 @@
     <Compile Include="gtk-gui\Views.ActDetailWindow.cs" />
     <Compile Include="Widgets\EditableLabel.cs" />
     <Compile Include="gtk-gui\Views.EditableLabel.cs" />
+    <Compile Include="Windows\EditCatalogDialog.cs" />
+    <Compile Include="gtk-gui\Views.EditCatalogDialog.cs" />
+    <Compile Include="Widgets\EditCatalogRecord.cs" />
+    <Compile Include="gtk-gui\Views.EditCatalogRecord.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

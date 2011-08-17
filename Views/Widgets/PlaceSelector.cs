@@ -50,6 +50,7 @@ namespace Views
                 city.Visible = value;
 
                 Country cnty = country.Active as Country;
+                country.IsEditable = isEditable;
                 if (cnty != null) {
                     country_label.Text = cnty.Name;
                     country_label.Visible = !value;
