@@ -3,8 +3,8 @@ class CreatePersonDetails < ActiveRecord::Migration
     create_table :person_details do |t|
       t.references :person
       t.integer :number_of_sons
-      t.references :ethnic_group, :religion, :scholarity_level
-      t.string :indigenous_group, :most_recent_job
+      t.references :ethnic_group, :religion, :scholarity_level, :job
+      t.string :indigenous_group
     end
   end
 
