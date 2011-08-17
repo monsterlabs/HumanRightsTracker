@@ -20,6 +20,9 @@ namespace HumanRightsTracker.Models
         [ValidateIsUnique]
         public String Name { get; set; }
 
+        [Property("affected_persons")]
+        public int AffectedPeople { get; set; }
+
         [Property]
         [ValidateNonEmpty]
         public DateTime start_date { get; set; }

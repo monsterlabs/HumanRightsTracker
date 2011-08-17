@@ -12,12 +12,14 @@ namespace Views
         Object[] collection;
         Type t;
         bool isEditable;
+        bool hideAddButton;
 
         public event EventHandler Changed;
 
         public CatalogSelector ()
         {
             this.Build ();
+            this.hideAddButton = false;
         }
 
         public String Model {
@@ -80,6 +82,7 @@ namespace Views
                 combobox.Visible = value;
                 text.Visible = !value;
                 text.Text = combobox.ActiveText;
+                addButton.Visible = (!this.hideAddButton && isEditable);
             }
         }
 
@@ -101,6 +104,20 @@ namespace Views
                 String name = nameMethod.Invoke (o, null) as String;
                 combobox.AppendText (name);
             }
+        }
+
+        public bool HideAddButton {
+            get {
+                return this.hideAddButton;
+            }
+            set {
+                this.hideAddButton = value;
+            }
+        }
+
+        protected void OnAddButtonClicked (object sender, System.EventArgs e)
+        {
+            new EditCatalogDialog (model);
         }
     }
 }
