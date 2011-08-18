@@ -46,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Castle\Castle.ActiveRecord.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Components.Validator, Version=2.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -109,6 +113,8 @@
     <Compile Include="gtk-gui\Views.EditCatalogDialog.cs" />
     <Compile Include="Widgets\EditCatalogRecord.cs" />
     <Compile Include="gtk-gui\Views.EditCatalogRecord.cs" />
+    <Compile Include="Windows\EditCatalogWindow.cs" />
+    <Compile Include="gtk-gui\Views.EditCatalogWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
