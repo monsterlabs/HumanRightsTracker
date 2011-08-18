@@ -120,14 +120,14 @@ namespace Views
 
         protected void OnAddButtonClicked (object sender, System.EventArgs e)
         {
-            ActiveRecordValidationBase record = Activator.CreateInstance(t) as ActiveRecordValidationBase;
-            new EditCatalogWindow(model, record, OnNewRecordReturned, (Gtk.Window)this.Toplevel);
+            object record = Activator.CreateInstance(t);
+            new EditCatalogWindow(model, record, mod, OnNewRecordReturned, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnNewRecordReturned (object sender, EventArgs args)
         {
-            ActiveRecordValidationBase record = sender as ActiveRecordValidationBase;
-            return;
+           // object record = sender;
+           return;
         }
 
     }

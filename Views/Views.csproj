@@ -109,8 +109,6 @@
     <Compile Include="gtk-gui\Views.ActDetailWindow.cs" />
     <Compile Include="Widgets\EditableLabel.cs" />
     <Compile Include="gtk-gui\Views.EditableLabel.cs" />
-    <Compile Include="Windows\EditCatalogDialog.cs" />
-    <Compile Include="gtk-gui\Views.EditCatalogDialog.cs" />
     <Compile Include="Widgets\EditCatalogRecord.cs" />
     <Compile Include="gtk-gui\Views.EditCatalogRecord.cs" />
     <Compile Include="Windows\EditCatalogWindow.cs" />

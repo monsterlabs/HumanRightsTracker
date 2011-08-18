@@ -10,11 +10,35 @@ namespace Views
             this.Build ();
         }
 
-        public void SetRecord()
-        {
-            nameEntry.Text = "test";
+        public string NameEntry {
+            set {
+                nameEntry.Text = value;
+            }
+
+            get {
+                return nameEntry.Text;
+            }
         }
 
+        public string NotesEntry {
+            set {
+                notesEntry.Buffer.Text = value;
+            }
+
+            get {
+                return notesEntry.Buffer.Text;
+            }
+        }
+
+        public void HideNotesEntry () {
+            notesEntry.Hide ();
+            notesLabel.Hide ();
+        }
+
+        public void HideParentEntry () {
+            parentNameLabel.Hide ();
+            parentValueLabel.Hide ();
+        }
     }
 }
 
