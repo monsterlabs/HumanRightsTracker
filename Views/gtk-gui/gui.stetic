@@ -273,7 +273,7 @@ Female</property>
                   </widget>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="GtkLabel4">
+                  <widget class="Gtk.Label" id="GtkLabel6">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">&lt;b&gt;General Information&lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>
@@ -294,7 +294,7 @@ Female</property>
                 <property name="ShadowType">In</property>
                 <property name="LabelXalign">0.01</property>
                 <child>
-                  <widget class="Gtk.Alignment" id="GtkAlignment1">
+                  <widget class="Gtk.Alignment" id="GtkAlignment3">
                     <property name="MemberName" />
                     <property name="Xalign">0</property>
                     <property name="Yalign">0</property>
@@ -376,7 +376,7 @@ Female</property>
                   </widget>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="GtkLabel5">
+                  <widget class="Gtk.Label" id="GtkLabel9">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">&lt;b&gt;Birth Place&lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>
@@ -396,7 +396,7 @@ Female</property>
                 <property name="MemberName" />
                 <property name="ShadowType">In</property>
                 <child>
-                  <widget class="Gtk.Alignment" id="GtkAlignment2">
+                  <widget class="Gtk.Alignment" id="GtkAlignment6">
                     <property name="MemberName" />
                     <property name="Xalign">0</property>
                     <property name="Yalign">0</property>
@@ -625,10 +625,12 @@ No</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Views.EditableLabel" id="most_recent_job">
+                          <widget class="Views.CatalogSelector" id="most_recent_job">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="Model">Job</property>
                             <property name="IsEditable">False</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
@@ -717,7 +719,7 @@ No</property>
                   </widget>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="GtkLabel10">
+                  <widget class="Gtk.Label" id="GtkLabel15">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">&lt;b&gt;Details&lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>
@@ -3395,7 +3397,6 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">radiobutton2</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>

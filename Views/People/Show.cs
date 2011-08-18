@@ -43,7 +43,6 @@ namespace Views.People
                         number_of_sons.Text = person_detail.NumberOfSons.ToString();
                         religion.Active = person_detail.Religion;
                         scholarity_level.Active = person_detail.ScholarityLevel;
-                        most_recent_job.Text = person_detail.MostRecentJob == null ? "" : person_detail.MostRecentJob;
                         ethnic_group.Active = person_detail.EthnicGroup as EthnicGroup;
                         indigenous_group.Text = person_detail.IndigenousGroup == null ? "" : person_detail.IndigenousGroup;
                         is_spanish_speaker.Activate = person_detail.IsSpanishSpeaker;
@@ -97,7 +96,6 @@ namespace Views.People
         {
             person_detail.NumberOfSons = int.Parse(number_of_sons.Text);
             person_detail.ScholarityLevel = scholarity_level.Active as ScholarityLevel;
-            person_detail.MostRecentJob = most_recent_job.Text;
             person_detail.Religion = religion.Active as Religion;
             person_detail.EthnicGroup = ethnic_group.Active as EthnicGroup;
             person_detail.IndigenousGroup = indigenous_group.Text;

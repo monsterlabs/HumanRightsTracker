@@ -5,8 +5,8 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("institution_categories")]
-    public class InstitutionCategory : ActiveRecordValidationBase<InstitutionCategory>
+    [ActiveRecord("jobs")]
+    public class Job : ActiveRecordValidationBase<Job>
     {
 
         [PrimaryKey]
