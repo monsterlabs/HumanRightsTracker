@@ -15,10 +15,6 @@ namespace HumanRightsTracker.Models
         [Property("number_of_sons")]
         public int NumberOfSons { get; set; }
 
-
-        [Property("most_recent_job")]
-        public String MostRecentJob { get; set; }
-
         [Property("is_spanish_speaker")]
         public Boolean IsSpanishSpeaker { get; set; }
 
@@ -37,6 +33,9 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("person_id")]
         public Person Person { get; set; }
+
+        [BelongsTo("job_id")]
+        public Job MostRecentJob {get; set;}
 
     }
 }
