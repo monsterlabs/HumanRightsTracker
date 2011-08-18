@@ -11,7 +11,8 @@ namespace Views
     public partial class CatalogSelector : Gtk.Bin
     {
         String model;
-        Object[] collection;
+        ActiveRecordModel mod;
+        Array collection;
         Type t;
         bool isEditable;
         bool hideAddButton;
@@ -30,8 +31,8 @@ namespace Views
                 model = value;
                 Assembly asm = Assembly.Load ("Models");
                 t = asm.GetType ("HumanRightsTracker.Models." + model);
-                MethodInfo method = t.GetMethod ("FindAll", BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(Order), typeof(ICriterion[]) }, null);
-                Object[] options = (Object[])method.Invoke (null, new Object[] { new Order("Name", true), new ICriterion[0] });
+                mod = ActiveRecordModel.GetModel(t);
+                Array options = ActiveRecordMetaBase.All(t, new Order("Name", true));
                 DeleteAndSetOptions (options);
             }
         }
@@ -47,7 +48,7 @@ namespace Views
             {
                 if (combobox.Active < 0)
                     return null;
-                return collection[combobox.Active];
+                return collection.GetValue(combobox.Active);
             }
             set
             {
@@ -90,20 +91,20 @@ namespace Views
 
         public void FilterBy (ICriterion[] criteria)
         {
-            Assembly asm = Assembly.Load ("Models");
-            t = asm.GetType ("HumanRightsTracker.Models." + model);
-            MethodInfo method = t.GetMethod ("FindAll", BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(Order), typeof(ICriterion[]) }, null);
-            Object[] options = (Object[])method.Invoke (null, new Object[] { new Order("Name", true), criteria });
-            DeleteAndSetOptions (options);
+            if (t != null)
+            {
+                Array options = ActiveRecordMetaBase.Where(t, criteria, new Order("Name", true));
+                DeleteAndSetOptions (options);
+            }
         }
 
-        private void DeleteAndSetOptions (Object[] options)
+        private void DeleteAndSetOptions (Array options)
         {
             collection = options;
             ((Gtk.ListStore)combobox.Model).Clear ();
-            MethodInfo nameMethod = t.GetMethod ("get_Name");
+            PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
             foreach (Object o in collection) {
-                String name = nameMethod.Invoke (o, null) as String;
+                String name = nameProp.GetValue(o, null) as String;
                 combobox.AppendText (name);
             }
         }

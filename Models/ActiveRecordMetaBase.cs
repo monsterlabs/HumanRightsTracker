@@ -4,9 +4,9 @@ using NHibernate.Criterion;
 
 namespace HumanRightsTracker.Models
 {
-    public class ActiveRecordFindBase : ActiveRecordBase
+    public class ActiveRecordMetaBase : ActiveRecordBase
     {
-        public ActiveRecordFindBase ()
+        public ActiveRecordMetaBase ()
         {
         }
 

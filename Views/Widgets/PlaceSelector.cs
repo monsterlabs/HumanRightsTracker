@@ -18,6 +18,14 @@ namespace Views
         {
             if (country.Active != null)
                 state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) });
+            else
+                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", 0)});
+        }
+
+        protected void OnStateChanged (object sender, System.EventArgs e)
+        {
+            if (state.Active != null)
+                city.FilterBy (new ICriterion[] { Restrictions.Eq ("StateId", ((State)state.Active).Id) });
         }
 
         public void SetPlace(Country theCountry, State theState, City theCity)
@@ -88,7 +96,6 @@ namespace Views
 
             return name;
         }
-
     }
 }
 

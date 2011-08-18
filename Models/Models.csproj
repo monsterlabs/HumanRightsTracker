@@ -77,6 +77,7 @@
     <Compile Include="Intervention.cs" />
     <Compile Include="Catalogs\HumanRightsViolationCategory.cs" />
     <Compile Include="Catalogs\Job.cs" />
+    <Compile Include="ActiveRecordMetaBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -785,7 +785,7 @@ No</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PlaceSelector" design-size="294 87">
+  <widget class="Gtk.Bin" id="Views.PlaceSelector" design-size="681 87">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -851,6 +851,7 @@ No</property>
                     <property name="Model">State</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
+                    <signal name="Changed" handler="OnStateChanged" />
                   </widget>
                 </child>
               </widget>
