@@ -132,7 +132,7 @@ task :seeds => :environment do
   end
 
   Job.destroy_all
-  CSV.foreach("seeds/jobs.csv") do |row|
+  CSV.foreach("seeds/jobs.csv", :col_sep => "|") do |row|
     Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
 
