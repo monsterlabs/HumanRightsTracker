@@ -2,6 +2,8 @@ using System;
 using System.Reflection;
 using HumanRightsTracker.Models;
 using NHibernate.Criterion;
+using Castle.ActiveRecord;
+using Castle.ActiveRecord.Framework.Internal;
 
 namespace Views
 {
@@ -28,8 +30,8 @@ namespace Views
                 model = value;
                 Assembly asm = Assembly.Load ("Models");
                 t = asm.GetType ("HumanRightsTracker.Models." + model);
-                MethodInfo method = t.GetMethod ("FindAll", BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public, null, new Type[0], null);
-                Object[] options = (Object[])method.Invoke (null, null);
+                MethodInfo method = t.GetMethod ("FindAll", BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(Order), typeof(ICriterion[]) }, null);
+                Object[] options = (Object[])method.Invoke (null, new Object[] { new Order("Name", true), new ICriterion[0] });
                 DeleteAndSetOptions (options);
             }
         }
@@ -90,8 +92,8 @@ namespace Views
         {
             Assembly asm = Assembly.Load ("Models");
             t = asm.GetType ("HumanRightsTracker.Models." + model);
-            MethodInfo method = t.GetMethod ("FindAll", BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(ICriterion[]) }, null);
-            Object[] options = (Object[])method.Invoke (null, new Object[] { criteria });
+            MethodInfo method = t.GetMethod ("FindAll", BindingFlags.FlattenHierarchy | BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(Order), typeof(ICriterion[]) }, null);
+            Object[] options = (Object[])method.Invoke (null, new Object[] { new Order("Name", true), criteria });
             DeleteAndSetOptions (options);
         }
 
