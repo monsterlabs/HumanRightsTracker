@@ -991,8 +991,9 @@ No</property>
               <widget class="Gtk.ComboBoxEntry" id="combobox">
                 <property name="MemberName" />
                 <property name="IsTextCombo">True</property>
-                <property name="Items" translatable="yes" />
+                <property name="Items" translatable="yes">Select</property>
                 <signal name="Changed" handler="onChanged" />
+                <signal name="FocusChildSet" handler="OnFocusChildSet" />
               </widget>
             </child>
           </widget>

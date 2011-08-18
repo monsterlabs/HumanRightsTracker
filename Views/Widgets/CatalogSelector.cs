@@ -23,6 +23,11 @@ namespace Views
         {
             this.Build ();
             this.hideAddButton = false;
+            combobox.Entry.Completion = new Gtk.EntryCompletion();
+            combobox.Entry.Completion.Model = combobox.Model;
+            combobox.Entry.Completion.TextColumn = 0;
+            combobox.Entry.Completion.InlineCompletion = false;
+            combobox.Entry.Completion.MatchSelected += OnMatchSelected;
         }
 
         public String Model {
@@ -32,13 +37,36 @@ namespace Views
                 Assembly asm = Assembly.Load ("Models");
                 t = asm.GetType ("HumanRightsTracker.Models." + model);
                 mod = ActiveRecordModel.GetModel(t);
-                Array options = ActiveRecordMetaBase.All(t, new Order("Name", true));
-                DeleteAndSetOptions (options);
+            }
+        }
+
+        [GLib.ConnectBefore]
+        private void OnMatchSelected (object sender, Gtk.MatchSelectedArgs args)
+        {
+            String name = args.Model.GetValue (args.Iter, 0) as String;
+            PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
+            int i = 0;
+            foreach (Object o in collection)
+            {
+                String oName = nameProp.GetValue(o, null) as String;
+                if (oName == name)
+                {
+                    combobox.Active = i;
+                    break;
+                }
+                ++i;
             }
         }
 
         protected virtual void onChanged (object sender, System.EventArgs e)
         {
+            if (combobox.Active < 0)
+            {
+                // TODO: check if entrycompletion model has available options
+                //       if not, delete the text.
+                //combobox.Entry.Text = "";
+                return;
+            }
             if (Changed != null)
                 Changed (this, e);
         }
@@ -130,6 +158,19 @@ namespace Views
            return;
         }
 
+        protected void OnFocusChildSet (object o, Gtk.FocusChildSetArgs args)
+        {
+            if (collection == null)
+            {
+                Array options = ActiveRecordMetaBase.All(t, new Order("Name", true));
+                DeleteAndSetOptions (options);
+            }
+        }
+
+        protected void OnEditingDone (object sender, System.EventArgs e)
+        {
+            Console.WriteLine("EditingDone");
+        }
     }
 }
 
