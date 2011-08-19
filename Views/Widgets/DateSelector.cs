@@ -7,6 +7,8 @@ namespace Views
         DateTime currentDate;
         bool isEditable;
 
+        public event EventHandler Changed;
+
         public DateSelector ()
         {
             this.Build ();
@@ -18,6 +20,8 @@ namespace Views
                 if (value.Year > 1) {
                     currentDate = value;
                     dateEntry.Text = value.ToLongDateString ();
+                } else {
+                    dateEntry.Text = "";
                 }
             }
         }
@@ -28,12 +32,21 @@ namespace Views
             this.ParentWindow.GetPosition (out x, out y);
             x += this.Allocation.Left;
             y += this.Allocation.Top + this.Allocation.Height;
-            new DateSelectorWindow (x, y, currentDate, OnPopupDateChanged);
+            DateTime selectedDate = currentDate;
+
+            if (currentDate.Year == 1)
+            {
+                selectedDate = new DateTime(1975, 1, 1);
+            }
+
+            new DateSelectorWindow (x, y, selectedDate, OnPopupDateChanged);
         }
 
         private void OnPopupDateChanged (object sender, DateEventArgs args)
         {
             CurrentDate = args.Date;
+            if (Changed != null)
+                Changed(args.Date, args);
         }
 
         public bool IsEditable {

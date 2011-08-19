@@ -7,7 +7,7 @@
   <import>
     <widget-library name="../bin/Debug/Views.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="Views.People.Show" design-size="699 728">
+  <widget class="Gtk.Bin" id="Views.People.Show" design-size="829 728">
     <property name="MemberName" />
     <child>
       <widget class="Gtk.VBox" id="vbox2">
@@ -48,10 +48,26 @@
                         <property name="ColumnSpacing">6</property>
                         <property name="BorderWidth">5</property>
                         <child>
-                          <placeholder />
-                        </child>
-                        <child>
-                          <placeholder />
+                          <widget class="Views.EditableLabel" id="age">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                            <property name="IsEditable">False</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">5</property>
+                            <property name="BottomAttach">6</property>
+                            <property name="LeftAttach">1</property>
+                            <property name="RightAttach">2</property>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
                         </child>
                         <child>
                           <widget class="Views.DateSelector" id="birthday">
@@ -59,6 +75,7 @@
                             <property name="Events">ButtonPressMask</property>
                             <property name="CurrentDate">0</property>
                             <property name="IsEditable">False</property>
+                            <signal name="Changed" handler="OnBirthdayChanged" />
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
@@ -156,6 +173,28 @@ Female</property>
                             <property name="LabelProp" translatable="yes">Lastname</property>
                           </widget>
                           <packing>
+                            <property name="AutoSize">True</property>
+                            <property name="XOptions">Fill</property>
+                            <property name="YOptions">Fill</property>
+                            <property name="XExpand">False</property>
+                            <property name="XFill">True</property>
+                            <property name="XShrink">False</property>
+                            <property name="YExpand">False</property>
+                            <property name="YFill">True</property>
+                            <property name="YShrink">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="label20">
+                            <property name="MemberName" />
+                            <property name="Xalign">0</property>
+                            <property name="LabelProp" translatable="yes">Age</property>
+                          </widget>
+                          <packing>
+                            <property name="TopAttach">4</property>
+                            <property name="BottomAttach">5</property>
+                            <property name="LeftAttach">1</property>
+                            <property name="RightAttach">2</property>
                             <property name="AutoSize">True</property>
                             <property name="XOptions">Fill</property>
                             <property name="YOptions">Fill</property>
@@ -719,7 +758,7 @@ No</property>
                   </widget>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="GtkLabel15">
+                  <widget class="Gtk.Label" id="GtkLabel16">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">&lt;b&gt;Details&lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>

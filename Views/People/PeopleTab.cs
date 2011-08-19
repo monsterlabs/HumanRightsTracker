@@ -28,7 +28,6 @@ namespace Views
         protected void onAdd (object sender, System.EventArgs e)
         {
             Person p = new Person();
-            p.Birthday = new DateTime (1980, 1, 1);
             peoplelist.UnselectAll();
             show.Person = p;
             show.IsEditing = true;
