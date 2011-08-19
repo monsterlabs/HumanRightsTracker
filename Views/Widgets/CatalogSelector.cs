@@ -25,6 +25,7 @@ namespace Views
         {
             this.Build ();
             this.hideAddButton = false;
+            this.parent_id = 0;
             combobox.Entry.Completion = new Gtk.EntryCompletion();
             combobox.Entry.Completion.Model = combobox.Model;
             combobox.Entry.Completion.TextColumn = 0;
@@ -155,8 +156,8 @@ namespace Views
         {
             object record = Activator.CreateInstance(t);
 
-            if ((mod.PropertyDictionary.Keys.Contains("ParentId")) && (this.parent_id != 0)) {
-                PropertyInfo parentIdProp =  mod.PropertyDictionary["ParentId"].Property;
+            if (this.parent_id != 0) {
+                PropertyInfo parentIdProp = record.GetType().GetProperty("ParentId");
                 parentIdProp.SetValue (record, this.parent_id, null);
             }
 

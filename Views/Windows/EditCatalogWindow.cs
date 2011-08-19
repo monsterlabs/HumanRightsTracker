@@ -28,16 +28,17 @@ namespace Views
             if (!mod.PropertyDictionary.Keys.Contains("Notes"))
                 editRecord.HideNotesEntry ();
 
-            if (mod.PropertyDictionary.Keys.Contains("ParentId")) {
-                PropertyInfo parentNameProp =  mod.PropertyDictionary["ParentName"].Property;
-                editRecord.ParentValue = parentNameProp.GetValue(record, null) as String;
-                PropertyInfo parentModelProp =  mod.PropertyDictionary["ParentModel"].Property;
-                editRecord.ParentName = parentModelProp.GetValue(record, null) as String;
+            PropertyInfo p = record.GetType().GetProperty("ParentId");
+            if (p != null) {
+               MethodInfo modelMethod = record.GetType().GetMethod("ParentModel");
+               editRecord.ParentName = modelMethod.Invoke (record, null) as String;
 
+               MethodInfo nameMethod = record.GetType().GetMethod("ParentName");
+               editRecord.ParentValue = nameMethod.Invoke (record, null) as String;
 
-            } else {
-                editRecord.HideParentEntry ();
-            }
+           } else {
+               editRecord.HideParentEntry ();
+           }
         }
 
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
