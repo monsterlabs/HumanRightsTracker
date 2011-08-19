@@ -112,6 +112,7 @@
     </None>
     <None Include="db\human_rights_tracker.sqlite3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Gettext-ScanForTranslations>false</Gettext-ScanForTranslations>
     </None>
   </ItemGroup>
   <ItemGroup>

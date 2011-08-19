@@ -109,7 +109,14 @@ namespace Views.People
 
             person.Lastname = lastname.Text;
             person.Firstname = firstname.Text;
-            person.Birthday = birthday.CurrentDate;
+            if (birthday.CurrentDate.Year == 1)
+            {
+                person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(Convert.ToInt32(age.Text)*365, 0, 0, 0)).Year, 1, 1);
+            } else
+            {
+                person.Birthday = birthday.CurrentDate;
+            }
+
             person.Country = birthplace.Country;
             person.MaritalStatus = marital_status.Active as MaritalStatus;
             person.Gender = gender.Value ();
@@ -141,6 +148,12 @@ namespace Views.People
                 new ValidationErrorsDialog (person.PropertiesValidationErrorMessages);
             }
 
+        }
+
+        protected void OnBirthdayChanged (object sender, System.EventArgs e)
+        {
+            DateTime selectedBD = (DateTime)sender;
+            age.Text = "" + DateTime.Now.Subtract(selectedBD).Days/365;
         }
     }
 }

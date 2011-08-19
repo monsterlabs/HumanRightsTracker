@@ -70,6 +70,12 @@ namespace Views
                 //combobox.Entry.Text = "";
                 return;
             }
+            if (mod.PropertyDictionary.ContainsKey("Notes"))
+            {
+                PropertyInfo notesProp = mod.PropertyDictionary["Notes"].Property;
+                combobox.TooltipText = notesProp.GetValue(collection.GetValue(combobox.Active), null) as String;
+            }
+
             if (Changed != null)
                 Changed (this, e);
         }
@@ -85,6 +91,7 @@ namespace Views
             {
                 if (value == null)
                 {
+                    combobox.Entry.Text = "";
                     combobox.Active = -1;
                     return;
                 }
@@ -126,6 +133,10 @@ namespace Views
             {
                 Array options = ActiveRecordMetaBase.Where(t, criteria, new Order("Name", true));
                 DeleteAndSetOptions (options);
+                if (collection.Length == 0)
+                {
+                    this.Sensitive = false;
+                }
             }
 
             if (parent_id != 0)
