@@ -252,7 +252,7 @@ Female</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">MaritalStatus</property>
                             <property name="IsEditable">False</property>
-                            <property name="HideAddButton">True</property>
+                            <property name="HideAddButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">5</property>
@@ -815,7 +815,7 @@ No</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">Country</property>
                     <property name="IsEditable">False</property>
-                    <property name="HideAddButton">True</property>
+                    <property name="HideAddButton">False</property>
                     <signal name="Changed" handler="onCountryChanged" />
                   </widget>
                 </child>

@@ -12,20 +12,34 @@ namespace Views
         public PlaceSelector ()
         {
             this.Build ();
+            state.Sensitive = false;
+            city.Sensitive = false;
         }
 
         protected virtual void onCountryChanged (object sender, System.EventArgs e)
         {
+            city.Active = null;
+            city.Sensitive = false;
+            state.Active = null;
+            state.Sensitive = false;
+
             if (country.Active != null)
+            {
+                state.Sensitive = true;
                 state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) });
-            else
-                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", 0)});
+            }
         }
 
         protected void OnStateChanged (object sender, System.EventArgs e)
         {
+            city.Active = null;
+            city.Sensitive = false;
+
             if (state.Active != null)
+            {
+                city.Sensitive = true;
                 city.FilterBy (new ICriterion[] { Restrictions.Eq ("StateId", ((State)state.Active).Id) });
+            }
         }
 
         public void SetPlace(Country theCountry, State theState, City theCity)

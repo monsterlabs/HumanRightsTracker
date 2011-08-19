@@ -82,6 +82,7 @@ namespace Views
             {
                 if (value == null)
                 {
+                    combobox.Entry.Text = "";
                     combobox.Active = -1;
                     return;
                 }
@@ -123,6 +124,10 @@ namespace Views
             {
                 Array options = ActiveRecordMetaBase.Where(t, criteria, new Order("Name", true));
                 DeleteAndSetOptions (options);
+                if (collection.Length == 0)
+                {
+                    this.Sensitive = false;
+                }
             }
         }
 
