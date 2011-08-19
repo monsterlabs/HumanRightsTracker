@@ -67,7 +67,7 @@ namespace Views
                 //combobox.Entry.Text = "";
                 return;
             }
-            if (mod.PropertyDictionary["Notes"] != null)
+            if (mod.PropertyDictionary.ContainsKey("Notes"))
             {
                 PropertyInfo notesProp = mod.PropertyDictionary["Notes"].Property;
                 combobox.TooltipText = notesProp.GetValue(collection.GetValue(combobox.Active), null) as String;
