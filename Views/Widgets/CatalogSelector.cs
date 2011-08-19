@@ -17,6 +17,8 @@ namespace Views
         bool isEditable;
         bool hideAddButton;
 
+        int parent_id;
+
         public event EventHandler Changed;
 
         public CatalogSelector ()
@@ -117,13 +119,16 @@ namespace Views
             }
         }
 
-        public void FilterBy (ICriterion[] criteria)
+        public void FilterBy (ICriterion[] criteria, int parent_id)
         {
             if (t != null)
             {
                 Array options = ActiveRecordMetaBase.Where(t, criteria, new Order("Name", true));
                 DeleteAndSetOptions (options);
             }
+
+            if (parent_id != 0)
+                this.parent_id = parent_id;
         }
 
         private void DeleteAndSetOptions (Array options)
@@ -149,6 +154,12 @@ namespace Views
         protected void OnAddButtonClicked (object sender, System.EventArgs e)
         {
             object record = Activator.CreateInstance(t);
+
+            if ((mod.PropertyDictionary.Keys.Contains("ParentId")) && (this.parent_id != 0)) {
+                PropertyInfo parentIdProp =  mod.PropertyDictionary["ParentId"].Property;
+                parentIdProp.SetValue (record, this.parent_id, null);
+            }
+
             new EditCatalogWindow(model, record, mod, OnNewRecordReturned, (Gtk.Window)this.Toplevel);
         }
 

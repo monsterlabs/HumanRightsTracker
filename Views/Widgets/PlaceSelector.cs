@@ -17,15 +17,15 @@ namespace Views
         protected virtual void onCountryChanged (object sender, System.EventArgs e)
         {
             if (country.Active != null)
-                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) });
+                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) }, ((Country)country.Active).Id);
             else
-                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", 0)});
+                state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", 0)}, 0);
         }
 
         protected void OnStateChanged (object sender, System.EventArgs e)
         {
             if (state.Active != null)
-                city.FilterBy (new ICriterion[] { Restrictions.Eq ("StateId", ((State)state.Active).Id) });
+                city.FilterBy (new ICriterion[] { Restrictions.Eq ("StateId", ((State)state.Active).Id) }, ((State)state.Active).Id);
         }
 
         public void SetPlace(Country theCountry, State theState, City theCity)

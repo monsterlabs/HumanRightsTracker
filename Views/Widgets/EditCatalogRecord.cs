@@ -30,6 +30,27 @@ namespace Views
             }
         }
 
+
+        public string ParentName {
+            set {
+                parentNameLabel.Text = value;
+            }
+
+            get {
+                return parentNameLabel.Text;
+            }
+        }
+
+        public string ParentValue {
+            set {
+                parentValueLabel.Text = value;
+            }
+
+            get {
+                return parentValueLabel.Text;
+            }
+        }
+
         public void HideNotesEntry () {
             notesEntry.Hide ();
             notesLabel.Hide ();

@@ -25,13 +25,19 @@ namespace Views
             this.OnRecordSaved = OnSaveButtonClicked;
             this.TransientFor = parent;
             modelLabel.Text = model;
-            if (!mod.PropertyDictionary.Keys.Contains("Notes")) {
+            if (!mod.PropertyDictionary.Keys.Contains("Notes"))
                 editRecord.HideNotesEntry ();
-            }
 
-            //if (!mod.PropertyDictionary.Keys.Contains(parent_id)) {
-              //  editRecord.HideParentEntry ();
-            //}
+            if (mod.PropertyDictionary.Keys.Contains("ParentId")) {
+                PropertyInfo parentNameProp =  mod.PropertyDictionary["ParentName"].Property;
+                editRecord.ParentValue = parentNameProp.GetValue(record, null) as String;
+                PropertyInfo parentModelProp =  mod.PropertyDictionary["ParentModel"].Property;
+                editRecord.ParentName = parentModelProp.GetValue(record, null) as String;
+
+
+            } else {
+                editRecord.HideParentEntry ();
+            }
         }
 
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
@@ -45,6 +51,7 @@ namespace Views
                 PropertyInfo notesProp =  mod.PropertyDictionary["Notes"].Property;
                 notesProp.SetValue (record, editRecord.NotesEntry, null);
             }
+
             record.Save ();
             this.Destroy ();
         }

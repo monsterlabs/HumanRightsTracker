@@ -19,6 +19,32 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public int StateId { get; set; }
 
+        [Property("state_id")]
+        public int ParentId {
+            get {
+                return this.StateId;
+            }
+            set {
+                this.StateId = value;
+            }
+        }
+
+        [Property("state_id")]
+        public string ParentName {
+            get {
+                return State.Find(this.StateId).Name;
+            }
+            protected set {}
+        }
+
+        [Property("state_id")]
+        public string ParentModel {
+            get {
+                return "State";
+            }
+            protected set {}
+        }
+
         [BelongsTo("state_id")]
         public State State { get; set; }
     }
