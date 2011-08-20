@@ -24,16 +24,11 @@ namespace Views
 
         public DateSelectorWindow (int x, int y, DateTime defDate, DateEventHandler handler) : base(Gtk.WindowType.Popup)
         {
-            this.Move (x, y);
             this.Build ();
+            this.Move (x, y);
+            this.WindowPosition = Gtk.WindowPosition.None;
             this.OnChange = handler;
-            
-            //TxtHour.Value  = defDate.Hour;
-            //TxtMin.Value   = defDate.Minute;
-            //TxtSec.Value   = defDate.Second;
             cal.Date = defDate;
-            
-            //RefreshClock();
         }
 
         public DateTime CurrentDate {
@@ -48,6 +43,11 @@ namespace Views
             if (OnChange != null)
                 OnChange (this, new DateEventArgs (CurrentDate));
             this.Destroy ();
+        }
+
+        protected void OnCancel (object sender, System.EventArgs e)
+        {
+            this.Destroy();
         }
     }
 }

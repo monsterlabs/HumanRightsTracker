@@ -29,9 +29,11 @@ namespace Views
         protected virtual void openSelector (object sender, System.EventArgs e)
         {
             int x, y;
-            this.ParentWindow.GetPosition (out x, out y);
-            x += this.Allocation.Left;
-            y += this.Allocation.Top + this.Allocation.Height;
+            this.Parent.TranslateCoordinates(this.Toplevel, this.Allocation.Left, this.Allocation.Bottom, out x, out y);
+
+            x += this.ParentWindow.FrameExtents.Left;
+            y += this.ParentWindow.FrameExtents.Top;
+
             DateTime selectedDate = currentDate;
 
             if (currentDate.Year == 1)
@@ -39,7 +41,9 @@ namespace Views
                 selectedDate = new DateTime(1975, 1, 1);
             }
 
-            new DateSelectorWindow (x, y, selectedDate, OnPopupDateChanged);
+            DateSelectorWindow selector = new DateSelectorWindow (x, y, selectedDate, OnPopupDateChanged);
+            selector.TransientFor = (Gtk.Window)this.Toplevel;
+            selector.Modal = true;
         }
 
         private void OnPopupDateChanged (object sender, DateEventArgs args)
