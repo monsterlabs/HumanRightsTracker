@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 
 namespace Views
 {
@@ -7,6 +8,7 @@ namespace Views
     {
         protected bool isEditable;
         protected String text_string;
+        protected bool onlyNumbers;
 
         public EditableLabel ()
         {
@@ -14,7 +16,15 @@ namespace Views
             this.isEditable = false;
             label.Visible = isEditable;
             entry.Visible = !isEditable;
+        }
 
+        void NumericEntryChanged (object sender, EventArgs e)
+        {
+            if (entry.Text.Length > 0 && !Regex.IsMatch(entry.Text, "^\\d+$"))
+            {
+                this.ErrorBell();
+                entry.Text = entry.Text.Substring(0, entry.Text.Length -1);
+            }
         }
 
         public int WidthChars {
@@ -29,6 +39,19 @@ namespace Views
         public int MaxLength {
             get { return entry.MaxLength; }
             set { entry.MaxLength = value; }
+        }
+
+        public bool OnlyNumbers {
+            set {
+                this.onlyNumbers = value;
+                if (value)
+                {
+                    entry.Changed += NumericEntryChanged;
+                }
+            }
+            get {
+                return this.onlyNumbers;
+            }
         }
 
         public bool IsEditable {
