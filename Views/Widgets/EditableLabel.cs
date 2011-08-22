@@ -16,6 +16,16 @@ namespace Views
             entry.Visible = !isEditable;
         }
 
+        public int WidthChars {
+            get { return entry.WidthChars; }
+            set { entry.WidthChars = value; }
+        }
+
+        public int MaxLength {
+            get { return entry.MaxLength; }
+            set { entry.MaxLength = value; }
+        }
+
         public bool IsEditable {
             set {
                 this.isEditable = value;
