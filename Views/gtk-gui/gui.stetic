@@ -51,6 +51,8 @@
                           <widget class="Views.EditableLabel" id="age">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="WidthChars">4</property>
+                            <property name="MaxLength">3</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
@@ -97,6 +99,8 @@
                           <widget class="Views.EditableLabel" id="firstname">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="WidthChars">0</property>
+                            <property name="MaxLength">0</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
@@ -270,6 +274,8 @@ Female</property>
                           <widget class="Views.EditableLabel" id="lastname">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="WidthChars">0</property>
+                            <property name="MaxLength">0</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
@@ -386,6 +392,8 @@ Female</property>
                               <widget class="Views.EditableLabel" id="settlement">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="WidthChars">0</property>
+                                <property name="MaxLength">0</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                               <packing>
@@ -480,6 +488,8 @@ Female</property>
                           <widget class="Views.EditableLabel" id="indigenous_group">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="WidthChars">0</property>
+                            <property name="MaxLength">0</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
@@ -691,12 +701,14 @@ No</property>
                           <widget class="Views.EditableLabel" id="number_of_sons">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="WidthChars">3</property>
+                            <property name="MaxLength">2</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
                             <property name="BottomAttach">2</property>
-                            <property name="AutoSize">True</property>
+                            <property name="AutoSize">False</property>
                             <property name="XOptions">Fill</property>
                             <property name="YOptions">Fill</property>
                             <property name="XExpand">False</property>

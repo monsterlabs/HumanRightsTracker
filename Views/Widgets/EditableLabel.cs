@@ -14,11 +14,16 @@ namespace Views
             this.isEditable = false;
             label.Visible = isEditable;
             entry.Visible = !isEditable;
+
         }
 
         public int WidthChars {
             get { return entry.WidthChars; }
-            set { entry.WidthChars = value; }
+            set
+            {
+                if (value > 0 )
+                    entry.WidthChars = value;
+            }
         }
 
         public int MaxLength {
