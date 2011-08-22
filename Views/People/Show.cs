@@ -27,6 +27,7 @@ namespace Views.People
                 if (person != null) {
                     lastname.Text = person.Lastname == null ? "" : person.Lastname;
                     firstname.Text = person.Firstname == null ? "" : person.Firstname;
+                    alias.Text = person.Alias == null ? "" : person.Alias;
                     birthday.CurrentDate = person.Birthday;
                     gender.Activate = person.Gender;
                     marital_status.Active = person.MaritalStatus;
@@ -76,6 +77,7 @@ namespace Views.People
                 // Person
                 lastname.IsEditable = value;
                 firstname.IsEditable = value;
+                alias.IsEditable = value;
                 settlement.IsEditable = value;
                 gender.IsEditable = value;
                 marital_status.IsEditable = value;
@@ -109,6 +111,7 @@ namespace Views.People
 
             person.Lastname = lastname.Text;
             person.Firstname = firstname.Text;
+            person.Alias = alias.Text;
             if (birthday.CurrentDate.Year == 1)
             {
                 person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(Convert.ToInt32(age.Text)*365, 0, 0, 0)).Year, 1, 1);
