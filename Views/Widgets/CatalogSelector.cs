@@ -99,6 +99,10 @@ namespace Views
                 MethodInfo nameMethod = t.GetMethod ("get_Name");
                 String name = nameMethod.Invoke (value, null) as String;
                 int i = 0;
+                if (collection == null)
+                {
+                    Populate();
+                }
                 foreach (Object o in collection)
                 {
                     String oName = nameMethod.Invoke (o, null) as String;
@@ -185,14 +189,19 @@ namespace Views
         {
             if (collection == null)
             {
-                Array options = ActiveRecordMetaBase.All(t, new Order("Name", true));
-                DeleteAndSetOptions (options);
+                Populate();
             }
         }
 
         protected void OnEditingDone (object sender, System.EventArgs e)
         {
             Console.WriteLine("EditingDone");
+        }
+
+        private void Populate()
+        {
+            Array options = ActiveRecordMetaBase.All(t, new Order("Name", true));
+            DeleteAndSetOptions (options);
         }
     }
 }
