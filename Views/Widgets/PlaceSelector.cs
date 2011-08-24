@@ -27,6 +27,7 @@ namespace Views
             {
                 state.Sensitive = true;
                 state.FilterBy (new ICriterion[] { Restrictions.Eq ("CountryId", ((Country)country.Active).Id) }, ((Country)country.Active).Id);
+                state.HideAddButton = (((Country)country.Active).Name == "México");
             }
         }
 

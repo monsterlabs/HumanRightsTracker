@@ -133,10 +133,7 @@ namespace Views
             {
                 Array options = ActiveRecordMetaBase.Where(t, criteria, new Order("Name", true));
                 DeleteAndSetOptions (options);
-                if (collection.Length == 0)
-                {
-                    this.Sensitive = false;
-                }
+                combobox.Sensitive = (collection.Length > 0);
             }
 
             if (parent_id != 0)
@@ -160,6 +157,7 @@ namespace Views
             }
             set {
                 this.hideAddButton = value;
+                addButton.Visible = !value;
             }
         }
 

@@ -63,9 +63,9 @@
                           <widget class="Views.EditableLabel" id="age">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="WidthChars">4</property>
-                            <property name="MaxLength">3</property>
-                            <property name="OnlyNumbers">True</property>
+                            <property name="WidthChars">0</property>
+                            <property name="MaxLength">0</property>
+                            <property name="OnlyNumbers">False</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
@@ -357,7 +357,7 @@ Female</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="Model">MaritalStatus</property>
                             <property name="IsEditable">False</property>
-                            <property name="HideAddButton">False</property>
+                            <property name="HideAddButton">True</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">5</property>
@@ -763,9 +763,9 @@ No</property>
                           <widget class="Views.EditableLabel" id="number_of_sons">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="WidthChars">3</property>
-                            <property name="MaxLength">2</property>
-                            <property name="OnlyNumbers">True</property>
+                            <property name="WidthChars">0</property>
+                            <property name="MaxLength">0</property>
+                            <property name="OnlyNumbers">False</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
@@ -929,7 +929,7 @@ No</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Model">Country</property>
                     <property name="IsEditable">False</property>
-                    <property name="HideAddButton">False</property>
+                    <property name="HideAddButton">True</property>
                     <signal name="Changed" handler="onCountryChanged" />
                   </widget>
                 </child>
