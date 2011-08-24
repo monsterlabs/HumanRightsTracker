@@ -23,7 +23,7 @@ namespace HumanRightsTracker.Models
         [Property("settlement")]
         public String Settlement { get; set; }
 
-        [Property("affected_people_numer")]
+        [Property("affected_people_number")]
         public int AffectedPeopleNumber { get; set; }
 
         [Property("summary")]
@@ -34,7 +34,7 @@ namespace HumanRightsTracker.Models
         public String Comments { get; set; }
         [Property("affiliation_group")]
         public String AffiliationGroup { get; set; }
-        [Property("VictimObservations")]
+        [Property("victim_observations")]
         public String VictimObservations { get; set; }
 
         [Property]

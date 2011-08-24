@@ -1476,40 +1476,52 @@ No</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="308 31">
+  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="478 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <widget class="Gtk.HBox" id="hbox5">
+      <widget class="Gtk.Fixed" id="fixed2">
         <property name="MemberName" />
-        <property name="Spacing">6</property>
+        <property name="HasWindow">False</property>
         <child>
-          <widget class="Views.CatalogSelector" id="dateType">
+          <widget class="Gtk.HBox" id="hbox5">
             <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="Model">DateType</property>
-            <property name="IsEditable">False</property>
-            <property name="HideAddButton">False</property>
-            <signal name="Changed" handler="OnChangeType" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Views.CatalogSelector" id="dateType">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="Model">DateType</property>
+                <property name="IsEditable">False</property>
+                <property name="HideAddButton">True</property>
+                <signal name="Changed" handler="OnChangeType" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Views.DetailedDateSelector" id="datefield">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="CurrentDate">0</property>
+                <property name="IsEditable">False</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
           </widget>
-          <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
         </child>
         <child>
-          <widget class="Views.DetailedDateSelector" id="datefield">
+          <widget class="Gtk.Label" id="label2">
             <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="CurrentDate">0</property>
-            <property name="IsEditable">False</property>
+            <property name="LabelProp" translatable="yes">label2</property>
           </widget>
-          <packing>
-            <property name="Position">1</property>
-            <property name="AutoSize">True</property>
-          </packing>
         </child>
       </widget>
     </child>
@@ -1958,6 +1970,7 @@ December</property>
                       <widget class="Views.DateTypeAndDateSelector" id="endDateSelector">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">3</property>
@@ -2076,6 +2089,7 @@ December</property>
                       <widget class="Views.DateTypeAndDateSelector" id="startDateSelector">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">2</property>
@@ -3068,6 +3082,7 @@ December</property>
                   <widget class="Views.DateTypeAndDateSelector" id="finalDate">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="IsEditable">False</property>
                   </widget>
                   <packing>
                     <property name="TopAttach">4</property>
@@ -3113,6 +3128,7 @@ December</property>
                   <widget class="Views.DateTypeAndDateSelector" id="initialDate">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="IsEditable">False</property>
                   </widget>
                   <packing>
                     <property name="TopAttach">3</property>
