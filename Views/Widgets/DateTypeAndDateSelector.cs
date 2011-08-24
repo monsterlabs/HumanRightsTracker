@@ -6,6 +6,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class DateTypeAndDateSelector : Gtk.Bin
     {
+        bool isEditable;
 
         public DateTypeAndDateSelector ()
         {
@@ -36,13 +37,27 @@ namespace Views
         }
 
         public void setDate (DateTime date) {
-            if (date != null)
+            if (date.Year > 1)
+            {
                 datefield.CurrentDate = date;
+                label2.Text = date.ToShortDateString ();
+            }
         }
 
         public void setDateType (DateType type) {
             if (type != null)
                 dateType.Active = type;
+        }
+
+        public bool IsEditable {
+            get {
+                return this.isEditable;
+            }
+            set {
+                isEditable = value;
+                hbox5.Visible = value;
+                label2.Visible = !value;
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Views
                 mycase = value;
                 if (mycase != null) {
                     nameEntry.Text = mycase.Name == null ? "" : mycase.Name;
+                    affectedPeople.Text = mycase.AffectedPeople.ToString();
                     startDateSelector.setDate(mycase.start_date);
                     startDateSelector.setDateType(mycase.StartDateType);
 
@@ -30,7 +31,7 @@ namespace Views
                     endDateSelector.setDateType(mycase.EndDateType);
                     actslist1.Case = value;
                 }
-                isEditing = false;
+                IsEditing = false;
             }
         }
 
@@ -47,9 +48,10 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                nameEntry.Visible = value;
-                startDateSelector.Visible = value;
-                endDateSelector.Visible = value;
+                nameEntry.IsEditable = value;
+                affectedPeople.IsEditable = value;
+                startDateSelector.IsEditable = value;
+                endDateSelector.IsEditable = value;
             }
         }
 
@@ -59,6 +61,7 @@ namespace Views
             mycase.Name = nameEntry.Text;
             mycase.start_date = startDateSelector.SelectedDate ();
             mycase.StartDateType = startDateSelector.SelectedDateType ();
+            mycase.AffectedPeople = System.Convert.ToInt32(affectedPeople.Text);
 
             mycase.end_date = endDateSelector.SelectedDate ();
             mycase.EndDateType = endDateSelector.SelectedDateType ();
@@ -85,7 +88,7 @@ namespace Views
 
         protected void OnToggleEdit (object sender, System.EventArgs e)
         {
-            isEditing = !isEditing;
+            IsEditing = !IsEditing;
         }
 
     }

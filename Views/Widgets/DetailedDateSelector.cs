@@ -8,6 +8,8 @@ namespace Views
         DateTime currentDate;
         bool isEditable;
 
+        public event EventHandler Changed;
+
         public DetailedDateSelector ()
         {
             this.Build ();
@@ -74,16 +76,25 @@ namespace Views
         protected void OnChangeDay (object sender, System.EventArgs e)
         {
             currentDate = new DateTime (currentDate.Year, currentDate.Month, Convert.ToInt32 (day.Text));
+            DispatchChanged (e);
         }
 
         protected void OnChangeMonth (object sender, System.EventArgs e)
         {
             currentDate = new DateTime (currentDate.Year, month.Active + 1, currentDate.Day);
+            DispatchChanged (e);
         }
 
         protected void OnChangeYear (object sender, System.EventArgs e)
         {
             currentDate = new DateTime (Convert.ToInt32 (year.Text), currentDate.Month, currentDate.Day);
+            DispatchChanged (e);
+        }
+
+        private void DispatchChanged (System.EventArgs e)
+        {
+            if (Changed != null)
+                Changed(this, e);
         }
     }
 }
