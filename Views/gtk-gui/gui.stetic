@@ -3735,7 +3735,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.ActDetailWindow" design-size="603 254">
+  <widget class="Gtk.Window" id="Views.ActDetailWindow" design-size="674 467">
     <property name="MemberName" />
     <property name="Title" translatable="yes">NewActWindow</property>
     <property name="WindowPosition">CenterOnParent</property>

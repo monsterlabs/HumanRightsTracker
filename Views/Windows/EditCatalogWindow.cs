@@ -24,7 +24,10 @@ namespace Views
             this.record = (ActiveRecordBase)record;
             this.OnRecordSaved = OnSaveButtonClicked;
             this.TransientFor = parent;
+            this.WindowPosition = Gtk.WindowPosition.CenterAlways;
+
             modelLabel.Text = model;
+
             if (!mod.PropertyDictionary.Keys.Contains("Notes"))
                 editRecord.HideNotesEntry ();
 
