@@ -34,6 +34,7 @@ namespace Views.People
                     birthplace.SetPlace(person.Country, person.State, person.City);
                     settlement.Text = person.Settlement == null ? "" : person.Settlement;
                     imageselector1.Image = person.Photo;
+                    age.Text = "" + DateTime.Now.Subtract(person.Birthday).Days/365;
 
                     if (person.PersonDetails.Count == 0) {
                         person_detail = new PersonDetail ();
@@ -84,6 +85,7 @@ namespace Views.People
                 birthday.IsEditable = value;
                 birthplace.IsEditable = value;
                 imageselector1.IsEditable = value;
+                age.IsEditable = value;
 
                 //Person Details
                 number_of_sons.IsEditable = value;
@@ -92,6 +94,7 @@ namespace Views.People
                 religion.IsEditable = value;
                 ethnic_group.IsEditable = value;
                 indigenous_group.IsEditable = value;
+                is_spanish_speaker.IsEditable = value;
             }
         }
 
