@@ -54,6 +54,7 @@ namespace Views
             }
 
             record.Save ();
+            OnRecordSaved(record, e);
             this.Destroy ();
         }
 

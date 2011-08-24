@@ -177,9 +177,18 @@ namespace Views
             new EditCatalogWindow(model, record, mod, OnNewRecordReturned, (Gtk.Window)this.Toplevel);
         }
 
-        protected void OnNewRecordReturned (object sender, EventArgs args)
+        protected void OnNewRecordReturned (object record, EventArgs args)
         {
-           // object record = sender;
+           if (record != null) {
+                if (this.parent_id == 0 ) {
+                    Populate();
+                } else {
+                    MethodInfo modelMethod = record.GetType().GetMethod("ParentModel");
+                    String parentName = modelMethod.Invoke (record, null) as String;
+                    FilterBy (new ICriterion[] { Restrictions.Eq ((parentName+"Id"), parent_id) }, parent_id);
+                }
+                Active = record;
+           }
            return;
         }
 
