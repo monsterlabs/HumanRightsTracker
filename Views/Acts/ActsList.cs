@@ -16,6 +16,7 @@ namespace Views
         {
             this.Build ();
             row.Destroy ();
+            acts = new List<Act>();
         }
 
         public List<Act> Acts
