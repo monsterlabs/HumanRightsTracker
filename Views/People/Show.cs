@@ -141,7 +141,7 @@ namespace Views.People
                 if (photo != null)
                 {
                     photo.ImageableId = person.Id;
-                    photo.ImageableType = "People";
+                    photo.ImageableType = "Person";
                     photo.Save ();
                 }
 

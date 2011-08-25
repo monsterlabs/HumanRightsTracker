@@ -66,7 +66,7 @@ namespace HumanRightsTracker.Models
             {
                 Image photo = Image.FindOne (new ICriterion[] { Restrictions.And (
                         Restrictions.Eq ("ImageableId", this.Id),
-                        Restrictions.Eq ("ImageableType", "People")
+                        Restrictions.Eq ("ImageableType", "Person")
                 )});
                 return photo;
             }

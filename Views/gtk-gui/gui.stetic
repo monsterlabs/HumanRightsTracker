@@ -681,7 +681,7 @@ No</property>
                           <widget class="Gtk.Label" id="label17">
                             <property name="MemberName" />
                             <property name="Xalign">0</property>
-                            <property name="LabelProp" translatable="yes">Scholarity Label</property>
+                            <property name="LabelProp" translatable="yes">Scholarity Level</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">2</property>
@@ -3591,6 +3591,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">radiobutton2</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
