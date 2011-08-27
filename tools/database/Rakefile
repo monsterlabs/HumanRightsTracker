@@ -136,10 +136,11 @@ task :seeds => :environment do
   CSV.foreach("seeds/jobs.csv", :col_sep => "|") do |row|
     Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
-  Person.destroy_all
-  PersonDetail.destroy_all
-  Image.destroy_all
-  require './seeds/blueprint'
+
+  %w(person).each do |blueprint|
+    require File.expand_path("../blueprints/#{blueprint}", __FILE__)
+  end
+
   Person.make!(25)
 end
 
