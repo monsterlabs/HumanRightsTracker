@@ -11,7 +11,7 @@ Bundler.require :default
    ethnic_group date_type institution_type human_rights_violation
    human_rights_violation_category role act_status affiliation_type
    intervention_type location_type victim_status institution_category
-   job person person_detail image
+   job person person_detail image institution
    ).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
@@ -137,11 +137,12 @@ task :seeds => :environment do
     Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
 
-  %w(person).each do |blueprint|
+  %w(person institution).each do |blueprint|
     require File.expand_path("../blueprints/#{blueprint}", __FILE__)
   end
 
-  Person.make!(25)
+  Person.make!(30)
+  Institution.make!(30)
 end
 
 task :environment do

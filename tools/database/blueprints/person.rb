@@ -6,7 +6,7 @@ Person.destroy_all
 PersonDetail.destroy_all
 Image.where(:imageable_type => 'Person').destroy_all
 
-images = 25.times.inject ([]) do |array|
+images = 30.times.inject ([]) do |array|
     array.push person_image; array 
 end
 
