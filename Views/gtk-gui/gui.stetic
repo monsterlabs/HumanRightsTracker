@@ -1442,6 +1442,7 @@ No</property>
               <widget class="Views.AlphabetList" id="alphabetlist1">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
+                <signal name="OnLetterSelectionChanged" handler="OnSearchByLetter" />
               </widget>
               <packing>
                 <property name="Position">0</property>
