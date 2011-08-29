@@ -30,4 +30,3 @@ Institution.blueprint do
   city_id { @city.id }
   image { images.pop }
 end
-    
