@@ -37,16 +37,17 @@ namespace Views
         }
 
         public void setDate (DateTime? date) {
+            datefield.CurrentDate = date;
             if (date.HasValue)
             {
-                datefield.CurrentDate = date;
                 label2.Text = date.Value.ToShortDateString ();
+            } else {
+                label2.Text = "";
             }
         }
 
         public void setDateType (DateType type) {
-            if (type != null)
-                dateType.Active = type;
+            dateType.Active = type;
         }
 
         public bool IsEditable {

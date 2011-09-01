@@ -1568,6 +1568,7 @@ September
 October
 November
 December</property>
+                <property name="Active">0</property>
                 <signal name="Changed" handler="OnChangeMonth" />
               </widget>
               <packing>

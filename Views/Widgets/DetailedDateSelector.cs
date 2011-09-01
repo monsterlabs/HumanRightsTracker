@@ -18,11 +18,15 @@ namespace Views
         public DateTime? CurrentDate {
             get { return currentDate; }
             set {
+                currentDate = value;
                 if (value.HasValue) {
-                    currentDate = value;
                     day.Text = CurrentDate.Value.Day.ToString ();
                     month.Active = CurrentDate.Value.Month - 1;
                     year.Text = CurrentDate.Value.Year.ToString ();
+                } else {
+                    day.Text = "";
+                    month.Active = -1;
+                    year.Text = "";
                 }
             }
         }
@@ -97,6 +101,10 @@ namespace Views
             {
                 currentDate = new DateTime (CurrentDate.Value.Year, month.Active + 1, CurrentDate.Value.Day);
             } else {
+                if (month.Active < 0)
+                {
+                    return;
+                }
                 DateTime defaultTime = DateTime.Now;
                 currentDate = new DateTime (defaultTime.Year, month.Active + 1, defaultTime.Day);
             }
