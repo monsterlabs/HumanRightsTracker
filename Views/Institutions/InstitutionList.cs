@@ -37,6 +37,8 @@ namespace Views
             institutionNodeView.NodeStore = Store;
             institutionNodeView.AppendColumn ("Photo", new Gtk.CellRendererPixbuf (), "pixbuf", 0);
             institutionNodeView.AppendColumn ("Name", new Gtk.CellRendererText (), "text", 1);
+
+            institutionNodeView.NodeSelection.Changed += new System.EventHandler (OnSelectionChanged);
         }
 
         protected void OnSelectionChanged (object o, System.EventArgs args)
@@ -114,6 +116,7 @@ namespace Views
             institutionNodeView.NodeStore.Clear ();
             foreach (Institution i in institutions)
                 institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
+            searchEntry.Text = "";
         }
 
         protected void OnSearchByLetter (object sender, System.EventArgs e)

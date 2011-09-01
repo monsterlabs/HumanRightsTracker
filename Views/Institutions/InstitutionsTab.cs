@@ -24,9 +24,9 @@ namespace Views
         protected void OnInstitutionlistSelectionChanged (object sender, System.EventArgs e)
         {
             if (sender != null){
-                show.Show();
-                Institution institution = (Institution) sender;
+                Institution institution = sender as Institution;
                 show.Institution = institution;
+                show.Show();
                 removeButton.Sensitive = true;
             } else {
                 show.Hide();
@@ -57,5 +57,6 @@ namespace Views
         {
             institutionlist.ReloadStore();
         }
+
     }
 }

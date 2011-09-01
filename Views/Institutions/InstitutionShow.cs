@@ -23,19 +23,19 @@ namespace Views
             set {
                 institution = value;
                 if (institution != null) {
-                    nameEntry.Text = institution.Name == null ? "" : institution.Name;
-                    abbrevEntry.Text = institution.Abbrev == null ? "" : institution.Abbrev;
-                    institutionTypeSelector.Active = institution.InstitutionType;
+                    name.Text = institution.Name == null ? "" : institution.Name;
+                    abbrev.Text = institution.Abbrev == null ? "" : institution.Abbrev;
+                    institution_type.Active = institution.InstitutionType;
+                    institution_category.Active = institution.InstitutionCategory;
 
-                    locationEntry.Text = institution.Location == null ? "" : institution.Location;
-                    countrySelector.Active = institution.Country;
-                    stateSelector.Active = institution.State;
-                    citySelector.Active = institution.City;
+                    location.Text = institution.Location == null ? "" : institution.Location;
+                    place.SetPlace(institution.Country, institution.State, institution.City);
+                    zipcode.Text = institution.ZipCode.ToString();
 
-                    phoneEntry.Text = institution.Phone == null ? "" : institution.Phone;
-                    faxEntry.Text = institution.Fax == null ? "" : institution.Fax;
-                    emailEntry.Text = institution.Email == null ? "" : institution.Email;
-                    urlEntry.Text = institution.Url == null ? "" : institution.Url;
+                    phone.Text = institution.Phone == null ? "" : institution.Phone;
+                    fax.Text = institution.Fax == null ? "" : institution.Fax;
+                    email.Text = institution.Email == null ? "" : institution.Email;
+                    url.Text = institution.Url == null ? "" : institution.Url;
                 }
                 isEditing = false;
             }
@@ -54,44 +54,47 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                nameEntry.Visible = value;
-                abbrevEntry.Visible = value;
-                institutionTypeSelector.IsEditable = value;
+                name.IsEditable = value;
+                abbrev.IsEditable = value;
+                institution_type.IsEditable = value;
+                institution_category.IsEditable = value;
 
-                locationEntry.Visible = value;
-                countrySelector.IsEditable = value;
-                stateSelector.IsEditable = value;
-                citySelector.IsEditable = value;
+                location.IsEditable = value;
+                place.IsEditable = value;
+                zipcode.IsEditable = value;
 
-                phoneEntry.Visible = value;
-                faxEntry.Visible = value;
-                emailEntry.Visible = value;
-                urlEntry.Visible = value;
-                imageSelector.IsEditable = value;
+                phone.IsEditable = value;
+                fax.IsEditable = value;
+                email.IsEditable = value;
+                url.IsEditable = value;
+
+                imageselector.IsEditable = value;
             }
         }
 
 
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
-            institution.Name = nameEntry.Text;
-            institution.Abbrev = abbrevEntry.Text;
-            institution.InstitutionType = institutionTypeSelector.Active as InstitutionType;
+            institution.Name = name.Text;
+            institution.Abbrev = abbrev.Text;
+            institution.InstitutionType = institution_type.Active as InstitutionType;
+            institution.InstitutionCategory = institution_category.Active as InstitutionCategory;
 
-            institution.Location = locationEntry.Text;
-            institution.Country = countrySelector.Active as Country;
-            institution.State = stateSelector.Active as State;
-            institution.City = citySelector.Active as City;
+            institution.Location = location.Text;
+            institution.Country = place.Country as Country;
+            institution.State = place.State as State;
+            institution.City = place.City as City;
+            institution.ZipCode =  Int32.Parse(zipcode.Text);
 
-            institution.Phone = phoneEntry.Text;
-            institution.Fax = faxEntry.Text;
-            institution.Email = emailEntry.Text;
-            institution.Url = urlEntry.Text;
+            institution.Phone = phone.Text;
+            institution.Fax = fax.Text;
+            institution.Email = email.Text;
+            institution.Url = url.Text;
 
             if (institution.IsValid())
             {
                 institution.Save ();
-                Image photo = imageSelector.Image;
+                Image photo = imageselector.Image;
                 if (photo != null)
                 {
                     photo.ImageableId = institution.Id;
@@ -116,4 +119,3 @@ namespace Views
         }
     }
 }
-
