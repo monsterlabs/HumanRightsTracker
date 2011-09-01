@@ -55,6 +55,7 @@ namespace Views
                 return this.isEditable;
             }
             set {
+                dateType.IsEditable = value;
                 isEditable = value;
                 hbox5.Visible = value;
                 label2.Visible = !value;

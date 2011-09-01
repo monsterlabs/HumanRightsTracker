@@ -75,6 +75,8 @@ namespace Views
             set
             {
                 isEditing = value;
+                initialDate.IsEditable = value;
+                finalDate.IsEditable = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
