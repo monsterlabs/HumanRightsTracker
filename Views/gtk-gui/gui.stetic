@@ -2142,9 +2142,10 @@ December</property>
                 <property name="Yalign">0</property>
                 <property name="LeftPadding">12</property>
                 <child>
-                  <widget class="Views.ActsList" id="actslist1">
+                  <widget class="Views.ActsList" id="actslist">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="IsEditable">False</property>
                   </widget>
                 </child>
               </widget>
@@ -3544,7 +3545,7 @@ December</property>
             <property name="Size">1</property>
             <property name="LayoutStyle">End</property>
             <child>
-              <widget class="Gtk.Button" id="button123">
+              <widget class="Gtk.Button" id="newButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
