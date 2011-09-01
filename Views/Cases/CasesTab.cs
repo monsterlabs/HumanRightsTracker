@@ -31,7 +31,6 @@ namespace Views
         protected void OnAddButtonClicked (object sender, System.EventArgs e)
         {
             Case c = new Case();
-            c.start_date = new DateTime (1980, 1, 1);
             caselist.UnselectAll();
             show.Case = c;
             show.IsEditing = true;
