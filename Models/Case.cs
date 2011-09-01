@@ -31,6 +31,7 @@ namespace HumanRightsTracker.Models
         public DateTime? end_date { get; set; }
 
         [BelongsTo("start_date_type_id")]
+        [ValidateNonEmpty]
         public DateType StartDateType { get; set; }
 
         [BelongsTo("end_date_type_id")]
