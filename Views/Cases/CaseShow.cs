@@ -29,7 +29,7 @@ namespace Views
 
                     endDateSelector.setDate(mycase.end_date);
                     endDateSelector.setDateType(mycase.EndDateType);
-                    actslist1.Case = value;
+                    actslist.Case = value;
                 }
                 IsEditing = false;
             }
@@ -47,11 +47,15 @@ namespace Views
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
+                    if (mycase != null && mycase.Id == 0) {
+                        this.Hide();
+                    }
                 }
                 nameEntry.IsEditable = value;
                 affectedPeople.IsEditable = value;
                 startDateSelector.IsEditable = value;
                 endDateSelector.IsEditable = value;
+                actslist.IsEditable = value;
             }
         }
 
@@ -70,7 +74,7 @@ namespace Views
             {
                 mycase.Save ();
 
-                foreach (Act a in actslist1.Acts)
+                foreach (Act a in actslist.Acts)
                 {
                     a.Case = mycase;
                     a.Save ();

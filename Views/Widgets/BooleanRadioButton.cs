@@ -43,7 +43,7 @@ namespace Views
             }
         }
 
-        public bool Activate {
+        public new bool Activate {
             get {
                 return Value ();
             }

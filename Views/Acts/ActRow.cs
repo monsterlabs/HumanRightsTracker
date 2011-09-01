@@ -28,7 +28,8 @@ namespace Views
             {
                 act = value;
                 title.Text = value.HumanRightsViolation.Name;
-                startDate.Text = value.start_date.ToShortDateString ();
+                if (value.start_date.HasValue)
+                    startDate.Text = value.start_date.Value.ToShortDateString ();
             }
         }
 

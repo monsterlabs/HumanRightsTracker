@@ -11,6 +11,7 @@ namespace Views
     {
         List<Act> acts;
         Case c;
+        bool isEditable;
 
         public ActsList ()
         {
@@ -31,6 +32,16 @@ namespace Views
             {
                 c = value;
                 ReloadList ();
+            }
+        }
+
+        public bool IsEditable {
+            get {
+                return this.isEditable;
+            }
+            set {
+                isEditable = value;
+                newButton.Visible = value;
             }
         }
 

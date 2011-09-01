@@ -17,7 +17,7 @@ namespace Views
         public DateTime CurrentDate {
             get { return currentDate; }
             set {
-                if (value.Year > 1) {
+                if (value != default(DateTime)) {
                     currentDate = value;
                     dateEntry.Text = value.ToLongDateString ();
                 } else {
