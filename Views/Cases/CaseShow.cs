@@ -47,6 +47,9 @@ namespace Views
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
+                    if (mycase != null && mycase.Id == 0) {
+                        this.Hide();
+                    }
                 }
                 nameEntry.IsEditable = value;
                 affectedPeople.IsEditable = value;
