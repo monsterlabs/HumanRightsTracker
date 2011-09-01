@@ -34,6 +34,9 @@ namespace HumanRightsTracker.Models
         [Property]
         public String Url { get; set; }
 
+        [Property("zipcode")]
+        public int ZipCode { get; set; }
+
         [BelongsTo("institution_type_id")]
         public InstitutionType InstitutionType { get; set; }
 
