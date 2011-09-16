@@ -163,7 +163,7 @@
             </child>
           </widget>
           <packing>
-            <property name="X">282</property>
+            <property name="X">306</property>
             <property name="Y">68</property>
           </packing>
         </child>
@@ -179,7 +179,7 @@
             <signal name="Clicked" handler="authenticate" />
           </widget>
           <packing>
-            <property name="X">470</property>
+            <property name="X">493</property>
             <property name="Y">145</property>
           </packing>
         </child>
@@ -245,13 +245,10 @@ Copyright 2011 © i(dh)eas
                 </child>
               </widget>
             </child>
-            <child>
-              <placeholder />
-            </child>
           </widget>
           <packing>
             <property name="X">28</property>
-            <property name="Y">247</property>
+            <property name="Y">272</property>
           </packing>
         </child>
       </widget>
