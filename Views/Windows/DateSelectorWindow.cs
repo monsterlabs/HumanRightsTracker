@@ -20,10 +20,16 @@ namespace Views
     {
         public delegate void DateEventHandler (object sender, DateEventArgs args);
 
+        Gtk.Window _parent;
+
         public event DateEventHandler OnChange = null;
 
-        public DateSelectorWindow (int x, int y, DateTime defDate, DateEventHandler handler) : base(Gtk.WindowType.Popup)
+        public DateSelectorWindow (int x, int y, DateTime defDate, DateEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Popup)
         {
+            this.TransientFor = parent;
+            _parent = parent;
+            _parent.Modal = false;
+            this.Modal = true;
             this.Build ();
             this.Move (x, y);
             this.WindowPosition = Gtk.WindowPosition.None;
@@ -42,11 +48,13 @@ namespace Views
         {
             if (OnChange != null)
                 OnChange (this, new DateEventArgs (CurrentDate));
+            _parent.Modal = true;
             this.Destroy ();
         }
 
         protected void OnCancel (object sender, System.EventArgs e)
         {
+            _parent.Modal = true;
             this.Destroy();
         }
     }

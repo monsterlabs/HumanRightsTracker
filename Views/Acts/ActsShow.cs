@@ -24,6 +24,7 @@ namespace Views
                 act = value;
                 if (act != null) {
                     // TODO: fill the info
+                    // person-acts
                     humanRightsViolation.Active = act.HumanRightsViolation;
                     initialDate.setDate (act.start_date);
                     initialDate.setDateType (act.StartDateType);

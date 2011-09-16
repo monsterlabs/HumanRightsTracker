@@ -60,10 +60,10 @@ namespace Views
             y += this.Allocation.Top + this.Allocation.Height;
             if (CurrentDate.HasValue)
             {
-                new DateSelectorWindow (x, y, CurrentDate.Value, OnPopupDateChanged);
+                new DateSelectorWindow (x, y, CurrentDate.Value, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
             } else
             {
-                new DateSelectorWindow (x, y, DateTime.Now, OnPopupDateChanged);
+                new DateSelectorWindow (x, y, DateTime.Now, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
             }
         }
 

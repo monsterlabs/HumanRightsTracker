@@ -41,7 +41,7 @@ namespace Views
                 selectedDate = new DateTime(1975, 1, 1);
             }
 
-            DateSelectorWindow selector = new DateSelectorWindow (x, y, selectedDate, OnPopupDateChanged);
+            DateSelectorWindow selector = new DateSelectorWindow (x, y, selectedDate, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
             selector.TransientFor = (Gtk.Window)this.Toplevel;
             selector.Modal = true;
         }
