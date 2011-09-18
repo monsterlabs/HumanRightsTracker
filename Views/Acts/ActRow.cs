@@ -7,6 +7,7 @@ namespace Views
     public partial class ActRow : Gtk.Bin
     {
         Act act;
+        bool isEditable;
         public new event EventHandler Removed;
 
         public ActRow ()
@@ -47,6 +48,16 @@ namespace Views
         protected void OnDetailReturned (object sender, System.EventArgs e)
         {
             this.Act = sender as Act;
+        }
+
+        public bool IsEditable {
+            get {
+                return this.isEditable;
+            }
+            set {
+                isEditable = value;
+                hbuttonbox3.Visible = value;
+            }
         }
     }
 }

@@ -43,14 +43,14 @@ namespace Views
             act.start_date = initialDate.SelectedDate ();
             act.StartDateType = initialDate.SelectedDateType ();
 
-            if (act.Case.Id < 1 && ActSaved != null)
-            {
-                ActSaved (this.Act, e);
-                return;
-            }
-
             if (act.IsValid())
             {
+                if (act.Case.Id < 1 && ActSaved != null)
+                {
+                    ActSaved (this.Act, e);
+                    return;
+                }
+
                 act.Save ();
                 // TODO: Save victims and perpetrators
                 this.IsEditing = false;

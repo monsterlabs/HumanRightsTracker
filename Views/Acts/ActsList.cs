@@ -42,6 +42,9 @@ namespace Views
             set {
                 isEditable = value;
                 newButton.Visible = value;
+                foreach (Gtk.Widget row in actsList.AllChildren) {
+                    ((ActRow) row).IsEditable = value;
+                }
             }
         }
 

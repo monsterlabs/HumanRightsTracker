@@ -22,6 +22,11 @@ namespace Views
                 vbox3.ShowAll ();
             }
         }
+
+        protected void OnOk (object sender, System.EventArgs e)
+        {
+            this.Destroy ();
+        }
     }
 }
 
