@@ -58,10 +58,19 @@ namespace HumanRightsTracker.Models
 
         private IList immigration_attempts = new ArrayList();
         [HasMany(typeof(ImmigrationAttempt))]
-        public IList ImmigrationAttempt
+        public IList ImmigrationAttempts
         {
             get { return immigration_attempts; }
             set { immigration_attempts = value; }
+        }
+
+
+        private IList addresses = new ArrayList();
+        [HasMany(typeof(Address))]
+        public IList Addresses
+        {
+            get { return addresses; }
+            set { addresses = value; }
         }
 
         public String Fullname
