@@ -280,9 +280,45 @@ Copyright 2011 © i(dh)eas
         <property name="BorderWidth">1</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
-          <widget class="Views.PeopleTab" id="peopletab1">
+          <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
+            <property name="CanFocus">True</property>
+            <property name="CurrentPage">0</property>
+            <child>
+              <widget class="Views.PeopleTab" id="individual_peopletab">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsImmigrant">False</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label41">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Individual Person</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Views.PeopleTab" id="immigrant_peopletab">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsImmigrant">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label49">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Immigrant Person</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
           </widget>
         </child>
         <child>
@@ -306,7 +342,7 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label1">
+          <widget class="Gtk.Label" id="label10">
             <property name="MemberName" />
             <property name="Xalign">1</property>
             <property name="LabelProp" translatable="yes">&lt;b&gt;Cases&lt;/b&gt;</property>
@@ -326,7 +362,7 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label21">
+          <widget class="Gtk.Label" id="label32">
             <property name="MemberName" />
             <property name="Xalign">1</property>
             <property name="LabelProp" translatable="yes">&lt;b&gt;Institutions&lt;/b&gt;</property>
@@ -347,7 +383,7 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label22">
+          <widget class="Gtk.Label" id="label66">
             <property name="MemberName" />
             <property name="Xalign">1</property>
             <property name="LabelProp" translatable="yes">&lt;b&gt;Acts&lt;/b&gt;</property>

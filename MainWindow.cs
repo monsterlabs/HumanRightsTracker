@@ -9,10 +9,12 @@ namespace HumanRightsTracker
         public MainWindow () : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            peopletab1.InitialSetup ();
+            //peopletab1.InitialSetup ();
+            individual_peopletab.InitialSetup ();
+            immigrant_peopletab.InitialSetup ();
             casestab1.InitialSetup ();
             institutionstab1.InitialSetup ();
-            this.Default = peopletab1.DefaultButton ();
+            this.Default = individual_peopletab.DefaultButton ();
         }
 
         protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -28,6 +30,16 @@ namespace HumanRightsTracker
             if (tab != null)
                 this.Default = tab.DefaultButton ();
             return;
+        }
+
+        protected void onRemove (object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException ();
+        }
+
+        protected void onAdd (object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException ();
         }
     }
 }

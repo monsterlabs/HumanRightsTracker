@@ -35,7 +35,7 @@ namespace HumanRightsTracker.Models
         [Property]
         public String Settlement { get; set; }
 
-        [Property]
+        [Property("is_immigrant")]
         [ValidateNonEmpty]
         public Boolean IsImmigrant { get; set; }
 

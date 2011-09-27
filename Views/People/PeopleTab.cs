@@ -6,6 +6,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PeopleTab : Gtk.Bin, TabWithDefaultButton
     {
+        bool isImmigrant = false;
         public PeopleTab ()
         {
             this.Build ();
@@ -56,6 +57,15 @@ namespace Views
         protected void OnPersonSaved (object sender, System.EventArgs e)
         {
             peoplelist.ReloadStore();
+        }
+
+        public bool IsImmigrant {
+            get {
+                return this.isImmigrant;
+            }
+            set {
+                this.isImmigrant = value;
+            }
         }
     }
 }
