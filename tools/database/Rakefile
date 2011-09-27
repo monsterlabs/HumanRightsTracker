@@ -12,6 +12,7 @@ Bundler.require :default
    human_rights_violation_category role act_status affiliation_type
    intervention_type location_type victim_status institution_category
    job person person_detail image institution institution_person
+   traveling_reason immigration_attempt address
    ).each do |model_name|
   if File.exist? "./models/#{model_name}.rb"
     require "./models/#{model_name}"
@@ -132,6 +133,11 @@ task :seeds => :environment do
     InstitutionCategory.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
   
+  TravelingReason.destroy_all
+  CSV.foreach("seeds/traveling_reasons.csv") do |row|
+     TravelingReason.create(:name => row[0].to_s.strip)
+  end
+  
   Job.destroy_all
   CSV.foreach("seeds/jobs.csv", :col_sep => "|") do |row|
     Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
@@ -140,8 +146,7 @@ task :seeds => :environment do
   %w(person institution institution_person).each do |blueprint|
     require File.expand_path("../blueprints/#{blueprint}", __FILE__)
   end
-
-  Person.make!(30)
+  Person.make!(60)
   Institution.make!(30)
   InstitutionPerson.make!(10)
 end
