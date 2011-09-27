@@ -2,6 +2,7 @@ using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
+using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
@@ -64,6 +65,9 @@ namespace HumanRightsTracker.Models
         public AffiliationType AffiliationType { get; set; }
         [BelongsTo("location_type_id")]
         public LocationType LocationType { get; set; }
+
+        [HasMany(typeof(PersonAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList PersonActs { get; set; }
 
     }
 }

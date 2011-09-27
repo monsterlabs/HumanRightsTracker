@@ -80,10 +80,13 @@
     <Compile Include="Catalogs\HumanRightsViolationCategory.cs" />
     <Compile Include="Catalogs\Job.cs" />
     <Compile Include="ActiveRecordMetaBase.cs" />
+<<<<<<< HEAD
     <Compile Include="Catalogs\TravelingReason.cs" />
     <Compile Include="ImmigrationAttempt.cs" />
+=======
     <Compile Include="Catalogs\Role.cs" />
     <Compile Include="PersonAct.cs" />
+>>>>>>> cases
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

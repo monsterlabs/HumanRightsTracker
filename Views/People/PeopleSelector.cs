@@ -15,6 +15,23 @@ namespace Views
             row.Destroy ();
         }
 
+        public HashSet<Person> People {
+            get {
+                return this.people;
+            }
+            set {
+                people = value;
+                foreach (Gtk.Widget person in peopleList.Children)
+                {
+                    person.Destroy();
+                }
+                foreach (Person person in people)
+                {
+                    peopleList.PackStart (new PersonRow(person, OnRemoved));
+                }
+                peopleList.ShowAll ();
+            }
+        }
         protected void OnPersonSelected (object sender, PersonEventArgs args)
         {
             if (people.Add (args.Person))

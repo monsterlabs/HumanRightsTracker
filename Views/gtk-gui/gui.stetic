@@ -3676,6 +3676,7 @@ December</property>
               <widget class="Views.ActRow" id="row">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
+                <property name="IsEditable">False</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
