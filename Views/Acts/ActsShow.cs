@@ -1,6 +1,8 @@
 using System;
 using Mono.Unix;
 using HumanRightsTracker.Models;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace Views
 {
@@ -23,13 +25,35 @@ namespace Views
             set {
                 act = value;
                 if (act != null) {
-                    // TODO: fill the info
-                    // person-acts
                     humanRightsViolation.Active = act.HumanRightsViolation;
                     initialDate.setDate (act.start_date);
                     initialDate.setDateType (act.StartDateType);
                     finalDate.setDate (act.end_date);
                     finalDate.setDateType (act.EndDateType);
+
+                    // person-acts
+                    HashSet<Person> victims = new HashSet<Person>(new ARComparer<Person>());
+                    HashSet<Person> perpetrators = new HashSet<Person>(new ARComparer<Person>());
+
+                    IList personActs = act.PersonActs;
+                    if (personActs != null) {
+                        foreach (PersonAct personAct in personActs)
+                        {
+                            switch (personAct.Role.Name)
+                            {
+                            case "Perpetrador":
+                                perpetrators.Add(personAct.Person);
+                                break;
+                            case "Víctima":
+                                victims.Add(personAct.Person);
+                                break;
+                            default:
+                                break;
+                            }
+                        }
+                    }
+                    VictimSelector.People = victims;
+                    perpetratorsSelector.People = perpetrators;
                 }
                 IsEditing = false;
             }
@@ -45,17 +69,38 @@ namespace Views
 
             if (act.IsValid())
             {
-                if (act.Case.Id < 1 && ActSaved != null)
-                {
-                    ActSaved (this.Act, e);
-                    return;
-                }
-
-                act.Save ();
+                //act.Save ();
                 // TODO: Save victims and perpetrators
+                List<PersonAct> personActs = new List<PersonAct>();
+
+                foreach (Person person in VictimSelector.People)
+                {
+                    PersonAct personAct = new PersonAct();
+                    personAct.Act = act;
+                    personAct.Person = person;
+                    personAct.Role = Role.Find(1);
+                    personActs.Add(personAct);
+                }
+                foreach (Person person in perpetratorsSelector.People)
+                {
+                    PersonAct personAct = new PersonAct();
+                    personAct.Act = act;
+                    personAct.Person = person;
+                    personAct.Role = Role.Find(2);
+                    personActs.Add(personAct);
+                }
+                act.PersonActs = personActs;
+
                 this.IsEditing = false;
-                if (ActSaved != null)
-                    ActSaved (this.Act, e);
+
+                if (act.Id < 1 || act.Case.Id < 1)
+                {
+                    if (ActSaved != null)
+                        ActSaved (this.Act, e);
+                    return;
+                } else {
+                    act.Save();
+                }
             } else
             {
                 Console.WriteLine( String.Join(",", act.ValidationErrorMessages) );
