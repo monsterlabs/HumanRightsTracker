@@ -80,6 +80,8 @@
     <Compile Include="Catalogs\HumanRightsViolationCategory.cs" />
     <Compile Include="Catalogs\Job.cs" />
     <Compile Include="ActiveRecordMetaBase.cs" />
+    <Compile Include="Catalogs\TravelingReason.cs" />
+    <Compile Include="ImmigrationAttempt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
