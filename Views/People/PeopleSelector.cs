@@ -8,6 +8,7 @@ namespace Views
     public partial class PeopleSelector : Gtk.Bin
     {
         HashSet<Person> people = new HashSet<Person>(new ARComparer<Person>());
+        bool isEditing;
 
         public PeopleSelector ()
         {
@@ -15,6 +16,18 @@ namespace Views
             row.Destroy ();
         }
 
+        public bool IsEditing {
+            get {
+                return this.isEditing;
+            }
+            set {
+                isEditing = value;
+                button7.Visible = value;
+                foreach (Gtk.Widget row in peopleList.AllChildren) {
+                    ((PersonRow) row).IsEditable = value;
+                }
+            }
+        }
         public HashSet<Person> People {
             get {
                 return this.people;

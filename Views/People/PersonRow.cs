@@ -7,6 +7,7 @@ namespace Views
     public partial class PersonRow : Gtk.Bin
     {
         Person person;
+        bool isEditable;
         public new event EventHandler Removed;
 
         public PersonRow ()
@@ -21,6 +22,15 @@ namespace Views
             this.Removed = removed;
         }
 
+        public bool IsEditable {
+            get {
+                return this.isEditable;
+            }
+            set {
+                isEditable = value;
+                button8.Visible = value;
+            }
+        }
         public Person Person
         {
             get {return person;}
