@@ -22,13 +22,12 @@ Person.blueprint do
 
   @country = Country.find_by_name('México')
   country_id { @country.id }
-
   @state = @country.states.sample
   state_id { @state.id }
-
   city_id { @state.cities.sample.id }
-
   settlement { Faker::Address.city }
+  email { Faker::Internet.email }
+
   person_detail
   if rand(2) > 0
     is_immigrant { true }
