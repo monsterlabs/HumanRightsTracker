@@ -17,16 +17,13 @@ Institution.blueprint do
   url   { "http://" + Faker::Internet.domain_name }
   email { Faker::Internet.email }
 
-  institution_type_id  { InstitutionType.all[random_item(InstitutionType.all.size)].id } 
+  institution_type_id  { InstitutionType.all.sample.id } 
 
-  institution_category_id  { InstitutionCategory.all[random_item(InstitutionCategory.all.size)].id } 
+  institution_category_id  { InstitutionCategory.all.sample.id } 
   @country = Country.find_by_name('México')
   country_id { @country.id }
-
-  @state = @country.states[random_item(@country.states.size)]
+  @state = @country.states.sample
   state_id { @state.id }
-
-  @city = @state.cities[random_item(@state.cities.size)]
-  city_id { @city.id }
+  city_id { @state.cities.sample.id }
   image { images.pop }
 end

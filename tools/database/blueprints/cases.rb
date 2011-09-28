@@ -22,12 +22,9 @@ Act.blueprint do
   end_date_type_id  { DateType.all.sample.id }
   @country = Country.find_by_name('México')
   country_id { @country.id }
-  
-  @state = @country.states[random_item(@country.states.size)]
+  @state = @country.states.sample
   state_id { @state.id }
-  
-  @city = @state.cities[random_item(@state.cities.size)]
-  city_id { @city.id }
+  city_id { @state.cities.sample.id }
   
   settlement { Faker::Address.city }
   

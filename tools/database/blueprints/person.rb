@@ -22,12 +22,11 @@ Person.blueprint do
 
   @country = Country.find_by_name('México')
   country_id { @country.id }
-  
-  @state = @country.states[random_item(@country.states.size)]
+
+  @state = @country.states.sample
   state_id { @state.id }
-  
-  @city = @state.cities[random_item(@state.cities.size)]
-  city_id { @city.id }
+
+  city_id { @state.cities.sample.id }
 
   settlement { Faker::Address.city }
   person_detail
@@ -42,23 +41,22 @@ Person.blueprint do
 end
 
 PersonDetail.blueprint do
-  number_of_sons   { random_item(10) }
-  ethnic_group_id  { EthnicGroup.all[random_item(EthnicGroup.all.size)].id } 
-  religion_id { Religion.all[random_item(Religion.all.size)].id }
-  scholarity_level_id { ScholarityLevel.all[random_item(ScholarityLevel.all.size)].id }
-  job_id  { Job.all[random_item(Job.all.size)].id }
+  number_of_sons   { rand(10) }
+  ethnic_group_id  { EthnicGroup.all.sample.id } 
+  religion_id { Religion.all.sample.id }
+  scholarity_level_id { ScholarityLevel.all.sample.id }
+  job_id  { Job.all.sample.id }
   indigenous_group {Faker::Lorem.words(3).join(" ")}
 end
 
 ImmigrationAttempt.blueprint do
     transit_country_id { Country.find_by_code('MX').id }
     destination_country_id { Country.find_by_code('US').id }
-    traveling_reason_id { TravelingReason.all[random_item(TravelingReason.all.size)].id}
+    traveling_reason_id { TravelingReason.all.sample.id}
     cross_border_attempts_transit_country { rand(5) }
     expulsions_from_destination_country { rand(3) }
     expulsions_from_transit_country { rand(3) }
 end
-
 
 Address.blueprint do
   location { Faker::Address.street_address }
@@ -66,9 +64,8 @@ Address.blueprint do
   mobile { Faker::PhoneNumber.phone_number }
   @country = Country.find_by_name('México')
   country_id { @country.id }
-  @state = @country.states[random_item(@country.states.size)]
+  @state = @country.states.sample
   state_id { @state.id }
-  @city = @state.cities[random_item(@state.cities.size)]
-  city_id { @city.id }
+  city_id { @state.cities.sample.id }
   zipcode { Faker::Address.zip_code }
 end
