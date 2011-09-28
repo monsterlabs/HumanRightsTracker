@@ -55,8 +55,9 @@ namespace HumanRightsTracker.Models
         [BelongsTo("marital_status_id"), ValidateNonEmpty]
         public MaritalStatus MaritalStatus { get; set; }
 
+
         private IList details = new ArrayList();
-        [HasMany(typeof(PersonDetail))]
+        [HasMany(typeof(PersonDetail), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
         public IList PersonDetails
         {
             get { return details; }
@@ -64,7 +65,7 @@ namespace HumanRightsTracker.Models
         }
 
         private IList immigration_attempts = new ArrayList();
-        [HasMany(typeof(ImmigrationAttempt))]
+        [HasMany(typeof(ImmigrationAttempt), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
         public IList ImmigrationAttempts
         {
             get { return immigration_attempts; }
@@ -72,7 +73,7 @@ namespace HumanRightsTracker.Models
         }
 
         private IList addresses = new ArrayList();
-        [HasMany(typeof(Address))]
+        [HasMany(typeof(Address), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
         public IList Addresses
         {
             get { return addresses; }
