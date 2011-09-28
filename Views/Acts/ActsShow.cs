@@ -121,8 +121,11 @@ namespace Views
             set
             {
                 isEditing = value;
+                humanRightsViolation.IsEditable = value;
+                catalogselector1.IsEditable = value;
                 initialDate.IsEditable = value;
                 finalDate.IsEditable = value;
+                editablelabel1.IsEditable = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
