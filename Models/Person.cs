@@ -43,6 +43,9 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public String isImmigrant { get; set; }
 
+        [Property]
+        public String Email { get; set; }
+
         [BelongsTo("country_id"), ValidateNonEmpty]
         public Country Country { get; set; }
         [BelongsTo("state_id")]
