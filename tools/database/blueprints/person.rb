@@ -27,6 +27,8 @@ Person.blueprint do
   city_id { @state.cities.sample.id }
   settlement { Faker::Address.city }
   email { Faker::Internet.email }
+  identification_type_id { IdentificationType.all.sample.id }
+  identification_number { Faker::PhoneNumber.phone_number.gsub(/(\s|\-|\)|\(|\.|x)/,'') }
 
   person_detail
   if rand(2) > 0

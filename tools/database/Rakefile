@@ -135,6 +135,11 @@ task :seeds => :environment do
     Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
 
+  IdentificationType.destroy_all
+  CSV.foreach("seeds/identification_types.csv") do |row|
+    IdentificationType.create(:name =>  row[0].to_s.strip)
+  end
+
   %w(person institution institution_person cases).each do |blueprint|
     require File.expand_path("../blueprints/#{blueprint}", __FILE__)
   end
