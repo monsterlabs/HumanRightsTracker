@@ -7,16 +7,8 @@ require "csv"
 Bundler.setup
 Bundler.require :default
 
-%w(user country state city marital_status scholarity_level religion
-   ethnic_group date_type institution_type human_rights_violation
-   human_rights_violation_category role act_status affiliation_type
-   intervention_type location_type victim_status institution_category
-   job person person_detail image institution institution_person
-   traveling_reason immigration_attempt address case act person_act
-   ).each do |model_name|
-  if File.exist? "./models/#{model_name}.rb"
-    require "./models/#{model_name}"
-  end
+Dir.glob("./models/*.rb").each do |model|
+  require model
 end
 
 task :default => :migrate
