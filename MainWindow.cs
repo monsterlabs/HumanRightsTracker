@@ -9,7 +9,6 @@ namespace HumanRightsTracker
         public MainWindow () : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            //peopletab1.InitialSetup ();
             individual_peopletab.InitialSetup ();
             immigrant_peopletab.InitialSetup ();
             casestab1.InitialSetup ();

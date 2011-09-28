@@ -39,6 +39,10 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public Boolean IsImmigrant { get; set; }
 
+        [Property("is_immigrant")]
+        [ValidateNonEmpty]
+        public String isImmigrant { get; set; }
+
         [BelongsTo("country_id"), ValidateNonEmpty]
         public Country Country { get; set; }
         [BelongsTo("state_id")]
@@ -63,7 +67,6 @@ namespace HumanRightsTracker.Models
             get { return immigration_attempts; }
             set { immigration_attempts = value; }
         }
-
 
         private IList addresses = new ArrayList();
         [HasMany(typeof(Address))]

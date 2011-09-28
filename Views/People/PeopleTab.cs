@@ -10,6 +10,7 @@ namespace Views
         public PeopleTab ()
         {
             this.Build ();
+
         }
 
         protected virtual void PersonSelected (object sender, System.EventArgs e)
@@ -40,7 +41,6 @@ namespace Views
         {
             Person p = show.Person;
             p.Delete();
-            peoplelist.ReloadStore();
             return;
         }
 
@@ -51,6 +51,8 @@ namespace Views
 
         public void InitialSetup ()
         {
+            peoplelist.IsImmigrant = this.isImmigrant;
+            peoplelist.ReloadStore();
             show.Hide ();
         }
 
@@ -65,8 +67,8 @@ namespace Views
             }
             set {
                 this.isImmigrant = value;
+
             }
         }
     }
 }
-

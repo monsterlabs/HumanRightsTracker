@@ -31,6 +31,7 @@ namespace Views
 
         public event EventHandler SelectionChanged;
         public event EventHandler SelectionWithDoubleClick;
+        bool isImmigrant = false;
 
         public PeopleList ()
         {
@@ -58,7 +59,7 @@ namespace Views
             people = Person.FindAll (new ICriterion[] { Restrictions.Or (
                         Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
                         Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
-                     )});
+                     ), isImmigrantCriterion () });
             tree.NodeStore.Clear ();
             foreach (Person p in people)
                 tree.NodeStore.AddNode (new PersonNode (p));
@@ -85,8 +86,7 @@ namespace Views
 
         public void ReloadStore ()
         {
-            people = Person.FindAll ();
-
+            people = Person.FindAll(isImmigrantCriterion ());
             tree.NodeStore.Clear ();
 
             foreach (Person p in people)
@@ -97,7 +97,7 @@ namespace Views
 
         public void NewStore ()
         {
-            people = Person.FindAll ();
+            people = Person.FindAll(isImmigrantCriterion ());
 
             store = new Gtk.NodeStore (typeof(PersonNode));
 
@@ -110,6 +110,15 @@ namespace Views
         public void UnselectAll ()
         {
             tree.NodeSelection.UnselectAll();
+        }
+
+        public bool IsImmigrant {
+            get {
+                return this.isImmigrant;
+            }
+            set {
+                this.isImmigrant = value;
+            }
         }
 
         protected void OnRowActivated (object o, Gtk.RowActivatedArgs args)
@@ -134,6 +143,10 @@ namespace Views
         protected void OnReloadButtonClicked (object sender, System.EventArgs e)
         {
             ReloadStore ();
+        }
+        protected ICriterion isImmigrantCriterion () {
+            ICriterion criterion = Restrictions.Eq("isImmigrant", (this.isImmigrant == true ? "t" : "f"));
+            return criterion;
         }
     }
 }
