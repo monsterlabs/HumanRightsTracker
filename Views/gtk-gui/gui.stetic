@@ -29,7 +29,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.VBox" id="vbox5">
+              <widget class="Gtk.VBox" id="sections_vbox">
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
@@ -2177,6 +2177,7 @@ No</property>
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
                     <property name="IsEditing">False</property>
+                    <property name="IsImmigrant">False</property>
                     <signal name="PersonSaved" handler="OnPersonSaved" />
                   </widget>
                 </child>
