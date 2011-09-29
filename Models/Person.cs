@@ -39,10 +39,6 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public Boolean IsImmigrant { get; set; }
 
-        [Property("is_immigrant")]
-        [ValidateNonEmpty]
-        public String isImmigrant { get; set; }
-
         [Property]
         public String Email { get; set; }
 

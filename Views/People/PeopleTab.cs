@@ -32,6 +32,7 @@ namespace Views
             Person p = new Person();
             peoplelist.UnselectAll();
             show.Person = p;
+            show.IsImmigrant = this.isImmigrant;
             show.IsEditing = true;
             show.Show();
             return;

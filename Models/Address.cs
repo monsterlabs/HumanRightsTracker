@@ -11,15 +11,15 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
-        [Property]
+        [Property("location")]
         [ValidateNonEmpty]
         public String Location { get; set; }
-        [Property]
-        public String phone { get; set; }
-        [Property]
-        public String mobile { get; set; }
-        [Property]
-        public String zipcode { get; set; }
+        [Property("phone")]
+        public String Phone { get; set; }
+        [Property("mobile")]
+        public String Mobile { get; set; }
+        [Property("zipcode")]
+        public String ZipCode { get; set; }
 
         [BelongsTo("country_id")]
         public Country Country { get; set; }

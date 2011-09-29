@@ -9,8 +9,16 @@ namespace Views.People
     {
         public Person person;
         public PersonDetail person_detail;
+        public ImmigrationAttempt immigration_attempt;
+        public Identification identification;
+        public Address address;
+
         protected bool isEditing;
         public bool personDetailExist;
+        public bool immigrationAttemptExist;
+        public bool identificationExist;
+        public bool addressExist;
+        public bool isImmigrant = false;
 
         public event EventHandler PersonSaved;
 
@@ -28,6 +36,7 @@ namespace Views.People
                     lastname.Text = person.Lastname == null ? "" : person.Lastname;
                     firstname.Text = person.Firstname == null ? "" : person.Firstname;
                     alias.Text = person.Alias == null ? "" : person.Alias;
+                    email.Text = person.Email == null ? "" : person.Email;
                     birthday.CurrentDate = person.Birthday;
                     gender.Activate = person.Gender;
                     marital_status.Active = person.MaritalStatus;
@@ -49,6 +58,43 @@ namespace Views.People
                         ethnic_group.Active = person_detail.EthnicGroup as EthnicGroup;
                         indigenous_group.Text = person_detail.IndigenousGroup == null ? "" : person_detail.IndigenousGroup;
                         is_spanish_speaker.Activate = person_detail.IsSpanishSpeaker;
+                    }
+
+                    if (person.ImmigrationAttempts.Count == 0) {
+                        immigration_attempt = new ImmigrationAttempt();
+                        immigrationAttemptExist = false;
+                    } else {
+                        immigration_attempt = (ImmigrationAttempt)person.ImmigrationAttempts[0];
+                        immigrationAttemptExist = true;
+                        traveling_reason.Active = immigration_attempt.TravelingReason;
+                        destination_country.Active = immigration_attempt.DestinationCountry as Country;
+                        expulsions_from_destination_country.Text = immigration_attempt.ExpulsionsFromDestinationCountry.ToString();
+                        transit_country.Active = immigration_attempt.TransitCountry as Country;
+                        expulsions_from_transit_country.Text = immigration_attempt.ExpulsionsFromTransitCountry.ToString();
+                        cross_border_attempts_transit_country.Text = immigration_attempt.CrossBorderAttemptsTransitCountry.ToString();
+                    }
+
+                    if (person.Identifications.Count == 0) {
+                        identification = new Identification ();
+                        identificationExist = false;
+                    } else {
+                        identification = (Identification)person.Identifications[0];
+                        identificationExist = true;
+                        identification_type.Active = identification.IdentificationType;
+                        identification_number.Text = identification.IdentificationNumber;
+                    }
+
+                    if (person.Addresses.Count == 0) {
+                        address = new Address ();
+                        addressExist = false;
+                    } else {
+                        address = (Address)person.Addresses[0];
+                        addressExist = true;
+                        location.Text = address.Location;
+                        address_place.SetPlace(address.Country, address.State, address.City);
+                        zipcode.Text = address.ZipCode  == null ? "" : address.ZipCode;
+                        phone.Text = address.Phone == null ? "" : address.Phone;
+                        mobile.Text = address.Mobile  == null ? "" : address.Mobile;
                     }
                 }
                 IsEditing = false;
@@ -86,6 +132,7 @@ namespace Views.People
                 birthplace.IsEditable = value;
                 imageselector1.IsEditable = value;
                 age.IsEditable = value;
+                email.IsEditable = value;
 
                 //Person Details
                 number_of_sons.IsEditable = value;
@@ -95,6 +142,34 @@ namespace Views.People
                 ethnic_group.IsEditable = value;
                 indigenous_group.IsEditable = value;
                 is_spanish_speaker.IsEditable = value;
+
+                //Immigration Attempts
+                traveling_reason.IsEditable = value;
+                destination_country.IsEditable = value;
+                expulsions_from_destination_country.IsEditable = value;
+                transit_country.IsEditable = value;
+                expulsions_from_transit_country.IsEditable = value;
+                cross_border_attempts_transit_country.IsEditable = value;
+
+                //Identification
+                identification_type.IsEditable = value;
+                identification_number.IsEditable = value;
+
+                //Address
+                location.IsEditable  = value;
+                address_place.IsEditable  = value;
+                zipcode.IsEditable  = value;
+                phone.IsEditable  = value;
+                mobile.IsEditable  = value;
+            }
+        }
+
+        public bool IsImmigrant {
+            get {
+                return this.isImmigrant;
+            }
+            set {
+                this.isImmigrant = value;
             }
         }
 
@@ -111,19 +186,51 @@ namespace Views.People
             if (person_detail.IsValid()) {
                 person_detail.Save ();
             }
+            immigration_attempt.TravelingReason = traveling_reason.Active as TravelingReason;
+            immigration_attempt.DestinationCountry = destination_country.Active as Country;
+            immigration_attempt.ExpulsionsFromDestinationCountry = int.Parse(expulsions_from_destination_country.Text);
+            immigration_attempt.TransitCountry = transit_country.Active as Country;
+            immigration_attempt.CrossBorderAttemptsTransitCountry = int.Parse(cross_border_attempts_transit_country.Text);
+            immigration_attempt.ExpulsionsFromTransitCountry = int.Parse(expulsions_from_transit_country.Text);
+            if (immigration_attempt.IsValid()) {
+                immigration_attempt.Save ();
+            }
+
+            identification.IdentificationType = identification_type.Active as IdentificationType;
+            identification.IdentificationNumber = identification_number.Text;
+            if (identification.IsValid()) {
+                identification.Save();
+            }
+
+            address.Location = location.Text;
+            address.Phone = phone.Text;
+            address.Mobile = mobile.Text;
+            address.ZipCode = zipcode.Text;
+            address.Country = address_place.Country;
+            address.State = address_place.State;
+            address.City = address_place.City;
+            if (address.IsValid()) {
+                address.Save();
+            }
 
             person.Lastname = lastname.Text;
             person.Firstname = firstname.Text;
             person.Alias = alias.Text;
+            person.Email = email.Text;
+            person.IsImmigrant = this.isImmigrant;
+
             if (birthday.CurrentDate.Year == 1)
             {
                 person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(Convert.ToInt32(age.Text)*365, 0, 0, 0)).Year, 1, 1);
             } else
             {
-                person.Birthday = birthday.CurrentDate;
+                person.Birthday = DateTime.Now;
             }
 
-            person.Country = birthplace.Country;
+            person.Country = birthplace.Country as Country;
+            person.State = birthplace.State as State;
+            person.City = birthplace.City as City;
+
             person.MaritalStatus = marital_status.Active as MaritalStatus;
             person.Gender = gender.Value ();
             person.Settlement = settlement.Text;
@@ -136,6 +243,21 @@ namespace Views.People
                     person.PersonDetails.Add(person_detail);
                     person.Update ();
                 }
+                if (immigrationAttemptExist == false) {
+                    person.ImmigrationAttempts.Add(immigration_attempt);
+                    person.Update ();
+                }
+
+                if (identificationExist == false) {
+                    person.Identifications.Add(identification);
+                    person.Update ();
+                }
+
+                if (addressExist == false) {
+                    person.Addresses.Add(address);
+                    person.Update ();
+                }
+
 
                 Image photo = imageselector1.Image;
                 if (photo != null)
@@ -163,6 +285,3 @@ namespace Views.People
         }
     }
 }
-        
-        
-
