@@ -16,7 +16,7 @@ end
 Person.blueprint do
   firstname { Faker::Name.first_name}
   lastname  { Faker::Name.first_name}
-  gender    { false }
+  gender    { (rand(2) > 0 ? true : false) }
   birthday  { 24.years.ago }
   marital_status_id { MaritalStatus.first.id }
 

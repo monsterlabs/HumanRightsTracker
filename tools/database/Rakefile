@@ -144,6 +144,10 @@ task :seeds => :environment do
     require File.expand_path("../blueprints/#{blueprint}", __FILE__)
   end
   Person.make!(60)
+  Person.find_by_sql("UPDATE people SET is_immigrant = 0 WHERE is_immigrant = 'f'")
+  Person.find_by_sql("UPDATE people SET is_immigrant = 1 WHERE is_immigrant = 't'")
+  Person.find_by_sql("UPDATE people SET gender = 0 WHERE gender = 'f'")
+  Person.find_by_sql("UPDATE people SET gender = 1 WHERE gender = 't'")
   Institution.make!(30)
   InstitutionPerson.make!(10)
   Case.make!(20)
