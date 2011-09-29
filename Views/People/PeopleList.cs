@@ -145,7 +145,7 @@ namespace Views
             ReloadStore ();
         }
         protected ICriterion isImmigrantCriterion () {
-            ICriterion criterion = Restrictions.Eq("isImmigrant", (this.isImmigrant == true ? "t" : "f"));
+            ICriterion criterion = Restrictions.Eq("IsImmigrant", this.isImmigrant);
             return criterion;
         }
     }

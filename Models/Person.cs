@@ -39,10 +39,6 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public Boolean IsImmigrant { get; set; }
 
-        [Property("is_immigrant")]
-        [ValidateNonEmpty]
-        public String isImmigrant { get; set; }
-
         [Property]
         public String Email { get; set; }
 
@@ -78,6 +74,14 @@ namespace HumanRightsTracker.Models
         {
             get { return addresses; }
             set { addresses = value; }
+        }
+
+        private IList identifications = new ArrayList();
+        [HasMany(typeof(Identification), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Identifications
+        {
+            get { return identifications; }
+            set { identifications = value; }
         }
 
         public String Fullname
