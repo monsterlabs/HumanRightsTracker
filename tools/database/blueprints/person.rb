@@ -27,18 +27,18 @@ Person.blueprint do
   city_id { @state.cities.sample.id }
   settlement { Faker::Address.city }
   email { Faker::Internet.email }
-  identification_type_id { IdentificationType.all.sample.id }
-  identification_number { Faker::PhoneNumber.phone_number.gsub(/(\s|\-|\)|\(|\.|x)/,'') }
 
-  person_detail
   if rand(2) > 0
     is_immigrant { true }
     immigration_attempt
   else
     is_immigrant { false }  
   end
+
+  person_detail
   image { images.pop }
   address
+  identification
 end
 
 PersonDetail.blueprint do
@@ -69,4 +69,9 @@ Address.blueprint do
   state_id { @state.id }
   city_id { @state.cities.sample.id }
   zipcode { Faker::Address.zip_code }
+end
+
+Identification.blueprint do
+  identification_type_id { IdentificationType.all.sample.id }
+  identification_number { Faker::PhoneNumber.phone_number.gsub(/(\s|\-|\)|\(|\.|x)/,'') }
 end
