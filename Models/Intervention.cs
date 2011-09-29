@@ -17,19 +17,23 @@ namespace HumanRightsTracker.Models
         [BelongsTo("intervention_type_id")]
         public InterventionType InterventionType { get; set; }
 
-        [BelongsTo("person_id")]
-        public Person Person { get; set; }
+        [BelongsTo("interventor_id")]
+        public Person Interventor { get; set; }
 
         [BelongsTo("supporter_id")]
         public Person Supporter { get; set; }
 
         [Property]
         [ValidateNonEmpty]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [Property]
         [ValidateNonEmpty]
         public String Impact { get; set; }
+
+        [Property]
+        [ValidateNonEmpty]
+        public String Response { get; set; }
 
     }
 }

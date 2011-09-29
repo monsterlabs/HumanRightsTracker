@@ -115,6 +115,10 @@
     <Compile Include="gtk-gui\Views.EditCatalogRecord.cs" />
     <Compile Include="Windows\EditCatalogWindow.cs" />
     <Compile Include="gtk-gui\Views.EditCatalogWindow.cs" />
+    <Compile Include="Interventions\InterventionList.cs" />
+    <Compile Include="gtk-gui\Views.InterventionList.cs" />
+    <Compile Include="Interventions\InterventionRow.cs" />
+    <Compile Include="gtk-gui\Views.InterventionRow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -137,5 +141,6 @@
     <Folder Include="images\" />
     <Folder Include="Institutions\" />
     <Folder Include="Acts\" />
+    <Folder Include="Interventions\" />
   </ItemGroup>
 </Project>

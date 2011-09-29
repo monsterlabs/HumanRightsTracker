@@ -10,7 +10,9 @@ Case.blueprint do
   name { Faker::Lorem.words(2).join(" ")}
   start_date  { 24.years.ago }
   start_date_type_id  { DateType.all.sample.id }
+  
   acts(rand(3))
+  interventions(rand(2))
 end
 
 Act.blueprint do
@@ -39,4 +41,11 @@ end
 PersonAct.blueprint do
   role_id { Role.all.sample.id }
   person_id { Person.all.sample.id }
+end
+
+Intervention.blueprint do
+  intervention_type_id { InterventionType.all.sample.id }
+  interventor_id { Person.all.sample.id }
+  supporter_id { Person.all.sample.id }
+  date  { rand(10).months.ago }
 end

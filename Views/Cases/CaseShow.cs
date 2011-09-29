@@ -30,6 +30,7 @@ namespace Views
                     endDateSelector.setDate(mycase.end_date);
                     endDateSelector.setDateType(mycase.EndDateType);
                     actslist.Case = value;
+                    interventionlist1.Case = value;
                 }
                 IsEditing = false;
             }
@@ -56,6 +57,7 @@ namespace Views
                 startDateSelector.IsEditable = value;
                 endDateSelector.IsEditable = value;
                 actslist.IsEditable = value;
+                interventionlist1.IsEditable = value;
             }
         }
 
