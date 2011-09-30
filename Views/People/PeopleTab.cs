@@ -15,6 +15,7 @@ namespace Views
 
         protected virtual void PersonSelected (object sender, System.EventArgs e)
         {
+            show.IsImmigrant = this.isImmigrant;
             if (sender != null)
             {
                 show.Show();
@@ -22,6 +23,7 @@ namespace Views
                 show.Person = person;
                 removeButton.Sensitive = true;
             } else {
+
                 show.Hide();
                 removeButton.Sensitive = false;
             }

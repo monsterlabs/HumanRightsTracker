@@ -34,10 +34,17 @@ namespace Views.People
                 this.person = value;
                 if (person != null) {
                      set_person_widgets ();
-                     set_person_details_widgets ();
-                     set_immigration_details_widgets ();
-                     set_identification_widgets();
-                     set_address_widgets();
+                     set_address_widgets ();
+                     if (this.isImmigrant == true ) {
+                        set_immigration_details_widgets ();
+                        set_identification_widgets ();
+                        set_person_details_widgets ();
+                     } else {
+                        migration_attempts_frame.Destroy ();
+                        identification_frame.Destroy ();
+                        person_details_frame.Destroy ();
+                     }
+
                 }
                 IsEditing = false;
             }
@@ -65,10 +72,13 @@ namespace Views.People
                 }
 
                 editable_person (value);
-                editable_person_details (value);
-                editable_immigration_attempts (value);
-                editable_identification (value);
                 editable_address (value);
+                if (this.isImmigrant == true ) {
+                    editable_person_details (value);
+                    editable_immigration_attempts (value);
+                    editable_identification (value);
+                }
+
             }
         }
 
@@ -83,24 +93,27 @@ namespace Views.People
 
         protected void OnSave (object sender, System.EventArgs e)
         {
-            person_detail_record ();
-            if (person_details.IsValid()) {
-                person_details.Save ();
-            }
-
-            immigration_attempt_record ();
-            if (immigration_attempt.IsValid()) {
-                immigration_attempt.Save ();
-            }
-
-            identification_record ();
-            if (identification.IsValid()) {
-                identification.Save();
-            }
 
             address_record ();
             if (address.IsValid()) {
                 address.Save();
+            }
+
+            if (this.isImmigrant == true ) {
+                person_detail_record ();
+                if (person_details.IsValid()) {
+                    person_details.Save ();
+                }
+
+                immigration_attempt_record ();
+                if (immigration_attempt.IsValid()) {
+                    immigration_attempt.Save ();
+                }
+
+                identification_record ();
+                if (identification.IsValid()) {
+                    identification.Save();
+                }
             }
 
             person_record ();
@@ -108,25 +121,27 @@ namespace Views.People
             {
                 person.Save ();
 
-                if (personDetailsExist == false) {
-                    person.PersonDetails.Add(person_details);
-                    person.Update ();
-                }
-                if (immigrationAttemptExist == false) {
-                    person.ImmigrationAttempts.Add(immigration_attempt);
-                    person.Update ();
-                }
-
-                if (identificationExist == false) {
-                    person.Identifications.Add(identification);
-                    person.Update ();
-                }
-
                 if (addressExist == false) {
                     person.Addresses.Add(address);
                     person.Update ();
                 }
 
+                if (this.isImmigrant == true ) {
+                    if (personDetailsExist == false) {
+                        person.PersonDetails.Add(person_details);
+                        person.Update ();
+                    }
+
+                    if (immigrationAttemptExist == false) {
+                        person.ImmigrationAttempts.Add(immigration_attempt);
+                        person.Update ();
+                    }
+
+                    if (identificationExist == false) {
+                        person.Identifications.Add(identification);
+                        person.Update ();
+                    }
+                }
 
                 Image photo = imageselector1.Image;
                 if (photo != null)

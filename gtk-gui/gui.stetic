@@ -283,7 +283,7 @@ Copyright 2011 © i(dh)eas
           <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="CurrentPage">0</property>
+            <property name="CurrentPage">1</property>
             <child>
               <widget class="Views.PeopleTab" id="individual_peopletab">
                 <property name="MemberName" />
@@ -294,7 +294,8 @@ Copyright 2011 © i(dh)eas
             <child>
               <widget class="Gtk.Label" id="label41">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Individual Person</property>
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Individual Person&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
               </widget>
               <packing>
                 <property name="type">tab</property>
@@ -313,7 +314,8 @@ Copyright 2011 © i(dh)eas
             <child>
               <widget class="Gtk.Label" id="label49">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Immigrant Person</property>
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Immigrant People&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
               </widget>
               <packing>
                 <property name="type">tab</property>

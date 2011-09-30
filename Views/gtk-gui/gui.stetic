@@ -952,7 +952,7 @@ Female</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Frame" id="people_details_frame">
+                  <widget class="Gtk.Frame" id="person_details_frame">
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
