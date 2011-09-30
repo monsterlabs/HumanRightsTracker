@@ -14,10 +14,6 @@ namespace Views.People
         public Address address;
 
         protected bool isEditing;
-        public bool personDetailsExist;
-        public bool immigrationAttemptExist;
-        public bool identificationExist;
-        public bool addressExist;
         public bool isImmigrant = false;
 
         public event EventHandler PersonSaved;
@@ -50,7 +46,6 @@ namespace Views.People
             }
 
         }
-
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
         {
@@ -94,66 +89,23 @@ namespace Views.People
         protected void OnSave (object sender, System.EventArgs e)
         {
 
-            address_record ();
-            if (address.IsValid()) {
-                address.Save();
-            }
-
-            if (this.isImmigrant == true ) {
-                person_detail_record ();
-                if (person_details.IsValid()) {
-                    person_details.Save ();
-                }
-
-                immigration_attempt_record ();
-                if (immigration_attempt.IsValid()) {
-                    immigration_attempt.Save ();
-                }
-
-                identification_record ();
-                if (identification.IsValid()) {
-                    identification.Save();
-                }
-            }
-
-            person_record ();
+            prepare_person_record ();
             if (person.IsValid())
             {
                 person.Save ();
 
-                if (addressExist == false) {
-                    person.Addresses.Add(address);
-                    person.Update ();
-                }
-
-                if (this.isImmigrant == true ) {
-                    if (personDetailsExist == false) {
-                        person.PersonDetails.Add(person_details);
-                        person.Update ();
-                    }
-
-                    if (immigrationAttemptExist == false) {
-                        person.ImmigrationAttempts.Add(immigration_attempt);
-                        person.Update ();
-                    }
-
-                    if (identificationExist == false) {
-                        person.Identifications.Add(identification);
-                        person.Update ();
-                    }
-                }
-
-                Image photo = imageselector1.Image;
-                if (photo != null)
-                {
-                    photo.ImageableId = person.Id;
-                    photo.ImageableType = "Person";
-                    photo.Save ();
-                }
-
                 this.IsEditing = false;
-                if (PersonSaved != null)
+                if (PersonSaved != null) {
                     PersonSaved (person, e);
+
+                    address_save ();
+                    if (this.isImmigrant == true ) {
+                        person_detail_save ();
+                        immigration_attempt_save ();
+                        identification_save ();
+                    }
+                    image_save ();
+                }
             } else
             {
                 Console.WriteLine( String.Join(",", person.ValidationErrorMessages) );
@@ -167,7 +119,6 @@ namespace Views.People
             DateTime selectedBD = (DateTime)sender;
             age.Text = "" + DateTime.Now.Subtract(selectedBD).Days/365;
         }
-
 
         protected void set_person_widgets ()
         {
@@ -188,10 +139,8 @@ namespace Views.People
         {
             if (person.PersonDetails.Count == 0) {
                 person_details = new PersonDetail ();
-                personDetailsExist = false;
             } else {
                 person_details = (PersonDetail)person.PersonDetails[0];
-                personDetailsExist = true;
                 number_of_sons.Text = person_details.NumberOfSons.ToString();
                 religion.Active = person_details.Religion;
                 scholarity_level.Active = person_details.ScholarityLevel;
@@ -207,10 +156,8 @@ namespace Views.People
         {
             if (person.ImmigrationAttempts.Count == 0) {
                 immigration_attempt = new ImmigrationAttempt();
-                immigrationAttemptExist = false;
             } else {
                 immigration_attempt = (ImmigrationAttempt)person.ImmigrationAttempts[0];
-                immigrationAttemptExist = true;
                 traveling_reason.Active = immigration_attempt.TravelingReason;
                 destination_country.Active = immigration_attempt.DestinationCountry as Country;
                 expulsions_from_destination_country.Text = immigration_attempt.ExpulsionsFromDestinationCountry.ToString();
@@ -224,10 +171,8 @@ namespace Views.People
         {
             if (person.Identifications.Count == 0) {
                 identification = new Identification ();
-                identificationExist = false;
             } else {
                 identification = (Identification)person.Identifications[0];
-                identificationExist = true;
                 identification_type.Active = identification.IdentificationType;
                 identification_number.Text = identification.IdentificationNumber;
             }
@@ -237,10 +182,8 @@ namespace Views.People
         {
             if (person.Addresses.Count == 0) {
                 address = new Address ();
-                addressExist = false;
             } else {
                 address = (Address)person.Addresses[0];
-                addressExist = true;
                 location.Text = address.Location;
                 address_place.SetPlace(address.Country, address.State, address.City);
                 zipcode.Text = address.ZipCode  == null ? "" : address.ZipCode;
@@ -300,7 +243,7 @@ namespace Views.People
             mobile.IsEditable  = value;
         }
 
-        protected void person_detail_record ()
+        protected void person_detail_save ()
         {
             person_details.NumberOfSons = int.Parse(number_of_sons.Text);
             person_details.ScholarityLevel = scholarity_level.Active as ScholarityLevel;
@@ -309,9 +252,15 @@ namespace Views.People
             person_details.MostRecentJob = most_recent_job.Active as Job;
             person_details.IndigenousGroup = indigenous_group.Text;
             person_details.IsSpanishSpeaker = is_spanish_speaker.Value ();
+
+            person_details.Person = person;
+            if (person_details.IsValid()) {
+               person_details.Save ();
+            }
+
         }
 
-        protected void immigration_attempt_record ()
+        protected void immigration_attempt_save ()
         {
             immigration_attempt.TravelingReason = traveling_reason.Active as TravelingReason;
             immigration_attempt.DestinationCountry = destination_country.Active as Country;
@@ -319,15 +268,25 @@ namespace Views.People
             immigration_attempt.TransitCountry = transit_country.Active as Country;
             immigration_attempt.CrossBorderAttemptsTransitCountry = int.Parse(cross_border_attempts_transit_country.Text);
             immigration_attempt.ExpulsionsFromTransitCountry = int.Parse(expulsions_from_transit_country.Text);
+
+            immigration_attempt.Person = person;
+            if (immigration_attempt.IsValid()) {
+                    immigration_attempt.Save ();
+            }
         }
 
-        protected void identification_record ()
+        protected void identification_save ()
         {
            identification.IdentificationType = identification_type.Active as IdentificationType;
            identification.IdentificationNumber = identification_number.Text;
+
+            identification.Person = person;
+           if (identification.IsValid()) {
+                identification.Save();
+           }
         }
 
-        protected void address_record ()
+        protected void address_save ()
         {
             address.Location = location.Text;
             address.Phone = phone.Text;
@@ -336,9 +295,15 @@ namespace Views.People
             address.Country = address_place.Country;
             address.State = address_place.State;
             address.City = address_place.City;
+
+            address.Person = person;
+            if (address.IsValid()) {
+                address.Save();
+            }
+
         }
 
-        protected void person_record ()
+        protected void prepare_person_record ()
         {
             person.Lastname = lastname.Text;
             person.Firstname = firstname.Text;
@@ -361,6 +326,16 @@ namespace Views.People
             person.MaritalStatus = marital_status.Active as MaritalStatus;
             person.Gender = gender.Value ();
             person.Settlement = settlement.Text;
+        }
+
+        protected void image_save () {
+            Image photo = imageselector1.Image;
+            if (photo != null)
+            {
+                photo.ImageableId = person.Id;
+                photo.ImageableType = "Person";
+                photo.Save ();
+            }
         }
     }
 }
