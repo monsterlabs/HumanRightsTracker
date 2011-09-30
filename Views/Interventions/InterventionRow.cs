@@ -43,7 +43,7 @@ namespace Views
 
         protected void OnDetail (object sender, System.EventArgs e)
         {
-            //new ActDetailWindow (this.Act, OnDetailReturned, (Gtk.Window)this.Toplevel);
+            new InterventionDetailWindow (this.Intervention, OnDetailReturned, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnDetailReturned (object sender, System.EventArgs e)

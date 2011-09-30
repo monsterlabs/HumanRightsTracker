@@ -27,6 +27,8 @@ namespace Views
                     dateSelector.CurrentDate = intervention.Date;
                     interventorSelect.Person = intervention.Interventor;
                     supporterSelect.Person = intervention.Supporter;
+                    impactView.Buffer.Text = intervention.Impact;
+                    responseView.Buffer.Text = intervention.Response;
 
                     // person-acts
 //                    HashSet<Person> victims = new HashSet<Person>(new ARComparer<Person>());
