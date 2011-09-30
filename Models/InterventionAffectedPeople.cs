@@ -14,8 +14,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("intervention_id")]
         public Intervention Intervention { get; set;}
 
-        [BelongsTo("people_id")]
-        public Person person { get; set;}
+        [BelongsTo("person_id")]
+        public Person Person { get; set;}
 
     }
 }

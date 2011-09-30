@@ -1,6 +1,8 @@
 using System;
 using Mono.Unix;
 using HumanRightsTracker.Models;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Views
 {
@@ -30,29 +32,16 @@ namespace Views
                     impactView.Buffer.Text = intervention.Impact;
                     responseView.Buffer.Text = intervention.Response;
 
-                    // person-acts
-//                    HashSet<Person> victims = new HashSet<Person>(new ARComparer<Person>());
-//                    HashSet<Person> perpetrators = new HashSet<Person>(new ARComparer<Person>());
-//
-//                    IList personActs = intervention.PersonActs;
-//                    if (personActs != null) {
-//                        foreach (PersonAct personAct in personActs)
-//                        {
-//                            switch (personAct.Role.Name)
-//                            {
-//                            case "Perpetrador":
-//                                perpetrators.Add(personAct.Person);
-//                                break;
-//                            case "Víctima":
-//                                victims.Add(personAct.Person);
-//                                break;
-//                            default:
-//                                break;
-//                            }
-//                        }
-//                    }
-//                    VictimSelector.People = victims;
-//                    perpetratorsSelector.People = perpetrators;
+                    // intervention affected people
+                    HashSet<Person> affected = new HashSet<Person>(new ARComparer<Person>());
+                    IList affectedPeopleList = intervention.AffectedPeople;
+                    if (affectedPeopleList != null) {
+                        foreach (InterventionAffectedPeople affectedPerson in affectedPeopleList)
+                        {
+                            affected.Add(affectedPerson.Person);
+                        }
+                    }
+                    affectedPeople.People = affected;
                 }
                 IsEditing = false;
             }
@@ -67,25 +56,17 @@ namespace Views
 
             if (intervention.IsValid())
             {
-//                List<PersonAct> personActs = new List<PersonAct>();
-//
-//                foreach (Person person in VictimSelector.People)
-//                {
-//                    PersonAct personAct = new PersonAct();
-//                    personAct.Act = intervention;
-//                    personAct.Person = person;
-//                    personAct.Role = Role.Find(1);
-//                    personActs.Add(personAct);
-//                }
-//                foreach (Person person in perpetratorsSelector.People)
-//                {
-//                    PersonAct personAct = new PersonAct();
-//                    personAct.Act = intervention;
-//                    personAct.Person = person;
-//                    personAct.Role = Role.Find(2);
-//                    personActs.Add(personAct);
-//                }
-//                intervention.PersonActs = personActs;
+                List<InterventionAffectedPeople> affectedPeopleList = new List<InterventionAffectedPeople>();
+
+                foreach (Person person in affectedPeople.People)
+                {
+                    InterventionAffectedPeople affectedPerson = new InterventionAffectedPeople();
+                    affectedPerson.Intervention = intervention;
+                    affectedPerson.Person = person;
+
+                    affectedPeopleList.Add(affectedPerson);
+                }
+                intervention.AffectedPeople = affectedPeopleList;
 
                 this.IsEditing = false;
 

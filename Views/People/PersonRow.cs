@@ -8,7 +8,7 @@ namespace Views
     {
         Person person;
         bool isEditable;
-        public new event EventHandler Removed;
+        public event EventHandler OnRemoved;
 
         public PersonRow ()
         {
@@ -19,7 +19,7 @@ namespace Views
         {
             this.Build ();
             this.Person = person;
-            this.Removed = removed;
+            this.OnRemoved = removed;
         }
 
         public bool IsEditable {
@@ -55,8 +55,8 @@ namespace Views
 
         protected void OnRemove (object sender, System.EventArgs e)
         {
-            if (Removed != null)
-                Removed (this, e);
+            if (OnRemoved != null)
+                OnRemoved (this, e);
         }
     }
 }

@@ -4398,6 +4398,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
                 <property name="IsEditable">False</property>
+                <signal name="Removed" handler="OnRemoved" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -4509,6 +4510,7 @@ December</property>
                 <property name="Icon">stock:gtk-delete Menu</property>
                 <property name="Label" translatable="yes">Delete</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnRemove" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
