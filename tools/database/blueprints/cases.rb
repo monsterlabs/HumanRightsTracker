@@ -1,7 +1,4 @@
 # encoding: utf-8
-require File.expand_path("../machinist_helper", __FILE__)
-include MachinistHelper
-
 PersonAct.destroy_all
 Act.destroy_all
 Case.destroy_all

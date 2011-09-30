@@ -1,5 +1,4 @@
 # encoding: utf-8
-require File.expand_path("../machinist_helper", __FILE__)
 include MachinistHelper
 
 Person.destroy_all
