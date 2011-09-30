@@ -119,6 +119,12 @@
     <Compile Include="gtk-gui\Views.InterventionList.cs" />
     <Compile Include="Interventions\InterventionRow.cs" />
     <Compile Include="gtk-gui\Views.InterventionRow.cs" />
+    <Compile Include="Interventions\InterventionShow.cs" />
+    <Compile Include="gtk-gui\Views.InterventionShow.cs" />
+    <Compile Include="People\PersonSelect.cs" />
+    <Compile Include="gtk-gui\Views.PersonSelect.cs" />
+    <Compile Include="Interventions\InterventionDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.InterventionDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -2,6 +2,7 @@ using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
+using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
@@ -34,6 +35,9 @@ namespace HumanRightsTracker.Models
         [Property]
         [ValidateNonEmpty]
         public String Response { get; set; }
+
+        [HasMany(typeof(InterventionAffectedPeople), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList AffectedPeople { get; set; }
 
     }
 }

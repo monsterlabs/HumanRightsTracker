@@ -86,6 +86,7 @@
     <Compile Include="Catalogs\Language.cs" />
     <Compile Include="Catalogs\ReliabilityLevel.cs" />
     <Compile Include="InformationSource.cs" />
+    <Compile Include="InterventionAffectedPeople.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -64,6 +64,20 @@ namespace Views
             interventionsList.ShowAll ();
         }
 
+        protected void OnNewIntervention (object sender, System.EventArgs e)
+        {
+            new InterventionDetailWindow (c, OnNewInterventionReturned, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnNewInterventionReturned (object sender, EventArgs args)
+        {
+            Intervention a = sender as Intervention;
+            interventionsList.PackStart (new InterventionRow (a, OnInterventionRowRemoved));
+            interventionsList.ShowAll ();
+            interventions.Add (a);
+            return;
+        }
+
         protected void OnInterventionRowRemoved (object sender, EventArgs e)
         {
             InterventionRow interventionRow = sender as InterventionRow;
