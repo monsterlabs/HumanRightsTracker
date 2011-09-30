@@ -45,4 +45,9 @@ Intervention.blueprint do
   interventor_id { Person.all.sample.id }
   supporter_id { Person.all.sample.id }
   date  { rand(10).months.ago }
+  intervention_affected_people(rand(5))
+end
+
+InterventionAffectedPerson.blueprint do
+  person_id { Person.all.sample.id }
 end
