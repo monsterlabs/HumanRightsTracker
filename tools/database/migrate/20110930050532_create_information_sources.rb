@@ -5,7 +5,7 @@ class CreateInformationSources < ActiveRecord::Migration
       t.integer :information_sourceable_id
       t.string :information_sourceable_type
       t.integer :reported_personable_id
-      t.string :reported_personable
+      t.string :reported_personable_type
       t.references :affiliation_type
       t.references :date_type
       t.date :date

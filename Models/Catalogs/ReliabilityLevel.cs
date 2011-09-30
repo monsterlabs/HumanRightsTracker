@@ -5,8 +5,8 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("affiliation_types")]
-    public class AffiliationType : ActiveRecordValidationBase<AffiliationType>
+    [ActiveRecord("reliability_levels")]
+    public class RelialibityLevel : ActiveRecordValidationBase<RelialibityLevel>
     {
 
         [PrimaryKey]

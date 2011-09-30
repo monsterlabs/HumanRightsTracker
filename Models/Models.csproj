@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Models</RootNamespace>
     <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,16 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Castle.ActiveRecord">
+    <Reference Include="Castle.ActiveRecord, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\lib\Castle\Castle.ActiveRecord.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Core">
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\lib\Castle\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Components.Validator">
+    <Reference Include="Castle.Components.Validator, Version=2.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate">
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -81,6 +82,10 @@
     <Compile Include="PersonAct.cs" />
     <Compile Include="Catalogs\IdentificationType.cs" />
     <Compile Include="Identification.cs" />
+    <Compile Include="Catalogs\IndigenousLanguage.cs" />
+    <Compile Include="Catalogs\Language.cs" />
+    <Compile Include="Catalogs\ReliabilityLevel.cs" />
+    <Compile Include="InformationSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

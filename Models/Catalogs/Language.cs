@@ -5,8 +5,8 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("affiliation_types")]
-    public class AffiliationType : ActiveRecordValidationBase<AffiliationType>
+    [ActiveRecord("languages")]
+    public class Language : ActiveRecordValidationBase<Language>
     {
 
         [PrimaryKey]
@@ -15,8 +15,5 @@ namespace HumanRightsTracker.Models
         [Property]
         [ValidateNonEmpty]
         public String Name { get; set; }
-
-        [Property]
-        public String Notes { get; set; }
     }
 }

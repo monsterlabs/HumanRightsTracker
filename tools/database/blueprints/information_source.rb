@@ -11,6 +11,14 @@ InformationSource.blueprint do
     information_sourceable_type { "Institution"}
   end
 
+  if rand(2) > 0
+    reported_personable_id { Person.all.sample.id }
+    reported_personable_type { "Person"}
+  else
+    reported_personable_id { Institution.all.sample.id }
+    reported_personable_type { "Institution"}
+  end
+
   affiliation_type_id { AffiliationType.all.sample.id }
   date_type_id { DateType.all.sample.id }
   date { Date.today }

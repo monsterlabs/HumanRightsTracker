@@ -5,8 +5,8 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("affiliation_types")]
-    public class AffiliationType : ActiveRecordValidationBase<AffiliationType>
+    [ActiveRecord("indigenous_languages")]
+    public class IndigenousLanguage : ActiveRecordValidationBase<IndigenousLanguage>
     {
 
         [PrimaryKey]
