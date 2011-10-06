@@ -2,10 +2,15 @@ class CreateInformationSources < ActiveRecord::Migration
   def self.up
     create_table :information_sources do |t|
       t.references :case
-      t.integer :information_sourceable_id
-      t.string :information_sourceable_type
-      t.integer :reported_personable_id
-      t.string :reported_personable_type
+
+      t.integer  :source_person_id
+      t.integer  :source_institution_id
+      t.integer  :source_job_id
+
+      t.integer  :reported_person_id
+      t.integer  :reported_institution_id
+      t.integer  :reported_job_id
+
       t.references :affiliation_type
       t.references :date_type
       t.date :date

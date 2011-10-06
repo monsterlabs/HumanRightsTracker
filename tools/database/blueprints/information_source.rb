@@ -3,20 +3,21 @@ InformationSource.destroy_all
 
 InformationSource.blueprint do
   case_id { Case.all.sample.id }
+
   if rand(2) > 0
-    information_sourceable_id { Person.all.sample.id }
-    information_sourceable_type { "Person"}
+    source_person_id { Person.all.sample.id }
+    source_institution_id { Institution.all.sample.id }
+    source_job_id { Job.all.sample.id }
   else
-    information_sourceable_id { Institution.all.sample.id }
-    information_sourceable_type { "Institution"}
+    source_institution_id { Institution.all.sample.id }
   end
 
   if rand(2) > 0
-    reported_personable_id { Person.all.sample.id }
-    reported_personable_type { "Person"}
+    reported_person_id { Person.all.sample.id }
+    reported_institution_id { Institution.all.sample.id }
+    reported_job_id { Job.all.sample.id }
   else
-    reported_personable_id { Institution.all.sample.id }
-    reported_personable_type { "Institution"}
+    reported_institution_id { Institution.all.sample.id }
   end
 
   affiliation_type_id { AffiliationType.all.sample.id }
@@ -27,5 +28,5 @@ InformationSource.blueprint do
   reliability_level_id { ReliabilityLevel.all.sample.id }
   observations { Faker::Lorem.paragraph(rand(6)) }
   comments { Faker::Lorem.paragraph(rand(6)) }
-  
+
 end

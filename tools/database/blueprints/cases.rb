@@ -1,5 +1,7 @@
 # encoding: utf-8
-PersonAct.destroy_all
+PerpetratorAct.destroy_all
+Perpetrator.destroy_all
+Victim.destroy_all
 Act.destroy_all
 Case.destroy_all
 
@@ -32,18 +34,36 @@ Act.blueprint do
   summary { Faker::Lorem.sentence(1)}
   narrative_information { Faker::Lorem.paragraph(2)}
   comments { Faker::Lorem.paragraph(1)}
-  person_acts(rand(5))
+  victims(rand(5))
 end
 
-PersonAct.blueprint do
-  role_id { Role.all.sample.id }
+Victim.blueprint do
   person_id { Person.all.sample.id }
+  perpetrators(rand(5))
+end
+
+Perpetrator.blueprint do
+  person_id { Person.all.sample.id }
+  institution_id { Institution.all.sample.id }
+  job_id { Job.all.sample.id }
+  perpetrator_acts(rand(5))
+end
+
+PerpetratorAct.blueprint do
+  human_right_violation_id { HumanRightsViolation.all.sample.id }
 end
 
 Intervention.blueprint do
   intervention_type_id { InterventionType.all.sample.id }
+  
   interventor_id { Person.all.sample.id }
+  interventor_institution_id { Institution.all.sample.id }
+  interventor_job_id { Job.all.sample.id }
+
   supporter_id { Person.all.sample.id }
+  supporter_institution_id { Institution.all.sample.id }
+  supporter_job_id { Job.all.sample.id }
+  
   date  { rand(10).months.ago }
   intervention_affected_people(rand(5))
 end
