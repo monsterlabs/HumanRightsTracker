@@ -117,7 +117,7 @@ task :seeds => :environment do
   
   VictimStatus.destroy_all
   CSV.foreach("seeds/victim_statuses.csv") do |row|
-    VictimStatuses.create(:name => row[0].strip)
+    VictimStatus.create(:name => row[0].strip)
   end
   
   InstitutionCategory.destroy_all
@@ -153,6 +153,11 @@ task :seeds => :environment do
   IndigenousLanguage.destroy_all
   CSV.foreach("seeds/indigenous_languages.csv", :col_sep => "|") do |row|
     IndigenousLanguage.create(:name => row[0].strip, :notes => row[1].to_s.strip)
+  end
+  
+  ActPlace.destroy_all
+  CSV.foreach("seeds/act_places.csv") do |row|
+    ActPlace.create(:name => row[0].to_s.strip)
   end
   
   require "./blueprints/machinist_helper.rb"

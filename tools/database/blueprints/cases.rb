@@ -39,6 +39,8 @@ end
 
 Victim.blueprint do
   person_id { Person.all.sample.id }
+  victim_status_id { VictimStatus.all.sample.id }
+  characteristics {  Faker::Lorem.paragraph(1) }
   perpetrators(rand(5))
 end
 
@@ -51,6 +53,9 @@ end
 
 PerpetratorAct.blueprint do
   human_right_violation_id { HumanRightsViolation.all.sample.id }
+  act_place_id { ActPlace.all.sample.id }
+  location { Faker::Address.street_address }
+
 end
 
 Intervention.blueprint do

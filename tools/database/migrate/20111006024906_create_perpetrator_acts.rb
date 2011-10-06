@@ -3,7 +3,8 @@ class CreatePerpetratorActs < ActiveRecord::Migration
     create_table :perpetrator_acts do |t|
       t.references :perpetrator
       t.references :human_right_violation
-
+      t.references :act_place
+      t.string :location
       t.timestamps
     end
   end
