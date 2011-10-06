@@ -78,8 +78,6 @@
     <Compile Include="ActiveRecordMetaBase.cs" />
     <Compile Include="Catalogs\TravelingReason.cs" />
     <Compile Include="ImmigrationAttempt.cs" />
-    <Compile Include="Catalogs\Role.cs" />
-    <Compile Include="PersonAct.cs" />
     <Compile Include="Catalogs\IdentificationType.cs" />
     <Compile Include="Identification.cs" />
     <Compile Include="Catalogs\IndigenousLanguage.cs" />
@@ -87,6 +85,10 @@
     <Compile Include="Catalogs\ReliabilityLevel.cs" />
     <Compile Include="InformationSource.cs" />
     <Compile Include="InterventionAffectedPeople.cs" />
+    <Compile Include="Catalogs\ActPlace.cs" />
+    <Compile Include="Victim.cs" />
+    <Compile Include="Perpetrator.cs" />
+    <Compile Include="PerpetratorAct.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

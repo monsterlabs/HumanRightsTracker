@@ -8,7 +8,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("person_acts")]
-    public class PersonAct : ActiveRecordValidationBase<PersonAct>
+    public class Victim : ActiveRecordValidationBase<Victim>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -17,8 +17,14 @@ namespace HumanRightsTracker.Models
         public Person Person { get; set; }
         [BelongsTo("act_id"), ValidateNonEmpty]
         public Act Act { get; set; }
-        [BelongsTo("role_id"), ValidateNonEmpty]
-        public Role Role { get; set; }
+        [BelongsTo("victim_status_id"), ValidateNonEmpty]
+        public VictimStatus VictimStatus { get; set; }
+
+        [Property("characteristics")]
+        public String Characteristics { get; set; }
+
+        [HasMany(typeof(Perpetrator), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Perpetrators { get; set; }
 
     }
 }

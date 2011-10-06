@@ -66,8 +66,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("location_type_id")]
         public LocationType LocationType { get; set; }
 
-        [HasMany(typeof(PersonAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
-        public IList PersonActs { get; set; }
+        [HasMany(typeof(Victim), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Victims { get; set; }
 
     }
 }

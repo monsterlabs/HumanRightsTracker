@@ -15,17 +15,30 @@ namespace HumanRightsTracker.Models
         [BelongsTo("case_id")]
         public Case Case { get; set;}
 
-        [Property("information_sourceable_type")]
-        public String InformationSourceableType { get; set; }
+        [BelongsTo("source_person_id")]
+        [ValidateNonEmpty]
+        public Person SourcePerson { get; set; }
 
-        [Property("information_sourceable_id")]
-        public int InformationSourceableId { get; set; }
+        [BelongsTo("source_institution_id")]
+        [ValidateNonEmpty]
+        public Institution SourceInstitution { get; set; }
 
-        [Property("reported_personable_type")]
-        public String ReportedPersonableType { get; set; }
+        [BelongsTo("source_job_id")]
+        [ValidateNonEmpty]
+        public Job SourceJob { get; set; }
 
-        [Property("reported_personable_id")]
-        public int ReportedPersonableId { get; set; }
+        [BelongsTo("reported_person_id")]
+        [ValidateNonEmpty]
+        public Person ReportedPerson { get; set; }
+
+        [BelongsTo("reported_institution_id")]
+        [ValidateNonEmpty]
+        public Institution ReportedInstitution { get; set; }
+
+        [BelongsTo("reported_job_id")]
+        [ValidateNonEmpty]
+        public Job ReportedJob { get; set; }
+
 
         [BelongsTo("affiliation_type_id")]
         public AffiliationType AffiliationType { get; set; }

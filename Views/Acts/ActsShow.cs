@@ -35,22 +35,9 @@ namespace Views
                     HashSet<Person> victims = new HashSet<Person>(new ARComparer<Person>());
                     HashSet<Person> perpetrators = new HashSet<Person>(new ARComparer<Person>());
 
-                    IList personActs = act.PersonActs;
+                    IList personActs = act.Victims;
                     if (personActs != null) {
-                        foreach (PersonAct personAct in personActs)
-                        {
-                            switch (personAct.Role.Name)
-                            {
-                            case "Perpetrador":
-                                perpetrators.Add(personAct.Person);
-                                break;
-                            case "Víctima":
-                                victims.Add(personAct.Person);
-                                break;
-                            default:
-                                break;
-                            }
-                        }
+
                     }
                     VictimSelector.People = victims;
                     perpetratorsSelector.People = perpetrators;
@@ -71,25 +58,23 @@ namespace Views
             {
                 //act.Save ();
                 // TODO: Save victims and perpetrators
-                List<PersonAct> personActs = new List<PersonAct>();
+                List<Victim> personActs = new List<Victim>();
 
                 foreach (Person person in VictimSelector.People)
                 {
-                    PersonAct personAct = new PersonAct();
+                    Victim personAct = new Victim();
                     personAct.Act = act;
                     personAct.Person = person;
-                    personAct.Role = Role.Find(1);
                     personActs.Add(personAct);
                 }
                 foreach (Person person in perpetratorsSelector.People)
                 {
-                    PersonAct personAct = new PersonAct();
+                    Victim personAct = new Victim();
                     personAct.Act = act;
                     personAct.Person = person;
-                    personAct.Role = Role.Find(2);
                     personActs.Add(personAct);
                 }
-                act.PersonActs = personActs;
+                act.Victims = personActs;
 
                 this.IsEditing = false;
 

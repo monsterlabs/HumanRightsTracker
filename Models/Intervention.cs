@@ -24,9 +24,25 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public Person Interventor { get; set; }
 
+        [BelongsTo("interventor_institution_id")]
+        [ValidateNonEmpty]
+        public Institution InterventorInstitution { get; set; }
+
+        [BelongsTo("interventor_job_id")]
+        [ValidateNonEmpty]
+        public Job InterventorJob { get; set; }
+
         [BelongsTo("supporter_id")]
         [ValidateNonEmpty]
         public Person Supporter { get; set; }
+
+        [BelongsTo("supporter_institution_id")]
+        [ValidateNonEmpty]
+        public Institution SupporterInstitution { get; set; }
+
+        [BelongsTo("supporter_job_id")]
+        [ValidateNonEmpty]
+        public Job SupporterJob { get; set; }
 
         [Property]
         [ValidateNonEmpty]
