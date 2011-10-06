@@ -85,11 +85,6 @@ task :seeds => :environment do
     HumanRightsViolation.create(:id => row[0].to_i, :name => row[2].strip, :category_id => row[1].to_i)
   end
   
-  Role.destroy_all
-  CSV.foreach("seeds/roles.csv") do |row|
-    Role.create(:name => row[0].strip)
-  end
-  
   HumanRightsViolationCategory.destroy_all
   CSV.foreach("seeds/human_rights_violation_categories.csv", :col_sep => "|") do |row|
     HumanRightsViolationCategory.create(:id => row[0].to_i, :name => row[1].strip)
