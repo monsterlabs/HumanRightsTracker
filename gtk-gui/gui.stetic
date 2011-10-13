@@ -254,7 +254,7 @@ Copyright 2011 © i(dh)eas
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="HumanRightsTracker.MainWindow" design-size="945 542">
+  <widget class="Gtk.Window" id="HumanRightsTracker.MainWindow" design-size="1038 542">
     <action-group name="Default">
       <action id="addAction">
         <property name="Type">Action</property>
@@ -283,12 +283,11 @@ Copyright 2011 © i(dh)eas
           <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="CurrentPage">1</property>
+            <property name="CurrentPage">2</property>
             <child>
               <widget class="Views.PeopleTab" id="individual_peopletab">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
-                <property name="IsImmigrant">False</property>
               </widget>
             </child>
             <child>
@@ -305,7 +304,6 @@ Copyright 2011 © i(dh)eas
               <widget class="Views.PeopleTab" id="immigrant_peopletab">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
-                <property name="IsImmigrant">True</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -321,18 +319,33 @@ Copyright 2011 © i(dh)eas
                 <property name="type">tab</property>
               </packing>
             </child>
+            <child>
+              <widget class="Views.InstitutionsTab" id="institutionstab1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label50">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Collective Person</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
           </widget>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label4">
+          <widget class="Gtk.Label" id="label51">
             <property name="MemberName" />
             <property name="Xalign">1</property>
             <property name="LabelProp" translatable="yes">&lt;b&gt;People&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
-          <packing>
-            <property name="type">tab</property>
-          </packing>
         </child>
         <child>
           <widget class="Views.CasesTab" id="casestab1">
@@ -344,51 +357,10 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label10">
+          <widget class="Gtk.Label" id="label60">
             <property name="MemberName" />
             <property name="Xalign">1</property>
             <property name="LabelProp" translatable="yes">&lt;b&gt;Cases&lt;/b&gt;</property>
-            <property name="UseMarkup">True</property>
-          </widget>
-          <packing>
-            <property name="type">tab</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Views.InstitutionsTab" id="institutionstab1">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-          </widget>
-          <packing>
-            <property name="Position">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="label32">
-            <property name="MemberName" />
-            <property name="Xalign">1</property>
-            <property name="LabelProp" translatable="yes">&lt;b&gt;Institutions&lt;/b&gt;</property>
-            <property name="UseMarkup">True</property>
-          </widget>
-          <packing>
-            <property name="type">tab</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Views.ActsShow" id="actsshow1">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="IsEditing">False</property>
-          </widget>
-          <packing>
-            <property name="Position">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="label66">
-            <property name="MemberName" />
-            <property name="Xalign">1</property>
-            <property name="LabelProp" translatable="yes">&lt;b&gt;Acts&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
