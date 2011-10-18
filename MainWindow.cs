@@ -11,8 +11,8 @@ namespace HumanRightsTracker
             this.Build ();
             individual_peopletab.InitialSetup ();
             immigrant_peopletab.InitialSetup ();
-            casestab1.InitialSetup ();
-            institutionstab1.InitialSetup ();
+            casestab.InitialSetup ();
+            institutionstab.InitialSetup ();
             this.Default = individual_peopletab.DefaultButton ();
         }
 
