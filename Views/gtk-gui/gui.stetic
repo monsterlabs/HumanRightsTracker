@@ -2105,7 +2105,6 @@ No</property>
               <widget class="Views.PeopleList" id="peoplelist">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
-                <property name="IsImmigrant">False</property>
                 <signal name="SelectionChanged" handler="PersonSelected" />
               </widget>
               <packing>
@@ -2177,7 +2176,6 @@ No</property>
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
                     <property name="IsEditing">False</property>
-                    <property name="IsImmigrant">False</property>
                     <signal name="PersonSaved" handler="OnPersonSaved" />
                   </widget>
                 </child>
@@ -4267,7 +4265,6 @@ December</property>
                           <widget class="Views.PeopleSelector" id="VictimSelector">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="IsEditing">False</property>
                           </widget>
                         </child>
                       </widget>
@@ -4305,7 +4302,6 @@ December</property>
                           <widget class="Views.PeopleSelector" id="perpetratorsSelector">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="IsEditing">False</property>
                           </widget>
                         </child>
                       </widget>
@@ -4397,7 +4393,6 @@ December</property>
               <widget class="Views.PersonRow" id="row">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
-                <property name="IsEditable">False</property>
                 <signal name="Removed" handler="OnRemoved" />
               </widget>
               <packing>
@@ -4453,7 +4448,6 @@ December</property>
       <widget class="Views.PeopleList" id="peoplelist1">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
-        <property name="IsImmigrant">False</property>
         <signal name="SelectionWithDoubleClick" handler="OnSelection" />
       </widget>
     </child>
@@ -4543,7 +4537,6 @@ December</property>
               <widget class="Views.ActRow" id="row">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
-                <property name="IsEditable">False</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -5416,8 +5409,9 @@ December</property>
                         <property name="LeftAttach">1</property>
                         <property name="RightAttach">2</property>
                         <property name="AutoSize">True</property>
+                        <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">True</property>
+                        <property name="XExpand">False</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -5473,8 +5467,9 @@ December</property>
                         <property name="LeftAttach">1</property>
                         <property name="RightAttach">2</property>
                         <property name="AutoSize">True</property>
+                        <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">True</property>
+                        <property name="XExpand">False</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -5520,7 +5515,6 @@ December</property>
                   <widget class="Views.PeopleSelector" id="affectedPeople">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="IsEditing">False</property>
                   </widget>
                 </child>
               </widget>
@@ -5655,6 +5649,130 @@ December</property>
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
         <property name="IsEditing">False</property>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.VictimSelector" design-size="330 133">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.VBox" id="peopleList">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Views.VictimRow" id="row">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsEditable">False</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <property name="LayoutStyle">Spread</property>
+            <child>
+              <widget class="Gtk.Button" id="addButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Add</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnAddClicked" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.VictimRow" design-size="330 100">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.HBox" id="hbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Image" id="photo">
+            <property name="MemberName" />
+            <property name="Pixbuf">resource:Views.images.Missing.jpg</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="fullname">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Lastname Firstname</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox3">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <child>
+              <widget class="Gtk.Button" id="button8">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-delete Menu</property>
+                <property name="Label" translatable="yes">Delete</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnRemove" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">False</property>
+            <property name="Expand">False</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>

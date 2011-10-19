@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Views</RootNamespace>
     <AssemblyName>Views</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,20 +35,16 @@
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="Mono.Posix" />
-    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NHibernate">
       <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NHibernate.ByteCode.Castle">
       <HintPath>..\lib\Castle\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.ActiveRecord, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Castle.ActiveRecord">
       <HintPath>..\lib\Castle\Castle.ActiveRecord.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Components.Validator, Version=2.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Castle.Components.Validator">
       <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -125,6 +120,10 @@
     <Compile Include="gtk-gui\Views.PersonSelect.cs" />
     <Compile Include="Interventions\InterventionDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.InterventionDetailWindow.cs" />
+    <Compile Include="People\VictimSelector.cs" />
+    <Compile Include="gtk-gui\Views.VictimSelector.cs" />
+    <Compile Include="People\VictimRow.cs" />
+    <Compile Include="gtk-gui\Views.VictimRow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
