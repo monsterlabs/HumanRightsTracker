@@ -120,10 +120,12 @@
     <Compile Include="gtk-gui\Views.PersonSelect.cs" />
     <Compile Include="Interventions\InterventionDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.InterventionDetailWindow.cs" />
-    <Compile Include="People\VictimSelector.cs" />
     <Compile Include="gtk-gui\Views.VictimSelector.cs" />
-    <Compile Include="People\VictimRow.cs" />
     <Compile Include="gtk-gui\Views.VictimRow.cs" />
+    <Compile Include="gtk-gui\Views.VictimShow.cs" />
+    <Compile Include="Victim\VictimRow.cs" />
+    <Compile Include="Victim\VictimSelector.cs" />
+    <Compile Include="Victim\VictimShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -147,5 +149,6 @@
     <Folder Include="Institutions\" />
     <Folder Include="Acts\" />
     <Folder Include="Interventions\" />
+    <Folder Include="Victim\" />
   </ItemGroup>
 </Project>
