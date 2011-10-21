@@ -128,6 +128,10 @@
     <Compile Include="Victim\VictimShow.cs" />
     <Compile Include="Windows\VictimWindow.cs" />
     <Compile Include="gtk-gui\Views.VictimWindow.cs" />
+    <Compile Include="gtk-gui\Views.PerpetratorRow.cs" />
+    <Compile Include="Perpetrator\PerpetratorRow.cs" />
+    <Compile Include="Perpetrator\PerpetratorSelector.cs" />
+    <Compile Include="gtk-gui\Views.PerpetratorSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
