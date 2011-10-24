@@ -32,15 +32,18 @@ namespace Views
                     finalDate.setDateType (act.EndDateType);
 
                     // person-acts
-                    HashSet<Person> victims = new HashSet<Person>(new ARComparer<Person>());
+                    HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
                     HashSet<Person> perpetrators = new HashSet<Person>(new ARComparer<Person>());
 
-                    IList personActs = act.Victims;
-                    if (personActs != null) {
-
+                    IList actVictims = act.Victims;
+                    if (actVictims != null) {
+                        foreach (Victim victim in actVictims)
+                        {
+                            victims.Add(victim);
+                        }
                     }
-                    VictimSelector.People = victims;
-                    perpetratorsSelector.People = perpetrators;
+                    VictimSelector.Victims = victims;
+                    VictimSelector.Act = act;
                 }
                 IsEditing = false;
             }
@@ -58,23 +61,13 @@ namespace Views
             {
                 //act.Save ();
                 // TODO: Save victims and perpetrators
-                List<Victim> personActs = new List<Victim>();
+                List<Victim> victims = new List<Victim>();
 
-                foreach (Person person in VictimSelector.People)
+                foreach (Victim victim in VictimSelector.Victims)
                 {
-                    Victim personAct = new Victim();
-                    personAct.Act = act;
-                    personAct.Person = person;
-                    personActs.Add(personAct);
+                    victims.Add(victim);
                 }
-                foreach (Person person in perpetratorsSelector.People)
-                {
-                    Victim personAct = new Victim();
-                    personAct.Act = act;
-                    personAct.Person = person;
-                    personActs.Add(personAct);
-                }
-                act.Victims = personActs;
+                act.Victims = victims;
 
                 this.IsEditing = false;
 
@@ -111,6 +104,7 @@ namespace Views
                 initialDate.IsEditable = value;
                 finalDate.IsEditable = value;
                 editablelabel1.IsEditable = value;
+                VictimSelector.IsEditing = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;

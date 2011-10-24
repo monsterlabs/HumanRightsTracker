@@ -6,9 +6,10 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PersonRow : Gtk.Bin
     {
-        Person person;
-        bool isEditable;
-        public event EventHandler OnRemoved;
+        protected Person person;
+        protected bool isEditable;
+
+        public event EventHandler OnRowRemoved;
 
         public PersonRow ()
         {
@@ -19,10 +20,10 @@ namespace Views
         {
             this.Build ();
             this.Person = person;
-            this.OnRemoved = removed;
+            this.OnRowRemoved = removed;
         }
 
-        public bool IsEditable {
+        public virtual bool IsEditable {
             get {
                 return this.isEditable;
             }
@@ -31,7 +32,7 @@ namespace Views
                 button8.Visible = value;
             }
         }
-        public Person Person
+        public virtual Person Person
         {
             get {return person;}
             set
@@ -55,8 +56,8 @@ namespace Views
 
         protected void OnRemove (object sender, System.EventArgs e)
         {
-            if (OnRemoved != null)
-                OnRemoved (this, e);
+            if (OnRowRemoved != null)
+                OnRowRemoved (this, e);
         }
     }
 }

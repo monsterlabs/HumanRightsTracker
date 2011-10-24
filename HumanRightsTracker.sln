@@ -62,5 +62,6 @@ Global
 		$0.StandardHeader = $7
 		$7.Text = 
 		$7.IncludeInNewFiles = True
+		outputpath = ..\..\..\..\..\tmp\HumanRightsTracker\build\bin
 	EndGlobalSection
 EndGlobal

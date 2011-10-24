@@ -7,13 +7,22 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class VictimSelector : Gtk.Bin
     {
-        HashSet<Person> victims = new HashSet<Person>(new ARComparer<Person>());
+        HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
         bool isEditing;
+
+        Act act;
 
         public VictimSelector ()
         {
             this.Build ();
             row.Destroy ();
+        }
+
+
+        public Act Act
+        {
+            get {return act;}
+            set {act = value;}
         }
 
         public bool IsEditing {
@@ -28,28 +37,28 @@ namespace Views
                 }
             }
         }
-        public HashSet<Person> People {
+        public HashSet<Victim> Victims {
             get {
                 return this.victims;
             }
             set {
                 victims = value;
-                foreach (Gtk.Widget person in peopleList.Children)
+                foreach (Gtk.Widget victimRow in peopleList.Children)
                 {
-                    person.Destroy();
+                    victimRow.Destroy();
                 }
-                foreach (Person person in victims)
+                foreach (Victim victim in victims)
                 {
-                    peopleList.PackStart (new VictimRow(person, OnRemoved));
+                    peopleList.PackStart (new VictimRow(victim, OnRemoved));
                 }
                 peopleList.ShowAll ();
             }
         }
-        protected void OnPersonSelected (object sender, PersonEventArgs args)
+        protected void OnVictimSelected (object sender, VictimEventArgs args)
         {
-            if (victims.Add (args.Person))
+            if (victims.Add (args.Victim))
             {
-                peopleList.PackStart (new VictimRow(args.Person, OnRemoved));
+                peopleList.PackStart (new VictimRow(args.Victim, OnRemoved));
                 peopleList.ShowAll ();
             }
 
@@ -58,14 +67,15 @@ namespace Views
 
         protected void OnAddClicked (object sender, System.EventArgs e)
         {
-            // TODO VictimSelectorWindow.
-            new PeopleSelectorWindow (OnPersonSelected);
+            Victim newVictim = new Victim();
+            newVictim.Act = act;
+            new VictimWindow (newVictim, OnVictimSelected);
         }
 
         protected void OnRemoved (object sender, System.EventArgs e)
         {
             VictimRow row = sender as VictimRow;
-            victims.Remove (row.Person);
+            victims.Remove (row.Victim);
             peopleList.Remove (row);
 
             return;

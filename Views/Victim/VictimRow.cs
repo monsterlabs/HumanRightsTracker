@@ -6,44 +6,47 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class VictimRow : Gtk.Bin
     {
-        Person person;
-        bool isEditable;
-        public event EventHandler OnRemoved;
+        protected Victim victim;
+        protected bool isEditable;
+
+        public event EventHandler OnRowRemoved;
 
         public VictimRow ()
         {
             this.Build ();
         }
 
-        public VictimRow (Person person, EventHandler removed)
+        public VictimRow (Victim victim, EventHandler removed)
         {
             this.Build ();
-            this.Person = person;
-            this.OnRemoved = removed;
+            this.Victim = victim;
+            this.OnRowRemoved = removed;
         }
 
-        public bool IsEditable {
+        public virtual bool IsEditable {
             get {
                 return this.isEditable;
             }
             set {
                 isEditable = value;
                 button8.Visible = value;
+                button71.Visible = value;
             }
         }
-        public Person Person
+        public virtual Victim Victim
         {
-            get {return person;}
+            get {return victim;}
             set
             {
-                person = value;
-                if (person != null)
+                victim = value;
+                if (victim != null)
                 {
-                    if (person.Photo != null)
+                    if (victim.Person.Photo != null)
                     {
-                        photo.Pixbuf = new Gdk.Pixbuf (person.Photo.Icon);
+                        photo.Pixbuf = new Gdk.Pixbuf (victim.Person.Photo.Icon);
                     }
-                    fullname.Text = person.Fullname;
+                    status.Text = victim.VictimStatus.Name;
+                    fullname.Text = victim.Person.Fullname;
                     photo.Show ();
                     fullname.Show ();
                 } else {
@@ -55,8 +58,23 @@ namespace Views
 
         protected void OnRemove (object sender, System.EventArgs e)
         {
-            if (OnRemoved != null)
-                OnRemoved (this, e);
+            if (OnRowRemoved != null)
+                OnRowRemoved (this, e);
+        }
+
+        protected void OnInfo (object sender, System.EventArgs e)
+        {
+            new VictimWindow (victim, OnVictimUpdated);
+        }
+
+        protected void OnVictimUpdated (object sender, VictimEventArgs args)
+        {
+            Victim v = args.Victim;
+            if (victim.Act.Id > 0) {
+                this.Victim = v;
+            }
+
+            return;
         }
     }
 }
