@@ -53,7 +53,8 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("country_id")]
         public Country Country { get; set; }
-
+        [BelongsTo("state_id")]
+        public State State { get; set; }
         [BelongsTo("city_id")]
         public City City { get; set; }
 

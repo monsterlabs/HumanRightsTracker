@@ -31,6 +31,10 @@ namespace Views
                     finalDate.setDate (act.end_date);
                     finalDate.setDateType (act.EndDateType);
 
+                    affected.Text = act.AffectedPeopleNumber.ToString ();
+                    actStatus.Active = act.ActStatus;
+                    victimStatus.Active = act.VictimStatus;
+                    placeselector1.SetPlace (act.Country, act.State, act.City);
                     // person-acts
                     HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
                     HashSet<Person> perpetrators = new HashSet<Person>(new ARComparer<Person>());
@@ -56,6 +60,13 @@ namespace Views
             act.EndDateType = finalDate.SelectedDateType ();
             act.start_date = initialDate.SelectedDate ();
             act.StartDateType = initialDate.SelectedDateType ();
+
+            act.AffectedPeopleNumber = Convert.ToInt32(affected.Text);
+            act.ActStatus = actStatus.Active as ActStatus;
+            act.VictimStatus = victimStatus.Active as VictimStatus;
+            act.Country = placeselector1.Country;
+            act.State = placeselector1.State;
+            act.City = placeselector1.City
 
             if (act.IsValid())
             {
@@ -103,8 +114,11 @@ namespace Views
                 catalogselector1.IsEditable = value;
                 initialDate.IsEditable = value;
                 finalDate.IsEditable = value;
-                editablelabel1.IsEditable = value;
+                affected.IsEditable = value;
+                actStatus.IsEditable = value;
+                victimStatus.IsEditable = value;
                 VictimSelector.IsEditing = value;
+
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
