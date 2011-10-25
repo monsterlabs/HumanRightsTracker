@@ -10,6 +10,9 @@ Case.blueprint do
   start_date  { 24.years.ago }
   start_date_type_id  { DateType.all.sample.id }
   
+  end_date  { Date.today }
+  start_date_type_id  { DateType.all.sample.id }
+  
   acts(rand(3))
   interventions(rand(2))
 end
@@ -52,7 +55,7 @@ Perpetrator.blueprint do
 end
 
 PerpetratorAct.blueprint do
-  human_right_violation_id { HumanRightsViolation.all.sample.id }
+  human_rights_violation_id { HumanRightsViolation.all.sample.id }
   act_place_id { ActPlace.all.sample.id }
   location { Faker::Address.street_address }
 
