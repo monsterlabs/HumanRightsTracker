@@ -1,5 +1,7 @@
 using System;
 using HumanRightsTracker.Models;
+using System.Collections.Generic;
+using System.Collections;
 using Mono.Unix;
 
 namespace Views
@@ -27,6 +29,19 @@ namespace Views
                 victimSelector.Person = victim.Person;
                 status1.Active = victim.VictimStatus;
                 characteristics.Buffer.Text = victim.Characteristics;
+
+                HashSet<Perpetrator> perpetrators = new HashSet<Perpetrator>(new ARComparer<Perpetrator>());
+                IList victimPerpetrators = victim.Perpetrators;
+                if (victimPerpetrators != null) {
+                    foreach (Perpetrator perpetrator in victimPerpetrators)
+                    {
+                        perpetrators.Add(perpetrator);
+                    }
+                }
+                PerpetratorSelector.Perpetrators = perpetrators;
+                PerpetratorSelector.Victim = victim;
+
+
                 IsEditing = false;
             }
         }

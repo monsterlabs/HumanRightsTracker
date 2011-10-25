@@ -132,6 +132,8 @@
     <Compile Include="Perpetrator\PerpetratorRow.cs" />
     <Compile Include="Perpetrator\PerpetratorSelector.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorSelector.cs" />
+    <Compile Include="Windows\PerpetratorWindow.cs" />
+    <Compile Include="gtk-gui\Views.PerpetratorWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

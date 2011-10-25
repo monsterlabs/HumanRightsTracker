@@ -5919,9 +5919,10 @@ December</property>
                 <property name="LeftPadding">12</property>
                 <property name="BorderWidth">12</property>
                 <child>
-                  <widget class="Views.PerpetratorSelector" id="perpetratorselector1">
+                  <widget class="Views.PerpetratorSelector" id="PerpetratorSelector">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="IsEditing">False</property>
                   </widget>
                 </child>
               </widget>
@@ -6091,7 +6092,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorRow" design-size="399 100">
+  <widget class="Gtk.Bin" id="Views.PerpetratorRow" design-size="506 100">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6122,6 +6123,28 @@ December</property>
           </packing>
         </child>
         <child>
+          <widget class="Gtk.Label" id="institution">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Institution</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="job">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Job</property>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.HButtonBox" id="hbuttonbox3">
             <property name="MemberName" />
             <property name="Size">2</property>
@@ -6133,6 +6156,7 @@ December</property>
                 <property name="Icon">stock:gtk-delete Menu</property>
                 <property name="Label" translatable="yes">Delete</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnRemove" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -6147,6 +6171,7 @@ December</property>
                 <property name="Icon">stock:gtk-dialog-info Menu</property>
                 <property name="Label" translatable="yes">Info</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnInfo" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -6156,7 +6181,7 @@ December</property>
             </child>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">4</property>
             <property name="AutoSize">False</property>
             <property name="Expand">False</property>
           </packing>
@@ -6223,6 +6248,14 @@ December</property>
           </packing>
         </child>
       </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PerpetratorWindow" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">PerpetratorWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <placeholder />
     </child>
   </widget>
 </stetic-interface>

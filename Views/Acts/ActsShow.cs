@@ -37,7 +37,6 @@ namespace Views
                     placeselector1.SetPlace (act.Country, act.State, act.City);
                     // person-acts
                     HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
-                    HashSet<Person> perpetrators = new HashSet<Person>(new ARComparer<Person>());
 
                     IList actVictims = act.Victims;
                     if (actVictims != null) {
@@ -66,7 +65,7 @@ namespace Views
             act.VictimStatus = victimStatus.Active as VictimStatus;
             act.Country = placeselector1.Country;
             act.State = placeselector1.State;
-            act.City = placeselector1.City
+            act.City = placeselector1.City;
 
             if (act.IsValid())
             {
