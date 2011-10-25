@@ -5,6 +5,7 @@ using Castle.Components.Validator;
 using NHibernate.Criterion;
 using System.Collections;
 
+
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("people")]
@@ -84,6 +85,38 @@ namespace HumanRightsTracker.Models
             set { identifications = value; }
         }
 
+        private IList victims = new ArrayList();
+        [HasMany(typeof(Victim), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Victims
+        {
+            get { return victims; }
+            set { victims = value; }
+        }
+
+        private IList perpetrators = new ArrayList();
+        [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Perpetrators
+        {
+            get { return perpetrators; }
+            set { perpetrators = value; }
+        }
+
+        private IList interventors = new ArrayList();
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Interventors
+        {
+            get { return interventors; }
+            set { interventors = value; }
+        }
+
+        private IList supporters = new ArrayList();
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Supporters
+        {
+            get { return supporters; }
+            set { supporters = value; }
+        }
+
         public String Fullname
         {
             get
@@ -104,5 +137,24 @@ namespace HumanRightsTracker.Models
             }
 
         }
+
+        public IList caseList () {
+            IList case_list = new ArrayList();;
+
+            foreach (Victim v in Victims)
+                case_list.Add (v.Act.Case);
+
+            foreach (Perpetrator p in Perpetrators)
+                case_list.Add (p.Victim.Act.Case);
+
+            foreach (Intervention i in Interventors)
+                case_list.Add (i.Case);
+
+            foreach (Intervention s in Supporters)
+                case_list.Add (s.Case);
+
+            return case_list;
+        }
+
     }
 }

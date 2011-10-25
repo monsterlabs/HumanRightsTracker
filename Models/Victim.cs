@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("person_acts")]
+    [ActiveRecord("victims")]
     public class Victim : ActiveRecordValidationBase<Victim>
     {
         [PrimaryKey]

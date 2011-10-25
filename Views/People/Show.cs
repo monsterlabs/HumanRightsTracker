@@ -40,7 +40,7 @@ namespace Views.People
                         identification_frame.Destroy ();
                         person_details_frame.Destroy ();
                      }
-
+                    set_case_list();
                 }
                 IsEditing = false;
             }
@@ -61,9 +61,12 @@ namespace Views.People
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
+                    case_per_person.Hide ();
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
+                    case_per_person.Show ();
+
                 }
 
                 editable_person (value);
@@ -192,6 +195,10 @@ namespace Views.People
             }
         }
 
+        protected void set_case_list() {
+           case_per_person.Person = person;
+        }
+        
         protected void editable_person (bool value)
         {
             lastname.IsEditable = value;
