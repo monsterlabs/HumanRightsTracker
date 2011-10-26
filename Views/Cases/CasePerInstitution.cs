@@ -6,31 +6,30 @@ using System.Diagnostics;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class CasePerPerson : Gtk.Bin
+    public partial class CasePerInstitution : Gtk.Bin
     {
-        Person p;
 
-        public CasePerPerson ()
+        Institution i;
+        public CasePerInstitution ()
         {
             this.Build ();
-
         }
 
-        public Person Person
+        public Institution Institution
         {
-            get { return p; }
+            get { return i; }
             set
             {
-                p = value;
+                i = value;
                 ReloadList ();
             }
         }
 
         public void ReloadList ()
         {
-            foreach (Case c in p.caseList ())
+            foreach (Case c in i.caseList ())
             {
-                case_vbox.PackStart (new CaseRow (c));
+                case_vbox.PackStart (new CaseAndPeopleRow (c));
 
             }
             case_vbox.ShowAll ();
@@ -39,4 +38,20 @@ namespace Views
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

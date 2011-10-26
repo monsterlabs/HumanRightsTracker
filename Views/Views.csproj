@@ -130,6 +130,14 @@
     <Compile Include="Institutions\InstitutionAndJobRow.cs" />
     <Compile Include="Institutions\InstitutionAndJobPerPerson.cs" />
     <Compile Include="gtk-gui\Views.InstitutionAndJobPerPerson.cs" />
+    <Compile Include="Cases\CasePerInstitution.cs" />
+    <Compile Include="gtk-gui\Views.CasePerInstitution.cs" />
+    <Compile Include="People\PeoplePerCase.cs" />
+    <Compile Include="gtk-gui\Views.PeoplePerCase.cs" />
+    <Compile Include="People\PersonAndJobRow.cs" />
+    <Compile Include="gtk-gui\Views.PersonAndJobRow.cs" />
+    <Compile Include="Cases\CaseAndPeopleRow.cs" />
+    <Compile Include="gtk-gui\Views.CaseAndPeopleRow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

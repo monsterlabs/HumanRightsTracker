@@ -36,6 +36,7 @@ namespace Views
                     fax.Text = institution.Fax == null ? "" : institution.Fax;
                     email.Text = institution.Email == null ? "" : institution.Email;
                     url.Text = institution.Url == null ? "" : institution.Url;
+                    case_per_institution.Institution = institution;
                 }
                 isEditing = false;
             }

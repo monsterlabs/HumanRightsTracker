@@ -3,6 +3,8 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace HumanRightsTracker.Models
 {
@@ -45,10 +47,37 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("country_id"), ValidateNonEmpty]
         public Country Country { get; set; }
+
         [BelongsTo("state_id")]
         public State State { get; set; }
+
         [BelongsTo("city_id")]
         public City City { get; set; }
+
+
+        private IList perpetrators = new ArrayList();
+        [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Perpetrators
+        {
+            get { return perpetrators;}
+            set { perpetrators = value; }
+        }
+
+        private IList interventors = new ArrayList();
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Interventors
+        {
+            get { return interventors; }
+            set { interventors = value; }
+        }
+
+        private IList supporters = new ArrayList();
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Supporters
+        {
+            get { return supporters; }
+            set { supporters = value; }
+        }
 
         public Image Photo
         {
@@ -62,5 +91,21 @@ namespace HumanRightsTracker.Models
             }
 
         }
+
+        public IList caseList () {
+            IList case_list = new ArrayList();
+
+            foreach (Perpetrator p in Perpetrators)
+                case_list.Add (p.Victim.Act.Case);
+
+            foreach (Intervention i in Interventors)
+                case_list.Add (i.Case);
+
+            foreach (Intervention s in Supporters)
+                case_list.Add (s.Case);
+
+            return case_list;
+        }
+
     }
 }

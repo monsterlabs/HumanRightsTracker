@@ -15,12 +15,13 @@ namespace Views
             set_widgets();
         }
 
-
-         public void set_widgets() {
+        public void set_widgets() {
             if (institution != null ) {
                institution_name.Text = institution.Name;
-
-               image.Pixbuf = new Gdk.Pixbuf (institution.Photo.Thumbnail);
+               if (institution.Photo != null)
+                  image.Pixbuf = new Gdk.Pixbuf (institution.Photo.Thumbnail);
+               else
+                  image.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
             }
 
             if (job != null) {
