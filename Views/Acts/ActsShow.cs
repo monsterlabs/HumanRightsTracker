@@ -70,7 +70,6 @@ namespace Views
             if (act.IsValid())
             {
                 //act.Save ();
-                // TODO: Save victims and perpetrators
                 List<Victim> victims = new List<Victim>();
 
                 foreach (Victim victim in VictimSelector.Victims)

@@ -140,6 +140,10 @@
     <Compile Include="gtk-gui\Views.InstitutionSelect.cs" />
     <Compile Include="Windows\InstitutionSelectorWindow.cs" />
     <Compile Include="gtk-gui\Views.InstitutionSelectorWindow.cs" />
+    <Compile Include="Perpetrator\PerpetratorActsSelector.cs" />
+    <Compile Include="gtk-gui\Views.PerpetratorActsSelector.cs" />
+    <Compile Include="Perpetrator\PerpetratorActRow.cs" />
+    <Compile Include="gtk-gui\Views.PerpetratorActRow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
