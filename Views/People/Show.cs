@@ -137,7 +137,12 @@ namespace Views.People
             birthplace.SetPlace(person.Country, person.State, person.City);
             settlement.Text = person.Settlement == null ? "" : person.Settlement;
             imageselector1.Image = person.Photo;
-            age.Text = "" + DateTime.Now.Subtract(person.Birthday).Days/365;
+            if (person.Birthday.Year > 1)
+            {
+                age.Text = "" + DateTime.Now.Subtract(person.Birthday).Days/365;
+            } else {
+                age.Text = "";
+            }
         }
 
         protected void set_person_details_widgets ()
