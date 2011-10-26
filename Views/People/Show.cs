@@ -41,6 +41,7 @@ namespace Views.People
                         person_details_frame.Destroy ();
                      }
                     set_case_list();
+                    set_institution_and_job_list();
                 }
                 IsEditing = false;
             }
@@ -62,11 +63,12 @@ namespace Views.People
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
                     case_per_person.Hide ();
+                    institution_and_job_per_person.Hide ();
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                     case_per_person.Show ();
-
+                    institution_and_job_per_person.Show ();
                 }
 
                 editable_person (value);
@@ -145,10 +147,10 @@ namespace Views.People
             } else {
                 person_details = (PersonDetail)person.PersonDetails[0];
                 number_of_sons.Text = person_details.NumberOfSons.ToString();
-                religion.Active = person_details.Religion;
+                // religion.Active = person_details.Religion;
                 scholarity_level.Active = person_details.ScholarityLevel;
                 most_recent_job.Active = person_details.MostRecentJob;
-                ethnic_group.Active = person_details.EthnicGroup as EthnicGroup;
+                // ethnic_group.Active = person_details.EthnicGroup as EthnicGroup;
                 indigenous_group.Text = person_details.IndigenousGroup == null ? "" : person_details.IndigenousGroup;
                 is_spanish_speaker.Activate = person_details.IsSpanishSpeaker;
             }
@@ -198,7 +200,11 @@ namespace Views.People
         protected void set_case_list() {
            case_per_person.Person = person;
         }
-        
+
+        protected void set_institution_and_job_list() {
+           institution_and_job_per_person.Person = person;
+        }
+
         protected void editable_person (bool value)
         {
             lastname.IsEditable = value;
@@ -219,8 +225,8 @@ namespace Views.People
              number_of_sons.IsEditable = value;
              scholarity_level.IsEditable = value;
              most_recent_job.IsEditable = value;
-             religion.IsEditable = value;
-             ethnic_group.IsEditable = value;
+             //religion.IsEditable = value;
+             //ethnic_group.IsEditable = value;
              indigenous_group.IsEditable = value;
              is_spanish_speaker.IsEditable = value;
         }
@@ -254,8 +260,8 @@ namespace Views.People
         {
             person_details.NumberOfSons = int.Parse(number_of_sons.Text);
             person_details.ScholarityLevel = scholarity_level.Active as ScholarityLevel;
-            person_details.Religion = religion.Active as Religion;
-            person_details.EthnicGroup = ethnic_group.Active as EthnicGroup;
+            //person_details.Religion = religion.Active as Religion;
+            // person_details.EthnicGroup = ethnic_group.Active as EthnicGroup;
             person_details.MostRecentJob = most_recent_job.Active as Job;
             person_details.IndigenousGroup = indigenous_group.Text;
             person_details.IsSpanishSpeaker = is_spanish_speaker.Value ();
