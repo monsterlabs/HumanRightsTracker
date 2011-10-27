@@ -48,6 +48,7 @@ namespace HumanRightsTracker.Models
 
             return victim_list;
         }
+
     }
 }
 

@@ -6168,7 +6168,6 @@ December</property>
           <widget class="Gtk.Expander" id="expander1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox2">
                 <property name="MemberName" />
@@ -6273,7 +6272,6 @@ December</property>
           <widget class="Gtk.Expander" id="expander2">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox4">
                 <property name="MemberName" />
@@ -6389,7 +6387,6 @@ December</property>
           <widget class="Gtk.Expander" id="expander3">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox5">
                 <property name="MemberName" />
@@ -6505,7 +6502,6 @@ December</property>
           <widget class="Gtk.Expander" id="expander4">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox6">
                 <property name="MemberName" />

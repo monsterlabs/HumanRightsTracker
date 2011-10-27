@@ -101,11 +101,54 @@ namespace HumanRightsTracker.Models
             foreach (Intervention i in Interventors)
                 case_list.Add (i.Case);
 
+
             foreach (Intervention s in Supporters)
                 case_list.Add (s.Case);
 
             return case_list;
         }
 
+
+        public IList perpetratorAndJobPerCase (Case c) {
+            IList person_and_job_list = new ArrayList();
+
+            foreach (Perpetrator p in Perpetrators) {
+                if (p.Victim.Act.Case.Id == c.Id) {
+                    ArrayList person_and_job = new ArrayList();
+                    person_and_job.Add (p.Person as Person);
+                    person_and_job.Add (p.Job as Job);
+                    person_and_job_list.Add (person_and_job);
+                }
+            }
+            return person_and_job_list;
+        }
+
+        public IList interventorAndJobPerCase (Case c) {
+            IList person_and_job_list = new ArrayList();
+
+            foreach (Intervention i in Interventors) {
+                if (i.Case.Id == c.Id) {
+                    ArrayList person_and_job = new ArrayList();
+                    person_and_job.Add (i.Interventor  as Person);
+                    person_and_job.Add (i.InterventorJob as Job);
+                    person_and_job_list.Add (person_and_job);
+                }
+            }
+            return person_and_job_list;
+        }
+
+        public IList supporterAndJobPerCase (Case c) {
+            IList person_and_job_list = new ArrayList();
+
+            foreach (Intervention s in Supporters) {
+                if (s.Case.Id == c.Id) {
+                    ArrayList person_and_job = new ArrayList();
+                    person_and_job.Add (s.Supporter  as Person);
+                    person_and_job.Add (s.SupporterJob as Job);
+                    person_and_job_list.Add (person_and_job);
+                }
+            }
+            return person_and_job_list;
+        }
     }
 }
