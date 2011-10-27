@@ -52,13 +52,13 @@ namespace Views
         }
 
         public void HideNotesEntry () {
-            notesEntry.Hide ();
-            notesLabel.Hide ();
+            vbox2.Remove (GtkScrolledWindow);
+            vbox2.Remove (notesLabel);
         }
 
         public void HideParentEntry () {
-            parentNameLabel.Hide ();
-            parentValueLabel.Hide ();
+            vbox2.Remove (parentNameLabel);
+            vbox2.Remove (parentValueLabel);
         }
     }
 }

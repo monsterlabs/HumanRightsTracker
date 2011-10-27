@@ -25,6 +25,7 @@ namespace Views
             this.OnRecordSaved = OnSaveButtonClicked;
             this.TransientFor = parent;
             this.WindowPosition = Gtk.WindowPosition.CenterAlways;
+            this.Title = model + " creation";
 
             modelLabel.Text = model;
 

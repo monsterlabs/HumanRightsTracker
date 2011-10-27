@@ -4962,7 +4962,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.EditCatalogWindow" design-size="400 306">
+  <widget class="Gtk.Window" id="Views.EditCatalogWindow" design-size="400 242">
     <property name="MemberName" />
     <property name="Title" translatable="yes">EditCatalogWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -5001,7 +5001,8 @@ December</property>
           </widget>
           <packing>
             <property name="Position">0</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
