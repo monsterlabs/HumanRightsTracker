@@ -4,6 +4,7 @@ using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace HumanRightsTracker.Models
 {
@@ -84,6 +85,62 @@ namespace HumanRightsTracker.Models
             set { identifications = value; }
         }
 
+        private IList victims = new ArrayList();
+        [HasMany(typeof(Victim), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Victims
+        {
+            get { return victims; }
+            set { victims = value; }
+        }
+
+        private IList perpetrators = new ArrayList();
+        [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Perpetrators
+        {
+            get { return perpetrators;}
+            set { perpetrators = value; }
+        }
+
+        private IList interventors = new ArrayList();
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Interventors
+        {
+            get { return interventors; }
+            set { interventors = value; }
+        }
+
+        private IList supporters = new ArrayList();
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Supporters
+        {
+            get { return supporters; }
+            set { supporters = value; }
+        }
+
+        private  IList institution_and_job_in_perpetrations = new ArrayList();
+        [HasMany(typeof(Perpetrator), Table="Perpetrators", ColumnKey="person_id", Where = "institution_id IS NOT NULL")]
+        public IList InstitutionAndJobInPerpetrations
+        {
+            get { return institution_and_job_in_perpetrations; }
+            set { institution_and_job_in_perpetrations = value; }
+        }
+
+        private  IList institution_and_job_as_interventors = new ArrayList();
+        [HasMany(typeof(Intervention), Table="Interventions", ColumnKey="interventor_id", Where = "interventor_institution_id IS NOT NULL")]
+        public IList InstitutionAndJobAsInterventors
+        {
+            get { return institution_and_job_as_interventors; }
+            set { institution_and_job_as_interventors = value; }
+        }
+
+        private  IList institution_and_job_as_supporters = new ArrayList();
+        [HasMany(typeof(Intervention), Table="Interventions", ColumnKey="supporter_id", Where = "supporter_institution_id IS NOT NULL")]
+        public IList InstitutionAndJobAsSupporters
+        {
+            get { return institution_and_job_as_supporters; }
+            set { institution_and_job_as_supporters = value; }
+        }
+
         public String Fullname
         {
             get
@@ -103,6 +160,50 @@ namespace HumanRightsTracker.Models
                 return photo;
             }
 
+        }
+
+        public IList caseList () {
+            IList case_list = new ArrayList();
+
+            foreach (Victim v in Victims)
+                case_list.Add (v.Act.Case);
+
+            foreach (Perpetrator p in Perpetrators)
+                case_list.Add (p.Victim.Act.Case);
+
+            foreach (Intervention i in Interventors)
+                case_list.Add (i.Case);
+
+            foreach (Intervention s in Supporters)
+                case_list.Add (s.Case);
+
+            return case_list;
+        }
+
+        public IList institutionAndJobList () {
+            IList institutions_and_jobs = new ArrayList();
+
+            foreach (Perpetrator p in InstitutionAndJobInPerpetrations) {
+                ArrayList institution_and_job = new ArrayList();
+                institution_and_job.Add (p.Institution as Institution);
+                institution_and_job.Add (p.Job as Job);
+                institutions_and_jobs.Add (institution_and_job);
+            }
+
+            foreach (Intervention i in InstitutionAndJobAsInterventors) {
+                ArrayList institution_and_job = new ArrayList();
+                institution_and_job.Add (i.InterventorInstitution as  Institution);
+                institution_and_job.Add (i.InterventorJob as Job);
+                institutions_and_jobs.Add (institution_and_job);
+            }
+
+            foreach (Intervention s in InstitutionAndJobAsSupporters) {
+                ArrayList institution_and_job = new ArrayList();
+                institution_and_job.Add (s.SupporterInstitution as  Institution);
+                institution_and_job.Add (s.SupporterJob as Job);
+                institutions_and_jobs.Add (institution_and_job);
+            }
+            return institutions_and_jobs;
         }
     }
 }

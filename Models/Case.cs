@@ -37,6 +37,18 @@ namespace HumanRightsTracker.Models
         [BelongsTo("end_date_type_id")]
         public DateType EndDateType { get; set; }
 
+        [HasMany(typeof(Act), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        public IList Acts { get; set; }
+
+        public IList victimList () {
+             IList victim_list = new ArrayList();
+             foreach (Act act in Acts)
+                foreach (Victim victim in act.Victims)
+                    victim_list.Add (victim.Person);
+
+            return victim_list;
+        }
+
     }
 }
 

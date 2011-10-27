@@ -23,6 +23,7 @@ namespace Views
             set {
                 institution = value;
                 if (institution != null) {
+                    imageselector.Image = institution.Photo;
                     name.Text = institution.Name == null ? "" : institution.Name;
                     abbrev.Text = institution.Abbrev == null ? "" : institution.Abbrev;
                     institution_type.Active = institution.InstitutionType;
@@ -36,8 +37,9 @@ namespace Views
                     fax.Text = institution.Fax == null ? "" : institution.Fax;
                     email.Text = institution.Email == null ? "" : institution.Email;
                     url.Text = institution.Url == null ? "" : institution.Url;
+                    case_per_institution.Institution = institution;
                 }
-                isEditing = false;
+                IsEditing = false;
             }
         }
 

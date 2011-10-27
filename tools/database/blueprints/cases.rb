@@ -9,7 +9,10 @@ Case.blueprint do
   name { Faker::Lorem.words(2).join(" ")}
   start_date  { 24.years.ago }
   start_date_type_id  { DateType.all.sample.id }
-
+  
+  end_date  { Date.today }
+  start_date_type_id  { DateType.all.sample.id }
+  
   acts(rand(3))
   interventions(rand(2))
 end

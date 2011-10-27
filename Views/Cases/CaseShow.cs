@@ -61,7 +61,9 @@ namespace Views
             }
         }
 
-
+        public void HideEditingButtons () {
+            hbuttonbox5.Hide ();
+        }
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
             mycase.Name = nameEntry.Text;
