@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -442,8 +442,35 @@ Female</property>
                               <widget class="Gtk.Table" id="table22">
                                 <property name="MemberName" />
                                 <property name="NRows">2</property>
+                                <property name="NColumns">2</property>
                                 <property name="RowSpacing">6</property>
                                 <property name="ColumnSpacing">6</property>
+                                <child>
+                                  <widget class="Views.CatalogSelector" id="citizen">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <property name="OrderById">False</property>
+                                    <property name="Attribute">Citizen</property>
+                                    <property name="Model">Country</property>
+                                    <property name="IsEditable">False</property>
+                                    <property name="HideAddButton">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="TopAttach">1</property>
+                                    <property name="BottomAttach">2</property>
+                                    <property name="LeftAttach">1</property>
+                                    <property name="RightAttach">2</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="XOptions">Fill</property>
+                                    <property name="YOptions">Fill</property>
+                                    <property name="XExpand">False</property>
+                                    <property name="XFill">True</property>
+                                    <property name="XShrink">False</property>
+                                    <property name="YExpand">False</property>
+                                    <property name="YFill">True</property>
+                                    <property name="YShrink">False</property>
+                                  </packing>
+                                </child>
                                 <child>
                                   <widget class="Gtk.Label" id="label33">
                                     <property name="MemberName" />
@@ -452,6 +479,27 @@ Female</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
+                                    <property name="AutoSize">True</property>
+                                    <property name="XOptions">Fill</property>
+                                    <property name="YOptions">Fill</property>
+                                    <property name="XExpand">False</property>
+                                    <property name="XFill">True</property>
+                                    <property name="XShrink">False</property>
+                                    <property name="YExpand">False</property>
+                                    <property name="YFill">True</property>
+                                    <property name="YShrink">False</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="label51">
+                                    <property name="MemberName" />
+                                    <property name="Xalign">0</property>
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Citizen&lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="LeftAttach">1</property>
+                                    <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1185,7 +1233,7 @@ No</property>
                               <widget class="Views.CatalogSelector" id="scholarity_level">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="OrderById">True</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">ScholarityLevel</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>

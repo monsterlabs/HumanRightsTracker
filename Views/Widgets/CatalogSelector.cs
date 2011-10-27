@@ -18,6 +18,7 @@ namespace Views
         bool hideAddButton;
         bool orderById;
         int parent_id;
+        string attribute;
 
         public event EventHandler Changed;
 
@@ -38,6 +39,11 @@ namespace Views
             set {orderById = value;}
         }
 
+        public string Attribute {
+            get { return attribute; }
+            set { attribute = value; }
+        }
+
         public String Model {
             get { return this.model; }
             set {
@@ -52,7 +58,8 @@ namespace Views
         private void OnMatchSelected (object sender, Gtk.MatchSelectedArgs args)
         {
             String name = args.Model.GetValue (args.Iter, 0) as String;
-            PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
+
+            PropertyInfo nameProp =  mod.PropertyDictionary[AttributeName()].Property;
             int i = 0;
             foreach (Object o in collection)
             {
@@ -101,7 +108,7 @@ namespace Views
                     return;
                 }
 
-                MethodInfo nameMethod = t.GetMethod ("get_Name");
+                MethodInfo nameMethod = t.GetMethod ("get_"+AttributeName());
                 String name = nameMethod.Invoke (value, null) as String;
                 int i = 0;
                 if (collection == null)
@@ -140,7 +147,7 @@ namespace Views
         {
             if (t != null)
             {
-                Array options = ActiveRecordMetaBase.Where(t, criteria, new Order("Name", true));
+                Array options = ActiveRecordMetaBase.Where(t, criteria, new Order(AttributeName(), true));
                 DeleteAndSetOptions (options);
                 combobox.Sensitive = (collection.Length > 0);
             }
@@ -153,7 +160,7 @@ namespace Views
         {
             collection = options;
             ((Gtk.ListStore)combobox.Model).Clear ();
-            PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
+            PropertyInfo nameProp =  mod.PropertyDictionary[AttributeName()].Property;
             foreach (Object o in collection) {
                 String name = nameProp.GetValue(o, null) as String;
                 combobox.AppendText (name);
@@ -216,10 +223,16 @@ namespace Views
             if (OrderById) {
                 options = ActiveRecordMetaBase.All(t, new Order("Id", true));
             } else {
-                options = ActiveRecordMetaBase.All(t, new Order("Name", true));
+                Console.WriteLine(AttributeName());
+                options = ActiveRecordMetaBase.All(t, new Order(AttributeName (), true));
             }
             DeleteAndSetOptions (options);
         }
+
+        private string AttributeName () {
+            return (attribute == null ? "Name" : attribute);
+        }
+
     }
 }
 

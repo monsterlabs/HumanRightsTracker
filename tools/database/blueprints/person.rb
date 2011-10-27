@@ -21,6 +21,7 @@ Person.blueprint do
 
   @country = Country.find_by_name('México')
   country_id { @country.id }
+  citizen_id { @country.id }
   @state = @country.states.sample
   state_id { @state.id }
   city_id { @state.cities.sample.id }
