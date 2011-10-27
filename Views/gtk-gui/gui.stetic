@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -366,6 +366,7 @@ Female</property>
                               <widget class="Views.CatalogSelector" id="marital_status">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">MaritalStatus</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">True</property>
@@ -561,6 +562,7 @@ Female</property>
                               <widget class="Views.CatalogSelector" id="destination_country">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">Country</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">True</property>
@@ -763,6 +765,7 @@ Female</property>
                               <widget class="Views.CatalogSelector" id="transit_country">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">Country</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">True</property>
@@ -785,6 +788,7 @@ Female</property>
                               <widget class="Views.CatalogSelector" id="traveling_reason">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">TravelingReason</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -871,6 +875,7 @@ Female</property>
                               <widget class="Views.CatalogSelector" id="identification_type">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">IdentificationType</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -1132,6 +1137,7 @@ No</property>
                               <widget class="Views.CatalogSelector" id="most_recent_job">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">Job</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -1179,6 +1185,7 @@ No</property>
                               <widget class="Views.CatalogSelector" id="scholarity_level">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">True</property>
                                 <property name="Model">ScholarityLevel</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>

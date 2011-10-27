@@ -16,7 +16,7 @@ namespace Views
         Type t;
         bool isEditable;
         bool hideAddButton;
-
+        bool orderById;
         int parent_id;
 
         public event EventHandler Changed;
@@ -31,6 +31,11 @@ namespace Views
             combobox.Entry.Completion.TextColumn = 0;
             combobox.Entry.Completion.InlineCompletion = false;
             combobox.Entry.Completion.MatchSelected += OnMatchSelected;
+        }
+
+        public bool OrderById {
+            get {return orderById;}
+            set {orderById = value;}
         }
 
         public String Model {
@@ -207,7 +212,12 @@ namespace Views
 
         private void Populate()
         {
-            Array options = ActiveRecordMetaBase.All(t, new Order("Name", true));
+            Array options;
+            if (OrderById) {
+                options = ActiveRecordMetaBase.All(t, new Order("Id", true));
+            } else {
+                options = ActiveRecordMetaBase.All(t, new Order("Name", true));
+            }
             DeleteAndSetOptions (options);
         }
     }
