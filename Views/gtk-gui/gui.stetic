@@ -1719,6 +1719,7 @@ No</property>
                   <widget class="Views.CatalogSelector" id="country">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="OrderById">False</property>
                     <property name="Model">Country</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">True</property>
@@ -1754,6 +1755,7 @@ No</property>
                   <widget class="Views.CatalogSelector" id="state">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="OrderById">False</property>
                     <property name="Model">State</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
@@ -1791,6 +1793,7 @@ No</property>
                   <widget class="Views.CatalogSelector" id="city">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="OrderById">False</property>
                     <property name="Model">City</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
@@ -2284,6 +2287,7 @@ No</property>
               <widget class="Views.CatalogSelector" id="dateType">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
+                <property name="OrderById">False</property>
                 <property name="Model">DateType</property>
                 <property name="IsEditable">True</property>
                 <property name="HideAddButton">True</property>
@@ -3302,6 +3306,7 @@ December</property>
                           <widget class="Views.CatalogSelector" id="institution_category">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="OrderById">False</property>
                             <property name="Model">InstitutionCategory</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
@@ -3326,6 +3331,7 @@ December</property>
                           <widget class="Views.CatalogSelector" id="institution_type">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="OrderById">False</property>
                             <property name="Model">InstitutionType</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
@@ -3948,6 +3954,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="catalogselector1">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">HumanRightsViolationCategory</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -3989,6 +3996,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="humanRightsViolation">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">HumanRightsViolation</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -4159,6 +4167,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="actStatus">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">ActStatus</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -4264,6 +4273,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="victimStatus">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">VictimStatus</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -5319,6 +5329,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="interventionType">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="Model">InterventionType</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
@@ -5831,6 +5842,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="status1">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="Model">VictimStatus</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">True</property>
@@ -6401,6 +6413,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="job">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="Model">Job</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
@@ -6721,6 +6734,8 @@ December</property>
                       <widget class="Views.CatalogSelector" id="humanRight">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
+                        <property name="Model">HumanRightsViolation</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
                       </widget>
@@ -6749,6 +6764,8 @@ December</property>
                       <widget class="Views.CatalogSelector" id="place">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
+                        <property name="Model">ActPlace</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
                       </widget>
@@ -6822,6 +6839,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Save</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnSave" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -6835,6 +6853,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Edit</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnToggleEdit" />
               </widget>
               <packing>
                 <property name="Position">1</property>
