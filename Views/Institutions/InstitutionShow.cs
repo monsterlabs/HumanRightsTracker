@@ -39,7 +39,7 @@ namespace Views
                     url.Text = institution.Url == null ? "" : institution.Url;
                     case_per_institution.Institution = institution;
                 }
-                isEditing = false;
+                IsEditing = false;
             }
         }
 
