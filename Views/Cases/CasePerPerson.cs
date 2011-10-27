@@ -28,6 +28,9 @@ namespace Views
 
         public void ReloadList ()
         {
+            foreach (Gtk.Widget w in case_vbox.Children)
+                w.Destroy ();
+
             foreach (Case c in p.caseList ())
             {
                 case_vbox.PackStart (new CaseRow (c));

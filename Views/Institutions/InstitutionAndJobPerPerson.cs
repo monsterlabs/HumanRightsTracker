@@ -27,6 +27,9 @@ namespace Views
 
         public void ReloadList ()
         {
+            foreach (Gtk.Widget w in institution_and_job_vbox.Children)
+                w.Destroy ();
+
             foreach (ArrayList institution_and_job in p.institutionAndJobList ())
             {
                 institution_and_job_vbox.PackStart (new InstitutionAndJobRow ((Institution)institution_and_job[0], (Job)institution_and_job[1]));

@@ -14,6 +14,11 @@ namespace Views
             this.c = c;
             set_widgets ();
         }
+        
+        public CaseRow ()
+        {
+            this.Build ();
+        }
 
         public Case Case
         {

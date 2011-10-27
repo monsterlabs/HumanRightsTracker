@@ -11,7 +11,7 @@ namespace Views
         {
             Person = person;
             if (person.Photo != null)
-                Photo = new Gdk.Pixbuf (person.Photo.Thumbnail);
+                Photo = new Gdk.Pixbuf (person.Photo.Icon);
             else
                 Photo = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
             Name = person.Fullname;

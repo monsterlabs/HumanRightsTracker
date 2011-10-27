@@ -26,9 +26,10 @@ namespace Views
                 image.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
             }
 
-            if (job != null) {
+            if (job != null)
                 job_name.Text = job.Name;
-            }
+            else
+                job_name.Destroy();
         }
 
     }

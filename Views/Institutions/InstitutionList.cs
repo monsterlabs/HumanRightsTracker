@@ -11,7 +11,7 @@ namespace Views
         {
             Institution = institution;
             if (institution.Photo != null)
-                Photo = new Gdk.Pixbuf (institution.Photo.Thumbnail);
+                Photo = new Gdk.Pixbuf (institution.Photo.Icon);
             else
                 Photo = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
             Name = institution.Name;
