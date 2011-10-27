@@ -68,9 +68,7 @@ namespace Views
 
         protected void OnAddClicked (object sender, System.EventArgs e)
         {
-            Perpetrator newPerpetrator = new Perpetrator();
-            newPerpetrator.Victim = victim;
-            new PerpetratorWindow (newPerpetrator, OnPerpetratorSelected);
+            new PerpetratorWindow (victim, OnPerpetratorSelected, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnRemoved (object sender, System.EventArgs e)

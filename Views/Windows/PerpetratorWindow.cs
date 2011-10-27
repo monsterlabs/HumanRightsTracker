@@ -30,12 +30,25 @@ namespace Views
             this.Build ();
         }
 
-        public PerpetratorWindow (Perpetrator perpetrator, PerpetratorEventHandler handler) : base(Gtk.WindowType.Toplevel)
+        public PerpetratorWindow (Perpetrator perpetrator, PerpetratorEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             show.Perpetrator = perpetrator;
             OnSaveOrUpdate = handler;
+            show.IsEditing = false;
+            this.TransientFor = parent;
+        }
+
+        public PerpetratorWindow (Victim victim, PerpetratorEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            show.Perpetrator = new Perpetrator();
+            show.Perpetrator.Victim = victim;
+            OnSaveOrUpdate = handler;
+            show.IsEditing = false;
+            this.TransientFor = parent;
         }
 
         protected void OnSave (object sender, System.EventArgs e)

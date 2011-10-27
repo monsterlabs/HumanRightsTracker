@@ -69,7 +69,7 @@ namespace Views
 
         protected void OnInfo (object sender, System.EventArgs e)
         {
-            new PerpetratorWindow (perpetrator, OnPerpetratorUpdated);
+            new PerpetratorWindow (perpetrator, OnPerpetratorUpdated, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnPerpetratorUpdated (object sender, PerpetratorEventArgs args)

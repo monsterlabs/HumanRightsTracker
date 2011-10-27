@@ -69,7 +69,7 @@ namespace Views
         {
             PerpetratorAct newPerpetratorAct = new PerpetratorAct();
             newPerpetratorAct.Perpetrator = perpetrator;
-            new PerpetratorActWindow (newPerpetratorAct, OnPerpetratorActSelected);
+            new PerpetratorActWindow (newPerpetratorAct, OnPerpetratorActSelected, (Gtk.Window) this.Toplevel);
         }
 
         protected void OnRemoved (object sender, System.EventArgs e)

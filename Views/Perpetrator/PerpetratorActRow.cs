@@ -41,9 +41,13 @@ namespace Views
                 perpetratorAct = value;
                 if (perpetratorAct != null)
                 {
-
+                    humanRight.Text = perpetratorAct.HumanRightsViolation.Name;
+                    place.Text = perpetratorAct.ActPlace.Name;
+                    location.Text = perpetratorAct.Location;
                 } else {
-
+                    humanRight.Hide ();
+                    place.Hide ();
+                    location.Hide ();
                 }
             }
         }
@@ -56,7 +60,7 @@ namespace Views
 
         protected void OnInfo (object sender, System.EventArgs e)
         {
-            new PerpetratorActWindow (perpetratorAct, OnPerpetratorActUpdated);
+            new PerpetratorActWindow (perpetratorAct, OnPerpetratorActUpdated, (Gtk.Window) this.Toplevel);
         }
 
         protected void OnPerpetratorActUpdated (object sender, PerpetratorActEventArgs args)
