@@ -27,6 +27,7 @@ namespace Views
             set {
                 perpetrator = value;
                 perpetratorSelector.Person = perpetrator.Person;
+                institutionselect1.Institution = perpetrator.Institution;
                 job.Active = perpetrator.Job;
 
                 HashSet<PerpetratorAct> perpetratorActs = new HashSet<PerpetratorAct>(new ARComparer<PerpetratorAct>());

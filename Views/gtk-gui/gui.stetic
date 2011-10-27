@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -450,7 +450,6 @@ Female</property>
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
                                     <property name="OrderById">False</property>
-                                    <property name="Attribute">Citizen</property>
                                     <property name="Model">Country</property>
                                     <property name="IsEditable">False</property>
                                     <property name="HideAddButton">True</property>
@@ -6618,6 +6617,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Change</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnChangeClicked" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -6642,6 +6642,7 @@ December</property>
       <widget class="Views.InstitutionList" id="institutionlist1">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
+        <signal name="SelectionChanged" handler="OnSelection" />
       </widget>
     </child>
   </widget>
