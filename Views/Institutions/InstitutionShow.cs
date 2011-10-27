@@ -23,6 +23,7 @@ namespace Views
             set {
                 institution = value;
                 if (institution != null) {
+                    imageselector.Image = institution.Photo;
                     name.Text = institution.Name == null ? "" : institution.Name;
                     abbrev.Text = institution.Abbrev == null ? "" : institution.Abbrev;
                     institution_type.Active = institution.InstitutionType;
