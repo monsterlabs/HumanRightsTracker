@@ -223,7 +223,7 @@ namespace Views
             if (OrderById) {
                 options = ActiveRecordMetaBase.All(t, new Order("Id", true));
             } else {
-                Console.WriteLine(AttributeName());
+                //Console.WriteLine(AttributeName());
                 options = ActiveRecordMetaBase.All(t, new Order(AttributeName (), true));
             }
             DeleteAndSetOptions (options);

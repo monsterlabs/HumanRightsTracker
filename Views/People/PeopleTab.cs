@@ -9,6 +9,7 @@ namespace Views
         bool isImmigrant = false;
         public PeopleTab ()
         {
+            Console.WriteLine("Building People Tab...");
             this.Build ();
 
         }

@@ -8,6 +8,7 @@ namespace Views
     {
         public CasesTab ()
         {
+            Console.WriteLine("Building Cases Tab...");
             this.Build ();
         }
 

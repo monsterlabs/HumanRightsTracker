@@ -8,6 +8,7 @@ namespace Views
     {
         public InstitutionsTab ()
         {
+            Console.WriteLine("Building Institutions Tab...");
             this.Build ();
         }
 
