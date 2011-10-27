@@ -67,6 +67,7 @@ namespace Views
                 victimSelector.IsEditable = value;
                 status1.IsEditable = value;
                 characteristics.Editable = value;
+                PerpetratorSelector.IsEditing = value;
             }
         }
 
@@ -83,6 +84,7 @@ namespace Views
                 return;
             } else {
                 victim.Save();
+                Victim = victim;
                 if (Saved != null)
                     Saved (this.Victim, e);
             }

@@ -30,7 +30,6 @@ namespace Views
             set {
                 isEditable = value;
                 button8.Visible = value;
-                button71.Visible = value;
             }
         }
         public virtual Perpetrator Perpetrator

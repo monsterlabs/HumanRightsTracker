@@ -39,7 +39,7 @@ namespace Views
             set
             {
                 perpetratorAct = value;
-                if (perpetrator != null)
+                if (perpetratorAct != null)
                 {
 
                 } else {
@@ -56,7 +56,7 @@ namespace Views
 
         protected void OnInfo (object sender, System.EventArgs e)
         {
-            new PerpetratorActWindow (perpetrator, OnPerpetratorActUpdated);
+            new PerpetratorActWindow (perpetratorAct, OnPerpetratorActUpdated);
         }
 
         protected void OnPerpetratorActUpdated (object sender, PerpetratorActEventArgs args)

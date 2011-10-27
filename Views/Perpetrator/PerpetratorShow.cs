@@ -51,9 +51,10 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                // TODO; institution
+                institutionselect1.IsEditable = value;
                 job.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
+                perpetratoractsselector2.IsEditing = value;
             }
         }
 
@@ -61,7 +62,6 @@ namespace Views
         {
             perpetrator.Person = perpetratorSelector.Person;
             perpetrator.Job = job.Active as Job;
-            // TODO: institution
 
             if (perpetrator.Id < 1 || perpetrator.Victim.Id < 1)
             {

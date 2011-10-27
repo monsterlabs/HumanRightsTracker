@@ -4772,7 +4772,7 @@ December</property>
                     <property name="MemberName" />
                     <property name="Size">2</property>
                     <child>
-                      <widget class="Gtk.Button" id="button124">
+                      <widget class="Gtk.Button" id="removeButton">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <property name="Type">TextAndIcon</property>
@@ -4787,7 +4787,7 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Button" id="button125">
+                      <widget class="Gtk.Button" id="infoButton">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <property name="Type">TextAndIcon</property>
@@ -5778,7 +5778,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.VictimShow" design-size="503 700">
+  <widget class="Gtk.Bin" id="Views.VictimShow" design-size="552 700">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -5989,7 +5989,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.VictimWindow" design-size="503 566">
+  <widget class="Gtk.Window" id="Views.VictimWindow" design-size="552 566">
     <property name="MemberName" />
     <property name="Title" translatable="yes">VictimWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -6003,7 +6003,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.VictimRow" design-size="441 100">
+  <widget class="Gtk.Bin" id="Views.VictimRow" design-size="506 100">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6025,20 +6025,17 @@ December</property>
         <child>
           <widget class="Gtk.Label" id="fullname">
             <property name="MemberName" />
-            <property name="Xalign">0</property>
             <property name="LabelProp" translatable="yes">Lastname Firstname</property>
             <property name="Justify">Center</property>
           </widget>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
           <widget class="Gtk.Label" id="status">
             <property name="MemberName" />
-            <property name="Xalign">0</property>
             <property name="LabelProp" translatable="yes">Status</property>
           </widget>
           <packing>
@@ -6052,7 +6049,7 @@ December</property>
             <property name="MemberName" />
             <property name="Size">2</property>
             <child>
-              <widget class="Gtk.Button" id="button8">
+              <widget class="Gtk.Button" id="removeButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextAndIcon</property>
@@ -6067,7 +6064,7 @@ December</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button71">
+              <widget class="Gtk.Button" id="infoButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextAndIcon</property>
@@ -6164,7 +6161,7 @@ December</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button71">
+              <widget class="Gtk.Button" id="infoButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextAndIcon</property>
@@ -6189,7 +6186,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorSelector" design-size="399 133">
+  <widget class="Gtk.Bin" id="Views.PerpetratorSelector" design-size="490 133">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6201,7 +6198,7 @@ December</property>
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Views.VictimRow" id="row">
+              <widget class="Views.PerpetratorRow" id="row">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
                 <property name="IsEditable">False</property>
@@ -6233,6 +6230,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Add</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnAddClicked" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -6250,15 +6248,81 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PerpetratorWindow" design-size="400 300">
+  <widget class="Gtk.Bin" id="Views.PerpetratorActsSelector" design-size="490 61">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.VBox" id="peopleList">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Views.PerpetratorActRow" id="perpetratoractrow1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsEditable">False</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <property name="LayoutStyle">Spread</property>
+            <child>
+              <widget class="Gtk.Button" id="addButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Add</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnAddClicked" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PerpetratorWindow" design-size="400 419">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PerpetratorWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <child>
-      <placeholder />
+      <widget class="Views.PerpetratorShow" id="show">
+        <property name="MemberName" />
+        <property name="Events">ButtonPressMask</property>
+        <property name="IsEditing">False</property>
+      </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorShow" design-size="376 419">
+  <widget class="Gtk.Bin" id="Views.PerpetratorShow" design-size="381 490">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6366,7 +6430,7 @@ December</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel2">
+              <widget class="Gtk.Label" id="GtkLabel3">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6387,6 +6451,7 @@ December</property>
           <widget class="Gtk.Frame" id="frame1">
             <property name="MemberName" />
             <property name="ShadowType">Out</property>
+            <property name="BorderWidth">10</property>
             <child>
               <widget class="Gtk.Alignment" id="GtkAlignment2">
                 <property name="MemberName" />
@@ -6394,12 +6459,16 @@ December</property>
                 <property name="Yalign">0</property>
                 <property name="LeftPadding">12</property>
                 <child>
-                  <placeholder />
+                  <widget class="Views.PerpetratorActsSelector" id="perpetratoractsselector2">
+                    <property name="MemberName" />
+                    <property name="Events">ButtonPressMask</property>
+                    <property name="IsEditing">False</property>
+                  </widget>
                 </child>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel3">
+              <widget class="Gtk.Label" id="GtkLabel5">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrator Acts&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6412,10 +6481,12 @@ December</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox4">
+          <widget class="Gtk.HButtonBox" id="hbuttonbox5">
             <property name="MemberName" />
             <property name="Size">2</property>
             <child>
@@ -6525,13 +6596,6 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorActsSelector" design-size="300 300">
-    <property name="MemberName" />
-    <property name="Visible">False</property>
-    <child>
-      <placeholder />
-    </child>
-  </widget>
   <widget class="Gtk.Bin" id="Views.PerpetratorActRow" design-size="490 100">
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -6615,6 +6679,21 @@ December</property>
           </packing>
         </child>
       </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PerpetratorActWindow" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">PerpetratorActWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <placeholder />
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.PerpetratorActShow" design-size="300 300">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <placeholder />
     </child>
   </widget>
 </stetic-interface>

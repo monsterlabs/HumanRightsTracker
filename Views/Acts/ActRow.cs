@@ -56,7 +56,7 @@ namespace Views
             }
             set {
                 isEditable = value;
-                hbuttonbox3.Visible = value;
+                removeButton.Visible = value;
             }
         }
     }

@@ -67,9 +67,7 @@ namespace Views
 
         protected void OnAddClicked (object sender, System.EventArgs e)
         {
-            Victim newVictim = new Victim();
-            newVictim.Act = act;
-            new VictimWindow (newVictim, OnVictimSelected);
+            new VictimWindow (act, OnVictimSelected, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnRemoved (object sender, System.EventArgs e)

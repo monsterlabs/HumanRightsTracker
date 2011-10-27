@@ -34,7 +34,7 @@ namespace Views
         {
             this.Build ();
             this.Modal = true;
-            //show.Perpetrator = perpetrator;
+            show.Perpetrator = perpetrator;
             OnSaveOrUpdate = handler;
         }
 

@@ -29,8 +29,7 @@ namespace Views
             }
             set {
                 isEditable = value;
-                button8.Visible = value;
-                button71.Visible = value;
+                removeButton.Visible = value;
             }
         }
         public virtual Victim Victim
@@ -64,7 +63,7 @@ namespace Views
 
         protected void OnInfo (object sender, System.EventArgs e)
         {
-            new VictimWindow (victim, OnVictimUpdated);
+            new VictimWindow (victim, OnVictimUpdated, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnVictimUpdated (object sender, VictimEventArgs args)

@@ -29,12 +29,25 @@ namespace Views
             this.Build ();
         }
 
-        public VictimWindow (Victim victim, VictimEventHandler handler) : base(Gtk.WindowType.Toplevel)
+        public VictimWindow (Victim victim, VictimEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             show.Victim = victim;
+            show.IsEditing = false;
             OnSaveOrUpdate = handler;
+            this.TransientFor = parent;
+        }
+
+        public VictimWindow (Act act, VictimEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            show.Victim = new Victim();
+            show.Victim.Act = act;
+            show.IsEditing = true;
+            OnSaveOrUpdate = handler;
+            this.TransientFor = parent;
         }
 
         protected void OnSave (object sender, System.EventArgs e)
