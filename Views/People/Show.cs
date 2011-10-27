@@ -134,6 +134,7 @@ namespace Views.People
             birthday.CurrentDate = person.Birthday;
             gender.Activate = person.Gender;
             marital_status.Active = person.MaritalStatus;
+            citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
             settlement.Text = person.Settlement == null ? "" : person.Settlement;
             imageselector1.Image = person.Photo;
@@ -218,6 +219,7 @@ namespace Views.People
             settlement.IsEditable = value;
             gender.IsEditable = value;
             marital_status.IsEditable = value;
+            citizen.IsEditable = value;
             birthday.IsEditable = value;
             birthplace.IsEditable = value;
             imageselector1.IsEditable = value;
@@ -342,6 +344,7 @@ namespace Views.People
             person.City = birthplace.City as City;
 
             person.MaritalStatus = marital_status.Active as MaritalStatus;
+            person.Citizen = citizen.Active as Country;
             person.Gender = gender.Value ();
             person.Settlement = settlement.Text;
         }

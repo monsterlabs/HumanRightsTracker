@@ -442,8 +442,35 @@ Female</property>
                               <widget class="Gtk.Table" id="table22">
                                 <property name="MemberName" />
                                 <property name="NRows">2</property>
+                                <property name="NColumns">2</property>
                                 <property name="RowSpacing">6</property>
                                 <property name="ColumnSpacing">6</property>
+                                <child>
+                                  <widget class="Views.CatalogSelector" id="citizen">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <property name="OrderById">False</property>
+                                    <property name="Attribute">Citizen</property>
+                                    <property name="Model">Country</property>
+                                    <property name="IsEditable">False</property>
+                                    <property name="HideAddButton">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="TopAttach">1</property>
+                                    <property name="BottomAttach">2</property>
+                                    <property name="LeftAttach">1</property>
+                                    <property name="RightAttach">2</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="XOptions">Fill</property>
+                                    <property name="YOptions">Fill</property>
+                                    <property name="XExpand">False</property>
+                                    <property name="XFill">True</property>
+                                    <property name="XShrink">False</property>
+                                    <property name="YExpand">False</property>
+                                    <property name="YFill">True</property>
+                                    <property name="YShrink">False</property>
+                                  </packing>
+                                </child>
                                 <child>
                                   <widget class="Gtk.Label" id="label33">
                                     <property name="MemberName" />
@@ -452,6 +479,27 @@ Female</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
+                                    <property name="AutoSize">True</property>
+                                    <property name="XOptions">Fill</property>
+                                    <property name="YOptions">Fill</property>
+                                    <property name="XExpand">False</property>
+                                    <property name="XFill">True</property>
+                                    <property name="XShrink">False</property>
+                                    <property name="YExpand">False</property>
+                                    <property name="YFill">True</property>
+                                    <property name="YShrink">False</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="label51">
+                                    <property name="MemberName" />
+                                    <property name="Xalign">0</property>
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Citizen&lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="LeftAttach">1</property>
+                                    <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1185,7 +1233,7 @@ No</property>
                               <widget class="Views.CatalogSelector" id="scholarity_level">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="OrderById">True</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">ScholarityLevel</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -1719,6 +1767,7 @@ No</property>
                   <widget class="Views.CatalogSelector" id="country">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="OrderById">False</property>
                     <property name="Model">Country</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">True</property>
@@ -1754,6 +1803,7 @@ No</property>
                   <widget class="Views.CatalogSelector" id="state">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="OrderById">False</property>
                     <property name="Model">State</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
@@ -1791,6 +1841,7 @@ No</property>
                   <widget class="Views.CatalogSelector" id="city">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="OrderById">False</property>
                     <property name="Model">City</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
@@ -2284,6 +2335,7 @@ No</property>
               <widget class="Views.CatalogSelector" id="dateType">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
+                <property name="OrderById">False</property>
                 <property name="Model">DateType</property>
                 <property name="IsEditable">True</property>
                 <property name="HideAddButton">True</property>
@@ -3302,6 +3354,7 @@ December</property>
                           <widget class="Views.CatalogSelector" id="institution_category">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="OrderById">False</property>
                             <property name="Model">InstitutionCategory</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
@@ -3326,6 +3379,7 @@ December</property>
                           <widget class="Views.CatalogSelector" id="institution_type">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
+                            <property name="OrderById">False</property>
                             <property name="Model">InstitutionType</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
@@ -3948,6 +4002,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="catalogselector1">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">HumanRightsViolationCategory</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -3989,6 +4044,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="humanRightsViolation">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">HumanRightsViolation</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -4159,6 +4215,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="actStatus">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">ActStatus</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -4264,6 +4321,7 @@ December</property>
                               <widget class="Views.CatalogSelector" id="victimStatus">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
                                 <property name="Model">VictimStatus</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
@@ -5319,6 +5377,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="interventionType">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="Model">InterventionType</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
@@ -5831,6 +5890,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="status1">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="Model">VictimStatus</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">True</property>
@@ -6401,6 +6461,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="job">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="Model">Job</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
@@ -6721,6 +6782,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="humanRight">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
                       </widget>
@@ -6749,6 +6811,7 @@ December</property>
                       <widget class="Views.CatalogSelector" id="place">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
                       </widget>

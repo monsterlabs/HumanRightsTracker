@@ -51,7 +51,8 @@ namespace HumanRightsTracker.Models
         public City City { get; set; }
         [BelongsTo("marital_status_id"), ValidateNonEmpty]
         public MaritalStatus MaritalStatus { get; set; }
-
+        [BelongsTo("citizen_id"), ValidateNonEmpty]
+        public Country Citizen { get; set; }
 
         private IList details = new ArrayList();
         [HasMany(typeof(PersonDetail), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
