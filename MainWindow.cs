@@ -6,13 +6,13 @@ namespace HumanRightsTracker
 {
     public partial class MainWindow : Window
     {
+        bool initialized;
+
         public MainWindow () : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             individual_peopletab.InitialSetup ();
-            immigrant_peopletab.InitialSetup ();
-            casestab.InitialSetup ();
-            institutionstab.InitialSetup ();
+            initialized = true;
             this.Default = individual_peopletab.DefaultButton ();
         }
 
@@ -26,8 +26,10 @@ namespace HumanRightsTracker
         {
             Gtk.Notebook n = o as Notebook;
             TabWithDefaultButton tab = n.CurrentPageWidget as TabWithDefaultButton;
-            if (tab != null)
+            if (initialized && tab != null) {
+                tab.InitialSetup();
                 this.Default = tab.DefaultButton ();
+            }
             return;
         }
 

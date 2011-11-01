@@ -6,11 +6,9 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class InstitutionsTab : Gtk.Bin, TabWithDefaultButton
     {
-        public InstitutionsTab ()
-        {
-            Console.WriteLine("Building Institutions Tab...");
-            this.Build ();
-        }
+        bool hasLoaded = false;
+
+        public InstitutionsTab () {}
 
         public Gtk.Button DefaultButton ()
         {
@@ -19,9 +17,14 @@ namespace Views
 
         public void InitialSetup ()
         {
-            show.Hide ();
+            if (hasLoaded == false) {
+                Console.WriteLine("Building Institutions Tab...");
+                this.Build ();
+                this.ShowAll ();
+                hasLoaded = true;
+                Console.WriteLine("Institutions Tab Complete.");
+            }
         }
-
 
         protected void OnInstitutionlistSelectionChanged (object sender, System.EventArgs e)
         {

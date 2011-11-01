@@ -6,12 +6,13 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class CasesTab : Gtk.Bin, TabWithDefaultButton
     {
+        bool hasLoaded = false;
+
         public CasesTab ()
         {
-            Console.WriteLine("Building Cases Tab...");
-            this.Build ();
+            //Console.WriteLine("Building Cases Tab...");
+            //this.Build ();
         }
-
 
         public Gtk.Button DefaultButton ()
         {
@@ -20,7 +21,13 @@ namespace Views
 
         public void InitialSetup ()
         {
-            show.Hide ();
+            if (hasLoaded == false) {
+                Console.WriteLine("Building Cases Tab...");
+                this.Build ();
+                this.ShowAll ();
+                hasLoaded = true;
+                Console.WriteLine("Cases Tab Complete.");
+            }
         }
 
         protected void OnCaseSaved (object sender, System.EventArgs e)

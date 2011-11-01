@@ -7,12 +7,27 @@ namespace Views
     public partial class PeopleTab : Gtk.Bin, TabWithDefaultButton
     {
         bool isImmigrant = false;
+        bool hasLoaded = false;
         public PeopleTab ()
         {
-            Console.WriteLine("Building People Tab...");
-            this.Build ();
-
+            //Console.WriteLine("Building People Tab...");
+            //this.Build ();
         }
+
+        public void InitialSetup ()
+        {
+            if (hasLoaded == false) {
+                Console.WriteLine("Building People Tab...");
+                this.Build ();
+                peoplelist.IsImmigrant = this.isImmigrant;
+                peoplelist.ReloadStore();
+                this.ShowAll ();
+                hasLoaded = true;
+                Console.WriteLine("People Tab Complete.");
+            }
+        }
+
+
 
         protected virtual void PersonSelected (object sender, System.EventArgs e)
         {
@@ -51,13 +66,6 @@ namespace Views
         public Gtk.Button DefaultButton ()
         {
             return peoplelist.SearchButton;
-        }
-
-        public void InitialSetup ()
-        {
-            peoplelist.IsImmigrant = this.isImmigrant;
-            peoplelist.ReloadStore();
-            show.Hide ();
         }
 
         protected void OnPersonSaved (object sender, System.EventArgs e)

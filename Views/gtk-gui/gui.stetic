@@ -4926,7 +4926,8 @@ December</property>
           <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
             <property name="Xalign">0</property>
-            <property name="LabelProp" translatable="yes">Name</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Name&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -4953,7 +4954,8 @@ December</property>
           <widget class="Gtk.Label" id="notesLabel">
             <property name="MemberName" />
             <property name="Xalign">0</property>
-            <property name="LabelProp" translatable="yes">Notes</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Notes&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
           </widget>
           <packing>
             <property name="Position">2</property>
@@ -4984,7 +4986,8 @@ December</property>
           <widget class="Gtk.Label" id="parentNameLabel">
             <property name="MemberName" />
             <property name="Xalign">0</property>
-            <property name="LabelProp" translatable="yes">Parent name</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Parent name&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
           </widget>
           <packing>
             <property name="Position">4</property>
