@@ -17,5 +17,7 @@
       value="Data Source=db/human_rights_tracker.sqlite3" />
     <add value="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle" 
       key="proxyfactory.factory_class" />
+    <add key="show_sql" value="true" />
   </config>
 </activerecord>
+
