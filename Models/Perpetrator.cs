@@ -22,7 +22,7 @@ namespace HumanRightsTracker.Models
         [BelongsTo("job_id")]
         public Job Job { get; set; }
 
-        [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList PerpetratorActs { get; set; }
 
     }

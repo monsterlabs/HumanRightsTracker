@@ -54,7 +54,7 @@ namespace HumanRightsTracker.Models
         [Property]
         public String Response { get; set; }
 
-        [HasMany(typeof(InterventionAffectedPeople), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        [HasMany(typeof(InterventionAffectedPeople), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList AffectedPeople { get; set; }
 
     }

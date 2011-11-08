@@ -56,7 +56,7 @@ namespace HumanRightsTracker.Models
 
 
         private IList perpetrators = new ArrayList();
-        [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Perpetrators
         {
             get { return perpetrators;}
@@ -64,7 +64,7 @@ namespace HumanRightsTracker.Models
         }
 
         private IList interventors = new ArrayList();
-        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Interventors
         {
             get { return interventors; }
@@ -72,7 +72,7 @@ namespace HumanRightsTracker.Models
         }
 
         private IList supporters = new ArrayList();
-        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Supporters
         {
             get { return supporters; }
