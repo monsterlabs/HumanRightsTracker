@@ -40,9 +40,13 @@ namespace Views.People
                         identification_frame.Destroy ();
                         person_details_frame.Destroy ();
                      }
+
                     set_case_list();
-                    set_institution_and_job_list();
+
+                    if (this.isImmigrant == false )
+                        set_institution_and_job_list();
                 }
+
                 IsEditing = false;
             }
 
@@ -59,6 +63,7 @@ namespace Views.People
             set
             {
                 isEditing = value;
+
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
@@ -73,12 +78,13 @@ namespace Views.People
 
                 editable_person (value);
                 editable_address (value);
+
                 if (this.isImmigrant == true ) {
                     editable_person_details (value);
                     editable_immigration_attempts (value);
                     editable_identification (value);
+                    institution_and_job_per_person.Hide ();
                 }
-
             }
         }
 
