@@ -211,30 +211,28 @@ namespace HumanRightsTracker.Models
 
         public static ArrayList FindVictims(Boolean IsImmigrant) {
             String hql = "select p from Person p inner join p.Victims as v where p.IsImmigrant = :IsImmigrant and p.Id in v.Person.Id";
-            HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
-            query.SetParameter("IsImmigrant", IsImmigrant);
-            return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
+            return (ArrayList)ExecuteFilter (hql,IsImmigrant);
         }
 
         public static ArrayList FindPerpetrators(Boolean IsImmigrant) {
             String hql = "select p from Person p inner join p.Perpetrators as pp where p.IsImmigrant = :IsImmigrant and p.Id in pp.Person.Id";
-            HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
-            query.SetParameter("IsImmigrant", IsImmigrant);
-            return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
+            return (ArrayList)ExecuteFilter (hql, IsImmigrant);
         }
 
         public static ArrayList FindInterventors(Boolean IsImmigrant) {
             String hql = "select p from Person p inner join p.Interventors as i where p.IsImmigrant = :IsImmigrant and p.Id in i.Interventor.Id";
-            HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
-            query.SetParameter("IsImmigrant", IsImmigrant);
-            return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
+            return (ArrayList)ExecuteFilter (hql, IsImmigrant);
         }
 
         public static ArrayList FindSupporters(Boolean IsImmigrant) {
             String hql = "select p from Person p inner join p.Interventors as i where p.IsImmigrant = :IsImmigrant and p.Id in i.Supporter.Id";
-            HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
-            query.SetParameter("IsImmigrant", IsImmigrant);
-            return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
+            return (ArrayList)ExecuteFilter (hql, IsImmigrant);
+        }
+
+        protected static ArrayList ExecuteFilter(String hql, Boolean IsImmigrant) {
+           HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
+           query.SetParameter("IsImmigrant", IsImmigrant);
+           return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
         }
     }
 }
