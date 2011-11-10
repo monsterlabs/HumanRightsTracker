@@ -166,6 +166,8 @@
     <Compile Include="gtk-gui\Views.PersonAndJobRow.cs" />
     <Compile Include="Cases\CaseAndPeopleRow.cs" />
     <Compile Include="gtk-gui\Views.CaseAndPeopleRow.cs" />
+    <Compile Include="Victim\VictimList.cs" />
+    <Compile Include="gtk-gui\Views.VictimList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

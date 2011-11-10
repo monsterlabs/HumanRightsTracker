@@ -45,8 +45,9 @@ namespace Views
                             victims.Add(victim);
                         }
                     }
-                    VictimSelector.Victims = victims;
-                    VictimSelector.Act = act;
+//                    VictimSelector.Victims = victims;
+//                    VictimSelector.Act = act;
+                    victimlist.Act = act;
                 }
                 IsEditing = false;
             }
@@ -72,12 +73,12 @@ namespace Views
                 //act.Save ();
                 List<Victim> victims = new List<Victim>();
 
-                foreach (Victim victim in VictimSelector.Victims)
+                /*foreach (Victim victim in VictimSelector.Victims)
                 {
                     victims.Add(victim);
                 }
                 act.Victims = victims;
-
+                 */
                 this.IsEditing = false;
 
                 if (act.Id < 1 || act.Case.Id < 1)
@@ -115,15 +116,23 @@ namespace Views
                 affected.IsEditable = value;
                 actStatus.IsEditable = value;
                 victimStatus.IsEditable = value;
-                VictimSelector.IsEditing = value;
+                //VictimSelector.IsEditing = value;
 
                 if (value) {
-                    editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
+                    editButton1.Label = Catalog.GetString("Cancel");
+                    saveButton1.Visible = true;
                 } else {
-                    editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
+                    editButton1.Label = Catalog.GetString("Edit");
+                    saveButton1.Visible = false;
                 }
+            }
+        }
+
+        protected void OnVictimSelected (object sender, System.EventArgs e)
+        {
+            Victim v = sender as Victim;
+            if (v != null) {
+                victimshow1.Victim = v;
             }
         }
     }
