@@ -28,8 +28,6 @@ namespace Views
             }
         }
 
-
-
         protected virtual void PersonSelected (object sender, System.EventArgs e)
         {
             show.IsImmigrant = this.isImmigrant;

@@ -38,7 +38,9 @@ namespace HumanRightsTracker
             Gtk.Notebook n = o as Notebook;
             TabWithDefaultButton tab = n.CurrentPageWidget as TabWithDefaultButton;
             if (initialized && tab != null) {
+                initialized = false;
                 tab.InitialSetup();
+                initialized = true;
                 this.Default = tab.DefaultButton ();
                 n.CurrentPage = (int) args.PageNum;
             }
