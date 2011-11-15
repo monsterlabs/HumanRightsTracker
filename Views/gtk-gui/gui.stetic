@@ -1738,7 +1738,7 @@ No</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PlaceSelector" design-size="681 87">
+  <widget class="Gtk.Bin" id="Views.PlaceSelector" design-size="699 87">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
