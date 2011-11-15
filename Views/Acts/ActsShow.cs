@@ -70,15 +70,15 @@ namespace Views
 
             if (act.IsValid())
             {
-                //act.Save ();
+                act.Save ();
                 List<Victim> victims = new List<Victim>();
 
-                /*foreach (Victim victim in VictimSelector.Victims)
+                foreach (Victim victim in victimlist.Victims)
                 {
                     victims.Add(victim);
                 }
                 act.Victims = victims;
-                 */
+
                 this.IsEditing = false;
 
                 if (act.Id < 1 || act.Case.Id < 1)
@@ -134,6 +134,23 @@ namespace Views
             if (v != null) {
                 victimshow1.Victim = v;
             }
+        }
+
+        protected void OnVictimSaved (object sender, System.EventArgs e)
+        {
+            victimlist.ReloadStore ();
+        }
+
+        protected void OnAddVictim (object sender, System.EventArgs e)
+        {
+            Victim v = new Victim ();
+            v.Act = act;
+            victimlist.UnselectAll ();
+
+            victimshow1.Victim = v;
+            victimshow1.IsEditing = true;
+            victimshow1.Show ();
+            return;
         }
     }
 }

@@ -38,8 +38,8 @@ namespace Views
                         perpetratorActs.Add(perpetratorAct);
                     }
                 }
-                perpetratoractsselector2.PerpetratorActs = perpetratorActs;
-
+                //perpetratoractsselector.PerpetratorActs = perpetratorActs;
+                perpetratoractlist.Perpetrator = perpetrator;
                 IsEditing = false;
             }
         }
@@ -65,7 +65,7 @@ namespace Views
                 institutionselect1.IsEditable = value;
                 job.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
-                perpetratoractsselector2.IsEditing = value;
+                //perpetratoractsselector2.IsEditing = value;
             }
         }
 
@@ -84,6 +84,31 @@ namespace Views
                 if (Saved != null)
                     Saved (this.Perpetrator, e);
             }
+        }
+
+        protected void OnPerpetratorActSelected (object sender, System.EventArgs e)
+        {
+            PerpetratorAct a = sender as PerpetratorAct;
+            if (a != null) {
+                perpetratoractshow.PerpetratorAct = a;
+            }
+        }
+
+        protected void OnPerpetratorActSaved (object sender, System.EventArgs e)
+        {
+            perpetratoractlist.ReloadStore ();
+        }
+
+        protected void OnAddPerpetratorAct (object sender, System.EventArgs e)
+        {
+            PerpetratorAct a = new PerpetratorAct ();
+            a.Perpetrator = perpetrator;
+            perpetratoractlist.UnselectAll ();
+
+            perpetratoractshow.PerpetratorAct = a;
+            perpetratoractshow.IsEditing = true;
+            perpetratoractshow.Show ();
+            return;
         }
     }
 }

@@ -3964,7 +3964,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActsShow" design-size="733 1024">
+  <widget class="Gtk.Bin" id="Views.ActsShow" design-size="815 1024">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -4407,20 +4407,71 @@ December</property>
                             <property name="CanFocus">True</property>
                             <property name="Position">160</property>
                             <child>
-                              <widget class="Views.VictimList" id="victimlist">
+                              <widget class="Gtk.VBox" id="vbox8">
                                 <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <signal name="SelectionChanged" handler="OnVictimSelected" />
+                                <property name="Spacing">6</property>
+                                <child>
+                                  <widget class="Views.VictimList" id="victimlist">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <signal name="SelectionChanged" handler="OnVictimSelected" />
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">0</property>
+                                    <property name="AutoSize">True</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.HButtonBox" id="hbuttonbox7">
+                                    <property name="MemberName" />
+                                    <property name="Size">1</property>
+                                    <child>
+                                      <widget class="Gtk.Button" id="addVictimButton">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Type">TextAndIcon</property>
+                                        <property name="Icon">stock:gtk-add Menu</property>
+                                        <property name="Label" translatable="yes">Add</property>
+                                        <property name="UseUnderline">True</property>
+                                        <signal name="Clicked" handler="OnAddVictim" />
+                                      </widget>
+                                      <packing>
+                                        <property name="Expand">False</property>
+                                        <property name="Fill">False</property>
+                                      </packing>
+                                    </child>
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">1</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="Expand">False</property>
+                                    <property name="Fill">False</property>
+                                  </packing>
+                                </child>
                               </widget>
                               <packing>
                                 <property name="Resize">False</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="Views.VictimShow" id="victimshow1">
+                              <widget class="Gtk.ScrolledWindow" id="scrolledwindow2">
                                 <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="IsEditing">False</property>
+                                <property name="CanFocus">True</property>
+                                <property name="ShadowType">In</property>
+                                <child>
+                                  <widget class="Gtk.Viewport" id="GtkViewport">
+                                    <property name="MemberName" />
+                                    <property name="ShadowType">None</property>
+                                    <child>
+                                      <widget class="Views.VictimShow" id="victimshow1">
+                                        <property name="MemberName" />
+                                        <property name="Events">ButtonPressMask</property>
+                                        <property name="IsEditing">False</property>
+                                        <signal name="Saved" handler="OnVictimSaved" />
+                                      </widget>
+                                    </child>
+                                  </widget>
+                                </child>
                               </widget>
                             </child>
                           </widget>
@@ -6375,7 +6426,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PerpetratorWindow" design-size="400 419">
+  <widget class="Gtk.Window" id="Views.PerpetratorWindow" design-size="400 490">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PerpetratorWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -6387,7 +6438,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorShow" design-size="381 490">
+  <widget class="Gtk.Bin" id="Views.PerpetratorShow" design-size="738 725">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6525,10 +6576,65 @@ December</property>
                 <property name="Yalign">0</property>
                 <property name="LeftPadding">12</property>
                 <child>
-                  <widget class="Views.PerpetratorActsSelector" id="perpetratoractsselector2">
+                  <widget class="Gtk.HPaned" id="hpaned1">
                     <property name="MemberName" />
-                    <property name="Events">ButtonPressMask</property>
-                    <property name="IsEditing">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Position">190</property>
+                    <child>
+                      <widget class="Gtk.VBox" id="vbox5">
+                        <property name="MemberName" />
+                        <property name="Spacing">6</property>
+                        <child>
+                          <widget class="Views.PerpetratorActList" id="perpetratoractlist">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                            <signal name="SelectionChanged" handler="OnPerpetratorActSelected" />
+                          </widget>
+                          <packing>
+                            <property name="Position">0</property>
+                            <property name="AutoSize">True</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+                            <property name="MemberName" />
+                            <property name="Size">1</property>
+                            <child>
+                              <widget class="Gtk.Button" id="addPerpetratorActButton">
+                                <property name="MemberName" />
+                                <property name="CanFocus">True</property>
+                                <property name="Type">TextAndIcon</property>
+                                <property name="Icon">stock:gtk-add Menu</property>
+                                <property name="Label" translatable="yes">Add</property>
+                                <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnAddPerpetratorAct" />
+                              </widget>
+                              <packing>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="Position">1</property>
+                            <property name="AutoSize">True</property>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Resize">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.PerpetratorActShow" id="perpetratoractshow">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditing">False</property>
+                        <signal name="Saved" handler="OnPerpetratorActSaved" />
+                      </widget>
+                    </child>
                   </widget>
                 </child>
               </widget>
@@ -6547,8 +6653,6 @@ December</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -8120,7 +8224,45 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.VictimList" design-size="305 454">
+  <widget class="Gtk.Bin" id="Views.VictimList" design-size="294 492">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.HBox" id="hbox3">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.NodeView" id="tree">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <signal name="RowActivated" handler="OnRowActivated" />
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.PerpetratorActList" design-size="300 300">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>

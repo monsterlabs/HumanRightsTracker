@@ -42,6 +42,14 @@ namespace Views
             tree.NodeSelection.Changed += new System.EventHandler (OnSelectionChanged);
         }
 
+        public Victim[] Victims {
+            get {
+                return this.victims;
+            }
+            set {
+                victims = value;
+            }
+        }
         protected void OnSelectionChanged (object o, System.EventArgs args)
         {
             Gtk.NodeSelection selection = (Gtk.NodeSelection)o;
