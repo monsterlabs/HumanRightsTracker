@@ -105,7 +105,11 @@ namespace Views
 
         public void ReloadStore ()
         {
-            victims = Victim.FindAllByProperty("Act", act);
+            if (act.Id > 1) {
+                victims = Victim.FindAllByProperty("Act", act);
+            } else {
+                victims = new Victim[0];
+            }
             store.Clear ();
 
             foreach (Victim v in victims)
