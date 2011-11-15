@@ -45,8 +45,9 @@ namespace Views
                             victims.Add(victim);
                         }
                     }
-                    VictimSelector.Victims = victims;
-                    VictimSelector.Act = act;
+//                    VictimSelector.Victims = victims;
+//                    VictimSelector.Act = act;
+                    victimlist.Act = act;
                 }
                 IsEditing = false;
             }
@@ -69,10 +70,10 @@ namespace Views
 
             if (act.IsValid())
             {
-                //act.Save ();
+                act.Save ();
                 List<Victim> victims = new List<Victim>();
 
-                foreach (Victim victim in VictimSelector.Victims)
+                foreach (Victim victim in victimlist.Victims)
                 {
                     victims.Add(victim);
                 }
@@ -115,16 +116,41 @@ namespace Views
                 affected.IsEditable = value;
                 actStatus.IsEditable = value;
                 victimStatus.IsEditable = value;
-                VictimSelector.IsEditing = value;
+                //VictimSelector.IsEditing = value;
 
                 if (value) {
-                    editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
+                    editButton1.Label = Catalog.GetString("Cancel");
+                    saveButton1.Visible = true;
                 } else {
-                    editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
+                    editButton1.Label = Catalog.GetString("Edit");
+                    saveButton1.Visible = false;
                 }
             }
+        }
+
+        protected void OnVictimSelected (object sender, System.EventArgs e)
+        {
+            Victim v = sender as Victim;
+            if (v != null) {
+                victimshow1.Victim = v;
+            }
+        }
+
+        protected void OnVictimSaved (object sender, System.EventArgs e)
+        {
+            victimlist.ReloadStore ();
+        }
+
+        protected void OnAddVictim (object sender, System.EventArgs e)
+        {
+            Victim v = new Victim ();
+            v.Act = act;
+            victimlist.UnselectAll ();
+
+            victimshow1.Victim = v;
+            victimshow1.IsEditing = true;
+            victimshow1.Show ();
+            return;
         }
     }
 }

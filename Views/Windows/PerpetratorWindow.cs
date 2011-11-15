@@ -47,7 +47,7 @@ namespace Views
             show.Perpetrator = new Perpetrator();
             show.Perpetrator.Victim = victim;
             OnSaveOrUpdate = handler;
-            show.IsEditing = false;
+            show.IsEditing = true;
             this.TransientFor = parent;
         }
 

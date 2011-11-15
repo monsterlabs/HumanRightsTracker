@@ -77,7 +77,7 @@ namespace Views
             victim.VictimStatus = status1.Active as VictimStatus;
             victim.Characteristics = characteristics.Buffer.Text;
 
-            if (victim.Id < 1 || victim.Act.Id < 1)
+            if (victim.Act.Id < 1)
             {
                 if (Unsaved != null)
                     Unsaved (this.Victim, e);
