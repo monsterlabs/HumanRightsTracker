@@ -2280,7 +2280,6 @@ No</property>
           <widget class="Gtk.Expander" id="expander3">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.Frame" id="frame1">
                 <property name="MemberName" />
