@@ -144,9 +144,20 @@ namespace Views
         {
             ReloadStore ();
         }
+
         protected ICriterion isImmigrantCriterion () {
             ICriterion criterion = Restrictions.Eq("IsImmigrant", this.isImmigrant);
             return criterion;
+        }
+
+        protected void OnVictimsCheckbuttonToggled (object sender, System.EventArgs e)
+        {
+            tree.NodeStore.Clear ();
+            foreach (Person p in Person.FindVictims)
+                tree.NodeStore.AddNode (new PersonNode (p));
+
+            Console.WriteLine(victims_checkbutton.Active);
+
         }
     }
 }
