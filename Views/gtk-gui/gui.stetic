@@ -2322,13 +2322,14 @@ No</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Gtk.CheckButton" id="supporters_checkbutton">
+                                  <widget class="Gtk.CheckButton" id="interventors_checkbutton">
                                     <property name="MemberName" />
                                     <property name="CanFocus">True</property>
-                                    <property name="Label" translatable="yes">Supporters</property>
+                                    <property name="Label" translatable="yes">Interventors</property>
                                     <property name="DrawIndicator">True</property>
                                     <property name="HasLabel">True</property>
                                     <property name="UseUnderline">True</property>
+                                    <signal name="Toggled" handler="OnInterventorsCheckbuttonToggled" />
                                   </widget>
                                   <packing>
                                     <property name="Position">1</property>
@@ -2355,6 +2356,7 @@ No</property>
                                     <property name="DrawIndicator">True</property>
                                     <property name="HasLabel">True</property>
                                     <property name="UseUnderline">True</property>
+                                    <signal name="Toggled" handler="OnPerpetratorsCheckbuttonToggled" />
                                   </widget>
                                   <packing>
                                     <property name="Position">0</property>
@@ -2364,13 +2366,14 @@ No</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Gtk.CheckButton" id="supporters_checkbutton1">
+                                  <widget class="Gtk.CheckButton" id="supporters_checkbutton">
                                     <property name="MemberName" />
                                     <property name="CanFocus">True</property>
                                     <property name="Label" translatable="yes">Supporters</property>
                                     <property name="DrawIndicator">True</property>
                                     <property name="HasLabel">True</property>
                                     <property name="UseUnderline">True</property>
+                                    <signal name="Toggled" handler="OnSupportersCheckbuttonToggled" />
                                   </widget>
                                   <packing>
                                     <property name="Position">1</property>
@@ -2398,7 +2401,7 @@ No</property>
                   </widget>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="GtkLabel2">
+                  <widget class="Gtk.Label" id="GtkLabel5">
                     <property name="MemberName" />
                     <property name="UseMarkup">True</property>
                   </widget>
@@ -2409,7 +2412,7 @@ No</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel3">
+              <widget class="Gtk.Label" id="GtkLabel6">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Filters&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>

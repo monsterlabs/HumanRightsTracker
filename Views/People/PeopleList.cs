@@ -1,6 +1,8 @@
 using System;
 using HumanRightsTracker.Models;
 using NHibernate.Criterion;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace Views
 {
@@ -28,6 +30,7 @@ namespace Views
     public partial class PeopleList : Gtk.Bin
     {
         Person[] people;
+        HashSet<Person> personList = new HashSet<Person>(new ARComparer<Person>());
 
         public event EventHandler SelectionChanged;
         public event EventHandler SelectionWithDoubleClick;
@@ -55,20 +58,69 @@ namespace Views
                 SelectionChanged (p, args);
             }
         }
-        public void Search(string searchString) {
+
+        public void SimpleSearch(string searchString) {
             people = Person.FindAll (new ICriterion[] { Restrictions.Or (
                         Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
                         Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
                      ), isImmigrantCriterion () });
-            tree.NodeStore.Clear ();
+
+            personList.Clear();
             foreach (Person p in people)
+                personList.Add(p);
+        }
+
+        protected void fillNodeStore () {
+            tree.NodeStore.Clear ();
+            foreach (Person p in personList)
                 tree.NodeStore.AddNode (new PersonNode (p));
 
+        }
+        protected void findVictims (string searchString) {
+            foreach (Person p in Person.FindVictims(this.isImmigrant, searchString))
+                personList.Add(p);
+        }
+
+        protected void findPerpetrators (string searchString) {
+            foreach (Person p in Person.FindPerpetrators(this.isImmigrant, searchString))
+                personList.Add(p);
+        }
+
+        protected void findInterventors (string searchString) {
+            foreach (Person p in Person.FindInterventors(this.isImmigrant, searchString))
+                personList.Add(p);
+        }
+
+        protected void findSupporters (string searchString) {
+            foreach (Person p in Person.FindSupporters(this.isImmigrant, searchString))
+                personList.Add(p);
+        }
+
+        protected void SearchWithFilters(string searchString) {
+            personList.Clear();
+            if (victims_checkbutton.Active)
+                findVictims (searchString);
+            else if (perpetrators_checkbutton.Active)
+                findPerpetrators (searchString);
+            else if (interventors_checkbutton.Active)
+                findInterventors (searchString);
+            else if (interventors_checkbutton.Active)
+                findSupporters (searchString);
+            else
+                ReloadStore ();
+        }
+
+        protected void Search (string searchString) {
+            if ( areFiltersActivated() )
+                SearchWithFilters(searchString);
+            else
+                SimpleSearch(searchString);
         }
 
         protected virtual void onSearch (object sender, System.EventArgs e)
         {
-            Search(searchEntry.Text);
+            Search (searchEntry.Text);
+            fillNodeStore ();
         }
 
         Gtk.NodeStore store;
@@ -86,11 +138,13 @@ namespace Views
 
         public void ReloadStore ()
         {
+            personList.Clear();
             people = Person.FindAll(isImmigrantCriterion ());
-            tree.NodeStore.Clear ();
 
             foreach (Person p in people)
-                tree.NodeStore.AddNode (new PersonNode (p));
+                personList.Add(p);
+
+            fillNodeStore ();
             if (people.Length > 0)
                 tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
         }
@@ -101,8 +155,10 @@ namespace Views
 
             store = new Gtk.NodeStore (typeof(PersonNode));
 
-            foreach (Person p in people)
+            foreach (Person p in people) {
+                personList.Add(p);
                 store.AddNode (new PersonNode (p));
+            }
             if (people.Length > 0)
                 tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
         }
@@ -137,11 +193,16 @@ namespace Views
                 Gtk.NodeSelection selection = (Gtk.NodeSelection)sender;
                 LetterNode node = (LetterNode) selection.SelectedNode;
                 Search(node.Letter);
+                fillNodeStore ();
             }
         }
 
         protected void OnReloadButtonClicked (object sender, System.EventArgs e)
         {
+            victims_checkbutton.Active = false;
+            perpetrators_checkbutton.Active = false;
+            interventors_checkbutton.Active = false;
+            supporters_checkbutton.Active = false;
             ReloadStore ();
         }
 
@@ -152,13 +213,33 @@ namespace Views
 
         protected void OnVictimsCheckbuttonToggled (object sender, System.EventArgs e)
         {
-            tree.NodeStore.Clear ();
-            foreach (Person p in Person.FindVictims)
-                tree.NodeStore.AddNode (new PersonNode (p));
-
-            Console.WriteLine(victims_checkbutton.Active);
-
+            SearchWithFilters(searchEntry.Text);
+            fillNodeStore ();
         }
+
+        protected void OnPerpetratorsCheckbuttonToggled (object sender, System.EventArgs e)
+        {
+            SearchWithFilters(searchEntry.Text);
+            fillNodeStore ();
+        }
+
+        protected void OnInterventorsCheckbuttonToggled (object sender, System.EventArgs e)
+        {
+           SearchWithFilters(searchEntry.Text);
+           fillNodeStore ();
+        }
+
+        protected void OnSupportersCheckbuttonToggled (object sender, System.EventArgs e)
+        {
+            SearchWithFilters(searchEntry.Text);
+            fillNodeStore ();
+        }
+
+         protected Boolean areFiltersActivated () {
+            return (victims_checkbutton.Active || perpetrators_checkbutton.Active || interventors_checkbutton.Active ||
+                    supporters_checkbutton.Active );
+        }
+
     }
 }
 

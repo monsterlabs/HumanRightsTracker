@@ -209,29 +209,35 @@ namespace HumanRightsTracker.Models
             return institutions_and_jobs;
         }
 
-        public static ArrayList FindVictims(Boolean IsImmigrant) {
+        public static ArrayList FindVictims(Boolean IsImmigrant, String searchString) {
             String hql = "select p from Person p inner join p.Victims as v where p.IsImmigrant = :IsImmigrant and p.Id in v.Person.Id";
-            return (ArrayList)ExecuteFilter (hql,IsImmigrant);
+            return (ArrayList)ExecuteFilter (hql,IsImmigrant, searchString);
         }
 
-        public static ArrayList FindPerpetrators(Boolean IsImmigrant) {
+        public static ArrayList FindPerpetrators(Boolean IsImmigrant, String searchString) {
             String hql = "select p from Person p inner join p.Perpetrators as pp where p.IsImmigrant = :IsImmigrant and p.Id in pp.Person.Id";
-            return (ArrayList)ExecuteFilter (hql, IsImmigrant);
+            return (ArrayList)ExecuteFilter (hql, IsImmigrant, searchString);
         }
 
-        public static ArrayList FindInterventors(Boolean IsImmigrant) {
+        public static ArrayList FindInterventors(Boolean IsImmigrant, String searchString) {
             String hql = "select p from Person p inner join p.Interventors as i where p.IsImmigrant = :IsImmigrant and p.Id in i.Interventor.Id";
-            return (ArrayList)ExecuteFilter (hql, IsImmigrant);
+            return (ArrayList)ExecuteFilter (hql, IsImmigrant, searchString);
         }
 
-        public static ArrayList FindSupporters(Boolean IsImmigrant) {
+        public static ArrayList FindSupporters(Boolean IsImmigrant, String searchString) {
             String hql = "select p from Person p inner join p.Interventors as i where p.IsImmigrant = :IsImmigrant and p.Id in i.Supporter.Id";
-            return (ArrayList)ExecuteFilter (hql, IsImmigrant);
+            return (ArrayList)ExecuteFilter (hql, IsImmigrant, searchString);
         }
 
-        protected static ArrayList ExecuteFilter(String hql, Boolean IsImmigrant) {
-           HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
-           query.SetParameter("IsImmigrant", IsImmigrant);
+        protected static ArrayList ExecuteFilter(String hql, Boolean IsImmigrant, String searchString) {
+            if (searchString != null)
+                hql += " and (lower(p.Firstname) like lower(:SearchString) or lower(p.Lastname) like lower(:SearchString))";
+
+            HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
+            query.SetParameter("IsImmigrant", IsImmigrant);
+            if (searchString != null)
+                query.SetParameter("SearchString", '%' + searchString + '%');
+
            return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
         }
     }
