@@ -24,10 +24,9 @@ namespace Views
                 this.ShowAll ();
                 hasLoaded = true;
                 Console.WriteLine("People Tab Complete.");
+                show.IsEditing = false;
             }
         }
-
-
 
         protected virtual void PersonSelected (object sender, System.EventArgs e)
         {
