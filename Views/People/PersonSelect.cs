@@ -1,6 +1,8 @@
 using System;
 using HumanRightsTracker.Models;
 
+using Mono.Unix;
+
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
@@ -46,9 +48,11 @@ namespace Views
                     fullname.Text = person.Fullname;
                     photo.Show ();
                     fullname.Show ();
+                    changeButton.Label = Catalog.GetString("Change");
                 } else {
                     photo.Hide ();
                     fullname.Hide ();
+                    changeButton.Label = Catalog.GetString("New");
                 }
             }
         }
