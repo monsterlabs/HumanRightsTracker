@@ -156,11 +156,11 @@ namespace HumanRightsTracker.Models
         {
             get
             {
-                Image photo = Image.FindOne (new ICriterion[] { Restrictions.And (
-                        Restrictions.Eq ("ImageableId", this.Id),
-                        Restrictions.Eq ("ImageableType", "Person")
-                )});
-                return photo;
+                String hql = "select i from Image i where i.ImageableId = :ImageableId and i.ImageableType = 'Person'";
+                HqlBasedQuery query = new HqlBasedQuery(typeof(Image), hql);
+                query.SetParameter("ImageableId", this.Id);
+
+                return (Image)((ArrayList)ActiveRecordMediator.ExecuteQuery(query))[0];
             }
 
         }
