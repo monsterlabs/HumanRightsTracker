@@ -55,7 +55,7 @@ namespace Views
 
         protected void OnDetailButtonClicked (object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException ();
+            new InformationSourceWindow (InformationSource, OnDetailReturned, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnDetailReturned (object sender, System.EventArgs e)

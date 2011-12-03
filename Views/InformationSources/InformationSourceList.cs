@@ -82,7 +82,9 @@ namespace Views
 
         protected void OnNewButtonClicked (object sender, System.EventArgs e)
         {
-            new InformationSourceWindow (c, OnNewInformationSourceReturned, (Gtk.Window)this.Toplevel);
+            InformationSource i = new InformationSource();
+            i.Case = c;
+            new InformationSourceWindow (i, OnNewInformationSourceReturned, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnNewInformationSourceReturned (object sender, EventArgs args)
@@ -96,4 +98,3 @@ namespace Views
 
     }
 }
-
