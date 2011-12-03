@@ -4767,7 +4767,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="400 116">
+  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="400 219">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PeopleSelectionWindow</property>
     <property name="WindowPosition">CenterOnParent</property>

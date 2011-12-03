@@ -120,7 +120,7 @@ namespace Views.People
             } else
             {
                 Console.WriteLine( String.Join(",", person.ValidationErrorMessages) );
-                new ValidationErrorsDialog (person.PropertiesValidationErrorMessages);
+                new ValidationErrorsDialog (person.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
 
         }

@@ -90,7 +90,7 @@ namespace Views
             } else
             {
                 Console.WriteLine( String.Join(",", mycase.ValidationErrorMessages) );
-                new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages);
+                new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
 
