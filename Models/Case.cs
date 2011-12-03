@@ -17,7 +17,6 @@ namespace HumanRightsTracker.Models
 
         [Property]
         [ValidateNonEmpty]
-        [ValidateIsUnique]
         public String Name { get; set; }
 
         [Property("affected_persons")]
