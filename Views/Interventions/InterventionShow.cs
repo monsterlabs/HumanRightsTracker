@@ -27,8 +27,17 @@ namespace Views
                 if (intervention != null) {
                     interventionType.Active = intervention.InterventionType;
                     dateSelector.CurrentDate = intervention.Date;
+
                     interventorSelect.Person = intervention.Interventor;
+                    interventorSelect.Institution = intervention.InterventorInstitution;
+                    interventorSelect.Job = intervention.InterventorJob;
+
                     supporterSelect.Person = intervention.Supporter;
+                    supporterSelect.Institution = intervention.SupporterInstitution;
+                    supporterSelect.Job = intervention.SupporterJob;
+
+                    //interventorSelect.Person = intervention.Interventor;
+                    //supporterSelect.Person = intervention.Supporter;
                     impactView.Buffer.Text = intervention.Impact;
                     responseView.Buffer.Text = intervention.Response;
 
@@ -52,7 +61,12 @@ namespace Views
             intervention.InterventionType = interventionType.Active as InterventionType;
             intervention.Date = dateSelector.CurrentDate;
             intervention.Interventor = interventorSelect.Person;
+            intervention.InterventorInstitution = interventorSelect.Institution;
+            intervention.InterventorJob = interventorSelect.Job;
+
             intervention.Supporter = supporterSelect.Person;
+            intervention.SupporterInstitution = supporterSelect.Institution;
+            intervention.SupporterJob = supporterSelect.Job;
 
             if (intervention.IsValid())
             {
@@ -100,8 +114,8 @@ namespace Views
                 isEditing = value;
                 interventionType.IsEditable = value;
                 dateSelector.IsEditable = value;
-                interventorSelect.IsEditable = value;
-                supporterSelect.IsEditable = value;
+                //interventorSelect.IsEditable = value;
+                //supporterSelect.IsEditable = value;
 
                 affectedPeople.IsEditing = value;
 

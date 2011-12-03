@@ -87,6 +87,7 @@ namespace HumanRightsTracker.Models
                         Restrictions.Eq ("ImageableId", this.Id),
                         Restrictions.Eq ("ImageableType", "Institution")
                 )});
+                
                 return photo;
             }
 
