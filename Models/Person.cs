@@ -152,15 +152,11 @@ namespace HumanRightsTracker.Models
             }
         }
 
-        public Image Photo
+        public Photo Photo
         {
             get
             {
-                String hql = "select i from Image i where i.ImageableId = :ImageableId and i.ImageableType = 'Person'";
-                HqlBasedQuery query = new HqlBasedQuery(typeof(Image), hql);
-                query.SetParameter("ImageableId", this.Id);
-
-                return (Image)((ArrayList)ActiveRecordMediator.ExecuteQuery(query))[0];
+                return new Photo (this.Id, "Person");
             }
 
         }

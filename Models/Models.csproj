@@ -88,6 +88,7 @@
     <Compile Include="Victim.cs" />
     <Compile Include="Perpetrator.cs" />
     <Compile Include="PerpetratorAct.cs" />
+    <Compile Include="Photo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

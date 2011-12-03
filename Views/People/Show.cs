@@ -143,7 +143,7 @@ namespace Views.People
             citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
             settlement.Text = person.Settlement == null ? "" : person.Settlement;
-            imageselector1.Image = person.Photo;
+            imageselector1.Image = person.Photo.Image;
             if (person.Birthday.Year > 1)
             {
                 age.Text = "" + DateTime.Now.Subtract(person.Birthday).Days/365;
