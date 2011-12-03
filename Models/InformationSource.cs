@@ -44,7 +44,7 @@ namespace HumanRightsTracker.Models
         public AffiliationType AffiliationType { get; set; }
 
         [Property("date")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [BelongsTo("language_id")]
         public Language Language { get; set; }
@@ -56,9 +56,29 @@ namespace HumanRightsTracker.Models
         public String Observations { get; set;}
 
         [BelongsTo("reliability_level_id")]
-        public RelialibityLevel ReliabilityLevel { get; set; }
+        public ReliabilityLevel ReliabilityLevel { get; set; }
 
         [Property("comments")]
         public String Comments { get; set;}
+
+        public String sourceName ()
+        {
+            if (SourcePerson != null)
+                return SourcePerson.Fullname;
+            else if (SourceInstitution != null)
+                return SourceInstitution.Name;
+            else
+                return "Not defined";
+        }
+
+        public String reportedName ()
+        {
+            if (ReportedPerson!= null)
+                return ReportedPerson.Fullname;
+            else if (ReportedInstitution != null)
+                return ReportedInstitution.Name;
+            else
+                return "Not defined";
+        }
    }
 }

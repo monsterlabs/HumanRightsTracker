@@ -6,7 +6,7 @@ using Castle.Components.Validator;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("reliability_levels")]
-    public class RelialibityLevel : ActiveRecordValidationBase<RelialibityLevel>
+    public class ReliabilityLevel : ActiveRecordValidationBase<ReliabilityLevel>
     {
 
         [PrimaryKey]

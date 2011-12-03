@@ -170,6 +170,16 @@
     <Compile Include="gtk-gui\Views.VictimList.cs" />
     <Compile Include="Perpetrator\PerpetratorActList.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorActList.cs" />
+    <Compile Include="InformationSources\InformationSourceRow.cs" />
+    <Compile Include="gtk-gui\Views.InformationSourceRow.cs" />
+    <Compile Include="gtk-gui\Views.InformationSourceList.cs" />
+    <Compile Include="Windows\InformationSourceWindow.cs" />
+    <Compile Include="gtk-gui\Views.InformationSourceWindow.cs" />
+    <Compile Include="Widgets\PersonAndInstitutionSelect.cs" />
+    <Compile Include="gtk-gui\Views.PersonAndInstitutionSelect.cs" />
+    <Compile Include="Widgets\PersonOrInstitutionSelector.cs" />
+    <Compile Include="gtk-gui\Views.PersonOrInstitutionSelector.cs" />
+    <Compile Include="InformationSources\InformationSourceList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -195,5 +205,6 @@
     <Folder Include="Interventions\" />
     <Folder Include="Victim\" />
     <Folder Include="Perpetrator\" />
+    <Folder Include="InformationSources\" />
   </ItemGroup>
 </Project>

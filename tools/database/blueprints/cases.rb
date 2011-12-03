@@ -8,7 +8,7 @@ Case.destroy_all
 Case.blueprint do
   name { Faker::Lorem.words(2).join(" ")}
   start_date  { 24.years.ago }
-  start_date_type_id  { DateType.all.sample.id }
+  start_date_type_id  { DateType.all.sample.id }<p></p>
   
   end_date  { Date.today }
   start_date_type_id  { DateType.all.sample.id }
@@ -79,3 +79,4 @@ end
 InterventionAffectedPerson.blueprint do
   person_id { Person.all.sample.id }
 end
+
