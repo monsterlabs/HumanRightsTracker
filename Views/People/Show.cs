@@ -64,6 +64,12 @@ namespace Views.People
             {
                 isEditing = value;
 
+                foreach (Gtk.Widget w in table2) {
+                    if (w is IEditable) {
+                        Console.WriteLine("foo " + w.Name);
+                    }
+                }
+
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;

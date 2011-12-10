@@ -180,6 +180,7 @@
     <Compile Include="Widgets\PersonOrInstitutionSelector.cs" />
     <Compile Include="gtk-gui\Views.PersonOrInstitutionSelector.cs" />
     <Compile Include="InformationSources\InformationSourceList.cs" />
+    <Compile Include="Widgets\IEditable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

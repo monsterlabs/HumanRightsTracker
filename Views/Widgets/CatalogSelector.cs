@@ -8,7 +8,7 @@ using Castle.ActiveRecord.Framework.Internal;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class CatalogSelector : Gtk.Bin
+    public partial class CatalogSelector : Gtk.Bin, IEditable
     {
         String model;
         ActiveRecordModel mod;

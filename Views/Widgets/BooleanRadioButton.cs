@@ -3,7 +3,7 @@ using System;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class BooleanRadioButton : Gtk.Bin
+    public partial class BooleanRadioButton : Gtk.Bin, IEditable
     {
         String[] labels;
         bool isEditable;
