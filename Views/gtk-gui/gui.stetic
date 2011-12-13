@@ -8622,9 +8622,10 @@ December</property>
                 <property name="Yalign">0</property>
                 <property name="LeftPadding">12</property>
                 <child>
-                  <widget class="Views.PersonOrInstitutionSelector" id="personorinstitutionselector2">
+                  <widget class="Views.PersonOrInstitutionSelector" id="source_person_selector">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="AllSet">False</property>
                   </widget>
                 </child>
               </widget>
@@ -8989,9 +8990,10 @@ December</property>
                 <property name="Yalign">0</property>
                 <property name="LeftPadding">12</property>
                 <child>
-                  <widget class="Views.PersonOrInstitutionSelector" id="personorinstitutionselector3">
+                  <widget class="Views.PersonOrInstitutionSelector" id="reported_person_selector">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
+                    <property name="AllSet">False</property>
                   </widget>
                 </child>
               </widget>
@@ -9025,6 +9027,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Save</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnSave" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -9038,6 +9041,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Cancel</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnCancel" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -9158,18 +9162,47 @@ December</property>
   <widget class="Gtk.Bin" id="Views.PersonOrInstitutionSelector" design-size="304 49">
     <property name="MemberName" />
     <property name="Visible">False</property>
+    <signal name="Shown" handler="OnShown" />
     <child>
       <widget class="Gtk.VBox" id="vbox">
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.ComboBox" id="combobox">
+          <widget class="Gtk.HBox" id="hbox1">
             <property name="MemberName" />
-            <property name="IsTextCombo">True</property>
-            <property name="Items" translatable="yes">Person
-Institution</property>
-            <property name="Active">0</property>
-            <signal name="Changed" handler="OnComboboxChanged" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.RadioButton" id="radiobutton1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes">Person</property>
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">True</property>
+                <property name="UseUnderline">True</property>
+                <property name="Group">group</property>
+                <signal name="Toggled" handler="OnRadiobutton1Toggled" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.RadioButton" id="radiobutton2">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes">Institution</property>
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">True</property>
+                <property name="UseUnderline">True</property>
+                <property name="Group">group</property>
+                <signal name="Toggled" handler="OnRadiobutton2Toggled" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">0</property>

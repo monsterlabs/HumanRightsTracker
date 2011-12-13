@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using HumanRightsTracker.Models;
 
 namespace Views
@@ -30,12 +31,23 @@ namespace Views
             set {
                 information_source = value;
                 if (information_source != null) {
+                    source_person_selector.Person = information_source.SourcePerson;
+                    source_person_selector.Institution = information_source.SourceInstitution;
+                    source_person_selector.Job = information_source.SourceJob;
+                    source_person_selector.AllSet = true;
+
                     affiliation_type.Active = information_source.AffiliationType;
                     language.Active = information_source.Language;
                     indigenous_language.Active = information_source.IndigenousLanguage;
                     reliability_level.Active = information_source.ReliabilityLevel;
                     observations.Buffer.Text = information_source.Observations;
                     comments.Buffer.Text = information_source.Comments;
+
+                    reported_person_selector.Person = information_source.ReportedPerson;
+                    reported_person_selector.Institution = information_source.ReportedInstitution;
+                    reported_person_selector.Job = information_source.ReportedJob;
+
+                    reported_person_selector.AllSet = true;
                 }
             }
         }
@@ -55,6 +67,18 @@ namespace Views
             }
         }
 
+        protected void OnCancel (object sender, System.EventArgs e)
+        {
+            this.Destroy();
+        }
+
+        protected void OnSave (object sender, System.EventArgs e)
+        {
+            // TODO: Complete save or update source information record
+            if (information_source.IsValid())
+                information_source.Save();
+            this.Destroy();
+        }
     }
 }
 

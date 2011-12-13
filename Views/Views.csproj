@@ -47,6 +47,7 @@
     <Reference Include="Castle.Components.Validator">
       <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
