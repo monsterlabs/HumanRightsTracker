@@ -18,8 +18,11 @@ namespace HumanRightsTracker.Models
         [Property("expulsions_from_destination_country")]
         public int ExpulsionsFromDestinationCountry { get; set; }
 
-         [Property("expulsions_from_transit_country")]
+        [Property("expulsions_from_transit_country")]
         public int ExpulsionsFromTransitCountry { get; set; }
+
+        [Property("time_spent_in_destination_country")]
+        public string TimeSpentInDestinationCountry { get; set; }
 
 
         [BelongsTo("traveling_reason_id")]
