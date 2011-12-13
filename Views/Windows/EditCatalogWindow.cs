@@ -30,7 +30,10 @@ namespace Views
             modelLabel.Text = model;
 
             if (!mod.PropertyDictionary.Keys.Contains("Notes"))
+            {
                 editRecord.HideNotesEntry ();
+
+            }
 
             PropertyInfo p = record.GetType().GetProperty("ParentId");
             if (p != null) {

@@ -4806,16 +4806,51 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="400 219">
+  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="400 257">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PeopleSelectionWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <child>
-      <widget class="Views.PeopleList" id="peoplelist1">
+      <widget class="Gtk.VBox" id="vbox2">
         <property name="MemberName" />
-        <property name="Events">ButtonPressMask</property>
-        <property name="IsImmigrant">False</property>
-        <signal name="SelectionWithDoubleClick" handler="OnSelection" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Views.PeopleList" id="peoplelist1">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+            <property name="IsImmigrant">False</property>
+            <signal name="SelectionWithDoubleClick" handler="OnSelection" />
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.VButtonBox" id="vbuttonbox1">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <child>
+              <widget class="Gtk.Button" id="addButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-add Menu</property>
+                <property name="Label" translatable="yes">_Add</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnAdd" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
@@ -9239,6 +9274,33 @@ Institution</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
           </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PersonCreateWindow" design-size="879 1087">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">PersonCreateWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+        <property name="MemberName" />
+        <property name="CanFocus">True</property>
+        <property name="ShadowType">In</property>
+        <child>
+          <widget class="Gtk.Viewport" id="GtkViewport">
+            <property name="MemberName" />
+            <property name="ShadowType">None</property>
+            <child>
+              <widget class="Views.People.Show" id="show1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsEditing">False</property>
+                <property name="IsImmigrant">False</property>
+                <signal name="PersonSaved" handler="OnSave" />
+              </widget>
+            </child>
+          </widget>
         </child>
       </widget>
     </child>
