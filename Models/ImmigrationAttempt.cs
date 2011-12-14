@@ -10,10 +10,11 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
-
         [Property("cross_border_attempts_transit_country")]
         public int CrossBorderAttemptsTransitCountry { get; set; }
 
+        [Property("cross_border_attempts_destination_country")]
+        public int CrossBorderAttemptsDestinationCountry { get; set; }
 
         [Property("expulsions_from_destination_country")]
         public int ExpulsionsFromDestinationCountry { get; set; }
@@ -24,6 +25,17 @@ namespace HumanRightsTracker.Models
         [Property("time_spent_in_destination_country")]
         public string TimeSpentInDestinationCountry { get; set; }
 
+        [Property("travel_companions")]
+        public int TravelCompanions { get; set; }
+
+        [BelongsTo("origin_country_id")]
+        public Country OriginCountry { get; set; }
+
+        [BelongsTo("origin_state_id")]
+        public State OriginState { get; set; }
+
+        [BelongsTo("origin_city_id")]
+        public City OriginCity { get; set; }
 
         [BelongsTo("traveling_reason_id")]
         public TravelingReason TravelingReason { get; set; }
