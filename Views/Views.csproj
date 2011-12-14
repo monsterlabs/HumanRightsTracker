@@ -183,6 +183,8 @@
     <Compile Include="InformationSources\InformationSourceList.cs" />
     <Compile Include="Windows\PersonCreateWindow.cs" />
     <Compile Include="gtk-gui\Views.PersonCreateWindow.cs" />
+    <Compile Include="Widgets\IEditable.cs" />
+    <Compile Include="Widgets\EditableHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

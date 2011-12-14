@@ -4,7 +4,7 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class ImageSelector : Gtk.Bin
+    public partial class ImageSelector : Gtk.Bin, IEditable
     {
         bool isEditable;
         Image image;

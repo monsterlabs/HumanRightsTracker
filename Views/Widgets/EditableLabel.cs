@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class EditableLabel : Gtk.Bin
+    public partial class EditableLabel : Gtk.Bin, IEditable
     {
         protected bool isEditable;
         protected String text_string;

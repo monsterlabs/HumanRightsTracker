@@ -2,7 +2,7 @@ using System;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class DateSelector : Gtk.Bin
+    public partial class DateSelector : Gtk.Bin, IEditable
     {
         DateTime currentDate;
         bool isEditable;
