@@ -8742,7 +8742,7 @@ December</property>
               </packing>
             </child>
             <child>
-              <widget class="Views.DateTypeAndDateSelector" id="datetypeanddateselector2">
+              <widget class="Views.DateTypeAndDateSelector" id="datetypeanddateselector">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
                 <property name="IsEditable">False</property>

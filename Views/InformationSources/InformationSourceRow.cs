@@ -30,8 +30,8 @@ namespace Views
             set
             {
                 information_source = value;
-                source.Text = information_source.sourceName ();
-                reported.Text = information_source.reportedName ();
+                source.Text = information_source.sourceName;
+                reported.Text = information_source.reportedName;
                 if (value.Date.HasValue)
                     date.Text = information_source.Date.Value.ToShortDateString ();
             }

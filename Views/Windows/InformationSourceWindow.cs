@@ -6,7 +6,7 @@ namespace Views
 {
     public partial class InformationSourceWindow : Gtk.Window
     {
-        public event EventHandler OnInterventionSaved = null;
+        public event EventHandler OnInformationSourceSaved = null;
 
         InformationSource information_source;
         bool isEditable;
@@ -21,9 +21,10 @@ namespace Views
         {
             this.Build ();
             this.Modal = true;
-            this.OnInterventionSaved = onSave;
+            this.OnInformationSourceSaved= onSave;
             this.TransientFor = parent;
             InformationSource = i;
+
         }
 
          public InformationSource InformationSource {
@@ -42,6 +43,10 @@ namespace Views
                     reliability_level.Active = information_source.ReliabilityLevel;
                     observations.Buffer.Text = information_source.Observations;
                     comments.Buffer.Text = information_source.Comments;
+
+                    datetypeanddateselector.setDate(information_source.Date);
+                    datetypeanddateselector.setDateType(information_source.DateType);
+
 
                     reported_person_selector.Person = information_source.ReportedPerson;
                     reported_person_selector.Institution = information_source.ReportedInstitution;
@@ -74,10 +79,29 @@ namespace Views
 
         protected void OnSave (object sender, System.EventArgs e)
         {
-            // TODO: Complete save or update source information record
-            if (information_source.IsValid())
-                information_source.Save();
-            this.Destroy();
+
+            information_source.SourcePerson = source_person_selector.Person;
+            information_source.SourceInstitution = source_person_selector.Institution;
+            information_source.SourceJob = source_person_selector.Job;
+
+            information_source.AffiliationType = affiliation_type.Active as AffiliationType;
+            information_source.Language = language.Active as Language;
+            information_source.IndigenousLanguage = indigenous_language.Active as IndigenousLanguage;
+            information_source.ReliabilityLevel = reliability_level.Active as ReliabilityLevel;
+            information_source.Observations = observations.Buffer.Text;
+            information_source.Comments = comments.Buffer.Text;
+            information_source.Date = datetypeanddateselector.SelectedDate();
+            information_source.DateType = datetypeanddateselector.SelectedDateType ();
+            information_source.ReportedPerson = reported_person_selector.Person;
+            information_source.ReportedInstitution = reported_person_selector.Institution;
+            information_source.ReportedJob = reported_person_selector.Job;
+
+            if (information_source.IsValid()) {
+                information_source.Save ();
+                OnInformationSourceSaved (information_source, e);
+                this.Destroy();
+
+            }
         }
     }
 }

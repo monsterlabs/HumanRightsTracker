@@ -84,13 +84,14 @@ namespace Views
         {
             InformationSource i = new InformationSource();
             i.Case = c;
-            new InformationSourceWindow (i, OnNewInformationSourceReturned, (Gtk.Window)this.Toplevel);
+            new InformationSourceWindow (i, OnInformationSourceSaved, (Gtk.Window)this.Toplevel);
         }
 
-        protected void OnNewInformationSourceReturned (object sender, EventArgs args)
+        protected void OnInformationSourceSaved (object sender, EventArgs args)
         {
             InformationSource i = sender as InformationSource;
-            informationSourceList.PackStart (new InformationSourceRow (i, OnInformationSourceRowRemoved));
+            Console.WriteLine(i.Comments);
+            informationSourceList.PackEnd (new InformationSourceRow (i, OnInformationSourceRowRemoved));
             informationSourceList.ShowAll ();
             information_sources.Add (i);
             return;
