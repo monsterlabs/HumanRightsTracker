@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111027082060) do
+ActiveRecord::Schema.define(:version => 20111214020840) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -143,6 +143,11 @@ ActiveRecord::Schema.define(:version => 20111027082060) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "time_spent_in_destination_country"
+    t.integer  "origin_country_id"
+    t.integer  "origin_state_id"
+    t.integer  "origin_city_id"
+    t.integer  "travel_companions"
+    t.integer  "cross_border_attempts_destination_country"
   end
 
   create_table "indigenous_languages", :force => true do |t|
