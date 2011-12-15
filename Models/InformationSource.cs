@@ -16,27 +16,21 @@ namespace HumanRightsTracker.Models
         public Case Case { get; set;}
 
         [BelongsTo("source_person_id")]
-        [ValidateNonEmpty]
         public Person SourcePerson { get; set; }
 
         [BelongsTo("source_institution_id")]
-        [ValidateNonEmpty]
         public Institution SourceInstitution { get; set; }
 
         [BelongsTo("source_job_id")]
-        [ValidateNonEmpty]
         public Job SourceJob { get; set; }
 
         [BelongsTo("reported_person_id")]
-        [ValidateNonEmpty]
         public Person ReportedPerson { get; set; }
 
         [BelongsTo("reported_institution_id")]
-        [ValidateNonEmpty]
         public Institution ReportedInstitution { get; set; }
 
         [BelongsTo("reported_job_id")]
-        [ValidateNonEmpty]
         public Job ReportedJob { get; set; }
 
         [BelongsTo("affiliation_type_id")]

@@ -11,8 +11,9 @@ namespace Views
         protected Institution institution;
         protected Job job;
         protected Boolean allset = false;
-
-        protected PersonAndInstitutionSelect personAndInstitutionWidget;
+        protected PersonAndInstitutionSelect personSelect;
+        protected InstitutionSelect institutionSelect;
+        protected Boolean isEditable;
 
         public PersonOrInstitutionSelector ()
         {
@@ -20,52 +21,72 @@ namespace Views
         }
 
         public Institution Institution {
-            get {  return institution; }
+            get {
+                  if (personSelect.Person == null)
+                    return institutionSelect.Institution;
+                  else
+                    return personSelect.Institution;
+                }
             set { institution = value; }
         }
 
         public Person Person {
-            get {  return person; }
+            get { return personSelect.Person; }
             set { person = value; }
         }
 
          public Job Job {
-            get {  return job; }
+            get { return personSelect.Job; }
             set { job = value; }
         }
 
         public Boolean AllSet {
             get { return allset; }
             set {
-                allset = value;
-                if (allset == true) {
-                    if (person != null) {
-                        radiobutton1.Active = true;
-                        setPersonAndInstitutionSelect();
-                    } else {
-                        radiobutton2.Active = true;
-                        setInstitutionSelect();
-                    }
-                    vbox.ShowAll ();
+                  allset = value;
+                  if (allset == true)
+                    setRadioButtonAndSelect ();
                 }
+        }
+
+        public bool IsEditable {
+            get {
+                return this.isEditable;
             }
-
+            set {
+                isEditable = value;
+                personSelect.IsEditable = value;
+                institutionSelect.IsEditable = value;
+            }
         }
 
-        protected void setPersonAndInstitutionSelect() {
-            PersonAndInstitutionSelect personAndInstitutionWidget = new PersonAndInstitutionSelect();
-            personAndInstitutionWidget.Person = this.person;
-            personAndInstitutionWidget.Institution = this.institution;
-            personAndInstitutionWidget.Job = this.job;
-            destroyVboxChildren();
-            vbox.PackEnd (personAndInstitutionWidget);
+        protected void setRadioButtonAndSelect () {
+            if ((person == null && institution == null)  || (person != null)){
+                radiobutton1.Active = true;
+                setPersonAndInstitutionSelect ();
+            } else {
+                 radiobutton2.Active = true;
+                 setInstitutionSelect ();
+            }
         }
 
-        protected void setInstitutionSelect() {
-            InstitutionSelect institutionSelectWidget = new InstitutionSelect();
-            institutionSelectWidget.Institution = this.institution;
-            destroyVboxChildren();
-            vbox.PackEnd (institutionSelectWidget);
+        protected void setPersonAndInstitutionSelect () {
+            personSelect = new PersonAndInstitutionSelect();
+            personSelect.Person = this.person;
+            personSelect.Institution = this.institution;
+            personSelect.Job = this.job;
+            destroyVboxChildren ();
+            vbox.PackEnd (personSelect);
+            vbox.ShowAll ();
+        }
+
+        protected void setInstitutionSelect () {
+            institutionSelect = new InstitutionSelect();
+            this.person = null;
+            institutionSelect.Institution = this.institution;
+            destroyVboxChildren ();
+            vbox.PackEnd (institutionSelect);
+            vbox.ShowAll ();
         }
 
         protected void destroyVboxChildren () {
@@ -76,29 +97,20 @@ namespace Views
 
         protected void OnRadiobutton2Toggled (object sender, System.EventArgs e)
         {
-            destroyVboxChildren();
-            setInstitutionSelect();
-            vbox.ShowAll();
+            destroyVboxChildren ();
+            setInstitutionSelect ();
         }
 
         protected void OnRadiobutton1Toggled (object sender, System.EventArgs e)
         {
-            destroyVboxChildren();
+            destroyVboxChildren ();
             setPersonAndInstitutionSelect ();
-            vbox.ShowAll();
         }
 
         protected void OnShown (object sender, System.EventArgs e)
         {
-            if (person != null) {
-                radiobutton1.Active = true;
-                setPersonAndInstitutionSelect();
-            } else {
-                radiobutton2.Active = true;
-                setInstitutionSelect();
-            }
+            setRadioButtonAndSelect ();
             this.ShowAll ();
         }
     }
 }
-

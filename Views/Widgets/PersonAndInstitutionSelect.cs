@@ -7,6 +7,8 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class PersonAndInstitutionSelect : Gtk.Bin
     {
+        protected Boolean isEditable;
+
         public PersonAndInstitutionSelect ()
         {
             this.Build ();
@@ -40,6 +42,16 @@ namespace Views
             set {
                 job.Active = value;
             }
+        }
+
+        public Boolean IsEditable {
+            get { return this.isEditable; }
+            set {
+                  this.isEditable = value;
+                  person.IsEditable = value;
+                  institution.IsEditable = value;
+                  job.IsEditable = value;
+                }
         }
     }
 }

@@ -47,11 +47,9 @@ namespace Views
                     datetypeanddateselector.setDate(information_source.Date);
                     datetypeanddateselector.setDateType(information_source.DateType);
 
-
                     reported_person_selector.Person = information_source.ReportedPerson;
                     reported_person_selector.Institution = information_source.ReportedInstitution;
                     reported_person_selector.Job = information_source.ReportedJob;
-
                     reported_person_selector.AllSet = true;
                 }
             }
@@ -63,12 +61,15 @@ namespace Views
             }
             set {
                 isEditable = value;
+                source_person_selector.IsEditable = value;
                 affiliation_type.IsEditable = value;
                 language.IsEditable = value;
                 indigenous_language.IsEditable = value;
                 reliability_level.IsEditable = value;
                 observations.Editable = value;
                 comments.Editable = value;
+                datetypeanddateselector.IsEditable = value;
+                reported_person_selector.IsEditable = value;
             }
         }
 
@@ -100,7 +101,9 @@ namespace Views
                 information_source.Save ();
                 OnInformationSourceSaved (information_source, e);
                 this.Destroy();
-
+            } else {
+                Console.WriteLine( String.Join(",",information_source.ValidationErrorMessages) );
+                new ValidationErrorsDialog (information_source.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
     }
