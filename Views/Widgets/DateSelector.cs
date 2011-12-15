@@ -29,10 +29,7 @@ namespace Views
         protected virtual void openSelector (object sender, System.EventArgs e)
         {
             int x, y;
-            this.Parent.TranslateCoordinates(this.Toplevel, this.Allocation.Left, this.Allocation.Bottom, out x, out y);
-
-            x += this.ParentWindow.FrameExtents.Left;
-            y += this.ParentWindow.FrameExtents.Top;
+            this.TranslateCoordinates(this.Toplevel, 0, 0, out x, out y);
 
             DateTime selectedDate = currentDate;
 
