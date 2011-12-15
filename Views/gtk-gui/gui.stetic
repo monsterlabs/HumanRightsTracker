@@ -2118,6 +2118,7 @@ No</property>
           <widget class="Gtk.Button" id="addButton">
             <property name="MemberName" />
             <property name="Visible">False</property>
+            <property name="Tooltip" translatable="yes">Add new record</property>
             <property name="CanFocus">True</property>
             <property name="Type">TextAndIcon</property>
             <property name="Icon">stock:gtk-add Menu</property>
