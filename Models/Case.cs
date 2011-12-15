@@ -17,7 +17,6 @@ namespace HumanRightsTracker.Models
 
         [Property]
         [ValidateNonEmpty]
-        [ValidateIsUnique]
         public String Name { get; set; }
 
         [Property("affected_persons")]
@@ -39,6 +38,9 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(Act), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Acts { get; set; }
+
+        [HasMany(typeof(InformationSource), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList InformationSources { get; set; }
 
         public IList victimList () {
              IList victim_list = new ArrayList();

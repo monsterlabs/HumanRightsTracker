@@ -37,6 +37,16 @@ namespace Views
             OnSelect (this, new PersonEventArgs(p));
             this.Destroy ();
         }
+
+        protected void OnAdd (object sender, System.EventArgs e)
+        {
+             new PersonCreateWindow (OnPersonCreated, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnPersonCreated (object sender, EventArgs args)
+        {
+            peoplelist1.ReloadStore();
+        }
     }
 }
 

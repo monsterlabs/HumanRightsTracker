@@ -110,7 +110,7 @@ namespace Views
             } else
             {
                 Console.WriteLine( String.Join(",", institution.ValidationErrorMessages) );
-                new ValidationErrorsDialog (institution.PropertiesValidationErrorMessages);
+                new ValidationErrorsDialog (institution.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
 
         }

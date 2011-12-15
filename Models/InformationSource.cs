@@ -16,36 +16,32 @@ namespace HumanRightsTracker.Models
         public Case Case { get; set;}
 
         [BelongsTo("source_person_id")]
-        [ValidateNonEmpty]
         public Person SourcePerson { get; set; }
 
         [BelongsTo("source_institution_id")]
-        [ValidateNonEmpty]
         public Institution SourceInstitution { get; set; }
 
         [BelongsTo("source_job_id")]
-        [ValidateNonEmpty]
         public Job SourceJob { get; set; }
 
         [BelongsTo("reported_person_id")]
-        [ValidateNonEmpty]
         public Person ReportedPerson { get; set; }
 
         [BelongsTo("reported_institution_id")]
-        [ValidateNonEmpty]
         public Institution ReportedInstitution { get; set; }
 
         [BelongsTo("reported_job_id")]
-        [ValidateNonEmpty]
         public Job ReportedJob { get; set; }
-
 
         [BelongsTo("affiliation_type_id")]
         public AffiliationType AffiliationType { get; set; }
 
         [Property("date")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
+        [BelongsTo("date_type_id")]
+        public DateType DateType { get; set; }
+        
         [BelongsTo("language_id")]
         public Language Language { get; set; }
 
@@ -56,9 +52,33 @@ namespace HumanRightsTracker.Models
         public String Observations { get; set;}
 
         [BelongsTo("reliability_level_id")]
-        public RelialibityLevel ReliabilityLevel { get; set; }
+        public ReliabilityLevel ReliabilityLevel { get; set; }
 
         [Property("comments")]
         public String Comments { get; set;}
+
+        public String sourceName
+        {
+            get {
+                if (SourcePerson != null)
+                    return SourcePerson.Fullname;
+                 else if (SourceInstitution != null)
+                    return SourceInstitution.Name;
+                else
+                    return "Not defined";
+            }
+        }
+
+        public String reportedName
+        {
+            get {
+                if (ReportedPerson!= null)
+                    return ReportedPerson.Fullname;
+                else if (ReportedInstitution != null)
+                    return ReportedInstitution.Name;
+                else
+                    return "Not defined";
+            }
+        }
    }
 }

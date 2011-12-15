@@ -18,23 +18,31 @@ task :migrate => :environment do
   ActiveRecord::Migrator.migrate('migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil )
 end
 
+desc 'Create a db/schema.rb file that can be portably used against any DB supported by AR'
+task :schema => :environment do
+  require 'active_record/schema_dumper'
+  File.open('schema.rb', "w:utf-8") do |file|
+    ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
+  end
+end
+
 
 desc "Load seeds in to the database."
 task :seeds => :environment do
   User.destroy_all
   CSV.foreach("seeds/users.csv", :col_sep => "|") do |row|
     User.create(:login => row[0].strip,
-                    :password => row[1].strip,
-                    :salt => row[2].strip)
+                :password => row[1].strip,
+                :salt => row[2].strip)
   end
-  
+
   Country.destroy_all
   CSV.foreach("seeds/countries.csv", :col_sep => "|") do |row|
     Country.create(:code => row[0].strip,
-                    :name => row[1].strip,
-                    :citizen => row[2].strip)
+                   :name => row[1].strip,
+                   :citizen => row[2].strip)
   end
-  
+
   State.destroy_all
   City.destroy_all
   %w(MX GT HN NI SV).each do |code|
@@ -42,89 +50,89 @@ task :seeds => :environment do
     CSV.foreach("seeds/states_#{code.downcase}.csv", :col_sep => "|") do |row|
       State.create(:name => row[0].strip, :country_id => @country.id)
     end
-  
+
     CSV.foreach("seeds/cities_#{code.downcase}.csv", :col_sep => "|") do |row|
       state = State.find_by_name(row[0].strip)
       City.create(:name => row[1].strip, :state_id => state.id)
     end
   end
-  
+
   MaritalStatus.destroy_all
   CSV.foreach("seeds/marital_statuses.csv", :col_sep => "|") do |row|
     MaritalStatus.create(:name => row[0].strip)
   end
-  
+
   Religion.destroy_all
   CSV.foreach("seeds/religions.csv", :col_sep => "|") do |row|
     Religion.create(:name => row[0].strip)
   end
-  
+
   EthnicGroup.destroy_all
   CSV.foreach("seeds/ethnic_groups.csv", :col_sep => "|") do |row|
     EthnicGroup.create(:name => row[0].strip)
   end
-  
+
   ScholarityLevel.destroy_all
   CSV.foreach("seeds/scholarity_levels.csv", :col_sep => "|") do |row|
-   ScholarityLevel.create(:name => row[0].strip)
+    ScholarityLevel.create(:name => row[0].strip)
   end
-  
+
   DateType.destroy_all
   CSV.foreach("seeds/date_types.csv") do |row|
     DateType.create(:name => row[0].strip)
   end
-  
+
   InstitutionType.destroy_all
   CSV.foreach("seeds/institution_types.csv") do |row|
     InstitutionType.create(:name => row[0].strip)
   end
-  
+
   HumanRightsViolation.destroy_all
   CSV.foreach("seeds/human_rights_violations.csv", :col_sep => "|") do |row|
     p row
     HumanRightsViolation.create(:id => row[0].to_i, :name => row[2].strip, :category_id => row[1].to_i)
   end
-  
+
   HumanRightsViolationCategory.destroy_all
   CSV.foreach("seeds/human_rights_violation_categories.csv", :col_sep => "|") do |row|
     HumanRightsViolationCategory.create(:id => row[0].to_i, :name => row[1].strip)
   end
-  
+
   AffiliationType.destroy_all
   CSV.foreach("seeds/affiliation_types.csv", :col_sep => "|") do |row|
     AffiliationType.create(:name => row[0].strip, :notes => row[1].to_s.strip)
   end
-  
+
   ActStatus.destroy_all
   CSV.foreach("seeds/act_statuses.csv") do |row|
     ActStatus.create(:name => row[0].strip)
   end
-  
+
   InterventionType.destroy_all
   CSV.foreach("seeds/intervention_types.csv") do |row|
     InterventionType.create(:name => row[0].strip)
   end
-  
+
   LocationType.destroy_all
   CSV.foreach("seeds/location_types.csv") do |row|
     LocationType.create(:name => row[0].strip)
   end
-  
+
   VictimStatus.destroy_all
   CSV.foreach("seeds/victim_statuses.csv") do |row|
     VictimStatus.create(:name => row[0].strip)
   end
-  
+
   InstitutionCategory.destroy_all
   CSV.foreach("seeds/institution_categories.csv") do |row|
     InstitutionCategory.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
-  
+
   TravelingReason.destroy_all
   CSV.foreach("seeds/traveling_reasons.csv") do |row|
-     TravelingReason.create(:name => row[0].to_s.strip)
+    TravelingReason.create(:name => row[0].to_s.strip)
   end
-  
+
   Job.destroy_all
   CSV.foreach("seeds/jobs.csv", :col_sep => "|") do |row|
     Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
@@ -149,17 +157,17 @@ task :seeds => :environment do
   CSV.foreach("seeds/indigenous_languages.csv", :col_sep => "|") do |row|
     IndigenousLanguage.create(:name => row[0].strip, :notes => row[1].to_s.strip)
   end
-  
+
   ActPlace.destroy_all
   CSV.foreach("seeds/act_places.csv") do |row|
     ActPlace.create(:name => row[0].to_s.strip)
   end
-  
+
   require "./blueprints/machinist_helper.rb"
   Dir.glob("./blueprints/*.rb").each do |blueprint|
     require blueprint
   end
-  
+
   Person.make!(60)
   Person.find_by_sql("UPDATE people SET is_immigrant = 0 WHERE is_immigrant = 'f'")
   Person.find_by_sql("UPDATE people SET is_immigrant = 1 WHERE is_immigrant = 't'")

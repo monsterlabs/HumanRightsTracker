@@ -7,7 +7,7 @@ namespace Views
 {
     public partial class ValidationErrorsDialog : Gtk.Dialog
     {
-        public ValidationErrorsDialog (IDictionary propertiesValidationErrorMessages)
+        public ValidationErrorsDialog (IDictionary propertiesValidationErrorMessages, Gtk.Window parent)
         {
             this.Build ();
             foreach (PropertyInfo p in propertiesValidationErrorMessages.Keys)
@@ -20,6 +20,8 @@ namespace Views
                 Gtk.Label label = new Gtk.Label (p.Name + ": " + messages);
                 vbox3.PackEnd (label);
                 vbox3.ShowAll ();
+                this.Modal = true;
+                this.TransientFor = parent;
             }
         }
 

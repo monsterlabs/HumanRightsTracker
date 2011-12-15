@@ -31,6 +31,7 @@ namespace Views
                     endDateSelector.setDateType(mycase.EndDateType);
                     actslist.Case = value;
                     interventionlist1.Case = value;
+                    informationsourcelist1.Case = value;
                 }
                 IsEditing = false;
             }
@@ -58,6 +59,7 @@ namespace Views
                 endDateSelector.IsEditable = value;
                 actslist.IsEditable = value;
                 interventionlist1.IsEditable = value;
+                informationsourcelist1.IsEditable = value;
             }
         }
 
@@ -90,7 +92,7 @@ namespace Views
             } else
             {
                 Console.WriteLine( String.Join(",", mycase.ValidationErrorMessages) );
-                new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages);
+                new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
 
@@ -101,4 +103,3 @@ namespace Views
 
     }
 }
-

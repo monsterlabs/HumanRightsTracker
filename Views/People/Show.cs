@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Mono.Unix;
 
@@ -12,6 +13,7 @@ namespace Views.People
         public ImmigrationAttempt immigration_attempt;
         public Identification identification;
         public Address address;
+        private EditableHelper editable_helper;
 
         protected bool isEditing;
         public bool isImmigrant = false;
@@ -21,6 +23,7 @@ namespace Views.People
         public Show ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
             this.IsEditing = false;
         }
 
@@ -76,13 +79,9 @@ namespace Views.People
                     institution_and_job_per_person.Show ();
                 }
 
-                editable_person (value);
-                editable_address (value);
+                this.editable_helper.SetAllEditable(value);
 
                 if (this.isImmigrant == true ) {
-                    editable_person_details (value);
-                    editable_immigration_attempts (value);
-                    editable_identification (value);
                     institution_and_job_per_person.Hide ();
                 }
             }
@@ -120,7 +119,7 @@ namespace Views.People
             } else
             {
                 Console.WriteLine( String.Join(",", person.ValidationErrorMessages) );
-                new ValidationErrorsDialog (person.PropertiesValidationErrorMessages);
+                new ValidationErrorsDialog (person.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
 
         }
@@ -143,7 +142,7 @@ namespace Views.People
             citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
             settlement.Text = person.Settlement == null ? "" : person.Settlement;
-            imageselector1.Image = person.Photo;
+            imageselector1.Image = person.Photo.Image;
             if (person.Birthday.Year > 1)
             {
                 age.Text = "" + DateTime.Now.Subtract(person.Birthday).Days/365;
@@ -215,58 +214,6 @@ namespace Views.People
 
         protected void set_institution_and_job_list() {
            institution_and_job_per_person.Person = person;
-        }
-
-        protected void editable_person (bool value)
-        {
-            lastname.IsEditable = value;
-            firstname.IsEditable = value;
-            alias.IsEditable = value;
-            settlement.IsEditable = value;
-            gender.IsEditable = value;
-            marital_status.IsEditable = value;
-            citizen.IsEditable = value;
-            birthday.IsEditable = value;
-            birthplace.IsEditable = value;
-            imageselector1.IsEditable = value;
-            age.IsEditable = value;
-            email.IsEditable = value;
-        }
-
-        protected void editable_person_details (bool value)
-        {
-             number_of_sons.IsEditable = value;
-             scholarity_level.IsEditable = value;
-             most_recent_job.IsEditable = value;
-             //religion.IsEditable = value;
-             //ethnic_group.IsEditable = value;
-             indigenous_group.IsEditable = value;
-             is_spanish_speaker.IsEditable = value;
-        }
-
-        protected void editable_immigration_attempts (bool value)
-        {
-             traveling_reason.IsEditable = value;
-             destination_country.IsEditable = value;
-             expulsions_from_destination_country.IsEditable = value;
-             transit_country.IsEditable = value;
-             expulsions_from_transit_country.IsEditable = value;
-             cross_border_attempts_transit_country.IsEditable = value;
-        }
-
-        protected void editable_identification (bool value)
-        {
-             identification_type.IsEditable = value;
-             identification_number.IsEditable = value;
-        }
-
-        protected void editable_address (bool value)
-        {
-            location.IsEditable  = value;
-            address_place.IsEditable  = value;
-            zipcode.IsEditable  = value;
-            phone.IsEditable  = value;
-            mobile.IsEditable  = value;
         }
 
         protected void person_detail_save ()

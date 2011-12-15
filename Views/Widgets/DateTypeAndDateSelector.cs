@@ -4,7 +4,7 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class DateTypeAndDateSelector : Gtk.Bin
+    public partial class DateTypeAndDateSelector : Gtk.Bin, IEditable
     {
         bool isEditable;
 

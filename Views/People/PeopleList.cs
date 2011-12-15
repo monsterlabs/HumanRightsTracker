@@ -12,8 +12,9 @@ namespace Views
         public PersonNode (Person person)
         {
             Person = person;
-            if (person.Photo != null)
-                Photo = new Gdk.Pixbuf (person.Photo.Icon);
+            Byte[] icon = Person.Photo.Icon;
+            if (icon != null)
+                Photo = new Gdk.Pixbuf (icon);
             else
                 Photo = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
             Name = person.Fullname;

@@ -152,15 +152,11 @@ namespace HumanRightsTracker.Models
             }
         }
 
-        public Image Photo
+        public Photo Photo
         {
             get
             {
-                Image photo = Image.FindOne (new ICriterion[] { Restrictions.And (
-                        Restrictions.Eq ("ImageableId", this.Id),
-                        Restrictions.Eq ("ImageableType", "Person")
-                )});
-                return photo;
+                return new Photo (this.Id, "Person");
             }
 
         }

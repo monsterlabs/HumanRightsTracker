@@ -79,3 +79,4 @@ end
 InterventionAffectedPerson.blueprint do
   person_id { Person.all.sample.id }
 end
+
