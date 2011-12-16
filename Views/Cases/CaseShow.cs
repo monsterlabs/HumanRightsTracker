@@ -64,7 +64,7 @@ namespace Views
         }
 
         public void HideEditingButtons () {
-            hbuttonbox5.Hide ();
+            hbuttonbox6.Hide ();
         }
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {

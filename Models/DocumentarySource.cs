@@ -21,13 +21,11 @@ namespace HumanRightsTracker.Models
         [BelongsTo("reported_job_id")]
         public Job ReportedJob { get; set; }
 
-
         [Property("name")]
         public String Name { get; set;}
 
         [Property("aditional_info")]
         public String AditionalInfo { get; set;}
-
 
         [Property("date")]
         public DateTime? Date { get; set; }

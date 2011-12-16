@@ -185,6 +185,10 @@
     <Compile Include="gtk-gui\Views.PersonCreateWindow.cs" />
     <Compile Include="Widgets\IEditable.cs" />
     <Compile Include="Widgets\EditableHelper.cs" />
+    <Compile Include="DocumentarySources\DocumentarySourceRow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceRow.cs" />
+    <Compile Include="DocumentarySources\DocumentarySourceList.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -211,5 +215,6 @@
     <Folder Include="Victim\" />
     <Folder Include="Perpetrator\" />
     <Folder Include="InformationSources\" />
+    <Folder Include="DocumentarySources\" />
   </ItemGroup>
 </Project>
