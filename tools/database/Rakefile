@@ -193,6 +193,7 @@ task :seeds => :environment do
   Case.make!(20)
   InformationSource.make!(100)
   AdministrativeInformation.make!(30)
+  DocumentarySource.make!(50)
 end
 
 task :environment do
