@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214020840) do
+ActiveRecord::Schema.define(:version => 20111216010023) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(:version => 20111214020840) do
     t.string  "zipcode"
   end
 
+  create_table "administrative_information", :force => true do |t|
+    t.integer "case_id"
+    t.integer "date_type_id"
+    t.date    "date_of_receipt"
+    t.text    "project_name"
+    t.text    "project_description"
+    t.text    "comments"
+    t.integer "case_status_id"
+    t.text    "records"
+  end
+
   create_table "affiliation_types", :force => true do |t|
     t.string   "name"
     t.text     "notes"
@@ -73,13 +84,20 @@ ActiveRecord::Schema.define(:version => 20111214020840) do
     t.integer "institution_person_id"
   end
 
+  create_table "case_statuses", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "cases", :force => true do |t|
-    t.string  "name",               :null => false
-    t.date    "start_date",         :null => false
+    t.string  "name",                  :null => false
+    t.date    "start_date",            :null => false
     t.integer "start_date_type_id"
     t.date    "end_date"
     t.integer "end_date_type_id"
     t.integer "affected_persons"
+    t.text    "narrative_description"
+    t.text    "summary"
+    t.text    "observations"
   end
 
   create_table "cities", :force => true do |t|
@@ -95,6 +113,26 @@ ActiveRecord::Schema.define(:version => 20111214020840) do
 
   create_table "date_types", :force => true do |t|
     t.string "name", :null => false
+  end
+
+  create_table "documentary_sources", :force => true do |t|
+    t.string   "name"
+    t.text     "additional_info"
+    t.date     "date"
+    t.integer  "source_information_type_id"
+    t.string   "site_name"
+    t.string   "link"
+    t.date     "access_date"
+    t.integer  "language_id"
+    t.integer  "indigenous_language_id"
+    t.text     "observations"
+    t.integer  "reported_person_id"
+    t.integer  "reported_institution_id"
+    t.integer  "reported_job_id"
+    t.integer  "reliability_level_id"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ethnic_groups", :force => true do |t|
@@ -320,6 +358,13 @@ ActiveRecord::Schema.define(:version => 20111214020840) do
 
   create_table "scholarity_levels", :force => true do |t|
     t.string "name", :null => false
+  end
+
+  create_table "source_information_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "states", :force => true do |t|
