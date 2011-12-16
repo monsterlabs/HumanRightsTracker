@@ -5989,7 +5989,6 @@ December</property>
                       <widget class="Views.PersonAndInstitutionSelect" id="interventorSelect">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
@@ -6049,7 +6048,6 @@ December</property>
                       <widget class="Views.PersonAndInstitutionSelect" id="supporterSelect">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
@@ -8840,8 +8838,6 @@ December</property>
                   <widget class="Views.PersonOrInstitutionSelector" id="source_person_selector">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="AllSet">False</property>
-                    <property name="IsEditable">False</property>
                   </widget>
                 </child>
               </widget>
@@ -9209,8 +9205,6 @@ December</property>
                   <widget class="Views.PersonOrInstitutionSelector" id="reported_person_selector">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="AllSet">False</property>
-                    <property name="IsEditable">False</property>
                   </widget>
                 </child>
               </widget>
@@ -9393,6 +9387,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
