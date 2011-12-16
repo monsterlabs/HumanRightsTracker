@@ -55,8 +55,10 @@ namespace Views
             }
             set {
                 isEditable = value;
-                personSelect.IsEditable = value;
-                institutionSelect.IsEditable = value;
+                if (personSelect !=null)
+                    personSelect.IsEditable = value;
+                if (institutionSelect != null)
+                    institutionSelect.IsEditable = value;
             }
         }
 
