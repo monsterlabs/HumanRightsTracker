@@ -32,17 +32,31 @@ namespace Views.People
             set {
                 this.person = value;
                 if (person != null) {
-                     set_person_widgets ();
-                     set_address_widgets ();
-                     if (this.isImmigrant == true ) {
-                        set_immigration_details_widgets ();
-                        set_identification_widgets ();
-                        set_person_details_widgets ();
-                     } else {
+                    set_person_widgets ();
+                    set_address_widgets ();
+
+
+                    if (this.isImmigrant == false) {
                         migration_attempts_frame.Destroy ();
                         identification_frame.Destroy ();
                         person_details_frame.Destroy ();
-                     }
+                    } else {
+                        set_person_details_widgets ();
+                        set_immigration_details_widgets ();
+
+                        if (this.person.Id == 0 ) {
+                            address_frame.Hide ();
+                            contact_info_frame.Hide ();
+                            identification_frame.Hide ();
+                            place_of_birth_frame.Hide ();
+                        } else {
+                            set_identification_widgets ();
+                            address_frame.Show ();
+                            contact_info_frame.Show ();
+                            identification_frame.Show ();
+                            place_of_birth_frame.Show ();
+                        }
+                    }
 
                     set_case_list();
 
@@ -106,15 +120,15 @@ namespace Views.People
 
                 this.IsEditing = false;
                 if (PersonSaved != null) {
-                    PersonSaved (person, e);
-
                     address_save ();
                     if (this.isImmigrant == true ) {
                         person_detail_save ();
                         immigration_attempt_save ();
                         identification_save ();
                     }
+
                     image_save ();
+                    PersonSaved (person, e);
                 }
             } else
             {
@@ -174,12 +188,19 @@ namespace Views.People
                 immigration_attempt = new ImmigrationAttempt();
             } else {
                 immigration_attempt = (ImmigrationAttempt)person.ImmigrationAttempts[0];
+                place_of_origin.SetPlace(immigration_attempt.OriginCountry,
+                    immigration_attempt.OriginState,
+                    immigration_attempt.OriginCity);
+
                 traveling_reason.Active = immigration_attempt.TravelingReason;
+                number_of_travel_companions.Text = immigration_attempt.TravelCompanions.ToString();
                 destination_country.Active = immigration_attempt.DestinationCountry as Country;
                 expulsions_from_destination_country.Text = immigration_attempt.ExpulsionsFromDestinationCountry.ToString();
                 transit_country.Active = immigration_attempt.TransitCountry as Country;
                 expulsions_from_transit_country.Text = immigration_attempt.ExpulsionsFromTransitCountry.ToString();
                 cross_border_attempts_transit_country.Text = immigration_attempt.CrossBorderAttemptsTransitCountry.ToString();
+                cross_border_attempts_destination_country.Text = immigration_attempt.CrossBorderAttemptsDestinationCountry.ToString();
+                time_spent_in_destination_country.Text = immigration_attempt.TimeSpentInDestinationCountry == null ? "" : immigration_attempt.TimeSpentInDestinationCountry;
            }
         }
 
@@ -235,12 +256,20 @@ namespace Views.People
 
         protected void immigration_attempt_save ()
         {
-            immigration_attempt.TravelingReason = traveling_reason.Active as TravelingReason;
-            immigration_attempt.DestinationCountry = destination_country.Active as Country;
-            immigration_attempt.ExpulsionsFromDestinationCountry = int.Parse(expulsions_from_destination_country.Text);
-            immigration_attempt.TransitCountry = transit_country.Active as Country;
+            immigration_attempt.OriginCountry = place_of_origin.Country;
+            immigration_attempt.OriginState = place_of_origin.State;
+            immigration_attempt.OriginCity = place_of_origin.City;
             immigration_attempt.CrossBorderAttemptsTransitCountry = int.Parse(cross_border_attempts_transit_country.Text);
+            immigration_attempt.CrossBorderAttemptsDestinationCountry = int.Parse(cross_border_attempts_destination_country.Text);
+
+            immigration_attempt.TravelingReason = traveling_reason.Active as TravelingReason;
+            immigration_attempt.TimeSpentInDestinationCountry = time_spent_in_destination_country.Text;
+            immigration_attempt.DestinationCountry = destination_country.Active as Country;
+            immigration_attempt.TransitCountry = transit_country.Active as Country;
+
+            immigration_attempt.ExpulsionsFromDestinationCountry = int.Parse(expulsions_from_destination_country.Text);
             immigration_attempt.ExpulsionsFromTransitCountry = int.Parse(expulsions_from_transit_country.Text);
+            immigration_attempt.TravelCompanions = int.Parse(number_of_travel_companions.Text);
 
             immigration_attempt.Person = person;
             if (immigration_attempt.IsValid()) {
@@ -284,12 +313,12 @@ namespace Views.People
             person.Email = email.Text;
             person.IsImmigrant = this.isImmigrant;
 
-            if (birthday.CurrentDate.Year == 1)
+            if (birthday.CurrentDate.Year != 1)
             {
-                person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(Convert.ToInt32(age.Text)*365, 0, 0, 0)).Year, 1, 1);
+                person.Birthday = birthday.CurrentDate;
             } else
             {
-                person.Birthday = DateTime.Now;
+                person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(Convert.ToInt32(age.Text)*365, 0, 0, 0)).Year, 1, 1);
             }
 
             person.Country = birthplace.Country as Country;

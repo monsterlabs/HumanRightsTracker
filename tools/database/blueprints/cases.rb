@@ -15,6 +15,11 @@ Case.blueprint do
   
   acts(rand(3))
   interventions(rand(2))
+
+  narrative_description { Faker::Lorem.paragraph(2) }
+  summary { Faker::Lorem.paragraph(2) }
+  observations { Faker::Lorem.paragraph(2) }
+  administrative_information(rand(1))
 end
 
 Act.blueprint do
@@ -78,5 +83,15 @@ end
 
 InterventionAffectedPerson.blueprint do
   person_id { Person.all.sample.id }
+end
+
+AdministrativeInformation.blueprint do
+  date_of_receipt  { 30.years.ago }
+  date_type_id  { DateType.all.sample.id }
+  project_name { Faker::Lorem.sentence(1) }
+  project_description { Faker::Lorem.paragraph(2) }
+  comments { Faker::Lorem.paragraph(3) }
+  case_status_id { CaseStatus.all.sample.id }
+  records { Faker::Lorem.paragraph(3) }
 end
 

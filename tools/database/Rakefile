@@ -1,11 +1,16 @@
 require "rubygems"
 require "bundler"
 require "yaml"
+require "active_support"
 require "active_record"
 require "active_record/railtie"
 require "csv"
 Bundler.setup
 Bundler.require :default
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'administrative_information', 'administrative_information'
+end
 
 Dir.glob("./models/*.rb").each do |model|
   require model
@@ -80,6 +85,11 @@ task :seeds => :environment do
   DateType.destroy_all
   CSV.foreach("seeds/date_types.csv") do |row|
     DateType.create(:name => row[0].strip)
+  end
+
+  CaseStatus.destroy_all
+  CSV.foreach("seeds/case_statuses.csv") do |row|
+    CaseStatus.create(:name => row[0].strip)
   end
 
   InstitutionType.destroy_all
@@ -163,6 +173,11 @@ task :seeds => :environment do
     ActPlace.create(:name => row[0].to_s.strip)
   end
 
+  SourceInformationType.destroy_all
+  CSV.foreach("seeds/source_information_types.csv") do |row|
+    SourceInformationType.create(:name => row[0].strip, :parent_id  => row[1].to_i)
+  end
+
   require "./blueprints/machinist_helper.rb"
   Dir.glob("./blueprints/*.rb").each do |blueprint|
     require blueprint
@@ -177,6 +192,8 @@ task :seeds => :environment do
   InstitutionPerson.make!(10)
   Case.make!(20)
   InformationSource.make!(100)
+  AdministrativeInformation.make!(30)
+  DocumentarySource.make!(50)
 end
 
 task :environment do

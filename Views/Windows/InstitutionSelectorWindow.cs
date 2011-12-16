@@ -36,7 +36,9 @@ namespace Views
         {
             Institution i = sender as Institution;
             OnSelect (this, new InstitutionEventArgs(i));
-            this.Destroy ();
+            this.Modal = false;
+            this.TransientFor = null;
+            this.Hide ();
         }
     }
 }
