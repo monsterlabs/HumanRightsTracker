@@ -12,19 +12,17 @@ namespace Views
         {
             this.Build ();
             this.isEditable = false;
-            label.Visible = isEditable;
-            textview.Visible = !isEditable;
+//            textview.ModifyBase(Gtk.StateType.Insensitive, new Gdk.Color(0xdf, 0xdf, 0xdf));
+//            textview.Sensitive = false;
         }
 
         public bool IsEditable {
             set {
                 this.isEditable = value;
                 if (this.isEditable) {
-                    label.Visible = false;
-                    textview.Visible = true;
+                    textview.Editable = true;
                 } else {
-                    label.Visible = true;
-                    textview.Visible = false;
+                    textview.Editable = false;
                 }
             }
             get {
@@ -35,7 +33,6 @@ namespace Views
         public String Text {
             set {
                 this.text = value;
-                label.Text = this.text;
                 textview.Buffer.Text = this.text;
             }
             get {

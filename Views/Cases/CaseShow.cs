@@ -27,6 +27,10 @@ namespace Views
                     startDateSelector.setDate(mycase.start_date);
                     startDateSelector.setDateType(mycase.StartDateType);
 
+                    description.Text = mycase.NarrativeDescription;
+                    summary.Text = mycase.Summary;
+                    observations.Text = mycase.Observations;
+
                     endDateSelector.setDate(mycase.end_date);
                     endDateSelector.setDateType(mycase.EndDateType);
                     actslist.Case = value;
@@ -60,11 +64,12 @@ namespace Views
                 actslist.IsEditable = value;
                 interventionlist1.IsEditable = value;
                 informationsourcelist1.IsEditable = value;
+                description.IsEditable = value;
             }
         }
 
         public void HideEditingButtons () {
-            hbuttonbox6.Hide ();
+            hbuttonbox7.Hide ();
         }
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
@@ -75,6 +80,10 @@ namespace Views
 
             mycase.end_date = endDateSelector.SelectedDate ();
             mycase.EndDateType = endDateSelector.SelectedDateType ();
+
+            mycase.NarrativeDescription = description.Text;
+            mycase.Summary = summary.Text;
+            mycase.Observations = observations.Text;
 
             if (mycase.IsValid())
             {

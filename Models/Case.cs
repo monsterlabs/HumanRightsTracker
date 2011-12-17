@@ -29,6 +29,15 @@ namespace HumanRightsTracker.Models
         [Property]
         public DateTime? end_date { get; set; }
 
+        [Property("narrative_description")]
+        public String NarrativeDescription { get; set; }
+
+        [Property("summary")]
+        public String Summary { get; set; }
+
+        [Property("observations")]
+        public String Observations { get; set; }
+
         [BelongsTo("start_date_type_id")]
         [ValidateNonEmpty]
         public DateType StartDateType { get; set; }
