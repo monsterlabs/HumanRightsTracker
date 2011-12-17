@@ -7,6 +7,8 @@ namespace Views
     public partial class CaseShow : Gtk.Bin
     {
         public Case mycase;
+        protected AdministrativeInformation admin_info;
+        private EditableHelper editable_helper;
         protected bool isEditing;
 
         public event EventHandler CaseSaved;
@@ -14,6 +16,7 @@ namespace Views
         public CaseShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
         }
 
@@ -33,14 +36,7 @@ namespace Views
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
 
-                    AdministrativeInformation myinfo = mycase.AdministrativeInformation[0] as AdministrativeInformation;
-                    date_of_receipt.setDate(myinfo.DateOfReceipt);
-                    date_of_receipt.setDateType(myinfo.DateType);
-                    project_name.Text = myinfo.ProjectName;
-                    project_description.Text = myinfo.ProjectDescription;
-                    comments.Text = myinfo.Comments;
-                    case_status.Active = myinfo.CaseStatus;
-                    records.Text = myinfo.Records;
+                    SetAdministrativeInformationWidget ();
 
                     actslist.Case = value;
                     interventionlist1.Case = value;
@@ -66,16 +62,42 @@ namespace Views
                         this.Hide();
                     }
                 }
-                nameEntry.IsEditable = value;
-                affectedPeople.IsEditable = value;
-                startDateSelector.IsEditable = value;
-                endDateSelector.IsEditable = value;
+
+                this.editable_helper.SetAllEditable (value);
                 actslist.IsEditable = value;
                 interventionlist1.IsEditable = value;
                 informationsourcelist1.IsEditable = value;
-                description.IsEditable = value;
             }
         }
+
+
+        protected void SetAdministrativeInformationWidget()
+        {
+            admin_info = mycase.AdministrativeInformation[0] as AdministrativeInformation;
+            date_of_receipt.setDate(admin_info.DateOfReceipt);
+            date_of_receipt.setDateType(admin_info.DateType);
+            project_name.Text = admin_info.ProjectName;
+            project_description.Text = admin_info.ProjectDescription;
+            comments.Text = admin_info.Comments;
+            case_status.Active = admin_info.CaseStatus;
+            records.Text = admin_info.Records;
+        }
+
+        protected void AdministrativeInformationSave()
+        {
+            admin_info.DateOfReceipt = date_of_receipt.SelectedDate ();
+            admin_info.DateType = date_of_receipt.SelectedDateType ();
+            admin_info.ProjectName = project_name.Text;
+            admin_info.ProjectDescription = project_description.Text;
+            admin_info.Comments = comments.Text;
+            admin_info.CaseStatus = case_status.Active as CaseStatus;
+            admin_info.Records = records.Text;
+            admin_info.Case = mycase;
+            if (admin_info.IsValid()) {
+                admin_info.Save();
+            }
+        }
+
 
         public void HideEditingButtons () {
             hbuttonbox7.Hide ();
@@ -104,6 +126,8 @@ namespace Views
                     a.Save ();
                 }
 
+                AdministrativeInformationSave ();
+
                 this.IsEditing = false;
                 if (CaseSaved != null)
                     CaseSaved (mycase, e);
@@ -118,6 +142,5 @@ namespace Views
         {
             IsEditing = !IsEditing;
         }
-
     }
 }
