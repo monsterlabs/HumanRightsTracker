@@ -26,13 +26,22 @@ namespace Views
                     affectedPeople.Text = mycase.AffectedPeople.ToString();
                     startDateSelector.setDate(mycase.start_date);
                     startDateSelector.setDateType(mycase.StartDateType);
+                    endDateSelector.setDate(mycase.end_date);
+                    endDateSelector.setDateType(mycase.EndDateType);
 
                     description.Text = mycase.NarrativeDescription;
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
 
-                    endDateSelector.setDate(mycase.end_date);
-                    endDateSelector.setDateType(mycase.EndDateType);
+                    AdministrativeInformation myinfo = mycase.AdministrativeInformation[0] as AdministrativeInformation;
+                    date_of_receipt.setDate(myinfo.DateOfReceipt);
+                    date_of_receipt.setDateType(myinfo.DateType);
+                    project_name.Text = myinfo.ProjectName;
+                    project_description.Text = myinfo.ProjectDescription;
+                    comments.Text = myinfo.Comments;
+                    case_status.Active = myinfo.CaseStatus;
+                    records.Text = myinfo.Records;
+
                     actslist.Case = value;
                     interventionlist1.Case = value;
                     informationsourcelist1.Case = value;

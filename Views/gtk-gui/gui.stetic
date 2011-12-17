@@ -3476,6 +3476,7 @@ December</property>
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="OrderById">False</property>
+                            <property name="Model">CaseStatus</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
                           </widget>
@@ -3496,12 +3497,14 @@ December</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Views.DateTypeAndDateSelector" id="date_of_receipt">
+                          <widget class="Views.EditableTextView" id="comments">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
+                            <property name="TopAttach">3</property>
+                            <property name="BottomAttach">4</property>
                             <property name="LeftAttach">1</property>
                             <property name="RightAttach">2</property>
                             <property name="AutoSize">True</property>
@@ -3516,14 +3519,12 @@ December</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Views.EditableTextView" id="editabletextview2">
+                          <widget class="Views.DateTypeAndDateSelector" id="date_of_receipt">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="IsEditable">False</property>
                           </widget>
                           <packing>
-                            <property name="TopAttach">3</property>
-                            <property name="BottomAttach">4</property>
                             <property name="LeftAttach">1</property>
                             <property name="RightAttach">2</property>
                             <property name="AutoSize">True</property>
