@@ -178,6 +178,11 @@ task :seeds => :environment do
     SourceInformationType.create(:name => row[0].strip, :parent_id  => row[1].to_i)
   end
 
+  TravelCompanion.destroy_all
+  CSV.foreach("seeds/travel_companions.csv") do |row|
+    TravelCompanion.create(:name => row[0].to_s.strip)
+  end
+
   require "./blueprints/machinist_helper.rb"
   Dir.glob("./blueprints/*.rb").each do |blueprint|
     require blueprint
