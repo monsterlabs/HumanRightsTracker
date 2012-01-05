@@ -36,7 +36,7 @@ namespace Views.People
                     set_address_widgets ();
 
 
-                    if (this.isImmigrant == false) {
+                    if (this.isImmigrant == false)  {
                         migration_attempts_frame.Destroy ();
                         identification_frame.Destroy ();
                         person_details_frame.Destroy ();
@@ -193,7 +193,8 @@ namespace Views.People
                     immigration_attempt.OriginCity);
 
                 traveling_reason.Active = immigration_attempt.TravelingReason;
-                number_of_travel_companions.Text = immigration_attempt.TravelCompanions.ToString();
+                travel_companion.Active = immigration_attempt.TravelCompanion;
+
                 destination_country.Active = immigration_attempt.DestinationCountry as Country;
                 expulsions_from_destination_country.Text = immigration_attempt.ExpulsionsFromDestinationCountry.ToString();
                 transit_country.Active = immigration_attempt.TransitCountry as Country;
@@ -269,7 +270,7 @@ namespace Views.People
 
             immigration_attempt.ExpulsionsFromDestinationCountry = int.Parse(expulsions_from_destination_country.Text);
             immigration_attempt.ExpulsionsFromTransitCountry = int.Parse(expulsions_from_transit_country.Text);
-            immigration_attempt.TravelCompanions = int.Parse(number_of_travel_companions.Text);
+            immigration_attempt.TravelCompanion = travel_companion.Active as TravelCompanion;
 
             immigration_attempt.Person = person;
             if (immigration_attempt.IsValid()) {
