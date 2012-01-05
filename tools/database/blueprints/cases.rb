@@ -4,6 +4,7 @@ Perpetrator.destroy_all
 Victim.destroy_all
 Act.destroy_all
 Case.destroy_all
+AdministrativeInformation.destroy_all
 
 Case.blueprint do
   name { Faker::Lorem.words(2).join(" ")}
@@ -19,7 +20,7 @@ Case.blueprint do
   narrative_description { Faker::Lorem.paragraph(2) }
   summary { Faker::Lorem.paragraph(2) }
   observations { Faker::Lorem.paragraph(2) }
-  administrative_information(rand(1))
+  administrative_information(1)
 end
 
 Act.blueprint do

@@ -45,6 +45,9 @@ namespace HumanRightsTracker.Models
         [BelongsTo("end_date_type_id")]
         public DateType EndDateType { get; set; }
 
+        [HasMany(typeof(AdministrativeInformation), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AdministrativeInformation { get; set; }
+
         [HasMany(typeof(Act), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Acts { get; set; }
 

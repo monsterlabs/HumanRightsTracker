@@ -57,6 +57,7 @@ ImmigrationAttempt.blueprint do
     cross_border_attempts_transit_country { rand(5) }
     expulsions_from_destination_country { rand(3) }
     expulsions_from_transit_country { rand(3) }
+    travel_companion_id { TravelCompanion.all.sample.id }
 end
 
 Address.blueprint do

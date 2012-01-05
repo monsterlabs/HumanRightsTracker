@@ -25,11 +25,11 @@ namespace HumanRightsTracker.Models
         [Property("time_spent_in_destination_country")]
         public string TimeSpentInDestinationCountry { get; set; }
 
-        [Property("travel_companions")]
-        public int TravelCompanions { get; set; }
-
         [BelongsTo("origin_country_id")]
         public Country OriginCountry { get; set; }
+
+        [BelongsTo("travel_companion_id")]
+        public TravelCompanion TravelCompanion { get; set; }
 
         [BelongsTo("origin_state_id")]
         public State OriginState { get; set; }
