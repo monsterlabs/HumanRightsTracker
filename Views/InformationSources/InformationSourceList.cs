@@ -2,6 +2,7 @@ using System;
 using HumanRightsTracker.Models;
 using System.Collections.Generic;
 using NHibernate.Criterion;
+
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]

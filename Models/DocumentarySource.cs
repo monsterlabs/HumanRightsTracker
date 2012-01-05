@@ -12,6 +12,9 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
+        [BelongsTo("case_id")]
+        public Case Case { get; set;}
+
         [BelongsTo("reported_person_id")]
         public Person ReportedPerson { get; set; }
 

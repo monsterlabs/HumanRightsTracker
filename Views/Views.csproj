@@ -191,6 +191,8 @@
     <Compile Include="gtk-gui\Views.DocumentarySourceList.cs" />
     <Compile Include="Widgets\EditableTextView.cs" />
     <Compile Include="gtk-gui\Views.EditableTextView.cs" />
+    <Compile Include="Windows\DocumentarySourceWindow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
