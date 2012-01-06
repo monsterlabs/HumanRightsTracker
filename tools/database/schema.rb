@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216010023) do
+ActiveRecord::Schema.define(:version => 20120106151228) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -60,17 +60,6 @@ ActiveRecord::Schema.define(:version => 20111216010023) do
     t.string  "zipcode"
   end
 
-  create_table "administrative_information", :force => true do |t|
-    t.integer "case_id"
-    t.integer "date_type_id"
-    t.date    "date_of_receipt"
-    t.text    "project_name"
-    t.text    "project_description"
-    t.text    "comments"
-    t.integer "case_status_id"
-    t.text    "records"
-  end
-
   create_table "affiliation_types", :force => true do |t|
     t.string   "name"
     t.text     "notes"
@@ -116,12 +105,13 @@ ActiveRecord::Schema.define(:version => 20111216010023) do
   end
 
   create_table "documentary_sources", :force => true do |t|
+    t.integer  "case_id"
     t.string   "name"
     t.text     "additional_info"
     t.date     "date"
     t.integer  "source_information_type_id"
     t.string   "site_name"
-    t.string   "link"
+    t.string   "url"
     t.date     "access_date"
     t.integer  "language_id"
     t.integer  "indigenous_language_id"
@@ -184,8 +174,8 @@ ActiveRecord::Schema.define(:version => 20111216010023) do
     t.integer  "origin_country_id"
     t.integer  "origin_state_id"
     t.integer  "origin_city_id"
-    t.integer  "travel_companions"
     t.integer  "cross_border_attempts_destination_country"
+    t.integer  "travel_companion_id"
   end
 
   create_table "indigenous_languages", :force => true do |t|
@@ -370,6 +360,21 @@ ActiveRecord::Schema.define(:version => 20111216010023) do
   create_table "states", :force => true do |t|
     t.string  "name",       :null => false
     t.integer "country_id"
+  end
+
+  create_table "tracking_information", :force => true do |t|
+    t.integer "case_id"
+    t.integer "date_type_id"
+    t.date    "date_of_receipt"
+    t.text    "comments"
+    t.integer "case_status_id"
+    t.text    "records"
+  end
+
+  create_table "travel_companions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "traveling_reasons", :force => true do |t|

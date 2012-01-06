@@ -193,6 +193,12 @@
     <Compile Include="gtk-gui\Views.EditableTextView.cs" />
     <Compile Include="Windows\DocumentarySourceWindow.cs" />
     <Compile Include="gtk-gui\Views.DocumentarySourceWindow.cs" />
+    <Compile Include="TrackingInformation\TrackingList.cs" />
+    <Compile Include="gtk-gui\Views.TrackingList.cs" />
+    <Compile Include="TrackingInformation\TrackingRow.cs" />
+    <Compile Include="gtk-gui\Views.TrackingRow.cs" />
+    <Compile Include="TrackingInformation\TrackingShow.cs" />
+    <Compile Include="gtk-gui\Views.TrackingShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -220,5 +226,6 @@
     <Folder Include="Perpetrator\" />
     <Folder Include="InformationSources\" />
     <Folder Include="DocumentarySources\" />
+    <Folder Include="TrackingInformation\" />
   </ItemGroup>
 </Project>

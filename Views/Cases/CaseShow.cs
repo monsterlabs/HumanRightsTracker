@@ -36,11 +36,10 @@ namespace Views
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
 
-                    SetTrackingInformationWidget ();
-
                     actslist.Case = value;
                     interventionlist1.Case = value;
                     informationsourcelist1.Case = value;
+                    trackinglist.Case = value;
                 }
                 IsEditing = false;
             }
@@ -64,49 +63,13 @@ namespace Views
                 }
 
                 this.editable_helper.SetAllEditable (value);
-                actslist.IsEditable = value;
                 interventionlist1.IsEditable = value;
                 informationsourcelist1.IsEditable = value;
             }
         }
 
-
-        protected void SetTrackingInformationWidget()
-        {
-            Console.WriteLine(mycase.TrackingInformation.Count);
-            if (mycase.TrackingInformation.Count == 0)
-            {
-                mycase.TrackingInformation.Add(new TrackingInformation());
-                tracking_info = mycase.TrackingInformation[0] as TrackingInformation;
-                tracking_info.Comments = "";
-                tracking_info.Records = "";
-            }
-                tracking_info = mycase.TrackingInformation[0] as TrackingInformation;
-                date_of_receipt.setDate(tracking_info.DateOfReceipt);
-                date_of_receipt.setDateType(tracking_info.DateType);
-                Console.WriteLine(tracking_info.Comments);
-                comments.Text = tracking_info.Comments;
-                case_status.Active = tracking_info.CaseStatus;
-                records.Text = tracking_info.Records;
-
-        }
-
-        protected void TrackingInformationSave()
-        {
-            tracking_info.DateOfReceipt = date_of_receipt.SelectedDate ();
-            tracking_info.DateType = date_of_receipt.SelectedDateType ();
-            tracking_info.Comments = comments.Text;
-            tracking_info.CaseStatus = case_status.Active as CaseStatus;
-            tracking_info.Records = records.Text;
-            tracking_info.Case = mycase;
-            if (tracking_info.IsValid()) {
-                tracking_info.Save();
-            }
-        }
-
-
         public void HideEditingButtons () {
-            hbuttonbox7.Hide ();
+            hbuttonbox9.Hide ();
         }
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
@@ -131,8 +94,6 @@ namespace Views
                     a.Case = mycase;
                     a.Save ();
                 }
-
-                TrackingInformationSave ();
 
                 this.IsEditing = false;
                 if (CaseSaved != null)

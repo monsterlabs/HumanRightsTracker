@@ -7,7 +7,7 @@ using System.Diagnostics;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class ActsList : Gtk.Bin
+    public partial class ActsList : Gtk.Bin, IEditable
     {
         List<Act> acts;
         Case c;
