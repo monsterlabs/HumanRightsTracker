@@ -73,14 +73,20 @@ namespace Views
 
         protected void SetAdministrativeInformationWidget()
         {
-            admin_info = mycase.AdministrativeInformation[0] as AdministrativeInformation;
-            date_of_receipt.setDate(admin_info.DateOfReceipt);
-            date_of_receipt.setDateType(admin_info.DateType);
-            project_name.Text = admin_info.ProjectName;
-            project_description.Text = admin_info.ProjectDescription;
-            comments.Text = admin_info.Comments;
-            case_status.Active = admin_info.CaseStatus;
-            records.Text = admin_info.Records;
+            if (mycase.AdministrativeInformation == null)
+            {
+                mycase.AdministrativeInformation = new AdministrativeInformation[1];
+                mycase.AdministrativeInformation[0] = new AdministrativeInformation();
+            }
+                admin_info = mycase.AdministrativeInformation[0] as AdministrativeInformation;
+                date_of_receipt.setDate(admin_info.DateOfReceipt);
+                date_of_receipt.setDateType(admin_info.DateType);
+                project_name.Text = admin_info.ProjectName;
+                project_description.Text = admin_info.ProjectDescription;
+                comments.Text = admin_info.Comments;
+                case_status.Active = admin_info.CaseStatus;
+                records.Text = admin_info.Records;
+
         }
 
         protected void AdministrativeInformationSave()

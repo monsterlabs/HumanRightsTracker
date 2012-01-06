@@ -77,7 +77,9 @@ namespace Views
             foreach (Case c in cases)
                 CaseNodeView.NodeStore.AddNode (new CaseNode (c));
             if (cases.Length > 0)
+            {
                 CaseNodeView.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+            }
         }
 
         public void NewStore ()
@@ -89,7 +91,9 @@ namespace Views
             foreach (Case c in cases)
                 store.AddNode (new CaseNode (c));
             if (cases.Length > 0)
+            {
                 CaseNodeView.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+            }
         }
 
         public void UnselectAll ()

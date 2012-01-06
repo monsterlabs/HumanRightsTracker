@@ -24,9 +24,11 @@ namespace Views
             if (hasLoaded == false) {
                 Console.WriteLine("Building Cases Tab...");
                 this.Build ();
+                caselist.ReloadStore ();
                 this.ShowAll ();
                 hasLoaded = true;
                 Console.WriteLine("Cases Tab Complete.");
+                show.IsEditing = false;
             }
         }
 

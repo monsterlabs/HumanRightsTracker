@@ -20,9 +20,11 @@ namespace Views
             if (hasLoaded == false) {
                 Console.WriteLine("Building Institutions Tab...");
                 this.Build ();
+                institutionlist.ReloadStore ();
                 this.ShowAll ();
                 hasLoaded = true;
                 Console.WriteLine("Institutions Tab Complete.");
+                show.IsEditing = false;
             }
         }
 
