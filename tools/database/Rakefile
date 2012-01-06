@@ -9,7 +9,7 @@ Bundler.setup
 Bundler.require :default
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.irregular 'administrative_information', 'administrative_information'
+  inflect.irregular 'tracking_information', 'tracking_information'
 end
 
 Dir.glob("./models/*.rb").each do |model|

@@ -6,20 +6,14 @@ using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("administrative_information")]
-    public class AdministrativeInformation : ActiveRecordValidationBase<AdministrativeInformation>
+    [ActiveRecord("tracking_information")]
+    public class TrackingInformation : ActiveRecordValidationBase<TrackingInformation>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
 
         [Property("date_of_receipt")]
         public DateTime? DateOfReceipt { get; set; }
-
-        [Property("project_name")]
-        public String ProjectName { get; set; }
-
-        [Property("project_description")]
-        public String ProjectDescription { get; set; }
 
         [Property("comments")]
         public String Comments { get; set; }

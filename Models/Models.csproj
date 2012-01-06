@@ -92,8 +92,8 @@
     <Compile Include="Catalogs\SourceInformationType.cs" />
     <Compile Include="DocumentarySource.cs" />
     <Compile Include="CaseStatus.cs" />
-    <Compile Include="AdministrativeInformation.cs" />
     <Compile Include="Catalogs\TravelCompanion.cs" />
+    <Compile Include="TrackingInformation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

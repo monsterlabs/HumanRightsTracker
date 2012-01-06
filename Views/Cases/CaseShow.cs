@@ -7,7 +7,7 @@ namespace Views
     public partial class CaseShow : Gtk.Bin
     {
         public Case mycase;
-        protected AdministrativeInformation admin_info;
+        protected TrackingInformation tracking_info;
         private EditableHelper editable_helper;
         protected bool isEditing;
 
@@ -36,7 +36,7 @@ namespace Views
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
 
-                    SetAdministrativeInformationWidget ();
+                    SetTrackingInformationWidget ();
 
                     actslist.Case = value;
                     interventionlist1.Case = value;
@@ -71,36 +71,36 @@ namespace Views
         }
 
 
-        protected void SetAdministrativeInformationWidget()
+        protected void SetTrackingInformationWidget()
         {
-            if (mycase.AdministrativeInformation == null)
+            Console.WriteLine(mycase.TrackingInformation.Count);
+            if (mycase.TrackingInformation.Count == 0)
             {
-                mycase.AdministrativeInformation = new AdministrativeInformation[1];
-                mycase.AdministrativeInformation[0] = new AdministrativeInformation();
+                mycase.TrackingInformation.Add(new TrackingInformation());
+                tracking_info = mycase.TrackingInformation[0] as TrackingInformation;
+                tracking_info.Comments = "";
+                tracking_info.Records = "";
             }
-                admin_info = mycase.AdministrativeInformation[0] as AdministrativeInformation;
-                date_of_receipt.setDate(admin_info.DateOfReceipt);
-                date_of_receipt.setDateType(admin_info.DateType);
-                project_name.Text = admin_info.ProjectName;
-                project_description.Text = admin_info.ProjectDescription;
-                comments.Text = admin_info.Comments;
-                case_status.Active = admin_info.CaseStatus;
-                records.Text = admin_info.Records;
+                tracking_info = mycase.TrackingInformation[0] as TrackingInformation;
+                date_of_receipt.setDate(tracking_info.DateOfReceipt);
+                date_of_receipt.setDateType(tracking_info.DateType);
+                Console.WriteLine(tracking_info.Comments);
+                comments.Text = tracking_info.Comments;
+                case_status.Active = tracking_info.CaseStatus;
+                records.Text = tracking_info.Records;
 
         }
 
-        protected void AdministrativeInformationSave()
+        protected void TrackingInformationSave()
         {
-            admin_info.DateOfReceipt = date_of_receipt.SelectedDate ();
-            admin_info.DateType = date_of_receipt.SelectedDateType ();
-            admin_info.ProjectName = project_name.Text;
-            admin_info.ProjectDescription = project_description.Text;
-            admin_info.Comments = comments.Text;
-            admin_info.CaseStatus = case_status.Active as CaseStatus;
-            admin_info.Records = records.Text;
-            admin_info.Case = mycase;
-            if (admin_info.IsValid()) {
-                admin_info.Save();
+            tracking_info.DateOfReceipt = date_of_receipt.SelectedDate ();
+            tracking_info.DateType = date_of_receipt.SelectedDateType ();
+            tracking_info.Comments = comments.Text;
+            tracking_info.CaseStatus = case_status.Active as CaseStatus;
+            tracking_info.Records = records.Text;
+            tracking_info.Case = mycase;
+            if (tracking_info.IsValid()) {
+                tracking_info.Save();
             }
         }
 
@@ -132,7 +132,7 @@ namespace Views
                     a.Save ();
                 }
 
-                AdministrativeInformationSave ();
+                TrackingInformationSave ();
 
                 this.IsEditing = false;
                 if (CaseSaved != null)

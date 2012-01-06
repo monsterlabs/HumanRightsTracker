@@ -4,23 +4,23 @@ Perpetrator.destroy_all
 Victim.destroy_all
 Act.destroy_all
 Case.destroy_all
-AdministrativeInformation.destroy_all
+TrackingInformation.destroy_all
 
 Case.blueprint do
   name { Faker::Lorem.words(2).join(" ")}
   start_date  { 24.years.ago }
   start_date_type_id  { DateType.all.sample.id }
-  
+
   end_date  { Date.today }
   start_date_type_id  { DateType.all.sample.id }
-  
+
   acts(rand(3))
   interventions(rand(2))
 
   narrative_description { Faker::Lorem.paragraph(2) }
   summary { Faker::Lorem.paragraph(2) }
   observations { Faker::Lorem.paragraph(2) }
-  administrative_information(1)
+  tracking_information(rand(3))
 end
 
 Act.blueprint do
@@ -86,11 +86,9 @@ InterventionAffectedPerson.blueprint do
   person_id { Person.all.sample.id }
 end
 
-AdministrativeInformation.blueprint do
+TrackingInformation.blueprint do
   date_of_receipt  { 30.years.ago }
   date_type_id  { DateType.all.sample.id }
-  project_name { Faker::Lorem.sentence(1) }
-  project_description { Faker::Lorem.paragraph(2) }
   comments { Faker::Lorem.paragraph(3) }
   case_status_id { CaseStatus.all.sample.id }
   records { Faker::Lorem.paragraph(3) }
