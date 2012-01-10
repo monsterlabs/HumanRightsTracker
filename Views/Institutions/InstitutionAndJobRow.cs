@@ -21,7 +21,7 @@ namespace Views
                if (institution.Photo != null)
                   image.Pixbuf = new Gdk.Pixbuf (institution.Photo.Icon);
                else
-                  image.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");
+                  image.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.MissingInstitutionIcon.jpg");
             }
 
             if (job != null) {

@@ -39,9 +39,12 @@ namespace Views
                 institution = value;
                 if (institution != null)
                 {
+                    Console.WriteLine(institution.Photo);
                     if (institution.Photo != null)
                     {
                         photo.Pixbuf = new Gdk.Pixbuf (institution.Photo.Icon);
+                    } else {
+                        photo.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.MissingInstitutionIcon.jpg");
                     }
                     fullname.Text = institution.Name;
                     photo.Show ();

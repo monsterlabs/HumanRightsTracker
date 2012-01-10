@@ -206,6 +206,9 @@
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="images\Missing.jpg" />
+    <EmbeddedResource Include="images\MissingIcon.jpg" />
+    <EmbeddedResource Include="images\MissingInstitution.jpg" />
+    <EmbeddedResource Include="images\MissingInstitutionIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
