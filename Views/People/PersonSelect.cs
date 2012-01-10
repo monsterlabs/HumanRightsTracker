@@ -44,6 +44,8 @@ namespace Views
                     if (person.Photo != null)
                     {
                         photo.Pixbuf = new Gdk.Pixbuf (person.Photo.Icon);
+                    } else {
+                        photo.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.MissingIcon.jpg");
                     }
                     fullname.Text = person.Fullname;
                     photo.Show ();
