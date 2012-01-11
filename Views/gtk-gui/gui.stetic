@@ -3102,12 +3102,11 @@ December</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Frame" id="frame102">
+          <widget class="Gtk.Expander" id="expander3">
             <property name="MemberName" />
-            <property name="ShadowType">Out</property>
-            <property name="BorderWidth">15</property>
+            <property name="CanFocus">True</property>
             <child>
-              <widget class="Gtk.Alignment" id="GtkAlignment5">
+              <widget class="Gtk.Alignment" id="GtkAlignment13">
                 <property name="MemberName" />
                 <property name="Xalign">0</property>
                 <property name="Yalign">0</property>
@@ -3298,7 +3297,7 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Expander" id="expander3">
+                      <widget class="Gtk.Expander" id="expander4">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <child>
@@ -3326,7 +3325,7 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Expander" id="expander4">
+                      <widget class="Gtk.Expander" id="expander5">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <child>
@@ -3354,7 +3353,7 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Expander" id="expander5">
+                      <widget class="Gtk.Expander" id="expander13">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <child>
@@ -3421,6 +3420,7 @@ December</property>
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;General Information&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
+                <property name="UseUnderline">True</property>
               </widget>
               <packing>
                 <property name="type">label_item</property>
