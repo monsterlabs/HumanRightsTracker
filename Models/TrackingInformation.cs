@@ -18,9 +18,6 @@ namespace HumanRightsTracker.Models
         [Property("comments")]
         public String Comments { get; set; }
 
-        [Property("records")]
-        public String Records { get; set; }
-
         [BelongsTo("case_id")]
         public Case Case { get; set; }
 
