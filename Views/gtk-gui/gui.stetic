@@ -5365,7 +5365,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActsList" design-size="421 81">
+  <widget class="Gtk.Bin" id="Views.ActsList" design-size="558 84">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -5495,7 +5495,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActRow" design-size="332 44">
+  <widget class="Gtk.Bin" id="Views.ActRow" design-size="434 44">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -5518,10 +5518,10 @@ December</property>
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Label" id="title">
+                      <widget class="Gtk.Label" id="affected_right">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Action title</property>
+                        <property name="LabelProp" translatable="yes">Affected Right</property>
                         <property name="Wrap">True</property>
                         <property name="Justify">Fill</property>
                       </widget>
@@ -5531,13 +5531,37 @@ December</property>
                       </packing>
                     </child>
                     <child>
+                      <widget class="Gtk.Label" id="act_name">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">Act</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
                       <widget class="Gtk.Label" id="startDate">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">Start Date</property>
                       </widget>
                       <packing>
-                        <property name="Position">1</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="endDate">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">End Date</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">3</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
                       </packing>
                     </child>
                   </widget>
