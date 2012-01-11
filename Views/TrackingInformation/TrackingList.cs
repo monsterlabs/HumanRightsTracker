@@ -12,7 +12,6 @@ namespace Views
         Case c;
         bool isEditable;
 
-
         public TrackingList ()
         {
             this.Build ();
@@ -60,10 +59,23 @@ namespace Views
             trackingsList.ShowAll ();
         }
 
+        protected void OnNewTracking (object sender, System.EventArgs e)
+        {
+            new TrackingDetailWindow(c, OnNewTrackingReturned, (Gtk.Window) this.Toplevel);
+        }
+
+        protected void OnNewTrackingReturned (object sender, System.EventArgs e)
+        {
+            TrackingInformation t = sender as TrackingInformation;
+            trackingsList.PackStart (new TrackingRow (t, OnTrackingRowRemoved));
+            trackingsList.ShowAll();
+            trackings.Add(t);
+        }
+
         protected void OnTrackingRowRemoved (object sender, EventArgs e)
         {
             TrackingRow trackingRow = sender as TrackingRow;
-            TrackingInformation t = trackingRow.TrackInfo;
+            TrackingInformation t = trackingRow.TrackingInformation;
             trackings.Remove(t);
             trackingsList.Remove(trackingRow);
 
@@ -72,8 +84,6 @@ namespace Views
                 // TODO: Confirmation.
                 t.Delete ();
             }
-
-            return;
         }
     }
 }

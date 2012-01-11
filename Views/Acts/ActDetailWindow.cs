@@ -14,6 +14,7 @@ namespace Views
             show.Act = new Act();
             show.Act.Case = c;
             show.IsEditing = true;
+
             this.OnActSaved = onSave;
             this.TransientFor = parent;
         }

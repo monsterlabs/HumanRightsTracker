@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106151228) do
+ActiveRecord::Schema.define(:version => 20120110065715) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -121,6 +121,15 @@ ActiveRecord::Schema.define(:version => 20120106151228) do
     t.integer  "reported_job_id"
     t.integer  "reliability_level_id"
     t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", :force => true do |t|
+    t.binary   "data"
+    t.integer  "documentable_id"
+    t.string   "documentable_type"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -368,7 +377,8 @@ ActiveRecord::Schema.define(:version => 20120106151228) do
     t.date    "date_of_receipt"
     t.text    "comments"
     t.integer "case_status_id"
-    t.text    "records"
+    t.integer "record_id",       :default => 0
+    t.string  "title"
   end
 
   create_table "travel_companions", :force => true do |t|

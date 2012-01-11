@@ -199,6 +199,8 @@
     <Compile Include="gtk-gui\Views.TrackingRow.cs" />
     <Compile Include="TrackingInformation\TrackingShow.cs" />
     <Compile Include="gtk-gui\Views.TrackingShow.cs" />
+    <Compile Include="TrackingInformation\TrackingDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.TrackingDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

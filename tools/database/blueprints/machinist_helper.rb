@@ -8,7 +8,7 @@ module ActiveRecord
     class SQLiteColumn < Column #:nodoc:
       class <<  self
         def string_to_binary(value)
-         value
+          value
         end
       end
     end
@@ -16,13 +16,16 @@ module ActiveRecord
 end
 
 module MachinistHelper
-  
+
+  TYPES = [{extension: "pdf", content_type: "application/pdf"},
+           {extension: "doc", content_type: "application/msword"}]
+
   def save_image(prefix, max_number)
     record = Image.new
     image_path = File.expand_path("../../seeds/images/#{prefix}_#{rand(max_number)}.jpg", __FILE__)
     record.original = Gdk::Pixbuf.new(image_path).save_to_buffer("jpeg")
     record.thumbnail = Gdk::Pixbuf.new(image_path).scale(90,100).save_to_buffer("jpeg")
-    record.icon = Gdk::Pixbuf.new(image_path).scale(43,48).save_to_buffer("jpeg")  
+    record.icon = Gdk::Pixbuf.new(image_path).scale(43,48).save_to_buffer("jpeg")
     record.save
     record
   end
@@ -33,5 +36,19 @@ module MachinistHelper
 
   def institution_image
     save_image('logo', 4)
+  end
+
+  def create_document
+    type = TYPES[rand(2)]
+    document_path = File.expand_path("../../seeds/documents/document.#{type[:extension]}", __FILE__)
+    content = File.open(document_path, "rb") do |f|
+      f.read
+    end
+
+    document = Document.new
+    document.content = content
+    document.content_type = type[:content_type]
+    document.save
+    document
   end
 end

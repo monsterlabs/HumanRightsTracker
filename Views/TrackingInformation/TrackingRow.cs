@@ -6,7 +6,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class TrackingRow : Gtk.Bin
     {
-        TrackingInformation track_info;
+        TrackingInformation trackingInfo;
         bool isEditable;
         public new event EventHandler Removed;
 
@@ -18,21 +18,21 @@ namespace Views
         public TrackingRow (TrackingInformation t, EventHandler removed)
         {
             this.Build ();
-            this.TrackInfo = t;
+            this.TrackingInformation = t;
             this.Removed = removed;
         }
 
-        public TrackingInformation TrackInfo {
-            get { return this.track_info; }
+        public TrackingInformation TrackingInformation {
+            get { return this.trackingInfo; }
             set {
-                this.track_info = value;
-                DateTime? date = this.track_info.DateOfReceipt;
+                this.trackingInfo = value;
+                DateTime? date = this.trackingInfo.DateOfReceipt;
                 if (date.HasValue) {
                     date_of_receipt.Text = date.Value.ToShortDateString ();
                 } else {
                     date_of_receipt.Text = "";
                 }
-                status.Text = this.track_info.CaseStatus.Name;
+                status.Text = this.trackingInfo.CaseStatus.Name;
             }
         }
 
@@ -43,6 +43,23 @@ namespace Views
             set {
                 this.isEditable = value;
                 deleteButton.Visible = value;
+            }
+        }
+
+        protected void OnDetail (object sender, System.EventArgs e)
+        {
+            new TrackingDetailWindow(this.TrackingInformation, OnDetailReturned, (Gtk.Window) this.Toplevel);
+        }
+
+        protected void OnDetailReturned (object sender, System.EventArgs e)
+        {
+            this.TrackingInformation = sender as TrackingInformation;
+        }
+
+        protected void OnDelete (object sender, System.EventArgs e)
+        {
+            if (Removed != null) {
+                Removed(this, e);
             }
         }
     }

@@ -1,10 +1,22 @@
 # encoding: utf-8
+include MachinistHelper
+
 PerpetratorAct.destroy_all
 Perpetrator.destroy_all
 Victim.destroy_all
 Act.destroy_all
 Case.destroy_all
 TrackingInformation.destroy_all
+Document.destroy_all
+
+counter = 0
+reset = lambda { counter = 0 }
+auto_increment = lambda { return counter += 1 }
+
+documents = 120.times.inject([]) do |array|
+  array.push create_document
+  array
+end
 
 Case.blueprint do
   name { Faker::Lorem.words(2).join(" ")}
@@ -21,6 +33,8 @@ Case.blueprint do
   summary { Faker::Lorem.paragraph(2) }
   observations { Faker::Lorem.paragraph(2) }
   tracking_information(rand(3))
+  document { documents.pop }
+  reset.call
 end
 
 Act.blueprint do
@@ -87,10 +101,11 @@ InterventionAffectedPerson.blueprint do
 end
 
 TrackingInformation.blueprint do
+  title { Faker::Lorem.sentence(1) }
+  record_id { auto_increment.call }
   date_of_receipt  { 30.years.ago }
   date_type_id  { DateType.all.sample.id }
   comments { Faker::Lorem.paragraph(3) }
   case_status_id { CaseStatus.all.sample.id }
-  records { Faker::Lorem.paragraph(3) }
 end
 
