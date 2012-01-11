@@ -34,7 +34,6 @@ Case.blueprint do
   summary { Faker::Lorem.paragraph(2) }
   observations { Faker::Lorem.paragraph(2) }
   tracking_information(rand(3))
-  document { documents.pop }
   reset.call
 end
 
@@ -108,6 +107,7 @@ TrackingInformation.blueprint do
   date_type_id  { DateType.all.sample.id }
   comments { Faker::Lorem.paragraph(3) }
   case_status_id { CaseStatus.all.sample.id }
+  document { documents.pop }
 end
 
 Place.blueprint do

@@ -26,13 +26,14 @@ namespace Views
             get { return this.trackingInfo; }
             set {
                 this.trackingInfo = value;
-                DateTime? date = this.trackingInfo.DateOfReceipt;
+                record_id.Text = trackingInfo.RecordId.ToString ();
+                DateTime? date = trackingInfo.DateOfReceipt;
                 if (date.HasValue) {
                     date_of_receipt.Text = date.Value.ToShortDateString ();
                 } else {
                     date_of_receipt.Text = "";
                 }
-                status.Text = this.trackingInfo.CaseStatus.Name;
+                title.Text = trackingInfo.Title;
             }
         }
 

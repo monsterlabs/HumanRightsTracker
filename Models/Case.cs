@@ -22,6 +22,9 @@ namespace HumanRightsTracker.Models
         [Property("affected_persons")]
         public int AffectedPeople { get; set; }
 
+        [Property("record_count")]
+        public int RecordCount { get; set; }
+
         [Property]
         [ValidateNonEmpty]
         public DateTime? start_date { get; set; }
