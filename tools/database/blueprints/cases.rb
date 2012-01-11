@@ -28,6 +28,7 @@ Case.blueprint do
 
   acts(rand(3))
   interventions(rand(2))
+  places(rand(4))
 
   narrative_description { Faker::Lorem.paragraph(2) }
   summary { Faker::Lorem.paragraph(2) }
@@ -109,3 +110,10 @@ TrackingInformation.blueprint do
   case_status_id { CaseStatus.all.sample.id }
 end
 
+Place.blueprint do
+  @country = Country.find_by_name('México')
+  country_id { @country.id }
+  @state = @country.states.sample
+  state_id { @state.id }
+  city_id { @state.cities.sample.id }
+end
