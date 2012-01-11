@@ -38,6 +38,7 @@ namespace Views
 
                     actslist.Case = value;
                     interventionlist1.Case = value;
+                    documentarysourcelist.Case = value;
                     informationsourcelist1.Case = value;
                     trackinglist.Case = value;
                 }

@@ -29,7 +29,7 @@ namespace Views
            {
                documentary_source = value;
                name.Text = documentary_source.Name;
-               type.Text = documentary_source.AditionalInfo;
+               type.Text = documentary_source.AdditionalInfo;
 
                 if (value.Date.HasValue)
                   published_date.Text = documentary_source.Date.Value.ToShortDateString ();

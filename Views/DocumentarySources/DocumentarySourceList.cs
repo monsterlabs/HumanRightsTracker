@@ -53,11 +53,10 @@ namespace Views
                 w.Destroy();
             }
             if (c.Id < 1) {
-                return;
+                 return;
             }
 
-            documentary_sources = new List<DocumentarySource>();
-
+            documentary_sources = new List<DocumentarySource> ();
             foreach (DocumentarySource i in c.DocumentarySources)
             {
                 documentary_sources.Add (i);
