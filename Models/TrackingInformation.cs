@@ -12,6 +12,12 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
+        [Property("record_id")]
+        public int RecordId { get; set; }
+
+        [Property("title")]
+        public String Title { get; set; }
+
         [Property("date_of_receipt")]
         public DateTime? DateOfReceipt { get; set; }
 

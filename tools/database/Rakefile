@@ -198,6 +198,11 @@ task :seeds => :environment do
   Case.make!(20)
   InformationSource.make!(100)
   DocumentarySource.make!(50)
+
+  Case.all.each do |c|
+    c.record_count = c.tracking_information.count
+    c.save
+  end
 end
 
 task :environment do

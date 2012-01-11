@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -10684,7 +10684,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.TrackingRow" design-size="355 48">
+  <widget class="Gtk.Bin" id="Views.TrackingRow" design-size="377 48">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -10707,9 +10707,9 @@ December</property>
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Label" id="date_of_receipt">
+                      <widget class="Gtk.Label" id="record_id">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Date of Receipt</property>
+                        <property name="LabelProp" translatable="yes">Record ID</property>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -10719,12 +10719,24 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="status">
+                      <widget class="Gtk.Label" id="title">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Status</property>
+                        <property name="LabelProp" translatable="yes">Title</property>
                       </widget>
                       <packing>
                         <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="date_of_receipt">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">Date of Receipt</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -10786,7 +10798,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.TrackingShow" design-size="602 252">
+  <widget class="Gtk.Bin" id="Views.TrackingShow" design-size="602 236">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -10806,7 +10818,7 @@ December</property>
                 <child>
                   <widget class="Gtk.Table" id="table1">
                     <property name="MemberName" />
-                    <property name="NRows">4</property>
+                    <property name="NRows">5</property>
                     <property name="NColumns">2</property>
                     <property name="RowSpacing">6</property>
                     <property name="ColumnSpacing">6</property>
@@ -10817,8 +10829,8 @@ December</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">2</property>
-                        <property name="BottomAttach">3</property>
+                        <property name="TopAttach">4</property>
+                        <property name="BottomAttach">5</property>
                         <property name="LeftAttach">1</property>
                         <property name="RightAttach">2</property>
                         <property name="AutoSize">True</property>
@@ -10839,6 +10851,8 @@ December</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>
+                        <property name="TopAttach">2</property>
+                        <property name="BottomAttach">3</property>
                         <property name="LeftAttach">1</property>
                         <property name="RightAttach">2</property>
                         <property name="AutoSize">True</property>
@@ -10859,6 +10873,8 @@ December</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
+                        <property name="TopAttach">2</property>
+                        <property name="BottomAttach">3</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -10877,8 +10893,8 @@ December</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">1</property>
-                        <property name="BottomAttach">2</property>
+                        <property name="TopAttach">3</property>
+                        <property name="BottomAttach">4</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -10897,8 +10913,8 @@ December</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">2</property>
-                        <property name="BottomAttach">3</property>
+                        <property name="TopAttach">4</property>
+                        <property name="BottomAttach">5</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -10911,14 +10927,12 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="label5">
+                      <widget class="Gtk.Label" id="label6">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">&lt;b&gt;Records&lt;/b&gt;</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Record ID&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">3</property>
-                        <property name="BottomAttach">4</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -10931,14 +10945,32 @@ December</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Views.EditableTextView" id="records">
+                      <widget class="Gtk.Label" id="label7">
                         <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Title&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">3</property>
-                        <property name="BottomAttach">4</property>
+                        <property name="TopAttach">1</property>
+                        <property name="BottomAttach">2</property>
+                        <property name="AutoSize">True</property>
+                        <property name="XOptions">Fill</property>
+                        <property name="YOptions">Fill</property>
+                        <property name="XExpand">False</property>
+                        <property name="XFill">True</property>
+                        <property name="XShrink">False</property>
+                        <property name="YExpand">False</property>
+                        <property name="YFill">True</property>
+                        <property name="YShrink">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="record_id">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Num&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
+                      </widget>
+                      <packing>
                         <property name="LeftAttach">1</property>
                         <property name="RightAttach">2</property>
                         <property name="AutoSize">True</property>
@@ -10957,8 +10989,34 @@ December</property>
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
                         <property name="OrderById">False</property>
+                        <property name="Model">CaseStatus</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                      </widget>
+                      <packing>
+                        <property name="TopAttach">3</property>
+                        <property name="BottomAttach">4</property>
+                        <property name="LeftAttach">1</property>
+                        <property name="RightAttach">2</property>
+                        <property name="AutoSize">True</property>
+                        <property name="XOptions">Fill</property>
+                        <property name="YOptions">Fill</property>
+                        <property name="XExpand">False</property>
+                        <property name="XFill">True</property>
+                        <property name="XShrink">False</property>
+                        <property name="YExpand">False</property>
+                        <property name="YFill">True</property>
+                        <property name="YShrink">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.EditableLabel" id="title">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="WidthChars">0</property>
+                        <property name="MaxLength">0</property>
+                        <property name="OnlyNumbers">False</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
@@ -11010,6 +11068,7 @@ December</property>
                 <property name="Icon">stock:gtk-save Button</property>
                 <property name="Label" translatable="yes">_Save</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnSave" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -11052,6 +11111,8 @@ December</property>
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
         <property name="IsEditable">False</property>
+        <signal name="Saved" handler="OnShowSaved" />
+        <signal name="Canceled" handler="OnShowCanceled" />
       </widget>
     </child>
   </widget>
