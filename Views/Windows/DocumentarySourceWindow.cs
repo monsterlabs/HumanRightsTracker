@@ -36,20 +36,25 @@ namespace Views
                     name.Text = documentary_source.Name;
                     additional_info.Text = documentary_source.AdditionalInfo;
                     source_information_type.Active = documentary_source.SourceInformationType;
-                    publication_date.CurrentDate = documentary_source.Date.Value;
                     url.Text = documentary_source.Url;
-                    access_date.CurrentDate = documentary_source.AccessDate.Value;
-
                     language.Active = documentary_source.Language;
                     indigenous_language.Active = documentary_source.IndigenousLanguage;
                     reliability_level.Active = documentary_source.ReliabilityLevel;
                     observations.Text = documentary_source.Observations;
                     comments.Text = documentary_source.Comments;
 
-                    person_or_institution_selector.Person = documentary_source.ReportedPerson;
-                    person_or_institution_selector.Job = documentary_source.ReportedJob;
-                    person_or_institution_selector.Institution = documentary_source.ReportedInstitution;
-                    person_or_institution_selector.AllSet = true;
+                    if (documentary_source.Id != null) {
+                        if (documentary_source.Date != null)
+                            publication_date.CurrentDate = documentary_source.Date.Value;
+
+                        if (documentary_source.AccessDate != null)
+                            access_date.CurrentDate = documentary_source.AccessDate.Value;
+
+                        person_or_institution_selector.Person = documentary_source.ReportedPerson;
+                        person_or_institution_selector.Job = documentary_source.ReportedJob;
+                        person_or_institution_selector.Institution = documentary_source.ReportedInstitution;
+                        person_or_institution_selector.AllSet = true;
+                    }
 
                 }
             }

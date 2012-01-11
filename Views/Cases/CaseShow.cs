@@ -65,6 +65,7 @@ namespace Views
 
                 this.editable_helper.SetAllEditable (value);
                 interventionlist1.IsEditable = value;
+                documentarysourcelist.IsEditable = value;
                 informationsourcelist1.IsEditable = value;
             }
         }
