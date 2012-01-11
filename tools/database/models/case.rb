@@ -6,4 +6,5 @@ class Case < ActiveRecord::Base
   has_many :documentary_sources
   has_many :places
   has_one :document, :as => :documentable, :dependent => :destroy
+  has_many :case_relationships
 end
