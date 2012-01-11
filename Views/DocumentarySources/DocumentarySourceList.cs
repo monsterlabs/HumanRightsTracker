@@ -55,9 +55,12 @@ namespace Views
             if (c.Id < 1) {
                 return;
             }
-            documentary_sources = new List<DocumentarySource> (DocumentarySource.FindAll (new ICriterion[] { Restrictions.Eq("Case", c) }));
-            foreach (DocumentarySource i in documentary_sources)
+
+            documentary_sources = new List<DocumentarySource>();
+
+            foreach (DocumentarySource i in c.DocumentarySources)
             {
+                documentary_sources.Add (i);
                 documentarySourceList.PackStart (new DocumentarySourceRow (i, OnDocumentarySourceRowRemoved));
             }
            documentarySourceList.ShowAll ();

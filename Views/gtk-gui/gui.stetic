@@ -9842,23 +9842,37 @@ December</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="additional_info">
+                  <widget class="Gtk.Label" id="type">
                     <property name="MemberName" />
                     <property name="Xalign">0</property>
-                    <property name="LabelProp" translatable="yes">additional_info</property>
+                    <property name="LabelProp" translatable="yes">type</property>
                   </widget>
                   <packing>
                     <property name="Position">1</property>
                     <property name="AutoSize">False</property>
+                    <property name="Fill">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="date">
+                  <widget class="Gtk.Label" id="published_date">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">date</property>
+                    <property name="Xalign">1</property>
+                    <property name="LabelProp" translatable="yes">published date</property>
                   </widget>
                   <packing>
                     <property name="Position">2</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="access_date">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">access date</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">3</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -9875,7 +9889,7 @@ December</property>
                     <signal name="Clicked" handler="OnRemoveButtonClicked" />
                   </widget>
                   <packing>
-                    <property name="Position">3</property>
+                    <property name="Position">4</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -9892,7 +9906,7 @@ December</property>
                     <signal name="Clicked" handler="OnDetailButtonClicked" />
                   </widget>
                   <packing>
-                    <property name="Position">4</property>
+                    <property name="Position">5</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -9903,7 +9917,7 @@ December</property>
           </widget>
         </child>
         <child>
-          <widget class="Gtk.Label" id="GtkLabel1">
+          <widget class="Gtk.Label" id="GtkLabel2">
             <property name="MemberName" />
             <property name="UseMarkup">True</property>
           </widget>
@@ -9914,7 +9928,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DocumentarySourceList" design-size="579 78">
+  <widget class="Gtk.Bin" id="Views.DocumentarySourceList" design-size="691 94">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -9926,13 +9940,16 @@ December</property>
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
+              <placeholder />
+            </child>
+            <child>
               <widget class="Views.DocumentarySourceRow" id="row">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
                 <property name="IsEditable">False</property>
               </widget>
               <packing>
-                <property name="Position">0</property>
+                <property name="Position">1</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -9942,8 +9959,6 @@ December</property>
           <packing>
             <property name="Position">0</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -11033,6 +11048,7 @@ December</property>
       <widget class="Views.TrackingShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
+        <property name="IsEditable">False</property>
       </widget>
     </child>
   </widget>
