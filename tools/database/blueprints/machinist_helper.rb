@@ -48,6 +48,7 @@ module MachinistHelper
     document = Document.new
     document.content = content
     document.content_type = type[:content_type]
+    document.filename = "document.#{type[:extension]}"
     document.save
     document
   end

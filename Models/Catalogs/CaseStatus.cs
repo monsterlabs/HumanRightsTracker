@@ -1,8 +1,6 @@
 using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
-using Castle.Components.Validator;
-using System.Collections;
 
 namespace HumanRightsTracker.Models
 {

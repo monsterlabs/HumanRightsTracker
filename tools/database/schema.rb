@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111032106) do
+ActiveRecord::Schema.define(:version => 20120112044022) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(:version => 20120111032106) do
   create_table "case_institution_people", :force => true do |t|
     t.integer "case_id"
     t.integer "institution_person_id"
+  end
+
+  create_table "case_relationships", :force => true do |t|
+    t.integer "case_id"
+    t.integer "relationship_type_id"
+    t.integer "related_case_id"
   end
 
   create_table "case_statuses", :force => true do |t|
@@ -133,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20120111032106) do
     t.string   "content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filename"
   end
 
   create_table "ethnic_groups", :force => true do |t|
@@ -352,6 +359,10 @@ ActiveRecord::Schema.define(:version => 20120111032106) do
     t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "relationship_types", :force => true do |t|
+    t.string "name", :null => false
   end
 
   create_table "reliability_levels", :force => true do |t|
