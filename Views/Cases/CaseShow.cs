@@ -110,17 +110,39 @@ namespace Views
 
         protected void OnNew (object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException ();
+            new ActDetailWindow (mycase, OnNewActReturned, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnNewActReturned (object sender, EventArgs args)
+        {
+            Act a = sender as Act;
+            // Add act to table
+
+            return;
         }
 
         protected void OnDelete (object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException ();
+            // Find act a with id = sender
+
+            //if (a.Id >= 1)
+            //{
+                // TODO: Confirmation.
+            //    a.Delete ();
+            //}
+
+            return;
         }
 
         protected void OnDetail (object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException ();
+            // Find act a with id = sender
+            //new ActDetailWindow (a, OnDetailReturned, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnDetailReturned (object sender, System.EventArgs e)
+        {
+            //Reload act
         }
     }
 }
