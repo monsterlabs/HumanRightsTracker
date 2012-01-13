@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("acts")]
-    public class Act : ActiveRecordValidationBase<Act>
+    public class Act : ActiveRecordValidationBase<Act>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -69,6 +69,23 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(Victim), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Victims { get; set; }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.HumanRightsViolationCategory.Name,
+                this.HumanRightsViolation.Name,
+                "",
+                ""
+            };
+
+            if (this.start_date.HasValue)
+                data[2] = this.start_date.Value.ToShortDateString ();
+            if (this.end_date.HasValue)
+                data[3] = this.end_date.Value.ToShortDateString ();
+
+            return data;
+        }
 
     }
 }

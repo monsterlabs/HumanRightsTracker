@@ -94,6 +94,7 @@
     <Compile Include="CaseStatus.cs" />
     <Compile Include="Catalogs\TravelCompanion.cs" />
     <Compile Include="TrackingInformation.cs" />
+    <Compile Include="ListableRecord.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

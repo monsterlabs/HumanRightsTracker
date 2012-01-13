@@ -201,6 +201,10 @@
     <Compile Include="gtk-gui\Views.TrackingShow.cs" />
     <Compile Include="TrackingInformation\TrackingDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.TrackingDetailWindow.cs" />
+    <Compile Include="Widgets\EditableList.cs" />
+    <Compile Include="gtk-gui\Views.EditableList.cs" />
+    <Compile Include="Widgets\EditableListButtons.cs" />
+    <Compile Include="gtk-gui\Views.EditableListButtons.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
