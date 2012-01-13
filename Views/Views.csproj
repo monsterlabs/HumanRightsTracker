@@ -201,6 +201,8 @@
     <Compile Include="gtk-gui\Views.TrackingShow.cs" />
     <Compile Include="TrackingInformation\TrackingDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.TrackingDetailWindow.cs" />
+    <Compile Include="Widgets\DocumentChooser.cs" />
+    <Compile Include="gtk-gui\Views.DocumentChooser.cs" />
     <Compile Include="Cases\CaseSelect.cs" />
     <Compile Include="gtk-gui\Views.CaseSelect.cs" />
     <Compile Include="Windows\CaseSelectorWindow.cs" />

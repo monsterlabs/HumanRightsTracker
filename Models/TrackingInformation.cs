@@ -32,6 +32,13 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("date_type_id")]
         public DateType DateType { get; set; }
+
+        public Record Record
+        {
+            get {
+                return new Record (this.Id, "TrackingInformation");
+            }
+        }
     }
 }
 

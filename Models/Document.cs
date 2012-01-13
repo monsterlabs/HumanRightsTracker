@@ -5,13 +5,13 @@ using Castle.ActiveRecord.Framework;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("documents")]
-    public class Document : ActiveRecordValidationBase<Document>
+    public class Document : ActiveRecordLinqBase<Document>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
 
         [Property("content")]
-        public Byte[] Cotent { get; set; }
+        public Byte[] Content { get; set; }
 
         [Property("filename")]
         public String Filename { get; set; }

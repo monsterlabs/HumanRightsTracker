@@ -98,6 +98,7 @@
     <Compile Include="CaseRelationship.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Catalogs\CaseStatus.cs" />
+    <Compile Include="Record.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
