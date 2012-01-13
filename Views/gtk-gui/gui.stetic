@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -3447,12 +3447,19 @@ December</property>
                   <widget class="Gtk.Expander" id="expander11">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
+                    <property name="Expanded">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
-                      <widget class="Views.ActsList" id="actslist">
+                      <widget class="Views.EditableList" id="editablelist1">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
+                        <property name="Headers">Human Right
+Act
+Start Date
+End Date</property>
+                        <signal name="NewButtonPressed" handler="OnNew" />
+                        <signal name="DeleteButtonPressed" handler="OnDelete" />
+                        <signal name="DetailButtonPressed" handler="OnDetail" />
                       </widget>
                     </child>
                     <child>
@@ -3470,8 +3477,6 @@ December</property>
                   <packing>
                     <property name="Position">0</property>
                     <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
                   </packing>
                 </child>
                 <child>
@@ -3522,8 +3527,6 @@ December</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -11112,7 +11115,7 @@ End Date</property>
       </widget>
     </child>
   </widget>
-<widget class="Gtk.Bin" id="Views.EditableList" design-size="300 115">
+  <widget class="Gtk.Bin" id="Views.EditableList" design-size="300 115">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>

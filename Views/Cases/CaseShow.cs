@@ -1,6 +1,8 @@
 using System;
 using HumanRightsTracker.Models;
 using Mono.Unix;
+using System.Linq;
+
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
@@ -36,7 +38,7 @@ namespace Views
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
 
-                    actslist.Case = value;
+                    editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
                     interventionlist1.Case = value;
                     documentarysourcelist.Case = value;
                     informationsourcelist1.Case = value;
@@ -91,12 +93,6 @@ namespace Views
             {
                 mycase.Save ();
 
-                foreach (Act a in actslist.Acts)
-                {
-                    a.Case = mycase;
-                    a.Save ();
-                }
-
                 this.IsEditing = false;
                 if (CaseSaved != null)
                     CaseSaved (mycase, e);
@@ -110,6 +106,21 @@ namespace Views
         protected void OnToggleEdit (object sender, System.EventArgs e)
         {
             IsEditing = !IsEditing;
+        }
+
+        protected void OnNew (object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException ();
+        }
+
+        protected void OnDelete (object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException ();
+        }
+
+        protected void OnDetail (object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException ();
         }
     }
 }
