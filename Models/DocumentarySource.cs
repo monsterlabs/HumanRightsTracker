@@ -27,8 +27,8 @@ namespace HumanRightsTracker.Models
         [Property("name")]
         public String Name { get; set;}
 
-        [Property("aditional_info")]
-        public String AditionalInfo { get; set;}
+        [Property("additional_info")]
+        public String AdditionalInfo { get; set;}
 
         [Property("date")]
         public DateTime? Date { get; set; }
@@ -40,7 +40,7 @@ namespace HumanRightsTracker.Models
         public String SiteName { get; set;}
 
         [Property("url")]
-        public String url { get; set;}
+        public String Url { get; set;}
 
         [Property("access_date")]
         public DateTime? AccessDate { get; set; }

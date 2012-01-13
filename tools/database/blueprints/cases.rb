@@ -13,7 +13,7 @@ counter = 0
 reset = lambda { counter = 0 }
 auto_increment = lambda { return counter += 1 }
 
-documents = 120.times.inject([]) do |array|
+documents = 240.times.inject([]) do |array|
   array.push create_document
   array
 end
@@ -28,12 +28,12 @@ Case.blueprint do
 
   acts(rand(3))
   interventions(rand(2))
+  places(rand(4))
 
   narrative_description { Faker::Lorem.paragraph(2) }
   summary { Faker::Lorem.paragraph(2) }
   observations { Faker::Lorem.paragraph(2) }
   tracking_information(rand(3))
-  document { documents.pop }
   reset.call
 end
 
@@ -107,5 +107,13 @@ TrackingInformation.blueprint do
   date_type_id  { DateType.all.sample.id }
   comments { Faker::Lorem.paragraph(3) }
   case_status_id { CaseStatus.all.sample.id }
+  documents { [documents.pop,documents.pop] }
 end
 
+Place.blueprint do
+  @country = Country.find_by_name('México')
+  country_id { @country.id }
+  @state = @country.states.sample
+  state_id { @state.id }
+  city_id { @state.cities.sample.id }
+end

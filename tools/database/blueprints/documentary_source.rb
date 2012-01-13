@@ -15,6 +15,7 @@ DocumentarySource.blueprint do
   name { Faker::Lorem.paragraph(rand(6)) }
   additional_info { Faker::Lorem.paragraph(rand(6)) }
   date { Date.today }
+  access_date { Date.today }
   source_information_type_id { SourceInformationType.all.sample.id }
   site_name { Faker::Lorem.paragraph(rand(6)) }
   url { ("http://" + Faker::Internet.domain_name) }

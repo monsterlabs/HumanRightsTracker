@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110065715) do
+ActiveRecord::Schema.define(:version => 20120112044022) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -73,13 +73,19 @@ ActiveRecord::Schema.define(:version => 20120110065715) do
     t.integer "institution_person_id"
   end
 
+  create_table "case_relationships", :force => true do |t|
+    t.integer "case_id"
+    t.integer "relationship_type_id"
+    t.integer "related_case_id"
+  end
+
   create_table "case_statuses", :force => true do |t|
     t.string "name"
   end
 
   create_table "cases", :force => true do |t|
-    t.string  "name",                  :null => false
-    t.date    "start_date",            :null => false
+    t.string  "name",                                 :null => false
+    t.date    "start_date",                           :null => false
     t.integer "start_date_type_id"
     t.date    "end_date"
     t.integer "end_date_type_id"
@@ -87,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20120110065715) do
     t.text    "narrative_description"
     t.text    "summary"
     t.text    "observations"
+    t.integer "record_count",          :default => 0
   end
 
   create_table "cities", :force => true do |t|
@@ -126,12 +133,13 @@ ActiveRecord::Schema.define(:version => 20120110065715) do
   end
 
   create_table "documents", :force => true do |t|
-    t.binary   "data"
+    t.binary   "content"
     t.integer  "documentable_id"
     t.string   "documentable_type"
-    t.string   "type"
+    t.string   "content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filename"
   end
 
   create_table "ethnic_groups", :force => true do |t|
@@ -344,6 +352,19 @@ ActiveRecord::Schema.define(:version => 20120110065715) do
     t.boolean "is_spanish_speaker"
   end
 
+  create_table "places", :force => true do |t|
+    t.integer  "case_id"
+    t.integer  "country_id"
+    t.integer  "state_id"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationship_types", :force => true do |t|
+    t.string "name", :null => false
+  end
+
   create_table "reliability_levels", :force => true do |t|
     t.string   "name"
     t.text     "notes"
@@ -377,7 +398,7 @@ ActiveRecord::Schema.define(:version => 20120110065715) do
     t.date    "date_of_receipt"
     t.text    "comments"
     t.integer "case_status_id"
-    t.integer "record_id",       :default => 0
+    t.integer "record_id"
     t.string  "title"
   end
 

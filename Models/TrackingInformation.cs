@@ -12,14 +12,17 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
+        [Property("record_id")]
+        public int RecordId { get; set; }
+
+        [Property("title")]
+        public String Title { get; set; }
+
         [Property("date_of_receipt")]
         public DateTime? DateOfReceipt { get; set; }
 
         [Property("comments")]
         public String Comments { get; set; }
-
-        [Property("records")]
-        public String Records { get; set; }
 
         [BelongsTo("case_id")]
         public Case Case { get; set; }
@@ -29,6 +32,13 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("date_type_id")]
         public DateType DateType { get; set; }
+
+        public Record Record
+        {
+            get {
+                return new Record (this.Id, "TrackingInformation");
+            }
+        }
     }
 }
 

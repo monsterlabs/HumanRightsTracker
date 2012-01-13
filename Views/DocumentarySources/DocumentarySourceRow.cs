@@ -29,9 +29,13 @@ namespace Views
            {
                documentary_source = value;
                name.Text = documentary_source.Name;
-               additional_info.Text = documentary_source.AditionalInfo;
-               if (value.Date.HasValue)
-                  date.Text = documentary_source.Date.Value.ToShortDateString ();
+               type.Text = documentary_source.AdditionalInfo;
+
+                if (value.Date.HasValue)
+                  published_date.Text = documentary_source.Date.Value.ToShortDateString ();
+
+                if (value.AccessDate.HasValue)
+                  access_date.Text = documentary_source.AccessDate.Value.ToShortDateString ();
            }
         }
 

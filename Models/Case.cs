@@ -22,6 +22,9 @@ namespace HumanRightsTracker.Models
         [Property("affected_persons")]
         public int AffectedPeople { get; set; }
 
+        [Property("record_count")]
+        public int RecordCount { get; set; }
+
         [Property]
         [ValidateNonEmpty]
         public DateTime? start_date { get; set; }
@@ -53,6 +56,9 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(InformationSource), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList InformationSources { get; set; }
+
+        [HasMany(typeof(DocumentarySource), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList DocumentarySources { get; set; }
 
         public IList victimList () {
              IList victim_list = new ArrayList();

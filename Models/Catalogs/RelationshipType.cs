@@ -2,18 +2,18 @@ using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
-using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("case_statuses")]
-    public class CaseStatus : ActiveRecordValidationBase<CaseStatus>
+    [ActiveRecord("relationship_types")]
+    public class RelationshipType : ActiveRecordValidationBase<RelationshipType>
     {
+
         [PrimaryKey]
         public int Id { get; protected set; }
 
-        [Property("name")]
+        [Property]
+        [ValidateNonEmpty]
         public String Name { get; set; }
     }
 }
-
