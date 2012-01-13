@@ -13,7 +13,7 @@ counter = 0
 reset = lambda { counter = 0 }
 auto_increment = lambda { return counter += 1 }
 
-documents = 120.times.inject([]) do |array|
+documents = 240.times.inject([]) do |array|
   array.push create_document
   array
 end
@@ -107,7 +107,7 @@ TrackingInformation.blueprint do
   date_type_id  { DateType.all.sample.id }
   comments { Faker::Lorem.paragraph(3) }
   case_status_id { CaseStatus.all.sample.id }
-  document { documents.pop }
+  documents { [documents.pop,documents.pop] }
 end
 
 Place.blueprint do

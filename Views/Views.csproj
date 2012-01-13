@@ -203,6 +203,12 @@
     <Compile Include="gtk-gui\Views.TrackingDetailWindow.cs" />
     <Compile Include="Widgets\DocumentChooser.cs" />
     <Compile Include="gtk-gui\Views.DocumentChooser.cs" />
+    <Compile Include="Documents\DocumentWindow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentWindow.cs" />
+    <Compile Include="Documents\DocumentRow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentRow.cs" />
+    <Compile Include="Documents\DocumentList.cs" />
+    <Compile Include="gtk-gui\Views.DocumentList.cs" />
     <Compile Include="Cases\CaseSelect.cs" />
     <Compile Include="gtk-gui\Views.CaseSelect.cs" />
     <Compile Include="Windows\CaseSelectorWindow.cs" />
@@ -240,5 +246,6 @@
     <Folder Include="InformationSources\" />
     <Folder Include="DocumentarySources\" />
     <Folder Include="TrackingInformation\" />
+    <Folder Include="Documents\" />
   </ItemGroup>
 </Project>
