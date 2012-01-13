@@ -2,6 +2,7 @@ using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Queries;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace HumanRightsTracker.Models
 {
@@ -45,6 +46,25 @@ namespace HumanRightsTracker.Models
                 } else {
                     return null;
                 }
+            }
+        }
+
+        public List<Document> Documents {
+            get {
+                String hql = "select d from Document d where d.DocumentableId = :DocumentableId and d.DocumentableType = :DocumentableType";
+                HqlBasedQuery query = new HqlBasedQuery(typeof(Document), hql);
+                query.SetParameter("DocumentableId", this.documentableId);
+                query.SetParameter("DocumentableType", this.documentableType);
+
+                ArrayList queryResult = (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
+                List<Document> result = new List<Document> ();
+
+                if (queryResult.Count != 0) {
+                    foreach (Document d in queryResult) {
+                        result.Add (d);
+                    }
+                }
+                return result;
             }
         }
     }

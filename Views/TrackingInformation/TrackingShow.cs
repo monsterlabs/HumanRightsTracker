@@ -31,7 +31,7 @@ namespace Views
                     title.Text = trackingInfo.Title;
                     status.Active = trackingInfo.CaseStatus;
                     comments.Text = trackingInfo.Comments;
-                    document.Document = trackingInfo.Record.Document;
+                    records.TrackingInformation = value;
                 }
             }
         }

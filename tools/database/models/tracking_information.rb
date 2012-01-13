@@ -1,4 +1,4 @@
 class TrackingInformation < ActiveRecord::Base
   belongs_to :case
-  has_one :document, :as => :documentable, :dependent => :destroy
+  has_many :documents, :as => :documentable, :dependent => :destroy
 end
