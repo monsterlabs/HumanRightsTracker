@@ -11499,7 +11499,6 @@ December</property>
       </widget>
     </child>
   </widget>
-</stetic-interface>
   <widget class="Gtk.Window" id="Views.DocumentWindow" design-size="400 300">
     <property name="MemberName" />
     <property name="Title" translatable="yes">DocumentWindow</property>
