@@ -11205,7 +11205,7 @@ December</property>
       </widget>
     </child>
   </widget>
-</stetic-interface>  <widget class="Gtk.Bin" id="Views.CaseSelect" design-size="305 49">
+  <widget class="Gtk.Bin" id="Views.CaseSelect" design-size="305 49">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
