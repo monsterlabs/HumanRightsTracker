@@ -28,6 +28,10 @@ namespace Views
             }
         }
 
+        public List<Document> Documents {
+            get { return documents; }
+        }
+
         public bool IsEditable {
             get { return isEditable; }
             set {

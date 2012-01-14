@@ -13,8 +13,9 @@ namespace Views
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            show.TrackingInfo = new TrackingInformation();
-            show.TrackingInfo.Case = c;
+            TrackingInformation t = new TrackingInformation ();
+            t.Case = c;
+            show.TrackingInfo = t;
             show.IsEditable = true;
         }
 
@@ -30,8 +31,7 @@ namespace Views
 
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
-            TrackingInformation t = sender as TrackingInformation;
-            OnSaved (t, e);
+            OnSaved (sender, e);
             this.Destroy ();
         }
 

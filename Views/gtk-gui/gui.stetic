@@ -11101,7 +11101,7 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.TrackingDetailWindow" design-size="602 252">
+  <widget class="Gtk.Window" id="Views.TrackingDetailWindow" design-size="602 336">
     <property name="MemberName" />
     <property name="Title" translatable="yes">TrackingDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
