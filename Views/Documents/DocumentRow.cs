@@ -8,16 +8,18 @@ namespace Views
     {
         bool isEditable;
         Document document;
+        public new event EventHandler Removed;
 
         public DocumentRow ()
         {
             this.Build ();
         }
 
-        public DocumentRow (Document d)
+        public DocumentRow (Document d, EventHandler removed)
         {
             this.Build ();
             this.Document = d;
+            this.Removed = removed;
         }
 
         public Document Document {
@@ -34,6 +36,13 @@ namespace Views
                 this.isEditable = value;
                 deleteButton.Visible = value;
                 saveButton.Visible = !value;
+            }
+        }
+
+        protected void OnDelete (object sender, System.EventArgs e)
+        {
+            if (Removed != null) {
+                Removed (this, e);
             }
         }
     }

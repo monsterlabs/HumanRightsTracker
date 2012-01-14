@@ -11606,6 +11606,7 @@ End Date</property>
                         <property name="UseStock">True</property>
                         <property name="Type">StockItem</property>
                         <property name="StockId">gtk-delete</property>
+                        <signal name="Clicked" handler="OnDelete" />
                         <property name="label">gtk-delete</property>
                       </widget>
                       <packing>
@@ -11685,6 +11686,7 @@ End Date</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">New Record</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnNewDocument" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
