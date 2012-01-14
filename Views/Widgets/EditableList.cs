@@ -55,7 +55,9 @@ namespace Views
                         l.SingleLineMode = false;
                         table.Attach (l, j, j+1, i+1,i+2);
                     }
-                    EditableListButtons buttons = new EditableListButtons (records[(int) i].Id);
+                    EditableListButtons buttons = new EditableListButtons (records[(int) i]);
+                    buttons.DeletePressed += OnDelete;
+                    buttons.DetailPressed += OnDetail;
                     table.Attach (buttons, j, j+1, i+1,i+2);
                 }
             }

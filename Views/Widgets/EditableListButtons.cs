@@ -1,4 +1,5 @@
 using System;
+using HumanRightsTracker.Models;
 
 namespace Views
 {
@@ -6,12 +7,12 @@ namespace Views
     public partial class EditableListButtons : Gtk.Bin
     {
 
-        int recordId;
+        ListableRecord record;
 
-        public EditableListButtons (int recordId)
+        public EditableListButtons (ListableRecord record)
         {
             this.Build ();
-            this.recordId = recordId;
+            this.record = record;
         }
 
         public event EventHandler DeletePressed;
@@ -20,13 +21,13 @@ namespace Views
         protected void OnDelete (object sender, System.EventArgs e)
         {
             if (DeletePressed != null)
-                DeletePressed (recordId, e);
+                DeletePressed (record, e);
         }
 
         protected void OnDetail (object sender, System.EventArgs e)
         {
             if (DetailPressed != null)
-                DetailPressed (recordId, e);
+                DetailPressed (record, e);
         }
     }
 }

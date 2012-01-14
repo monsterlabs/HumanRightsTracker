@@ -115,34 +115,35 @@ namespace Views
 
         protected void OnNewActReturned (object sender, EventArgs args)
         {
-            Act a = sender as Act;
-            // Add act to table
+            editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
 
             return;
         }
 
         protected void OnDelete (object sender, System.EventArgs e)
         {
-            // Find act a with id = sender
+            Act a = sender as Act;
 
-            //if (a.Id >= 1)
-            //{
+            if (a.Id >= 1)
+            {
                 // TODO: Confirmation.
-            //    a.Delete ();
-            //}
+                a.Delete ();
+            }
+
+            editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
 
             return;
         }
 
         protected void OnDetail (object sender, System.EventArgs e)
         {
-            // Find act a with id = sender
-            //new ActDetailWindow (a, OnDetailReturned, (Gtk.Window)this.Toplevel);
+            Act a = sender as Act;
+            new ActDetailWindow (a, OnDetailReturned, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnDetailReturned (object sender, System.EventArgs e)
         {
-            //Reload act
+            editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
         }
     }
 }
