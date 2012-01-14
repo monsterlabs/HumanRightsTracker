@@ -36,6 +36,9 @@ namespace Views
             set {
                 isEditable = value;
                 newButton.Visible = value;
+                if (c != null && c.Id < 1) {
+                    newButton.Visible = false;
+                }
                 foreach (Gtk.Widget row in trackingsList.AllChildren) {
                     ((TrackingRow) row).IsEditable = value;
                 }

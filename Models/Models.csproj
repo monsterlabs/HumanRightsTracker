@@ -93,6 +93,7 @@
     <Compile Include="DocumentarySource.cs" />
     <Compile Include="Catalogs\TravelCompanion.cs" />
     <Compile Include="TrackingInformation.cs" />
+    <Compile Include="ListableRecord.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="Catalogs\RelationshipType.cs" />
     <Compile Include="CaseRelationship.cs" />

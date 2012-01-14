@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -3447,12 +3447,19 @@ December</property>
                   <widget class="Gtk.Expander" id="expander11">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
+                    <property name="Expanded">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
-                      <widget class="Views.ActsList" id="actslist">
+                      <widget class="Views.EditableList" id="editablelist1">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
+                        <property name="Headers">Human Right
+Act
+Start Date
+End Date</property>
+                        <signal name="NewButtonPressed" handler="OnNew" />
+                        <signal name="DeleteButtonPressed" handler="OnDelete" />
+                        <signal name="DetailButtonPressed" handler="OnDetail" />
                       </widget>
                     </child>
                     <child>
@@ -3470,8 +3477,6 @@ December</property>
                   <packing>
                     <property name="Position">0</property>
                     <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
                   </packing>
                 </child>
                 <child>
@@ -3522,8 +3527,6 @@ December</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -5369,65 +5372,17 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActsList" design-size="558 84">
+  <widget class="Gtk.Bin" id="Views.ActsList" design-size="558 115">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <widget class="Gtk.VBox" id="vbox2">
+      <widget class="Views.EditableList" id="editablelist1">
         <property name="MemberName" />
-        <property name="Spacing">6</property>
-        <child>
-          <widget class="Gtk.VBox" id="actsList">
-            <property name="MemberName" />
-            <property name="Spacing">6</property>
-            <property name="BorderWidth">2</property>
-            <child>
-              <widget class="Views.ActRow" id="row">
-                <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
-                <property name="IsEditable">False</property>
-              </widget>
-              <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
-            <property name="MemberName" />
-            <property name="Size">1</property>
-            <property name="LayoutStyle">End</property>
-            <child>
-              <widget class="Gtk.Button" id="newButton">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">New Act</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnNewAct" />
-              </widget>
-              <packing>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">1</property>
-            <property name="AutoSize">False</property>
-            <property name="Expand">False</property>
-          </packing>
-        </child>
+        <property name="Events">ButtonPressMask</property>
+        <property name="Headers">Human Right
+Act
+Start Date
+End Date</property>
       </widget>
     </child>
   </widget>
@@ -11146,7 +11101,7 @@ December</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.TrackingDetailWindow" design-size="602 252">
+  <widget class="Gtk.Window" id="Views.TrackingDetailWindow" design-size="602 336">
     <property name="MemberName" />
     <property name="Title" translatable="yes">TrackingDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -11157,6 +11112,108 @@ December</property>
         <property name="IsEditable">False</property>
         <signal name="Saved" handler="OnShowSaved" />
         <signal name="Canceled" handler="OnShowCanceled" />
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.EditableList" design-size="300 115">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Table" id="table">
+            <property name="MemberName" />
+            <property name="NColumns">3</property>
+            <property name="RowSpacing">6</property>
+            <property name="ColumnSpacing">6</property>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">False</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox1">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <property name="LayoutStyle">End</property>
+            <child>
+              <widget class="Gtk.Button" id="newButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">New</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnNew" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.EditableListButtons" design-size="170 32">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+        <property name="MemberName" />
+        <property name="Size">2</property>
+        <property name="LayoutStyle">End</property>
+        <child>
+          <widget class="Gtk.Button" id="button3092">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextAndIcon</property>
+            <property name="Icon">stock:gtk-delete Menu</property>
+            <property name="Label" translatable="yes">_Delete</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnDelete" />
+          </widget>
+          <packing>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="button3093">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextAndIcon</property>
+            <property name="Icon">stock:gtk-properties Menu</property>
+            <property name="Label" translatable="yes">_Detail</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnDetail" />
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
@@ -11549,6 +11606,7 @@ December</property>
                         <property name="UseStock">True</property>
                         <property name="Type">StockItem</property>
                         <property name="StockId">gtk-delete</property>
+                        <signal name="Clicked" handler="OnDelete" />
                         <property name="label">gtk-delete</property>
                       </widget>
                       <packing>
@@ -11563,6 +11621,7 @@ December</property>
                         <property name="UseStock">True</property>
                         <property name="Type">StockItem</property>
                         <property name="StockId">gtk-save</property>
+                        <signal name="Clicked" handler="OnDocumentSave" />
                         <property name="label">gtk-save</property>
                       </widget>
                       <packing>
@@ -11628,6 +11687,7 @@ December</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">New Record</property>
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnNewDocument" />
               </widget>
               <packing>
                 <property name="Expand">False</property>

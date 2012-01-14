@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using HumanRightsTracker.Models;
 
 namespace Views
@@ -8,16 +9,18 @@ namespace Views
     {
         bool isEditable;
         Document document;
+        public new event EventHandler Removed;
 
         public DocumentRow ()
         {
             this.Build ();
         }
 
-        public DocumentRow (Document d)
+        public DocumentRow (Document d, EventHandler removed)
         {
             this.Build ();
             this.Document = d;
+            this.Removed = removed;
         }
 
         public Document Document {
@@ -35,6 +38,34 @@ namespace Views
                 deleteButton.Visible = value;
                 saveButton.Visible = !value;
             }
+        }
+
+        protected void OnDelete (object sender, System.EventArgs e)
+        {
+            if (Removed != null) {
+                Removed (this, e);
+            }
+        }
+
+        protected void OnDocumentSave (object sender, System.EventArgs e)
+        {
+            Gtk.FileChooserDialog dialog = new Gtk.FileChooserDialog("Save Document ...",
+                (Gtk.Window) this.Toplevel,
+                Gtk.FileChooserAction.Save);
+
+            dialog.AddButton(Gtk.Stock.Cancel, Gtk.ResponseType.Cancel);
+            dialog.AddButton(Gtk.Stock.Save, Gtk.ResponseType.Accept);
+            dialog.CurrentName = this.Document.Filename;
+
+            dialog.DefaultResponse = Gtk.ResponseType.Cancel;
+            dialog.LocalOnly = true;
+
+            int response = dialog.Run ();
+            if (response == (int) Gtk.ResponseType.Accept) {
+                Console.WriteLine ("Filename: " + dialog.Filename);
+                File.WriteAllBytes(dialog.Filename, this.Document.Content);
+            }
+            dialog.Destroy ();
         }
     }
 }
