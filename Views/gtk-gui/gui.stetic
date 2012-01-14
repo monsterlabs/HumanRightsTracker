@@ -11621,6 +11621,7 @@ End Date</property>
                         <property name="UseStock">True</property>
                         <property name="Type">StockItem</property>
                         <property name="StockId">gtk-save</property>
+                        <signal name="Clicked" handler="OnDocumentSave" />
                         <property name="label">gtk-save</property>
                       </widget>
                       <packing>
