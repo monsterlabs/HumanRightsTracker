@@ -263,7 +263,7 @@ Copyright 2011 © i(dh)eas
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">0</property>
+        <property name="CurrentPage">2</property>
         <property name="TabPos">Left</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
@@ -280,7 +280,7 @@ Copyright 2011 © i(dh)eas
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="label8">
+              <widget class="Gtk.Label" id="label59">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Individual people&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -300,7 +300,7 @@ Copyright 2011 © i(dh)eas
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="label9">
+              <widget class="Gtk.Label" id="label119">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Immigrant people&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -319,7 +319,7 @@ Copyright 2011 © i(dh)eas
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="label123">
+              <widget class="Gtk.Label" id="label141">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Institutions&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -331,7 +331,7 @@ Copyright 2011 © i(dh)eas
           </widget>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label3">
+          <widget class="Gtk.Label" id="label142">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">&lt;b&gt;Actors&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
@@ -350,9 +350,28 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label5">
+          <widget class="Gtk.Label" id="label151">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">&lt;b&gt;Casos&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Views.CatalogTab" id="catalogtab">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label152">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Catalogs&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>

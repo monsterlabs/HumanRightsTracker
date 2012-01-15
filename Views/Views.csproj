@@ -219,6 +219,10 @@
     <Compile Include="gtk-gui\Views.CaseSelectorWindow.cs" />
     <Compile Include="Windows\CaseRelationshipWindow.cs" />
     <Compile Include="gtk-gui\Views.CaseRelationshipWindow.cs" />
+    <Compile Include="Widgets\CatalogCRUD.cs" />
+    <Compile Include="gtk-gui\Views.CatalogCRUD.cs" />
+    <Compile Include="Widgets\CatalogTab.cs" />
+    <Compile Include="gtk-gui\Views.CatalogTab.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
