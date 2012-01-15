@@ -39,6 +39,7 @@ namespace Views
                     observations.Text = mycase.Observations;
 
                     editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
+                    case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
                     interventionlist1.Case = value;
                     documentarysourcelist.Case = value;
                     informationsourcelist1.Case = value;
@@ -145,5 +146,18 @@ namespace Views
         {
             editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
         }
+
+        protected void OnNewRelationShip (object sender, System.EventArgs e)
+        {
+            CaseRelationship case_relationship = new CaseRelationship ();
+            case_relationship.Case = mycase;
+            new CaseRelationshipWindow (case_relationship, OnNewCaseRelationshipReturned, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnNewCaseRelationshipReturned  (object sender, EventArgs args) {
+            // TODO: put your implementation here
+            return;
+        }
+
     }
 }

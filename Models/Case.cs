@@ -60,6 +60,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(DocumentarySource), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList DocumentarySources { get; set; }
 
+        [HasMany(typeof(CaseRelationship), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList CaseRelationships { get; set; }
+
         public IList victimList () {
              IList victim_list = new ArrayList();
              foreach (Act act in Acts)

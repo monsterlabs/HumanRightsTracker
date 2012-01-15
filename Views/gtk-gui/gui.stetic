@@ -1158,7 +1158,7 @@ No</property>
                     <property name="ShadowType">In</property>
                     <property name="LabelXalign">0.01</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment11">
+                      <widget class="Gtk.Alignment" id="GtkAlignment12">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -3636,9 +3636,18 @@ End Date</property>
                   <widget class="Gtk.Expander" id="expander7">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
+                    <property name="Expanded">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
-                      <placeholder />
+                      <widget class="Views.EditableList" id="case_relationships_editablelist">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="Headers">Relation type
+Case
+Start date
+End date</property>
+                        <signal name="NewButtonPressed" handler="OnNewRelationShip" />
+                      </widget>
                     </child>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel29">
@@ -11880,6 +11889,45 @@ End Date</property>
           </widget>
           <packing>
             <property name="type">tab</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.HumanRigthsViolationCategorySelector" design-size="223 28">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.HBox" id="hbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.ComboBoxEntry" id="comboboxentry">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes" />
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="addButton">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextAndIcon</property>
+            <property name="Icon">stock:gtk-add Menu</property>
+            <property name="Label" translatable="yes" />
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>
