@@ -3105,6 +3105,7 @@ December</property>
           <widget class="Gtk.Expander" id="expander3">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
+            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.Alignment" id="GtkAlignment13">
                 <property name="MemberName" />
@@ -3386,10 +3387,12 @@ December</property>
                         <property name="CanFocus">True</property>
                         <property name="Expanded">True</property>
                         <child>
-                          <widget class="Views.TrackingList" id="trackinglist">
+                          <widget class="Views.EditableList" id="trackinglist2">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="IsEditable">False</property>
+                            <property name="Headers">ID
+Title
+Date of Receipt</property>
                           </widget>
                         </child>
                         <child>
@@ -3406,6 +3409,17 @@ December</property>
                       </widget>
                       <packing>
                         <property name="Position">4</property>
+                        <property name="AutoSize">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.TrackingList" id="trackinglist">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">5</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>

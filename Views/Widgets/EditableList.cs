@@ -43,6 +43,11 @@ namespace Views
             }
             set {
                 records = value;
+
+                foreach (Gtk.Widget w in table.AllChildren) {
+                    w.Destroy();
+                }
+
                 table.Resize ((uint) (records.Count + 1), (uint) (headers.Length + 1));
                 for (uint i = 0; i < records.Count; i++) {
                     string[] data = records[(int) i].ColumnData ();
@@ -60,6 +65,7 @@ namespace Views
                     buttons.DetailPressed += OnDetail;
                     table.Attach (buttons, j, j+1, i+1,i+2);
                 }
+                table.ShowAll ();
             }
         }
 

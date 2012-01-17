@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("tracking_information")]
-    public class TrackingInformation : ActiveRecordValidationBase<TrackingInformation>
+    public class TrackingInformation : ActiveRecordValidationBase<TrackingInformation>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -38,6 +38,20 @@ namespace HumanRightsTracker.Models
             get {
                 return new Record (this.Id, "TrackingInformation");
             }
+        }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.RecordId.ToString (),
+                this.Title,
+                ""
+            };
+
+            if (this.DateOfReceipt.HasValue)
+                data[2] = this.DateOfReceipt.Value.ToShortDateString ();
+
+            return data;
         }
     }
 }

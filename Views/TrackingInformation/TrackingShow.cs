@@ -95,7 +95,8 @@ namespace Views
                 trackingInfo.Save ();
                 if (newRow) {
                     TrackingInfo.Case.RecordCount += 1;
-                    TrackingInfo.Case.Save ();
+                    TrackingInfo.Case.TrackingInformation.Add (TrackingInfo);
+                    TrackingInfo.Case.SaveAndFlush ();
                 }
                 this.SaveDocuments ();
                 this.IsEditable = false;

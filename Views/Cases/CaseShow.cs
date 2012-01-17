@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Mono.Unix;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Views
             this.Build ();
             this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
+            ConnectTrackingHandlers ();
         }
 
         public Case Case {
@@ -44,6 +46,14 @@ namespace Views
                     documentarysourcelist.Case = value;
                     informationsourcelist1.Case = value;
                     trackinglist.Case = value;
+                    List<ListableRecord> trackings = value.TrackingInformation.Cast<ListableRecord>().ToList ();
+                    trackings.Sort ((x, y) => {
+                        DateTime timeX = ((TrackingInformation) x).DateOfReceipt.Value;
+                        DateTime timeY = ((TrackingInformation) y).DateOfReceipt.Value;
+                        return timeY.CompareTo(timeX);
+                    });
+                    trackinglist2.Records = trackings;
+
                 }
                 IsEditing = false;
             }
@@ -76,6 +86,21 @@ namespace Views
         public void HideEditingButtons () {
             hbuttonbox9.Hide ();
         }
+
+        public void ConnectTrackingHandlers () {
+            trackinglist2.NewButtonPressed += (sender, e) => {
+                new TrackingDetailWindow (this.Case, (o, args) => {
+                    List<ListableRecord> trackings = this.Case.TrackingInformation.Cast<ListableRecord>().ToList ();
+                    trackings.Sort ((x, y) => {
+                        DateTime timeX = ((TrackingInformation) x).DateOfReceipt.Value;
+                        DateTime timeY = ((TrackingInformation) y).DateOfReceipt.Value;
+                        return timeY.CompareTo(timeX);
+                    });
+                    trackinglist2.Records = trackings;
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
             mycase.Name = nameEntry.Text;
