@@ -97,6 +97,27 @@ namespace Views
                         return timeY.CompareTo(timeX);
                     });
                     trackinglist2.Records = trackings;
+                },  (Gtk.Window) this.Toplevel);
+            };
+            trackinglist2.DeleteButtonPressed += (sender, e) => {
+                TrackingInformation t = sender as TrackingInformation;
+                this.Case.TrackingInformation.Remove(t);
+                if (t.Id >= 1) {
+                    t.Delete ();
+                }
+                List<ListableRecord> trackings = this.Case.TrackingInformation.Cast<ListableRecord>().ToList ();
+                trackinglist2.Records = trackings;
+            };
+            trackinglist2.DetailButtonPressed += (sender, e) => {
+                TrackingInformation t = sender as TrackingInformation;
+                new TrackingDetailWindow(t, (o, args) => {
+                    List<ListableRecord> trackings = this.Case.TrackingInformation.Cast<ListableRecord>().ToList ();
+                    trackings.Sort ((x, y) => {
+                        DateTime timeX = ((TrackingInformation) x).DateOfReceipt.Value;
+                        DateTime timeY = ((TrackingInformation) y).DateOfReceipt.Value;
+                        return timeY.CompareTo(timeX);
+                    });
+                    trackinglist2.Records = trackings;
                 }, (Gtk.Window) this.Toplevel);
             };
         }
