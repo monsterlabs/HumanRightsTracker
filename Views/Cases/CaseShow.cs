@@ -45,15 +45,9 @@ namespace Views
                     interventionlist1.Case = value;
                     documentarysourcelist.Case = value;
                     informationsourcelist1.Case = value;
-                    trackinglist.Case = value;
-                    List<ListableRecord> trackings = value.TrackingInformation.Cast<ListableRecord>().ToList ();
-                    trackings.Sort ((x, y) => {
-                        DateTime timeX = ((TrackingInformation) x).DateOfReceipt.Value;
-                        DateTime timeY = ((TrackingInformation) y).DateOfReceipt.Value;
-                        return timeY.CompareTo(timeX);
-                    });
-                    trackinglist2.Records = trackings;
-
+                    List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
+                    trackings.Sort();
+                    trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
                 }
                 IsEditing = false;
             }
@@ -87,37 +81,30 @@ namespace Views
             hbuttonbox9.Hide ();
         }
 
+        public void ReloadTrackings () {
+            List<TrackingInformation> trackings = this.Case.TrackingInformation.Cast<TrackingInformation>().ToList ();
+            trackings.Sort ();
+            trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+        }
+
         public void ConnectTrackingHandlers () {
-            trackinglist2.NewButtonPressed += (sender, e) => {
+            trackinglist.NewButtonPressed += (sender, e) => {
                 new TrackingDetailWindow (this.Case, (o, args) => {
-                    List<ListableRecord> trackings = this.Case.TrackingInformation.Cast<ListableRecord>().ToList ();
-                    trackings.Sort ((x, y) => {
-                        DateTime timeX = ((TrackingInformation) x).DateOfReceipt.Value;
-                        DateTime timeY = ((TrackingInformation) y).DateOfReceipt.Value;
-                        return timeY.CompareTo(timeX);
-                    });
-                    trackinglist2.Records = trackings;
+                    this.ReloadTrackings ();
                 },  (Gtk.Window) this.Toplevel);
             };
-            trackinglist2.DeleteButtonPressed += (sender, e) => {
+            trackinglist.DeleteButtonPressed += (sender, e) => {
                 TrackingInformation t = sender as TrackingInformation;
                 this.Case.TrackingInformation.Remove(t);
                 if (t.Id >= 1) {
                     t.Delete ();
                 }
-                List<ListableRecord> trackings = this.Case.TrackingInformation.Cast<ListableRecord>().ToList ();
-                trackinglist2.Records = trackings;
+                this.ReloadTrackings ();
             };
-            trackinglist2.DetailButtonPressed += (sender, e) => {
+            trackinglist.DetailButtonPressed += (sender, e) => {
                 TrackingInformation t = sender as TrackingInformation;
                 new TrackingDetailWindow(t, (o, args) => {
-                    List<ListableRecord> trackings = this.Case.TrackingInformation.Cast<ListableRecord>().ToList ();
-                    trackings.Sort ((x, y) => {
-                        DateTime timeX = ((TrackingInformation) x).DateOfReceipt.Value;
-                        DateTime timeY = ((TrackingInformation) y).DateOfReceipt.Value;
-                        return timeY.CompareTo(timeX);
-                    });
-                    trackinglist2.Records = trackings;
+                    this.ReloadTrackings ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }

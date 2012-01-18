@@ -193,10 +193,6 @@
     <Compile Include="gtk-gui\Views.EditableTextView.cs" />
     <Compile Include="Windows\DocumentarySourceWindow.cs" />
     <Compile Include="gtk-gui\Views.DocumentarySourceWindow.cs" />
-    <Compile Include="TrackingInformation\TrackingList.cs" />
-    <Compile Include="gtk-gui\Views.TrackingList.cs" />
-    <Compile Include="TrackingInformation\TrackingRow.cs" />
-    <Compile Include="gtk-gui\Views.TrackingRow.cs" />
     <Compile Include="TrackingInformation\TrackingShow.cs" />
     <Compile Include="gtk-gui\Views.TrackingShow.cs" />
     <Compile Include="TrackingInformation\TrackingDetailWindow.cs" />
@@ -207,7 +203,6 @@
     <Compile Include="gtk-gui\Views.EditableListButtons.cs" />
     <Compile Include="Widgets\DocumentChooser.cs" />
     <Compile Include="gtk-gui\Views.DocumentChooser.cs" />
-    <Compile Include="Documents\DocumentWindow.cs" />
     <Compile Include="gtk-gui\Views.DocumentWindow.cs" />
     <Compile Include="Documents\DocumentRow.cs" />
     <Compile Include="gtk-gui\Views.DocumentRow.cs" />

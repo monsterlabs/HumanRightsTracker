@@ -103,7 +103,7 @@ end
 TrackingInformation.blueprint do
   title { Faker::Lorem.sentence(1) }
   record_id { auto_increment.call }
-  date_of_receipt  { 30.years.ago }
+  date_of_receipt  { rand(2) == 0 ? 5.years.ago : 1.years.ago }
   date_type_id  { DateType.all.sample.id }
   comments { Faker::Lorem.paragraph(3) }
   case_status_id { CaseStatus.all.sample.id }
