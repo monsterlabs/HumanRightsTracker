@@ -1896,6 +1896,7 @@ No</property>
             <child>
               <widget class="Gtk.Label" id="GtkLabel35">
                 <property name="MemberName" />
+                <property name="LabelProp" translatable="yes" />
                 <property name="UseMarkup">True</property>
               </widget>
               <packing>
@@ -2110,6 +2111,7 @@ No</property>
           <widget class="Gtk.Label" id="text">
             <property name="MemberName" />
             <property name="Visible">False</property>
+            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -2576,6 +2578,7 @@ No</property>
                 <child>
                   <widget class="Gtk.Label" id="GtkLabel6">
                     <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes" />
                     <property name="UseMarkup">True</property>
                   </widget>
                   <packing>
@@ -2712,6 +2715,7 @@ No</property>
         <child>
           <widget class="Gtk.Label" id="label2">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes" />
           </widget>
         </child>
       </widget>
@@ -5071,6 +5075,7 @@ End date</property>
                                       <widget class="Views.VictimShow" id="victimshow1">
                                         <property name="MemberName" />
                                         <property name="Events">ButtonPressMask</property>
+                                        <property name="IsEditable">False</property>
                                         <property name="IsEditing">False</property>
                                         <signal name="Saved" handler="OnVictimSaved" />
                                       </widget>
@@ -6427,7 +6432,7 @@ End Date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Change</property>
+                <property name="Label" translatable="yes">Select</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnChangeClicked" />
               </widget>
@@ -6547,7 +6552,8 @@ End Date</property>
                       <widget class="Gtk.Label" id="label6">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Victim:</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Victim:&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -6573,7 +6579,8 @@ End Date</property>
                       <widget class="Gtk.Label" id="label5">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Status:</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Status:&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="Position">2</property>
@@ -6602,7 +6609,8 @@ End Date</property>
                       <widget class="Gtk.Label" id="label4">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Characteristics:</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Characteristics:&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="Position">4</property>
@@ -6612,17 +6620,10 @@ End Date</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                      <widget class="Views.EditableTextView" id="characteristics">
                         <property name="MemberName" />
-                        <property name="ShadowType">In</property>
-                        <child>
-                          <widget class="Gtk.TextView" id="characteristics">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="ShowScrollbars">True</property>
-                            <property name="Text" translatable="yes" />
-                          </widget>
-                        </child>
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="Position">5</property>
@@ -6671,7 +6672,7 @@ End Date</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel4">
+              <widget class="Gtk.Label" id="GtkLabel5">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrators&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6689,7 +6690,7 @@ End Date</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox4">
+          <widget class="Gtk.HButtonBox" id="hbuttonbox5">
             <property name="MemberName" />
             <property name="Size">2</property>
             <child>
@@ -6740,6 +6741,7 @@ End Date</property>
       <widget class="Views.VictimShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
+        <property name="IsEditable">False</property>
         <property name="IsEditing">False</property>
         <signal name="Saved" handler="OnSave" />
         <signal name="Unsaved" handler="OnSave" />
@@ -6929,7 +6931,7 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorSelector" design-size="490 133">
+  <widget class="Gtk.Bin" id="Views.PerpetratorSelector" design-size="490 83">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6965,7 +6967,7 @@ End Date</property>
           <widget class="Gtk.HButtonBox" id="hbuttonbox2">
             <property name="MemberName" />
             <property name="Size">1</property>
-            <property name="LayoutStyle">Spread</property>
+            <property name="LayoutStyle">End</property>
             <child>
               <widget class="Gtk.Button" id="addButton">
                 <property name="MemberName" />
@@ -7771,6 +7773,7 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel1">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="type">label_item</property>
@@ -8014,6 +8017,7 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel1">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes" />
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
@@ -8182,6 +8186,7 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="type">label_item</property>
@@ -8271,6 +8276,7 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel4">
                         <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8386,6 +8392,7 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel5">
                         <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8501,6 +8508,7 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel6">
                         <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8616,6 +8624,7 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel7">
                         <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8810,6 +8819,7 @@ End Date</property>
                         <child>
                           <widget class="Gtk.Label" id="GtkLabel11">
                             <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes" />
                           </widget>
                           <packing>
                             <property name="type">label_item</property>
@@ -9020,6 +9030,7 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel1">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="type">label_item</property>
@@ -9839,6 +9850,7 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel2">
             <property name="MemberName" />
+            <property name="LabelProp" translatable="yes" />
             <property name="UseMarkup">True</property>
           </widget>
           <packing>

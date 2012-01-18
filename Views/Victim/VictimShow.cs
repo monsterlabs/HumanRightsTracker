@@ -15,10 +15,13 @@ namespace Views
         public event EventHandler Unsaved;
         public event EventHandler Saved;
         public event EventHandler Cancel;
+        private EditableHelper editable_helper;
 
         public VictimShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
+            this.IsEditing = false;
         }
 
         public Victim Victim
@@ -28,7 +31,7 @@ namespace Views
                 victim = value;
                 victimSelector.Person = victim.Person;
                 status1.Active = victim.VictimStatus;
-                characteristics.Buffer.Text = victim.Characteristics;
+                characteristics.Text = victim.Characteristics;
 
                 HashSet<Perpetrator> perpetrators = new HashSet<Perpetrator>(new ARComparer<Perpetrator>());
                 IList victimPerpetrators = victim.Perpetrators;
@@ -48,8 +51,9 @@ namespace Views
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
         {
-            IsEditing = !IsEditing;
+            IsEditing= !IsEditing;
         }
+
 
         public bool IsEditing
         {
@@ -57,6 +61,7 @@ namespace Views
             set
             {
                 isEditing = value;
+                this.editable_helper.SetAllEditable(value);
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
@@ -64,10 +69,6 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                victimSelector.IsEditable = value;
-                status1.IsEditable = value;
-                characteristics.Editable = value;
-                PerpetratorSelector.IsEditing = value;
             }
         }
 
@@ -75,7 +76,7 @@ namespace Views
         {
             victim.Person = victimSelector.Person;
             victim.VictimStatus = status1.Active as VictimStatus;
-            victim.Characteristics = characteristics.Buffer.Text;
+            victim.Characteristics = characteristics.Text;
 
             if (victim.Act.Id < 1)
             {
