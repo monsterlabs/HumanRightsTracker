@@ -203,7 +203,6 @@
     <Compile Include="gtk-gui\Views.EditableListButtons.cs" />
     <Compile Include="Widgets\DocumentChooser.cs" />
     <Compile Include="gtk-gui\Views.DocumentChooser.cs" />
-    <Compile Include="gtk-gui\Views.DocumentWindow.cs" />
     <Compile Include="Documents\DocumentRow.cs" />
     <Compile Include="gtk-gui\Views.DocumentRow.cs" />
     <Compile Include="Documents\DocumentList.cs" />

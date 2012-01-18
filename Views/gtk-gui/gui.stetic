@@ -11390,14 +11390,6 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.DocumentWindow" design-size="400 300">
-    <property name="MemberName" />
-    <property name="Title" translatable="yes">DocumentWindow</property>
-    <property name="WindowPosition">CenterOnParent</property>
-    <child>
-      <placeholder />
-    </child>
-  </widget>
   <widget class="Gtk.Bin" id="Views.DocumentRow" design-size="259 50">
     <property name="MemberName" />
     <property name="Visible">False</property>
