@@ -16,13 +16,24 @@ namespace Views
         {
             this.Build ();
             this.BuildStore ();
-            // TODO: Change this for a treeview
-            comboboxentry.Model = this.store;
-            comboboxentry.Entry.Completion = new Gtk.EntryCompletion ();
-            comboboxentry.Entry.Completion = new Gtk.EntryCompletion();
-            comboboxentry.Entry.Completion.Model = comboboxentry.Model;
-            comboboxentry.Entry.Completion.TextColumn = 0;
-            comboboxentry.Entry.Completion.InlineCompletion = false;
+
+            Gtk.TreeViewColumn nameColumn = new Gtk.TreeViewColumn ();
+            nameColumn.Title = "-";
+            Gtk.CellRendererText nameCell = new Gtk.CellRendererText ();
+            nameColumn.PackStart (nameCell, true);
+            nameColumn.AddAttribute (nameCell, "text", 0);
+            treeview.AppendColumn (nameColumn);
+            
+            /*
+                Gtk.TreeViewColumn idColumn = new Gtk.TreeViewColumn ();
+                idColumn.Title = "";
+                Gtk.CellRendererText idCell = new Gtk.CellRendererText ();
+                idColumn.PackStart (idCell, false);
+                treeview.AppendColumn (idColumn);
+            */
+
+            treeview.Model = this.store;
+            treeview.Show ();
         }
 
          public void BuildStore () {
@@ -44,9 +55,9 @@ namespace Views
         public void addChildrenToStore(HumanRightsViolationCategory record, Gtk.TreeIter parent) {
             foreach(HumanRightsViolationCategory recordChild in record.Children) {
                     if (recordChild.Children.Count == 0) {
-                        this.store.AppendValues(parent, recordChild.Name, recordChild.Id);
+                        this.store.AppendValues(parent, recordChild.Name, record.Id);
                     } else {
-                        Gtk.TreeIter subparent = this.store.AppendValues (parent, recordChild.Name, recordChild.Id);
+                        Gtk.TreeIter subparent = this.store.AppendValues (parent, recordChild.Name, record.Id);
                         addChildrenToStore(recordChild, subparent);
                     }
                 }
