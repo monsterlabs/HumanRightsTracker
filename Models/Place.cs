@@ -5,7 +5,7 @@ using Castle.ActiveRecord.Framework;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("places")]
-    public class Place : ActiveRecordValidationBase<Place>
+    public class Place : ActiveRecordValidationBase<Place>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -21,5 +21,28 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("city_id")]
         public City City { get; set; }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                "",
+                "",
+                ""
+            };
+
+            if (this.Country != null) {
+                data[0] = this.City.Name;
+            }
+
+            if (this.State != null) {
+                data[1] = this.State.Name;
+            }
+
+            if (this.Country != null) {
+                data[2] = this.Country.Name;
+            }
+
+            return data;
+        }
     }
 }

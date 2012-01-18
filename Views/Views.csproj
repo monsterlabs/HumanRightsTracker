@@ -219,6 +219,10 @@
     <Compile Include="gtk-gui\Views.CatalogTab.cs" />
     <Compile Include="Widgets\HumanRigthsViolationCategorySelector.cs" />
     <Compile Include="gtk-gui\Views.HumanRigthsViolationCategorySelector.cs" />
+    <Compile Include="Places\PlaceShow.cs" />
+    <Compile Include="gtk-gui\Views.PlaceShow.cs" />
+    <Compile Include="Places\PlaceDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.PlaceDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -251,5 +255,6 @@
     <Folder Include="DocumentarySources\" />
     <Folder Include="TrackingInformation\" />
     <Folder Include="Documents\" />
+    <Folder Include="Places\" />
   </ItemGroup>
 </Project>

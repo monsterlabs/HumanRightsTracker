@@ -48,6 +48,7 @@ namespace Views
                     List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
                     trackings.Sort();
                     trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+                    placeslist.Records = value.Places.Cast<ListableRecord>().ToList ();
                 }
                 IsEditing = false;
             }
