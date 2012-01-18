@@ -27,7 +27,7 @@ namespace Views
     }
 
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class HumanRightsViolationCategorySelector : Gtk.Bin
+    public partial class HumanRightsViolationCategorySelector : Gtk.Bin, IEditable
     {
         protected Gtk.NodeStore store;
         protected HumanRightsViolationCategory human_right_violation_category;

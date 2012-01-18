@@ -4763,7 +4763,8 @@ End date</property>
                               <widget class="Gtk.Label" id="label1">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Act:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Act:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">2</property>
@@ -4783,7 +4784,8 @@ End date</property>
                               <widget class="Gtk.Label" id="label3">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Initial Date:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Initial Date:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">4</property>
@@ -4803,7 +4805,8 @@ End date</property>
                               <widget class="Gtk.Label" id="label4">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Final Date:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Final Date:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">6</property>
@@ -4823,7 +4826,8 @@ End date</property>
                               <widget class="Gtk.Label" id="label8">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Human Rights Violation:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Human Rights Violation:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="AutoSize">True</property>
@@ -4889,29 +4893,16 @@ End date</property>
                             <property name="RowSpacing">6</property>
                             <property name="ColumnSpacing">6</property>
                             <child>
-                              <widget class="Views.CatalogSelector" id="actStatus">
-                                <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="OrderById">False</property>
-                                <property name="Model">ActStatus</property>
-                                <property name="IsEditable">False</property>
-                                <property name="HideAddButton">False</property>
-                              </widget>
-                              <packing>
-                                <property name="TopAttach">1</property>
-                                <property name="BottomAttach">2</property>
-                                <property name="LeftAttach">1</property>
-                                <property name="RightAttach">2</property>
-                                <property name="AutoSize">True</property>
-                                <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
+                              <placeholder />
+                            </child>
+                            <child>
+                              <placeholder />
+                            </child>
+                            <child>
+                              <placeholder />
+                            </child>
+                            <child>
+                              <placeholder />
                             </child>
                             <child>
                               <widget class="Views.EditableLabel" id="affected">
@@ -4940,74 +4931,10 @@ End date</property>
                               <widget class="Gtk.Label" id="label6">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Affected people:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Affected people:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="AutoSize">True</property>
-                                <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Gtk.Label" id="label7">
-                                <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Act status:</property>
-                              </widget>
-                              <packing>
-                                <property name="LeftAttach">1</property>
-                                <property name="RightAttach">2</property>
-                                <property name="AutoSize">True</property>
-                                <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Gtk.Label" id="label9">
-                                <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Victim status:</property>
-                              </widget>
-                              <packing>
-                                <property name="LeftAttach">2</property>
-                                <property name="RightAttach">3</property>
-                                <property name="AutoSize">True</property>
-                                <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Views.CatalogSelector" id="victimStatus">
-                                <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="OrderById">False</property>
-                                <property name="Model">VictimStatus</property>
-                                <property name="IsEditable">False</property>
-                                <property name="HideAddButton">False</property>
-                              </widget>
-                              <packing>
-                                <property name="TopAttach">1</property>
-                                <property name="BottomAttach">2</property>
-                                <property name="LeftAttach">2</property>
-                                <property name="RightAttach">3</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -5047,7 +4974,7 @@ End date</property>
                 <child>
                   <widget class="Gtk.Label" id="GtkLabel15">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">&lt;b&gt;GtkFrame&lt;/b&gt;</property>
+                    <property name="LabelProp" translatable="yes">&lt;b&gt;Place and Victims number&lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>
                   </widget>
                   <packing>
