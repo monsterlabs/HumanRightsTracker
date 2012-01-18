@@ -26,7 +26,7 @@ namespace Views
                 act = value;
                 if (act != null) {
 
-                    humanrigthsviolationcategoryselector.Active = act.HumanRightsViolationCategory;
+                    humanrightsviolationcategory.Active = act.HumanRightsViolationCategory;
                     humanRightsViolation.Active = act.HumanRightsViolation;
                     initialDate.setDate (act.start_date);
                     initialDate.setDateType (act.StartDateType);
@@ -57,7 +57,7 @@ namespace Views
 
         protected void OnSave (object sender, System.EventArgs e)
         {
-            act.HumanRightsViolationCategory = humanrigthsviolationcategoryselector.Active as HumanRightsViolationCategory;
+            act.HumanRightsViolationCategory = humanrightsviolationcategory.Active as HumanRightsViolationCategory;
             act.HumanRightsViolation = humanRightsViolation.Active as HumanRightsViolation;
             act.end_date = finalDate.SelectedDate ();
             act.EndDateType = finalDate.SelectedDateType ();
@@ -112,7 +112,7 @@ namespace Views
             set
             {
                 isEditing = value;
-                humanrigthsviolationcategoryselector.IsEditable = value;
+                humanrightsviolationcategory.IsEditable = value;
                 initialDate.IsEditable = value;
                 finalDate.IsEditable = value;
                 affected.IsEditable = value;

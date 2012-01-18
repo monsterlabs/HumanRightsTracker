@@ -217,12 +217,12 @@
     <Compile Include="gtk-gui\Views.CatalogCRUD.cs" />
     <Compile Include="Widgets\CatalogTab.cs" />
     <Compile Include="gtk-gui\Views.CatalogTab.cs" />
-    <Compile Include="Widgets\HumanRigthsViolationCategorySelector.cs" />
-    <Compile Include="gtk-gui\Views.HumanRigthsViolationCategorySelector.cs" />
     <Compile Include="Places\PlaceShow.cs" />
     <Compile Include="gtk-gui\Views.PlaceShow.cs" />
     <Compile Include="Places\PlaceDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.PlaceDetailWindow.cs" />
+    <Compile Include="Widgets\HumanRightsViolationCategorySelector.cs" />
+    <Compile Include="gtk-gui\Views.HumanRightsViolationCategorySelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

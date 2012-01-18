@@ -7,8 +7,6 @@ using System.Collections;
 
 namespace Views
 {
-
-
     [Gtk.TreeNode]
     public class HumanRightsViolationCategoryNode : Gtk.TreeNode
     {
@@ -29,13 +27,13 @@ namespace Views
     }
 
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class HumanRigthsViolationCategorySelector : Gtk.Bin
+    public partial class HumanRightsViolationCategorySelector : Gtk.Bin
     {
         protected Gtk.NodeStore store;
         protected HumanRightsViolationCategory human_right_violation_category;
         protected bool isEditable;
 
-        public HumanRigthsViolationCategorySelector ()
+        public HumanRightsViolationCategorySelector ()
         {
             this.Build ();
             nodeview.NodeStore =  Store;
@@ -105,7 +103,6 @@ namespace Views
         protected void OnShown (object sender, System.EventArgs e)
         {
             nodeview.QueueDraw ();
-
         }
     }
 }
