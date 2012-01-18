@@ -51,6 +51,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(TrackingInformation), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList TrackingInformation { get; set; }
 
+        [HasMany(typeof(Place), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList Places { get; set; }
+
         [HasMany(typeof(Act), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Acts { get; set; }
 

@@ -1,10 +1,11 @@
 using System;
+using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class DocumentWindow : Gtk.Window
+    public partial class PlaceDetailWindow : Gtk.Window
     {
-        public DocumentWindow () : 
+        public PlaceDetailWindow () : 
                 base(Gtk.WindowType.Toplevel)
         {
             this.Build ();

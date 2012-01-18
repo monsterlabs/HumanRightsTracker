@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using HumanRightsTracker.Models;
+using Mono.Unix;
 
 namespace Views
 {
@@ -49,7 +50,7 @@ namespace Views
 
         protected void OnDocumentSave (object sender, System.EventArgs e)
         {
-            Gtk.FileChooserDialog dialog = new Gtk.FileChooserDialog("Save Document ...",
+            Gtk.FileChooserDialog dialog = new Gtk.FileChooserDialog(Catalog.GetString("Save Document ..."),
                 (Gtk.Window) this.Toplevel,
                 Gtk.FileChooserAction.Save);
 
@@ -62,7 +63,6 @@ namespace Views
 
             int response = dialog.Run ();
             if (response == (int) Gtk.ResponseType.Accept) {
-                Console.WriteLine ("Filename: " + dialog.Filename);
                 File.WriteAllBytes(dialog.Filename, this.Document.Content);
             }
             dialog.Destroy ();
