@@ -10,13 +10,15 @@ namespace Views
     {
         HashSet<Perpetrator> perpetrators = new HashSet<Perpetrator>(new ARComparer<Perpetrator>());
         bool isEditing;
-
         Victim victim;
+        private EditableHelper editable_helper;
 
         public PerpetratorSelector ()
         {
             this.Build ();
             row.Destroy ();
+            this.editable_helper = new EditableHelper(this);
+            this.IsEditing = false;
         }
 
 
@@ -33,9 +35,8 @@ namespace Views
             set {
                 isEditing = value;
                 addButton.Visible = value;
-                foreach (Gtk.Widget row in peopleList.AllChildren) {
-                    ((PerpetratorRow) row).IsEditable = value;
-                }
+                
+                this.editable_helper.SetAllEditable(value);
             }
         }
         public HashSet<Perpetrator> Perpetrators {
@@ -60,7 +61,9 @@ namespace Views
             if (perpetrators.Add (args.Perpetrator))
             {
                 peopleList.PackStart (new PerpetratorRow(args.Perpetrator, OnRemoved));
+
                 peopleList.ShowAll ();
+
             }
 
             return;

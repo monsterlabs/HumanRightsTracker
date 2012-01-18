@@ -44,7 +44,6 @@ namespace Views
                 PerpetratorSelector.Perpetrators = perpetrators;
                 PerpetratorSelector.Victim = victim;
 
-
                 IsEditing = false;
             }
         }
@@ -62,6 +61,7 @@ namespace Views
             {
                 isEditing = value;
                 this.editable_helper.SetAllEditable(value);
+                PerpetratorSelector.IsEditing = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
@@ -70,6 +70,7 @@ namespace Views
                     saveButton.Visible = false;
                 }
             }
+
         }
 
         protected virtual void OnSave (object sender, System.EventArgs e)

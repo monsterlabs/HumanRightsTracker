@@ -114,9 +114,11 @@ namespace Views
                 if (value) {
                     editButton1.Label = Catalog.GetString("Cancel");
                     saveButton1.Visible = true;
+                    addVictimButton.Visible = true;
                 } else {
                     editButton1.Label = Catalog.GetString("Edit");
                     saveButton1.Visible = false;
+                    addVictimButton.Visible = false;
                 }
             }
         }
@@ -141,8 +143,8 @@ namespace Views
             victimlist.UnselectAll ();
 
             victimshow1.Victim = v;
-            victimshow1.IsEditing = true;
             victimshow1.Show ();
+            victimshow1.IsEditing = true;
             return;
         }
     }

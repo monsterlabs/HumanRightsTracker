@@ -1896,7 +1896,6 @@ No</property>
             <child>
               <widget class="Gtk.Label" id="GtkLabel35">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes" />
                 <property name="UseMarkup">True</property>
               </widget>
               <packing>
@@ -2111,7 +2110,6 @@ No</property>
           <widget class="Gtk.Label" id="text">
             <property name="MemberName" />
             <property name="Visible">False</property>
-            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -2578,7 +2576,6 @@ No</property>
                 <child>
                   <widget class="Gtk.Label" id="GtkLabel6">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes" />
                     <property name="UseMarkup">True</property>
                   </widget>
                   <packing>
@@ -2715,7 +2712,6 @@ No</property>
         <child>
           <widget class="Gtk.Label" id="label2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes" />
           </widget>
         </child>
       </widget>
@@ -4978,7 +4974,7 @@ End date</property>
                 <child>
                   <widget class="Gtk.Label" id="GtkLabel15">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">&lt;b&gt;Place and Victims number&lt;/b&gt;</property>
+                    <property name="LabelProp" translatable="yes">&lt;b&gt;Affected people and place&lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>
                   </widget>
                   <packing>
@@ -5075,7 +5071,6 @@ End date</property>
                                       <widget class="Views.VictimShow" id="victimshow1">
                                         <property name="MemberName" />
                                         <property name="Events">ButtonPressMask</property>
-                                        <property name="IsEditable">False</property>
                                         <property name="IsEditing">False</property>
                                         <signal name="Saved" handler="OnVictimSaved" />
                                       </widget>
@@ -5120,20 +5115,7 @@ End date</property>
           <widget class="Gtk.HButtonBox" id="hbuttonbox6">
             <property name="MemberName" />
             <property name="Size">2</property>
-            <child>
-              <widget class="Gtk.Button" id="saveButton1">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Save</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnSave" />
-              </widget>
-              <packing>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
+            <property name="LayoutStyle">Edge</property>
             <child>
               <widget class="Gtk.Button" id="editButton1">
                 <property name="MemberName" />
@@ -5142,6 +5124,20 @@ End date</property>
                 <property name="Label" translatable="yes">Edit</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnToggleEdit" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="saveButton1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Save</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnSave" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -6741,7 +6737,6 @@ End Date</property>
       <widget class="Views.VictimShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
-        <property name="IsEditable">False</property>
         <property name="IsEditing">False</property>
         <signal name="Saved" handler="OnSave" />
         <signal name="Unsaved" handler="OnSave" />
@@ -7773,7 +7768,6 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="type">label_item</property>
@@ -8017,7 +8011,6 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes" />
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
@@ -8186,7 +8179,6 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="type">label_item</property>
@@ -8276,7 +8268,6 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel4">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8392,7 +8383,6 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel5">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8508,7 +8498,6 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel6">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8624,7 +8613,6 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="GtkLabel7">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes" />
                       </widget>
                       <packing>
                         <property name="type">label_item</property>
@@ -8819,7 +8807,6 @@ End Date</property>
                         <child>
                           <widget class="Gtk.Label" id="GtkLabel11">
                             <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes" />
                           </widget>
                           <packing>
                             <property name="type">label_item</property>
@@ -9030,7 +9017,6 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="type">label_item</property>
@@ -9850,7 +9836,6 @@ End Date</property>
         <child>
           <widget class="Gtk.Label" id="GtkLabel2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes" />
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
