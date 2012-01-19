@@ -32,9 +32,9 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.RelatedCase.start_date.HasValue)
-                data[2] = this.RelatedCase.start_date.Value.ToShortDateString ();
+                data[3] = this.RelatedCase.start_date.Value.ToShortDateString ();
             if (this.RelatedCase.end_date.HasValue)
-                data[3] = this.RelatedCase.end_date.Value.ToShortDateString ();
+                data[4] = this.RelatedCase.end_date.Value.ToShortDateString ();
 
             return data;
         }
