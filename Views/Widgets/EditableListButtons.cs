@@ -4,8 +4,9 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class EditableListButtons : Gtk.Bin
+    public partial class EditableListButtons : Gtk.Bin, IEditable
     {
+        protected bool isEditable;
 
         ListableRecord record;
 
@@ -13,6 +14,7 @@ namespace Views
         {
             this.Build ();
             this.record = record;
+            this.isEditable = false;
         }
 
         public event EventHandler DeletePressed;
@@ -28,6 +30,16 @@ namespace Views
         {
             if (DetailPressed != null)
                 DetailPressed (record, e);
+        }
+
+         public bool IsEditable {
+            set {
+                this.isEditable = value;
+                deleteButton.Visible = value;
+            }
+            get {
+                return this.isEditable;
+            }
         }
     }
 }
