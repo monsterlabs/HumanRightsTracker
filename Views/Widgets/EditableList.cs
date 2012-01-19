@@ -6,7 +6,7 @@ using Gtk;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class EditableList : Gtk.Bin
+    public partial class EditableList : Gtk.Bin, IEditable
     {
         string[] headers;
 
@@ -16,9 +16,16 @@ namespace Views
         public event EventHandler DeleteButtonPressed;
         public event EventHandler DetailButtonPressed;
 
+        private EditableHelper editable_helper;
+        private bool isEditing;
+        private bool isEditable;
+
         public EditableList ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(table);
+            this.IsEditing = false;
+            this.IsEditable = false;
         }
 
         public string[] Headers {
@@ -27,13 +34,6 @@ namespace Views
             }
             set {
                 headers = value;
-
-                table.Resize (1, (uint) (headers.Length + 1));
-                for (uint i = 0; i < headers.Length; i++) {
-                    Label l = new Label ("<b>" + headers[i] + "</b>");
-                    l.UseMarkup = true;
-                    table.Attach (l, i, i+1, 0,1);
-                }
             }
         }
 
@@ -44,9 +44,8 @@ namespace Views
             set {
                 records = value;
 
-                foreach (Gtk.Widget w in table.AllChildren) {
-                    w.Destroy();
-                }
+                this.DestroyTableChildren ();
+                this.BuildTableHeaders ();
 
                 table.Resize ((uint) (records.Count + 1), (uint) (headers.Length + 1));
                 for (uint i = 0; i < records.Count; i++) {
@@ -66,6 +65,41 @@ namespace Views
                     table.Attach (buttons, j, j+1, i+1,i+2);
                 }
                 table.ShowAll ();
+                this.editable_helper.SetAllEditable (isEditable);
+            }
+        }
+
+        protected void BuildTableHeaders () {
+            table.Resize (1, (uint) (headers.Length + 1));
+            for (uint i = 0; i < headers.Length; i++) {
+                Label l = new Label ("<b>" + headers[i] + "</b>");
+                l.UseMarkup = true;
+                table.Attach (l, i, i+1, 0,1);
+            }
+        }
+
+        protected void DestroyTableChildren () {
+            foreach (Gtk.Widget w in table.AllChildren)
+                w.Destroy();
+        }
+
+         public bool IsEditing
+        {
+            get { return this.isEditing; }
+            set
+            {
+                isEditing = value;
+                IsEditable = value;
+            }
+        }
+
+        public bool IsEditable
+        {
+            get { return this.isEditable; }
+            set
+            {
+                isEditable = value;
+                newButton.Visible = value;
             }
         }
 

@@ -3392,6 +3392,8 @@ December</property>
                             <property name="Headers">City
 State
 Country</property>
+                            <property name="IsEditing">False</property>
+                            <property name="IsEditable">False</property>
                           </widget>
                         </child>
                         <child>
@@ -3422,6 +3424,8 @@ Country</property>
                             <property name="Headers">ID
 Title
 Date of Receipt</property>
+                            <property name="IsEditing">False</property>
+                            <property name="IsEditable">False</property>
                           </widget>
                         </child>
                         <child>
@@ -3486,6 +3490,8 @@ Date of Receipt</property>
 Act
 Start Date
 End Date</property>
+                        <property name="IsEditing">False</property>
+                        <property name="IsEditable">False</property>
                         <signal name="NewButtonPressed" handler="OnNew" />
                         <signal name="DeleteButtonPressed" handler="OnDelete" />
                         <signal name="DetailButtonPressed" handler="OnDetail" />
@@ -3563,6 +3569,7 @@ End Date</property>
           <widget class="Gtk.Expander" id="expander1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
+            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox9">
                 <property name="MemberName" />
@@ -3671,10 +3678,13 @@ End Date</property>
                       <widget class="Views.EditableList" id="case_relationships_editablelist">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="Headers">Relation type
-Case
+                        <property name="Headers">Case
+Relation type
+Related case
 Start date
 End date</property>
+                        <property name="IsEditing">False</property>
+                        <property name="IsEditable">False</property>
                         <signal name="NewButtonPressed" handler="OnNewRelationShip" />
                       </widget>
                     </child>
@@ -5347,6 +5357,8 @@ End date</property>
 Act
 Start Date
 End Date</property>
+        <property name="IsEditing">False</property>
+        <property name="IsEditable">False</property>
       </widget>
     </child>
   </widget>
@@ -10968,7 +10980,7 @@ End Date</property>
         <property name="Size">2</property>
         <property name="LayoutStyle">End</property>
         <child>
-          <widget class="Gtk.Button" id="button3092">
+          <widget class="Gtk.Button" id="deleteButton">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="Type">TextAndIcon</property>
@@ -10983,7 +10995,7 @@ End Date</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Button" id="button3093">
+          <widget class="Gtk.Button" id="detailButton">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="Type">TextAndIcon</property>
