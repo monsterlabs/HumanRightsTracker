@@ -17,14 +17,12 @@ namespace Views
         public event EventHandler DetailButtonPressed;
 
         private EditableHelper editable_helper;
-        private bool isEditing;
         private bool isEditable;
 
         public EditableList ()
         {
             this.Build ();
             this.editable_helper = new EditableHelper(table);
-            this.IsEditing = false;
             this.IsEditable = false;
         }
 
@@ -65,6 +63,7 @@ namespace Views
                     table.Attach (buttons, j, j+1, i+1,i+2);
                 }
                 table.ShowAll ();
+                this.editable_helper.UpdateEditableWidgets ();
                 this.editable_helper.SetAllEditable (isEditable);
             }
         }
@@ -83,16 +82,6 @@ namespace Views
                 w.Destroy();
         }
 
-         public bool IsEditing
-        {
-            get { return this.isEditing; }
-            set
-            {
-                isEditing = value;
-                IsEditable = value;
-            }
-        }
-
         public bool IsEditable
         {
             get { return this.isEditable; }
@@ -100,6 +89,7 @@ namespace Views
             {
                 isEditable = value;
                 newButton.Visible = value;
+                this.editable_helper.SetAllEditable (value);
             }
         }
 
