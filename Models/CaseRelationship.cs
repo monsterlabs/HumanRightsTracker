@@ -24,6 +24,7 @@ namespace HumanRightsTracker.Models
         public string[] ColumnData ()
         {
             string[] data = {
+                this.Case.Name,
                 this.RelationshipType.Name,
                 this.RelatedCase.Name,
                 "",
