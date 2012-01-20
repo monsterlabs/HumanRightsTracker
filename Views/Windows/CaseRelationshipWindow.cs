@@ -3,9 +3,10 @@ using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class CaseRelationshipWindow : Gtk.Window
+    public partial class CaseRelationshipWindow : Gtk.Window, IEditable
     {
-        public event EventHandler OnCaseRelationshipSaved = null;
+        public event EventHandler Saved;
+        public event EventHandler Canceled;
 
         CaseRelationship case_relationship;
         bool isEditable;
@@ -20,10 +21,20 @@ namespace Views
         {
             this.Build ();
             this.Modal = true;
-            this.OnCaseRelationshipSaved= onSave;
+            this.Saved= onSave;
             this.TransientFor = parent;
             CaseRelationship = case_relationship;
+        }
 
+        public CaseRelationshipWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.Saved = OnSave;
+            this.TransientFor = parent;
+            case_relationship = new CaseRelationship ();
+            case_relationship.Case = c;
+            CaseRelationship = case_relationship;
         }
 
         public CaseRelationship CaseRelationship {
@@ -31,8 +42,8 @@ namespace Views
             set {
                 case_relationship = value;
                 if (case_relationship != null) {
-                    case_relationship.RelatedCase = related_case_select.Case;
-                    case_relationship.RelationshipType = relationship_type.Active as RelationshipType;
+                    related_case_select.Case = case_relationship.RelatedCase;
+                    relationship_type.Active = case_relationship.RelationshipType;
                 }
             }
         }
@@ -43,26 +54,38 @@ namespace Views
             }
             set {
                 isEditable = value;
-                related_case_select.IsEditable = value;
-                relationship_type.IsEditable  = value;
-
             }
         }
 
         protected void OnCancel (object sender, System.EventArgs e)
         {
+            IsEditable = !IsEditable;
             this.Destroy ();
         }
 
         protected void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = false;
+            if (case_relationship.Id < 1) {
+                newRow = true;
+            }
+
             case_relationship.RelatedCase = related_case_select.Case;
             case_relationship.RelationshipType = relationship_type.Active as RelationshipType;
 
+
             if (case_relationship.IsValid()) {
                 case_relationship.Save ();
-                OnCaseRelationshipSaved (case_relationship, e);
-                this.Destroy();
+
+                if (newRow) {
+                    case_relationship.Case.CaseRelationships.Add (CaseRelationship);
+                    case_relationship.Case.SaveAndFlush ();
+                }
+
+                if (Saved != null)
+                   Saved (this.case_relationship, e);
+                this.Destroy ();
+
             } else {
                 Console.WriteLine( String.Join(",",case_relationship.ValidationErrorMessages) );
                 new ValidationErrorsDialog (case_relationship.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);

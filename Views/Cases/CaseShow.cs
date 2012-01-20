@@ -23,6 +23,7 @@ namespace Views
             this.isEditing = false;
             ConnectTrackingHandlers ();
             ConnectPlacesHandlers();
+            ConnectCaseRelationshipHandlers();
         }
 
         public Case Case {
@@ -42,7 +43,7 @@ namespace Views
                     observations.Text = mycase.Observations;
                     if (mycase.Id != 0 ) {
                         editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
-                        case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
+                        case_relationship_list.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
                         interventionlist.Records = value.Interventions.Cast<ListableRecord>().ToList();
                         documentarysourcelist.Records = value.DocumentarySources.Cast<ListableRecord>().ToList();
                         informationsourcelist.Records = value.InformationSources.Cast<ListableRecord>().ToList();
@@ -104,6 +105,12 @@ namespace Views
             placeslist.Records = places;
         }
 
+        public void ReloadCaseRelationships () {
+            List<CaseRelationship> case_relationships = this.Case.CaseRelationships.Cast<CaseRelationship>().ToList ();
+            case_relationships.Sort ();
+            case_relationship_list.Records = case_relationships.Cast<ListableRecord>().ToList ();
+        }
+
         public void ConnectTrackingHandlers () {
             trackinglist.NewButtonPressed += (sender, e) => {
                 new TrackingDetailWindow (this.Case, (o, args) => {
@@ -144,6 +151,28 @@ namespace Views
                 Place p = sender as Place;
                 new PlaceDetailWindow(p, (o, args) => {
                     this.ReloadPlaces ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectCaseRelationshipHandlers() {
+            case_relationship_list.NewButtonPressed += (sender, e) => {
+                new CaseRelationshipWindow(this.Case, (o, args) => {
+                    this.ReloadCaseRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            case_relationship_list.DeleteButtonPressed += (sender, e) => {
+                CaseRelationship record = sender as CaseRelationship;
+                this.Case.CaseRelationships.Remove (record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadCaseRelationships ();
+            };
+            case_relationship_list.DetailButtonPressed += (sender, e) => {
+                CaseRelationship record = sender as CaseRelationship;
+                new CaseRelationshipWindow(record, (o, args) => {
+                    this.ReloadCaseRelationships ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }
@@ -218,18 +247,5 @@ namespace Views
         {
             editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
         }
-
-        protected void OnNewRelationShip (object sender, System.EventArgs e)
-        {
-            CaseRelationship case_relationship = new CaseRelationship ();
-            case_relationship.Case = mycase;
-            new CaseRelationshipWindow (case_relationship, OnNewCaseRelationshipReturned, (Gtk.Window)this.Toplevel);
-        }
-
-        protected void OnNewCaseRelationshipReturned  (object sender, EventArgs args) {
-            // TODO: put your implementation here
-            return;
-        }
-
     }
 }

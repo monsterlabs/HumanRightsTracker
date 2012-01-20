@@ -3684,7 +3684,7 @@ Date</property>
                     <property name="CanFocus">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
-                      <widget class="Views.EditableList" id="case_relationships_editablelist">
+                      <widget class="Views.EditableList" id="case_relationship_list">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
                         <property name="Headers">Case
@@ -3693,7 +3693,6 @@ Related case
 Start date
 End date</property>
                         <property name="IsEditable">False</property>
-                        <signal name="NewButtonPressed" handler="OnNewRelationShip" />
                       </widget>
                     </child>
                     <child>
