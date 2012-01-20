@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("interventions")]
-    public class Intervention : ActiveRecordValidationBase<Intervention>
+    public class Intervention : ActiveRecordValidationBase<Intervention>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -56,6 +56,51 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(InterventionAffectedPeople), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList AffectedPeople { get; set; }
+
+        public String InterventorName () {
+            String name = "";
+
+            if (Interventor != null)
+                name = Interventor.Fullname;
+
+            if (InterventorJob != null)
+                name = " " + name + "(" + InterventorJob.Name + ")";
+
+            if (InterventorInstitution != null)
+                name = ", " + name + InterventorInstitution.Name;
+
+            return name;
+        }
+
+        public String SupporterName () {
+            String name = "";
+
+            if (Supporter != null)
+                name = Supporter.Fullname;
+
+            if (SupporterJob != null)
+                name = " " + name + "(" + SupporterJob.Name + ")";
+
+            if (SupporterInstitution != null)
+                name = ", " + name + SupporterInstitution.Name;
+
+            return name;
+        }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.SupporterName (),
+                this.InterventorName (),
+                this.InterventionType.Name,
+                "",
+            };
+
+            if (this.Date.HasValue)
+                data[3] = this.Date.Value.ToShortDateString ();
+
+            return data;
+        }
 
     }
 }

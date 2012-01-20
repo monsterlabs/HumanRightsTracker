@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("information_sources")]
-    public class InformationSource : ActiveRecordValidationBase<InformationSource>
+    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -79,6 +79,20 @@ namespace HumanRightsTracker.Models
                 else
                     return "Not defined";
             }
+        }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.sourceName,
+                this.AffiliationType.Name,
+                ""
+            };
+
+            if (this.Date.HasValue)
+                data[2] = this.Date.Value.ToShortDateString ();
+
+            return data;
         }
    }
 }

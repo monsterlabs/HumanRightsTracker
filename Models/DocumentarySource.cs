@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("documentary_sources")]
-    public class DocumentarySource : ActiveRecordValidationBase<DocumentarySource>
+    public class DocumentarySource : ActiveRecordValidationBase<DocumentarySource>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -71,6 +71,24 @@ namespace HumanRightsTracker.Models
                 else
                     return "Not defined";
             }
+        }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.Name,
+                this.SourceInformationType.Name,
+                "",
+                "",
+            };
+
+            if (this.Date.HasValue)
+                data[2] = this.Date.Value.ToShortDateString ();
+
+            if (this.AccessDate.HasValue)
+                data[3] = this.AccessDate.Value.ToShortDateString ();
+
+            return data;
         }
    }
 }
