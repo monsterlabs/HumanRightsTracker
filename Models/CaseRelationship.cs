@@ -4,10 +4,11 @@ using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using System.Collections;
 
+
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("case_relationships")]
-    public class CaseRelationship : ActiveRecordValidationBase<CaseRelationship>, ListableRecord
+    public class CaseRelationship : ActiveRecordValidationBase<CaseRelationship>, ListableRecord, IComparable<CaseRelationship>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -39,6 +40,13 @@ namespace HumanRightsTracker.Models
             return data;
         }
 
+        public int CompareTo(CaseRelationship other)
+        {
+            if (other == null) return 1;
+            DateTime timeX = this.RelatedCase.start_date.Value;
+            DateTime timeY = other.RelatedCase.start_date.Value;
+            return timeY.CompareTo(timeX);
+        }
     }
 }
 
