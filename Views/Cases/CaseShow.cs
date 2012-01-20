@@ -43,9 +43,9 @@ namespace Views
 
                     editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
                     case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
-                    interventionlist1.Case = value;
-                    documentarysourcelist.Case = value;
-                    informationsourcelist1.Case = value;
+                    interventionlist.Records = value.Interventions.Cast<ListableRecord>().ToList();
+                    documentarysourcelist.Records = value.DocumentarySources.Cast<ListableRecord>().ToList();
+                    informationsourcelist.Records = value.InformationSources.Cast<ListableRecord>().ToList();
                     List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
                     trackings.Sort();
                     trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
@@ -73,9 +73,6 @@ namespace Views
                 }
 
                 this.editable_helper.SetAllEditable (value);
-                interventionlist1.IsEditable = value;
-                documentarysourcelist.IsEditable = value;
-                informationsourcelist1.IsEditable = value;
             }
         }
 
