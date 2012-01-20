@@ -22,6 +22,7 @@ namespace Views
             this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
             ConnectTrackingHandlers ();
+            ConnectPlacesHandlers();
         }
 
         public Case Case {
@@ -82,10 +83,15 @@ namespace Views
             hbuttonbox9.Hide ();
         }
 
-        public void ReloadTrackings () {
+        private void ReloadTrackings () {
             List<TrackingInformation> trackings = this.Case.TrackingInformation.Cast<TrackingInformation>().ToList ();
             trackings.Sort ();
             trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+        }
+
+        private void ReloadPlaces () {
+            List<ListableRecord> places = this.Case.Places.Cast<ListableRecord>().ToList ();
+            placeslist.Records = places;
         }
 
         public void ConnectTrackingHandlers () {
@@ -106,6 +112,28 @@ namespace Views
                 TrackingInformation t = sender as TrackingInformation;
                 new TrackingDetailWindow(t, (o, args) => {
                     this.ReloadTrackings ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectPlacesHandlers() {
+            placeslist.NewButtonPressed += (sender, e) => {
+                new PlaceDetailWindow (this.Case, (o, args) => {
+                    this.ReloadPlaces ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            placeslist.DeleteButtonPressed += (sender, e) => {
+                Place p = sender as Place;
+                this.Case.Places.Remove (p);
+                if (p.Id >= 1) {
+                    p.Delete ();
+                }
+                this.ReloadPlaces ();
+            };
+            placeslist.DetailButtonPressed += (sender, e) => {
+                Place p = sender as Place;
+                new PlaceDetailWindow(p, (o, args) => {
+                    this.ReloadPlaces ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }

@@ -5,10 +5,41 @@ namespace Views
 {
     public partial class PlaceDetailWindow : Gtk.Window
     {
-        public PlaceDetailWindow () : 
-                base(Gtk.WindowType.Toplevel)
+        public event EventHandler OnSaved = null;
+
+        public PlaceDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
+            this.Modal = true;
+            this.OnSaved = OnSave;
+            this.TransientFor = parent;
+            Place p = new Place ();
+            p.Case = c;
+            show.Place = p;
+            show.IsEditable = true;
+        }
+
+        public PlaceDetailWindow (Place place, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.OnSaved = OnSave;
+            this.TransientFor = parent;
+            show.Place = place;
+            show.IsEditable = true;
+        }
+
+        protected void OnShowSaved (object sender, System.EventArgs e)
+        {
+            OnSaved (sender, e);
+            this.Destroy ();
+        }
+
+        protected void OnShowCanceled (object sender, System.EventArgs e)
+        {
+            if (show.Place.Id < 1) {
+                this.Destroy ();
+            }
         }
     }
 }
