@@ -3172,7 +3172,8 @@ December</property>
                         <child>
                           <widget class="Gtk.Label" id="label1">
                             <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">Affected people</property>
+                            <property name="LabelProp" translatable="yes">&lt;b&gt;Affected people&lt;/b&gt;</property>
+                            <property name="UseMarkup">True</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">1</property>
@@ -3191,7 +3192,9 @@ December</property>
                         <child>
                           <widget class="Gtk.Label" id="label4">
                             <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">Name</property>
+                            <property name="Xalign">0</property>
+                            <property name="LabelProp" translatable="yes">&lt;b&gt;Name&lt;/b&gt;</property>
+                            <property name="UseMarkup">True</property>
                           </widget>
                           <packing>
                             <property name="AutoSize">True</property>
@@ -3208,7 +3211,9 @@ December</property>
                         <child>
                           <widget class="Gtk.Label" id="label5">
                             <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">Start Date</property>
+                            <property name="Xalign">0</property>
+                            <property name="LabelProp" translatable="yes">&lt;b&gt;Start Date&lt;/b&gt;</property>
+                            <property name="UseMarkup">True</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">2</property>
@@ -3227,7 +3232,9 @@ December</property>
                         <child>
                           <widget class="Gtk.Label" id="label6">
                             <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">End Date</property>
+                            <property name="Xalign">0</property>
+                            <property name="LabelProp" translatable="yes">&lt;b&gt;End Date&lt;/b&gt;</property>
+                            <property name="UseMarkup">True</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
