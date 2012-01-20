@@ -32,6 +32,8 @@ namespace Views
             }
             set {
                 headers = value;
+                Array.Resize(ref headers, headers.Length + 1);
+                headers[headers.Length -1] = "Action(s)";
             }
         }
 
@@ -45,11 +47,11 @@ namespace Views
                 this.DestroyTableChildren ();
                 this.BuildTableHeaders ();
 
-                table.Resize ((uint) (records.Count + 1), (uint) (headers.Length+1));
+                table.Resize ((uint) (records.Count + 1), (uint) (headers.Length));
                 for (uint i = 0; i < records.Count; i++) {
                     string[] data = records[(int) i].ColumnData ();
                     uint j = 0;
-                    for (; j < headers.Length; j++) {
+                    for (; j < (headers.Length -1); j++) {
                         Label l = new Label (data[j]);
                         //l.MaxWidthChars = 20;
                         l.LineWrap = true;
@@ -77,7 +79,8 @@ namespace Views
         }
 
         protected void BuildTableHeaders () {
-            table.Resize (1, (uint) (headers.Length+1));
+            table.Resize (1, (uint) (headers.Length));
+
             for (uint i = 0; i < headers.Length; i++) {
                 Label l = new Label ("<b>" + headers[i] + "</b>");
                 l.UseMarkup = true;
@@ -91,16 +94,6 @@ namespace Views
                 table.SetColSpacing(i, 0);
             }
 
-            Label label = new Label ("<b>Action(s)</b>");
-            label.UseMarkup = true;
-            label.Justify = Justification.Fill;
-
-            Gtk.Frame frame = new Gtk.Frame ();
-            frame.ShadowType = Gtk.ShadowType.In;
-            frame.Add(label);
-            uint j = (uint)headers.Length;
-
-            table.Attach (frame, j, j+1, 0,1);
             table.SetRowSpacing(0, 0);
         }
 
