@@ -34,6 +34,16 @@ namespace HumanRightsTracker.Models
         {
             return FindAll(t, order, criteria);
         }
+
+        public static new void Save(Object record)
+        {
+            SaveAndFlush(record);
+        }
+
+        public static new void Delete(Object record)
+        {
+            DeleteAndFlush(record);
+        }
     }
 }
 

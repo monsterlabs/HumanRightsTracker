@@ -11787,6 +11787,7 @@ End Date</property>
                     <property name="Icon">stock:gtk-add Menu</property>
                     <property name="Label" translatable="yes">_Add</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnAdd" />
                   </widget>
                   <packing>
                     <property name="Expand">False</property>
@@ -11801,6 +11802,7 @@ End Date</property>
                     <property name="Icon">stock:gtk-remove Menu</property>
                     <property name="Label" translatable="yes">_Remove</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnRemove" />
                   </widget>
                   <packing>
                     <property name="Position">1</property>

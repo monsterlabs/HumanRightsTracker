@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Internal;
 using System.Reflection;
@@ -13,6 +14,7 @@ namespace Views
         public RecordNode (Object record, ActiveRecordModel mod)
         {
             Record = record;
+            this.mod = mod;
             PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
             Name = nameProp.GetValue(record, null) as String;
             MethodInfo modelMethod = mod.Type.GetMethod("ParentName");
@@ -26,6 +28,7 @@ namespace Views
         }
 
         public Object Record;
+        ActiveRecordModel mod;
 
         [Gtk.TreeNodeValue (Column=0)]
         public bool Selected;
@@ -33,6 +36,17 @@ namespace Views
         public string Name;
         [Gtk.TreeNodeValue (Column=2)]
         public string ParentName;
+
+        public void SaveRecord () {
+            PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
+            nameProp.SetValue (Record, Name, null);
+            ActiveRecordMetaBase.Save (Record);
+        }
+
+        public void DeleteRecord () {
+            ActiveRecordMetaBase.Delete (Record);
+        }
+
     }
 
     [System.ComponentModel.ToolboxItem(true)]
@@ -42,6 +56,7 @@ namespace Views
         ActiveRecordModel mod;
         Type t;
         Array options;
+        Hashtable selected;
 
         public CatalogCRUD ()
         {
@@ -57,6 +72,7 @@ namespace Views
             nameCell.Edited += HandleNameCellEdited;
             table.AppendColumn ("Name", nameCell, "text", 1);
 
+            selected = new Hashtable ();
         }
 
         Gtk.NodeStore store;
@@ -133,6 +149,10 @@ namespace Views
 
             node.Selected = !node.Selected;
             // Add it to selected list
+            if (node.Selected)
+                selected.Add (args.Path, node);
+            else
+                selected.Remove (args.Path);
         }
 
         void HandleNameCellEdited (object o, Gtk.EditedArgs args)
@@ -140,12 +160,31 @@ namespace Views
             RecordNode node = store.GetNode(new Gtk.TreePath(args.Path)) as RecordNode;
             node.Name = args.NewText;
             // tell node to save the value
+            node.SaveRecord ();
         }
 
 
         protected void Filter (object sender, System.EventArgs e)
         {
             Populate ();
+        }
+
+        protected void OnRemove (object sender, System.EventArgs e)
+        {
+            foreach (RecordNode node in selected.Values) {
+                node.DeleteRecord ();
+            }
+            selected.Clear ();
+            Populate ();
+        }
+
+        protected void OnAdd (object sender, System.EventArgs e)
+        {
+            Object record = Activator.CreateInstance(t);
+            PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
+            nameProp.SetValue (record, "New " + t.Name, null);
+            store.AddNode (new RecordNode (record, mod));
+            table.ScrollToCell (new Gtk.TreePath ("" + (options.Length)), table.Columns[1], false, 0, 0);
         }
     }
 }
