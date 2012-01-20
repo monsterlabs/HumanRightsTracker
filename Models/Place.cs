@@ -31,15 +31,15 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.Country != null) {
-                data[0] = this.City.Name;
+                data[0] = this.Country.Name;
             }
 
             if (this.State != null) {
                 data[1] = this.State.Name;
             }
 
-            if (this.Country != null) {
-                data[2] = this.Country.Name;
+            if (this.City != null) {
+                data[2] = this.City.Name;
             }
 
             return data;

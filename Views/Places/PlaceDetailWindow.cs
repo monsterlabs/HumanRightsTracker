@@ -26,7 +26,7 @@ namespace Views
             this.OnSaved = OnSave;
             this.TransientFor = parent;
             show.Place = place;
-            show.IsEditable = true;
+            show.IsEditable = false;
         }
 
         protected void OnShowSaved (object sender, System.EventArgs e)

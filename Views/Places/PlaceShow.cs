@@ -24,6 +24,7 @@ namespace Views
             get { return place; }
             set {
                 this.place = value;
+                placeselector.SetPlace (place.Country, place.State, place.City);
             }
         }
 
@@ -39,7 +40,42 @@ namespace Views
                     saveButton.Visible = true;
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
+                    saveButton.Visible = false;
                 }
+            }
+        }
+
+        protected void OnToggle (object sender, System.EventArgs e)
+        {
+            IsEditable = !IsEditable;
+            if (!isEditable && Canceled != null) {
+                Canceled (sender, e);
+            }
+        }
+
+        protected void OnSave (object sender, System.EventArgs e)
+        {
+            bool newRow = false;
+            if (place.Id < 1) {
+                newRow = true;
+            }
+            place.Country = placeselector.Country;
+            place.State = placeselector.State;
+            place.City = placeselector.City;
+
+            if (place.IsValid ()) {
+                place.Save ();
+                if (newRow) {
+                    place.Case.Places.Add (Place);
+                    place.Case.SaveAndFlush ();
+                }
+                this.IsEditable = false;
+
+                if (Saved != null)
+                        Saved (this.Place, e);
+            } else {
+                Console.WriteLine( String.Join(",", place.ValidationErrorMessages) );
+                new ValidationErrorsDialog (place.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
     }
