@@ -23,6 +23,7 @@ namespace Views
             this.isEditing = false;
             ConnectTrackingHandlers ();
             ConnectPlacesHandlers();
+            ConnectInformationSourceHandlers();
             ConnectCaseRelationshipHandlers();
         }
 
@@ -111,6 +112,12 @@ namespace Views
             case_relationship_list.Records = case_relationships.Cast<ListableRecord>().ToList ();
         }
 
+        public void ReloadInformationSources () {
+            List<InformationSource> information_sources = this.Case.InformationSources.Cast<InformationSource>().ToList ();
+            information_sources.Sort ();
+            informationsourcelist.Records = information_sources.Cast<ListableRecord>().ToList ();
+        }
+
         public void ConnectTrackingHandlers () {
             trackinglist.NewButtonPressed += (sender, e) => {
                 new TrackingDetailWindow (this.Case, (o, args) => {
@@ -173,6 +180,29 @@ namespace Views
                 CaseRelationship record = sender as CaseRelationship;
                 new CaseRelationshipWindow(record, (o, args) => {
                     this.ReloadCaseRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectInformationSourceHandlers() {
+            informationsourcelist.NewButtonPressed += (sender, e) => {
+                new InformationSourceWindow(this.Case, (o, args) => {
+                    this.ReloadInformationSources ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            informationsourcelist.DeleteButtonPressed += (sender, e) => {
+                InformationSource record = sender as InformationSource;
+                this.Case.InformationSources.Remove (record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadInformationSources ();
+
+            };
+            informationsourcelist.DetailButtonPressed += (sender, e) => {
+                InformationSource record = sender as InformationSource;
+                new InformationSourceWindow(record, (o, args) => {
+                    this.ReloadInformationSources ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }

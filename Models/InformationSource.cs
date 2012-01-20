@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("information_sources")]
-    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord
+    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -93,6 +93,14 @@ namespace HumanRightsTracker.Models
                 data[2] = this.Date.Value.ToShortDateString ();
 
             return data;
+        }
+
+        public int CompareTo(InformationSource other)
+        {
+            if (other == null) return 1;
+            DateTime timeX = this.Date.Value;
+            DateTime timeY = other.Date.Value;
+            return timeY.CompareTo(timeX);
         }
    }
 }

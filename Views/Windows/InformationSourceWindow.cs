@@ -4,9 +4,10 @@ using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class InformationSourceWindow : Gtk.Window
+    public partial class InformationSourceWindow : Gtk.Window, IEditable
     {
-        public event EventHandler OnInformationSourceSaved = null;
+        public event EventHandler Saved;
+        public event EventHandler Canceled;
 
         InformationSource information_source;
         bool isEditable;
@@ -21,10 +22,21 @@ namespace Views
         {
             this.Build ();
             this.Modal = true;
-            this.OnInformationSourceSaved= onSave;
+            this.Saved= onSave;
             this.TransientFor = parent;
             InformationSource = i;
 
+        }
+
+        public InformationSourceWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.Saved = OnSave;
+            this.TransientFor = parent;
+            information_source = new InformationSource ();
+            information_source.Case = c;
+            InformationSource = information_source;
         }
 
          public InformationSource InformationSource {
@@ -51,6 +63,7 @@ namespace Views
                     reported_person_selector.Institution = information_source.ReportedInstitution;
                     reported_person_selector.Job = information_source.ReportedJob;
                     reported_person_selector.AllSet = true;
+
                 }
             }
         }
@@ -60,26 +73,22 @@ namespace Views
                 return this.isEditable;
             }
             set {
-                isEditable = value;
-                source_person_selector.IsEditable = value;
-                affiliation_type.IsEditable = value;
-                language.IsEditable = value;
-                indigenous_language.IsEditable = value;
-                reliability_level.IsEditable = value;
-                observations.Editable = value;
-                comments.Editable = value;
-                datetypeanddateselector.IsEditable = value;
-                reported_person_selector.IsEditable = value;
+                this.isEditable = value;
             }
         }
 
         protected void OnCancel (object sender, System.EventArgs e)
         {
+            IsEditable = !IsEditable;
             this.Destroy();
         }
 
         protected void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = false;
+            if (information_source.Id < 1) {
+                newRow = true;
+            }
 
             information_source.SourcePerson = source_person_selector.Person;
             information_source.SourceInstitution = source_person_selector.Institution;
@@ -99,8 +108,16 @@ namespace Views
 
             if (information_source.IsValid()) {
                 information_source.Save ();
-                OnInformationSourceSaved (information_source, e);
-                this.Destroy();
+
+                if (newRow) {
+                    information_source.Case.InformationSources.Add (InformationSource);
+                    information_source.Case.SaveAndFlush ();
+                }
+
+                if (Saved != null)
+                   Saved (this.information_source, e);
+
+                this.Destroy ();
             } else {
                 Console.WriteLine( String.Join(",",information_source.ValidationErrorMessages) );
                 new ValidationErrorsDialog (information_source.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
