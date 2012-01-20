@@ -3,9 +3,10 @@ using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class DocumentarySourceWindow : Gtk.Window
+    public partial class DocumentarySourceWindow : Gtk.Window, IEditable
     {
-        public event EventHandler OnDocumentarySourceSaved = null;
+        public event EventHandler Saved;
+        public event EventHandler Canceled;
 
         DocumentarySource documentary_source;
         bool isEditable;
@@ -21,11 +22,22 @@ namespace Views
        {
            this.Build ();
            this.Modal = true;
-           this.OnDocumentarySourceSaved= onSave;
+           this.Saved= onSave;
            this.TransientFor = parent;
            DocumentarySource = ds;
 
        }
+
+        public DocumentarySourceWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.Saved = OnSave;
+            this.TransientFor = parent;
+            documentary_source = new DocumentarySource ();
+            documentary_source.Case = c;
+            DocumentarySource = documentary_source;
+        }
 
        public DocumentarySource DocumentarySource {
            get { return this.documentary_source; }
@@ -60,6 +72,14 @@ namespace Views
             }
         }
 
+        public bool IsEditable {
+            get {
+                return this.isEditable;
+            }
+            set {
+                this.isEditable = value;
+            }
+        }
         protected void OnCancel (object sender, System.EventArgs e)
         {
             this.Destroy ();
@@ -67,6 +87,11 @@ namespace Views
 
         protected void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = false;
+            if (documentary_source.Id < 1) {
+                newRow = true;
+            }
+
             documentary_source.Name = name.Text;
             documentary_source.AdditionalInfo = additional_info.Text;
             documentary_source.SourceInformationType = source_information_type.Active as SourceInformationType;
@@ -86,7 +111,15 @@ namespace Views
 
             if (documentary_source.IsValid()) {
                 documentary_source.Save ();
-                OnDocumentarySourceSaved (documentary_source, e);
+
+                if (newRow) {
+                    documentary_source.Case.DocumentarySources.Add (DocumentarySource);
+                    documentary_source.Case.SaveAndFlush ();
+                }
+
+                if (Saved != null)
+                   Saved (this.documentary_source, e);
+                
                 this.Destroy();
             } else {
                 Console.WriteLine( String.Join(",",documentary_source.ValidationErrorMessages) );

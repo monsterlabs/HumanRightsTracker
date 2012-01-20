@@ -23,6 +23,7 @@ namespace Views
             this.isEditing = false;
             ConnectTrackingHandlers ();
             ConnectPlacesHandlers();
+            ConnectDocumentarySourceHandlers();
             ConnectInformationSourceHandlers();
             ConnectCaseRelationshipHandlers();
         }
@@ -118,6 +119,12 @@ namespace Views
             informationsourcelist.Records = information_sources.Cast<ListableRecord>().ToList ();
         }
 
+        public void ReloadDocumentarySources () {
+            List<DocumentarySource> documentary_sources = this.Case.DocumentarySources.Cast<DocumentarySource>().ToList ();
+            documentary_sources.Sort ();
+            documentarysourcelist.Records = documentary_sources.Cast<ListableRecord>().ToList ();
+        }
+
         public void ConnectTrackingHandlers () {
             trackinglist.NewButtonPressed += (sender, e) => {
                 new TrackingDetailWindow (this.Case, (o, args) => {
@@ -203,6 +210,29 @@ namespace Views
                 InformationSource record = sender as InformationSource;
                 new InformationSourceWindow(record, (o, args) => {
                     this.ReloadInformationSources ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectDocumentarySourceHandlers() {
+            documentarysourcelist.NewButtonPressed += (sender, e) => {
+                new DocumentarySourceWindow(this.Case, (o, args) => {
+                    this.ReloadDocumentarySources ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            documentarysourcelist.DeleteButtonPressed += (sender, e) => {
+                DocumentarySource record = sender as DocumentarySource;
+                this.Case.DocumentarySources.Remove (record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadDocumentarySources ();
+
+            };
+            documentarysourcelist.DetailButtonPressed += (sender, e) => {
+                DocumentarySource record = sender as DocumentarySource;
+                new DocumentarySourceWindow(record, (o, args) => {
+                    this.ReloadDocumentarySources ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }

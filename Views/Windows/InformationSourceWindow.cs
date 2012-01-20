@@ -68,7 +68,7 @@ namespace Views
             }
         }
 
-         public bool IsEditable {
+        public bool IsEditable {
             get {
                 return this.isEditable;
             }
