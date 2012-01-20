@@ -40,16 +40,23 @@ namespace Views
                     description.Text = mycase.NarrativeDescription;
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
-
-                    editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
-                    case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
-                    interventionlist.Records = value.Interventions.Cast<ListableRecord>().ToList();
-                    documentarysourcelist.Records = value.DocumentarySources.Cast<ListableRecord>().ToList();
-                    informationsourcelist.Records = value.InformationSources.Cast<ListableRecord>().ToList();
-                    List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
-                    trackings.Sort();
-                    trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
-                    placeslist.Records = value.Places.Cast<ListableRecord>().ToList ();
+                    if (mycase.Id != 0 ) {
+                        editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
+                        case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
+                        interventionlist.Records = value.Interventions.Cast<ListableRecord>().ToList();
+                        documentarysourcelist.Records = value.DocumentarySources.Cast<ListableRecord>().ToList();
+                        informationsourcelist.Records = value.InformationSources.Cast<ListableRecord>().ToList();
+                        List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
+                        trackings.Sort();
+                        trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+                        placeslist.Records = value.Places.Cast<ListableRecord>().ToList ();
+                    } else {
+                        general_info_expander.Expanded = true;
+                        places_expander.Hide ();
+                        tracking_info_expander.Hide ();
+                        core_expander.Hide ();
+                        additional_info_expander.Hide ();
+                    }
                 }
                 IsEditing = false;
             }
@@ -64,6 +71,12 @@ namespace Views
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
+                    if (mycase.Id != 0 ) {
+                        places_expander.Visible = true;
+                        tracking_info_expander.Visible = true;
+                        core_expander.Visible = true;
+                        additional_info_expander.Visible = true;
+                    }
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
