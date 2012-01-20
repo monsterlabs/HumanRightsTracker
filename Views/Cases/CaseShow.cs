@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Mono.Unix;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Views
             this.Build ();
             this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
+            ConnectTrackingHandlers ();
         }
 
         public Case Case {
@@ -39,10 +41,14 @@ namespace Views
                     observations.Text = mycase.Observations;
 
                     editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
+                    case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
                     interventionlist1.Case = value;
                     documentarysourcelist.Case = value;
                     informationsourcelist1.Case = value;
-                    trackinglist.Case = value;
+                    List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
+                    trackings.Sort();
+                    trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+                    placeslist.Records = value.Places.Cast<ListableRecord>().ToList ();
                 }
                 IsEditing = false;
             }
@@ -75,6 +81,35 @@ namespace Views
         public void HideEditingButtons () {
             hbuttonbox9.Hide ();
         }
+
+        public void ReloadTrackings () {
+            List<TrackingInformation> trackings = this.Case.TrackingInformation.Cast<TrackingInformation>().ToList ();
+            trackings.Sort ();
+            trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ConnectTrackingHandlers () {
+            trackinglist.NewButtonPressed += (sender, e) => {
+                new TrackingDetailWindow (this.Case, (o, args) => {
+                    this.ReloadTrackings ();
+                },  (Gtk.Window) this.Toplevel);
+            };
+            trackinglist.DeleteButtonPressed += (sender, e) => {
+                TrackingInformation t = sender as TrackingInformation;
+                this.Case.TrackingInformation.Remove(t);
+                if (t.Id >= 1) {
+                    t.Delete ();
+                }
+                this.ReloadTrackings ();
+            };
+            trackinglist.DetailButtonPressed += (sender, e) => {
+                TrackingInformation t = sender as TrackingInformation;
+                new TrackingDetailWindow(t, (o, args) => {
+                    this.ReloadTrackings ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
             mycase.Name = nameEntry.Text;
@@ -145,5 +180,18 @@ namespace Views
         {
             editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
         }
+
+        protected void OnNewRelationShip (object sender, System.EventArgs e)
+        {
+            CaseRelationship case_relationship = new CaseRelationship ();
+            case_relationship.Case = mycase;
+            new CaseRelationshipWindow (case_relationship, OnNewCaseRelationshipReturned, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnNewCaseRelationshipReturned  (object sender, EventArgs args) {
+            // TODO: put your implementation here
+            return;
+        }
+
     }
 }

@@ -14,10 +14,13 @@ namespace Views
 
         public event EventHandler ActSaved;
         public event EventHandler Cancel;
+        private EditableHelper editable_helper;
 
         public ActsShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
+            this.IsEditing = false;
         }
 
         public Act Act {
@@ -25,6 +28,8 @@ namespace Views
             set {
                 act = value;
                 if (act != null) {
+
+                    humanrightsviolationcategory.Active = act.HumanRightsViolationCategory;
                     humanRightsViolation.Active = act.HumanRightsViolation;
                     initialDate.setDate (act.start_date);
                     initialDate.setDateType (act.StartDateType);
@@ -32,8 +37,6 @@ namespace Views
                     finalDate.setDateType (act.EndDateType);
 
                     affected.Text = act.AffectedPeopleNumber.ToString ();
-                    actStatus.Active = act.ActStatus;
-                    victimStatus.Active = act.VictimStatus;
                     placeselector1.SetPlace (act.Country, act.State, act.City);
                     // person-acts
                     HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
@@ -45,8 +48,7 @@ namespace Views
                             victims.Add(victim);
                         }
                     }
-//                    VictimSelector.Victims = victims;
-//                    VictimSelector.Act = act;
+
                     victimlist.Act = act;
                 }
                 IsEditing = false;
@@ -55,6 +57,7 @@ namespace Views
 
         protected void OnSave (object sender, System.EventArgs e)
         {
+            act.HumanRightsViolationCategory = humanrightsviolationcategory.Active as HumanRightsViolationCategory;
             act.HumanRightsViolation = humanRightsViolation.Active as HumanRightsViolation;
             act.end_date = finalDate.SelectedDate ();
             act.EndDateType = finalDate.SelectedDateType ();
@@ -62,8 +65,6 @@ namespace Views
             act.StartDateType = initialDate.SelectedDateType ();
 
             act.AffectedPeopleNumber = Convert.ToInt32(affected.Text);
-            act.ActStatus = actStatus.Active as ActStatus;
-            act.VictimStatus = victimStatus.Active as VictimStatus;
             act.Country = placeselector1.Country;
             act.State = placeselector1.State;
             act.City = placeselector1.City;
@@ -109,21 +110,15 @@ namespace Views
             set
             {
                 isEditing = value;
-                humanRightsViolation.IsEditable = value;
-                catalogselector1.IsEditable = value;
-                initialDate.IsEditable = value;
-                finalDate.IsEditable = value;
-                affected.IsEditable = value;
-                actStatus.IsEditable = value;
-                victimStatus.IsEditable = value;
-                //VictimSelector.IsEditing = value;
-
+                this.editable_helper.SetAllEditable(value);
                 if (value) {
                     editButton1.Label = Catalog.GetString("Cancel");
                     saveButton1.Visible = true;
+                    addVictimButton.Visible = true;
                 } else {
                     editButton1.Label = Catalog.GetString("Edit");
                     saveButton1.Visible = false;
+                    addVictimButton.Visible = false;
                 }
             }
         }
@@ -148,8 +143,8 @@ namespace Views
             victimlist.UnselectAll ();
 
             victimshow1.Victim = v;
-            victimshow1.IsEditing = true;
             victimshow1.Show ();
+            victimshow1.IsEditing = true;
             return;
         }
     }

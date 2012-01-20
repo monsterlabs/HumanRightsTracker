@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using NHibernate.Criterion;
+using Mono.Unix;
 
 namespace Views
 {
@@ -75,7 +76,7 @@ namespace Views
 
         protected void OnNewDocument (object sender, System.EventArgs e)
         {
-            Gtk.FileChooserDialog dialog = new Gtk.FileChooserDialog("Add New Document",
+            Gtk.FileChooserDialog dialog = new Gtk.FileChooserDialog(Catalog.GetString("Add New Document"),
                 (Gtk.Window) this.Toplevel,
                 Gtk.FileChooserAction.Open);
 
@@ -98,9 +99,6 @@ namespace Views
             if (response == (int) Gtk.ResponseType.Accept) {
                 string filename = System.IO.Path.GetFileName (dialog.Filename);
                 string extension = filename.Split('.')[1];
-                Console.WriteLine ("Filename: " + dialog.Filename);
-                Console.WriteLine ("Basename: " + filename);
-                Console.WriteLine ("Extension: " + extension);
                 doc.Filename = filename;
                 if (extension == "pdf") {
                     doc.ContentType = "application/pdf";

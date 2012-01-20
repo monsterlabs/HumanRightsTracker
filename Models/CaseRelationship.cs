@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("case_relationships")]
-    public class CaseRelationship : ActiveRecordValidationBase<CaseRelationship>
+    public class CaseRelationship : ActiveRecordValidationBase<CaseRelationship>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -20,6 +20,25 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("relationship_type_id")]
         public RelationshipType RelationshipType { get; set; }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.Case.Name,
+                this.RelationshipType.Name,
+                this.RelatedCase.Name,
+                "",
+                ""
+            };
+
+            if (this.RelatedCase.start_date.HasValue)
+                data[3] = this.RelatedCase.start_date.Value.ToShortDateString ();
+            if (this.RelatedCase.end_date.HasValue)
+                data[4] = this.RelatedCase.end_date.Value.ToShortDateString ();
+
+            return data;
+        }
+
     }
 }
 

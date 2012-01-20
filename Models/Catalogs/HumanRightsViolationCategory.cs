@@ -36,7 +36,8 @@ namespace HumanRightsTracker.Models
 
         public static IList Parents()
         {
-            return (IList)HumanRightsViolationCategory.FindAll (new ICriterion[] { Restrictions.IsNull("ParentId") });
+            return (IList)HumanRightsViolationCategory.FindAll (new ICriterion[] { Restrictions.Or (Restrictions.IsNull("ParentId"),
+                                                                                                    Restrictions.Eq("ParentId",0)) });
 
         }
     }

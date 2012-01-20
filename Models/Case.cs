@@ -51,6 +51,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(TrackingInformation), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList TrackingInformation { get; set; }
 
+        [HasMany(typeof(Place), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList Places { get; set; }
+
         [HasMany(typeof(Act), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Acts { get; set; }
 
@@ -59,6 +62,9 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(DocumentarySource), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList DocumentarySources { get; set; }
+
+        [HasMany(typeof(CaseRelationship), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList CaseRelationships { get; set; }
 
         public IList victimList () {
              IList victim_list = new ArrayList();

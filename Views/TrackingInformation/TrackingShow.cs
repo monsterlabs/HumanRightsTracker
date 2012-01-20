@@ -48,13 +48,11 @@ namespace Views
                 this.editable_helper.SetAllEditable(value);
 
                 if (value) {
-                    editButton.Image = new Gtk.Image (Gtk.Stock.Cancel, Gtk.IconSize.Button);
                     editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
+                    saveButton1.Visible = true;
                 } else {
-                    editButton.Image = new Gtk.Image (Gtk.Stock.Edit, Gtk.IconSize.Button);
                     editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
+                    saveButton1.Visible = false;
                 }
             }
         }
@@ -95,7 +93,8 @@ namespace Views
                 trackingInfo.Save ();
                 if (newRow) {
                     TrackingInfo.Case.RecordCount += 1;
-                    TrackingInfo.Case.Save ();
+                    TrackingInfo.Case.TrackingInformation.Add (TrackingInfo);
+                    TrackingInfo.Case.SaveAndFlush ();
                 }
                 this.SaveDocuments ();
                 this.IsEditable = false;

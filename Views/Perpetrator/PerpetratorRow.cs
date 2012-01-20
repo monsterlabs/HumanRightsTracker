@@ -4,7 +4,7 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class PerpetratorRow : Gtk.Bin
+    public partial class PerpetratorRow : Gtk.Bin, IEditable
     {
         protected Perpetrator perpetrator;
         protected bool isEditable;
@@ -14,6 +14,7 @@ namespace Views
         public PerpetratorRow ()
         {
             this.Build ();
+            this.IsEditable = false;
         }
 
         public PerpetratorRow (Perpetrator perpetrator, EventHandler removed)

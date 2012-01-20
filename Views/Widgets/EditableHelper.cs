@@ -26,6 +26,12 @@ namespace Views
             }
         }
 
+        public void UpdateEditableWidgets()
+        {
+            editable_widgets.Clear ();
+            GetAllEditableWidgets ();
+        }
+
         private void GetAllEditableWidgets()
         {
             Queue<Gtk.Widget> queue = new Queue<Gtk.Widget>();
