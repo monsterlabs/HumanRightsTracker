@@ -5971,7 +5971,7 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InterventionShow" design-size="696 383">
+  <widget class="Gtk.Bin" id="Views.InterventionShow" design-size="745 693">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6199,6 +6199,7 @@ End Date</property>
           <widget class="Gtk.Expander" id="expander2">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
+            <property name="Expanded">True</property>
             <property name="Spacing">7</property>
             <property name="BorderWidth">4</property>
             <child>
@@ -6323,6 +6324,7 @@ End Date</property>
           <widget class="Gtk.Expander" id="expander1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
+            <property name="Expanded">True</property>
             <property name="Spacing">5</property>
             <property name="BorderWidth">4</property>
             <child>
@@ -6388,7 +6390,7 @@ End Date</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Edit</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnToggleEdit" />
+                <signal name="Clicked" handler="OnToggle" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -6465,7 +6467,7 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.InterventionDetailWindow" design-size="567 748">
+  <widget class="Gtk.Window" id="Views.InterventionDetailWindow" design-size="574 748">
     <property name="MemberName" />
     <property name="Title" translatable="yes">InterventionDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -6473,7 +6475,9 @@ End Date</property>
       <widget class="Views.InterventionShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
-        <property name="IsEditing">False</property>
+        <property name="IsEditable">False</property>
+        <signal name="Saved" handler="OnShowSaved" />
+        <signal name="Canceled" handler="OnShowCanceled" />
       </widget>
     </child>
   </widget>

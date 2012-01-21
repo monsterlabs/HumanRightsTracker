@@ -26,6 +26,7 @@ namespace Views
             ConnectDocumentarySourceHandlers();
             ConnectInformationSourceHandlers();
             ConnectCaseRelationshipHandlers();
+            ConnectInterventionsHandlers();
         }
 
         public Case Case {
@@ -123,6 +124,11 @@ namespace Views
             List<DocumentarySource> documentary_sources = this.Case.DocumentarySources.Cast<DocumentarySource>().ToList ();
             documentary_sources.Sort ();
             documentarysourcelist.Records = documentary_sources.Cast<ListableRecord>().ToList ();
+        }
+
+        private void ReloadInterventions() {
+            List<ListableRecord> interventions = this.Case.Interventions.Cast<ListableRecord>().ToList ();
+            interventionlist.Records = interventions;
         }
 
         public void ConnectTrackingHandlers () {
@@ -233,6 +239,28 @@ namespace Views
                 DocumentarySource record = sender as DocumentarySource;
                 new DocumentarySourceWindow(record, (o, args) => {
                     this.ReloadDocumentarySources ();
+               }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectInterventionsHandlers() {
+            interventionlist.NewButtonPressed += (sender, e) => {
+                new InterventionDetailWindow(this.Case, (o, args) => {
+                    this.ReloadInterventions ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            interventionlist.DeleteButtonPressed += (sender, e) => {
+                Intervention i = sender as Intervention;
+                this.Case.Interventions.Remove(i);
+                if (i.Id >= 1) {
+                    i.Delete ();
+                }
+                this.ReloadInterventions ();
+            };
+            interventionlist.DetailButtonPressed += (sender, e) => {
+                Intervention i = sender as Intervention;
+                new InterventionDetailWindow(i, (o, args) => {
+                    this.ReloadInterventions ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }

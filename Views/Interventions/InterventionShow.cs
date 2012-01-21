@@ -9,15 +9,17 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class InterventionShow : Gtk.Bin
     {
-        bool isEditing;
+        bool isEditable;
         Intervention intervention;
+        private EditableHelper editable_helper;
 
-        public event EventHandler InterventionSaved;
-        public event EventHandler Cancel;
+        public event EventHandler Saved;
+        public event EventHandler Canceled;
 
         public InterventionShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
         }
 
         public Intervention Intervention {
@@ -52,8 +54,32 @@ namespace Views
                     }
                     affectedPeople.People = affected;
                 }
-                IsEditing = false;
+                IsEditable = false;
             }
+        }
+
+        public bool IsEditable {
+            get { return this.isEditable; }
+            set
+            {
+                this.isEditable = value;
+                this.editable_helper.SetAllEditable(value);
+
+                if (value) {
+                    editButton.Label = Catalog.GetString("Cancel");
+                    saveButton.Visible = true;
+                } else {
+                    editButton.Label = Catalog.GetString("Edit");
+                    saveButton.Visible = false;
+                }
+            }
+        }
+
+        protected void OnToggle (object sender, System.EventArgs e)
+        {
+            IsEditable = !IsEditable;
+            if (!IsEditable && Canceled != null)
+                Canceled (sender, e);
         }
 
         protected void OnSave (object sender, System.EventArgs e)
@@ -82,12 +108,12 @@ namespace Views
                 }
                 intervention.AffectedPeople = affectedPeopleList;
 
-                this.IsEditing = false;
+                this.IsEditable = false;
 
                 if (intervention.Id < 1 || intervention.Case.Id < 1)
                 {
-                    if (InterventionSaved != null)
-                        InterventionSaved (this.Intervention, e);
+                    if (Saved != null)
+                        Saved (this.Intervention, e);
                     return;
                 } else {
                     intervention.Save();
@@ -96,36 +122,6 @@ namespace Views
             {
                 Console.WriteLine( String.Join(",", intervention.ValidationErrorMessages) );
                 new ValidationErrorsDialog (intervention.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
-            }
-        }
-
-        protected void OnToggleEdit (object sender, System.EventArgs e)
-        {
-            IsEditing = !IsEditing;
-            if (!isEditing && Cancel != null)
-                Cancel (sender, e);
-        }
-
-        public bool IsEditing
-        {
-            get { return this.isEditing; }
-            set
-            {
-                isEditing = value;
-                interventionType.IsEditable = value;
-                dateSelector.IsEditable = value;
-                //interventorSelect.IsEditable = value;
-                //supporterSelect.IsEditable = value;
-
-                affectedPeople.IsEditing = value;
-
-                if (value) {
-                    editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
-                } else {
-                    editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
-                }
             }
         }
     }
