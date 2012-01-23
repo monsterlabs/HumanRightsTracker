@@ -111,10 +111,6 @@
     <Compile Include="gtk-gui\Views.EditCatalogRecord.cs" />
     <Compile Include="Windows\EditCatalogWindow.cs" />
     <Compile Include="gtk-gui\Views.EditCatalogWindow.cs" />
-    <Compile Include="Interventions\InterventionList.cs" />
-    <Compile Include="gtk-gui\Views.InterventionList.cs" />
-    <Compile Include="Interventions\InterventionRow.cs" />
-    <Compile Include="gtk-gui\Views.InterventionRow.cs" />
     <Compile Include="Interventions\InterventionShow.cs" />
     <Compile Include="gtk-gui\Views.InterventionShow.cs" />
     <Compile Include="People\PersonSelect.cs" />

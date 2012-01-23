@@ -29,18 +29,6 @@ namespace Views
             show.IsEditable = false;
         }
 
-        protected void OnSave (object sender, System.EventArgs e)
-        {
-            OnSaved (sender, e);
-            this.Destroy ();
-        }
-
-        protected void OnCancel (object sender, System.EventArgs e)
-        {
-            if (show.Intervention.Id < 1)
-                this.Destroy ();
-        }
-
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
             OnSaved (sender, e);
@@ -49,8 +37,9 @@ namespace Views
 
         protected void OnShowCanceled (object sender, System.EventArgs e)
         {
-            if (show.Intervention.Id < 1)
+            if (show.Intervention.Id < 1) {
                 this.Destroy ();
+            }
         }
     }
 }
