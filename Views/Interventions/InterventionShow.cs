@@ -29,6 +29,8 @@ namespace Views
                 if (intervention != null) {
                     interventionType.Active = intervention.InterventionType;
                     dateSelector.CurrentDate = intervention.Date;
+                    impact.Text = intervention.Impact;
+                    response.Text = intervention.Response;
 
                     interventorSelect.Person = intervention.Interventor;
                     interventorSelect.Institution = intervention.InterventorInstitution;
@@ -37,11 +39,6 @@ namespace Views
                     supporterSelect.Person = intervention.Supporter;
                     supporterSelect.Institution = intervention.SupporterInstitution;
                     supporterSelect.Job = intervention.SupporterJob;
-
-                    //interventorSelect.Person = intervention.Interventor;
-                    //supporterSelect.Person = intervention.Supporter;
-                    impactView.Buffer.Text = intervention.Impact;
-                    responseView.Buffer.Text = intervention.Response;
 
                     // intervention affected people
                     HashSet<Person> affected = new HashSet<Person>(new ARComparer<Person>());

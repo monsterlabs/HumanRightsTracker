@@ -5797,180 +5797,6 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InterventionList" design-size="542 77">
-    <property name="MemberName" />
-    <property name="Visible">False</property>
-    <child>
-      <widget class="Gtk.VBox" id="vbox1">
-        <property name="MemberName" />
-        <property name="Spacing">6</property>
-        <child>
-          <widget class="Gtk.VBox" id="interventionsList">
-            <property name="MemberName" />
-            <property name="Spacing">6</property>
-            <child>
-              <widget class="Views.InterventionRow" id="row">
-                <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
-                <property name="IsEditable">False</property>
-              </widget>
-              <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox1">
-            <property name="MemberName" />
-            <property name="Size">1</property>
-            <property name="LayoutStyle">End</property>
-            <child>
-              <widget class="Gtk.Button" id="newButton">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">New Intervention</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnNewIntervention" />
-              </widget>
-              <packing>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">1</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="Gtk.Bin" id="Views.InterventionRow" design-size="395 45">
-    <property name="MemberName" />
-    <property name="Visible">False</property>
-    <child>
-      <widget class="Gtk.Frame" id="frame1">
-        <property name="MemberName" />
-        <property name="ShadowType">In</property>
-        <property name="BorderWidth">5</property>
-        <child>
-          <widget class="Gtk.Alignment" id="GtkAlignment">
-            <property name="MemberName" />
-            <property name="Xalign">0</property>
-            <property name="Yalign">0</property>
-            <property name="LeftPadding">12</property>
-            <child>
-              <widget class="Gtk.HBox" id="hbox1">
-                <property name="MemberName" />
-                <property name="Spacing">6</property>
-                <child>
-                  <widget class="Gtk.HBox" id="hbox2">
-                    <property name="MemberName" />
-                    <property name="Spacing">6</property>
-                    <child>
-                      <widget class="Gtk.Label" id="interventor">
-                        <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Interventor</property>
-                        <property name="Wrap">True</property>
-                        <property name="Justify">Fill</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">0</property>
-                        <property name="AutoSize">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="supporter">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Supporter</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">1</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="date">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Date</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">2</property>
-                        <property name="AutoSize">False</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.HButtonBox" id="hbuttonbox3">
-                    <property name="MemberName" />
-                    <property name="Size">2</property>
-                    <child>
-                      <widget class="Gtk.Button" id="button124">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextAndIcon</property>
-                        <property name="Icon">stock:gtk-delete Menu</property>
-                        <property name="Label" translatable="yes">_Delete</property>
-                        <property name="UseUnderline">True</property>
-                        <signal name="Clicked" handler="OnDelete" />
-                      </widget>
-                      <packing>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Button" id="button125">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextAndIcon</property>
-                        <property name="Icon">stock:gtk-properties Menu</property>
-                        <property name="Label" translatable="yes">Detail</property>
-                        <property name="UseUnderline">True</property>
-                        <signal name="Clicked" handler="OnDetail" />
-                      </widget>
-                      <packing>
-                        <property name="Position">1</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">False</property>
-                    <property name="Expand">False</property>
-                  </packing>
-                </child>
-              </widget>
-            </child>
-          </widget>
-        </child>
-      </widget>
-    </child>
-  </widget>
   <widget class="Gtk.Bin" id="Views.InterventionShow" design-size="745 693">
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -6019,46 +5845,10 @@ End Date</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                      <widget class="Views.EditableTextView" id="impact">
                         <property name="MemberName" />
-                        <property name="ShadowType">In</property>
-                        <child>
-                          <widget class="Gtk.TextView" id="impactView">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="ShowScrollbars">True</property>
-                            <property name="Text" translatable="yes" />
-                          </widget>
-                        </child>
-                      </widget>
-                      <packing>
-                        <property name="TopAttach">2</property>
-                        <property name="BottomAttach">3</property>
-                        <property name="LeftAttach">1</property>
-                        <property name="RightAttach">2</property>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
-                        <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
-                        <property name="XFill">True</property>
-                        <property name="XShrink">False</property>
-                        <property name="YExpand">False</property>
-                        <property name="YFill">True</property>
-                        <property name="YShrink">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
-                        <property name="MemberName" />
-                        <property name="ShadowType">In</property>
-                        <child>
-                          <widget class="Gtk.TextView" id="responseView">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="ShowScrollbars">True</property>
-                            <property name="Text" translatable="yes" />
-                          </widget>
-                        </child>
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">3</property>
@@ -6101,7 +5891,8 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="label1">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Type</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Type&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="AutoSize">True</property>
@@ -6118,7 +5909,8 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="label2">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Date</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Date&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
@@ -6137,7 +5929,8 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="label5">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Impact</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Impact&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">2</property>
@@ -6156,11 +5949,34 @@ End Date</property>
                     <child>
                       <widget class="Gtk.Label" id="label6">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Response</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Response&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">3</property>
                         <property name="BottomAttach">4</property>
+                        <property name="AutoSize">True</property>
+                        <property name="XOptions">Fill</property>
+                        <property name="YOptions">Fill</property>
+                        <property name="XExpand">False</property>
+                        <property name="XFill">True</property>
+                        <property name="XShrink">False</property>
+                        <property name="YExpand">False</property>
+                        <property name="YFill">True</property>
+                        <property name="YShrink">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.EditableTextView" id="response">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
+                      </widget>
+                      <packing>
+                        <property name="TopAttach">2</property>
+                        <property name="BottomAttach">3</property>
+                        <property name="LeftAttach">1</property>
+                        <property name="RightAttach">2</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -6302,7 +6118,7 @@ End Date</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel3">
+              <widget class="Gtk.Label" id="GtkLabel9">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Interventors&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6340,7 +6156,7 @@ End Date</property>
                       <widget class="Views.PeopleSelector" id="affectedPeople">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditing">False</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                     </child>
                   </widget>
@@ -6348,7 +6164,7 @@ End Date</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel4">
+              <widget class="Gtk.Label" id="GtkLabel12">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Affected People&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6366,7 +6182,7 @@ End Date</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox6">
+          <widget class="Gtk.HButtonBox" id="hbuttonbox8">
             <property name="MemberName" />
             <property name="Size">2</property>
             <child>
