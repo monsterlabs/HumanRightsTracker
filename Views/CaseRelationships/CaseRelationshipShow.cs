@@ -1,66 +1,65 @@
 using System;
+using Mono.Unix;
 using HumanRightsTracker.Models;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Views
 {
-    public partial class CaseRelationshipWindow : Gtk.Window, IEditable
+    [System.ComponentModel.ToolboxItem(true)]
+    public partial class CaseRelationshipShow : Gtk.Bin
     {
+        bool isEditable;
+        CaseRelationship case_relationship;
+        private EditableHelper editable_helper;
+
         public event EventHandler Saved;
         public event EventHandler Canceled;
 
-        CaseRelationship case_relationship;
-        bool isEditable;
-
-        public CaseRelationshipWindow () : 
-                base(Gtk.WindowType.Toplevel)
+        public CaseRelationshipShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
         }
 
-        public CaseRelationshipWindow (CaseRelationship case_relationship, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
-        {
-            this.Build ();
-            this.Modal = true;
-            this.Saved= onSave;
-            this.TransientFor = parent;
-            CaseRelationship = case_relationship;
-        }
-
-        public CaseRelationshipWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
-        {
-            this.Build ();
-            this.Modal = true;
-            this.Saved = OnSave;
-            this.TransientFor = parent;
-            case_relationship = new CaseRelationship ();
-            case_relationship.Case = c;
-            CaseRelationship = case_relationship;
-        }
 
         public CaseRelationship CaseRelationship {
             get { return this.case_relationship; }
             set {
                 case_relationship = value;
-                if (case_relationship != null) {
+                if (case_relationship != null ) {
+                    if (case_relationship.Case != null)
+                        case_name.Text = case_relationship.Case.Name;
+
                     related_case_select.Case = case_relationship.RelatedCase;
                     relationship_type.Active = case_relationship.RelationshipType;
+                }
+                IsEditable = false;
+            }
+        }
+
+        public Boolean IsEditable {
+            get { return this.isEditable;}
+            set {
+                isEditable = value;
+                this.editable_helper.SetAllEditable(value);
+
+                if (value) {
+                    editButton.Label = Catalog.GetString("Cancel");
+                    saveButton.Visible = true;
+                } else {
+                    editButton.Label = Catalog.GetString("Edit");
+                    saveButton.Visible = false;
                 }
             }
         }
 
-         public bool IsEditable {
-            get {
-                return this.isEditable;
-            }
-            set {
-                isEditable = value;
-            }
-        }
 
-        protected void OnCancel (object sender, System.EventArgs e)
+        protected void OnToggle (object sender, System.EventArgs e)
         {
             IsEditable = !IsEditable;
-            this.Destroy ();
+            if (!IsEditable && Canceled != null)
+                Canceled (sender, e);
         }
 
         protected void OnSave (object sender, System.EventArgs e)
@@ -84,12 +83,13 @@ namespace Views
 
                 if (Saved != null)
                    Saved (this.case_relationship, e);
-                this.Destroy ();
 
-            } else {
+               this.IsEditable = false;
+           } else {
                 Console.WriteLine( String.Join(",",case_relationship.ValidationErrorMessages) );
                 new ValidationErrorsDialog (case_relationship.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
+
         }
     }
 }

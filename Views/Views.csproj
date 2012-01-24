@@ -207,8 +207,6 @@
     <Compile Include="gtk-gui\Views.CaseSelect.cs" />
     <Compile Include="Windows\CaseSelectorWindow.cs" />
     <Compile Include="gtk-gui\Views.CaseSelectorWindow.cs" />
-    <Compile Include="Windows\CaseRelationshipWindow.cs" />
-    <Compile Include="gtk-gui\Views.CaseRelationshipWindow.cs" />
     <Compile Include="Widgets\CatalogCRUD.cs" />
     <Compile Include="gtk-gui\Views.CatalogCRUD.cs" />
     <Compile Include="Widgets\CatalogTab.cs" />
@@ -219,6 +217,10 @@
     <Compile Include="gtk-gui\Views.PlaceDetailWindow.cs" />
     <Compile Include="Widgets\HumanRightsViolationCategorySelector.cs" />
     <Compile Include="gtk-gui\Views.HumanRightsViolationCategorySelector.cs" />
+    <Compile Include="CaseRelationships\CaseRelationshipDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.CaseRelationshipDetailWindow.cs" />
+    <Compile Include="CaseRelationships\CaseRelationshipShow.cs" />
+    <Compile Include="gtk-gui\Views.CaseRelationshipShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -252,5 +254,6 @@
     <Folder Include="TrackingInformation\" />
     <Folder Include="Documents\" />
     <Folder Include="Places\" />
+    <Folder Include="CaseRelationships\" />
   </ItemGroup>
 </Project>

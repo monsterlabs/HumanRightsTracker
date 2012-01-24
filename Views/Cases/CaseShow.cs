@@ -177,7 +177,7 @@ namespace Views
 
         public void ConnectCaseRelationshipHandlers() {
             case_relationship_list.NewButtonPressed += (sender, e) => {
-                new CaseRelationshipWindow(this.Case, (o, args) => {
+                new CaseRelationshipDetailWindow(this.Case, (o, args) => {
                     this.ReloadCaseRelationships ();
                 }, (Gtk.Window) this.Toplevel);
             };
@@ -191,7 +191,7 @@ namespace Views
             };
             case_relationship_list.DetailButtonPressed += (sender, e) => {
                 CaseRelationship record = sender as CaseRelationship;
-                new CaseRelationshipWindow(record, (o, args) => {
+                new CaseRelationshipDetailWindow(record, (o, args) => {
                     this.ReloadCaseRelationships ();
                 }, (Gtk.Window) this.Toplevel);
             };
