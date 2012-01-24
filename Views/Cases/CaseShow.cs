@@ -199,7 +199,7 @@ namespace Views
 
         public void ConnectInformationSourceHandlers() {
             informationsourcelist.NewButtonPressed += (sender, e) => {
-                new InformationSourceWindow(this.Case, (o, args) => {
+                new InformationSourceDetailWindow(this.Case, (o, args) => {
                     this.ReloadInformationSources ();
                 }, (Gtk.Window) this.Toplevel);
             };
@@ -214,7 +214,7 @@ namespace Views
             };
             informationsourcelist.DetailButtonPressed += (sender, e) => {
                 InformationSource record = sender as InformationSource;
-                new InformationSourceWindow(record, (o, args) => {
+                new InformationSourceDetailWindow(record, (o, args) => {
                     this.ReloadInformationSources ();
                 }, (Gtk.Window) this.Toplevel);
             };

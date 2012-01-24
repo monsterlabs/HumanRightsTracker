@@ -22,7 +22,6 @@ namespace Views
             this.editable_helper = new EditableHelper(this);
         }
 
-
         public CaseRelationship CaseRelationship {
             get { return this.case_relationship; }
             set {
