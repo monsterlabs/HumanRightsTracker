@@ -81,8 +81,15 @@ namespace Views
 
         protected void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = false;
+            if (intervention.Id < 1) {
+                newRow = true;
+            }
             intervention.InterventionType = interventionType.Active as InterventionType;
             intervention.Date = dateSelector.CurrentDate;
+            intervention.Impact = impact.Text;
+            intervention.Response = response.Text;
+
             intervention.Interventor = interventorSelect.Person;
             intervention.InterventorInstitution = interventorSelect.Institution;
             intervention.InterventorJob = interventorSelect.Job;
@@ -93,30 +100,31 @@ namespace Views
 
             if (intervention.IsValid())
             {
-                List<InterventionAffectedPeople> affectedPeopleList = new List<InterventionAffectedPeople>();
-
-                foreach (Person person in affectedPeople.People)
-                {
-                    InterventionAffectedPeople affectedPerson = new InterventionAffectedPeople();
-                    affectedPerson.Intervention = intervention;
-                    affectedPerson.Person = person;
-
-                    affectedPeopleList.Add(affectedPerson);
+                if (intervention.AffectedPeople == null) {
+                    intervention.AffectedPeople = new List<InterventionAffectedPeople> ();
+                } else {
+                    intervention.AffectedPeople.Clear ();
                 }
-                intervention.AffectedPeople = affectedPeopleList;
+
+                foreach (Person person in affectedPeople.People) {
+                    InterventionAffectedPeople affected = new InterventionAffectedPeople ();
+                    affected.Intervention = intervention;
+                    affected.Person = person;
+                    intervention.AffectedPeople.Add (affected);
+                }
+
+                intervention.Save ();
+
+                if(newRow) {
+                    intervention.Case.Interventions.Add (Intervention);
+                    intervention.Case.SaveAndFlush ();
+                }
 
                 this.IsEditable = false;
 
-                if (intervention.Id < 1 || intervention.Case.Id < 1)
-                {
-                    if (Saved != null)
-                        Saved (this.Intervention, e);
-                    return;
-                } else {
-                    intervention.Save();
-                }
-            } else
-            {
+                if (Saved != null)
+                    Saved (this.Intervention, e);
+            } else {
                 Console.WriteLine( String.Join(",", intervention.ValidationErrorMessages) );
                 new ValidationErrorsDialog (intervention.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
