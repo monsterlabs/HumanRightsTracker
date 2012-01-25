@@ -222,7 +222,7 @@ namespace Views
 
         public void ConnectDocumentarySourceHandlers() {
             documentarysourcelist.NewButtonPressed += (sender, e) => {
-                new DocumentarySourceWindow(this.Case, (o, args) => {
+                new DocumentarySourceDetailWindow(this.Case, (o, args) => {
                     this.ReloadDocumentarySources ();
                 }, (Gtk.Window) this.Toplevel);
             };
@@ -237,7 +237,7 @@ namespace Views
             };
             documentarysourcelist.DetailButtonPressed += (sender, e) => {
                 DocumentarySource record = sender as DocumentarySource;
-                new DocumentarySourceWindow(record, (o, args) => {
+                new DocumentarySourceDetailWindow(record, (o, args) => {
                     this.ReloadDocumentarySources ();
                }, (Gtk.Window) this.Toplevel);
             };

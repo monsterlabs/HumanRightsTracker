@@ -175,14 +175,8 @@
     <Compile Include="gtk-gui\Views.PersonCreateWindow.cs" />
     <Compile Include="Widgets\IEditable.cs" />
     <Compile Include="Widgets\EditableHelper.cs" />
-    <Compile Include="DocumentarySources\DocumentarySourceRow.cs" />
-    <Compile Include="gtk-gui\Views.DocumentarySourceRow.cs" />
-    <Compile Include="DocumentarySources\DocumentarySourceList.cs" />
-    <Compile Include="gtk-gui\Views.DocumentarySourceList.cs" />
     <Compile Include="Widgets\EditableTextView.cs" />
     <Compile Include="gtk-gui\Views.EditableTextView.cs" />
-    <Compile Include="Windows\DocumentarySourceWindow.cs" />
-    <Compile Include="gtk-gui\Views.DocumentarySourceWindow.cs" />
     <Compile Include="TrackingInformation\TrackingShow.cs" />
     <Compile Include="gtk-gui\Views.TrackingShow.cs" />
     <Compile Include="TrackingInformation\TrackingDetailWindow.cs" />
@@ -219,6 +213,10 @@
     <Compile Include="gtk-gui\Views.InformationSourceShow.cs" />
     <Compile Include="InformationSources\InformationSourceDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.InformationSourceDetailWindow.cs" />
+    <Compile Include="DocumentarySources\DocumentarySourceShow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceShow.cs" />
+    <Compile Include="DocumentarySources\DocumentarySourceDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
