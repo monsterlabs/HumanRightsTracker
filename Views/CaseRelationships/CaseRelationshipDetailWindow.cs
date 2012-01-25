@@ -7,11 +7,6 @@ namespace Views
     {
         public event EventHandler OnSaved = null;
 
-        public CaseRelationshipDetailWindow () : base(Gtk.WindowType.Toplevel)
-        {
-            this.Build ();
-        }
-
         public CaseRelationshipDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();

@@ -3489,7 +3489,7 @@ Date of Receipt</property>
                     <property name="CanFocus">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
-                      <widget class="Views.EditableList" id="editablelist1">
+                      <widget class="Views.EditableList" id="act_list">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
                         <property name="Headers">Human Right
@@ -3497,9 +3497,6 @@ Act
 Start Date
 End Date</property>
                         <property name="IsEditable">False</property>
-                        <signal name="NewButtonPressed" handler="OnNew" />
-                        <signal name="DeleteButtonPressed" handler="OnDelete" />
-                        <signal name="DetailButtonPressed" handler="OnDetail" />
                       </widget>
                     </child>
                     <child>
@@ -5134,20 +5131,6 @@ End date</property>
             <property name="Size">2</property>
             <property name="LayoutStyle">Edge</property>
             <child>
-              <widget class="Gtk.Button" id="editButton1">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Edit</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnToggleEdit" />
-              </widget>
-              <packing>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.Button" id="saveButton1">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
@@ -5155,6 +5138,20 @@ End date</property>
                 <property name="Label" translatable="yes">Save</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnSave" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="editButton1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Cancel</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnToggleEdit" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -5353,21 +5350,6 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActsList" design-size="558 115">
-    <property name="MemberName" />
-    <property name="Visible">False</property>
-    <child>
-      <widget class="Views.EditableList" id="editablelist1">
-        <property name="MemberName" />
-        <property name="Events">ButtonPressMask</property>
-        <property name="Headers">Human Right
-Act
-Start Date
-End Date</property>
-        <property name="IsEditable">False</property>
-      </widget>
-    </child>
-  </widget>
   <widget class="Gtk.Bin" id="Views.BooleanRadioButton" design-size="206 22">
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -5436,131 +5418,7 @@ End Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActRow" design-size="434 44">
-    <property name="MemberName" />
-    <property name="Visible">False</property>
-    <child>
-      <widget class="Gtk.Frame" id="frame1">
-        <property name="MemberName" />
-        <property name="ShadowType">In</property>
-        <property name="BorderWidth">5</property>
-        <child>
-          <widget class="Gtk.Alignment" id="GtkAlignment">
-            <property name="MemberName" />
-            <property name="Xalign">0</property>
-            <property name="Yalign">0</property>
-            <property name="LeftPadding">12</property>
-            <child>
-              <widget class="Gtk.HBox" id="hbox1">
-                <property name="MemberName" />
-                <property name="Spacing">6</property>
-                <child>
-                  <widget class="Gtk.HBox" id="hbox2">
-                    <property name="MemberName" />
-                    <property name="Spacing">6</property>
-                    <child>
-                      <widget class="Gtk.Label" id="affected_right">
-                        <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Affected Right</property>
-                        <property name="Wrap">True</property>
-                        <property name="Justify">Fill</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">0</property>
-                        <property name="AutoSize">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="act_name">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Act</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">1</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="startDate">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Start Date</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">2</property>
-                        <property name="AutoSize">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="endDate">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">End Date</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">3</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.HButtonBox" id="hbuttonbox3">
-                    <property name="MemberName" />
-                    <property name="Size">2</property>
-                    <child>
-                      <widget class="Gtk.Button" id="removeButton">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextAndIcon</property>
-                        <property name="Icon">stock:gtk-delete Menu</property>
-                        <property name="Label" translatable="yes">_Delete</property>
-                        <property name="UseUnderline">True</property>
-                        <signal name="Clicked" handler="OnDelete" />
-                      </widget>
-                      <packing>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Button" id="infoButton">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextAndIcon</property>
-                        <property name="Icon">stock:gtk-properties Menu</property>
-                        <property name="Label" translatable="yes">Detail</property>
-                        <property name="UseUnderline">True</property>
-                        <signal name="Clicked" handler="OnDetail" />
-                      </widget>
-                      <packing>
-                        <property name="Position">1</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">False</property>
-                    <property name="Expand">False</property>
-                  </packing>
-                </child>
-              </widget>
-            </child>
-          </widget>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="Gtk.Window" id="Views.ActDetailWindow" design-size="733 574">
+  <widget class="Gtk.Window" id="Views.ActDetailWindow" design-size="733 764">
     <property name="MemberName" />
     <property name="Title" translatable="yes">NewActWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -5568,9 +5426,9 @@ End Date</property>
       <widget class="Views.ActsShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
-        <property name="IsEditing">False</property>
-        <signal name="Cancel" handler="OnCancel" />
-        <signal name="ActSaved" handler="OnSave" />
+        <property name="IsEditable">False</property>
+        <signal name="Saved" handler="OnShowSaved" />
+        <signal name="Canceled" handler="OnShowCanceled" />
       </widget>
     </child>
   </widget>
@@ -8881,6 +8739,7 @@ End Date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>

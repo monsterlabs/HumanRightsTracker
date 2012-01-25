@@ -97,12 +97,8 @@
     <Compile Include="gtk-gui\Views.AlphabetList.cs" />
     <Compile Include="People\PersonRow.cs" />
     <Compile Include="gtk-gui\Views.PersonRow.cs" />
-    <Compile Include="Acts\ActsList.cs" />
-    <Compile Include="gtk-gui\Views.ActsList.cs" />
     <Compile Include="Widgets\BooleanRadioButton.cs" />
     <Compile Include="gtk-gui\Views.BooleanRadioButton.cs" />
-    <Compile Include="Acts\ActRow.cs" />
-    <Compile Include="gtk-gui\Views.ActRow.cs" />
     <Compile Include="Acts\ActDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.ActDetailWindow.cs" />
     <Compile Include="Widgets\EditableLabel.cs" />

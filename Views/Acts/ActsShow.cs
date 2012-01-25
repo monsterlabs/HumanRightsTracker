@@ -9,18 +9,18 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class ActsShow : Gtk.Bin
     {
-        bool isEditing;
+        bool isEditable;
         Act act;
-
-        public event EventHandler ActSaved;
-        public event EventHandler Cancel;
         private EditableHelper editable_helper;
+
+        public event EventHandler Saved;
+        public event EventHandler Canceled;
 
         public ActsShow ()
         {
             this.Build ();
             this.editable_helper = new EditableHelper(this);
-            this.IsEditing = false;
+            this.isEditable = false;
         }
 
         public Act Act {
@@ -38,7 +38,6 @@ namespace Views
 
                     affected.Text = act.AffectedPeopleNumber.ToString ();
                     placeselector1.SetPlace (act.Country, act.State, act.City);
-                    // person-acts
                     HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
 
                     IList actVictims = act.Victims;
@@ -51,12 +50,17 @@ namespace Views
 
                     victimlist.Act = act;
                 }
-                IsEditing = false;
+                IsEditable = false;
             }
         }
 
         protected void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = false;
+            if (act.Id < 1) {
+                newRow = true;
+            }
+
             act.HumanRightsViolationCategory = humanrightsviolationcategory.Active as HumanRightsViolationCategory;
             act.HumanRightsViolation = humanRightsViolation.Active as HumanRightsViolation;
             act.end_date = finalDate.SelectedDate ();
@@ -71,25 +75,24 @@ namespace Views
 
             if (act.IsValid())
             {
-                act.Save ();
                 List<Victim> victims = new List<Victim>();
-
                 foreach (Victim victim in victimlist.Victims)
                 {
                     victims.Add(victim);
                 }
                 act.Victims = victims;
+                act.Save ();
 
-                this.IsEditing = false;
-
-                if (act.Id < 1 || act.Case.Id < 1)
-                {
-                    if (ActSaved != null)
-                        ActSaved (this.Act, e);
-                    return;
-                } else {
-                    act.Save();
+                if (newRow) {
+                    act.Case.Acts.Add (Act);
+                    act.Case.SaveAndFlush ();
                 }
+
+                if (Saved != null) {
+                    Saved (this.Act, e);
+                }
+
+                this.IsEditable = false;
             } else
             {
                 Console.WriteLine( String.Join(",", act.ValidationErrorMessages) );
@@ -99,18 +102,19 @@ namespace Views
 
         protected void OnToggleEdit (object sender, System.EventArgs e)
         {
-            IsEditing = !IsEditing;
-            if (!isEditing && Cancel != null)
-                Cancel (sender, e);
+            IsEditable = !IsEditable;
+            if (!IsEditable && Canceled != null)
+                Canceled (sender, e);
         }
 
-        public bool IsEditing
+        public bool IsEditable
         {
-            get { return this.isEditing; }
+            get { return this.isEditable; }
             set
             {
-                isEditing = value;
+                isEditable = value;
                 this.editable_helper.SetAllEditable(value);
+
                 if (value) {
                     editButton1.Label = Catalog.GetString("Cancel");
                     saveButton1.Visible = true;
