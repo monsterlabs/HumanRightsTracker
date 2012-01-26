@@ -16,8 +16,8 @@
       key="connection.connection_string"
       value="Data Source=db/human_rights_tracker.sqlite3" />
     <add
-      value="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle"
-      key="proxyfactory.factory_class" />
+      key="proxyfactory.factory_class"
+      value="Castle.ActiveRecord.ByteCode.ProxyFactoryFactory, Castle.ActiveRecord" />
     <add
        key="query.factory_class"
        value="NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory, NHibernate" />
