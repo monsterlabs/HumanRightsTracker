@@ -58,7 +58,8 @@ namespace Views
         protected void onRemove (object sender, System.EventArgs e)
         {
             Person p = show.Person;
-            p.Delete();
+            p.DeleteAndFlush();
+            peoplelist.ReloadStore ();
             return;
         }
 
