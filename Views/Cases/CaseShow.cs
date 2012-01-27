@@ -148,7 +148,7 @@ namespace Views
                 Act record = sender as Act;
                 this.Case.Acts.Remove(record);
                 if (record.Id >= 1) {
-                    record.Delete ();
+                    record.DeleteAndFlush ();
                 }
                 this.ReloadActs ();
             };

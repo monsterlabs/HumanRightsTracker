@@ -56,22 +56,22 @@ namespace Views
                 peopleList.ShowAll ();
             }
         }
-        protected void OnPerpetratorSelected (object sender, PerpetratorEventArgs args)
+        protected void OnPerpetratorSelected (object sender, EventArgs args)
         {
-            if (perpetrators.Add (args.Perpetrator))
-            {
-                peopleList.PackStart (new PerpetratorRow(args.Perpetrator, OnRemoved));
-
-                peopleList.ShowAll ();
-
-            }
+//            if (perpetrators.Add (args.Perpetrator))
+//            {
+//                peopleList.PackStart (new PerpetratorRow(args.Perpetrator, OnRemoved));
+//
+//                peopleList.ShowAll ();
+//
+//            }
 
             return;
         }
 
         protected void OnAddClicked (object sender, System.EventArgs e)
         {
-            new PerpetratorWindow (victim, OnPerpetratorSelected, (Gtk.Window)this.Toplevel);
+            new PerpetratorDetailWindow (victim, OnPerpetratorSelected, (Gtk.Window)this.Toplevel);
         }
 
         protected void OnRemoved (object sender, System.EventArgs e)

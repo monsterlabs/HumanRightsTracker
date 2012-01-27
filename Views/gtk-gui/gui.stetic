@@ -6350,10 +6350,14 @@ End date</property>
                 <property name="LeftPadding">12</property>
                 <property name="BorderWidth">12</property>
                 <child>
-                  <widget class="Views.PerpetratorSelector" id="PerpetratorSelector">
+                  <widget class="Views.EditableList" id="perpetratorslist">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="IsEditing">False</property>
+                    <property name="Headers">Last Name
+First Name
+Institution
+Job</property>
+                    <property name="IsEditable">False</property>
                   </widget>
                 </child>
               </widget>
@@ -6372,8 +6376,6 @@ End date</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -6741,18 +6743,6 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PerpetratorWindow" design-size="400 490">
-    <property name="MemberName" />
-    <property name="Title" translatable="yes">PerpetratorWindow</property>
-    <property name="WindowPosition">CenterOnParent</property>
-    <child>
-      <widget class="Views.PerpetratorShow" id="show">
-        <property name="MemberName" />
-        <property name="Events">ButtonPressMask</property>
-        <property name="IsEditing">False</property>
-      </widget>
-    </child>
-  </widget>
   <widget class="Gtk.Bin" id="Views.PerpetratorShow" design-size="738 725">
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -6816,7 +6806,7 @@ End date</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Views.InstitutionSelect" id="institutionselect1">
+                      <widget class="Views.InstitutionSelect" id="institution">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
                         <property name="IsEditable">False</property>
@@ -6995,7 +6985,7 @@ End date</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Edit</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnToggleEdit" />
+                <signal name="Clicked" handler="OnToggle" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -11281,6 +11271,34 @@ End date</property>
     <property name="WindowPosition">CenterOnParent</property>
     <child>
       <widget class="Views.DocumentarySourceShow" id="show">
+        <property name="MemberName" />
+        <property name="Events">ButtonPressMask</property>
+        <property name="IsEditable">False</property>
+        <signal name="Saved" handler="OnShowSaved" />
+        <signal name="Canceled" handler="OnShowCanceled" />
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PerpetratorDetailWindow" design-size="414 621">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">PerpetratorWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Views.PerpetratorShow" id="show">
+        <property name="MemberName" />
+        <property name="Events">ButtonPressMask</property>
+        <property name="IsEditable">False</property>
+        <signal name="Saved" handler="OnShowSaved" />
+        <signal name="Canceled" handler="OnShowCanceled" />
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.PerpetratorDetailWindow" design-size="414 621">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">PerpetratorWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Views.PerpetratorShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
         <property name="IsEditable">False</property>

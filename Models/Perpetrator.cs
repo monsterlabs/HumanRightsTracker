@@ -8,7 +8,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("perpetrators")]
-    public class Perpetrator : ActiveRecordValidationBase<Perpetrator>
+    public class Perpetrator : ActiveRecordValidationBase<Perpetrator>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -24,6 +24,22 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList PerpetratorActs { get; set; }
+
+        public string[] ColumnData ()
+        {
+            string[] data = {
+                this.Person.Lastname,
+                this.Person.Firstname,
+                this.Institution.Name,
+                ""
+            };
+
+            if (this.Job != null) {
+                data[3] = this.Job.Name;
+            }
+
+            return data;
+        }
 
     }
 }

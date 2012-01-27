@@ -70,12 +70,12 @@ namespace Views
 
         protected void OnInfo (object sender, System.EventArgs e)
         {
-            new PerpetratorWindow (perpetrator, OnPerpetratorUpdated, (Gtk.Window)this.Toplevel);
+            new PerpetratorDetailWindow (perpetrator, OnPerpetratorUpdated, (Gtk.Window)this.Toplevel);
         }
 
-        protected void OnPerpetratorUpdated (object sender, PerpetratorEventArgs args)
+        protected void OnPerpetratorUpdated (object sender, EventArgs args)
         {
-            Perpetrator p = args.Perpetrator;
+            Perpetrator p = sender as Perpetrator;
             if (perpetrator.Victim.Id > 0) {
                 this.Perpetrator = p;
             }

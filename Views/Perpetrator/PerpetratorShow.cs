@@ -10,11 +10,10 @@ namespace Views
     public partial class PerpetratorShow : Gtk.Bin
     {
         Perpetrator perpetrator;
-        bool isEditing;
+        bool isEditable;
 
-        public event EventHandler Unsaved;
         public event EventHandler Saved;
-        public event EventHandler Cancel;
+        public event EventHandler Canceled;
 
         public PerpetratorShow ()
         {
@@ -27,7 +26,7 @@ namespace Views
             set {
                 perpetrator = value;
                 perpetratorSelector.Person = perpetrator.Person;
-                institutionselect1.Institution = perpetrator.Institution;
+                institution.Institution = perpetrator.Institution;
                 job.Active = perpetrator.Job;
 
                 HashSet<PerpetratorAct> perpetratorActs = new HashSet<PerpetratorAct>(new ARComparer<PerpetratorAct>());
@@ -40,21 +39,16 @@ namespace Views
                 }
                 //perpetratoractsselector.PerpetratorActs = perpetratorActs;
                 perpetratoractlist.Perpetrator = perpetrator;
-                IsEditing = false;
+                IsEditable = false;
             }
         }
 
-        protected virtual void OnToggleEdit (object sender, System.EventArgs e)
+        public bool IsEditable
         {
-            IsEditing = !IsEditing;
-        }
-
-        public bool IsEditing
-        {
-            get { return this.isEditing; }
+            get { return this.isEditable; }
             set
             {
-                isEditing = value;
+                isEditable = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
@@ -62,28 +56,59 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                institutionselect1.IsEditable = value;
+                institution.IsEditable = value;
                 job.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
                 //perpetratoractsselector2.IsEditing = value;
             }
         }
 
+        protected virtual void OnToggle (object sender, System.EventArgs e)
+        {
+            IsEditable = !IsEditable;
+            if (!isEditable && Canceled != null) {
+                Canceled (sender, e);
+            }
+        }
+
         protected virtual void OnSave (object sender, System.EventArgs e)
         {
+            Console.WriteLine("On PerpetratorShow Save.");
+            bool newRow = false;
+            if (perpetrator.Id < 1) {
+                newRow = true;
+            }
+
             perpetrator.Person = perpetratorSelector.Person;
+            perpetrator.Institution = institution.Institution;
             perpetrator.Job = job.Active as Job;
 
-            if (perpetrator.Id < 1 || perpetrator.Victim.Id < 1)
-            {
-                if (Unsaved != null)
-                    Unsaved (this.Perpetrator, e);
-                return;
-            } else {
-                perpetrator.Save();
+            if (perpetrator.IsValid()) {
+                perpetrator.SaveAndFlush ();
+
+                if (newRow) {
+                    perpetrator.Victim.Perpetrators.Add (Perpetrator);
+                    perpetrator.Victim.SaveAndFlush ();
+                }
+                this.IsEditable = false;
+
                 if (Saved != null)
-                    Saved (this.Perpetrator, e);
+                        Saved (this.Perpetrator, e);
+            } else {
+                Console.WriteLine( String.Join(",", perpetrator.ValidationErrorMessages) );
+                new ValidationErrorsDialog (perpetrator.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
+//            perpetrator.Person = perpetratorSelector.Person;
+//            perpetrator.Job = job.Active as Job;
+//
+//            if (perpetrator.Id < 1 || perpetrator.Victim.Id < 1)
+//            {
+//                return;
+//            } else {
+//                perpetrator.Save();
+//                if (Saved != null)
+//                    Saved (this.Perpetrator, e);
+//            }
         }
 
         protected void OnPerpetratorActSelected (object sender, System.EventArgs e)

@@ -125,8 +125,6 @@
     <Compile Include="Perpetrator\PerpetratorRow.cs" />
     <Compile Include="Perpetrator\PerpetratorSelector.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorSelector.cs" />
-    <Compile Include="Windows\PerpetratorWindow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorWindow.cs" />
     <Compile Include="Perpetrator\PerpetratorShow.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorShow.cs" />
     <Compile Include="Institutions\InstitutionSelect.cs" />
@@ -215,6 +213,8 @@
     <Compile Include="gtk-gui\Views.DocumentarySourceShow.cs" />
     <Compile Include="DocumentarySources\DocumentarySourceDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.DocumentarySourceDetailWindow.cs" />
+    <Compile Include="Windows\PerpetratorDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.PerpetratorDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

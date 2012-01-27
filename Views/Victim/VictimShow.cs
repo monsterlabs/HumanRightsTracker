@@ -3,6 +3,7 @@ using HumanRightsTracker.Models;
 using System.Collections.Generic;
 using System.Collections;
 using Mono.Unix;
+using System.Linq;
 
 namespace Views
 {
@@ -22,6 +23,7 @@ namespace Views
             this.Build ();
             this.editable_helper = new EditableHelper(this);
             this.IsEditing = false;
+            this.ConnectPerpetratorHandlers ();
         }
 
         public Victim Victim
@@ -41,11 +43,38 @@ namespace Views
                         perpetrators.Add(perpetrator);
                     }
                 }
-                PerpetratorSelector.Perpetrators = perpetrators;
-                PerpetratorSelector.Victim = victim;
+
+                perpetratorslist.Records = victimPerpetrators.Cast<ListableRecord>().ToList ();
 
                 IsEditing = false;
             }
+        }
+
+        private void ReloadPerpetrators () {
+            List<ListableRecord> perpetrators = this.Victim.Perpetrators.Cast<ListableRecord>().ToList ();
+            perpetratorslist.Records = perpetrators;
+        }
+
+        private void ConnectPerpetratorHandlers() {
+            perpetratorslist.NewButtonPressed += (sender, e) => {
+                new PerpetratorDetailWindow (this.Victim, (obj, args) => {
+                    this.ReloadPerpetrators ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            perpetratorslist.DeleteButtonPressed += (sender, e) => {
+                Perpetrator p = sender as Perpetrator;
+                this.Victim.Perpetrators.Remove (p);
+                if (p.Id >= 1) {
+                    p.DeleteAndFlush ();
+                }
+                this.ReloadPerpetrators ();
+            };
+            perpetratorslist.DetailButtonPressed  += (sender, e) => {
+                Perpetrator p = sender as Perpetrator;
+                new PerpetratorDetailWindow(p, (obj, args) => {
+                    this.ReloadPerpetrators ();
+                }, (Gtk.Window) this.Toplevel);
+            };
         }
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
@@ -61,7 +90,6 @@ namespace Views
             {
                 isEditing = value;
                 this.editable_helper.SetAllEditable(value);
-                PerpetratorSelector.IsEditing = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
