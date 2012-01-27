@@ -113,7 +113,7 @@ namespace Views
                     intervention.AffectedPeople.Add (affected);
                 }
 
-                intervention.Save ();
+                intervention.SaveAndFlush ();
 
                 if(newRow) {
                     intervention.Case.Interventions.Add (Intervention);

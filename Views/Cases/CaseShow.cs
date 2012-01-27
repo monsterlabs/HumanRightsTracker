@@ -282,7 +282,7 @@ namespace Views
                 Intervention i = sender as Intervention;
                 this.Case.Interventions.Remove(i);
                 if (i.Id >= 1) {
-                    i.Delete ();
+                    i.DeleteAndFlush ();
                 }
                 this.ReloadInterventions ();
             };
