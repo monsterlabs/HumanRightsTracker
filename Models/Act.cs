@@ -15,16 +15,16 @@ namespace HumanRightsTracker.Models
         [BelongsTo("case_id")]
         public Case Case { get; set;}
 
-        [BelongsTo("human_rights_violation_category_id")]
+        [BelongsTo("human_rights_violation_category_id"), ValidateNonEmpty]
         public HumanRightsViolationCategory HumanRightsViolationCategory { get; set; }
 
-        [BelongsTo("human_rights_violation_id")]
+        [BelongsTo("human_rights_violation_id"), ValidateNonEmpty]
         public HumanRightsViolation HumanRightsViolation { get; set; }
 
         [Property("settlement")]
         public String Settlement { get; set; }
 
-        [Property("affected_people_number")]
+        [Property("affected_people_number"), ValidateNonEmpty]
         public int AffectedPeopleNumber { get; set; }
 
         [Property("summary")]

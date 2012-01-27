@@ -3552,7 +3552,6 @@ Date</property>
           <widget class="Gtk.Expander" id="additional_info_expander">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox9">
                 <property name="MemberName" />
