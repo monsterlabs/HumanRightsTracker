@@ -19,8 +19,6 @@ namespace Views
 
         protected void set_widgets() {
             case_row.Case = c;
-            people_per_case.Case = c;
-            people_per_case.Institution = i;
         }
     }
 }

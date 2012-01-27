@@ -47,6 +47,7 @@ namespace Views
                     act_list.Records = c.Acts.Cast<ListableRecord>().ToList();
                     interventionlist.Records = c.Interventions.Cast<ListableRecord>().ToList();
                     case_relationship_list.Records = c.CaseRelationships.Cast<ListableRecord>().ToList();
+                    people_per_case.Case = c;
                 }
             }
         }
