@@ -192,7 +192,7 @@ namespace Views
                 Place p = sender as Place;
                 this.Case.Places.Remove (p);
                 if (p.Id >= 1) {
-                    p.Delete ();
+                    p.DeleteAndFlush ();
                 }
                 this.ReloadPlaces ();
             };

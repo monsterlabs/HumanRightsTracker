@@ -64,7 +64,7 @@ namespace Views
             place.City = placeselector.City;
 
             if (place.IsValid ()) {
-                place.Save ();
+                place.SaveAndFlush ();
                 if (newRow) {
                     place.Case.Places.Add (Place);
                     place.Case.SaveAndFlush ();
