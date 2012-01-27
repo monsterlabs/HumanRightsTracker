@@ -211,6 +211,8 @@
     <Compile Include="gtk-gui\Views.DocumentarySourceDetailWindow.cs" />
     <Compile Include="Windows\PerpetratorDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorDetailWindow.cs" />
+    <Compile Include="Cases\CaseSummaryWindow.cs" />
+    <Compile Include="gtk-gui\Views.CaseSummaryWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

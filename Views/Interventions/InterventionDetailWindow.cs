@@ -29,6 +29,16 @@ namespace Views
             show.IsEditable = false;
         }
 
+        public InterventionDetailWindow (Intervention intervention, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.TransientFor = parent;
+            show.Intervention = intervention;
+            show.IsEditable = false;
+            show.HideActionButtons ();
+        }
+        
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
             OnSaved (sender, e);

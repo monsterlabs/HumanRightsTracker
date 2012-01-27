@@ -30,6 +30,16 @@ namespace Views
             show.IsEditable = false;
         }
 
+        public ActDetailWindow (Act act, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.TransientFor = parent;
+            show.Act = act;
+            show.IsEditable = false;
+            show.HideActionButtons ();
+        }
+
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
             OnSaved (sender, e);

@@ -127,6 +127,11 @@ namespace Views
             }
         }
 
+        public void HideActionButtons () {
+            editButton1.Visible = false;
+            saveButton1.Visible = false;
+        }
+
         protected void OnVictimSelected (object sender, System.EventArgs e)
         {
             Victim v = sender as Victim;

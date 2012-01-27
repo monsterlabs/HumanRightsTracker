@@ -29,6 +29,16 @@ namespace Views
             show.IsEditable = false;
         }
 
+        public PlaceDetailWindow (Place place, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.TransientFor = parent;
+            show.Place = place;
+            show.IsEditable = false;
+            show.HideActionButtons ();
+        }
+
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
             OnSaved (sender, e);

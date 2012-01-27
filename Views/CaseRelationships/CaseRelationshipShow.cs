@@ -55,6 +55,10 @@ namespace Views
             }
         }
 
+        public void HideActionButtons () {
+            editButton.Visible = false;
+            saveButton.Visible = false;
+        }
 
         protected void OnToggle (object sender, System.EventArgs e)
         {
