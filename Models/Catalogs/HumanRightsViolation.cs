@@ -22,8 +22,16 @@ namespace HumanRightsTracker.Models
         [Property("category_id")]
         public int CategoryId { get; set; }
 
-        //[BelongsTo("parent_id")]
-        //public HumanRightsViolation Parent { get; set; }
+        [Property("category_id")]
+        public int ParentId { get; set; }
+
+        public string ParentName () {
+            return HumanRightsViolationCategory.Find(this.ParentId).Name;
+        }
+
+        public string ParentModel () {
+            return "HumanRightsViolationCategory";
+        }
     }
 }
 

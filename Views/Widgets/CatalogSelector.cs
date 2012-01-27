@@ -171,6 +171,7 @@ namespace Views
                 String name = nameProp.GetValue(o, null) as String;
                 combobox.AppendText (name);
             }
+            combobox.Entry.Text = "";
         }
 
         public bool HideAddButton {

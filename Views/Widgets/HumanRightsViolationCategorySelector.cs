@@ -33,6 +33,8 @@ namespace Views
         protected HumanRightsViolationCategory human_right_violation_category;
         protected bool isEditable;
 
+        public event EventHandler CategorySelected;
+
         public HumanRightsViolationCategorySelector ()
         {
             this.Build ();
@@ -95,9 +97,13 @@ namespace Views
 
         protected void OnNodeviewRowActivated (object o, Gtk.RowActivatedArgs args)
         {
-          Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
-          Active = ((HumanRightsViolationCategoryNode)selection.SelectedNode).HumanRightsViolationCategory;
-          name.Text = Active.Name;
+            Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
+            Active = ((HumanRightsViolationCategoryNode)selection.SelectedNode).HumanRightsViolationCategory;
+            name.Text = Active.Name;
+
+            if (CategorySelected != null) {
+                CategorySelected (Active, args);
+            }
         }
 
         protected void OnShown (object sender, System.EventArgs e)

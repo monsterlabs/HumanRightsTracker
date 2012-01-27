@@ -4719,6 +4719,7 @@ End date</property>
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
                                 <property name="IsEditable">False</property>
+                                <signal name="CategorySelected" handler="OnHumanrightsviolationcategoryCategorySelected" />
                               </widget>
                               <packing>
                                 <property name="TopAttach">1</property>

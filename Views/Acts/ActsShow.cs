@@ -1,8 +1,11 @@
 using System;
+using System.Reflection;
 using Mono.Unix;
 using HumanRightsTracker.Models;
 using System.Collections.Generic;
 using System.Collections;
+using Castle.ActiveRecord;
+using NHibernate.Criterion;
 
 namespace Views
 {
@@ -155,6 +158,20 @@ namespace Views
             victimshow1.Show ();
             victimshow1.IsEditing = true;
             return;
+        }
+
+        protected void OnHumanrightsviolationcategoryCategorySelected (object sender, System.EventArgs e)
+        {
+            HumanRightsViolationCategory category = sender as HumanRightsViolationCategory;
+            Console.WriteLine(category.Name);
+            Assembly asm = Assembly.Load ("Models");
+            Type t = asm.GetType ("HumanRightsTracker.Models.HumanRightsViolation");
+            Array array = ActiveRecordMetaBase.Where(t, new ICriterion[] { Restrictions.Eq ("CategoryId", category.Id) }, new Order("Id", true));
+            foreach (Object o in array) {
+                HumanRightsViolation h = o as HumanRightsViolation;
+                Console.WriteLine("Name: " + h.Name);
+            }
+            humanRightsViolation.FilterBy (new ICriterion[] { Restrictions.Eq ("CategoryId", category.Id) }, category.Id);
         }
     }
 }
