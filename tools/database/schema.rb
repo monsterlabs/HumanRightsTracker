@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120112044022) do
+ActiveRecord::Schema.define(:version => 20120126200322) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20120112044022) do
     t.integer "case_id"
     t.integer "relationship_type_id"
     t.integer "related_case_id"
+    t.text    "comments"
+    t.text    "observations"
   end
 
   create_table "case_statuses", :force => true do |t|
@@ -147,7 +149,8 @@ ActiveRecord::Schema.define(:version => 20120112044022) do
   end
 
   create_table "human_rights_violation_categories", :force => true do |t|
-    t.string "name", :null => false
+    t.string  "name",      :null => false
+    t.integer "parent_id"
   end
 
   create_table "human_rights_violations", :force => true do |t|
