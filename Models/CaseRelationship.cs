@@ -22,6 +22,12 @@ namespace HumanRightsTracker.Models
         [BelongsTo("relationship_type_id")]
         public RelationshipType RelationshipType { get; set; }
 
+        [Property("comments")]
+        public String Comments { get; set;}
+
+        [Property("observations")]
+        public String Observations { get; set;}
+
         public string[] ColumnData ()
         {
             string[] data = {

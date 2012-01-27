@@ -214,7 +214,7 @@ namespace Views
                 CaseRelationship record = sender as CaseRelationship;
                 this.Case.CaseRelationships.Remove (record);
                 if (record.Id >= 1) {
-                    record.Delete ();
+                    record.DeleteAndFlush ();
                 }
                 this.ReloadCaseRelationships ();
             };
