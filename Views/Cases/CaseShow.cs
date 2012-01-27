@@ -170,7 +170,7 @@ namespace Views
                 TrackingInformation t = sender as TrackingInformation;
                 this.Case.TrackingInformation.Remove(t);
                 if (t.Id >= 1) {
-                    t.Delete ();
+                    t.DeleteAndFlush ();
                 }
                 this.ReloadTrackings ();
             };

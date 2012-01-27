@@ -90,7 +90,7 @@ namespace Views
             trackingInfo.Comments = comments.Text;
 
             if (trackingInfo.IsValid()) {
-                trackingInfo.Save ();
+                trackingInfo.SaveAndFlush ();
                 if (newRow) {
                     TrackingInfo.Case.RecordCount += 1;
                     TrackingInfo.Case.TrackingInformation.Add (TrackingInfo);
