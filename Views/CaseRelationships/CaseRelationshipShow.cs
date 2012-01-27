@@ -32,6 +32,8 @@ namespace Views
 
                     related_case_select.Case = case_relationship.RelatedCase;
                     relationship_type.Active = case_relationship.RelationshipType;
+                    comments.Text = case_relationship.Comments;
+                    observations.Text = case_relationship.Observations;
                 }
                 IsEditable = false;
             }
@@ -70,10 +72,11 @@ namespace Views
 
             case_relationship.RelatedCase = related_case_select.Case;
             case_relationship.RelationshipType = relationship_type.Active as RelationshipType;
-
+            case_relationship.Comments = comments.Text;
+            case_relationship.Observations = observations.Text;
 
             if (case_relationship.IsValid()) {
-                case_relationship.Save ();
+                case_relationship.SaveAndFlush();
 
                 if (newRow) {
                     case_relationship.Case.CaseRelationships.Add (CaseRelationship);
