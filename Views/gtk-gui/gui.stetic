@@ -9905,7 +9905,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.CaseRelationshipDetailWindow" design-size="692 174">
+  <widget class="Gtk.Window" id="Views.CaseRelationshipDetailWindow" design-size="692 346">
     <property name="MemberName" />
     <property name="Title" translatable="yes">CaseRelationshipDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>

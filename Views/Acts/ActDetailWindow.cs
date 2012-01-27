@@ -7,11 +7,11 @@ namespace Views
     {
         public event EventHandler OnSaved = null;
 
-        public ActDetailWindow (Case c, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        public ActDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
-            this.OnSaved = OnShowSaved;
+            this.OnSaved = OnSave;
             this.TransientFor = parent;
 
             show.Act = new Act();
@@ -19,11 +19,11 @@ namespace Views
             show.IsEditable= true;
         }
 
-        public ActDetailWindow (Act act, EventHandler onSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        public ActDetailWindow (Act act, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
-            this.OnSaved = OnShowSaved;
+            this.OnSaved = OnSave;
             this.TransientFor = parent;
 
             show.Act = act;
@@ -53,4 +53,3 @@ namespace Views
         }
     }
 }
-

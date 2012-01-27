@@ -84,7 +84,7 @@ namespace Views
                     victims.Add(victim);
                 }
                 act.Victims = victims;
-                act.Save ();
+                act.SaveAndFlush ();
 
                 if (newRow) {
                     act.Case.Acts.Add (Act);
