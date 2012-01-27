@@ -93,6 +93,8 @@ namespace Views.People
                     institution_and_job_per_person.Show ();
                 }
 
+                case_per_person.IsEditable = false;
+
                 this.editable_helper.SetAllEditable(value);
 
                 if (this.isImmigrant == true ) {

@@ -10,6 +10,7 @@ namespace Views
     public partial class CasePerPerson : Gtk.Bin
     {
         Person p;
+        bool isEditable;
         private EditableHelper editable_helper;
 
         public CasePerPerson ()
@@ -25,6 +26,14 @@ namespace Views
             {
                 p = value;
                 ReloadList ();
+            }
+        }
+
+        public bool IsEditable {
+            get { return isEditable; }
+            set {
+                isEditable = value;
+                this.editable_helper.SetAllEditable (value);
             }
         }
 
