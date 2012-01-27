@@ -5,7 +5,7 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class PersonAndInstitutionSelect : Gtk.Bin
+    public partial class PersonAndInstitutionSelect : Gtk.Bin, IEditable
     {
         protected Boolean isEditable;
 

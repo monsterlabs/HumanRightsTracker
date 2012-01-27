@@ -97,12 +97,8 @@
     <Compile Include="gtk-gui\Views.AlphabetList.cs" />
     <Compile Include="People\PersonRow.cs" />
     <Compile Include="gtk-gui\Views.PersonRow.cs" />
-    <Compile Include="Acts\ActsList.cs" />
-    <Compile Include="gtk-gui\Views.ActsList.cs" />
     <Compile Include="Widgets\BooleanRadioButton.cs" />
     <Compile Include="gtk-gui\Views.BooleanRadioButton.cs" />
-    <Compile Include="Acts\ActRow.cs" />
-    <Compile Include="gtk-gui\Views.ActRow.cs" />
     <Compile Include="Acts\ActDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.ActDetailWindow.cs" />
     <Compile Include="Widgets\EditableLabel.cs" />
@@ -111,10 +107,6 @@
     <Compile Include="gtk-gui\Views.EditCatalogRecord.cs" />
     <Compile Include="Windows\EditCatalogWindow.cs" />
     <Compile Include="gtk-gui\Views.EditCatalogWindow.cs" />
-    <Compile Include="Interventions\InterventionList.cs" />
-    <Compile Include="gtk-gui\Views.InterventionList.cs" />
-    <Compile Include="Interventions\InterventionRow.cs" />
-    <Compile Include="gtk-gui\Views.InterventionRow.cs" />
     <Compile Include="Interventions\InterventionShow.cs" />
     <Compile Include="gtk-gui\Views.InterventionShow.cs" />
     <Compile Include="People\PersonSelect.cs" />
@@ -171,28 +163,16 @@
     <Compile Include="gtk-gui\Views.VictimList.cs" />
     <Compile Include="Perpetrator\PerpetratorActList.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorActList.cs" />
-    <Compile Include="InformationSources\InformationSourceRow.cs" />
-    <Compile Include="gtk-gui\Views.InformationSourceRow.cs" />
-    <Compile Include="gtk-gui\Views.InformationSourceList.cs" />
-    <Compile Include="Windows\InformationSourceWindow.cs" />
-    <Compile Include="gtk-gui\Views.InformationSourceWindow.cs" />
     <Compile Include="Widgets\PersonAndInstitutionSelect.cs" />
     <Compile Include="gtk-gui\Views.PersonAndInstitutionSelect.cs" />
     <Compile Include="Widgets\PersonOrInstitutionSelector.cs" />
     <Compile Include="gtk-gui\Views.PersonOrInstitutionSelector.cs" />
-    <Compile Include="InformationSources\InformationSourceList.cs" />
     <Compile Include="Windows\PersonCreateWindow.cs" />
     <Compile Include="gtk-gui\Views.PersonCreateWindow.cs" />
     <Compile Include="Widgets\IEditable.cs" />
     <Compile Include="Widgets\EditableHelper.cs" />
-    <Compile Include="DocumentarySources\DocumentarySourceRow.cs" />
-    <Compile Include="gtk-gui\Views.DocumentarySourceRow.cs" />
-    <Compile Include="DocumentarySources\DocumentarySourceList.cs" />
-    <Compile Include="gtk-gui\Views.DocumentarySourceList.cs" />
     <Compile Include="Widgets\EditableTextView.cs" />
     <Compile Include="gtk-gui\Views.EditableTextView.cs" />
-    <Compile Include="Windows\DocumentarySourceWindow.cs" />
-    <Compile Include="gtk-gui\Views.DocumentarySourceWindow.cs" />
     <Compile Include="TrackingInformation\TrackingShow.cs" />
     <Compile Include="gtk-gui\Views.TrackingShow.cs" />
     <Compile Include="TrackingInformation\TrackingDetailWindow.cs" />
@@ -211,8 +191,6 @@
     <Compile Include="gtk-gui\Views.CaseSelect.cs" />
     <Compile Include="Windows\CaseSelectorWindow.cs" />
     <Compile Include="gtk-gui\Views.CaseSelectorWindow.cs" />
-    <Compile Include="Windows\CaseRelationshipWindow.cs" />
-    <Compile Include="gtk-gui\Views.CaseRelationshipWindow.cs" />
     <Compile Include="Widgets\CatalogCRUD.cs" />
     <Compile Include="gtk-gui\Views.CatalogCRUD.cs" />
     <Compile Include="Widgets\CatalogTab.cs" />
@@ -225,6 +203,18 @@
     <Compile Include="gtk-gui\Views.HumanRightsViolationCategorySelector.cs" />
     <Compile Include="Widgets\CellRendererCatalogSelector.cs" />
     <Compile Include="Widgets\TreeViewCellContainer.cs" />
+    <Compile Include="CaseRelationships\CaseRelationshipDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.CaseRelationshipDetailWindow.cs" />
+    <Compile Include="CaseRelationships\CaseRelationshipShow.cs" />
+    <Compile Include="gtk-gui\Views.CaseRelationshipShow.cs" />
+    <Compile Include="InformationSources\InformationSourceShow.cs" />
+    <Compile Include="gtk-gui\Views.InformationSourceShow.cs" />
+    <Compile Include="InformationSources\InformationSourceDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.InformationSourceDetailWindow.cs" />
+    <Compile Include="DocumentarySources\DocumentarySourceShow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceShow.cs" />
+    <Compile Include="DocumentarySources\DocumentarySourceDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.DocumentarySourceDetailWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -258,5 +248,6 @@
     <Folder Include="TrackingInformation\" />
     <Folder Include="Documents\" />
     <Folder Include="Places\" />
+    <Folder Include="CaseRelationships\" />
   </ItemGroup>
 </Project>

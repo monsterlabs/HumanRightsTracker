@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("acts")]
-    public class Act : ActiveRecordValidationBase<Act>, ListableRecord
+    public class Act : ActiveRecordValidationBase<Act>, ListableRecord, IComparable<Act>
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -87,6 +87,13 @@ namespace HumanRightsTracker.Models
             return data;
         }
 
+         public int CompareTo(Act other)
+        {
+            if (other == null) return 1;
+            DateTime timeX = this.start_date.Value;
+            DateTime timeY = other.start_date.Value;
+            return timeY.CompareTo(timeX);
+        }
     }
 }
 

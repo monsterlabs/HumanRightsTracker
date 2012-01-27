@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class PeopleSelector : Gtk.Bin
+    public partial class PeopleSelector : Gtk.Bin, IEditable
     {
         HashSet<Person> people = new HashSet<Person>(new ARComparer<Person>());
-        bool isEditing;
+        bool isEditable;
 
         public PeopleSelector ()
         {
@@ -16,12 +16,12 @@ namespace Views
             row.Destroy ();
         }
 
-        public bool IsEditing {
+        public bool IsEditable {
             get {
-                return this.isEditing;
+                return this.isEditable;
             }
             set {
-                isEditing = value;
+                isEditable = value;
                 button7.Visible = value;
                 foreach (Gtk.Widget row in peopleList.AllChildren) {
                     ((PersonRow) row).IsEditable = value;

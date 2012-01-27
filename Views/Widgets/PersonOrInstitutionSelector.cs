@@ -5,7 +5,7 @@ using HumanRightsTracker.Models;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class PersonOrInstitutionSelector : Gtk.Bin
+    public partial class PersonOrInstitutionSelector : Gtk.Bin, IEditable
     {
         protected Person person;
         protected Institution institution;
@@ -57,8 +57,12 @@ namespace Views
                 isEditable = value;
                 if (personSelect !=null)
                     personSelect.IsEditable = value;
+
                 if (institutionSelect != null)
                     institutionSelect.IsEditable = value;
+                
+                radiobutton1.Visible = value;
+                radiobutton2.Visible = value;
             }
         }
 

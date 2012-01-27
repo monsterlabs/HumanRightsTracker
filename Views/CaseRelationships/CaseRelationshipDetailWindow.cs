@@ -3,29 +3,29 @@ using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class PlaceDetailWindow : Gtk.Window
+    public partial class CaseRelationshipDetailWindow : Gtk.Window
     {
         public event EventHandler OnSaved = null;
 
-        public PlaceDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        public CaseRelationshipDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            Place p = new Place ();
-            p.Case = c;
-            show.Place = p;
+            CaseRelationship cr = new CaseRelationship ();
+            cr.Case = c;
+            show.CaseRelationship = cr;
             show.IsEditable = true;
         }
 
-        public PlaceDetailWindow (Place place, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        public CaseRelationshipDetailWindow (CaseRelationship case_relationship, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            show.Place = place;
+            show.CaseRelationship = case_relationship;
             show.IsEditable = false;
         }
 
@@ -37,7 +37,7 @@ namespace Views
 
         protected void OnShowCanceled (object sender, System.EventArgs e)
         {
-            if (show.Place.Id < 1) {
+            if (show.CaseRelationship.Id < 1) {
                 this.Destroy ();
             }
         }

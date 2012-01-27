@@ -21,7 +21,13 @@ namespace Views
             this.Build ();
             this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
+            ConnectActsHandlers();
             ConnectTrackingHandlers ();
+            ConnectPlacesHandlers();
+            ConnectDocumentarySourceHandlers();
+            ConnectInformationSourceHandlers();
+            ConnectCaseRelationshipHandlers();
+            ConnectInterventionsHandlers();
         }
 
         public Case Case {
@@ -39,16 +45,23 @@ namespace Views
                     description.Text = mycase.NarrativeDescription;
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
-
-                    editablelist1.Records = value.Acts.Cast<ListableRecord>().ToList();
-                    case_relationships_editablelist.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
-                    interventionlist1.Case = value;
-                    documentarysourcelist.Case = value;
-                    informationsourcelist1.Case = value;
-                    List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
-                    trackings.Sort();
-                    trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
-                    placeslist.Records = value.Places.Cast<ListableRecord>().ToList ();
+                    if (mycase.Id != 0 ) {
+                        act_list.Records = value.Acts.Cast<ListableRecord>().ToList();
+                        case_relationship_list.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
+                        interventionlist.Records = value.Interventions.Cast<ListableRecord>().ToList();
+                        documentarysourcelist.Records = value.DocumentarySources.Cast<ListableRecord>().ToList();
+                        informationsourcelist.Records = value.InformationSources.Cast<ListableRecord>().ToList();
+                        List<TrackingInformation> trackings = value.TrackingInformation.Cast<TrackingInformation>().ToList ();
+                        trackings.Sort();
+                        trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+                        placeslist.Records = value.Places.Cast<ListableRecord>().ToList ();
+                    } else {
+                        general_info_expander.Expanded = true;
+                        places_expander.Hide ();
+                        tracking_info_expander.Hide ();
+                        core_expander.Hide ();
+                        additional_info_expander.Hide ();
+                    }
                 }
                 IsEditing = false;
             }
@@ -63,6 +76,12 @@ namespace Views
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
+                    if (mycase.Id != 0 ) {
+                        places_expander.Visible = true;
+                        tracking_info_expander.Visible = true;
+                        core_expander.Visible = true;
+                        additional_info_expander.Visible = true;
+                    }
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
@@ -72,9 +91,6 @@ namespace Views
                 }
 
                 this.editable_helper.SetAllEditable (value);
-                interventionlist1.IsEditable = value;
-                documentarysourcelist.IsEditable = value;
-                informationsourcelist1.IsEditable = value;
             }
         }
 
@@ -82,10 +98,66 @@ namespace Views
             hbuttonbox9.Hide ();
         }
 
-        public void ReloadTrackings () {
+        public void ReloadActs () {
+            List<Act> acts = this.Case.Acts.Cast<Act>().ToList ();
+            acts.Sort ();
+            act_list.Records = acts.Cast<ListableRecord>().ToList ();
+        }
+
+        private void ReloadTrackings () {
             List<TrackingInformation> trackings = this.Case.TrackingInformation.Cast<TrackingInformation>().ToList ();
             trackings.Sort ();
             trackinglist.Records = trackings.Cast<ListableRecord>().ToList ();
+        }
+
+        private void ReloadPlaces () {
+            List<ListableRecord> places = this.Case.Places.Cast<ListableRecord>().ToList ();
+            placeslist.Records = places;
+        }
+
+        public void ReloadCaseRelationships () {
+            List<CaseRelationship> case_relationships = this.Case.CaseRelationships.Cast<CaseRelationship>().ToList ();
+            case_relationships.Sort ();
+            case_relationship_list.Records = case_relationships.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ReloadInformationSources () {
+            List<InformationSource> information_sources = this.Case.InformationSources.Cast<InformationSource>().ToList ();
+            information_sources.Sort ();
+            informationsourcelist.Records = information_sources.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ReloadDocumentarySources () {
+            List<DocumentarySource> documentary_sources = this.Case.DocumentarySources.Cast<DocumentarySource>().ToList ();
+            documentary_sources.Sort ();
+            documentarysourcelist.Records = documentary_sources.Cast<ListableRecord>().ToList ();
+        }
+
+        private void ReloadInterventions() {
+            List<ListableRecord> interventions = this.Case.Interventions.Cast<ListableRecord>().ToList ();
+            interventionlist.Records = interventions;
+        }
+
+        public void ConnectActsHandlers () {
+            act_list.NewButtonPressed += (sender, e) => {
+                new ActDetailWindow (this.Case, (o, args) => {
+                    this.ReloadActs ();
+                },  (Gtk.Window) this.Toplevel);
+            };
+            act_list.DeleteButtonPressed += (sender, e) => {
+                Act record = sender as Act;
+                this.Case.Acts.Remove(record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadActs ();
+            };
+            act_list.DetailButtonPressed += (sender, e) => {
+                Act record = sender as Act;
+                new ActDetailWindow(record, (o, args) => {
+                    this.ReloadActs ();
+                }, (Gtk.Window) this.Toplevel);
+            };
         }
 
         public void ConnectTrackingHandlers () {
@@ -106,6 +178,118 @@ namespace Views
                 TrackingInformation t = sender as TrackingInformation;
                 new TrackingDetailWindow(t, (o, args) => {
                     this.ReloadTrackings ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectPlacesHandlers() {
+            placeslist.NewButtonPressed += (sender, e) => {
+                new PlaceDetailWindow (this.Case, (o, args) => {
+                    this.ReloadPlaces ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            placeslist.DeleteButtonPressed += (sender, e) => {
+                Place p = sender as Place;
+                this.Case.Places.Remove (p);
+                if (p.Id >= 1) {
+                    p.Delete ();
+                }
+                this.ReloadPlaces ();
+            };
+            placeslist.DetailButtonPressed += (sender, e) => {
+                Place p = sender as Place;
+                new PlaceDetailWindow(p, (o, args) => {
+                    this.ReloadPlaces ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectCaseRelationshipHandlers() {
+            case_relationship_list.NewButtonPressed += (sender, e) => {
+                new CaseRelationshipDetailWindow(this.Case, (o, args) => {
+                    this.ReloadCaseRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            case_relationship_list.DeleteButtonPressed += (sender, e) => {
+                CaseRelationship record = sender as CaseRelationship;
+                this.Case.CaseRelationships.Remove (record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadCaseRelationships ();
+            };
+            case_relationship_list.DetailButtonPressed += (sender, e) => {
+                CaseRelationship record = sender as CaseRelationship;
+                new CaseRelationshipDetailWindow(record, (o, args) => {
+                    this.ReloadCaseRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectInformationSourceHandlers() {
+            informationsourcelist.NewButtonPressed += (sender, e) => {
+                new InformationSourceDetailWindow(this.Case, (o, args) => {
+                    this.ReloadInformationSources ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            informationsourcelist.DeleteButtonPressed += (sender, e) => {
+                InformationSource record = sender as InformationSource;
+                this.Case.InformationSources.Remove (record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadInformationSources ();
+
+            };
+            informationsourcelist.DetailButtonPressed += (sender, e) => {
+                InformationSource record = sender as InformationSource;
+                new InformationSourceDetailWindow(record, (o, args) => {
+                    this.ReloadInformationSources ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectDocumentarySourceHandlers() {
+            documentarysourcelist.NewButtonPressed += (sender, e) => {
+                new DocumentarySourceDetailWindow(this.Case, (o, args) => {
+                    this.ReloadDocumentarySources ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            documentarysourcelist.DeleteButtonPressed += (sender, e) => {
+                DocumentarySource record = sender as DocumentarySource;
+                this.Case.DocumentarySources.Remove (record);
+                if (record.Id >= 1) {
+                    record.Delete ();
+                }
+                this.ReloadDocumentarySources ();
+
+            };
+            documentarysourcelist.DetailButtonPressed += (sender, e) => {
+                DocumentarySource record = sender as DocumentarySource;
+                new DocumentarySourceDetailWindow(record, (o, args) => {
+                    this.ReloadDocumentarySources ();
+               }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+        public void ConnectInterventionsHandlers() {
+            interventionlist.NewButtonPressed += (sender, e) => {
+                new InterventionDetailWindow(this.Case, (o, args) => {
+                    this.ReloadInterventions ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            interventionlist.DeleteButtonPressed += (sender, e) => {
+                Intervention i = sender as Intervention;
+                this.Case.Interventions.Remove(i);
+                if (i.Id >= 1) {
+                    i.Delete ();
+                }
+                this.ReloadInterventions ();
+            };
+            interventionlist.DetailButtonPressed += (sender, e) => {
+                Intervention i = sender as Intervention;
+                new InterventionDetailWindow(i, (o, args) => {
+                    this.ReloadInterventions ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }
@@ -142,56 +326,5 @@ namespace Views
         {
             IsEditing = !IsEditing;
         }
-
-        protected void OnNew (object sender, System.EventArgs e)
-        {
-            new ActDetailWindow (mycase, OnNewActReturned, (Gtk.Window)this.Toplevel);
-        }
-
-        protected void OnNewActReturned (object sender, EventArgs args)
-        {
-            editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
-
-            return;
-        }
-
-        protected void OnDelete (object sender, System.EventArgs e)
-        {
-            Act a = sender as Act;
-
-            if (a.Id >= 1)
-            {
-                // TODO: Confirmation.
-                a.Delete ();
-            }
-
-            editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
-
-            return;
-        }
-
-        protected void OnDetail (object sender, System.EventArgs e)
-        {
-            Act a = sender as Act;
-            new ActDetailWindow (a, OnDetailReturned, (Gtk.Window)this.Toplevel);
-        }
-
-        protected void OnDetailReturned (object sender, System.EventArgs e)
-        {
-            editablelist1.Records = mycase.Acts.Cast<ListableRecord>().ToList();
-        }
-
-        protected void OnNewRelationShip (object sender, System.EventArgs e)
-        {
-            CaseRelationship case_relationship = new CaseRelationship ();
-            case_relationship.Case = mycase;
-            new CaseRelationshipWindow (case_relationship, OnNewCaseRelationshipReturned, (Gtk.Window)this.Toplevel);
-        }
-
-        protected void OnNewCaseRelationshipReturned  (object sender, EventArgs args) {
-            // TODO: put your implementation here
-            return;
-        }
-
     }
 }

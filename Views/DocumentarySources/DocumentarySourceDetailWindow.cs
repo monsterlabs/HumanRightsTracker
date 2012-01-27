@@ -1,33 +1,33 @@
 using System;
 using HumanRightsTracker.Models;
-
 namespace Views
 {
-    public partial class PlaceDetailWindow : Gtk.Window
+    public partial class DocumentarySourceDetailWindow : Gtk.Window
     {
         public event EventHandler OnSaved = null;
 
-        public PlaceDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        public DocumentarySourceDetailWindow (Case c, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            Place p = new Place ();
-            p.Case = c;
-            show.Place = p;
+            DocumentarySource doc_source = new DocumentarySource ();
+            doc_source.Case = c;
+            show.DocumentarySource = doc_source;
             show.IsEditable = true;
         }
 
-        public PlaceDetailWindow (Place place, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        public DocumentarySourceDetailWindow (DocumentarySource doc_source, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            show.Place = place;
+            show.DocumentarySource = doc_source;
             show.IsEditable = false;
         }
+
 
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace Views
 
         protected void OnShowCanceled (object sender, System.EventArgs e)
         {
-            if (show.Place.Id < 1) {
+            if (show.DocumentarySource.Id < 1) {
                 this.Destroy ();
             }
         }

@@ -32,6 +32,8 @@ namespace Views
             }
             set {
                 headers = value;
+                Array.Resize(ref headers, headers.Length + 1);
+                headers[headers.Length -1] = "Action(s)";
             }
         }
 
@@ -45,22 +47,30 @@ namespace Views
                 this.DestroyTableChildren ();
                 this.BuildTableHeaders ();
 
-                table.Resize ((uint) (records.Count + 1), (uint) (headers.Length + 1));
+                table.Resize ((uint) (records.Count + 1), (uint) (headers.Length));
                 for (uint i = 0; i < records.Count; i++) {
                     string[] data = records[(int) i].ColumnData ();
                     uint j = 0;
-                    for (; j < headers.Length; j++) {
+                    for (; j < (headers.Length -1); j++) {
                         Label l = new Label (data[j]);
                         //l.MaxWidthChars = 20;
                         l.LineWrap = true;
                         l.Wrap = true;
+                        l.Justify = Justification.Fill;
                         l.SingleLineMode = false;
-                        table.Attach (l, j, j+1, i+1,i+2);
+
+                        Gtk.Frame f = new Gtk.Frame ();
+                        f.Add(l);
+                        f.ShadowType = Gtk.ShadowType.In;
+
+                        table.Attach (f, j, j+1, i+1,i+2);
+                        table.SetColSpacing(j, 0);
                     }
                     EditableListButtons buttons = new EditableListButtons (records[(int) i]);
                     buttons.DeletePressed += OnDelete;
                     buttons.DetailPressed += OnDetail;
                     table.Attach (buttons, j, j+1, i+1,i+2);
+                    table.SetRowSpacing(i, 0);
                 }
                 table.ShowAll ();
                 this.editable_helper.UpdateEditableWidgets ();
@@ -69,12 +79,22 @@ namespace Views
         }
 
         protected void BuildTableHeaders () {
-            table.Resize (1, (uint) (headers.Length + 1));
+            table.Resize (1, (uint) (headers.Length));
+
             for (uint i = 0; i < headers.Length; i++) {
                 Label l = new Label ("<b>" + headers[i] + "</b>");
                 l.UseMarkup = true;
-                table.Attach (l, i, i+1, 0,1);
+                l.Justify = Justification.Fill;
+
+                Gtk.Frame f = new Gtk.Frame ();
+                f.ShadowType = Gtk.ShadowType.In;
+                f.Add(l);
+
+                table.Attach (f, i, i+1, 0,1);
+                table.SetColSpacing(i, 0);
             }
+
+            table.SetRowSpacing(0, 0);
         }
 
         protected void DestroyTableChildren () {

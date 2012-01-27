@@ -1,50 +1,32 @@
 using System;
+using Mono.Unix;
 using HumanRightsTracker.Models;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Views
 {
-    public partial class DocumentarySourceWindow : Gtk.Window, IEditable
+    [System.ComponentModel.ToolboxItem(true)]
+    public partial class DocumentarySourceShow : Gtk.Bin
     {
+        bool isEditable;
+        DocumentarySource documentary_source;
+        private EditableHelper editable_helper;
+
         public event EventHandler Saved;
         public event EventHandler Canceled;
 
-        DocumentarySource documentary_source;
-        bool isEditable;
-
-        public DocumentarySourceWindow () : 
-                base(Gtk.WindowType.Toplevel)
+        public DocumentarySourceShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
         }
 
-        public DocumentarySourceWindow (DocumentarySource ds, EventHandler onSave, Gtk.Window parent) :
-            base(Gtk.WindowType.Toplevel)
-       {
-           this.Build ();
-           this.Modal = true;
-           this.Saved= onSave;
-           this.TransientFor = parent;
-           DocumentarySource = ds;
-
-       }
-
-        public DocumentarySourceWindow (Case c, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
-        {
-            this.Build ();
-            this.Modal = true;
-            this.Saved = OnSave;
-            this.TransientFor = parent;
-            documentary_source = new DocumentarySource ();
-            documentary_source.Case = c;
-            DocumentarySource = documentary_source;
-        }
-
-       public DocumentarySource DocumentarySource {
-           get { return this.documentary_source; }
-           set {
-               documentary_source = value;
-               if (documentary_source != null) {
-
+        public DocumentarySource DocumentarySource {
+            get { return this.documentary_source; }
+            set {
+                documentary_source = value;
+                if (documentary_source != null) {
                     name.Text = documentary_source.Name;
                     additional_info.Text = documentary_source.AdditionalInfo;
                     source_information_type.Active = documentary_source.SourceInformationType;
@@ -67,22 +49,25 @@ namespace Views
                         person_or_institution_selector.Institution = documentary_source.ReportedInstitution;
                         person_or_institution_selector.AllSet = true;
                     }
+                }
+                IsEditable = false;
+            }
+        }
 
+        public Boolean IsEditable {
+            get { return this.isEditable;}
+            set {
+                isEditable = value;
+                this.editable_helper.SetAllEditable(value);
+
+                if (value) {
+                    editButton.Label = Catalog.GetString("Cancel");
+                    saveButton.Visible = true;
+                } else {
+                    editButton.Label = Catalog.GetString("Edit");
+                    saveButton.Visible = false;
                 }
             }
-        }
-
-        public bool IsEditable {
-            get {
-                return this.isEditable;
-            }
-            set {
-                this.isEditable = value;
-            }
-        }
-        protected void OnCancel (object sender, System.EventArgs e)
-        {
-            this.Destroy ();
         }
 
         protected void OnSave (object sender, System.EventArgs e)
@@ -119,13 +104,20 @@ namespace Views
 
                 if (Saved != null)
                    Saved (this.documentary_source, e);
-                
-                this.Destroy();
+
+                this.IsEditable = false;
             } else {
                 Console.WriteLine( String.Join(",",documentary_source.ValidationErrorMessages) );
                 new ValidationErrorsDialog (documentary_source.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
+        }
 
+        protected void OnToggle (object sender, System.EventArgs e)
+        {
+            IsEditable = !IsEditable;
+            if (!IsEditable && Canceled != null)
+                Canceled (sender, e);
         }
     }
 }
+

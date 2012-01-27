@@ -30,7 +30,7 @@ namespace HumanRightsTracker
 
        static void ActiveRecordStarter_SessionFactoryHolderCreated(Castle.ActiveRecord.Framework.ISessionFactoryHolder holder)
        {
-            holder.ThreadScopeInfo = new ThreadScopeInfo();
+            holder.ThreadScopeInfo = new ThreadScopeInfo ();
        }
 	}
 
@@ -60,7 +60,7 @@ namespace HumanRightsTracker
                 {
                     if (CurrentStack.Count == 0)
                     {
-                        new SessionScope();
+                        new SessionScope (FlushAction.Never);
                     }
                 }
             }

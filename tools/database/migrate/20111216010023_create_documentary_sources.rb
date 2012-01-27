@@ -2,11 +2,11 @@ class CreateDocumentarySources < ActiveRecord::Migration
   def self.up
     create_table :documentary_sources do |t|
       t.references :case
-      t.string :name
+      t.text :name
       t.text :additional_info
       t.date :date
       t.references :source_information_type
-      t.string :site_name
+      t.text :site_name
       t.string :url
       t.date :access_date
       t.references :language
