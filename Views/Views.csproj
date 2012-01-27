@@ -223,6 +223,8 @@
     <Compile Include="gtk-gui\Views.PlaceDetailWindow.cs" />
     <Compile Include="Widgets\HumanRightsViolationCategorySelector.cs" />
     <Compile Include="gtk-gui\Views.HumanRightsViolationCategorySelector.cs" />
+    <Compile Include="Widgets\CellRendererCatalogSelector.cs" />
+    <Compile Include="Widgets\TreeViewCellContainer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

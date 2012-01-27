@@ -3393,7 +3393,6 @@ December</property>
                             <property name="Headers">City
 State
 Country</property>
-                            <property name="IsEditing">False</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
@@ -3425,7 +3424,6 @@ Country</property>
                             <property name="Headers">ID
 Title
 Date of Receipt</property>
-                            <property name="IsEditing">False</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
@@ -3491,7 +3489,6 @@ Date of Receipt</property>
 Act
 Start Date
 End Date</property>
-                        <property name="IsEditing">False</property>
                         <property name="IsEditable">False</property>
                         <signal name="NewButtonPressed" handler="OnNew" />
                         <signal name="DeleteButtonPressed" handler="OnDelete" />
@@ -3684,7 +3681,6 @@ Relation type
 Related case
 Start date
 End date</property>
-                        <property name="IsEditing">False</property>
                         <property name="IsEditable">False</property>
                         <signal name="NewButtonPressed" handler="OnNewRelationShip" />
                       </widget>
@@ -5358,7 +5354,6 @@ End date</property>
 Act
 Start Date
 End Date</property>
-        <property name="IsEditing">False</property>
         <property name="IsEditable">False</property>
       </widget>
     </child>
@@ -11637,37 +11632,15 @@ End Date</property>
       <widget class="Gtk.Notebook" id="notebook1">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">1</property>
+        <property name="CurrentPage">0</property>
+        <property name="Scrollable">True</property>
         <child>
-          <widget class="Views.CatalogCRUD" id="catalogcrud2">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="Model">Job</property>
-          </widget>
+          <placeholder />
         </child>
         <child>
           <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">page1</property>
-          </widget>
-          <packing>
-            <property name="type">tab</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Views.CatalogCRUD" id="catalogcrud1">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="Model">City</property>
-          </widget>
-          <packing>
-            <property name="Position">1</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="label2">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">page2</property>
           </widget>
           <packing>
             <property name="type">tab</property>

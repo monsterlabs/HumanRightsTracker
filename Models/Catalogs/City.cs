@@ -28,6 +28,7 @@ namespace HumanRightsTracker.Models
             }
         }
 
+
         public string ParentName () {
             return State.Find(this.StateId).Name;
         }
@@ -35,8 +36,5 @@ namespace HumanRightsTracker.Models
         public string ParentModel () {
             return "State";
         }
-
-        [BelongsTo("state_id")]
-        public State State { get; set; }
     }
 }
