@@ -9,12 +9,13 @@ namespace Views
     {
         public Institution institution;
         protected bool isEditing;
-
+        private EditableHelper editable_helper;
         public event EventHandler InstitutionSaved;
 
         public InstitutionShow ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
         }
 
@@ -71,6 +72,9 @@ namespace Views
                 url.IsEditable = value;
 
                 imageselector.IsEditable = value;
+                case_per_institution.IsEditable = false;
+                this.editable_helper.SetAllEditable(value);
+
             }
         }
 

@@ -37,7 +37,8 @@ namespace Views
             set {
                  c = value;
                  if (c != null) {
-                    case_name.Text = c.Name;
+                    case_name.Text = "<b>" + c.Name + "</b>";
+                    case_name.UseMarkup = true;
                     case_name1.Text = c.Name;
                     affected_people.Text = c.AffectedPeople.ToString ();
                     start_date.Text = String.Format("{0:MM/dd/yyyy}", c.start_date);

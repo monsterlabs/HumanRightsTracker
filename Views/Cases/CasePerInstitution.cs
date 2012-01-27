@@ -10,9 +10,13 @@ namespace Views
     {
 
         Institution i;
+        bool isEditable;
+        private EditableHelper editable_helper;
+
         public CasePerInstitution ()
         {
             this.Build ();
+            this.editable_helper = new EditableHelper(this);
         }
 
         public Institution Institution
@@ -25,6 +29,15 @@ namespace Views
             }
         }
 
+        public bool IsEditable {
+            get { return isEditable; }
+            set {
+                isEditable = value;
+                this.editable_helper.SetAllEditable (value);
+            }
+        }
+
+
         public void ReloadList ()
         {
             foreach (Case c in i.caseList ())
@@ -33,6 +46,8 @@ namespace Views
 
             }
             case_vbox.ShowAll ();
+            this.editable_helper.UpdateEditableWidgets();
+            this.editable_helper.SetAllEditable (false);
         }
 
 
