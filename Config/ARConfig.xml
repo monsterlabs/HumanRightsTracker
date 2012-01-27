@@ -21,7 +21,7 @@
     <add
        key="query.factory_class"
        value="NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory, NHibernate" />
-    <add key="show_sql" value="true" />
+    <!-- <add key="show_sql" value="true" /> -->
   </config>
 </activerecord>
 
