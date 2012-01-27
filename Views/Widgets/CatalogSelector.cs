@@ -34,6 +34,12 @@ namespace Views
             combobox.Entry.Completion.MatchSelected += OnMatchSelected;
         }
 
+        public Gtk.ComboBoxEntry Combobox {
+            get {
+                return this.combobox;
+            }
+        }
+
         public bool OrderById {
             get {return orderById;}
             set {orderById = value;}

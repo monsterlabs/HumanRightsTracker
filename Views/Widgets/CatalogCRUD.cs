@@ -17,9 +17,12 @@ namespace Views
             this.mod = mod;
             PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
             Name = nameProp.GetValue(record, null) as String;
-            MethodInfo modelMethod = mod.Type.GetMethod("ParentName");
-            if (modelMethod != null) {
-                ParentName = modelMethod.Invoke (record, null) as String;
+            MethodInfo parentMethod = mod.Type.GetMethod("ParentName");
+            hasParent = parentMethod != null;
+            if (hasParent) {
+                ParentName = parentMethod.Invoke (record, null) as String;
+                PropertyInfo parentProp =  mod.Type.GetProperty ("ParentId");
+                parentId = (parentProp.GetValue(record, null) as int?).Value;
             } else {
                 ParentName = "";
             }
@@ -29,6 +32,9 @@ namespace Views
 
         public Object Record;
         ActiveRecordModel mod;
+        public int parentId;
+        bool hasParent;
+        public Object ParentRecord {get; set;}
 
         [Gtk.TreeNodeValue (Column=0)]
         public bool Selected;
@@ -37,10 +43,24 @@ namespace Views
         [Gtk.TreeNodeValue (Column=2)]
         public string ParentName;
 
+        public int ParentId {
+            get {
+                return this.parentId;
+            }
+            set {
+                parentId = value;
+            }
+        }
         public void SaveRecord () {
             PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
             nameProp.SetValue (Record, Name, null);
+            if (hasParent) {
+                PropertyInfo parentIdProp =  mod.Type.GetProperty ("ParentId");
+                PropertyInfo idParentProp = ParentRecord.GetType ().GetProperty ("Id");
+                parentIdProp.SetValue (Record, idParentProp.GetValue (ParentRecord, null), null);
+            }
             ActiveRecordMetaBase.Save (Record);
+
         }
 
         public void DeleteRecord () {
@@ -54,6 +74,7 @@ namespace Views
     {
         String model;
         ActiveRecordModel mod;
+        ActiveRecordModel pmod;
         Type t;
         Array options;
         Hashtable selected;
@@ -81,7 +102,6 @@ namespace Views
             get {
                 if (store == null) {
                     store = new Gtk.NodeStore (typeof(RecordNode));
-
                 }
                 return store;
             }
@@ -99,22 +119,14 @@ namespace Views
 
                 MethodInfo modelMethod = t.GetMethod("ParentModel");
                 if (modelMethod != null) {
-                    Gtk.CellRendererCombo parentCell = new Gtk.CellRendererCombo ();
+                    //Gtk.CellRendererCombo parentCell = new Gtk.CellRendererCombo ();
 
                     string ParentClassName = modelMethod.Invoke (options.GetValue (0), null) as String;
-                    Type pT = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
-                    Array comboOptions = ActiveRecordMetaBase.All(pT, new Order("Name", true));
-                    PropertyInfo nameProp =  ActiveRecordModel.GetModel(pT).PropertyDictionary["Name"].Property;
+                    Type pt = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
+                    pmod = ActiveRecordModel.GetModel(pt);
 
-                    Gtk.ListStore parentsStore = new Gtk.ListStore (typeof (string));
-
-                    foreach (Object o in comboOptions) {
-                        String name = nameProp.GetValue(o, null) as String;
-                        parentsStore.AppendValues (name);
-                    }
-
-                    parentCell.Model = parentsStore;
-                    parentCell.TextColumn = 0;
+                    CellRendererCatalogSelector parentCell = new CellRendererCatalogSelector (ParentClassName);
+                    parentCell.Changed += HandleParentChanged;
                     parentCell.Editable = true;
 
                     table.AppendColumn ("Parent", parentCell, "text", 2);
@@ -153,6 +165,25 @@ namespace Views
                 selected.Add (args.Path, node);
             else
                 selected.Remove (args.Path);
+        }
+
+        void HandleParentChanged (object o, ComboSelectionChangedArgs args)
+        {
+            RecordNode node = store.GetNode(new Gtk.TreePath(args.Path)) as RecordNode;
+
+            CatalogSelector selector = o as CatalogSelector;
+            Object parent = selector.Active;
+            if (parent != null)
+            {
+                node.ParentRecord = parent;
+                PropertyInfo ParentNameProp = parent.GetType ().GetProperty ("Name");
+                //parentIdProp.SetValue (Record, idParentProp.GetValue (ParentRecord, null), null);
+                selector.Combobox.Entry.Text = ParentNameProp.GetValue (parent, null) as String;
+                node.ParentName = ParentNameProp.GetValue (parent, null) as String;
+                // tell node to save the value
+                node.SaveRecord ();
+            }
+
         }
 
         void HandleNameCellEdited (object o, Gtk.EditedArgs args)

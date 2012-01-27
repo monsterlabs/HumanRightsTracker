@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -9835,37 +9835,15 @@ End date</property>
       <widget class="Gtk.Notebook" id="notebook1">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">1</property>
+        <property name="CurrentPage">0</property>
+        <property name="Scrollable">True</property>
         <child>
-          <widget class="Views.CatalogCRUD" id="catalogcrud2">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="Model">Job</property>
-          </widget>
+          <placeholder />
         </child>
         <child>
           <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">page1</property>
-          </widget>
-          <packing>
-            <property name="type">tab</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Views.CatalogCRUD" id="catalogcrud1">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="Model">City</property>
-          </widget>
-          <packing>
-            <property name="Position">1</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="label2">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">page2</property>
           </widget>
           <packing>
             <property name="type">tab</property>
