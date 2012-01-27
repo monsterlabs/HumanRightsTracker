@@ -91,7 +91,7 @@ namespace Views
             information_source.ReportedJob = reported_person_selector.Job;
 
             if (information_source.IsValid()) {
-                information_source.Save ();
+                information_source.SaveAndFlush ();
 
                 if (newRow) {
                     information_source.Case.InformationSources.Add (InformationSource);

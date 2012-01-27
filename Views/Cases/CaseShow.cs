@@ -236,7 +236,7 @@ namespace Views
                 InformationSource record = sender as InformationSource;
                 this.Case.InformationSources.Remove (record);
                 if (record.Id >= 1) {
-                    record.Delete ();
+                    record.DeleteAndFlush ();
                 }
                 this.ReloadInformationSources ();
 
@@ -259,7 +259,7 @@ namespace Views
                 DocumentarySource record = sender as DocumentarySource;
                 this.Case.DocumentarySources.Remove (record);
                 if (record.Id >= 1) {
-                    record.Delete ();
+                    record.DeleteAndFlush ();
                 }
                 this.ReloadDocumentarySources ();
 

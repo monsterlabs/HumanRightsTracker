@@ -95,7 +95,7 @@ namespace Views
             documentary_source.ReportedJob = person_or_institution_selector.Job;
 
             if (documentary_source.IsValid()) {
-                documentary_source.Save ();
+                documentary_source.SaveAndFlush ();
 
                 if (newRow) {
                     documentary_source.Case.DocumentarySources.Add (DocumentarySource);

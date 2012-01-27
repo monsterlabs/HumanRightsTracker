@@ -3591,7 +3591,6 @@ Date</property>
                           <widget class="Gtk.Expander" id="expander8">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Expanded">True</property>
                             <property name="BorderWidth">9</property>
                             <child>
                               <widget class="Views.EditableList" id="documentarysourcelist">
@@ -3626,7 +3625,6 @@ Access date</property>
                           <widget class="Gtk.Expander" id="expander9">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Expanded">True</property>
                             <property name="BorderWidth">9</property>
                             <child>
                               <widget class="Views.EditableList" id="informationsourcelist">
@@ -8739,7 +8737,6 @@ End date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -10353,9 +10350,8 @@ End date</property>
               <packing>
                 <property name="TopAttach">7</property>
                 <property name="BottomAttach">8</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="XExpand">False</property>
+                <property name="AutoSize">False</property>
+                <property name="XExpand">True</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">True</property>
@@ -10381,9 +10377,8 @@ End date</property>
                 <property name="BottomAttach">8</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="XExpand">False</property>
+                <property name="AutoSize">False</property>
+                <property name="XExpand">True</property>
                 <property name="XFill">True</property>
                 <property name="XShrink">False</property>
                 <property name="YExpand">True</property>
@@ -10608,6 +10603,8 @@ End date</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
