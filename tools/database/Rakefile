@@ -96,16 +96,43 @@ task :seeds => :environment do
   CSV.foreach("seeds/institution_types.csv") do |row|
     InstitutionType.create(:name => row[0].strip)
   end
-
+    
   HumanRightsViolation.destroy_all
-  CSV.foreach("seeds/human_rights_violations.csv", :col_sep => "|") do |row|
-    p row
-    HumanRightsViolation.create(:id => row[0].to_i, :name => row[2].strip, :category_id => row[1].to_i)
-  end
-
   HumanRightsViolationCategory.destroy_all
-  CSV.foreach("seeds/human_rights_violation_categories.csv", :col_sep => "|") do |row|
-    HumanRightsViolationCategory.create(:id => row[0].to_i, :name => row[1].strip)
+  CSV.foreach("seeds/human_rights_violation_categories.csv") do |row|
+    col0 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    col1 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    col2 = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    col3 = row[3].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @parent = nil?
+
+    unless col0.empty?
+      if HumanRightsViolationCategory.exists?(:name => col0)
+        @parent = HumanRightsViolationCategory.find_by_name(col0)
+      else
+        @parent = HumanRightsViolationCategory.create(:name => col0)
+      end
+    end
+    
+    if !col1.empty? and !@parent.nil?
+      if HumanRightsViolationCategory.exists?(:name => col1, :parent_id => @parent.id)
+        @parent = HumanRightsViolationCategory.where(:name => col1, :parent_id => @parent.id).first
+      else
+        @parent = HumanRightsViolationCategory.create(:name => col1, :parent_id => @parent.id)
+      end
+    end
+
+    if !col2.empty? and !@parent.nil?
+      if HumanRightsViolationCategory.exists?(:name => col2, :parent_id => @parent.id)
+        @parent = HumanRightsViolationCategory.where(:name => col2, :parent_id => @parent.id).first
+      else
+        @parent = HumanRightsViolationCategory.create(:name => col2, :parent_id => @parent.id)
+      end
+    end
+
+    if !col3.empty? and !@parent.nil?
+      HumanRightsViolation.create(:name => col3, :category_id => @parent.id)      
+    end
   end
 
   AffiliationType.destroy_all
