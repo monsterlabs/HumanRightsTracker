@@ -70,6 +70,7 @@ Address.blueprint do
   state_id { @state.id }
   city_id { @state.cities.sample.id }
   zipcode { Faker::Address.zip_code }
+  address_type_id { AddressType.all.sample.id }
 end
 
 Identification.blueprint do

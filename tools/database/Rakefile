@@ -215,6 +215,11 @@ task :seeds => :environment do
     RelationshipType.create(:name => row[0].to_s.strip)
   end
 
+  AddressType.destroy_all
+  CSV.foreach("seeds/address_types.csv") do |row|
+    AddressType.create(:name => row[0].to_s.strip)
+  end
+
   require "./blueprints/machinist_helper.rb"
   Dir.glob("./blueprints/*.rb").each do |blueprint|
     require blueprint

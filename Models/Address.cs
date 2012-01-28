@@ -29,5 +29,8 @@ namespace HumanRightsTracker.Models
         public City City { get; set; }
         [BelongsTo("person_id")]
         public Person Person { get; set; }
+        [BelongsTo("address_type_id")]
+        public AddressType AddressType { get; set; }
+
     }
 }

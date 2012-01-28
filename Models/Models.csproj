@@ -100,6 +100,7 @@
     <Compile Include="Document.cs" />
     <Compile Include="Catalogs\CaseStatus.cs" />
     <Compile Include="Record.cs" />
+    <Compile Include="Catalogs\AddressType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
