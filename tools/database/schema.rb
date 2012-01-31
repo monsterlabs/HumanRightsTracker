@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126200322) do
+ActiveRecord::Schema.define(:version => 20120127182600) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -49,8 +49,12 @@ ActiveRecord::Schema.define(:version => 20120126200322) do
     t.integer "human_rights_violation_category_id"
   end
 
+  create_table "address_types", :force => true do |t|
+    t.string "name", :null => false
+  end
+
   create_table "addresses", :force => true do |t|
-    t.string  "location",   :null => false
+    t.string  "location",        :null => false
     t.integer "country_id"
     t.integer "state_id"
     t.integer "city_id"
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20120126200322) do
     t.string  "phone"
     t.string  "mobile"
     t.string  "zipcode"
+    t.integer "address_type_id"
   end
 
   create_table "affiliation_types", :force => true do |t|

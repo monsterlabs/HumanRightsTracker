@@ -5,7 +5,7 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("affiliation_types")]
+    [ActiveRecord("address_types")]
     public class AddressType : ActiveRecordValidationBase<AddressType>
     {
 
