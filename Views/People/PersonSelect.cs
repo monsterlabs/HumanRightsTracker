@@ -6,7 +6,7 @@ using Mono.Unix;
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
-    public partial class PersonSelect : Gtk.Bin
+    public partial class PersonSelect : Gtk.Bin, IEditable
     {
         Person person;
         bool isEditable;
