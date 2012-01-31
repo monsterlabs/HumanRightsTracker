@@ -22,7 +22,7 @@ namespace Views
         {
             this.Build ();
             this.editable_helper = new EditableHelper(this);
-            this.IsEditing = false;
+            this.IsEditable = false;
             this.ConnectPerpetratorHandlers ();
         }
 
@@ -46,7 +46,7 @@ namespace Views
 
                 perpetratorslist.Records = victimPerpetrators.Cast<ListableRecord>().ToList ();
 
-                IsEditing = false;
+                IsEditable = false;
             }
         }
 
@@ -79,11 +79,11 @@ namespace Views
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
         {
-            IsEditing= !IsEditing;
+            IsEditable= !IsEditable;
         }
 
 
-        public bool IsEditing
+        public bool IsEditable
         {
             get { return this.isEditing; }
             set
@@ -99,6 +99,17 @@ namespace Views
                 }
             }
 
+        }
+
+        public void ReadOnlyMode(bool mode)
+        {
+            if (mode) {
+                IsEditable = false;
+                editButton.Visible = false;
+            } else {
+                IsEditable = true;
+                editButton.Visible = true;
+            }
         }
 
         protected virtual void OnSave (object sender, System.EventArgs e)

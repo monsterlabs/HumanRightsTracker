@@ -5065,7 +5065,7 @@ End date</property>
                                       <widget class="Views.VictimShow" id="victimshow1">
                                         <property name="MemberName" />
                                         <property name="Events">ButtonPressMask</property>
-                                        <property name="IsEditing">False</property>
+                                        <property name="IsEditable">False</property>
                                         <signal name="Saved" handler="OnVictimSaved" />
                                       </widget>
                                     </child>
@@ -6415,7 +6415,7 @@ Job</property>
       <widget class="Views.VictimShow" id="show">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
-        <property name="IsEditing">False</property>
+        <property name="IsEditable">False</property>
         <signal name="Saved" handler="OnSave" />
         <signal name="Unsaved" handler="OnSave" />
       </widget>

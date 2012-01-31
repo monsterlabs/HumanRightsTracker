@@ -122,10 +122,12 @@ namespace Views
                     editButton1.Label = Catalog.GetString("Cancel");
                     saveButton1.Visible = true;
                     addVictimButton.Visible = true;
+                    victimshow1.ReadOnlyMode(false);
                 } else {
                     editButton1.Label = Catalog.GetString("Edit");
                     saveButton1.Visible = false;
                     addVictimButton.Visible = false;
+                    victimshow1.ReadOnlyMode(true);
                 }
             }
         }
@@ -156,7 +158,7 @@ namespace Views
 
             victimshow1.Victim = v;
             victimshow1.Show ();
-            victimshow1.IsEditing = true;
+            victimshow1.IsEditable = true;
             return;
         }
 

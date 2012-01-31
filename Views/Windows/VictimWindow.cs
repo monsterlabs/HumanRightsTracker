@@ -34,7 +34,7 @@ namespace Views
             this.Build ();
             this.Modal = true;
             show.Victim = victim;
-            show.IsEditing = false;
+            show.IsEditable = false;
             OnSaveOrUpdate = handler;
             this.TransientFor = parent;
         }
@@ -45,7 +45,7 @@ namespace Views
             this.Modal = true;
             show.Victim = new Victim();
             show.Victim.Act = act;
-            show.IsEditing = true;
+            show.IsEditable = true;
             OnSaveOrUpdate = handler;
             this.TransientFor = parent;
         }
