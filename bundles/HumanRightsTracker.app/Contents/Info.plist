@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>Spanish</string>
+	<key>CFBundleExecutable</key>
+	<string>HumanRightsTracker</string>
+	<key>CFBundleIconFile</key>
+	<string>HumanRightsTracker.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>mx.com.monsterlabs.human_rights_tracker</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>1.0.0</string>
+	<key>CFBundleName</key>
+	<string>HumanRightsTracker</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>xmmd</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>NSAppleScriptEnabled</key>
+	<string>NO</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>HumanRightsTracker</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>HumanRightsTracker</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
