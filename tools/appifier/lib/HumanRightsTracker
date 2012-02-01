@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DIR=$(cd "$(dirname "$0")"; pwd)
+
+MONO_FRAMEWORK_PATH=/Library/Frameworks/Mono.framework/Versions/Current
+export DYLD_FALLBACK_LIBRARY_PATH="$DIR:$MONO_FRAMEWORK_PATH/lib:/lib:/usr/lib"
+export PATH="$MONO_FRAMEWORK_PATH/bin:$PATH"
+export MONO_GAC_PREFIX="$DIR:$MONO_GAC_PREFIX"
+
+mono "$DIR/HumanRightsTracker.exe"
