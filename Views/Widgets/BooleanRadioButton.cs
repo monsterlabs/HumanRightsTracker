@@ -49,10 +49,11 @@ namespace Views
             }
             set {
                 bool state = value;
-                if (state)
-                    radiobutton_true.Activate ();
-                else
-                    radiobutton_false.Activate ();
+                if (state) {
+                    radiobutton_true.Active = true;
+                } else {
+                    radiobutton_false.Active = true;
+                }
             }
         }
     }
