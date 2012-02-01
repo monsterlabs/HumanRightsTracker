@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Reflection;
 using System.Collections;
 using Gtk;
@@ -15,7 +16,14 @@ namespace HumanRightsTracker
 	{
 		public static void Main (string[] args)
 		{
-			XmlConfigurationSource config = new XmlConfigurationSource("Config/ARConfig.xml");
+            XmlConfigurationSource config;
+
+            string location = Assembly.GetExecutingAssembly().Location;
+
+            Environment.CurrentDirectory = Path.GetDirectoryName (location);
+
+            config = new XmlConfigurationSource("Config/ARConfig.xml");
+
 			Assembly asm = Assembly.Load("Models");
             ActiveRecordStarter.SessionFactoryHolderCreated += ActiveRecordStarter_SessionFactoryHolderCreated;
 			ActiveRecordStarter.Initialize(asm, config);

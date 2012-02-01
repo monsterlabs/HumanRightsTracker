@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+require "bundler"
+require "fileutils"
+Bundler.setup
+Bundler.require :default
+
+# Usage: appifier appify Release
+class App < Thor
+  BUNDLE = "HumanRightsTracker.app"
+  BUNDLE_CONTENTS = "#{BUNDLE}/Contents"
+
+  desc "appify [Debug | Release]", "Creates the bundle"
+  method_options :mode => :string
+  def appify
+    mode = options[:mode] || "Debug"
+
+    clean
+
+    FileUtils.mkdir BUNDLE
+    FileUtils.mkdir BUNDLE_CONTENTS
+
+    FileUtils.mkdir "#{BUNDLE_CONTENTS}/MacOS"
+    FileUtils.mkdir "#{BUNDLE_CONTENTS}/Resources"
+
+    FileUtils.cp "lib/HumanRightsTracker", "#{BUNDLE_CONTENTS}/MacOS", :preserve => true
+    FileUtils.cp "lib/HumanRightsTracker.icns", "#{BUNDLE_CONTENTS}/Resources"
+    FileUtils.cp "lib/Info.plist", BUNDLE_CONTENTS
+    FileUtils.cp_r Dir.glob("../../bin/#{mode}/*"), "#{BUNDLE_CONTENTS}/MacOS", :preserve => true
+  end
+
+  desc "Debug | Release", "Creates the bundle"
+  method_options :mode => :string
+  def clean
+    FileUtils.rm_rf BUNDLE
+  end
+end
+
+App.start
