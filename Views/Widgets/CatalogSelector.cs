@@ -16,6 +16,7 @@ namespace Views
         Type t;
         bool isEditable;
         bool hideAddButton;
+        bool hideNoteButton;
         bool orderById;
         int parent_id;
         string attribute;
@@ -26,6 +27,7 @@ namespace Views
         {
             this.Build ();
             this.hideAddButton = false;
+            this.hideNoteButton = true;
             this.parent_id = 0;
             combobox.Entry.Completion = new Gtk.EntryCompletion();
             combobox.Entry.Completion.Model = combobox.Model;
@@ -90,12 +92,24 @@ namespace Views
             }
             if (mod.PropertyDictionary.ContainsKey("Notes"))
             {
-                PropertyInfo notesProp = mod.PropertyDictionary["Notes"].Property;
-                combobox.TooltipText = notesProp.GetValue(collection.GetValue(combobox.Active), null) as String;
+                string note = NoteString ();
+
+                if ((note != null) && (note.Trim().Length >0)) {
+                    combobox.TooltipText = note;
+                    HideNoteButton = false;
+                } else {
+                    HideNoteButton = true;
+                }
             }
 
             if (Changed != null)
                 Changed (this, e);
+        }
+
+        protected String NoteString () {
+            PropertyInfo notesProp = mod.PropertyDictionary["Notes"].Property;
+            string note = notesProp.GetValue(collection.GetValue(combobox.Active), null) as String;
+            return note;
         }
 
         public Object Active {
@@ -146,6 +160,7 @@ namespace Views
                 text.Visible = !value;
                 text.Text = combobox.ActiveText;
                 addButton.Visible = (!this.hideAddButton && isEditable);
+                noteButton.Visible = (this.hideNoteButton && isEditable);
             }
         }
 
@@ -184,6 +199,15 @@ namespace Views
             }
         }
 
+       public bool HideNoteButton {
+            get {
+                return this.hideNoteButton;
+            }
+            set {
+                this.hideNoteButton = value;
+                noteButton.Visible = !value;
+            }
+        }
         protected void OnAddButtonClicked (object sender, System.EventArgs e)
         {
             object record = Activator.CreateInstance(t);
@@ -230,7 +254,6 @@ namespace Views
             if (OrderById) {
                 options = ActiveRecordMetaBase.All(t, new Order("Id", true));
             } else {
-                //Console.WriteLine(AttributeName());
                 options = ActiveRecordMetaBase.All(t, new Order(AttributeName (), true));
             }
             DeleteAndSetOptions (options);
@@ -240,6 +263,14 @@ namespace Views
             return (attribute == null ? "Name" : attribute);
         }
 
+        protected void OnNoteButtonClicked (object sender, System.EventArgs e)
+        {
+            int x, y;
+            this.TranslateCoordinates(this.Toplevel, 0, 0, out x, out y);
+            ShowNoteWindow note_window = new ShowNoteWindow(x, y, NoteString(), (Gtk.Window)this.Toplevel);
+            note_window.TransientFor = (Gtk.Window)this.Toplevel;
+            note_window.Modal = true;
+        }
     }
 }
 
