@@ -9,6 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>HumanRightsTracker</RootNamespace>
     <AssemblyName>HumanRightsTracker</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
