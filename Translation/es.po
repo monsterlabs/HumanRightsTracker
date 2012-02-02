@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2011-07-26 10:49:13-0500\n"
-"PO-Revision-Date: 2011-07-26 10:50:22-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-01 22:02:30-0600\n"
+"PO-Revision-Date: 2012-02-01 21:33:47-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -11,129 +12,1043 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../gtk-gui/LoginWindow.cs:25
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:26
+#: ../gtk-gui/LoginWindow.cs:2 ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "MainWindow"
-msgstr ""
+msgstr "Pantalla principal"
 
-#: ../gtk-gui/LoginWindow.cs:81
+#: ../gtk-gui/LoginWindow.cs:2
 msgid "Human Rights Tracker"
-msgstr ""
+msgstr "Human Rights Tracker"
 
-#: ../gtk-gui/LoginWindow.cs:95
+#: ../gtk-gui/LoginWindow.cs:2
 msgid "User"
 msgstr "Usuario"
 
-#: ../gtk-gui/LoginWindow.cs:104
+#: ../gtk-gui/LoginWindow.cs:2
 msgid "Password"
 msgstr "Contraseña"
 
-#: ../gtk-gui/LoginWindow.cs:150
+#: ../gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
 
-#: ../gtk-gui/LoginWindow.cs:158
+#: ../gtk-gui/LoginWindow.cs:2
 msgid "Wrong password"
 msgstr "Contraseña incorrecta"
 
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:41
-msgid "People"
-msgstr "Personas"
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Individual people</b>"
+msgstr "<b>Persona individual</b>"
 
-#: ../Views/People/Show.cs:51
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Immigrant people</b>"
+msgstr "<b>Persona migrante</b>"
+
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Institutions</b>"
+msgstr "<b>Organizaciones o instituciones</b>"
+
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Actors</b>"
+msgstr "<b>Actores</b>"
+
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
+#: ../Views/gtk-gui/Views.CasePerPerson.cs:1
+#: ../Views/gtk-gui/Views.CasePerInstitution.cs:1
+msgid "<b>Cases</b>"
+msgstr "<b>Casos</b>"
+
+#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Catalogs</b>"
+msgstr "<b>Catálogos</b>"
+
+#: ../Views/People/Show.cs:15 ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
+#: ../Views/Cases/CaseShow.cs:6 ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/Acts/ActsShow.cs:18 ../Views/gtk-gui/Views.ActsShow.cs:1
+#: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
+#: ../Views/Interventions/InterventionShow.cs:9
+#: ../Views/Victim/VictimShow.cs:12 ../Views/Perpetrator/PerpetratorShow.cs:6
+#: ../Views/Perpetrator/PerpetratorActShow.cs:7
+#: ../Views/TrackingInformation/TrackingShow.cs:6
+#: ../Views/Places/PlaceShow.cs:6
+#: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
+#: ../Views/InformationSources/InformationSourceShow.cs:9
+#: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../Views/People/Show.cs:54
-#: ../Views/gtk-gui/Views.People.Show.cs:220
+#: ../Views/People/Show.cs:15 ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/Cases/CaseShow.cs:6 ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1 ../Views/Acts/ActsShow.cs:18
+#: ../Views/Interventions/InterventionShow.cs:9
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+#: ../Views/gtk-gui/Views.VictimShow.cs:1 ../Views/Victim/VictimShow.cs:12
+#: ../Views/Perpetrator/PerpetratorShow.cs:6
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+#: ../Views/Perpetrator/PerpetratorActShow.cs:7
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+#: ../Views/TrackingInformation/TrackingShow.cs:6
+#: ../Views/Places/PlaceShow.cs:6
+#: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+#: ../Views/InformationSources/InformationSourceShow.cs:9
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+#: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
 msgid "Edit"
-msgstr "Editar"
+msgstr "Modificar"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:53
-msgid "Lastname"
-msgstr "Apellido"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Marital status</b>"
+msgstr "<b>Estado civil</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:65
-msgid "Firstname"
-msgstr "Nombre"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Gender</b>"
+msgstr "<b>Género</b>ha"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:111
-msgid "label7"
-msgstr ""
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Age</b>"
+msgstr "<b>Edad</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:115
-msgid "Male"
-msgstr "Masculino"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Alias</b>"
+msgstr "<b>Alias</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:116
-msgid "Female"
-msgstr "Femenino"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Citizen</b>"
+msgstr "<b>Nacionalidad</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:131
-msgid "Marital Status:"
-msgstr "Estado Civil:"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Firstname</b>"
+msgstr "<b>Nombre(s)</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:142
-msgid "Sex:"
-msgstr "Sexo:"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Lastname</b>"
+msgstr "<b>Apellido(s)</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:152
-msgid "Birthday:"
-msgstr "Fecha de Nacimiento:"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>General Information</b>"
+msgstr "<b>Información general</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:164
-msgid "Birthplace:"
-msgstr "Lugar de Nacimiento:"
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Scholarity level</b>"
+msgstr "<b>Nivel de escolaridadl</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:193
-msgid "label1"
-msgstr ""
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Most recent job</b>"
+msgstr "<b>Ocupación más reciente</b>"
 
-#: ../Views/gtk-gui/Views.People.Show.cs:210
-#: ../Views/gtk-gui/Views.CaseShow.cs:105
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Is spanish speaker?</b>"
+msgstr "<b>¿Habla español?</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>How many sons?</b>"
+msgstr "<b>¿Cuantos hijos tiene?</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Indigenous group</b>"
+msgstr "<b>Etnia Indígena</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Details</b>"
+msgstr "<b>Detalles</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Cross border attempts dest. country</b>"
+msgstr "<b>No. de intentos de cruzar la frontera del país destino</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Traveling reason</b>"
+msgstr "<b>Motivo del viaje</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Destination country</b>"
+msgstr "<b>País destino</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Number of expulsions from dest. country</b>"
+msgstr "<b>No. de expulsiones del país destino</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Transit country</b>"
+msgstr "<b>País de tránsito</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Number of expulsions from transit country</b>"
+msgstr "<b>Número de expulsiones del pañis de tránsito</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Travel Companions</b>"
+msgstr "<b>Tipo de acompañante</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Cross border attempts transit country</b>"
+msgstr "<b>No. de intentos de cruzar la frontera del país de tránsito</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Time Spent in Dest. Country</b>"
+msgstr "<b>Tipo de estancia en el país destino</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Migration Attempts</b>"
+msgstr "<b>Intentos de cruce</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Birthday</b>"
+msgstr "<b>Fecha de Nacimiento</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Settlement</b>"
+msgstr "<b>Colonia</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Birth Place</b>"
+msgstr "<b>Lugar de Nacimiento</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Identification type</b>"
+msgstr "<b>Tipo de identificación</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Identification number</b>"
+msgstr "<b>No. de Identificación</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Identification</b>"
+msgstr "<b>Identificación</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Email</b>"
+msgstr "<b>Correo electrónico</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Mobile</b>"
+msgstr "<b>Teléfono móvil</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Phone</b>"
+msgstr "<b>Teléfono</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Contact Info</b>"
+msgstr "<b>Información de contacto</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Location</b>"
+msgstr "<b>Ubicación</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Zip Code</b>"
+msgstr "<b>Código postal</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Address</b>"
+msgstr "<b>Dirección</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+#: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
 msgid "Save"
 msgstr "Guardar"
 
-#: ../Views/gtk-gui/Views.PlaceSelector.cs:27
-#: ../Views/gtk-gui/Views.CatalogSelector.cs:23
-msgid "text"
-msgstr ""
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+msgid "Country"
+msgstr "País"
 
-#: ../Views/gtk-gui/Views.DateSelector.cs:40
-#: ../Views/gtk-gui/Views.DateFieldsSelector.cs:69
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+msgid "State"
+msgstr "Estado"
+
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+msgid "municipality"
+msgstr "Municipio"
+
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+msgid "Municipality"
+msgstr "Municipio"
+
+#: ../Views/gtk-gui/Views.CatalogSelector.cs:1
+#: ../Views/gtk-gui/Views.PersonSelect.cs:1
+#: ../Views/gtk-gui/Views.InstitutionSelect.cs:1
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "Select"
+msgstr "Seleccionar"
+
+#: ../Views/gtk-gui/Views.DateSelector.cs:1
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+#: ../Views/People/PersonSelect.cs:5
 msgid "Change"
 msgstr "Cambiar"
 
-#: ../Views/gtk-gui/Views.DateSelector.cs:50
+#: ../Views/gtk-gui/Views.DateSelector.cs:1
 msgid "label4"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.DateSelectorWindow.cs:13
+#: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 msgid "DateSelectorWindow"
-msgstr ""
+msgstr "Calendario"
 
-#: ../Views/gtk-gui/Views.PeopleList.cs:43
-#: ../Views/gtk-gui/Views.CaseList.cs:43
+#: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
+msgid "Ok"
+msgstr "Ok"
+
+#: ../Views/gtk-gui/Views.PeopleList.cs:1 ../Views/gtk-gui/Views.CaseList.cs:1
+#: ../Views/gtk-gui/Views.InstitutionList.cs:1
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
 msgid "Search"
 msgstr "Buscar"
 
-#: ../Views/gtk-gui/Views.PeopleTab.cs:67
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+msgid "Victims"
+msgstr "Victímas"
+
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+msgid "Interventors"
+msgstr "Interventores"
+
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+msgid "Perpetrators"
+msgstr "Perpetradores"
+
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+msgid "Supporters"
+msgstr "Persona que soporta la intervención"
+
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+msgid "<b>Filters</b>"
+msgstr "<b>Filtros</b>"
+
+#: ../Views/gtk-gui/Views.PeopleTab.cs:1
+#: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
 msgid "_Add"
 msgstr "Agregar"
 
-#: ../Views/gtk-gui/Views.PeopleTab.cs:93
+#: ../Views/gtk-gui/Views.PeopleTab.cs:1 ../Views/gtk-gui/Views.CasesTab.cs:1
+#: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
 msgid "Remove"
 msgstr "Borrar"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:70
+#: ../Views/gtk-gui/Views.CasesTab.cs:1
+#: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+#: ../Views/gtk-gui/Views.PeopleSelector.cs:1
+#: ../Views/gtk-gui/Views.VictimSelector.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorActsSelector.cs:1
+msgid "Add"
+msgstr "Agregar"
+
+#: ../Views/gtk-gui/Views.ImageSelector.cs:1
+#: ../Views/gtk-gui/Views.DocumentChooser.cs:1
+msgid "Select A File"
+msgstr "Seleccione un archivo"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "January"
+msgstr "Enero"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "February"
+msgstr "Febrero"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "March"
+msgstr "Marzo"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "April"
+msgstr "Abril"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "May"
+msgstr "Mayo"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "June"
+msgstr "Junio"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "July"
+msgstr "Julio"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "August"
+msgstr "Agosto"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "September"
+msgstr "Septiembre"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "October"
+msgstr "Octubre"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "November"
+msgstr "Noviembre"
+
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+msgid "December"
+msgstr "Diciembre"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Affected people</b>"
+msgstr "<b>Personas afectadas</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Name</b>"
+msgstr "<b>Nombre</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Start Date</b>"
+msgstr "<b>Fecha Inicial</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>End Date</b>"
+msgstr "<b>Fecha Final</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Description</b>"
+msgstr "<b>Descripción</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Summary</b>"
+msgstr "<b>Resumen</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Observations</b>"
+msgstr "<b>Observaciones</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Places</b>"
+msgstr "<b>Lugares</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Tracking Information</b>"
+msgstr "<b>Seguimiento del caso</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Affected Human Rights and Acts</b>"
+msgstr "<b>Derechos afectados y actos</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Interventions</b>"
+msgstr "<b>Intervenciones</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Core of the case</b>"
+msgstr "<b>Núcleo del caso</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Documentary sources</b>"
+msgstr "<b>Fuente documental</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Information sources</b>"
+msgstr "<b>Fuente personal</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Relation between cases</b>"
+msgstr "<b>Relación entre casos</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Additional Information</b>"
+msgstr "<b>Información adicional</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Abbreviation</b>"
+msgstr "<b>Siglás</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Institution type</b>"
+msgstr "<b>Tipo de institución</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Institution category</b>"
+msgstr "<b>Categoría</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Home Page</b>"
+msgstr "<b>Página personal</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Fax</b>"
+msgstr "<b>Fax</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Contact Information</b>"
+msgstr "<b>Información de contacto</b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "<b>Act:</b>"
+msgstr "<b><Acto/b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "<b>Initial Date:</b>"
+msgstr "<b>Fecha de inicio</b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "<b>Final Date:</b>"
+msgstr "<b>Fecha de término</b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "<b>Human Rights Violation:</b>"
+msgstr "<b>Acto</b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "<b>Affected people:</b>"
+msgstr "<b>Personas afectadas</b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "<b>Affected people and place</b>"
+msgstr "<b>Personas afectadas y lugar</b>"
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Victims</b>"
+msgstr "<b>Víctimas</b>"
+
+#: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+msgid "PeopleSelectionWindow"
+msgstr "Selección de personas"
+
+#: ../Views/gtk-gui/Views.PersonRow.cs:1
+#: ../Views/gtk-gui/Views.PersonSelect.cs:1
+#: ../Views/gtk-gui/Views.VictimRow.cs:1
+msgid "Lastname Firstname"
+msgstr "Nombre"
+
+#: ../Views/gtk-gui/Views.PersonRow.cs:1 ../Views/gtk-gui/Views.VictimRow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
+msgid "Delete"
+msgstr "Borrar"
+
+#: ../Views/gtk-gui/Views.BooleanRadioButton.cs:1
+msgid "text"
+msgstr "Texto"
+
+#: ../Views/gtk-gui/Views.BooleanRadioButton.cs:1
+msgid "radiobutton2"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.BooleanRadioButton.cs:1
+msgid "radiobutton1"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ActDetailWindow.cs:1
+msgid "NewActWindow"
+msgstr "Acto"
+
+#: ../Views/gtk-gui/Views.EditableLabel.cs:1
+msgid "label5"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
+msgid "<b>Notes</b>"
+msgstr "<b>Notas</b>"
+
+#: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
+msgid "<b>Parent name</b>"
+msgstr "<b>Nombre del padre</b>"
+
+#: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
+msgid "Parent value"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
+msgid "EditCatalogWindow"
+msgstr "Editar catálogo"
+
+#: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
+msgid "<b>ModelName</b>"
+msgstr "<b>Nombre del módelo</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Type</b>"
+msgstr "<b>Tipo de intervención</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Date</b>"
+msgstr "<b>Fecha</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Impact</b>"
+msgstr "<b>Impacto</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Response</b>"
+msgstr "<b>En respuesta</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Supporter</b>"
+msgstr "<b>Persona quien soporta la intervención</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Interventor</b>"
+msgstr "<b>Interventor</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Interventors</b>"
+msgstr "<b>Interventores</b>"
+
+#: ../Views/gtk-gui/Views.InterventionShow.cs:1
+msgid "<b>Affected People</b>"
+msgstr "<b>Personas afectadas</b>"
+
+#: ../Views/People/PersonSelect.cs:5 ../Views/gtk-gui/Views.EditableList.cs:1
+msgid "New"
+msgstr "Nuevo"
+
+#: ../Views/gtk-gui/Views.InterventionDetailWindow.cs:1
+msgid "InterventionDetailWindow"
+msgstr "Intervención"
+
+#: ../Views/gtk-gui/Views.VictimRow.cs:1
+msgid "Status"
+msgstr "Status"
+
+#: ../Views/gtk-gui/Views.VictimRow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
+msgid "Info"
+msgstr "Información"
+
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+msgid "<b>Victim:</b>"
+msgstr "<b>Victíma</b>"
+
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+msgid "<b>Status:</b>"
+msgstr "<b>Status</b>"
+
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+msgid "<b>Characteristics:</b>"
+msgstr "<b>Características de la víctima</b>"
+
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+msgid "<b>General</b>"
+msgstr "<b>Información general</b>"
+
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Perpetrators</b>"
+msgstr "<b>Perpetradores</b>"
+
+#: ../Views/gtk-gui/Views.VictimWindow.cs:1
+msgid "VictimWindow"
+msgstr "Víctima"
+
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+msgid "Perpetrator:"
+msgstr "Perpetrador"
+
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+msgid "Institution:"
+msgstr "Organización o institución:"
+
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+msgid "Job:"
+msgstr "Tipo:"
+
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+msgid "<b>Perpetrator Acts</b>"
+msgstr "<b>Actos del perpetrador</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionSelect.cs:1
 msgid "Name"
 msgstr "Nombre"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:78
-msgid "Start Date"
+#: ../Views/gtk-gui/Views.InstitutionSelectorWindow.cs:1
+msgid "InstitutionSelectorWindow"
+msgstr "Selector de instituciones"
+
+#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
+msgid "Human Right"
+msgstr "Derecho afectado"
+
+#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
+msgid "Place"
+msgstr "Lucar"
+
+#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
+msgid "Location"
+msgstr "Dirección"
+
+#: ../Views/gtk-gui/Views.PerpetratorActWindow.cs:1
+msgid "PerpetratorActWindow"
+msgstr "Acto del perpetrador"
+
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+msgid "<b>Human Right Violation:</b>"
+msgstr "<b>Acto:</b>"
+
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+msgid "<b>Place:</b>"
+msgstr "<b>Tipo de lugar</b>"
+
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+msgid "<b>Location:</b>"
+msgstr "<b>Ubicación</b>"
+
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "affected_people"
+msgstr "Personas afectadas"
+
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "case_name"
+msgstr "Nombre del caso"
+
+#: ../Views/gtk-gui/Views.CaseRow.cs:1 ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "end_date"
+msgstr "Fecha de término"
+
+#: ../Views/gtk-gui/Views.CaseRow.cs:1 ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "start_date"
 msgstr "Fecha Inicial"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:88
-msgid "End Date"
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Associated People</b>"
+msgstr "<b>Personas asociadas al caso</b>"
+
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Case Name</b>"
+msgstr "<b>Nombre del caso</b>"
+
+#: ../Views/gtk-gui/Views.CaseDetailWindow.cs:1
+msgid "CaseDetailWindow"
+msgstr "Detalles del caso"
+
+#: ../Views/gtk-gui/Views.CaseDetailWindow.cs:1
+msgid "Back"
+msgstr "Regresar"
+
+#: ../Views/gtk-gui/Views.InstitutionAndJobRow.cs:1
+#: ../Views/gtk-gui/Views.PersonAndJobRow.cs:1
+msgid "institution_name"
+msgstr "Nombre de institución"
+
+#: ../Views/gtk-gui/Views.InstitutionAndJobRow.cs:1
+#: ../Views/gtk-gui/Views.PersonAndJobRow.cs:1
+msgid "job_name"
+msgstr "Tipo"
+
+#: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+msgid "<b>Institution Logo</b>"
+msgstr "<b>Logo de institución</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+msgid "<b>Institution</b>"
+msgstr "<b>Organización o institución</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Job</b>"
+msgstr "<b>Tipo de puesto</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+msgid "<b>Jobs at Institutions</b>"
+msgstr "<b>Puesto en la institución</b>"
+
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Photo</b>"
+msgstr "<b>Fotografía</b>"
+
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Fullname</b>"
+msgstr "<b>Nombre completo</b>"
+
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Supporters</b>"
+msgstr "<b>Nombre(s) de quiene soportan el caso</b>"
+
+#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+msgid "<b>Person:</b>"
+msgstr "<b>Persona:</b>"
+
+#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+msgid "<b>Institution:</b>"
+msgstr "<b>Organización o institución</b>"
+
+#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+msgid "<b>Job:</b>"
+msgstr "<b>Rol en la institución</b>"
+
+#: ../Views/gtk-gui/Views.PersonOrInstitutionSelector.cs:1
+msgid "Person"
+msgstr "Persona"
+
+#: ../Views/gtk-gui/Views.PersonOrInstitutionSelector.cs:1
+msgid "Institution"
+msgstr "Organización o Institución"
+
+#: ../Views/gtk-gui/Views.PersonCreateWindow.cs:1
+msgid "PersonCreateWindow"
+msgstr "Ventana de persona"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Date of Receipt</b>"
+msgstr "<b>Fecha de recepción</b>"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Status</b>"
+msgstr "<b>Status</b>"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Comments</b>"
+msgstr "<b>Comentarios</b>"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Record ID</b>"
+msgstr "<b>Clave</b>"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Title</b>"
+msgstr "<b>Título</b>"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Num</b>"
+msgstr "<b>Número</b>"
+
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+msgid "<b>Records</b>"
+msgstr "<b>Registros</b>"
+
+#: ../Views/gtk-gui/Views.TrackingDetailWindow.cs:1
+msgid "TrackingDetailWindow"
+msgstr "Detalles de la información de seguimiento el caso"
+
+#: ../Views/gtk-gui/Views.EditableListButtons.cs:1
+msgid "_Delete"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.EditableListButtons.cs:1
+msgid "_Detail"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.DocumentChooser.cs:1
+#: ../Views/gtk-gui/Views.DocumentRow.cs:1
+msgid "filename"
+msgstr "Nombre de archivo"
+
+#: ../Views/Documents/DocumentRow.cs:7
+msgid "Save Document ..."
+msgstr "Guardar documento"
+
+#: ../Views/Documents/DocumentList.cs:10
+msgid "Add New Document"
+msgstr "Agregar nuewvo documento"
+
+#: ../Views/gtk-gui/Views.DocumentList.cs:1
+msgid "New Record"
+msgstr "Nuevo registro"
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>End date</b>"
 msgstr "Fecha Final"
 
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+#: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+msgid "name"
+msgstr "Nombre"
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>Case name</b>"
+msgstr "<b>Nombre del caso</b>"
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>Start date</b>"
+msgstr "Fecha Inicial"
+
+#: ../Views/gtk-gui/Views.CaseSelectorWindow.cs:1
+msgid "CaseSelectorWindow"
+msgstr "Selector de casos"
+
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
+msgid "_Remove"
+msgstr "Borrar"
+
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
+msgid "Number of records"
+msgstr "Número de registros"
+
+#: ../Views/gtk-gui/Views.CatalogTab.cs:1
+msgid "page1"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PlaceShow.cs:1
+#, fuzzy
+msgid "<b>Place</b>"
+msgstr "<b>Lugar</b>"
+
+#: ../Views/gtk-gui/Views.PlaceDetailWindow.cs:1
+msgid "PlaceDetailWindow"
+msgstr "Detalles del lugar"
+
+#: ../Views/gtk-gui/Views.CaseRelationshipDetailWindow.cs:1
+msgid "CaseRelationshipDetailWindow"
+msgstr "Detalle de la relación entre casos"
+
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+msgid "<b>Current Case Name</b>"
+msgstr "<b>Nombre del caso actual</b>"
+
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+#, fuzzy
+msgid "case name"
+msgstr "Apellido"
+
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+msgid "<b>Relationship type</b>"
+msgstr "<b>Tipo de relación</b>"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "<b>Source Information</b>"
+msgstr "<b>Fuente de información personal</b>"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Language"
+msgstr "Idioma"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Reliability Level"
+msgstr "Ninvel de Confiabilidad"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Comments"
+msgstr "Comentarios"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Observations"
+msgstr "Observaciones"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Date"
+msgstr "Fecha de publicación"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Indigenous language"
+msgstr "Lengua indígena"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Affiliation type"
+msgstr "Tipo de afiliación"
+
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Reported Person/Institution</b>"
+msgstr "<b>Persona u organización reportada </b>"
+
+#: ../Views/gtk-gui/Views.InformationSourceDetailWindow.cs:1
+msgid "InformationSourceDetailWindow"
+msgstr "Detalle de la información personal"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Source name</b>"
+msgstr "<b>Nombre de la fuene</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Additional Info</b>"
+msgstr "<b>Información adicional</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Source Information Type </b>"
+msgstr "<b>Tipo de fuente de información</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Publication Date</b>"
+msgstr "<b>Fecha de publicación</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Access Date</b>"
+msgstr "<b>Fecha de acceso</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Link</b>"
+msgstr "<b>Liga</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Language</b>"
+msgstr "<b>Idioma</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Indigenous Language</b>"
+msgstr "Lenguas indígenas"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Reliability Level</b>"
+msgstr "<b>Nivel de confiabilidad</b>"
+
+#: ../Views/gtk-gui/Views.DocumentarySourceDetailWindow.cs:1
+msgid "DocumentarySourceDetailWindow"
+msgstr "Fuente Documental"
+
+#: ../Views/gtk-gui/Views.PerpetratorDetailWindow.cs:1
+msgid "PerpetratorWindow"
+msgstr "Perpetrator window"
+
+#: ../Views/gtk-gui/Views.CaseSummaryWindow.cs:1
+msgid "CaseSummaryWindow"
+msgstr "Resumen del caso"
+
+#: ../Views/gtk-gui/Views.ShowNoteWindow.cs:1
+msgid "ShowNoteWindow"
+msgstr "Mostrar notas"
+
+#: ../Views/gtk-gui/Views.ShowNoteWindow.cs:1
+msgid "note"
+msgstr "Notas"
+
+#: ../Views/gtk-gui/Views.ShowNoteWindow.cs:1
+msgid "<b></b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ShowNoteWindow.cs:1
+#, fuzzy
+msgid "CLose"
+msgstr "Cerar"
+
+#~ msgid "<b>Casos</b>"
+#~ msgstr "<b>Casos</b>"
+
+#~ msgid "People"
+#~ msgstr "Personas"
+
+#~ msgid "Male"
+#~ msgstr "Masculino"
+
+#~ msgid "Female"
+#~ msgstr "Femenino"
+
+#~ msgid "Sex:"
+#~ msgstr "Sexo:"

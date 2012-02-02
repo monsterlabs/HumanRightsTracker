@@ -6,8 +6,8 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../Views/bin/Debug/Views.dll" />
-    <widget-library name="../bin/Debug/HumanRightsTracker.exe" internal="true" />
+    <widget-library name="../Views/bin/Release/Views.dll" />
+    <widget-library name="../bin/Release/HumanRightsTracker.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="LoginWindow" design-size="598 389">
     <property name="MemberName" />
@@ -263,7 +263,7 @@ Copyright 2011 © i(dh)eas
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">2</property>
+        <property name="CurrentPage">1</property>
         <property name="TabPos">Left</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
@@ -352,7 +352,7 @@ Copyright 2011 © i(dh)eas
         <child>
           <widget class="Gtk.Label" id="label151">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">&lt;b&gt;Casos&lt;/b&gt;</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Cases&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
