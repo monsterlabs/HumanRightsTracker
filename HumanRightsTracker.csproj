@@ -116,5 +116,9 @@
       <Project>{C56BF470-8394-49EB-8D73-75A94EFB42CA}</Project>
       <Name>Models</Name>
     </ProjectReference>
+    <ProjectReference Include="Reports\Reports.csproj">
+      <Project>{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

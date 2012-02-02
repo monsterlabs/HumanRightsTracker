@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:Conversion="urn:Conversion" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89E926D3-3471-47C8-8D34-01FF2AF72F71}</ProjectGuid>
+    <RootNamespace>AODL</RootNamespace>
+    <AssemblyName>AODL</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <NoConfig>false</NoConfig>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\nn\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugType>none</DebugType>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms">
+      <HintPath>..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Document\Content\Charts\CellPos.cs" />
+    <Compile Include="Document\Content\Charts\CellRanges.cs" />
+    <Compile Include="Document\Content\Charts\ChartBuilderHelper.cs" />
+    <Compile Include="Document\Content\Charts\ChartTypes.cs" />
+    <Compile Include="Document\IDocument.cs" />
+    <Compile Include="Document\Collection\CollectionWithEvents.cs" />
+    <Compile Include="Document\Content\IContent.cs" />
+    <Compile Include="Document\Content\IContentCollection.cs" />
+    <Compile Include="Document\Content\IContentContainer.cs" />
+    <Compile Include="Document\Content\IHtml.cs" />
+    <Compile Include="Document\Content\UnknownContent.cs" />
+    <Compile Include="Document\Content\Charts\AxisCollection.cs" />
+    <Compile Include="Document\Content\Charts\Chart.cs" />
+    <Compile Include="Document\Content\Charts\ChartAxis.cs" />
+    <Compile Include="Document\Content\Charts\ChartBuilder.cs" />
+    <Compile Include="Document\Content\Charts\ChartCategories.cs" />
+    <Compile Include="Document\Content\Charts\ChartDataPoint.cs" />
+    <Compile Include="Document\Content\Charts\ChartDomain.cs" />
+    <Compile Include="Document\Content\Charts\ChartExporter.cs" />
+    <Compile Include="Document\Content\Charts\ChartFloor.cs" />
+    <Compile Include="Document\Content\Charts\ChartGrid.cs" />
+    <Compile Include="Document\Content\Charts\ChartImporter.cs" />
+    <Compile Include="Document\Content\Charts\ChartLegend.cs" />
+    <Compile Include="Document\Content\Charts\ChartPlotArea.cs" />
+    <Compile Include="Document\Content\Charts\ChartSeries.cs" />
+    <Compile Include="Document\Content\Charts\ChartStyleProcessor.cs" />
+    <Compile Include="Document\Content\Charts\ChartTitle.cs" />
+    <Compile Include="Document\Content\Charts\ChartWall.cs" />
+    <Compile Include="Document\Content\Charts\DataPointCollection.cs" />
+    <Compile Include="Document\Content\Charts\Dr3dLight.cs" />
+    <Compile Include="Document\Content\Charts\Dr3dLightCollection.cs" />
+    <Compile Include="Document\Content\Charts\SeriesCollection.cs" />
+    <Compile Include="Document\Content\Draw\DrawArea.cs" />
+    <Compile Include="Document\Content\Draw\DrawTextBox.cs" />
+    <Compile Include="Document\Content\Draw\Frame.cs" />
+    <Compile Include="Document\Content\Draw\FrameBuilder.cs" />
+    <Compile Include="Document\Content\Draw\Graphic.cs" />
+    <Compile Include="Document\Content\Draw\ImageMap.cs" />
+    <Compile Include="Document\Content\EmbedObjects\EmbedObject.cs" />
+    <Compile Include="Document\Content\EmbedObjects\EmbedObjectHandler.cs" />
+    <Compile Include="Document\Content\Fields\DateField.cs" />
+    <Compile Include="Document\Content\Fields\Field.cs" />
+    <Compile Include="Document\Content\Fields\FieldsCollection.cs" />
+    <Compile Include="Document\Content\Fields\PageNumber.cs" />
+    <Compile Include="Document\Content\Fields\Placeholder.cs" />
+    <Compile Include="Document\Content\Fields\TextInput.cs" />
+    <Compile Include="Document\Content\Fields\VariableDecl.cs" />
+    <Compile Include="Document\Content\Fields\VariableDeclCollection.cs" />
+    <Compile Include="Document\Content\Fields\VariableSet.cs" />
+    <Compile Include="Document\Content\OfficeEvents\EventListener.cs" />
+    <Compile Include="Document\Content\OfficeEvents\EventListeners.cs" />
+    <Compile Include="Document\Content\Tables\Cell.cs" />
+    <Compile Include="Document\Content\Tables\CellCollection.cs" />
+    <Compile Include="Document\Content\Tables\CellSpan.cs" />
+    <Compile Include="Document\Content\Tables\CellSpanCollection.cs" />
+    <Compile Include="Document\Content\Tables\Column.cs" />
+    <Compile Include="Document\Content\Tables\ColumnCollection.cs" />
+    <Compile Include="Document\Content\Tables\Row.cs" />
+    <Compile Include="Document\Content\Tables\RowCollection.cs" />
+    <Compile Include="Document\Content\Tables\RowHeader.cs" />
+    <Compile Include="Document\Content\Tables\Table.cs" />
+    <Compile Include="Document\Content\Tables\TableBuilder.cs" />
+    <Compile Include="Document\Content\Tables\TableCollection.cs" />
+    <Compile Include="Document\Content\Text\Footnote.cs" />
+    <Compile Include="Document\Content\Text\FormatedText.cs" />
+    <Compile Include="Document\Content\Text\Header.cs" />
+    <Compile Include="Document\Content\Text\IText.cs" />
+    <Compile Include="Document\Content\Text\ITextCollection.cs" />
+    <Compile Include="Document\Content\Text\ITextContainer.cs" />
+    <Compile Include="Document\Content\Text\List.cs" />
+    <Compile Include="Document\Content\Text\ListItem.cs" />
+    <Compile Include="Document\Content\Text\Paragraph.cs" />
+    <Compile Include="Document\Content\Text\ParagraphBuilder.cs" />
+    <Compile Include="Document\Content\Text\ParagraphCollection.cs" />
+    <Compile Include="Document\Content\Text\SimpleText.cs" />
+    <Compile Include="Document\Content\Text\TextBuilder.cs" />
+    <Compile Include="Document\Content\Text\UnknownTextContent.cs" />
+    <Compile Include="Document\Content\Text\XLink.cs" />
+    <Compile Include="Document\Content\Text\Indexes\Bookmark.cs" />
+    <Compile Include="Document\Content\Text\Indexes\TableOfContents.cs" />
+    <Compile Include="Document\Content\Text\Indexes\TableOfContentsIndexTemplate.cs" />
+    <Compile Include="Document\Content\Text\Indexes\TableOfContentsIndexTemplateCollection.cs" />
+    <Compile Include="Document\Content\Text\Indexes\TableOfContentsSource.cs" />
+    <Compile Include="Document\Content\Text\Indexes\TextSequence.cs" />
+    <Compile Include="Document\Content\Text\TextControl\LineBreak.cs" />
+    <Compile Include="Document\Content\Text\TextControl\TabStop.cs" />
+    <Compile Include="Document\Content\Text\TextControl\WhiteSpace.cs" />
+    <Compile Include="Document\Exceptions\AODLException.cs" />
+    <Compile Include="Document\Exceptions\AODLWarning.cs" />
+    <Compile Include="Document\Export\ExportHandler.cs" />
+    <Compile Include="Document\Export\IExporter.cs" />
+    <Compile Include="Document\Export\Html\HTMLContentBuilder.cs" />
+    <Compile Include="Document\Export\Html\HTMLStyleBuilder.cs" />
+    <Compile Include="Document\Export\Html\OpenDocumentHtmlExporter.cs" />
+    <Compile Include="Document\Export\OpenDocument\OpenDocumentTextExporter.cs" />
+    <Compile Include="Document\Forms\CommonEnums.cs" />
+    <Compile Include="Document\Forms\FormProperties.cs" />
+    <Compile Include="Document\Forms\FormPropertyCollection.cs" />
+    <Compile Include="Document\Forms\ListFormPropertyElemCollection.cs" />
+    <Compile Include="Document\Forms\ODFForm.cs" />
+    <Compile Include="Document\Forms\ODFFormCollection.cs" />
+    <Compile Include="Document\Forms\Controls\ODFButton.cs" />
+    <Compile Include="Document\Forms\Controls\ODFCheckBox.cs" />
+    <Compile Include="Document\Forms\Controls\ODFComboBox.cs" />
+    <Compile Include="Document\Forms\Controls\ODFControlRef.cs" />
+    <Compile Include="Document\Forms\Controls\ODFControlsCollection.cs" />
+    <Compile Include="Document\Forms\Controls\ODFDate.cs" />
+    <Compile Include="Document\Forms\Controls\ODFFile.cs" />
+    <Compile Include="Document\Forms\Controls\ODFFixedText.cs" />
+    <Compile Include="Document\Forms\Controls\ODFFormattedText.cs" />
+    <Compile Include="Document\Forms\Controls\ODFFormControl.cs" />
+    <Compile Include="Document\Forms\Controls\ODFFrame.cs" />
+    <Compile Include="Document\Forms\Controls\ODFGenericControl.cs" />
+    <Compile Include="Document\Forms\Controls\ODFGrid.cs" />
+    <Compile Include="Document\Forms\Controls\ODFGridColumn.cs" />
+    <Compile Include="Document\Forms\Controls\ODFGridColumnCollection.cs" />
+    <Compile Include="Document\Forms\Controls\ODFHidden.cs" />
+    <Compile Include="Document\Forms\Controls\ODFImage.cs" />
+    <Compile Include="Document\Forms\Controls\ODFImageFrame.cs" />
+    <Compile Include="Document\Forms\Controls\ODFItem.cs" />
+    <Compile Include="Document\Forms\Controls\ODFItemCollection.cs" />
+    <Compile Include="Document\Forms\Controls\ODFListBox.cs" />
+    <Compile Include="Document\Forms\Controls\ODFNumber.cs" />
+    <Compile Include="Document\Forms\Controls\ODFOption.cs" />
+    <Compile Include="Document\Forms\Controls\ODFOptionCollection.cs" />
+    <Compile Include="Document\Forms\Controls\ODFRadioButton.cs" />
+    <Compile Include="Document\Forms\Controls\ODFText.cs" />
+    <Compile Include="Document\Forms\Controls\ODFTextArea.cs" />
+    <Compile Include="Document\Forms\Controls\ODFTime.cs" />
+    <Compile Include="Document\Forms\Controls\ODFValueRange.cs" />
+    <Compile Include="Document\Helper\Colors.cs" />
+    <Compile Include="Document\Helper\DateTimeConverter.cs" />
+    <Compile Include="Document\Helper\SizeConverter.cs" />
+    <Compile Include="Document\Import\IImporter.cs" />
+    <Compile Include="Document\Import\ImportHandler.cs" />
+    <Compile Include="Document\Import\OpenDocument\OpenDocumentImporter.cs" />
+    <Compile Include="Document\Import\OpenDocument\NodeProcessors\FormsProcessor.cs" />
+    <Compile Include="Document\Import\OpenDocument\NodeProcessors\LocalStyleProcessor.cs" />
+    <Compile Include="Document\Import\OpenDocument\NodeProcessors\MainContentProcessor.cs" />
+    <Compile Include="Document\Import\OpenDocument\NodeProcessors\TextContentProcessor.cs" />
+    <Compile Include="Document\Import\PlainText\CsvImporter.cs" />
+    <Compile Include="Document\Import\PlainText\PlainTextImporter.cs" />
+    <Compile Include="Document\SpreadsheetDocuments\DocumentManifest.cs" />
+    <Compile Include="Document\SpreadsheetDocuments\DocumentSetting.cs" />
+    <Compile Include="Document\SpreadsheetDocuments\DocumentStyles.cs" />
+    <Compile Include="Document\SpreadsheetDocuments\SpreadsheetDocument.cs" />
+    <Compile Include="Document\Styles\AxesStyle.cs" />
+    <Compile Include="Document\Styles\CellStyle.cs" />
+    <Compile Include="Document\Styles\ChartStyle.cs" />
+    <Compile Include="Document\Styles\ChartStyles.cs" />
+    <Compile Include="Document\Styles\ColumnStyle.cs" />
+    <Compile Include="Document\Styles\DataPointStyle.cs" />
+    <Compile Include="Document\Styles\FamiliyStyles.cs" />
+    <Compile Include="Document\Styles\FloorStyle.cs" />
+    <Compile Include="Document\Styles\FontFamily.cs" />
+    <Compile Include="Document\Styles\FrameStyle.cs" />
+    <Compile Include="Document\Styles\GridStyle.cs" />
+    <Compile Include="Document\Styles\IHtmlStyle.cs" />
+    <Compile Include="Document\Styles\IStyle.cs" />
+    <Compile Include="Document\Styles\IStyleCollection.cs" />
+    <Compile Include="Document\Styles\LegendStyle.cs" />
+    <Compile Include="Document\Styles\LineStyles.cs" />
+    <Compile Include="Document\Styles\ListLevelStyle.cs" />
+    <Compile Include="Document\Styles\ListLevelStyleCollection.cs" />
+    <Compile Include="Document\Styles\ListStyle.cs" />
+    <Compile Include="Document\Styles\OfficeValueTypes.cs" />
+    <Compile Include="Document\Styles\ParagraphStyle.cs" />
+    <Compile Include="Document\Styles\ParentStyles.cs" />
+    <Compile Include="Document\Styles\PlotAreaStyle.cs" />
+    <Compile Include="Document\Styles\RowStyle.cs" />
+    <Compile Include="Document\Styles\SectionStyle.cs" />
+    <Compile Include="Document\Styles\SeriesStyle.cs" />
+    <Compile Include="Document\Styles\TableStyle.cs" />
+    <Compile Include="Document\Styles\TabStopLeaderStyles.cs" />
+    <Compile Include="Document\Styles\TabStopStyle.cs" />
+    <Compile Include="Document\Styles\TabStopStyleCollection.cs" />
+    <Compile Include="Document\Styles\TextStyle.cs" />
+    <Compile Include="Document\Styles\TitleStyle.cs" />
+    <Compile Include="Document\Styles\UnknownStyle.cs" />
+    <Compile Include="Document\Styles\WallStyle.cs" />
+    <Compile Include="Document\Styles\MasterStyles\MasterPageFactory.cs" />
+    <Compile Include="Document\Styles\MasterStyles\TextMasterPage.cs" />
+    <Compile Include="Document\Styles\MasterStyles\TextMasterPageCollection.cs" />
+    <Compile Include="Document\Styles\MasterStyles\TextPageFooter.cs" />
+    <Compile Include="Document\Styles\MasterStyles\TextPageHeader.cs" />
+    <Compile Include="Document\Styles\MasterStyles\TextPageHeaderFooterBase.cs" />
+    <Compile Include="Document\Styles\MasterStyles\TextPageLayout.cs" />
+    <Compile Include="Document\Styles\Properties\AxesProperties.cs" />
+    <Compile Include="Document\Styles\Properties\CellProperties.cs" />
+    <Compile Include="Document\Styles\Properties\ChartGraphicProperties.cs" />
+    <Compile Include="Document\Styles\Properties\ChartProperties.cs" />
+    <Compile Include="Document\Styles\Properties\ColumnProperties.cs" />
+    <Compile Include="Document\Styles\Properties\GraphicProperties.cs" />
+    <Compile Include="Document\Styles\Properties\IProperty.cs" />
+    <Compile Include="Document\Styles\Properties\IPropertyCollection.cs" />
+    <Compile Include="Document\Styles\Properties\ListLevelProperties.cs" />
+    <Compile Include="Document\Styles\Properties\ParagraphProperties.cs" />
+    <Compile Include="Document\Styles\Properties\PlotAreaProperties.cs" />
+    <Compile Include="Document\Styles\Properties\RowProperties.cs" />
+    <Compile Include="Document\Styles\Properties\SectionProperties.cs" />
+    <Compile Include="Document\Styles\Properties\TableProperties.cs" />
+    <Compile Include="Document\Styles\Properties\TextAlignments.cs" />
+    <Compile Include="Document\Styles\Properties\TextProperties.cs" />
+    <Compile Include="Document\Styles\Properties\UnknownProperty.cs" />
+    <Compile Include="Document\TextDocuments\DocumentConfiguration2.cs" />
+    <Compile Include="Document\TextDocuments\DocumentManifest.cs" />
+    <Compile Include="Document\TextDocuments\DocumentMetadata.cs" />
+    <Compile Include="Document\TextDocuments\DocumentPicture.cs" />
+    <Compile Include="Document\TextDocuments\DocumentPictureCollection.cs" />
+    <Compile Include="Document\TextDocuments\DocumentSetting.cs" />
+    <Compile Include="Document\TextDocuments\DocumentStyles.cs" />
+    <Compile Include="Document\TextDocuments\TextDocument.cs" />
+    <Compile Include="Document\TextDocuments\TextDocumentHelper.cs" />
+    <Compile Include="Package\ODFMemoryStream.cs" />
+    <Compile Include="Package\ODFPackage.cs" />
+    <Compile Include="Utils\ContentMocker.cs" />
+    <Compile Include="Utils\ContentMockerException.cs" />
+    <Content Include="Resources\ChangeLog.txt" />
+    <EmbeddedResource Include="Resources\OD\Blank.odt" />
+    <EmbeddedResource Include="Resources\OD\chartcontent.xml" />
+    <EmbeddedResource Include="Resources\OD\chartstyle.xml" />
+    <Content Include="Resources\OD\content.xml" />
+    <EmbeddedResource Include="Resources\OD\fonts.xml" />
+    <EmbeddedResource Include="Resources\OD\htmltemplate.html" />
+    <EmbeddedResource Include="Resources\OD\manifest.xml" />
+    <EmbeddedResource Include="Resources\OD\meta.xml" />
+    <None Include="Resources\OD\mimetype.txt" />
+    <EmbeddedResource Include="Resources\OD\settings.xml" />
+    <EmbeddedResource Include="Resources\OD\spreadsheetcontent.xml" />
+    <EmbeddedResource Include="Resources\OD\spreadsheetmanifest.xml" />
+    <EmbeddedResource Include="Resources\OD\spreadsheetsettings.xml" />
+    <EmbeddedResource Include="Resources\OD\spreadsheetstyles.xml" />
+    <EmbeddedResource Include="Resources\OD\styles.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

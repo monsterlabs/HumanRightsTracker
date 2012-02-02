@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csp
 EndProject
 Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Translation", "Translation\Translation.mdproj", "{94530A39-8ABC-474D-ADBB-7A4CEF067906}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "Reports\Reports.csproj", "{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AODL", "AODL\AODL.csproj", "{89E926D3-3471-47C8-8D34-01FF2AF72F71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -23,6 +27,14 @@ Global
 		{2FB41030-672B-4232-93F6-08FADC5BD232}.Debug|x86.Build.0 = Debug|x86
 		{2FB41030-672B-4232-93F6-08FADC5BD232}.Release|x86.ActiveCfg = Release|x86
 		{2FB41030-672B-4232-93F6-08FADC5BD232}.Release|x86.Build.0 = Release|x86
+		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Debug|x86.Build.0 = Debug|Any CPU
+		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Release|x86.ActiveCfg = Release|Any CPU
+		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Release|x86.Build.0 = Release|Any CPU
+		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Debug|x86.Build.0 = Debug|Any CPU
+		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Release|x86.ActiveCfg = Release|Any CPU
+		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Release|x86.Build.0 = Release|Any CPU
 		{94530A39-8ABC-474D-ADBB-7A4CEF067906}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{94530A39-8ABC-474D-ADBB-7A4CEF067906}.Debug|x86.Build.0 = Debug|Any CPU
 		{94530A39-8ABC-474D-ADBB-7A4CEF067906}.Release|x86.ActiveCfg = Release|Any CPU
