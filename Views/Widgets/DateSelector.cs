@@ -21,6 +21,7 @@ namespace Views
                     currentDate = value;
                     dateEntry.Text = value.ToLongDateString ();
                 } else {
+                    currentDate = default(DateTime);
                     dateEntry.Text = "";
                 }
             }

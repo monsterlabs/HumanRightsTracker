@@ -122,6 +122,7 @@
                                 <property name="Model">Country</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">True</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">5</property>
@@ -365,6 +366,7 @@ Female</property>
                                 <property name="Model">MaritalStatus</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">True</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">3</property>
@@ -589,6 +591,7 @@ No</property>
                                 <property name="Model">Job</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">3</property>
@@ -637,6 +640,7 @@ No</property>
                                 <property name="Model">ScholarityLevel</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">3</property>
@@ -793,6 +797,7 @@ No</property>
                                     <property name="Model">Country</property>
                                     <property name="IsEditable">False</property>
                                     <property name="HideAddButton">True</property>
+                                    <property name="HideNoteButton">False</property>
                                   </widget>
                                   <packing>
                                     <property name="TopAttach">1</property>
@@ -1061,6 +1066,7 @@ No</property>
                                     <property name="Model">Country</property>
                                     <property name="IsEditable">False</property>
                                     <property name="HideAddButton">True</property>
+                                    <property name="HideNoteButton">False</property>
                                   </widget>
                                   <packing>
                                     <property name="TopAttach">1</property>
@@ -1084,6 +1090,7 @@ No</property>
                                     <property name="Model">TravelCompanion</property>
                                     <property name="IsEditable">False</property>
                                     <property name="HideAddButton">False</property>
+                                    <property name="HideNoteButton">False</property>
                                   </widget>
                                   <packing>
                                     <property name="TopAttach">9</property>
@@ -1107,6 +1114,7 @@ No</property>
                                     <property name="Model">TravelingReason</property>
                                     <property name="IsEditable">False</property>
                                     <property name="HideAddButton">False</property>
+                                    <property name="HideNoteButton">False</property>
                                   </widget>
                                   <packing>
                                     <property name="TopAttach">3</property>
@@ -1369,6 +1377,7 @@ No</property>
                                 <property name="Model">IdentificationType</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">1</property>
@@ -1925,6 +1934,7 @@ No</property>
                     <property name="Model">Country</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">True</property>
+                    <property name="HideNoteButton">False</property>
                     <signal name="Changed" handler="onCountryChanged" />
                   </widget>
                 </child>
@@ -1961,6 +1971,7 @@ No</property>
                     <property name="Model">State</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
+                    <property name="HideNoteButton">False</property>
                     <signal name="Changed" handler="OnStateChanged" />
                   </widget>
                 </child>
@@ -1999,6 +2010,7 @@ No</property>
                     <property name="Model">City</property>
                     <property name="IsEditable">False</property>
                     <property name="HideAddButton">False</property>
+                    <property name="HideNoteButton">False</property>
                   </widget>
                 </child>
               </widget>
@@ -2081,7 +2093,7 @@ No</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CatalogSelector" design-size="255 28">
+  <widget class="Gtk.Bin" id="Views.CatalogSelector" design-size="327 32">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -2127,6 +2139,23 @@ No</property>
           </widget>
           <packing>
             <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="noteButton">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextAndIcon</property>
+            <property name="Icon">stock:gtk-dialog-info Menu</property>
+            <property name="Label" translatable="yes" />
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnNoteButtonClicked" />
+          </widget>
+          <packing>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -2669,6 +2698,7 @@ No</property>
                 <property name="Model">DateType</property>
                 <property name="IsEditable">True</property>
                 <property name="HideAddButton">True</property>
+                <property name="HideNoteButton">False</property>
                 <signal name="Changed" handler="OnChangeType" />
               </widget>
               <packing>
@@ -4030,6 +4060,7 @@ End date</property>
                             <property name="Model">InstitutionCategory</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
+                            <property name="HideNoteButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
@@ -4055,6 +4086,7 @@ End date</property>
                             <property name="Model">InstitutionType</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
+                            <property name="HideNoteButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
@@ -4699,6 +4731,7 @@ End date</property>
                                 <property name="Model">HumanRightsViolation</property>
                                 <property name="IsEditable">False</property>
                                 <property name="HideAddButton">False</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">3</property>
@@ -5712,6 +5745,7 @@ End date</property>
                         <property name="Model">InterventionType</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="LeftAttach">1</property>
@@ -6269,6 +6303,7 @@ End date</property>
                         <property name="Model">VictimStatus</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">True</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="Position">3</property>
@@ -6665,6 +6700,7 @@ Job</property>
                         <property name="Model">Job</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="Position">5</property>
@@ -7041,6 +7077,7 @@ Job</property>
                         <property name="Model">HumanRightsViolation</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -7071,6 +7108,7 @@ Job</property>
                         <property name="Model">ActPlace</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="Position">3</property>
@@ -8612,6 +8650,7 @@ End date</property>
                 <property name="Model">Job</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
               </widget>
               <packing>
                 <property name="Position">5</property>
@@ -8936,6 +8975,7 @@ End date</property>
                             <property name="Model">CaseStatus</property>
                             <property name="IsEditable">False</property>
                             <property name="HideAddButton">False</property>
+                            <property name="HideNoteButton">False</property>
                           </widget>
                           <packing>
                             <property name="TopAttach">3</property>
@@ -9991,6 +10031,7 @@ End date</property>
                 <property name="Model">RelationshipType</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -10181,6 +10222,7 @@ End date</property>
                 <property name="Model">AffiliationType</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -10278,6 +10320,7 @@ End date</property>
                 <property name="Model">IndigenousLanguage</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -10445,6 +10488,7 @@ End date</property>
                 <property name="Model">Language</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -10468,6 +10512,7 @@ End date</property>
                 <property name="Model">ReliabilityLevel</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
               </widget>
               <packing>
                 <property name="TopAttach">5</property>
@@ -10685,6 +10730,7 @@ End date</property>
                         <property name="Model">IndigenousLanguage</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">7</property>
@@ -10947,6 +10993,7 @@ End date</property>
                         <property name="Model">Language</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">7</property>
@@ -11032,6 +11079,7 @@ End date</property>
                         <property name="Model">ReliabilityLevel</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">9</property>
@@ -11055,6 +11103,7 @@ End date</property>
                         <property name="Model">SourceInformationType</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">3</property>
@@ -11231,6 +11280,94 @@ End date</property>
       <widget class="Views.CaseRow" id="case_row">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="Views.ShowNoteWindow" design-size="366 143">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">ShowNoteWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Gtk.Table" id="table1">
+        <property name="MemberName" />
+        <property name="NRows">2</property>
+        <property name="RowSpacing">6</property>
+        <property name="ColumnSpacing">6</property>
+        <child>
+          <widget class="Gtk.Frame" id="frame1">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.Alignment" id="GtkAlignment1">
+                <property name="MemberName" />
+                <property name="Xalign">0</property>
+                <property name="Yalign">0</property>
+                <property name="LeftPadding">12</property>
+                <child>
+                  <widget class="Gtk.Label" id="note">
+                    <property name="MemberName" />
+                    <property name="Xalign">0</property>
+                    <property name="LabelProp" translatable="yes">note</property>
+                    <property name="Wrap">True</property>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="GtkLabel1">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">&lt;b&gt;&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
+              </widget>
+              <packing>
+                <property name="type">label_item</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="AutoSize">False</property>
+            <property name="XExpand">True</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">True</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <child>
+              <widget class="Gtk.Button" id="closeButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-cancel Menu</property>
+                <property name="Label" translatable="yes">CLose</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnCloseButtonClicked" />
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="TopAttach">1</property>
+            <property name="BottomAttach">2</property>
+            <property name="AutoSize">False</property>
+            <property name="XOptions">0</property>
+            <property name="YOptions">0</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">False</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">False</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
