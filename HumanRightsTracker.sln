@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanRightsTracker", "HumanRightsTracker.csproj", "{2FB41030-672B-4232-93F6-08FADC5BD232}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{0D986191-8BA2-473F-9659-43A545D0594B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{C56BF470-8394-49EB-8D73-75A94EFB42CA}"
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AODL", "AODL\AODL.csproj", "{89E926D3-3471-47C8-8D34-01FF2AF72F71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AODL.pdf.exporter", "AODL.pdf.exporter\AODL.pdf.exporter.csproj", "{6C536DE8-180D-4278-AB43-C5C4882E41F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanRightsTracker", "HumanRightsTracker\HumanRightsTracker.csproj", "{583E9FFC-F2E7-4195-A213-CA5538F750CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,12 +28,12 @@ Global
 		{0D986191-8BA2-473F-9659-43A545D0594B}.Release|x86.Build.0 = Release|Any CPU
 		{0D986191-8BA2-473F-9659-43A545D0594B}.Windows|Any CPU.ActiveCfg = Windows|Any CPU
 		{0D986191-8BA2-473F-9659-43A545D0594B}.Windows|Any CPU.Build.0 = Windows|Any CPU
-		{2FB41030-672B-4232-93F6-08FADC5BD232}.Debug|x86.ActiveCfg = Debug|x86
-		{2FB41030-672B-4232-93F6-08FADC5BD232}.Debug|x86.Build.0 = Debug|x86
-		{2FB41030-672B-4232-93F6-08FADC5BD232}.Release|x86.ActiveCfg = Release|x86
-		{2FB41030-672B-4232-93F6-08FADC5BD232}.Release|x86.Build.0 = Release|x86
-		{2FB41030-672B-4232-93F6-08FADC5BD232}.Windows|Any CPU.ActiveCfg = Windows|Any CPU
-		{2FB41030-672B-4232-93F6-08FADC5BD232}.Windows|Any CPU.Build.0 = Windows|Any CPU
+		{583E9FFC-F2E7-4195-A213-CA5538F750CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{583E9FFC-F2E7-4195-A213-CA5538F750CA}.Debug|x86.Build.0 = Debug|Any CPU
+		{583E9FFC-F2E7-4195-A213-CA5538F750CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{583E9FFC-F2E7-4195-A213-CA5538F750CA}.Release|x86.Build.0 = Release|Any CPU
+		{583E9FFC-F2E7-4195-A213-CA5538F750CA}.Windows|Any CPU.ActiveCfg = Windows|Any CPU
+		{583E9FFC-F2E7-4195-A213-CA5538F750CA}.Windows|Any CPU.Build.0 = Windows|Any CPU
 		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Debug|x86.Build.0 = Debug|Any CPU
 		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Release|x86.ActiveCfg = Release|Any CPU
@@ -66,7 +66,7 @@ Global
 		{C56BF470-8394-49EB-8D73-75A94EFB42CA}.Windows|Any CPU.Build.0 = Windows|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = HumanRightsTracker.csproj
+		StartupItem = HumanRightsTracker\HumanRightsTracker.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None
