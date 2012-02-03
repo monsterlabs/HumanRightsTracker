@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Change per release -->
+<?define ProductVersion = "1.0.0" ?>
+<?define ProductVersionText = "1.0.0 - Honey Badger" ?>
+
+<!-- Should not be changed -->
+<?define ProductShortName = "HumanRights" ?>
+<?define ProductLongName = "Human Rights Tracker" ?>
+<?define Manufacturer = "Monsterlabs Inc." ?>
+<?define UpgradeCode = "bebf471b-7a12-455a-99a8-6a9c9659ca5c" ?>
+
+<?define BuildRoot= "..\.." ?>
+<?define binDir= "..\..\bin\bin" ?>
+<?define etcDir= "..\..\bin\etc" ?>
+<?define libDir= "..\..\bin\lib" ?>
+<?define share_themesDir= "..\..\bin\share\themes" ?>
+<?define share_iconsDir= "..\..\bin\share\icons" ?>
+<?define share_localeDir= "..\..\bin\share\locale" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="$(var.ProductShortName) $(var.ProductVersionText)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+    <Package Id="*" Compressed="yes" Description="$(var.ProductLongName) $(var.ProductVersionText)" InstallerVersion="200" ShortNames="no" Manufacturer="$(var.Manufacturer)" />
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" CompressionLevel="high"/>
+
+    <!-- Ensure .Net 3.5 SP1 or higher is installed -->
+    <PropertyRef Id="NETFRAMEWORK35_SP_LEVEL" />
+    <PropertyRef Id="NETFRAMEWORK40FULL" />
+    <Condition Message="This setup requires the .NET Framework 3.5 SP1 or higher to be installed.">
+      <![CDATA[Installed OR (NETFRAMEWORK35_SP_LEVEL and NOT NETFRAMEWORK35_SP_LEVEL = "#0") OR NETFRAMEWORK40FULL]]>
+    </Condition>
+
+    <!-- Define which previous versions we should be able to upgrade/replace -->
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED" />
+      <UpgradeVersion OnlyDetect="no" Property="OLDERVERSIONBEINGUPGRADED"
+        Minimum="0.0.0" IncludeMinimum="yes"
+        Maximum="$(var.ProductVersion)" IncludeMaximum="no" />
+    </Upgrade>
+
+    <!-- Option to launch when finished with setup -->
+    <CustomAction Id="StartAppOnExit" FileKey="Nereid.exe" ExeCommand="" Execute="immediate" Impersonate="yes" Return="asyncNoWait" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Banshee when setup exits" />
+    <UI>
+      <Publish Dialog="ExitDialog" Control="Finish" Order="1" Event="DoAction" Value="StartAppOnExit">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="Banshee" FileSource="$(var.BuildRoot)\bin">
+          <Directory Id="bindirectory" Name="bin">
+            <Component Id="ProductComponent" Guid="55C2C651-CFF2-4607-ADE0-0BB43D5D1086">
+
+              <!-- Place Banshee path into registry -->
+              <RegistryValue Root='HKLM' Key='SOFTWARE\Novell\Banshee' Type='string' Name='Version' Value='$(var.ProductVersion)' />
+              <RegistryValue Root='HKLM' Key='SOFTWARE\Novell\Banshee' Type='string' Name='Path' Value='[INSTALLLOCATION]' />
+
+              <!-- App Paths to support Start,Run -> "banshee" -->
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\banshee.exe" Value="[INSTALLLOCATION]bin\Nereid.exe" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\banshee.exe" Name="Path" Value="[INSTALLLOCATION]bin" Type="string" />
+
+            </Component>
+          </Directory>
+          <Directory Id="SHARELOCATION" Name="share">
+	  </Directory>
+        </Directory>
+      </Directory>
+
+      <!-- Define directory structure for Start menu shortcut, and create shortcut -->
+      <Directory Id="ProgramMenuFolder" Name="PMenu">
+        <Directory Id="ProgramMenuDir" Name='$(var.ProductShortName)'>
+          <Component Id="StartMenuShortcut" Guid="872AA14E-EFCB-4F0B-B3B8-102162257EC1">
+            <Shortcut Id="StartMenuShortcut" Name="$(var.ProductShortName)" Icon="Nereid.exe" Target="[INSTALLLOCATION]bin\Nereid.exe" WorkingDirectory="bindirectory"/>
+            <RemoveFolder Id="ProgramMenuSubfolder" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductShortName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+          </Component>
+        </Directory>
+      </Directory>
+
+      <!-- Define directory structure for Desktop shortcut, and create shortcut -->
+      <Directory Id="DesktopFolder">
+        <Component Id="DesktopShortcut" Guid="5F62AA2F-A4C3-404B-A448-4E8154A04AD0">
+          <Shortcut Id="DesktopShortcut" Name="$(var.ProductShortName)" Icon="Nereid.exe" Target="[INSTALLLOCATION]bin\Nereid.exe" WorkingDirectory="bin"/>
+          <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductShortName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        </Component>
+      </Directory>
+    </Directory>
+
+    <Feature Id="ProductFeature" Title="Banshee" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+      <ComponentGroupRef Id="bin" />
+      <ComponentGroupRef Id="etc" />
+      <ComponentGroupRef Id="lib" />
+
+      <ComponentGroupRef Id="share\banshee" />
+      <ComponentGroupRef Id="share\icons" />
+      <ComponentGroupRef Id="share\themes" />
+    </Feature>
+
+    <Feature Id="TranslationsFeature" Title="Banshee Translations" Level="1">
+      <ComponentGroupRef Id="share\locale" />
+    </Feature>
+
+    <!-- Sequences -->
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallValidate" />
+    </InstallExecuteSequence>
+
+    <InstallUISequence>
+    </InstallUISequence>
+
+    <!-- This enables the license screen and where to install screen -->
+    <Property Id="WIXUI_INSTALLDIR">INSTALLLOCATION</Property>
+    <UIRef Id="WixUI_InstallDir"/>
+
+    <!-- Specify the license to display and graphics to use in our GUI -->
+    <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.jpg" />
+    <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.jpg" />
+
+    <!-- This is for the icon that is shown in the Add/Remove Programs dialog and menu shortcut -->
+    <Icon Id="Nereid.exe" SourceFile="Bitmaps\Banshee.ico" />
+    <Property Id="ARPPRODUCTICON" Value="Nereid.exe" />
+    <Property Id="ARPHELPLINK" Value="http://banshee.fm/" />
+  </Product>
+
+  <!-- Include the heat.exe generated lists of files -->
+  <?include obj\generated_bin.wxi ?>
+  <?include obj\generated_etc.wxi ?>
+  <?include obj\generated_lib.wxi ?>
+  <?include obj\generated_share_banshee.wxi ?>
+  <?include obj\generated_share_icons.wxi ?>
+  <?include obj\generated_share_themes.wxi ?>
+  <?include obj\generated_share_locale.wxi ?>
+</Wix>
