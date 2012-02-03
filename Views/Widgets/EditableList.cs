@@ -1,4 +1,5 @@
 using System;
+using Mono.Unix;
 using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Gtk;
@@ -80,9 +81,8 @@ namespace Views
 
         protected void BuildTableHeaders () {
             table.Resize (1, (uint) (headers.Length));
-
             for (uint i = 0; i < headers.Length; i++) {
-                Label l = new Label ("<b>" + headers[i] + "</b>");
+                Label l = new Label ("<b>" + Catalog.GetString (headers[i]) + "</b>");
                 l.UseMarkup = true;
                 l.Justify = Justification.Fill;
 
