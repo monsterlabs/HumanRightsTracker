@@ -31,7 +31,6 @@ namespace HumanRightsTracker.Models
         public String Alias { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public DateTime Birthday { get; set; }
 
         [Property]
@@ -44,7 +43,7 @@ namespace HumanRightsTracker.Models
         [Property]
         public String Email { get; set; }
 
-        [BelongsTo("country_id"), ValidateNonEmpty]
+        [BelongsTo("country_id")]
         public Country Country { get; set; }
         [BelongsTo("state_id")]
         public State State { get; set; }

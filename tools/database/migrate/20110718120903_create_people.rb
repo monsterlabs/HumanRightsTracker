@@ -3,9 +3,9 @@ class CreatePeople < ActiveRecord::Migration
     create_table :people do |t|
       t.string :firstname, :lastname, :null => false
       t.boolean :gender, :null => false
-      t.date :birthday, :null => false
-      t.references :marital_status, :country, :null => false
-      t.references :state, :city
+      t.date :birthday
+      t.references :marital_status, :null => false
+      t.references :country, :state, :city
     end
   end
 

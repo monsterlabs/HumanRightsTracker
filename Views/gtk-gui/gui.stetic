@@ -150,8 +150,6 @@
                               <packing>
                                 <property name="TopAttach">1</property>
                                 <property name="BottomAttach">2</property>
-                                <property name="LeftAttach">1</property>
-                                <property name="RightAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -296,15 +294,13 @@ Female</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="Gtk.Label" id="label56">
+                              <widget class="Gtk.Label" id="label59">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
                                 <property name="LabelProp" translatable="yes">&lt;b&gt;Firstname&lt;/b&gt;</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="LeftAttach">1</property>
-                                <property name="RightAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -317,13 +313,15 @@ Female</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="Gtk.Label" id="label57">
+                              <widget class="Gtk.Label" id="label60">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
                                 <property name="LabelProp" translatable="yes">&lt;b&gt;Lastname&lt;/b&gt;</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
+                                <property name="LeftAttach">1</property>
+                                <property name="RightAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -347,6 +345,8 @@ Female</property>
                               <packing>
                                 <property name="TopAttach">1</property>
                                 <property name="BottomAttach">2</property>
+                                <property name="LeftAttach">1</property>
+                                <property name="RightAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -1144,7 +1144,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel29">
+                      <widget class="Gtk.Label" id="GtkLabel31">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Migration Attempts&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1167,7 +1167,7 @@ No</property>
                     <property name="ShadowType">In</property>
                     <property name="LabelXalign">0.01</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment25">
+                      <widget class="Gtk.Alignment" id="GtkAlignment27">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -1311,7 +1311,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel37">
+                      <widget class="Gtk.Label" id="GtkLabel39">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Birth Place&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1333,7 +1333,7 @@ No</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment32">
+                      <widget class="Gtk.Alignment" id="GtkAlignment34">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -1439,7 +1439,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel40">
+                      <widget class="Gtk.Label" id="GtkLabel42">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Identification&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1461,13 +1461,13 @@ No</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment35">
+                      <widget class="Gtk.Alignment" id="GtkAlignment37">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
                         <property name="LeftPadding">12</property>
                         <child>
-                          <widget class="Gtk.Alignment" id="GtkAlignment36">
+                          <widget class="Gtk.Alignment" id="GtkAlignment38">
                             <property name="MemberName" />
                             <property name="Xalign">0</property>
                             <property name="Yalign">0</property>
@@ -1624,7 +1624,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel41">
+                      <widget class="Gtk.Label" id="GtkLabel43">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Contact Info&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1646,13 +1646,13 @@ No</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment37">
+                      <widget class="Gtk.Alignment" id="GtkAlignment39">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
                         <property name="LeftPadding">12</property>
                         <child>
-                          <widget class="Gtk.Alignment" id="GtkAlignment38">
+                          <widget class="Gtk.Alignment" id="GtkAlignment40">
                             <property name="MemberName" />
                             <property name="Xalign">0</property>
                             <property name="Yalign">0</property>
@@ -1793,7 +1793,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel48">
+                      <widget class="Gtk.Label" id="GtkLabel50">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Address&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>

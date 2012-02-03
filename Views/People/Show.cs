@@ -38,7 +38,7 @@ namespace Views.People
                     if (this.isImmigrant == false)  {
                         migration_attempts_frame.Destroy ();
                         identification_frame.Destroy ();
-                        person_details_frame.Destroy ();
+
                     } else {
                         set_person_details_widgets ();
                         set_immigration_details_widgets ();
@@ -47,6 +47,7 @@ namespace Views.People
                             address_frame.Hide ();
                             contact_info_frame.Hide ();
                             identification_frame.Hide ();
+                            place_of_birth_frame.Hide ();
                         } else {
                             set_identification_widgets ();
                             address_frame.Show ();
