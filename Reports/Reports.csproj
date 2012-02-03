@@ -32,14 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="AODL">
-      <HintPath>..\lib\AODL.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="AODL.pdf.exporter">
-      <HintPath>..\lib\AODL.pdf.exporter.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\lib\itextsharp.dll</HintPath>
@@ -58,6 +52,10 @@
     <ProjectReference Include="..\AODL\AODL.csproj">
       <Project>{89E926D3-3471-47C8-8D34-01FF2AF72F71}</Project>
       <Name>AODL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AODL.pdf.exporter\AODL.pdf.exporter.csproj">
+      <Project>{6C536DE8-180D-4278-AB43-C5C4882E41F5}</Project>
+      <Name>AODL.pdf.exporter</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
