@@ -161,7 +161,7 @@ task :seeds => :environment do
   end
 
   InstitutionCategory.destroy_all
-  CSV.foreach("seeds/institution_categories.csv") do |row|
+  CSV.foreach("seeds/institution_categories.csv", :col_sep => "|") do |row|
     InstitutionCategory.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
   end
 
@@ -218,6 +218,11 @@ task :seeds => :environment do
   AddressType.destroy_all
   CSV.foreach("seeds/address_types.csv") do |row|
     AddressType.create(:name => row[0].to_s.strip)
+  end
+
+  IndigenousGroup.destroy_all
+  CSV.foreach("seeds/indigenous_groups.csv", :col_sep => "|") do |row|
+    IndigenousGroup.create(:name => row[0].strip, :notes => row[1].to_s.strip)
   end
 
   require "./blueprints/machinist_helper.rb"

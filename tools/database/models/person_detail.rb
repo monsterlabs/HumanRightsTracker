@@ -4,4 +4,5 @@ class PersonDetail < ActiveRecord::Base
   belongs_to :scholarity_level
   belongs_to :job
   belongs_to :person
+  belongs_to :indigenous_group
 end

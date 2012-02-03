@@ -47,7 +47,7 @@ PersonDetail.blueprint do
   religion_id { Religion.all.sample.id }
   scholarity_level_id { ScholarityLevel.all.sample.id }
   job_id  { Job.all.sample.id }
-  indigenous_group {Faker::Lorem.words(3).join(" ")}
+  indigenous_group_id  { IndigenousGroup.all.sample.id } 
 end
 
 ImmigrationAttempt.blueprint do
