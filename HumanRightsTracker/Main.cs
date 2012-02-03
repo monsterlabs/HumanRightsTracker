@@ -8,6 +8,7 @@ using Castle.ActiveRecord.Framework.Scopes;
 using Castle.ActiveRecord.Framework;
 using Castle.ActiveRecord;
 using HumanRightsTracker.Models;
+using Reports;
 
 namespace HumanRightsTracker
 {

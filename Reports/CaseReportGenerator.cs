@@ -1,41 +1,53 @@
 using System;
 using AODL.Document.TextDocuments;
+using AODL.Document.Content.Tables;
+using AODL.Document.Styles;
+using AODL.Document.Styles.Properties;
 using AODL.Document.Content.Text;
 using AODL.ExternalExporter.PDF;
 
+using HumanRightsTracker.Models;
+
 namespace Reports
 {
-    public class CaseReportGenerator
+    public class CaseReportGenerator : ReportGenerator
     {
-        public CaseReportGenerator ()
+        public CaseReportGenerator (Case acase)
         {
-            //Create a new text document
-            string someText     = "Max Mustermann\nMustermann Str. 300\n22222 Hamburg\n\n\n\n"
-                                 +"Heinz Willi\nDorfstr. 1\n22225 Hamburg\n\n\n\n"
-                                 +"Offer for 200 Intel Pentium 4 CPU's\n\n\n\n"
-                                 +"Dear Mr. Willi,\n\n\n\n"
-                                 +"thank you for your request. \tWe can     offer you the 200 Intel Pentium IV 3 Ghz CPU's for a price of 79,80 Ä per unit."
-                                 +"This special offer is valid to 31.10.2005. If you accept, we can deliver within 24 hours.\n\n\n\n"
-                                 +"Best regards \nMax Mustermann";
+            addBold ("Reporte narrativo de caso");
+            addField("Fecha de expedición", DateTime.Now.ToShortDateString ());
 
-         //Create new TextDocument
-         iTextSharp.text.Document.Compress = false;
+            addTitle ("DATOS GENERALES");
 
-         TextDocument document               = new TextDocument();
-         document.New();
-         //Use the ParagraphBuilder to split the string into ParagraphCollection
-         ParagraphCollection pCollection     = ParagraphBuilder.CreateParagraphCollection(
-                                                 document,
-                                                 someText,
-                                                 true,
-                                                 ParagraphBuilder.ParagraphSeperator);
-         //Add the paragraph collection
-         foreach(Paragraph paragraph in pCollection)
-             document.Content.Add(paragraph);
+            addField ("Nombre del caso", acase.Name);
+            addField ("Fecha de inicio", acase.start_date.Value.ToShortDateString ());
+            foreach (Place place in acase.Places)
+            {
+
+                addField ("Localidades", String.Format ("{0}, {1}, {2}",
+                                                      place.City.Name, place.State.Name, place.Country.Name));
+            }
+            addField ("No. personas afectadas", acase.AffectedPeople.ToString ());
+
+            addTitle ("SEGUIMIENTO DEL CASO");
+
+            addField ("Resumen", acase.Summary);
+            addNewline ();
+            addField ("Observaciones", acase.Observations);
+
+            addNewline();
+
+            foreach (TrackingInformation info in acase.TrackingInformation)
+            {
+                addBold (info.Title);
+                addField ("Fecha", info.DateOfReceipt.Value.ToShortDateString ());
+                addField ("Comentarios", info.Comments);
+                addNewline();
+            }
 
             //save
-            document.SaveTo ("Letter.odt");
-            document.SaveTo ("Letter.pdf", new PDFExporter ());
+            //document.SaveTo ("Letter.odt");
+            //document.SaveTo ("Letter.pdf", new PDFExporter ());
         }
     }
 }

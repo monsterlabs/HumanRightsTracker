@@ -48,14 +48,15 @@ namespace AODL.ExternalExporter.PDF.Document.ContentConverter
 		public static iTextSharp.text.Phrase Convert(AODL.Document.Content.Text.FormatedText formatedText)
 		{
 			iTextSharp.text.Font font;
-			if ((TextStyle)formatedText.Style != null
-			    && ((TextStyle)formatedText.Style).TextProperties != null)
+			if ((TextStyle)formatedText.TextStyle != null
+			    && ((TextStyle)formatedText.TextStyle).TextProperties != null)
 				font = TextPropertyConverter.GetFont(
-					((TextStyle)formatedText.Style).TextProperties);
+					((TextStyle)formatedText.TextStyle).TextProperties);
 			else
 				font = DefaultDocumentStyles.Instance().DefaultTextFont;
 
 			iTextSharp.text.Phrase phrase = new iTextSharp.text.Phrase("", font); // default ctor protected - why ??
+            phrase.Add( new iTextSharp.text.Chunk(formatedText.Text, font));
 			phrase.AddRange(FormatedTextConverter.GetTextContents(formatedText.TextContent, font));
 
 			return phrase;
