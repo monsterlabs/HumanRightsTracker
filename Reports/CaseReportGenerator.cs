@@ -10,62 +10,44 @@ using HumanRightsTracker.Models;
 
 namespace Reports
 {
-    public class CaseReportGenerator
+    public class CaseReportGenerator : ReportGenerator
     {
-        public CaseReportGenerator ()//(Case acase)
+        public CaseReportGenerator (Case acase)
         {
-            iTextSharp.text.Document.Compress = false;
-            TextDocument document = new TextDocument();
-            document.New();
+            addBold ("Reporte narrativo de caso");
+            addField("Fecha de expedición", DateTime.Now.ToShortDateString ());
 
-            Paragraph paragraph;
-            FormatedText formText;
+            addTitle ("DATOS GENERALES");
 
-            TextStyle boldStyle = new TextStyle (document, "boldML");
-            boldStyle.TextProperties.Bold = "bold";
-            boldStyle.TextProperties.FontName = "Times-Roman";
-            document.Styles.Add (boldStyle);
+            addField ("Nombre del caso", acase.Name);
+            addField ("Fecha de inicio", acase.start_date.Value.ToShortDateString ());
+            foreach (Place place in acase.Places)
+            {
 
-            TextStyle boldUnderlineStyle = new TextStyle (document, "boldUndelineML");
-            boldUnderlineStyle.TextProperties.Bold = "bold";
-            boldUnderlineStyle.TextProperties.FontName = "Times-Roman";
-            boldUnderlineStyle.TextProperties.Underline = "solid";
-            document.Styles.Add (boldUnderlineStyle);
+                addField ("Localidades", String.Format ("{0}, {1}, {2}",
+                                                      place.City.Name, place.State.Name, place.Country.Name));
+            }
+            addField ("No. personas afectadas", acase.AffectedPeople.ToString ());
 
-            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
-            formText = new FormatedText(document, "T1", "Reporte narrativo de caso");
-            formText.TextStyle = boldStyle;
-            paragraph.TextContent.Add(formText);
-            document.Content.Add(paragraph);
+            addTitle ("SEGUIMIENTO DEL CASO");
 
-            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
-            formText = new FormatedText(document, "T1", "Fecha de expedición");
-            formText.TextStyle = boldStyle;
-            paragraph.TextContent.Add(formText);
-            document.Content.Add(paragraph);
+            addField ("Resumen", acase.Summary);
+            addNewline ();
+            addField ("Observaciones", acase.Observations);
 
-            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
-            paragraph.TextContent.Add(new SimpleText(document, "01/01/01"));
-            document.Content.Add(paragraph);
+            addNewline();
 
-            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
-            formText = new FormatedText(document, "T1", "DATOS GENERALES");
-            formText.TextStyle = boldUnderlineStyle;
-            paragraph.TextContent.Add(formText);
-            //paragraph.ParagraphStyle = new ParagraphStyle (document, "foo");
-            //paragraph.ParagraphStyle.ParagraphProperties.Alignment = TextAlignments.center.ToString ();
-            document.Content.Add(paragraph);
+            foreach (TrackingInformation info in acase.TrackingInformation)
+            {
+                addBold (info.Title);
+                addField ("Fecha", info.DateOfReceipt.Value.ToShortDateString ());
+                addField ("Comentarios", info.Comments);
+                addNewline();
+            }
 
-
-            /*
-            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
-
-            paragraph.TextContent.Add(new SimpleText(document, "DATOS GENERALES"));
-            document.Content.Add(paragraph);
-            */
             //save
-            document.SaveTo ("Letter.odt");
-            document.SaveTo ("Letter.pdf", new PDFExporter ());
+            //document.SaveTo ("Letter.odt");
+            //document.SaveTo ("Letter.pdf", new PDFExporter ());
         }
     }
 }

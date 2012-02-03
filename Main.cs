@@ -18,8 +18,6 @@ namespace HumanRightsTracker
 		public static void Main (string[] args)
 		{
             XmlConfigurationSource config;
-            CaseReportGenerator c = new CaseReportGenerator ();
-            return;
 
             string location = Assembly.GetExecutingAssembly().Location;
 
