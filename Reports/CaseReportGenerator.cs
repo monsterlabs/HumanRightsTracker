@@ -1,38 +1,68 @@
 using System;
 using AODL.Document.TextDocuments;
+using AODL.Document.Content.Tables;
+using AODL.Document.Styles;
+using AODL.Document.Styles.Properties;
 using AODL.Document.Content.Text;
 using AODL.ExternalExporter.PDF;
+
+using HumanRightsTracker.Models;
 
 namespace Reports
 {
     public class CaseReportGenerator
     {
-        public CaseReportGenerator ()
+        public CaseReportGenerator ()//(Case acase)
         {
-            //Create a new text document
-            string someText     = "Max Mustermann\nMustermann Str. 300\n22222 Hamburg\n\n\n\n"
-                                 +"Heinz Willi\nDorfstr. 1\n22225 Hamburg\n\n\n\n"
-                                 +"Offer for 200 Intel Pentium 4 CPU's\n\n\n\n"
-                                 +"Dear Mr. Willi,\n\n\n\n"
-                                 +"thank you for your request. \tWe can     offer you the 200 Intel Pentium IV 3 Ghz CPU's for a price of 79,80 Ä per unit."
-                                 +"This special offer is valid to 31.10.2005. If you accept, we can deliver within 24 hours.\n\n\n\n"
-                                 +"Best regards \nMax Mustermann";
+            iTextSharp.text.Document.Compress = false;
+            TextDocument document = new TextDocument();
+            document.New();
 
-         //Create new TextDocument
-         iTextSharp.text.Document.Compress = false;
+            Paragraph paragraph;
+            FormatedText formText;
 
-         TextDocument document               = new TextDocument();
-         document.New();
-         //Use the ParagraphBuilder to split the string into ParagraphCollection
-         ParagraphCollection pCollection     = ParagraphBuilder.CreateParagraphCollection(
-                                                 document,
-                                                 someText,
-                                                 true,
-                                                 ParagraphBuilder.ParagraphSeperator);
-         //Add the paragraph collection
-         foreach(Paragraph paragraph in pCollection)
-             document.Content.Add(paragraph);
+            TextStyle boldStyle = new TextStyle (document, "boldML");
+            boldStyle.TextProperties.Bold = "bold";
+            boldStyle.TextProperties.FontName = "Times-Roman";
+            document.Styles.Add (boldStyle);
 
+            TextStyle boldUnderlineStyle = new TextStyle (document, "boldUndelineML");
+            boldUnderlineStyle.TextProperties.Bold = "bold";
+            boldUnderlineStyle.TextProperties.FontName = "Times-Roman";
+            boldUnderlineStyle.TextProperties.Underline = "solid";
+            document.Styles.Add (boldUnderlineStyle);
+
+            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
+            formText = new FormatedText(document, "T1", "Reporte narrativo de caso");
+            formText.TextStyle = boldStyle;
+            paragraph.TextContent.Add(formText);
+            document.Content.Add(paragraph);
+
+            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
+            formText = new FormatedText(document, "T1", "Fecha de expedición");
+            formText.TextStyle = boldStyle;
+            paragraph.TextContent.Add(formText);
+            document.Content.Add(paragraph);
+
+            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
+            paragraph.TextContent.Add(new SimpleText(document, "01/01/01"));
+            document.Content.Add(paragraph);
+
+            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
+            formText = new FormatedText(document, "T1", "DATOS GENERALES");
+            formText.TextStyle = boldUnderlineStyle;
+            paragraph.TextContent.Add(formText);
+            //paragraph.ParagraphStyle = new ParagraphStyle (document, "foo");
+            //paragraph.ParagraphStyle.ParagraphProperties.Alignment = TextAlignments.center.ToString ();
+            document.Content.Add(paragraph);
+
+
+            /*
+            paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
+
+            paragraph.TextContent.Add(new SimpleText(document, "DATOS GENERALES"));
+            document.Content.Add(paragraph);
+            */
             //save
             document.SaveTo ("Letter.odt");
             document.SaveTo ("Letter.pdf", new PDFExporter ());

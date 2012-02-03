@@ -8,6 +8,7 @@ using Castle.ActiveRecord.Framework.Scopes;
 using Castle.ActiveRecord.Framework;
 using Castle.ActiveRecord;
 using HumanRightsTracker.Models;
+using Reports;
 
 namespace HumanRightsTracker
 {
@@ -17,6 +18,8 @@ namespace HumanRightsTracker
 		public static void Main (string[] args)
 		{
             XmlConfigurationSource config;
+            CaseReportGenerator c = new CaseReportGenerator ();
+            return;
 
             string location = Assembly.GetExecutingAssembly().Location;
 

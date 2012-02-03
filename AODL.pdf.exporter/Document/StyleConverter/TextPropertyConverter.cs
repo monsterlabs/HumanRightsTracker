@@ -89,6 +89,8 @@ namespace AODL.ExternalExporter.PDF.Document.StyleConverter
 							iTextFontStyle = Font.BOLD;
 						if (bold == 0 && italic == 1)
 							iTextFontStyle = Font.ITALIC;
+                        if (underline == 1)
+                            iTextFontStyle += Font.UNDERLINE;
 						// TODO: underline strike through
 						iTextSharp.text.Color color = RGBColorConverter.GetColorFromHex(colorStr);
 						font = FontFactory.GetFont(fontName, size, iTextFontStyle, color);
