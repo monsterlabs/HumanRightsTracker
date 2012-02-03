@@ -71,6 +71,8 @@ namespace Views
         protected void OnPersonSaved (object sender, System.EventArgs e)
         {
             peoplelist.ReloadStore();
+            show.Person = sender as Person;
+            show.Show();
         }
 
         public bool IsImmigrant {
