@@ -117,7 +117,7 @@ namespace Views.People
             prepare_person_record ();
             if (person.IsValid())
             {
-                person.Save ();
+                person.SaveAndFlush ();
 
                 this.IsEditing = false;
                 if (PersonSaved != null) {
@@ -167,6 +167,7 @@ namespace Views.People
 
         protected void set_person_details_widgets ()
         {
+            person.Refresh();
             if (person.PersonDetails.Count == 0) {
                 person_details = new PersonDetail ();
             } else {
@@ -181,6 +182,7 @@ namespace Views.People
 
         protected void set_immigration_details_widgets ()
         {
+            person.Refresh();
             if (person.ImmigrationAttempts.Count == 0) {
                 immigration_attempt = new ImmigrationAttempt();
             } else {
@@ -204,6 +206,7 @@ namespace Views.People
 
         protected void set_identification_widgets()
         {
+            person.Refresh();
             if (person.Identifications.Count == 0) {
                 identification = new Identification ();
             } else {
@@ -215,6 +218,7 @@ namespace Views.People
 
         protected void set_address_widgets ()
         {
+            person.Refresh();
             if (person.Addresses.Count == 0) {
                 address = new Address ();
             } else {
@@ -248,9 +252,11 @@ namespace Views.People
 
             person_details.Person = person;
             if (person_details.IsValid()) {
-               person_details.Save ();
+               person_details.SaveAndFlush ();
+            } else {
+                Console.WriteLine( String.Join(",",  person_details.ValidationErrorMessages) );
+                new ValidationErrorsDialog (person_details.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
-
         }
 
         protected void immigration_attempt_save ()
@@ -271,8 +277,12 @@ namespace Views.People
             immigration_attempt.TravelCompanion = travel_companion.Active as TravelCompanion;
 
             immigration_attempt.Person = person;
+
             if (immigration_attempt.IsValid()) {
-                    immigration_attempt.Save ();
+                    immigration_attempt.SaveAndFlush ();
+            } else {
+                Console.WriteLine( String.Join(",",  immigration_attempt.ValidationErrorMessages) );
+                new ValidationErrorsDialog (immigration_attempt.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
 
@@ -281,9 +291,13 @@ namespace Views.People
            identification.IdentificationType = identification_type.Active as IdentificationType;
            identification.IdentificationNumber = identification_number.Text;
 
-            identification.Person = person;
+           identification.Person = person;
+
            if (identification.IsValid()) {
-                identification.Save();
+                identification.SaveAndFlush();
+           } else {
+                Console.WriteLine( String.Join(",", identification.ValidationErrorMessages) );
+                new ValidationErrorsDialog (identification.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
            }
         }
 
@@ -296,12 +310,14 @@ namespace Views.People
             address.Country = address_place.Country;
             address.State = address_place.State;
             address.City = address_place.City;
-
             address.Person = person;
-            if (address.IsValid()) {
-                address.Save();
-            }
 
+            if (address.IsValid()) {
+                address.SaveAndFlush();
+            } else {
+                Console.WriteLine( String.Join(",", address.ValidationErrorMessages) );
+                new ValidationErrorsDialog (address.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
+            }
         }
 
         protected void prepare_person_record ()
@@ -335,7 +351,7 @@ namespace Views.People
             {
                 photo.ImageableId = person.Id;
                 photo.ImageableType = "Person";
-                photo.Save ();
+                photo.SaveAndFlush ();
             }
         }
     }
