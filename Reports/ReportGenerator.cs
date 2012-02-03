@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using AODL.Document.TextDocuments;
 using AODL.Document.Content.Tables;
 using AODL.Document.Styles;
@@ -80,6 +81,12 @@ namespace Reports
             Paragraph paragraph = ParagraphBuilder.CreateStandardTextParagraph(document);
             paragraph.TextContent.Add(new SimpleText(document, ""));
             document.Content.Add(paragraph);
+        }
+
+        public void SaveTo (String name)
+        {
+            document.SaveTo (Path.Combine(name, "Case.odt"));
+            document.SaveTo (Path.Combine(name, "Case.pdf"), new PDFExporter ());
         }
     }
 }

@@ -5,7 +5,7 @@
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="../bin/bin/Views.dll" internal="true" />
+    <widget-library name="../../bin/Debug/Views.dll" internal="true" />
   </import>
   <widget class="Gtk.Bin" id="Views.People.Show" design-size="962 1763">
     <property name="MemberName" />
@@ -3145,6 +3145,43 @@ December</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
+          <widget class="Gtk.HBox" id="hbox1">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Label" id="label8">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Export to:&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="exportODF">
+                <property name="MemberName" />
+                <property name="Title" translatable="yes">Select A Folder</property>
+                <property name="Action">SelectFolder</property>
+                <signal name="SelectionChanged" handler="onODFExport" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">False</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.Expander" id="general_info_expander">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
@@ -3509,7 +3546,7 @@ Date of Receipt</property>
             </child>
           </widget>
           <packing>
-            <property name="Position">0</property>
+            <property name="Position">1</property>
             <property name="AutoSize">False</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -3604,7 +3641,7 @@ Date</property>
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">False</property>
             <property name="Expand">False</property>
           </packing>
@@ -3763,7 +3800,7 @@ End date</property>
             </child>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">3</property>
             <property name="AutoSize">False</property>
             <property name="Expand">False</property>
           </packing>
@@ -3805,7 +3842,7 @@ End date</property>
           </widget>
           <packing>
             <property name="PackType">End</property>
-            <property name="Position">3</property>
+            <property name="Position">4</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
