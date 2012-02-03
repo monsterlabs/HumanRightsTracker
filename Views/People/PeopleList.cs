@@ -67,28 +67,30 @@ namespace Views
                 personList.Add(p);
         }
 
-        protected void fillNodeStore () {
+        protected void FillNodeStore () {
             tree.NodeStore.Clear ();
             foreach (Person p in personList)
                 tree.NodeStore.AddNode (new PersonNode (p));
 
+            total.Text = personList.Count.ToString () + " records";
         }
-        protected void findVictims (string searchString) {
+
+        protected void FindVictims (string searchString) {
             foreach (Person p in Person.FindVictims(this.isImmigrant, searchString))
                 personList.Add(p);
         }
 
-        protected void findPerpetrators (string searchString) {
+        protected void FindPerpetrators (string searchString) {
             foreach (Person p in Person.FindPerpetrators(this.isImmigrant, searchString))
                 personList.Add(p);
         }
 
-        protected void findInterventors (string searchString) {
+        protected void FindInterventors (string searchString) {
             foreach (Person p in Person.FindInterventors(this.isImmigrant, searchString))
                 personList.Add(p);
         }
 
-        protected void findSupporters (string searchString) {
+        protected void FindSupporters (string searchString) {
             foreach (Person p in Person.FindSupporters(this.isImmigrant, searchString))
                 personList.Add(p);
         }
@@ -96,13 +98,13 @@ namespace Views
         protected void SearchWithFilters(string searchString) {
             personList.Clear();
             if (victims_checkbutton.Active)
-                findVictims (searchString);
+                FindVictims (searchString);
             else if (perpetrators_checkbutton.Active)
-                findPerpetrators (searchString);
+                FindPerpetrators (searchString);
             else if (interventors_checkbutton.Active)
-                findInterventors (searchString);
+                FindInterventors (searchString);
             else if (interventors_checkbutton.Active)
-                findSupporters (searchString);
+                FindSupporters (searchString);
             else
                 ReloadStore ();
         }
@@ -117,7 +119,7 @@ namespace Views
         protected virtual void onSearch (object sender, System.EventArgs e)
         {
             Search (searchEntry.Text);
-            fillNodeStore ();
+            FillNodeStore ();
         }
 
         Gtk.NodeStore store;
@@ -136,29 +138,24 @@ namespace Views
         public void ReloadStore ()
         {
             personList.Clear();
-            people = Person.FindAllByPersonType(this.isImmigrant);
-
-            foreach (Person p in people)
-                personList.Add(p);
-
-            fillNodeStore ();
-            if (people.Length > 0)
-                tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
-
-            total.Text = people.Length + " records";
+            FillStore ();
         }
 
         public void NewStore ()
         {
-            people = Person.FindAllByPersonType(this.isImmigrant);
-
-
             store = new Gtk.NodeStore (typeof(PersonNode));
+            FillStore ();
+        }
+
+        public void FillStore ()
+        {
+            people = Person.FindAllByPersonType(this.isImmigrant);
 
             foreach (Person p in people) {
                 personList.Add(p);
                 store.AddNode (new PersonNode (p));
             }
+
             if (people.Length > 0)
                 tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
 
@@ -195,7 +192,7 @@ namespace Views
                 Gtk.NodeSelection selection = (Gtk.NodeSelection)sender;
                 LetterNode node = (LetterNode) selection.SelectedNode;
                 Search(node.Letter);
-                fillNodeStore ();
+                FillNodeStore ();
             }
         }
 
@@ -216,25 +213,25 @@ namespace Views
         protected void OnVictimsCheckbuttonToggled (object sender, System.EventArgs e)
         {
             SearchWithFilters(searchEntry.Text);
-            fillNodeStore ();
+            FillNodeStore ();
         }
 
         protected void OnPerpetratorsCheckbuttonToggled (object sender, System.EventArgs e)
         {
             SearchWithFilters(searchEntry.Text);
-            fillNodeStore ();
+            FillNodeStore ();
         }
 
         protected void OnInterventorsCheckbuttonToggled (object sender, System.EventArgs e)
         {
            SearchWithFilters(searchEntry.Text);
-           fillNodeStore ();
+           FillNodeStore ();
         }
 
         protected void OnSupportersCheckbuttonToggled (object sender, System.EventArgs e)
         {
             SearchWithFilters(searchEntry.Text);
-            fillNodeStore ();
+            FillNodeStore ();
         }
 
          protected Boolean areFiltersActivated () {
