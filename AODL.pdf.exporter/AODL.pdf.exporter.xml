@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AODL.pdf.exporter</name>
+    </assembly>
+    <members>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.DrawFrameConverter">
+            <summary>
+            Summary for DrawFrameConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.DrawFrameConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.DrawFrameConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.DrawFrameConverter.Convert(AODL.Document.Content.Draw.Frame)">
+            <summary>
+            Converts the specified frame into an PDF paragraph.
+            </summary>
+            <param name="frame">The frame.</param>
+            <returns>The paragraph representing the passed frame.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.FormatedTextConverter">
+            <summary>
+            Summary for FormatedTextConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.FormatedTextConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.FormatedTextConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.FormatedTextConverter.Convert(AODL.Document.Content.Text.FormatedText)">
+            <summary>
+            Converts the specified formated text.
+            </summary>
+            <param name="formatedText">The formated text.</param>
+            <returns>The chunck object representing this formated text.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.FormatedTextConverter.GetTextContents(AODL.Document.Content.Text.ITextCollection,iTextSharp.text.Font)">
+            <summary>
+            Gets the text contents.
+            </summary>
+            <param name="textCollection">The text collection.</param>
+            <returns>The content. ArrayList of chunks and phrases.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.HeadingConverter">
+            <summary>
+            Summary HeadingConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.HeadingConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.HeadingConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.HeadingConverter.Convert(AODL.Document.Content.Text.Header)">
+            <summary>
+            Converts the specified heading.
+            </summary>
+            <param name="heading">The heading.</param>
+            <returns>A PDF paragraph representing the ODF heading</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.ImageConverter">
+            <summary>
+            Summary for ImageConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.ImageConverter.Convert(AODL.Document.Content.Draw.Graphic)">
+            <summary>
+            Converts the specified graphic.
+            </summary>
+            <param name="graphic">The graphic.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.ImageConverter.ScaleIfNessarry(iTextSharp.text.Image,AODL.Document.Content.Draw.Frame)">
+            <summary>
+            Scales the pdf image if nessarry by percent.
+            </summary>
+            <param name="img">The img.</param>
+            <param name="frame">The frame.</param>
+            <returns>The scaled image.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.ImageConverter.SetImageProperties(iTextSharp.text.Image,AODL.Document.Content.Draw.Frame)">
+            <summary>
+            Sets the image properties.
+            </summary>
+            <param name="image">The image.</param>
+            <param name="graphic">The graphic.</param>
+            <returns>The pdf image with the converted odf graphic properties.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.MixedContentConverter">
+            <summary>
+            Summary for MixedContentConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.MixedContentConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.MixedContentConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.MixedContentConverter.GetMixedPdfContent(AODL.Document.Content.IContentCollection)">
+            <summary>
+            Convert a AODL IContentCollection into an ArrayList of IElement iText objects.
+            </summary>
+            <param name="iContentCollection">The i content collection.</param>
+            <returns>An ArrayList of iText IElement objects.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.ParagraphConverter">
+            <summary>
+            Summary for ParagraphConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.ParagraphConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.ParagraphConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.ParagraphConverter.Convert(AODL.Document.Content.Text.Paragraph)">
+            <summary>
+            Converts the specified paragraph.
+            </summary>
+            <param name="paragraph">The paragraph.</param>
+            <returns>The PDF paragraph.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.ParagraphConverter.ConvertParagraphStyles(AODL.Document.Content.Text.Paragraph,AODL.ExternalExporter.PDF.Document.iTextExt.ParagraphExt)">
+            <summary>
+            Converts the paragraph styles.
+            </summary>
+            <param name="paragraph">The paragraph.</param>
+            <param name="paragraphPDF">The paragraph PDF.</param>
+            <returns>The iText paragraph with converted styles</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.SimpleTextConverter">
+            <summary>
+            Summary for SimpleTextConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.SimpleTextConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.SimpleTextConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.SimpleTextConverter.Convert(AODL.Document.Content.Text.SimpleText,iTextSharp.text.Font)">
+            <summary>
+            Converts the specified simple text.
+            </summary>
+            <param name="simpleText">The simple text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.SimpleTextConverter.ConvertTabs(AODL.Document.Content.Text.TextControl.TabStop,iTextSharp.text.Font)">
+            <summary>
+            Converts the tabs.
+            </summary>
+            <param name="tabStop">The tab stop.</param>
+            <returns>Chunkck containing whitespace for a tab.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.SimpleTextConverter.ConvertWhiteSpaces(AODL.Document.Content.Text.TextControl.WhiteSpace,iTextSharp.text.Font)">
+            <summary>
+            Converts the white spaces.
+            </summary>
+            <param name="whiteSpace">The white space.</param>
+            <returns>Chunck containing the whitspaces.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.TableConverter">
+            <summary>
+            Summary for TableConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.TableConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableConverter.Convert(AODL.Document.Content.Tables.Table)">
+            <summary>
+            Converts the specified table.
+            </summary>
+            <param name="table">The table.</param>
+            <returns>The PDF table.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableConverter.SetProperties(AODL.Document.Content.Tables.Table,iTextSharp.text.pdf.PdfPTable,System.Int32)">
+            <summary>
+            Converts the specified table.
+            </summary>
+            <param name="table">The table.</param>
+            <param name="table">The table.</param>
+            <returns>The PDF table with converted table properties.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableConverter.SetCellProperties(AODL.Document.Content.Tables.Cell,iTextSharp.text.pdf.PdfPCell)">
+            <summary>
+            Sets the cell properties.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="pdfCell">The PDF cell.</param>
+            <returns>The PDF cell with converted odf cell properties.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo">
+            <summary>
+            Summar for TableLayoutInfo.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.AnalyzeTableLayout(AODL.Document.Content.Tables.Table)">
+            <summary>
+            Analyzes the table layout.
+            </summary>
+            <param name="table">The table.</param>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.CalulateCellWidths(AODL.Document.Content.Tables.ColumnCollection)">
+            <summary>
+            Calulates the cell widths.
+            </summary>
+            <param name="colColl">The Column collection.</param>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.GetTableWidth(AODL.Document.Content.Tables.Table)">
+            <summary>
+            Gets the width of the table.
+            </summary>
+            <param name="table">The table.</param>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.MaxCells">
+            <summary>
+            Gets the max cells.
+            </summary>
+            <value>The max cells.</value>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.CellWidths">
+            <summary>
+            Gets the cell widths.
+            </summary>
+            <value>The cell widths.</value>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.ContentConverter.TableLayoutInfo.TableWidth">
+            <summary>
+            Gets the width of the table.
+            </summary>
+            <value>The width of the table.</value>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper">
+            <summary>
+            Summary for MeasurementHelper.
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.TARGET_DPI">
+            <summary>
+            The conversation DPI target with 96 DPI as standard.
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.INCH_IN_CM">
+            <summary>
+            The standard factor for inch to cm.
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.DTP_POINT_CM">
+            <summary>
+            DTP point in cm
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.DTP_POINT_IN">
+            <summary>
+            DTP point in inch
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.ITEXT_POINT_CM">
+            <summary>
+            iText points to cm factor 72points = 2.54cm
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.ITEXT_POINT_IN">
+            <summary>
+            iText points to cm factor 72points = 1in
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.InchToPoints(System.Double)">
+            <summary>
+            Inches to points converting.
+            </summary>
+            <param name="inch">The inch.</param>
+            <returns>The points.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.Helper.MeasurementHelper.CmToPoints(System.Double)">
+            <summary>
+            Cm to points converting
+            </summary>
+            <param name="cm">The cm.</param>
+            <returns>The points.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.iTextExt.ParagraphExt">
+            <summary>
+            Summary for ParagraphExt.
+            iText paragraph extension for making it ODF compliant.
+            </summary>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.iTextExt.ParagraphExt.PageBreakBefore">
+            <summary>
+            Gets a value indicating whether [page break before].
+            </summary>
+            <value><c>true</c> if [page break before]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.iTextExt.ParagraphExt.PageBreakAfter">
+            <summary>
+            Gets a value indicating whether [page break after].
+            </summary>
+            <value><c>true</c> if [page break after]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles">
+            <summary>
+            Summary for DefaultDocumentStyles
+            </summary>
+            <remarks>Singleton</remarks>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles._document">
+            <summary>
+            The content document.
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles._styleDocument">
+            <summary>
+            document styles 
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles._defaultTextFont">
+            <summary>
+            default text font
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles._instance">
+            <summary>
+            Singleton instance.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="P:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.DefaultTextFont"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.Instance(AODL.Document.TextDocuments.DocumentStyles,AODL.Document.IDocument)">
+            <summary>
+            Instances this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.Instance">
+            <summary>
+            Instances this instance.
+            </summary>
+            <returns>The instance or null.</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.Init">
+            <summary>
+            Invoke necessary methods.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.LoadDefaultTextFont">
+            <summary>
+            Loads the default text font.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.LoadInstalledFonts">
+            <summary>
+            Loads the installed fonts.
+            </summary>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.StyleDocument">
+            <summary>
+            Gets the style document.
+            </summary>
+            <value>The style document.</value>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.StyleConverter.DefaultDocumentStyles.DefaultTextFont">
+            <summary>
+            Gets the default text font.
+            </summary>
+            <value>The default text font.</value>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.StyleConverter.ParagraphPropertyConverter">
+            <summary>
+            Zusammenfassung für ParagraphPropertyConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.ParagraphPropertyConverter.GetAlignMent(System.String)">
+            <summary>
+            Gets the align ment.
+            </summary>
+            <param name="paragraphProperties">The ODF align ment.</param>
+            <returns>The align ment</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.StyleConverter.RGBColorConverter">
+            <summary>
+            Summary for RGBColorConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.RGBColorConverter.ToHexColor(System.String)">
+            <summary>
+            Toes the color of the hex.
+            </summary>
+            <param name="rgbColor">Color of the RGB.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.RGBColorConverter.GetColorFromHex(System.String)">
+            <summary>
+            Gets the color from hex.
+            </summary>
+            <param name="rgbColor">Color of the RGB.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.StyleConverter.TextPropertyConverter">
+            <summary>
+            Summary for TextPropertyConverter.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.TextPropertyConverter.GetFont(AODL.Document.Styles.Properties.TextProperties)">
+            <summary>
+            Gets the font object.
+            </summary>
+            <param name="textProperties">The text properties.</param>
+            <returns>The font object</returns>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.StyleConverter.TextPropertyConverter.FontMultiplier(AODL.Document.Styles.Properties.TextProperties,iTextSharp.text.Font)">
+            <summary>
+            Fonts the multiplier.
+            This will rewrite a font which inherited from a parent style.
+            </summary>
+            <param name="textProperties">The text properties.</param>
+            <param name="font">The font.</param>
+            <returns>The new font.</returns>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.Document.PDFDocument">
+            <summary>
+            Zusammenfassung für PDFDocument.
+            </summary>
+        </member>
+        <member name="F:AODL.ExternalExporter.PDF.Document.PDFDocument._document">
+            <summary>
+            The new pdf document.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.PDFDocument.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.Document.PDFDocument"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.PDFDocument.DoExport(AODL.Document.IDocument,System.String)">
+            <summary>
+            Does the export.
+            </summary>
+            <param name="document">The document.</param>
+            <param name="fileName">Name of the file.</param>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.PDFDocument.LoadDefaultStyles(AODL.Document.IDocument)">
+            <summary>
+            Loads the default styles.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.Document.PDFDocument.CreatePDFDocument(System.String)">
+            <summary>
+            Creates the PDF document.
+            </summary>
+            <param name="filename">The filename.</param>
+        </member>
+        <member name="P:AODL.ExternalExporter.PDF.Document.PDFDocument.Document">
+            <summary>
+            Gets the document.
+            </summary>
+            <value>The document.</value>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.PDFExporter">
+            <summary>
+            Summary for PDFExporter
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.PDFExporter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AODL.ExternalExporter.PDF.PDFExporter"/> class.
+            </summary>
+        </member>
+        <member name="M:AODL.ExternalExporter.PDF.PDFExporter.Export(AODL.Document.IDocument,System.String)">
+            <summary>
+            Exports the specified document.
+            </summary>
+            <param name="document">The document.</param>
+            <param name="filename">The filename.</param>
+        </member>
+        <member name="E:AODL.ExternalExporter.PDF.PDFExporter.OnExportFinished">
+            <summary>
+            Invoked when the document has been exported.
+            </summary>
+        </member>
+        <member name="T:AODL.ExternalExporter.PDF.PDFExporter.ExportFinished">
+            <summary>
+            Invoked when the document has been exported.
+            </summary>
+        </member>
+    </members>
+</doc>

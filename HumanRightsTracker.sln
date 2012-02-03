@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "Reports\Reports.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AODL", "AODL\AODL.csproj", "{89E926D3-3471-47C8-8D34-01FF2AF72F71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AODL.pdf.exporter", "AODL.pdf.exporter\AODL.pdf.exporter.csproj", "{6C536DE8-180D-4278-AB43-C5C4882E41F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -31,6 +33,10 @@ Global
 		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Debug|x86.Build.0 = Debug|Any CPU
 		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Release|x86.ActiveCfg = Release|Any CPU
 		{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}.Release|x86.Build.0 = Release|Any CPU
+		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Debug|x86.Build.0 = Debug|Any CPU
+		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Release|x86.Build.0 = Release|Any CPU
 		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Debug|x86.Build.0 = Debug|Any CPU
 		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Release|x86.ActiveCfg = Release|Any CPU

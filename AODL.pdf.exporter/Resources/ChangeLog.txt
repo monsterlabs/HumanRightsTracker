@@ -1,0 +1,8 @@
+-------------------------------------------------------------
+AODL.pdf.exporter 1.0.0.0 beta
+
+Changes and new features
+- Export initial implementation for
+	- Text like Paragraphs, Headings, ..
+	- Table
+	- Images resp. Illustrations
