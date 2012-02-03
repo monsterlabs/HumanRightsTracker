@@ -61,10 +61,14 @@ namespace Views
         }
 
         public void SimpleSearch(string searchString) {
-            people = Person.FindAll (new ICriterion[] { Restrictions.Or (
-                        Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
-                        Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
-                     ), isImmigrantCriterion () });
+            people = Person.FindAll (
+                            new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") },
+                            new ICriterion[] { Restrictions.Or (
+                                Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
+                                Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
+                                ), isImmigrantCriterion ()
+                                }
+                        );
 
             personList.Clear();
             foreach (Person p in people)
@@ -140,7 +144,7 @@ namespace Views
         public void ReloadStore ()
         {
             personList.Clear();
-            people = Person.FindAll(isImmigrantCriterion ());
+            people = Person.FindAll(new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") }, isImmigrantCriterion ());
 
             foreach (Person p in people)
                 personList.Add(p);
@@ -148,11 +152,13 @@ namespace Views
             fillNodeStore ();
             if (people.Length > 0)
                 tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+
+            total.Text = people.Length + " records";
         }
 
         public void NewStore ()
         {
-            people = Person.FindAll(isImmigrantCriterion ());
+            people = Person.FindAll(new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") }, isImmigrantCriterion ());
 
             store = new Gtk.NodeStore (typeof(PersonNode));
 
@@ -162,6 +168,8 @@ namespace Views
             }
             if (people.Length > 0)
                 tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+
+            total.Text = people.Length + " records";
         }
 
         public void UnselectAll ()

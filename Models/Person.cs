@@ -224,10 +224,12 @@ namespace HumanRightsTracker.Models
             return (ArrayList)ExecuteFilter (hql, IsImmigrant, searchString);
         }
 
-        protected static ArrayList ExecuteFilter(String hql, Boolean IsImmigrant, String searchString) {
-            if (searchString != null)
-                hql += " and (lower(p.Firstname) like lower(:SearchString) or lower(p.Lastname) like lower(:SearchString))";
 
+        protected static ArrayList ExecuteFilter(String hql, Boolean IsImmigrant, String searchString) {
+            if (searchString != null) {
+                hql += " and (lower(p.Firstname) like lower(:SearchString) or lower(p.Lastname) like lower(:SearchString))";
+            }
+            hql += " order by p.Lastname asc, p.Firstname asc";
             HqlBasedQuery query = new HqlBasedQuery(typeof(Person), hql);
             query.SetParameter("IsImmigrant", IsImmigrant);
             if (searchString != null)
