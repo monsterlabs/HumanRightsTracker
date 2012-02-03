@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER
+
+  Copyright 2008 Sun Microsystems, Inc. All rights reserved.
+
+  Use is subject to license terms.
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy
+  of the License at http://www.apache.org/licenses/LICENSE-2.0. You can also
+  obtain a copy of the License at http://odftoolkit.org/docs/license.txt
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+-->
+
+<office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:ooo="http://openoffice.org/2004/office" office:version="1.0"><office:meta><meta:generator>OpenOffice.org/2.0$Win32 OpenOffice.org_project/680m1$Build-8958</meta:generator><meta:initial-creator>Unknown Autor</meta:initial-creator><meta:creation-date>2005-09-29T20:10:12</meta:creation-date><dc:creator>Lars Behrmann</dc:creator><dc:date>2005-09-29T20:14:43</dc:date><dc:language>de-DE</dc:language><meta:editing-cycles>2</meta:editing-cycles><meta:editing-duration>PT4M37S</meta:editing-duration><meta:user-defined meta:name="Info 1"/><meta:user-defined meta:name="Info 2"/><meta:user-defined meta:name="Info 3"/><meta:user-defined meta:name="Info 4"/><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="10" meta:word-count="56" meta:character-count="448"/></office:meta></office:document-meta>

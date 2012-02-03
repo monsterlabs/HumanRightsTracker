@@ -1,0 +1,282 @@
+$Id: ChangeLog.txt,v 1.3 2007/08/15 06:26:18 larsbehr Exp $
+
+-------------------------------------------------------------
+AODL 1.3.0.0 beta
+
+Changes and new features
+
+New:
+- ODF field implementation e.g. Placeholder, ... .
+  ( Import, Export, create new, modify/edit existing field content )
+- ODF office forms and form controls implementation.
+  ( Import, Export, create new, modify/edit existing forms )
+- ODF forms UI example use .net Winforms and AODL to fill out ODF forms inside an ODT file.
+- Bill Generator example. Generate bills in the ODT format wihtin a .net Winforms application.
+
+Important Bugfixes:
+- Exception while trying to load indexed image files.
+- Exception on accessing / trying to modify a table inside the header or footer of a loaded ODF text document.
+
+Common:
+- Several smaller bug fixes and positiv performance changes
+- Add Readme file to the AODLTest project (How to make them run ...).
+
+-------------------------------------------------------------
+AODL 1.2.0.2 beta
+
+Changes and new features
+- PDF export for text documents available through the AODL.pdf.exporter extension
+- Initial support for master page styles 
+- Bugfix for wrong algorythm InsertCellAt
+- Bugfix wrong path seperator in GraphicsRealPath (linux only)
+- Extending of the IDocument interfaces
+  Method SaveTo now overloaded and a external exporter
+  implementation can be passed
+- Extended DrawFrame properties now also available DPIX,DPIY, original width and height in px
+  (necessary for layout handling)
+- Extended Graphic properties now also available margins to set and get the distance to 
+  surrounding text
+- Extended Paragraph properties now also available break-after, next content on new page ...
+
+-------------------------------------------------------------
+AODL 1.2.0.1 beta
+
+Changes and new features
+- Add FrameBuilder class
+- TextSequence implementation (Todo loading!)
+- Free drawing postioning via x and y coordinates
+- Graphic will give access to it's full qualified path
+  via the GraphicRealPath property
+- Fixed Bug [ 1436081 ] with CellSpan in Spreadsheetdocuments
+- Fixed bug [ 1436081 ] graphic of loaded files won't be deleted if they
+  are removed from the content.
+- Break-Before property for Paragraph properties for Page Break
+- Fixed Bug text that contains a xml tag will be imported
+  as UnknowText and not correct displayed if document is exported
+  as HTML.
+- Fixed Bug [ 1436080 ] Common styles
+
+-------------------------------------------------------------
+AODL 1.2.0.0 beta
+
+Changes and new features
+- Support for Spreadsheet documents incl. loading, creating
+  editing, saving and export as Html file.
+- New importer implementations TextPlainImport and CsvImporter
+- Support for image maps incl. different kinds of draw areas.
+- Support for illustrations (DrawTextBox implementation)
+- Support for OfficeScripts
+- Builder class for an easy creation of AODL objects. TextBuilder,
+  ParagraphBuilder and TableBuilder.
+- Change interfaces of IContent, IStyle and IProperty. 
+- New exception classes AODLException and AODLWarning.
+- Now, most of the AODL object implement the IClonable interfaces
+  and will let you create deep clones of an object.
+- New implementation of the XmlNode processors which make it
+  easy to create AODL objects by simply passing the correspondig
+  xml node.
+- New Helper class SizeConverter. This class offer several transalation
+  methods for OpenDocument width and hidth properties.
+- Support for nested table up to any deepth.
+- Support for common styles. You can create new common styles
+  (e.g. this styles represent the style templates in OpenOffice)
+  or edit existing ones.
+
+New sub project OpenOfficeLib
+Description:
+  The OpenOfficeLib is C# wrapper library for the CLI assemblies
+  of OpenOffice.
+Features:
+  Loading, saving and printing any by OpenOffice supported files.
+  This library has an own helpfile which will give you an example how you
+  can print a by AODL created document using the OpenOfficeLib.
+
+-------------------------------------------------------------
+AODL 1.1.2.0 beta
+
+Changes and new features
+- Add support for coloumn repeating (merge cells)
+	- Create a new row with merged cells
+	- Call MergeCells method to merge an existing row cell
+- Full support for creating and reading of Table of contents
+- Footnote and Endnote html export
+- Intrenal text links - html export as named anchor
+  (often used by Table of contents)
+
+Bugfixes
+- [ 1396034 ] Save graphic exception
+- [ 1396032 ] Italic font style
+
+-------------------------------------------------------------
+AODL 1.1.1.1 beta
+
+Bugfixes
+- [ 1385395 ] inch resp. cm error
+- [ 1385462 ] Global Liststyle error
+- [ 1386394 ] Document drawing exception
+
+-------------------------------------------------------------
+AODL 1.1.1.0 beta
+
+Changes and new features
+- Changed from Image.Save to File.Copy(source, target) to avoid
+  performance trouble.
+- Graphic in HTML - now will be displayed with correct width 
+  and size in pixel
+- Paragraph now support mixed content when using the HTML exporter. 
+  (e.g. 1. text, 2. graphic 3. text). This already supported by
+  the default OpenDocument exporter.
+- Meta Data support. From now on, AODL offer full support for
+  OpenDocument Meta Data. Which mean, get and set all meta data
+  e.g. autor, creation date, ....
+
+Depricated
+- Up to now, ListItem.Paragarph will be supported, but it is
+  depricated. Use the ListItem IContentCollectio ListItem.Content
+  instead. See code snippet section on the homepage for how
+  to use it.
+- TextDocument.Disposed - there is no more need of call this,
+  because Images only would be short loaded, analyzed and immediately
+  disposed.
+
+Bugfixes
+- [ 1381958 ] Illustration Bug fixed
+- [ 1383357 ] Table alignment in HTML display
+- [ 1383363 ] Table border differ in Browser and Word
+  Remarks: The displayed border depents on the used Word 
+  Vers., because every version depents on differnt HTML engines.
+- Not found by user - Paragraph alignment was set to end, but
+  thats not a possible setting for CSS alignments.
+
+-------------------------------------------------------------
+AODL 1.1.0.1 beta
+
+- Bugfix column span repeating, will crash
+
+-------------------------------------------------------------
+AODL 1.1.0.0 beta
+
+- Support Headings via class Header
+- Support Teble Row Header via class RowHeader
+- Recursive loading from unknown content. While a unknown
+  content has supported content it will be loaded. With this
+  technology. So also contents as Table of contents and alpabetical
+  indexes could be loaded.
+- Better whitespace handling.
+- New interface IHtml, all contents and textcontents that could
+  be exported as HTML implement this interface.
+- New TextDocument export as HTML. Simple save the TextDocument
+  with a html prefix (.html|.htm).
+- Some changes to perform faster builing and saving.
+
+-------------------------------------------------------------
+AODL 1.0.5.1 beta
+
+- Fixed bug "Xml special charcter exception"
+
+-------------------------------------------------------------
+AODL 1.0.5.0 beta
+
+- New Pargraph properties border, padding, line spacing
+- New Text properties position (subscript/superscript),
+  color, background color, shadow, line through, outline
+- New Helper class TextPropertieHelper some constants
+  for text peropertie settings
+- New Helper class Border some constants for border settings
+- Add support for Foot- and Endnotes
+- Add simple support for Header and Footer
+
+-------------------------------------------------------------
+AODL 1.0.4.0 beta
+
+- Declare AODL as beta software
+- Interfaces for document export, so i future it will be
+  easy to export a document. Only write an special implemenation
+- Interfaces for import (still in development and this
+  feature is experimentell)
+  use Document.Load("some.odt"); 
+  Noice: All unknown content will be deleted, so if you use this
+  always save the loaded file to another filename.
+  Supported load types: All types which are creatable within
+  AODL
+- use the tab control charcter \t within your text to set 
+  a tab stop
+- New feature TabStopStyles. Up to now you attach a TabStop-
+  StyleCollection to ParagraphProperties to control the
+  appearance of tab stops.
+- New feature Bookmarks. Set standard bookmarks or define
+  Bookmark ranges
+- New feature XLink. Add simply XLinks to you document.
+  Supported Weblink, FTP link, Telnet links
+
+-------------------------------------------------------------
+AODL 1.0.3.1 alpha
+
+- Fixed bug ListItem throws IStyle NotSupported exception
+
+-------------------------------------------------------------
+AODL 1.0.3.0 alpha
+
+- Add support for Frames with images. Supported image
+  types gif, jpg, png and bmp
+  
+- Add support for available OpenOffice fonts.
+
+- Changed enum FamilyStyles to class with static
+  properties.
+
+-------------------------------------------------------------
+AODL 1.0.2.1 alpha
+
+- Fixed bug [ 1327809 ] Invalid Cast Exception
+  Sorry, but the TextDocument throws a Invalid Cast
+  Exception if you insert a table where one or more cells
+  contain a List.
+  
+- Fixed bug [ 1327820 ] Cell styles run into loop
+  The cell style names run into a naming loop. So that
+  all cells of a column get the same names. The app
+  wouldn't crash and OpenOffice could display the table,
+  but all cells within a column has the same style
+  information.
+
+-------------------------------------------------------------
+AODL 1.0.2 alpha
+
+- Add support tables. From now on it's possible to add
+  tables to your textdocument.
+  
+  Table table	= new Table([TextDocument], "table1");
+  table.Init(rows-count, columns-count, width);
+  //add cell content
+  
+  The table architecture is as expected. You will have
+  a table with a style and propeties which have a 
+  column collection and row collection. Each row and cell
+  also have a style and properties. A row has a cell collection.
+  Each cell has a style and properties and provide a content
+  collection to which you can insert all stuff that
+  implements IContent Paragraph, Lists, ..
+
+-------------------------------------------------------------
+AODL 1.0.1 alpha
+
+- Add support for numbered and bullet styled lists.
+
+- Provides better usability of the paragraph handling.
+  Now, it's possible to create simple blank paragraphs.
+  The following code fragement show how to add a blank paragraph.
+  
+  [a TextDocument].Content.Add(new Paragraph([a TextDocument], ParentStyle.Standard.ToString());
+  
+- Now, it's possible to create a new paragraph with simple
+  text with one line of code. The following code fragement
+  show how to create a paragraph with simple text and it to
+  a textdocument within one line of code.
+  
+  [a TextDocument].Content.Add(new Paragraph([a TextDocument], ParentStyle.Standard, "Some nice text");
+  
+------------------------------------------------------------
+05.10.2005 AODL 1.0.0 alpha
+
+- First release.
