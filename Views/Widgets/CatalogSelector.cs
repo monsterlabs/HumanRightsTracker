@@ -15,6 +15,7 @@ namespace Views
         Array collection;
         Type t;
         bool isEditable;
+        bool matched;
         bool hideAddButton;
         bool hideNoteButton;
         bool orderById;
@@ -34,6 +35,7 @@ namespace Views
             combobox.Entry.Completion.TextColumn = 0;
             combobox.Entry.Completion.InlineCompletion = false;
             combobox.Entry.Completion.MatchSelected += OnMatchSelected;
+            combobox.Entry.FocusOutEvent += OnFocusOutEvent;
         }
 
         public Gtk.ComboBoxEntry Combobox {
@@ -81,6 +83,27 @@ namespace Views
             }
         }
 
+        private void OnFocusOutEvent (object sender, Gtk.FocusOutEventArgs args)
+        {
+             PropertyInfo nameProp =  mod.PropertyDictionary[AttributeName()].Property;
+             foreach (Object o in collection)
+             {
+                String oName = nameProp.GetValue(o, null) as String;
+                if (oName == combobox.Entry.Text)
+                {
+                    matched = true;
+                    break;
+                } else {
+                    matched = false;
+                }
+            }
+
+            if (matched != true)  {
+                combobox.Entry.Text = "";
+                combobox.Active = -1;
+            }
+        }
+
         protected virtual void onChanged (object sender, System.EventArgs e)
         {
             if (combobox.Active < 0)
@@ -101,7 +124,6 @@ namespace Views
                     HideNoteButton = true;
                 }
             }
-
             if (Changed != null)
                 Changed (this, e);
         }
@@ -273,4 +295,3 @@ namespace Views
         }
     }
 }
-
