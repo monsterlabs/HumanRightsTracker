@@ -224,7 +224,6 @@ namespace HumanRightsTracker.Models
             return (ArrayList)ExecuteFilter (hql, IsImmigrant, searchString);
         }
 
-
         protected static ArrayList ExecuteFilter(String hql, Boolean IsImmigrant, String searchString) {
             if (searchString != null) {
                 hql += " and (lower(p.Firstname) like lower(:SearchString) or lower(p.Lastname) like lower(:SearchString))";
@@ -236,6 +235,25 @@ namespace HumanRightsTracker.Models
                 query.SetParameter("SearchString", '%' + searchString + '%');
 
            return (ArrayList)ActiveRecordMediator.ExecuteQuery(query);
+        }
+
+        public static Person[] FindAllByPersonType(bool isImmigrant) {
+            return Person.FindAll(new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") }, isImmigrantCriterion (isImmigrant));
+        }
+
+        public static Person[] SimpleSearch(String searchString, bool isImmigrant) {
+            return Person.FindAll (new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") },
+                                   new ICriterion[] {
+                                       Restrictions.Or (
+                                        Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
+                                        Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
+                                        ), isImmigrantCriterion (isImmigrant)
+                                   });
+        }
+
+        protected static ICriterion isImmigrantCriterion (Boolean isImmigrant) {
+            ICriterion criterion = Restrictions.Eq("IsImmigrant", isImmigrant);
+            return criterion;
         }
     }
 }

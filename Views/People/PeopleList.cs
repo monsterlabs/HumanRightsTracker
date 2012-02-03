@@ -61,15 +61,7 @@ namespace Views
         }
 
         public void SimpleSearch(string searchString) {
-            people = Person.FindAll (
-                            new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") },
-                            new ICriterion[] { Restrictions.Or (
-                                Restrictions.InsensitiveLike("Firstname", searchString, MatchMode.Anywhere),
-                                Restrictions.InsensitiveLike("Lastname", searchString, MatchMode.Anywhere)
-                                ), isImmigrantCriterion ()
-                                }
-                        );
-
+            people = Person.SimpleSearch(searchString, this.isImmigrant);
             personList.Clear();
             foreach (Person p in people)
                 personList.Add(p);
@@ -144,7 +136,7 @@ namespace Views
         public void ReloadStore ()
         {
             personList.Clear();
-            people = Person.FindAll(new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") }, isImmigrantCriterion ());
+            people = Person.FindAllByPersonType(this.isImmigrant);
 
             foreach (Person p in people)
                 personList.Add(p);
@@ -158,7 +150,8 @@ namespace Views
 
         public void NewStore ()
         {
-            people = Person.FindAll(new Order[] { Order.Asc ("Lastname"), Order.Asc("Firstname") }, isImmigrantCriterion ());
+            people = Person.FindAllByPersonType(this.isImmigrant);
+
 
             store = new Gtk.NodeStore (typeof(PersonNode));
 
