@@ -35,7 +35,6 @@ namespace Views.People
                     set_person_widgets ();
                     set_address_widgets ();
 
-
                     if (this.isImmigrant == false)  {
                         migration_attempts_frame.Destroy ();
                         identification_frame.Destroy ();
@@ -175,8 +174,8 @@ namespace Views.People
             number_of_sons.Text = person_details.NumberOfSons.ToString();
             scholarity_level.Active = person_details.ScholarityLevel;
             most_recent_job.Active = person_details.MostRecentJob;
-            indigenous_group.Text = person_details.IndigenousGroup ?? "";
             is_spanish_speaker.Activate = person.Id != 0 ? person_details.IsSpanishSpeaker : true;
+            indigenous_group.Active = person_details.IndigenousGroup;
         }
 
         protected void set_immigration_details_widgets ()
@@ -242,7 +241,8 @@ namespace Views.People
             //person_details.Religion = religion.Active as Religion;
             // person_details.EthnicGroup = ethnic_group.Active as EthnicGroup;
             person_details.MostRecentJob = most_recent_job.Active as Job;
-            person_details.IndigenousGroup = indigenous_group.Text;
+            //person_details.IndigenousGroup = indigenous_group.Text;
+            person_details.IndigenousGroup = indigenous_group.Active as IndigenousGroup;
             person_details.IsSpanishSpeaker = is_spanish_speaker.Value ();
 
             person_details.Person = person;

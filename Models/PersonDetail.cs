@@ -11,16 +11,14 @@ namespace HumanRightsTracker.Models
         [PrimaryKey]
         public int Id { get; protected set; }
 
-
         [Property("number_of_sons")]
         public int NumberOfSons { get; set; }
 
         [Property("is_spanish_speaker")]
         public Boolean IsSpanishSpeaker { get; set; }
 
-
-        [Property("indigenous_group")]
-        public String IndigenousGroup { get; set; }
+        [BelongsTo("indigenous_group_id")]
+        public IndigenousGroup IndigenousGroup { get; set; }
 
         [BelongsTo("ethnic_group_id")]
         public EthnicGroup EthnicGroup { get; set; }

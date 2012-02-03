@@ -7,7 +7,7 @@
   <import>
     <widget-library name="../bin/Debug/Views.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="Views.People.Show" design-size="864 1763">
+  <widget class="Gtk.Bin" id="Views.People.Show" design-size="962 1763">
     <property name="MemberName" />
     <child>
       <widget class="Gtk.VBox" id="vbox2">
@@ -431,13 +431,14 @@ Female</property>
                               <placeholder />
                             </child>
                             <child>
-                              <widget class="Views.EditableLabel" id="indigenous_group">
+                              <widget class="Views.CatalogSelector" id="indigenous_group">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="WidthChars">0</property>
-                                <property name="MaxLength">0</property>
-                                <property name="OnlyNumbers">False</property>
+                                <property name="OrderById">False</property>
+                                <property name="Model">IndigenousGroup</property>
                                 <property name="IsEditable">False</property>
+                                <property name="HideAddButton">False</property>
+                                <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">1</property>
@@ -1166,7 +1167,7 @@ No</property>
                     <property name="ShadowType">In</property>
                     <property name="LabelXalign">0.01</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment12">
+                      <widget class="Gtk.Alignment" id="GtkAlignment25">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -1310,7 +1311,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel22">
+                      <widget class="Gtk.Label" id="GtkLabel37">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Birth Place&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1332,7 +1333,7 @@ No</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment19">
+                      <widget class="Gtk.Alignment" id="GtkAlignment32">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -1438,7 +1439,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel26">
+                      <widget class="Gtk.Label" id="GtkLabel40">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Identification&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1460,13 +1461,13 @@ No</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment18">
+                      <widget class="Gtk.Alignment" id="GtkAlignment35">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
                         <property name="LeftPadding">12</property>
                         <child>
-                          <widget class="Gtk.Alignment" id="GtkAlignment21">
+                          <widget class="Gtk.Alignment" id="GtkAlignment36">
                             <property name="MemberName" />
                             <property name="Xalign">0</property>
                             <property name="Yalign">0</property>
@@ -1623,7 +1624,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel24">
+                      <widget class="Gtk.Label" id="GtkLabel41">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Contact Info&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1645,13 +1646,13 @@ No</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment22">
+                      <widget class="Gtk.Alignment" id="GtkAlignment37">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
                         <property name="LeftPadding">12</property>
                         <child>
-                          <widget class="Gtk.Alignment" id="GtkAlignment23">
+                          <widget class="Gtk.Alignment" id="GtkAlignment38">
                             <property name="MemberName" />
                             <property name="Xalign">0</property>
                             <property name="Yalign">0</property>
@@ -1792,7 +1793,7 @@ No</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel30">
+                      <widget class="Gtk.Label" id="GtkLabel48">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Address&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -2317,6 +2318,8 @@ No</property>
               <packing>
                 <property name="Position">0</property>
                 <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
             <child>
@@ -5387,7 +5390,6 @@ End date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">radiobutton2</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
