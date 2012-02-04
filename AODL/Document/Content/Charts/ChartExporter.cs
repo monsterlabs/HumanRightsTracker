@@ -115,7 +115,7 @@ namespace AODL.Document.Content.Charts
 		{
 			foreach(EmbedObject eo in this._document.EmbedObjects)
 				if (eo.ObjectType.Equals("chart"))
-				Directory.CreateDirectory(directory+@"\"+eo.ObjectName);
+				Directory.CreateDirectory(Path.Combine(directory,eo.ObjectName));
 
 			foreach(string d in this._directories)
 				Directory.CreateDirectory(directory+@"\"+d);
@@ -131,7 +131,7 @@ namespace AODL.Document.Content.Charts
 			node.Attributes .Append (xa);
 
 			xa = this._document.CreateAttribute ("full-path","manifest");
-			xa.Value =objectName+@"/"+"content.xml";
+			xa.Value = Path.Combine (objectName, "content.xml");
 			node.Attributes .Append (xa);
 			
 			node  = ((SpreadsheetDocument)this._document).DocumentManifest .Manifest.ImportNode (node,true);
@@ -144,7 +144,7 @@ namespace AODL.Document.Content.Charts
 			node.Attributes .Append (xa);
 
 			xa = this._document.CreateAttribute ("full-path","manifest");
-			xa.Value =objectName+@"/"+"styles.xml";
+			xa.Value = Path.Combine (objectName, "styles.xml");
 			node.Attributes .Append (xa);
 
 			node  = ((SpreadsheetDocument)this._document).DocumentManifest .Manifest.ImportNode (node,true);

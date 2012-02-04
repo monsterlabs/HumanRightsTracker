@@ -94,11 +94,11 @@ namespace AODL.Document.Export.Html
 			{
 				this._document		= document;
 				string targDir		= Environment.CurrentDirectory;
-				int index			= filename.LastIndexOf(@"\");
+				int index			= filename.LastIndexOf(Path.PathSeparator);
 				if (index != -1)
 					targDir			= filename.Substring(0, index);
-				string pictures		= "\\Pictures";
-				string imgfolder	= targDir+"\\"+this._imgFolder;
+				string pictures		= Path.PathSeparator + "Pictures";
+				string imgfolder	= Path.Combine (targDir, this._imgFolder);
 				if (!Directory.Exists(imgfolder+pictures))
 					Directory.CreateDirectory(imgfolder+pictures);
 				this.CopyGraphics(this._document, imgfolder);

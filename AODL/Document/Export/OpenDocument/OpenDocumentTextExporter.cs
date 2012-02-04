@@ -126,11 +126,11 @@ namespace AODL.Document.Export.OpenDocument
         }
         else if (document is AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)
         {
-          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentManifest.Manifest, exportDir+DocumentManifest.FolderName+"\\"+DocumentManifest.FileName);
-          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentMetadata.Meta, exportDir+DocumentMetadata.FileName);
-          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentSetting.Settings, exportDir+DocumentSetting.FileName);
-          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentStyles.Styles, exportDir+DocumentStyles.FileName);
-          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).XmlDoc, exportDir+"content.xml");
+          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentManifest.Manifest, Path.Combine (exportDir, Path.Combine(DocumentManifest.FolderName,DocumentManifest.FileName)));
+          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentMetadata.Meta, Path.Combine (exportDir, DocumentMetadata.FileName));
+          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentSetting.Settings, Path.Combine (exportDir, DocumentSetting.FileName));
+          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentStyles.Styles, Path.Combine (exportDir, DocumentStyles.FileName));
+          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).XmlDoc, Path.Combine (exportDir, "content.xml"));
 
           if (document.EmbedObjects .Count !=0)
           {
@@ -143,7 +143,7 @@ namespace AODL.Document.Export.OpenDocument
             }
           }
 
-          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentManifest.Manifest, exportDir+DocumentManifest.FolderName+"\\"+DocumentManifest.FileName);
+          this.WriteSingleFiles(((AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)document).DocumentManifest.Manifest, Path.Combine (Path.Combine (exportDir, DocumentManifest.FolderName), DocumentManifest.FileName));
         }
         else
           throw new Exception("Unsupported document type!");
@@ -155,7 +155,7 @@ namespace AODL.Document.Export.OpenDocument
         //Now create the document
         CreateOpenDocument(filename, exportDir);
 
-        DeleteExportDirectory(exportDir);
+        //DeleteExportDirectory(exportDir);
     }
 
     /// <summary>
@@ -272,11 +272,11 @@ namespace AODL.Document.Export.OpenDocument
       StreamWriter sw = File.CreateText(file);
       if (this._document is AODL.Document.TextDocuments.TextDocument)
       {
-        sw.WriteLine("application/vnd.oasis.opendocument.text");
+        sw.Write("application/vnd.oasis.opendocument.text");
       }
       else if (this._document is AODL.Document.SpreadsheetDocuments.SpreadsheetDocument)
       {
-        sw.WriteLine("application/vnd.oasis.opendocument.spreadsheet");
+        sw.Write("application/vnd.oasis.opendocument.spreadsheet");
       }
       sw.Close();
     }
