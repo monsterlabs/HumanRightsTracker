@@ -10,13 +10,13 @@ using AODL.ExternalExporter.PDF;
 
 namespace Reports
 {
-    public class ReportGenerator
+    public class TextReportGenerator
     {
         protected TextDocument document;
         TextStyle BOLD_STYLE;
         TextStyle BOLD_UNDERLINE_STYLE;
 
-        public ReportGenerator ()
+        public TextReportGenerator ()
         {
             iTextSharp.text.Document.Compress = false;
             document = new TextDocument();

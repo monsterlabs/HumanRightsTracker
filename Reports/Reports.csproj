@@ -95,7 +95,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CaseReportGenerator.cs" />
-    <Compile Include="ReportGenerator.cs" />
+    <Compile Include="CasesReportGenerator.cs" />
+    <Compile Include="TextReportGenerator.cs" />
+    <Compile Include="SpreadsheetReportGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

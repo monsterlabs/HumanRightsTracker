@@ -10,7 +10,7 @@ using HumanRightsTracker.Models;
 
 namespace Reports
 {
-    public class CaseReportGenerator : ReportGenerator
+    public class CaseReportGenerator : TextReportGenerator
     {
         public CaseReportGenerator (Case acase)
         {
@@ -44,10 +44,6 @@ namespace Reports
                 addField ("Comentarios", info.Comments);
                 addNewline();
             }
-
-            //save
-            //document.SaveTo ("Letter.odt");
-            //document.SaveTo ("Letter.pdf", new PDFExporter ());
         }
     }
 }
