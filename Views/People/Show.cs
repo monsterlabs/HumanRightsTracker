@@ -193,7 +193,7 @@ namespace Views.People
                 immigration_attempt.OriginCity);
 
             traveling_reason.Active = immigration_attempt.TravelingReason;
-            travel_companion.Active = immigration_attempt.TravelCompanion;
+            is_traveling_companied.Activate = immigration_attempt.Id != 0 ? immigration_attempt.IsTravelingCompanied : true;
 
             destination_country.Active = immigration_attempt.DestinationCountry as Country;
             expulsions_from_destination_country.Text = immigration_attempt.ExpulsionsFromDestinationCountry.ToString();
@@ -267,14 +267,14 @@ namespace Views.People
             immigration_attempt.CrossBorderAttemptsTransitCountry = int.Parse(cross_border_attempts_transit_country.Text);
             immigration_attempt.CrossBorderAttemptsDestinationCountry = int.Parse(cross_border_attempts_destination_country.Text);
 
-            immigration_attempt.TravelingReason = traveling_reason.Active as TravelingReason;
+            immigration_attempt.IsTravelingCompanied = is_traveling_companied.Value ();
             immigration_attempt.TimeSpentInDestinationCountry = time_spent_in_destination_country.Text;
             immigration_attempt.DestinationCountry = destination_country.Active as Country;
             immigration_attempt.TransitCountry = transit_country.Active as Country;
 
             immigration_attempt.ExpulsionsFromDestinationCountry = int.Parse(expulsions_from_destination_country.Text);
             immigration_attempt.ExpulsionsFromTransitCountry = int.Parse(expulsions_from_transit_country.Text);
-            immigration_attempt.TravelCompanion = travel_companion.Active as TravelCompanion;
+            immigration_attempt.IsTravelingCompanied = is_traveling_companied.Value ();
 
             immigration_attempt.Person = person;
 

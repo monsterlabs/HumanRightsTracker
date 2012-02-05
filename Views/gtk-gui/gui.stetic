@@ -879,6 +879,29 @@ No</property>
                                   </packing>
                                 </child>
                                 <child>
+                                  <widget class="Views.BooleanRadioButton" id="is_traveling_companied">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <property name="Labels">Yes
+No</property>
+                                    <property name="IsEditable">False</property>
+                                    <property name="Activate">False</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="TopAttach">9</property>
+                                    <property name="BottomAttach">10</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="XOptions">Fill</property>
+                                    <property name="YOptions">Fill</property>
+                                    <property name="XExpand">False</property>
+                                    <property name="XFill">True</property>
+                                    <property name="XShrink">False</property>
+                                    <property name="YExpand">False</property>
+                                    <property name="YFill">True</property>
+                                    <property name="YShrink">False</property>
+                                  </packing>
+                                </child>
+                                <child>
                                   <widget class="Gtk.Label" id="label40">
                                     <property name="MemberName" />
                                     <property name="Xalign">0</property>
@@ -987,7 +1010,7 @@ No</property>
                                   <widget class="Gtk.Label" id="label52">
                                     <property name="MemberName" />
                                     <property name="Xalign">0</property>
-                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Travel Companions&lt;/b&gt;</property>
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Is he/she traveling companied?&lt;/b&gt;</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
@@ -1086,30 +1109,6 @@ No</property>
                                   <packing>
                                     <property name="TopAttach">1</property>
                                     <property name="BottomAttach">2</property>
-                                    <property name="AutoSize">True</property>
-                                    <property name="XOptions">Fill</property>
-                                    <property name="YOptions">Fill</property>
-                                    <property name="XExpand">False</property>
-                                    <property name="XFill">True</property>
-                                    <property name="XShrink">False</property>
-                                    <property name="YExpand">False</property>
-                                    <property name="YFill">True</property>
-                                    <property name="YShrink">False</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <widget class="Views.CatalogSelector" id="travel_companion">
-                                    <property name="MemberName" />
-                                    <property name="Events">ButtonPressMask</property>
-                                    <property name="OrderById">False</property>
-                                    <property name="Model">TravelCompanion</property>
-                                    <property name="IsEditable">False</property>
-                                    <property name="HideAddButton">False</property>
-                                    <property name="HideNoteButton">False</property>
-                                  </widget>
-                                  <packing>
-                                    <property name="TopAttach">9</property>
-                                    <property name="BottomAttach">10</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
