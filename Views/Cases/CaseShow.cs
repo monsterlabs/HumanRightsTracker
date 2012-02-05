@@ -327,11 +327,9 @@ namespace Views
             IsEditing = !IsEditing;
         }
 
-        protected void onODFExport (object sender, System.EventArgs e)
+        protected void OnExport (object sender, System.EventArgs e)
         {
-            Reports.CaseReportGenerator c = new Reports.CaseReportGenerator (this.Case);
-
-            c.SaveTo (exportODF.CurrentFolder);
+            new CaseReportWindow (this.Case);
         }
     }
 }
