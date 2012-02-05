@@ -13,8 +13,8 @@ namespace Reports
     public class TextReportGenerator
     {
         protected TextDocument document;
-        TextStyle BOLD_STYLE;
-        TextStyle BOLD_UNDERLINE_STYLE;
+        protected TextStyle BOLD_STYLE;
+        protected TextStyle BOLD_UNDERLINE_STYLE;
 
         public TextReportGenerator ()
         {

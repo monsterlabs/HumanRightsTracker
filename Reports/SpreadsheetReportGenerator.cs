@@ -10,9 +10,9 @@ using AODL.ExternalExporter.PDF;
 
 namespace Reports
 {
-    public class SpreadsheetReportGenerator
+    public class SpreadsheetReportGenerator : TextReportGenerator
     {
-        protected SpreadsheetDocument document;
+        protected new SpreadsheetDocument document;
         protected Table table;
 
         public SpreadsheetReportGenerator ()
@@ -21,6 +21,22 @@ namespace Reports
             document = new SpreadsheetDocument();
             document.New();
             table = TableBuilder.CreateSpreadsheetTable (document, "First", "");
+        }
+
+        public void AddHeader (int rowIdx, String[] values)
+        {
+            for (int i = 0, max = values.Length; i < max; i++) {
+                Cell cell = table.CreateCell ();
+                cell.OfficeValueType = "string";
+
+                Paragraph paragraph = ParagraphBuilder.CreateSpreadsheetParagraph(document);
+                FormatedText formText = new FormatedText(document, "T1", values[i]);
+                formText.TextStyle = BOLD_STYLE;
+                paragraph.TextContent.Add(formText);
+                cell.Content.Add(paragraph);
+
+                table.InsertCellAt(rowIdx, i, cell);
+            }
         }
 
         public void AddRow (int rowIdx, String[] values)
@@ -37,7 +53,7 @@ namespace Reports
             }
         }
 
-        public void SaveTo (String name)
+        public new void SaveTo (String name)
         {
             document.TableCollection.Add(table);
             document.SaveTo (name);
