@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Change per release -->
-<?define ProductVersion = "1.0.0" ?>
-<?define ProductVersionText = "1.0.0 - Honey Badger" ?>
+<?define ProductVersion = "0.9.0" ?>
+<?define ProductVersionText = "0.9.0 - Honey Badger" ?>
 
 <!-- Should not be changed -->
-<?define ProductShortName = "HumanRights" ?>
+<?define ProductShortName = "HumanRightsTracker" ?>
 <?define ProductLongName = "Human Rights Tracker" ?>
 <?define Manufacturer = "Monsterlabs Inc." ?>
 <?define UpgradeCode = "bebf471b-7a12-455a-99a8-6a9c9659ca5c" ?>
@@ -16,7 +16,7 @@
 <?define libDir= "..\..\bin\lib" ?>
 <?define share_themesDir= "..\..\bin\share\themes" ?>
 <?define share_iconsDir= "..\..\bin\share\icons" ?>
-<?define share_localeDir= "..\..\bin\share\locale" ?>
+<?define share_localeDir= "..\..\bin\locale" ?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Product Id="*" Name="$(var.ProductShortName) $(var.ProductVersionText)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
@@ -34,43 +34,43 @@
     <Upgrade Id="$(var.UpgradeCode)">
       <UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED" />
       <UpgradeVersion OnlyDetect="no" Property="OLDERVERSIONBEINGUPGRADED"
-        Minimum="0.0.0" IncludeMinimum="yes"
-        Maximum="$(var.ProductVersion)" IncludeMaximum="no" />
+                      Minimum="0.0.0" IncludeMinimum="yes"
+                      Maximum="$(var.ProductVersion)" IncludeMaximum="no" />
     </Upgrade>
 
     <!-- Option to launch when finished with setup -->
-    <CustomAction Id="StartAppOnExit" FileKey="Nereid.exe" ExeCommand="" Execute="immediate" Impersonate="yes" Return="asyncNoWait" />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Banshee when setup exits" />
+    <CustomAction Id="StartAppOnExit" FileKey="HumanRightsTracker.exe" ExeCommand="" Execute="immediate" Impersonate="yes" Return="asyncNoWait" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Tracker when setup exits" />
     <UI>
       <Publish Dialog="ExitDialog" Control="Finish" Order="1" Event="DoAction" Value="StartAppOnExit">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
     </UI>
 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLLOCATION" Name="Banshee" FileSource="$(var.BuildRoot)\bin">
+        <Directory Id="INSTALLLOCATION" Name="HumanRightsTracker" FileSource="$(var.BuildRoot)\bin">
           <Directory Id="bindirectory" Name="bin">
-            <Component Id="ProductComponent" Guid="55C2C651-CFF2-4607-ADE0-0BB43D5D1086">
+            <Component Id="ProductComponent" Guid="237c2b87-24de-420d-862a-72b2a0004350">
 
-              <!-- Place Banshee path into registry -->
-              <RegistryValue Root='HKLM' Key='SOFTWARE\Novell\Banshee' Type='string' Name='Version' Value='$(var.ProductVersion)' />
-              <RegistryValue Root='HKLM' Key='SOFTWARE\Novell\Banshee' Type='string' Name='Path' Value='[INSTALLLOCATION]' />
+              <!-- Place Tracker path into registry -->
+              <RegistryValue Root='HKLM' Key='SOFTWARE\Monsterlabs\HumanRightsTracker' Type='string' Name='Version' Value='$(var.ProductVersion)' />
+              <RegistryValue Root='HKLM' Key='SOFTWARE\Monsterlabs\HumanRightsTracker' Type='string' Name='Path' Value='[INSTALLLOCATION]' />
 
-              <!-- App Paths to support Start,Run -> "banshee" -->
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\banshee.exe" Value="[INSTALLLOCATION]bin\Nereid.exe" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\banshee.exe" Name="Path" Value="[INSTALLLOCATION]bin" Type="string" />
+              <!-- App Paths to support Start,Run -> "tracker" -->
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\tracker.exe" Value="[INSTALLLOCATION]bin\HumanRightsTracker.exe" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\tracker.exe" Name="Path" Value="[INSTALLLOCATION]bin" Type="string" />
 
             </Component>
           </Directory>
           <Directory Id="SHARELOCATION" Name="share">
-	  </Directory>
+          </Directory>
         </Directory>
       </Directory>
 
       <!-- Define directory structure for Start menu shortcut, and create shortcut -->
       <Directory Id="ProgramMenuFolder" Name="PMenu">
         <Directory Id="ProgramMenuDir" Name='$(var.ProductShortName)'>
-          <Component Id="StartMenuShortcut" Guid="872AA14E-EFCB-4F0B-B3B8-102162257EC1">
-            <Shortcut Id="StartMenuShortcut" Name="$(var.ProductShortName)" Icon="Nereid.exe" Target="[INSTALLLOCATION]bin\Nereid.exe" WorkingDirectory="bindirectory"/>
+          <Component Id="StartMenuShortcut" Guid="44cd5060-8153-408b-8559-bf946c23bf49">
+            <Shortcut Id="StartMenuShortcut" Name="$(var.ProductShortName)" Icon="HumanRightsTracker.exe" Target="[INSTALLLOCATION]bin\HumanRightsTracker.exe" WorkingDirectory="bindirectory"/>
             <RemoveFolder Id="ProgramMenuSubfolder" On="uninstall"/>
             <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductShortName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
           </Component>
@@ -79,14 +79,14 @@
 
       <!-- Define directory structure for Desktop shortcut, and create shortcut -->
       <Directory Id="DesktopFolder">
-        <Component Id="DesktopShortcut" Guid="5F62AA2F-A4C3-404B-A448-4E8154A04AD0">
-          <Shortcut Id="DesktopShortcut" Name="$(var.ProductShortName)" Icon="Nereid.exe" Target="[INSTALLLOCATION]bin\Nereid.exe" WorkingDirectory="bin"/>
+        <Component Id="DesktopShortcut" Guid="ec8d01d7-3c71-47d5-8ec2-a5025b1d2a2d">
+          <Shortcut Id="DesktopShortcut" Name="$(var.ProductShortName)" Icon="HumanRightsTracker.exe" Target="[INSTALLLOCATION]bin\HumanRightsTracker.exe" WorkingDirectory="bin"/>
           <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductShortName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
         </Component>
       </Directory>
     </Directory>
 
-    <Feature Id="ProductFeature" Title="Banshee" Level="1">
+    <Feature Id="ProductFeature" Title="HumanRightsTraker" Level="1">
       <ComponentRef Id="ProductComponent" />
       <ComponentRef Id="StartMenuShortcut" />
       <ComponentRef Id="DesktopShortcut" />
@@ -94,14 +94,13 @@
       <ComponentGroupRef Id="etc" />
       <ComponentGroupRef Id="lib" />
 
-      <ComponentGroupRef Id="share\banshee" />
       <ComponentGroupRef Id="share\icons" />
       <ComponentGroupRef Id="share\themes" />
     </Feature>
 
-    <Feature Id="TranslationsFeature" Title="Banshee Translations" Level="1">
-      <ComponentGroupRef Id="share\locale" />
-    </Feature>
+    <!-- <Feature Id="TranslationsFeature" Title="Traceker Translations" Level="1"> -->
+    <!--   <ComponentGroupRef Id="share\locale" /> -->
+    <!-- </Feature> -->
 
     <!-- Sequences -->
     <InstallExecuteSequence>
@@ -117,21 +116,19 @@
 
     <!-- Specify the license to display and graphics to use in our GUI -->
     <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
-    <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.jpg" />
-    <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.jpg" />
+    <!-- <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.jpg" /> -->
+    <!-- <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.jpg" /> -->
 
     <!-- This is for the icon that is shown in the Add/Remove Programs dialog and menu shortcut -->
-    <Icon Id="Nereid.exe" SourceFile="Bitmaps\Banshee.ico" />
-    <Property Id="ARPPRODUCTICON" Value="Nereid.exe" />
-    <Property Id="ARPHELPLINK" Value="http://banshee.fm/" />
+    <!-- <Icon Id="Nereid.exe" SourceFile="Bitmaps\Banshee.ico" /> -->
+    <!-- <Property Id="ARPPRODUCTICON" Value="Nereid.exe" /> -->
+    <!-- <Property Id="ARPHELPLINK" Value="http://banshee.fm/" /> -->
   </Product>
 
   <!-- Include the heat.exe generated lists of files -->
   <?include obj\generated_bin.wxi ?>
   <?include obj\generated_etc.wxi ?>
   <?include obj\generated_lib.wxi ?>
-  <?include obj\generated_share_banshee.wxi ?>
   <?include obj\generated_share_icons.wxi ?>
   <?include obj\generated_share_themes.wxi ?>
-  <?include obj\generated_share_locale.wxi ?>
 </Wix>
