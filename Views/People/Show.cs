@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Mono.Unix;
+using System.Linq;
 
 namespace Views.People
 {
@@ -34,23 +35,27 @@ namespace Views.People
                 if (person != null) {
                     set_person_widgets ();
                     set_address_widgets ();
-
                     if (this.isImmigrant == false)  {
                         migration_attempts_frame.Destroy ();
                         identification_frame.Destroy ();
-
+                        if (this.person.Id == 0 ) {
+                          address_frame.Hide ();
+                        } else {
+                           SetAddressList ();
+                        }
                     } else {
                         set_person_details_widgets ();
                         set_immigration_details_widgets ();
 
                         if (this.person.Id == 0 ) {
                             address_frame.Hide ();
+                            address_list_frame.Hide ();
                             contact_info_frame.Hide ();
                             identification_frame.Hide ();
                             place_of_birth_frame.Hide ();
                         } else {
                             set_identification_widgets ();
-                            address_frame.Show ();
+                            SetAddressList ();
                             contact_info_frame.Show ();
                             identification_frame.Show ();
                             place_of_birth_frame.Show ();
@@ -98,6 +103,12 @@ namespace Views.People
 
                 if (this.isImmigrant == true ) {
                     institution_and_job_per_person.Hide ();
+                }
+
+                if ((this.person == null || this.person.Id == 0) && this.isImmigrant == false)  {
+                    address_frame.Show ();
+                } else {
+                    SetAddressList();
                 }
             }
         }
@@ -224,7 +235,9 @@ namespace Views.People
             } else {
                 address = (Address)person.Addresses[0];
             }
+            address_type.Active = address.AddressType;
             location.Text = address.Location ?? "";
+
             address_place.SetPlace(address.Country, address.State, address.City);
             zipcode.Text = address.ZipCode ?? "";
             phone.Text = address.Phone ?? "";
@@ -303,6 +316,7 @@ namespace Views.People
 
         protected void address_save ()
         {
+            address.AddressType = address_type.Active as AddressType;
             address.Location = location.Text;
             address.Phone = phone.Text;
             address.Mobile = mobile.Text;
@@ -353,6 +367,46 @@ namespace Views.People
                 photo.ImageableType = "Person";
                 photo.SaveAndFlush ();
             }
+        }
+
+        private void SetAddressList () {
+            if (this.person.Addresses.Count > 0 ){
+                ConnectAddressesHandlers ();
+                address_list.Records = this.person.Addresses.Cast<ListableRecord>().ToList ();
+                address_list_frame.Show ();
+                address_frame.Hide ();
+            } else {
+                if (this.isImmigrant == false && (this.person != null || this.person.Id > 0)) {
+                    address_frame.Show ();
+                }
+                address_list_frame.Hide ();
+           }
+        }
+        private void ReloadAddresses () {
+            List<ListableRecord> addresses = this.Person.Addresses.Cast<ListableRecord>().ToList ();
+            address_list.Records = addresses;
+        }
+
+        public void ConnectAddressesHandlers() {
+            address_list.NewButtonPressed += (sender, e) => {
+                new AddressDetailWindow (this.Person, (o, args) => {
+                    this.ReloadAddresses ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            address_list.DeleteButtonPressed += (sender, e) => {
+                Address a = sender as Address;
+                this.Person.Addresses.Remove (a);
+                if (a.Id >= 1) {
+                    a.DeleteAndFlush ();
+                }
+                this.ReloadAddresses ();
+            };
+            address_list.DetailButtonPressed += (sender, e) => {
+                Address a = sender as Address;
+                new AddressDetailWindow(a, (o, args) => {
+                    this.ReloadAddresses ();
+                }, (Gtk.Window) this.Toplevel);
+            };
         }
     }
 }

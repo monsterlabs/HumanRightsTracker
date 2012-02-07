@@ -6,7 +6,7 @@ using Castle.Components.Validator;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("addresses")]
-    public class Address : ActiveRecordValidationBase<Address>
+    public class Address : ActiveRecordValidationBase<Address>, ListableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -31,6 +31,39 @@ namespace HumanRightsTracker.Models
         public Person Person { get; set; }
         [BelongsTo("address_type_id")]
         public AddressType AddressType { get; set; }
+
+
+         public string[] ColumnData ()
+        {
+            string[] data = {
+                "",
+                "",
+                "",
+                "",
+                ""
+            };
+
+            if (this.AddressType != null) {
+                data[0] = this.AddressType.Name;
+            }
+
+            if (this.Location != null) {
+                data[1] = this.Location;
+            }
+
+            if (this.Country != null) {
+                data[2] = this.Country.Name;
+            }
+
+            if (this.State != null) {
+                data[3] = this.State.Name;
+            }
+
+            if (this.City != null) {
+                data[4] = this.City.Name;
+            }
+            return data;
+        }
 
     }
 }
