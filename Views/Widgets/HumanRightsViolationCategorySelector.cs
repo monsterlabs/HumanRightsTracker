@@ -90,16 +90,28 @@ namespace Views
             set {
                 this.human_right_violation_category = value;
                 if (this.human_right_violation_category != null) {
-                    name.Text = this.human_right_violation_category.Name;
+                    SetWidgets ();
                 }
             }
+        }
+
+        public void SetWidgets() {
+            name.Text = this.human_right_violation_category.Name.Trim();
+            if ((this.human_right_violation_category.Notes != null) && (this.human_right_violation_category.Notes.Trim().Length >0)) {
+                note_label.Show ();
+                notes.Text = this.human_right_violation_category.Notes.Trim();
+                notes.Show ();
+            } else {
+                note_label.Hide ();
+                notes.Hide();
+           }
         }
 
         protected void OnNodeviewRowActivated (object o, Gtk.RowActivatedArgs args)
         {
             Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
             Active = ((HumanRightsViolationCategoryNode)selection.SelectedNode).HumanRightsViolationCategory;
-            name.Text = Active.Name;
+            SetWidgets ();
 
             if (CategorySelected != null) {
                 CategorySelected (Active, args);

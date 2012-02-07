@@ -4728,7 +4728,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ActsShow" design-size="815 1024">
+  <widget class="Gtk.Bin" id="Views.ActsShow" design-size="841 1024">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -4757,7 +4757,7 @@ End date</property>
                         <child>
                           <widget class="Gtk.Table" id="table3">
                             <property name="MemberName" />
-                            <property name="NRows">8</property>
+                            <property name="NRows">7</property>
                             <property name="RowSpacing">6</property>
                             <property name="ColumnSpacing">6</property>
                             <property name="BorderWidth">8</property>
@@ -4768,8 +4768,8 @@ End date</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">7</property>
-                                <property name="BottomAttach">8</property>
+                                <property name="TopAttach">6</property>
+                                <property name="BottomAttach">7</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -4792,8 +4792,8 @@ End date</property>
                                 <property name="HideNoteButton">False</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">3</property>
-                                <property name="BottomAttach">4</property>
+                                <property name="TopAttach">2</property>
+                                <property name="BottomAttach">3</property>
                                 <property name="AutoSize">False</property>
                                 <property name="YOptions">Fill</property>
                                 <property name="XExpand">True</property>
@@ -4812,8 +4812,6 @@ End date</property>
                                 <signal name="CategorySelected" handler="OnHumanrightsviolationcategoryCategorySelected" />
                               </widget>
                               <packing>
-                                <property name="TopAttach">1</property>
-                                <property name="BottomAttach">2</property>
                                 <property name="AutoSize">False</property>
                                 <property name="YOptions">Fill</property>
                                 <property name="XExpand">True</property>
@@ -4831,8 +4829,8 @@ End date</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">5</property>
-                                <property name="BottomAttach">6</property>
+                                <property name="TopAttach">4</property>
+                                <property name="BottomAttach">5</property>
                                 <property name="AutoSize">False</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -4852,8 +4850,8 @@ End date</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">2</property>
-                                <property name="BottomAttach">3</property>
+                                <property name="TopAttach">1</property>
+                                <property name="BottomAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -4873,8 +4871,8 @@ End date</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">4</property>
-                                <property name="BottomAttach">5</property>
+                                <property name="TopAttach">3</property>
+                                <property name="BottomAttach">4</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -4894,27 +4892,8 @@ End date</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">6</property>
-                                <property name="BottomAttach">7</property>
-                                <property name="AutoSize">True</property>
-                                <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Gtk.Label" id="label8">
-                                <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">&lt;b&gt;Human Rights Violation:&lt;/b&gt;</property>
-                                <property name="UseMarkup">True</property>
-                              </widget>
-                              <packing>
+                                <property name="TopAttach">5</property>
+                                <property name="BottomAttach">6</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -5083,7 +5062,7 @@ End date</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment11">
+                      <widget class="Gtk.Alignment" id="GtkAlignment14">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -5169,7 +5148,7 @@ End date</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel22">
+                      <widget class="Gtk.Label" id="GtkLabel25">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Victims&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -9864,14 +9843,58 @@ End date</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Affected Human Right:&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.Label" id="name">
             <property name="MemberName" />
             <property name="Xalign">0</property>
             <property name="LabelProp" translatable="yes">name</property>
+            <property name="Wrap">True</property>
             <property name="MaxWidthChars">200</property>
           </widget>
           <packing>
-            <property name="Position">0</property>
+            <property name="Position">1</property>
+            <property name="AutoSize">False</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="note_label">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Notes:&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="notes">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">notes</property>
+            <property name="Wrap">True</property>
+            <property name="MaxWidthChars">200</property>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -9892,7 +9915,7 @@ End date</property>
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">4</property>
             <property name="AutoSize">False</property>
           </packing>
         </child>
