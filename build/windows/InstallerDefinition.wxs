@@ -120,7 +120,7 @@
     <!-- <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.jpg" /> -->
 
     <!-- This is for the icon that is shown in the Add/Remove Programs dialog and menu shortcut -->
-    <!-- <Icon Id="Nereid.exe" SourceFile="Bitmaps\Banshee.ico" /> -->
+    <Icon Id="HumanRightsTracker.exe" SourceFile="Bitmaps\rights.ico" />
     <!-- <Property Id="ARPPRODUCTICON" Value="Nereid.exe" /> -->
     <!-- <Property Id="ARPHELPLINK" Value="http://banshee.fm/" /> -->
   </Product>
