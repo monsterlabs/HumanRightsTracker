@@ -247,6 +247,8 @@
     <Compile Include="gtk-gui\Views.ShowNoteWindow.cs" />
     <Compile Include="Cases\CaseReportWindow.cs" />
     <Compile Include="gtk-gui\Views.CaseReportWindow.cs" />
+    <Compile Include="Widgets\NumberSelector.cs" />
+    <Compile Include="gtk-gui\Views.NumberSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
