@@ -27,13 +27,13 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
     </WixExtension>
   </ItemGroup>
-  <!-- <ItemGroup> -->
-  <!--   <Folder Include="Bitmaps\" /> -->
-  <!-- </ItemGroup> -->
+  <ItemGroup>
+    <Folder Include="Bitmaps\" />
+  </ItemGroup>
   <ItemGroup>
     <!-- <Content Include="Bitmaps\bannrbmp.jpg" /> -->
     <!-- <Content Include="Bitmaps\dlgbmp.jpg" /> -->
-    <!-- <Content Include="Bitmaps\banshee.ico" /> -->
+    <Content Include="Bitmaps\rights.ico" />
     <Content Include="license.rtf" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />

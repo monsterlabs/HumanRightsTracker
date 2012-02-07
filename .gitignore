@@ -7,3 +7,4 @@ HumanRightsTracker.userprefs
 gtk-gui/*.cs
 */gtk-gui/*.cs
 *.sqlite3
+obj/
