@@ -1,6 +1,9 @@
 using System;
 using HumanRightsTracker.Models;
 using NHibernate.Criterion;
+using Mono.Unix;
+using System.Collections.Generic;
+using Gtk;
 
 namespace Views
 {
@@ -69,19 +72,23 @@ namespace Views
 
         public void ReloadStore ()
         {
-            institutions = Institution.FindAll ();
+            institutions = Institution.FindAllOrderedByName ();
+            FillStore ();
+        }
 
+        public void FillStore() {
             institutionNodeView.NodeStore.Clear ();
 
             foreach (Institution i in institutions)
                 institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
             if (institutions.Length > 0)
                 institutionNodeView.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+            total.Text = institutions.Length.ToString() + " " + Catalog.GetString("records");
         }
 
         public void NewStore ()
         {
-            institutions = Institution.FindAll ();
+            institutions = Institution.FindAllOrderedByName ();
 
             store = new Gtk.NodeStore (typeof(InstitutionNode));
 
@@ -89,6 +96,7 @@ namespace Views
                 store.AddNode (new InstitutionNode (i));
             if (institutions.Length > 0)
                 institutionNodeView.NodeSelection.SelectPath(new Gtk.TreePath("0"));
+            total.Text = institutions.Length.ToString () + " " + Catalog.GetString("records");
         }
 
         public void UnselectAll ()
@@ -97,12 +105,8 @@ namespace Views
         }
 
         public void Search(string searchString) {
-          institutions = Institution.FindAll (new ICriterion[] { Restrictions.InsensitiveLike("Name", searchString, MatchMode.Anywhere)});
-
-          institutionNodeView.NodeStore.Clear ();
-          foreach (Institution i in institutions)
-            institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
-
+          institutions = Institution.SimpleSearch(searchString);
+          FillStore ();
         }
 
         protected void OnSearch (object sender, System.EventArgs e)
@@ -112,10 +116,7 @@ namespace Views
 
         protected void OnReloadButtonClicked (object sender, System.EventArgs e)
         {
-            institutions = Institution.FindAll ();
-            institutionNodeView.NodeStore.Clear ();
-            foreach (Institution i in institutions)
-                institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
+            ReloadStore();
             searchEntry.Text = "";
         }
 

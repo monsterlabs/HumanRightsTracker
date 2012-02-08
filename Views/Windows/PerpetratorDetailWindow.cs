@@ -7,6 +7,18 @@ namespace Views
     {
         public event EventHandler OnSaved = null;
 
+        public PerpetratorDetailWindow (Victim victim, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.OnSaved = OnSave;
+            this.TransientFor = parent;
+            Perpetrator p = new Perpetrator ();
+            p.Victim = victim;
+            show.Perpetrator = p;
+            show.IsEditable = true;
+        }
+
         public PerpetratorDetailWindow (Perpetrator perpetrator, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
@@ -15,17 +27,6 @@ namespace Views
             this.TransientFor = parent;
             show.Perpetrator = perpetrator;
             show.IsEditable = false;
-        }
-
-        public PerpetratorDetailWindow (Victim victim, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
-        {
-            this.Build ();
-            this.Modal = true;
-            this.OnSaved = OnSave;
-            this.TransientFor = parent;
-            show.Perpetrator = new Perpetrator();
-            show.Perpetrator.Victim = victim;
-            show.IsEditable = true;
         }
 
         protected void OnShowSaved (object sender, System.EventArgs e)

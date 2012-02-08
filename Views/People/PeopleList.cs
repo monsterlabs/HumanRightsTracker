@@ -3,6 +3,7 @@ using HumanRightsTracker.Models;
 using NHibernate.Criterion;
 using System.Collections.Generic;
 using System.Collections;
+using Mono.Unix;
 
 namespace Views
 {
@@ -72,7 +73,7 @@ namespace Views
             foreach (Person p in personList)
                 tree.NodeStore.AddNode (new PersonNode (p));
 
-            total.Text = personList.Count.ToString () + " records";
+            total.Text = personList.Count.ToString () + " " + Catalog.GetString ("records");
         }
 
         protected void FindVictims (string searchString) {
@@ -159,7 +160,7 @@ namespace Views
             if (people.Length > 0)
                 tree.NodeSelection.SelectPath(new Gtk.TreePath("0"));
 
-            total.Text = people.Length + " records";
+            total.Text = people.Length.ToString () + " " + Catalog.GetString ("records");
         }
 
         public void UnselectAll ()

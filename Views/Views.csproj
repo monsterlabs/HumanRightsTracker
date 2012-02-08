@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>..\bin\Debug</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -32,7 +32,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\bin</OutputPath>
+    <OutputPath>..\bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows|x86' ">
@@ -45,13 +45,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>..\bin\Debug</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>..\bin\Release</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
@@ -71,7 +71,6 @@
     <Reference Include="Castle.Components.Validator">
       <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="System.Core" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <Private>False</Private>
     </Reference>
@@ -157,14 +156,8 @@
     <Compile Include="gtk-gui\Views.InstitutionSelect.cs" />
     <Compile Include="Windows\InstitutionSelectorWindow.cs" />
     <Compile Include="gtk-gui\Views.InstitutionSelectorWindow.cs" />
-    <Compile Include="Perpetrator\PerpetratorActsSelector.cs" />
-    <Compile Include="Perpetrator\PerpetratorActRow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorActRow.cs" />
-    <Compile Include="Windows\PerpetratorActWindow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorActWindow.cs" />
     <Compile Include="Perpetrator\PerpetratorActShow.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorActShow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorActsSelector.cs" />
     <Compile Include="Cases\CaseRow.cs" />
     <Compile Include="gtk-gui\Views.CaseRow.cs" />
     <Compile Include="Cases\CasePerPerson.cs" />
@@ -265,16 +258,6 @@
     <EmbeddedResource Include="images\MissingInstitutionIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{C56BF470-8394-49EB-8D73-75A94EFB42CA}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Reports\Reports.csproj">
-      <Project>{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}</Project>
-      <Name>Reports</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="People\" />
     <Folder Include="Widgets\" />
     <Folder Include="Windows\" />
@@ -292,5 +275,23 @@
     <Folder Include="Places\" />
     <Folder Include="CaseRelationships\" />
     <Folder Include="Addresses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{C56BF470-8394-49EB-8D73-75A94EFB42CA}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reports\Reports.csproj">
+      <Project>{5FA4C9E1-0353-4D26-B2B8-E0028C4EB788}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AODL.pdf.exporter\AODL.pdf.exporter.csproj">
+      <Project>{6C536DE8-180D-4278-AB43-C5C4882E41F5}</Project>
+      <Name>AODL.pdf.exporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AODL\AODL.csproj">
+      <Project>{89E926D3-3471-47C8-8D34-01FF2AF72F71}</Project>
+      <Name>AODL</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
