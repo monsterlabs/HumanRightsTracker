@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Views</RootNamespace>
     <AssemblyName>Views</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -157,14 +156,8 @@
     <Compile Include="gtk-gui\Views.InstitutionSelect.cs" />
     <Compile Include="Windows\InstitutionSelectorWindow.cs" />
     <Compile Include="gtk-gui\Views.InstitutionSelectorWindow.cs" />
-    <Compile Include="Perpetrator\PerpetratorActsSelector.cs" />
-    <Compile Include="Perpetrator\PerpetratorActRow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorActRow.cs" />
-    <Compile Include="Windows\PerpetratorActWindow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorActWindow.cs" />
     <Compile Include="Perpetrator\PerpetratorActShow.cs" />
     <Compile Include="gtk-gui\Views.PerpetratorActShow.cs" />
-    <Compile Include="gtk-gui\Views.PerpetratorActsSelector.cs" />
     <Compile Include="Cases\CaseRow.cs" />
     <Compile Include="gtk-gui\Views.CaseRow.cs" />
     <Compile Include="Cases\CasePerPerson.cs" />
