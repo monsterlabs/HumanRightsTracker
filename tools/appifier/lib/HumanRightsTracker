@@ -2,6 +2,9 @@
 
 DIR=$(cd "$(dirname "$0")"; pwd)
 
+LANG=es
+export LANG
+
 MONO_FRAMEWORK_PATH=/Library/Frameworks/Mono.framework/Versions/Current
 export DYLD_FALLBACK_LIBRARY_PATH="$DIR:$MONO_FRAMEWORK_PATH/lib:/lib:/usr/lib"
 export PATH="$MONO_FRAMEWORK_PATH/bin:$PATH"
