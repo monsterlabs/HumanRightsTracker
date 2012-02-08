@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
+
 
 namespace HumanRightsTracker.Models
 {
@@ -78,6 +80,15 @@ namespace HumanRightsTracker.Models
             return victim_list;
         }
 
+        public static Case[] SimpleSearch(String searchString) {
+            return Case.FindAll (new Order[] { Order.Asc ("Name") },
+            new ICriterion[] { Restrictions.InsensitiveLike("Name", searchString, MatchMode.Anywhere) }
+            );
+        }
+
+        public static Case[] FindAllOrderedByName() {
+            return Case.FindAll(new Order[] { Order.Asc ("Name") });
+        }
     }
 }
 
