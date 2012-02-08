@@ -151,5 +151,9 @@ namespace HumanRightsTracker.Models
             }
             return person_and_job_list;
         }
+
+        public static Institution[] SimpleSearch(String searchString) {
+            return Institution.FindAll (new Order[] { Order.Asc ("Name") }, new ICriterion[] { Restrictions.InsensitiveLike("Name", searchString, MatchMode.Anywhere)});
+        }
     }
 }

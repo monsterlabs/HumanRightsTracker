@@ -2528,7 +2528,8 @@ Municipality</property>
                 <property name="MemberName" />
                 <property name="CanDefault">True</property>
                 <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-find Menu</property>
                 <property name="Label" translatable="yes">Search</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="onSearch" />
@@ -3955,7 +3956,8 @@ End date</property>
               <widget class="Gtk.Button" id="searchButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-find Menu</property>
                 <property name="Label" translatable="yes">Search</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnSearch" />
@@ -4032,6 +4034,19 @@ End date</property>
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="total">
+            <property name="MemberName" />
+            <property name="Xalign">1</property>
+            <property name="LabelProp" translatable="yes">Number of records</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>
