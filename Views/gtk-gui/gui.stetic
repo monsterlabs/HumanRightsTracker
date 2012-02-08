@@ -2281,6 +2281,22 @@ Municipality</property>
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
+              <widget class="Gtk.Button" id="button1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Select</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="openSelector" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.Entry" id="dateEntry">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
@@ -2288,24 +2304,8 @@ Municipality</property>
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="button1">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Change</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="openSelector" />
-              </widget>
-              <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -2847,7 +2847,7 @@ Municipality</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DetailedDateSelector" design-size="249 31">
+  <widget class="Gtk.Bin" id="Views.DetailedDateSelector" design-size="265 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -2859,6 +2859,22 @@ Municipality</property>
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
+              <widget class="Gtk.Button" id="change">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Select</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="openSelector" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.Entry" id="day">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
@@ -2869,7 +2885,7 @@ Municipality</property>
                 <signal name="Activated" handler="OnChangeDay" />
               </widget>
               <packing>
-                <property name="Position">0</property>
+                <property name="Position">1</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
@@ -2893,7 +2909,7 @@ December</property>
                 <signal name="Changed" handler="OnChangeMonth" />
               </widget>
               <packing>
-                <property name="Position">1</property>
+                <property name="Position">2</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -2910,24 +2926,8 @@ December</property>
                 <signal name="Activated" handler="OnChangeYear" />
               </widget>
               <packing>
-                <property name="Position">2</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="change">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Change</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="openSelector" />
-              </widget>
-              <packing>
                 <property name="Position">3</property>
                 <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
