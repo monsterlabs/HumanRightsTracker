@@ -37,7 +37,6 @@ namespace Views
                         perpetratorActs.Add(perpetratorAct);
                     }
                 }
-                //perpetratoractsselector.PerpetratorActs = perpetratorActs;
                 perpetratoractlist.Perpetrator = perpetrator;
                 IsEditable = false;
             }
@@ -59,7 +58,7 @@ namespace Views
                 institution.IsEditable = value;
                 job.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
-                //perpetratoractsselector2.IsEditing = value;
+                perpetratoractshow.IsEditable = value;
             }
         }
 
@@ -131,7 +130,7 @@ namespace Views
             perpetratoractlist.UnselectAll ();
 
             perpetratoractshow.PerpetratorAct = a;
-            perpetratoractshow.IsEditing = true;
+            perpetratoractshow.IsEditable = true;
             perpetratoractshow.Show ();
             return;
         }
