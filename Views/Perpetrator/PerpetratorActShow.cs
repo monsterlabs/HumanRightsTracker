@@ -8,7 +8,7 @@ namespace Views
     public partial class PerpetratorActShow : Gtk.Bin
     {
         PerpetratorAct perpetratorAct;
-        bool isEditing;
+        bool isEditable;
 
         public event EventHandler Unsaved;
         public event EventHandler Saved;
@@ -28,28 +28,22 @@ namespace Views
                 place.Active = value.ActPlace;
                 location.Buffer.Text = value.Location;
 
-                IsEditing = false;
+                IsEditable = false;
             }
         }
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
         {
-            IsEditing = !IsEditing;
+            IsEditable = !IsEditable;
         }
 
-        public bool IsEditing
+        public bool IsEditable
         {
-            get { return this.isEditing; }
+            get { return this.isEditable; }
             set
             {
-                isEditing = value;
-                if (value) {
-                    editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
-                } else {
-                    editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
-                }
+                isEditable = value;
+                saveButton.Visible = value;
                 humanRight.IsEditable = value;
                 place.IsEditable = value;
                 location.Editable = value;
