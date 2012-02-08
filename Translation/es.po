@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-01 22:02:30-0600\n"
-"PO-Revision-Date: 2012-02-01 21:33:47-0600\n"
+"POT-Creation-Date: 2012-02-08 16:11:00-0600\n"
+"PO-Revision-Date: 2012-02-08 16:16:32-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -12,82 +12,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../gtk-gui/LoginWindow.cs:2 ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-msgid "MainWindow"
-msgstr "Pantalla principal"
-
-#: ../gtk-gui/LoginWindow.cs:2
-msgid "Human Rights Tracker"
-msgstr "Human Rights Tracker"
-
-#: ../gtk-gui/LoginWindow.cs:2
-msgid "User"
-msgstr "Usuario"
-
-#: ../gtk-gui/LoginWindow.cs:2
-msgid "Password"
-msgstr "Contraseña"
-
-#: ../gtk-gui/LoginWindow.cs:2
-msgid "Login"
-msgstr "Entrar"
-
-#: ../gtk-gui/LoginWindow.cs:2
-msgid "Wrong password"
-msgstr "Contraseña incorrecta"
-
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-msgid "<b>Individual people</b>"
-msgstr "<b>Persona individual</b>"
-
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-msgid "<b>Immigrant people</b>"
-msgstr "<b>Persona migrante</b>"
-
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-msgid "<b>Institutions</b>"
-msgstr "<b>Organizaciones o instituciones</b>"
-
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-msgid "<b>Actors</b>"
-msgstr "<b>Actores</b>"
-
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-#: ../Views/gtk-gui/Views.CasePerPerson.cs:1
-#: ../Views/gtk-gui/Views.CasePerInstitution.cs:1
-msgid "<b>Cases</b>"
-msgstr "<b>Casos</b>"
-
-#: ../gtk-gui/HumanRightsTracker.MainWindow.cs:1
-msgid "<b>Catalogs</b>"
-msgstr "<b>Catálogos</b>"
-
-#: ../Views/People/Show.cs:15 ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
-#: ../Views/Cases/CaseShow.cs:6 ../Views/Institutions/InstitutionShow.cs:6
-#: ../Views/Acts/ActsShow.cs:18 ../Views/gtk-gui/Views.ActsShow.cs:1
+#: ../Views/People/Show.cs:13
+#: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
+#: ../Views/Cases/CaseShow.cs:6
+#: ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/Acts/ActsShow.cs:18
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
 #: ../Views/Interventions/InterventionShow.cs:9
-#: ../Views/Victim/VictimShow.cs:12 ../Views/Perpetrator/PerpetratorShow.cs:6
-#: ../Views/Perpetrator/PerpetratorActShow.cs:7
+#: ../Views/Victim/VictimShow.cs:12
+#: ../Views/Perpetrator/PerpetratorShow.cs:6
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
 #: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
 #: ../Views/InformationSources/InformationSourceShow.cs:9
 #: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
+#: ../Views/Addresses/AddressShow.cs:8
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../Views/People/Show.cs:15 ../Views/gtk-gui/Views.People.Show.cs:1
-#: ../Views/Cases/CaseShow.cs:6 ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/People/Show.cs:13
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/Cases/CaseShow.cs:6
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/Institutions/InstitutionShow.cs:6
-#: ../Views/gtk-gui/Views.InstitutionShow.cs:1 ../Views/Acts/ActsShow.cs:18
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/Acts/ActsShow.cs:18
 #: ../Views/Interventions/InterventionShow.cs:9
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
-#: ../Views/gtk-gui/Views.VictimShow.cs:1 ../Views/Victim/VictimShow.cs:12
+#: ../Views/gtk-gui/Views.VictimShow.cs:1
+#: ../Views/Victim/VictimShow.cs:12
 #: ../Views/Perpetrator/PerpetratorShow.cs:6
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-#: ../Views/Perpetrator/PerpetratorActShow.cs:7
-#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
 #: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
@@ -96,6 +52,7 @@ msgstr "Cancelar"
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 #: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
 #: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+#: ../Views/Addresses/AddressShow.cs:8
 msgid "Edit"
 msgstr "Modificar"
 
@@ -160,6 +117,10 @@ msgid "<b>Details</b>"
 msgstr "<b>Detalles</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Information about place of origin</b>"
+msgstr "<b>Fuente personal</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Cross border attempts dest. country</b>"
 msgstr "<b>No. de intentos de cruzar la frontera del país destino</b>"
 
@@ -184,7 +145,7 @@ msgid "<b>Number of expulsions from transit country</b>"
 msgstr "<b>Número de expulsiones del pañis de tránsito</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
-msgid "<b>Travel Companions</b>"
+msgid "<b>Is he/she traveling companied?</b>"
 msgstr "<b>Tipo de acompañante</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
@@ -229,11 +190,13 @@ msgid "<b>Email</b>"
 msgstr "<b>Correo electrónico</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Mobile</b>"
 msgstr "<b>Teléfono móvil</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Phone</b>"
 msgstr "<b>Teléfono</b>"
 
@@ -243,17 +206,28 @@ msgstr "<b>Información de contacto</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Location</b>"
 msgstr "<b>Ubicación</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Address type</b>"
+msgstr "<b>Tipo de dirección</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Zip Code</b>"
 msgstr "<b>Código postal</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Address</b>"
+msgstr "<b>Dirección</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Address List</b>"
 msgstr "<b>Dirección</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
@@ -284,10 +258,20 @@ msgid "municipality"
 msgstr "Municipio"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
-msgid "Municipality"
+msgid "<b>Country</b>"
+msgstr "<b>País</b>"
+
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+msgid "<b>State</b>"
+msgstr "<b>Estado</b>"
+
+#: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+msgid "<b>Municipality</b>"
 msgstr "Municipio"
 
 #: ../Views/gtk-gui/Views.CatalogSelector.cs:1
+#: ../Views/gtk-gui/Views.DateSelector.cs:1
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
 #: ../Views/gtk-gui/Views.PersonSelect.cs:1
 #: ../Views/gtk-gui/Views.InstitutionSelect.cs:1
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
@@ -295,14 +279,9 @@ msgid "Select"
 msgstr "Seleccionar"
 
 #: ../Views/gtk-gui/Views.DateSelector.cs:1
-#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
-#: ../Views/People/PersonSelect.cs:5
-msgid "Change"
-msgstr "Cambiar"
-
-#: ../Views/gtk-gui/Views.DateSelector.cs:1
+#, fuzzy
 msgid "label4"
-msgstr ""
+msgstr "Expo"
 
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 msgid "DateSelectorWindow"
@@ -312,7 +291,8 @@ msgstr "Calendario"
 msgid "Ok"
 msgstr "Ok"
 
-#: ../Views/gtk-gui/Views.PeopleList.cs:1 ../Views/gtk-gui/Views.CaseList.cs:1
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+#: ../Views/gtk-gui/Views.CaseList.cs:1
 #: ../Views/gtk-gui/Views.InstitutionList.cs:1
 #: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
 msgid "Search"
@@ -338,16 +318,33 @@ msgstr "Persona que soporta la intervención"
 msgid "<b>Filters</b>"
 msgstr "<b>Filtros</b>"
 
+#: ../Views/gtk-gui/Views.PeopleList.cs:1
+#: ../Views/gtk-gui/Views.CaseList.cs:1
+#: ../Views/gtk-gui/Views.InstitutionList.cs:1
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
+msgid "Number of records"
+msgstr "Número de registros"
+
 #: ../Views/gtk-gui/Views.PeopleTab.cs:1
 #: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
 #: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
 msgid "_Add"
 msgstr "Agregar"
 
-#: ../Views/gtk-gui/Views.PeopleTab.cs:1 ../Views/gtk-gui/Views.CasesTab.cs:1
+#: ../Views/gtk-gui/Views.PeopleTab.cs:1
+#: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
 msgid "Remove"
 msgstr "Borrar"
+
+#: ../Views/People/PeopleList.cs:10
+#: ../Views/People/PeopleList.cs:26
+#: ../Views/Cases/CaseList.cs:11
+#: ../Views/Cases/CaseList.cs:19
+#: ../Views/Institutions/InstitutionList.cs:13
+#: ../Views/Institutions/InstitutionList.cs:16
+msgid "records"
+msgstr ""
 
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
@@ -355,12 +352,12 @@ msgstr "Borrar"
 #: ../Views/gtk-gui/Views.PeopleSelector.cs:1
 #: ../Views/gtk-gui/Views.VictimSelector.cs:1
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-#: ../Views/gtk-gui/Views.PerpetratorActsSelector.cs:1
 msgid "Add"
 msgstr "Agregar"
 
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
 msgid "Select A File"
 msgstr "Seleccione un archivo"
 
@@ -412,7 +409,12 @@ msgstr "Noviembre"
 msgid "December"
 msgstr "Diciembre"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "Export"
+msgstr "Exportar"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Affected people</b>"
 msgstr "<b>Personas afectadas</b>"
 
@@ -423,11 +425,13 @@ msgstr "<b>Personas afectadas</b>"
 msgid "<b>Name</b>"
 msgstr "<b>Nombre</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Start Date</b>"
 msgstr "<b>Fecha Inicial</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>End Date</b>"
 msgstr "<b>Fecha Final</b>"
 
@@ -445,7 +449,8 @@ msgstr "<b>Resumen</b>"
 msgid "<b>Observations</b>"
 msgstr "<b>Observaciones</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Places</b>"
 msgstr "<b>Lugares</b>"
 
@@ -454,15 +459,18 @@ msgstr "<b>Lugares</b>"
 msgid "<b>Tracking Information</b>"
 msgstr "<b>Seguimiento del caso</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Affected Human Rights and Acts</b>"
 msgstr "<b>Derechos afectados y actos</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Interventions</b>"
 msgstr "<b>Intervenciones</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Core of the case</b>"
 msgstr "<b>Núcleo del caso</b>"
 
@@ -474,7 +482,8 @@ msgstr "<b>Fuente documental</b>"
 msgid "<b>Information sources</b>"
 msgstr "<b>Fuente personal</b>"
 
-#: ../Views/gtk-gui/Views.CaseShow.cs:1 ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Relation between cases</b>"
 msgstr "<b>Relación entre casos</b>"
 
@@ -519,10 +528,6 @@ msgid "<b>Final Date:</b>"
 msgstr "<b>Fecha de término</b>"
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
-msgid "<b>Human Rights Violation:</b>"
-msgstr "<b>Acto</b>"
-
-#: ../Views/gtk-gui/Views.ActsShow.cs:1
 msgid "<b>Affected people:</b>"
 msgstr "<b>Personas afectadas</b>"
 
@@ -545,8 +550,8 @@ msgstr "Selección de personas"
 msgid "Lastname Firstname"
 msgstr "Nombre"
 
-#: ../Views/gtk-gui/Views.PersonRow.cs:1 ../Views/gtk-gui/Views.VictimRow.cs:1
-#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
+#: ../Views/gtk-gui/Views.PersonRow.cs:1
+#: ../Views/gtk-gui/Views.VictimRow.cs:1
 msgid "Delete"
 msgstr "Borrar"
 
@@ -556,11 +561,11 @@ msgstr "Texto"
 
 #: ../Views/gtk-gui/Views.BooleanRadioButton.cs:1
 msgid "radiobutton2"
-msgstr ""
+msgstr "radiobutton2"
 
 #: ../Views/gtk-gui/Views.BooleanRadioButton.cs:1
 msgid "radiobutton1"
-msgstr ""
+msgstr "radiobutton1"
 
 #: ../Views/gtk-gui/Views.ActDetailWindow.cs:1
 msgid "NewActWindow"
@@ -623,7 +628,12 @@ msgstr "<b>Interventores</b>"
 msgid "<b>Affected People</b>"
 msgstr "<b>Personas afectadas</b>"
 
-#: ../Views/People/PersonSelect.cs:5 ../Views/gtk-gui/Views.EditableList.cs:1
+#: ../Views/People/PersonSelect.cs:5
+msgid "Change"
+msgstr "Cambiar"
+
+#: ../Views/People/PersonSelect.cs:5
+#: ../Views/gtk-gui/Views.EditableList.cs:1
 msgid "New"
 msgstr "Nuevo"
 
@@ -636,7 +646,6 @@ msgid "Status"
 msgstr "Status"
 
 #: ../Views/gtk-gui/Views.VictimRow.cs:1
-#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
 msgid "Info"
 msgstr "Información"
 
@@ -691,22 +700,6 @@ msgstr "Nombre"
 msgid "InstitutionSelectorWindow"
 msgstr "Selector de instituciones"
 
-#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
-msgid "Human Right"
-msgstr "Derecho afectado"
-
-#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
-msgid "Place"
-msgstr "Lucar"
-
-#: ../Views/gtk-gui/Views.PerpetratorActRow.cs:1
-msgid "Location"
-msgstr "Dirección"
-
-#: ../Views/gtk-gui/Views.PerpetratorActWindow.cs:1
-msgid "PerpetratorActWindow"
-msgstr "Acto del perpetrador"
-
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Human Right Violation:</b>"
 msgstr "<b>Acto:</b>"
@@ -727,11 +720,13 @@ msgstr "Personas afectadas"
 msgid "case_name"
 msgstr "Nombre del caso"
 
-#: ../Views/gtk-gui/Views.CaseRow.cs:1 ../Views/gtk-gui/Views.CaseSelect.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
 msgid "end_date"
 msgstr "Fecha de término"
 
-#: ../Views/gtk-gui/Views.CaseRow.cs:1 ../Views/gtk-gui/Views.CaseSelect.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
 msgid "start_date"
 msgstr "Fecha Inicial"
 
@@ -742,6 +737,12 @@ msgstr "<b>Personas asociadas al caso</b>"
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>Case Name</b>"
 msgstr "<b>Nombre del caso</b>"
+
+#: ../Views/gtk-gui/Views.CasePerPerson.cs:1
+#: ../Views/gtk-gui/Views.CasePerInstitution.cs:1
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Cases</b>"
+msgstr "<b>Casos</b>"
 
 #: ../Views/gtk-gui/Views.CaseDetailWindow.cs:1
 msgid "CaseDetailWindow"
@@ -850,11 +851,11 @@ msgstr "Detalles de la información de seguimiento el caso"
 
 #: ../Views/gtk-gui/Views.EditableListButtons.cs:1
 msgid "_Delete"
-msgstr ""
+msgstr "Borrar"
 
 #: ../Views/gtk-gui/Views.EditableListButtons.cs:1
 msgid "_Detail"
-msgstr ""
+msgstr "Detalles"
 
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
 #: ../Views/gtk-gui/Views.DocumentRow.cs:1
@@ -898,22 +899,29 @@ msgstr "Selector de casos"
 msgid "_Remove"
 msgstr "Borrar"
 
-#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
-msgid "Number of records"
-msgstr "Número de registros"
-
 #: ../Views/gtk-gui/Views.CatalogTab.cs:1
 msgid "page1"
-msgstr ""
+msgstr "Página"
 
 #: ../Views/gtk-gui/Views.PlaceShow.cs:1
-#, fuzzy
 msgid "<b>Place</b>"
 msgstr "<b>Lugar</b>"
 
 #: ../Views/gtk-gui/Views.PlaceDetailWindow.cs:1
 msgid "PlaceDetailWindow"
 msgstr "Detalles del lugar"
+
+#: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+msgid "<b>Affected Human Right:</b>"
+msgstr "<b>Derechos afectados y actos</b>"
+
+#: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+msgid "<b>Notes:</b>"
+msgstr "<b>Notas</b>"
+
+#: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+msgid "notes"
+msgstr "Notas"
 
 #: ../Views/gtk-gui/Views.CaseRelationshipDetailWindow.cs:1
 msgid "CaseRelationshipDetailWindow"
@@ -926,7 +934,7 @@ msgstr "<b>Nombre del caso actual</b>"
 #: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
 #, fuzzy
 msgid "case name"
-msgstr "Apellido"
+msgstr "Nombre del caso"
 
 #: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
 msgid "<b>Relationship type</b>"
@@ -1034,9 +1042,108 @@ msgid "<b></b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.ShowNoteWindow.cs:1
+msgid "Close"
+msgstr "Cerrar"
+
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+msgid "CaseReportWindow"
+msgstr "Selector de casos"
+
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+msgid "<b>File name</b>"
+msgstr "<b>Nombre completo</b>"
+
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+msgid "<b>Folder</b>"
+msgstr "<b>Filtros</b>"
+
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+msgid "<b>Select where to save your report</b>"
+msgstr "Seleeccionar el directorio donde guardará el reporte"
+
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+msgid "_Cancel"
+msgstr "Cancelar"
+
+#: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+msgid "_Save"
+msgstr "Guardar"
+
+#: ../Views/gtk-gui/Views.NumberSelector.cs:1
+msgid "number"
+msgstr "Número"
+
+#: ../Views/gtk-gui/Views.AddressDetailWindow.cs:1
+msgid "AddressDetailWindow"
+msgstr "Detalles del caso"
+
+#: ../Views/gtk-gui/Views.AddressShow.cs:1
+msgid "<b>Adress type</b>"
+msgstr "<b>Dirección</b>"
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "MainWindow"
+msgstr "Pantalla principal"
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Individual people</b>"
+msgstr "<b>Persona individual</b>"
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Immigrant people</b>"
+msgstr "<b>Persona migrante</b>"
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Institutions</b>"
+msgstr "<b>Organizaciones o instituciones</b>"
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Actors</b>"
+msgstr "<b>Actores</b>"
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Catalogs</b>"
+msgstr "<b>Catálogos</b>"
+
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "Human Rights Tracker"
+msgstr "Human Rights Tracker"
+
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "User"
+msgstr "Usuario"
+
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "Login"
+msgstr "Entrar"
+
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "Wrong password"
+msgstr "Contraseña incorrecta"
+
+#~ msgid "<b>Human Rights Violation:</b>"
+#~ msgstr "<b>Acto</b>"
+
+#~ msgid "Human Right"
+#~ msgstr "Derecho afectado"
+
+#~ msgid "Place"
+#~ msgstr "Lucar"
+
+#~ msgid "Location"
+#~ msgstr "Dirección"
+
+#~ msgid "PerpetratorActWindow"
+#~ msgstr "Acto del perpetrador"
+
 #, fuzzy
-msgid "CLose"
-msgstr "Cerar"
+#~ msgid "CLose"
+#~ msgstr "Cerar"
 
 #~ msgid "<b>Casos</b>"
 #~ msgstr "<b>Casos</b>"
@@ -1052,3 +1159,4 @@ msgstr "Cerar"
 
 #~ msgid "Sex:"
 #~ msgstr "Sexo:"
+

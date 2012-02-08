@@ -11366,7 +11366,7 @@ End date</property>
                 <property name="CanFocus">True</property>
                 <property name="Type">TextAndIcon</property>
                 <property name="Icon">stock:gtk-cancel Menu</property>
-                <property name="Label" translatable="yes">CLose</property>
+                <property name="Label" translatable="yes">Close</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnCloseButtonClicked" />
               </widget>
