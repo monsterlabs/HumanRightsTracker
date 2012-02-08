@@ -72,7 +72,7 @@ namespace Views
 
         public void ReloadStore ()
         {
-            institutions = Institution.FindAll ();
+            institutions = Institution.FindAllOrderedByName ();
             FillStore ();
         }
 
@@ -88,7 +88,7 @@ namespace Views
 
         public void NewStore ()
         {
-            institutions = Institution.FindAll ();
+            institutions = Institution.FindAllOrderedByName ();
 
             store = new Gtk.NodeStore (typeof(InstitutionNode));
 

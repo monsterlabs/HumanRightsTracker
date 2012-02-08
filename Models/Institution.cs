@@ -153,7 +153,16 @@ namespace HumanRightsTracker.Models
         }
 
         public static Institution[] SimpleSearch(String searchString) {
-            return Institution.FindAll (new Order[] { Order.Asc ("Name") }, new ICriterion[] { Restrictions.InsensitiveLike("Name", searchString, MatchMode.Anywhere)});
+            return Institution.FindAll (new Order[] { Order.Asc ("Name") },
+            new ICriterion[] { Restrictions.Or (
+                                        Restrictions.InsensitiveLike("Name", searchString, MatchMode.Anywhere),
+                                        Restrictions.InsensitiveLike("Abbrev", searchString, MatchMode.Anywhere)
+                                        ) }
+            );
+        }
+
+        public static Institution[] FindAllOrderedByName() {
+            return Institution.FindAll(new Order[] { Order.Asc ("Name") });
         }
     }
 }
