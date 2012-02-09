@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-09 16:48:34-0600\n"
-"PO-Revision-Date: 2012-02-09 16:49:08-0600\n"
+"PO-Revision-Date: 2012-02-09 16:55:15-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -1081,7 +1081,7 @@ msgstr "<b>Dirección</b>"
 
 #: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 msgid "<b>Act:</b>"
-msgstr "<b><Acto/b>"
+msgstr "<b>Acto</b>"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
