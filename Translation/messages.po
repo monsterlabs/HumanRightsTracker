@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-08 16:11:00-0600\n"
-"PO-Revision-Date: 2012-02-08 16:11:01-0600\n"
+"POT-Creation-Date: 2012-02-09 16:48:34-0600\n"
+"PO-Revision-Date: 2012-02-09 16:48:35-0600\n"
 "Last-Translator: alex\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
 #: ../Views/Interventions/InterventionShow.cs:9
 #: ../Views/Victim/VictimShow.cs:12
-#: ../Views/Perpetrator/PerpetratorShow.cs:6
+#: ../Views/Perpetrator/PerpetratorShow.cs:8
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
 #: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
@@ -40,7 +40,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/Victim/VictimShow.cs:12
-#: ../Views/Perpetrator/PerpetratorShow.cs:6
+#: ../Views/Perpetrator/PerpetratorShow.cs:8
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
@@ -433,6 +433,11 @@ msgid "<b>End Date</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRow.cs:1
+msgid "<b>Places</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
 msgid "<b>Description</b>"
 msgstr ""
 
@@ -444,11 +449,6 @@ msgstr ""
 #: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
 msgid "<b>Observations</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.CaseShow.cs:1
-#: ../Views/gtk-gui/Views.CaseRow.cs:1
-msgid "<b>Places</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -510,10 +510,6 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Contact Information</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.ActsShow.cs:1
-msgid "<b>Act:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
@@ -877,6 +873,7 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+#: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 msgid "name"
 msgstr ""
 
@@ -913,10 +910,12 @@ msgid "<b>Affected Human Right:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+#: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 msgid "<b>Notes:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
+#: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 msgid "notes"
 msgstr ""
 
@@ -1075,6 +1074,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Adress type</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
+msgid "<b>Act:</b>"
 msgstr ""
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
