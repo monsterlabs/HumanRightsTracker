@@ -46,7 +46,7 @@ namespace Views
 
             foreach (Case c in i.caseList ())
             {
-                case_vbox.PackStart (new CaseAndPeopleRow (c, i));
+                case_vbox.PackStart (new CaseAndPeopleRow (c));
 
             }
             case_vbox.ShowAll ();

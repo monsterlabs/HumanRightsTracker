@@ -7,12 +7,10 @@ namespace Views
     public partial class CaseAndPeopleRow : Gtk.Bin
     {
         Case c;
-        Institution i;
-        public CaseAndPeopleRow (Case c, Institution i)
+        public CaseAndPeopleRow (Case c)
         {
             this.Build ();
             this.c = c;
-            this.i = i;
             set_widgets();
         }
 

@@ -37,7 +37,7 @@ namespace Views
                     observations.Text = documentary_source.Observations;
                     comments.Text = documentary_source.Comments;
 
-                    if (documentary_source.Id != null) {
+                    if (documentary_source.Id != 0) {
                         if (documentary_source.Date != null)
                             publication_date.CurrentDate = documentary_source.Date.Value;
 
