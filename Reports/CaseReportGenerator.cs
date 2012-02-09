@@ -32,7 +32,6 @@ namespace Reports
             addTitle ("SEGUIMIENTO DEL CASO");
 
             addField ("Resumen", acase.Summary);
-            addNewline ();
             addField ("Observaciones", acase.Observations);
 
             addNewline();
@@ -40,9 +39,38 @@ namespace Reports
             foreach (TrackingInformation info in acase.TrackingInformation)
             {
                 addBold (info.Title);
-                addField ("Fecha", info.DateOfReceipt.Value.ToShortDateString ());
                 addField ("Comentarios", info.Comments);
                 addNewline();
+            }
+
+            addTitle ("DETALLES DE ACTOS");
+
+            foreach (Act act in acase.Acts) {
+                addBold ("\t" + act.HumanRightsViolation.Name);
+                addNewline ();
+                if (act.ActStatus != null)
+                    addField ("Estado",act.ActStatus.Name);
+                addField ("\tNo. afectados", act.AffectedPeopleNumber.ToString ());
+                addField ("\tResumen", act.Summary);
+                addField ("\tFecha de inicio", act.start_date.Value.ToShortDateString ());
+                if (act.end_date != null)
+                    addField ("\tFecha de término", act.end_date.Value.ToShortDateString ());
+                addField ("\tObservaciones de la victima", act.VictimObservations);
+
+                addBold ("\tVictimas");
+
+                foreach (Victim victim in act.Victims) {
+                    addField ("\t\tVictima", victim.Person.Fullname);
+                    addField ("\t\tCaracterísticas", victim.Characteristics);
+                    if (victim.VictimStatus != null)
+                        addField ("\t\tEstado", victim.VictimStatus.Name);
+                    addBold ("\t\tPerpetradares");
+                    foreach (Perpetrator perpetrator in victim.Perpetrators) {
+                        addField ("\t\t\tPerpetrador", perpetrator.Person.Fullname);
+                    }
+                }
+
+                addNewline ();
             }
         }
     }
