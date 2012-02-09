@@ -31,7 +31,6 @@ task :schema => :environment do
   end
 end
 
-
 desc "Load seeds in to the database."
 task :seeds => :environment do
   User.destroy_all
@@ -97,44 +96,97 @@ task :seeds => :environment do
     InstitutionType.create(:name => row[0].strip)
   end
     
-  HumanRightsViolation.destroy_all
-  HumanRightsViolationCategory.destroy_all
-  CSV.foreach("seeds/human_rights_violation_categories.csv") do |row|
-    col0 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
-    col1 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
-    col2 = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
-    col3 = row[3].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
-    @parent = nil?
+  HumanRightsViolation.destroy_all 
+  HumanRightsViolationCategory.destroy_all  
+  require 'spreadsheet'
+  Spreadsheet.client_encoding = 'UTF-8'
+  book = Spreadsheet.open "seeds/human_rights_violation_categories_and_acts.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+    
+    affected_right1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affected_right2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affected_right3 = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affected_right4 = row[3].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affected_right_note = row[4].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @affected_right_parent = nil
 
-    unless col0.empty?
-      if HumanRightsViolationCategory.exists?(:name => col0)
-        @parent = HumanRightsViolationCategory.find_by_name(col0)
+    unless affected_right1.empty?
+      if HumanRightsViolationCategory.exists?(:name => affected_right1)
+        @affected_right_parent = HumanRightsViolationCategory.find_by_name(affected_right1)
       else
-        @parent = HumanRightsViolationCategory.create(:name => col0)
+        @affected_right_parent = HumanRightsViolationCategory.create(:name => affected_right1, :notes => affected_right_note)
       end
+    else
+      next
     end
     
-    if !col1.empty? and !@parent.nil?
-      if HumanRightsViolationCategory.exists?(:name => col1, :parent_id => @parent.id)
-        @parent = HumanRightsViolationCategory.where(:name => col1, :parent_id => @parent.id).first
+    if !affected_right2.empty? and !@affected_right_parent.nil?
+      if HumanRightsViolationCategory.exists?(:name => affected_right2, :parent_id => @affected_right_parent.id)
+        @affected_right_parent = HumanRightsViolationCategory.where(:name => affected_right2, :parent_id => @affected_right_parent.id).first
       else
-        @parent = HumanRightsViolationCategory.create(:name => col1, :parent_id => @parent.id)
+        @affected_right_parent = HumanRightsViolationCategory.create(:name => affected_right2, :parent_id => @affected_right_parent.id, :notes => affected_right_note)
       end
     end
 
-    if !col2.empty? and !@parent.nil?
-      if HumanRightsViolationCategory.exists?(:name => col2, :parent_id => @parent.id)
-        @parent = HumanRightsViolationCategory.where(:name => col2, :parent_id => @parent.id).first
+    if !affected_right3.empty? and !@affected_right_parent.nil?
+      if HumanRightsViolationCategory.exists?(:name => affected_right3, :parent_id => @affected_right_parent.id)
+        @affected_right_parent= HumanRightsViolationCategory.where(:name => affected_right3, :parent_id => @affected_right_parent.id).first
       else
-        @parent = HumanRightsViolationCategory.create(:name => col2, :parent_id => @parent.id)
+        @affected_right_parent= HumanRightsViolationCategory.create(:name => affected_right3, :parent_id => @affected_right_parent.id, :notes => affected_right_note)
       end
     end
 
-    if !col3.empty? and !@parent.nil?
-      HumanRightsViolation.create(:name => col3, :category_id => @parent.id)      
+    if !affected_right4.empty? and !@parent.nil?
+      if HumanRightsViolationCategory.exis<ts?(:name => affected_right4, :parent_id => @affected_right_parent.id)
+        @affected_right_parent = HumanRightsViolationCategory.where(:name => affected_right4, :parent_id => @affected_right_parent.id).first
+      else
+        @affected_right_parent = HumanRightsViolationCategory.create(:name => affected_right4, :parent_id => @affected_right_parent.id, :notes => affected_right_note)
+      end
     end
+
+    act1 = row[5].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act2 = row[6].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act3 = row[7].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act4 = row[8].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act_notes = row[9].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @act_parent = nil
+    
+    if !act1.empty? and !@affected_right_parent.nil?
+      if HumanRightsViolation.exists?(:name => act1, :category_id => @affected_right_parent.id)
+        @act_parent = HumanRightsViolation.where(:name => act1, :category_id => @affected_right_parent.id).first
+      else
+        @act_parent = HumanRightsViolation.create(:name => act1, :category_id => @affected_right_parent.id, :notes => act_notes)
+      end      
+    end
+    
+    if !act2.empty? and !@act_parent.nil?
+      if HumanRightsViolation.exists?(:name => act2, :parent_id => @act_parent.id)
+        @act_parent = HumanRightsViolation.where(:name => act2, :parent_id => @act_parent.id).first
+      else
+        @act_parent = HumanRightsViolation.create(:name => act2, :parent_id => @act_parent.id, :notes => act_notes)
+      end      
+    end
+
+    if !act3.empty? and !@act_parent.nil?
+      if HumanRightsViolation.exists?(:name => act3, :parent_id => @act_parent.id)
+        @act_parent = HumanRightsViolation.where(:name => act3, :parent_id => @act_parent.id).first
+      else
+        @act_parent = HumanRightsViolation.create(:name => act3, :parent_id => @act_parent.id, :notes => act_notes)
+      end      
+    end
+
+    if !act4.empty? and !@act_parent.nil?
+      if HumanRightsViolation.exists?(:name => act4, :parent_id => @act_parent.id)
+        @act_parent = HumanRightsViolation.where(:name => act4, :parent_id => @act_parent.id).first
+      else
+        @act_parent = HumanRightsViolation.create(:name => act4, :parent_id => @act_parent.id, :notes => act_notes)
+      end      
+    end      
   end
-
+  
   AffiliationType.destroy_all
   CSV.foreach("seeds/affiliation_types.csv", :col_sep => "|") do |row|
     AffiliationType.create(:name => row[0].strip, :notes => row[1].to_s.strip)

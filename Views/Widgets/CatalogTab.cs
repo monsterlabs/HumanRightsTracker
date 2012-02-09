@@ -10,7 +10,7 @@ namespace Views
             this.Build ();
 
             String[] catalogs = {
-                "ActPlace", "Language", "HumanRightsViolationCategory", "HumanRightsViolation",
+                "ActPlace", "Language", "HumanRightsViolationCategory", 
                 "LocationType", "City", "State", "Country","AffiliationType","IdentificationType",
                 "SourceInformationType","MaritalStatus","TravelCompanion","CaseStatus",
                 "IndigenousLanguage","RelationshipType","TravelingReason","InstitutionCategory",
