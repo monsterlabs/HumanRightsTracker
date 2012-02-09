@@ -29,15 +29,15 @@ namespace Views
                 institution.Institution = perpetrator.Institution;
                 job.Active = perpetrator.Job;
 
-                HashSet<PerpetratorAct> perpetratorActs = new HashSet<PerpetratorAct>(new ARComparer<PerpetratorAct>());
-                IList acts = perpetrator.PerpetratorActs;
-                if (acts != null) {
-                    foreach (PerpetratorAct perpetratorAct in acts)
-                    {
-                        perpetratorActs.Add(perpetratorAct);
-                    }
-                }
                 perpetratoractlist.Perpetrator = perpetrator;
+
+                if (perpetrator.Id < 1 && perpetrator.PerpetratorActs == null) {
+                    PerpetratorAct act = new PerpetratorAct ();
+                    act.Perpetrator = perpetrator;
+                    act.Perpetrator.PerpetratorActs = new ArrayList ();
+                    perpetratoractshow.PerpetratorAct = act;
+                }
+
                 IsEditable = false;
             }
         }
@@ -97,17 +97,6 @@ namespace Views
                 Console.WriteLine( String.Join(",", perpetrator.ValidationErrorMessages) );
                 new ValidationErrorsDialog (perpetrator.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
-//            perpetrator.Person = perpetratorSelector.Person;
-//            perpetrator.Job = job.Active as Job;
-//
-//            if (perpetrator.Id < 1 || perpetrator.Victim.Id < 1)
-//            {
-//                return;
-//            } else {
-//                perpetrator.Save();
-//                if (Saved != null)
-//                    Saved (this.Perpetrator, e);
-//            }
         }
 
         protected void OnPerpetratorActSelected (object sender, System.EventArgs e)
@@ -115,6 +104,7 @@ namespace Views
             PerpetratorAct a = sender as PerpetratorAct;
             if (a != null) {
                 perpetratoractshow.PerpetratorAct = a;
+                perpetratoractshow.IsEditable = this.IsEditable;
             }
         }
 
@@ -132,8 +122,7 @@ namespace Views
             perpetratoractshow.PerpetratorAct = a;
             perpetratoractshow.IsEditable = true;
             perpetratoractshow.Show ();
-            return;
-        }
+          }
     }
 }
 
