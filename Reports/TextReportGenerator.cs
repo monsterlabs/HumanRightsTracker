@@ -85,8 +85,8 @@ namespace Reports
 
         public void SaveTo (String name)
         {
-            document.SaveTo (Path.Combine(name, "Case.odt"));
-            document.SaveTo (Path.Combine(name, "Case.pdf"), new PDFExporter ());
+            document.SaveTo (name + ".odt");
+            document.SaveTo (name + ".pdf", new PDFExporter ());
         }
     }
 }
