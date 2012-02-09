@@ -54,17 +54,19 @@ namespace Views
 
         protected virtual void openSelector (object sender, System.EventArgs e)
         {
+
             int x, y;
-            this.ParentWindow.GetPosition (out x, out y);
-            x += this.Allocation.Left;
-            y += this.Allocation.Top + this.Allocation.Height;
+            this.TranslateCoordinates(this.Toplevel, 0, 0, out x, out y);
+            DateTime date = DateTime.Now;
+
             if (CurrentDate.HasValue)
             {
-                new DateSelectorWindow (x, y, CurrentDate.Value, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
-            } else
-            {
-                new DateSelectorWindow (x, y, DateTime.Now, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
+                date = CurrentDate.Value;
             }
+
+            DateSelectorWindow selector =  new DateSelectorWindow (x, y, date, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
+            selector.TransientFor = (Gtk.Window)this.Toplevel;
+            selector.Modal = true;
         }
 
         private void OnPopupDateChanged (object sender, DateEventArgs args)

@@ -15,7 +15,6 @@ namespace Views
 
         public event EventHandler Unsaved;
         public event EventHandler Saved;
-        public event EventHandler Cancel;
         private EditableHelper editable_helper;
 
         public VictimShow ()

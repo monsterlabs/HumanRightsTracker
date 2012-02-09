@@ -8,7 +8,6 @@ namespace Views
  {
      string path;
      int rowHeight;
-     String model;
      CatalogSelector combo;
 
      public CellRendererCatalogSelector (String model)
@@ -16,8 +15,6 @@ namespace Views
          Mode |= Gtk.CellRendererMode.Editable;
          Entry dummyEntry = new Gtk.Entry ();
          rowHeight = dummyEntry.SizeRequest ().Height;
-         this.model = model;
-
          combo = new CatalogSelector ();
          combo.Model = model;
          combo.Changed += SelectionChanged;

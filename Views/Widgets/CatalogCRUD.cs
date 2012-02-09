@@ -74,7 +74,6 @@ namespace Views
     {
         String model;
         ActiveRecordModel mod;
-        ActiveRecordModel pmod;
         Type t;
         Array options;
         Hashtable selected;
@@ -123,7 +122,6 @@ namespace Views
 
                     string ParentClassName = modelMethod.Invoke (options.GetValue (0), null) as String;
                     Type pt = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
-                    pmod = ActiveRecordModel.GetModel(pt);
 
                     CellRendererCatalogSelector parentCell = new CellRendererCatalogSelector (ParentClassName);
                     parentCell.Changed += HandleParentChanged;

@@ -57,24 +57,12 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
-                name.IsEditable = value;
-                abbrev.IsEditable = value;
-                institution_type.IsEditable = value;
-                institution_category.IsEditable = value;
 
-                location.IsEditable = value;
-                place.IsEditable = value;
-                zipcode.IsEditable = value;
-
-                phone.IsEditable = value;
-                fax.IsEditable = value;
-                email.IsEditable = value;
-                url.IsEditable = value;
-
-                imageselector.IsEditable = value;
-                case_per_institution.IsEditable = false;
                 this.editable_helper.SetAllEditable(value);
-
+                if (institution == null || institution.Id == 0) {
+                    case_per_institution.Hide ();
+                }
+                case_per_institution.IsEditable = false;
             }
         }
 
@@ -99,18 +87,19 @@ namespace Views
 
             if (institution.IsValid())
             {
-                institution.Save ();
+                institution.SaveAndFlush ();
                 Image photo = imageselector.Image;
                 if (photo != null)
                 {
                     photo.ImageableId = institution.Id;
                     photo.ImageableType = "Institution";
-                    photo.Save ();
+                    photo.SaveAndFlush ();
                 }
 
-                this.IsEditing = false;
+
                 if (InstitutionSaved != null)
                     InstitutionSaved (institution, e);
+                this.IsEditing = false;
             } else
             {
                 Console.WriteLine( String.Join(",", institution.ValidationErrorMessages) );

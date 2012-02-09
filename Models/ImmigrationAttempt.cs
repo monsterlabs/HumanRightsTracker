@@ -1,3 +1,4 @@
+using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
@@ -28,8 +29,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("origin_country_id")]
         public Country OriginCountry { get; set; }
 
-        [BelongsTo("travel_companion_id")]
-        public TravelCompanion TravelCompanion { get; set; }
+        [Property("is_traveling_companied")]
+        public Boolean IsTravelingCompanied { get; set; }
 
         [BelongsTo("origin_state_id")]
         public State OriginState { get; set; }

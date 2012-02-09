@@ -59,11 +59,12 @@ namespace Views
             institutionlist.ReloadStore();
             return;
         }
-
+      
         protected void OnInstitutionSaved (object sender, System.EventArgs e)
         {
             institutionlist.ReloadStore();
+            show.Institution = sender as Institution;
+            show.Show();
         }
-
     }
 }

@@ -1,12 +1,11 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Platform>x86</Platform>
-    <ProductVersion>1.0</ProductVersion>
+    <ProductVersion>0.9</ProductVersion>
     <ProjectGuid>{b6f95eb8-fd98-4e6f-9610-25761f831d5c}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>HumanRightsTracker-1.0</OutputName>
+    <OutputName>HumanRightsTracker-0.9</OutputName>
     <OutputType>Package</OutputType>
-    <ApplicationIcon>Bitmaps\rights.ico</ApplicationIcon>
     <OutputPath>.</OutputPath>
     <IntermediateOutputPath>obj\</IntermediateOutputPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -32,17 +31,10 @@
     <Folder Include="Bitmaps\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bitmaps\background.jpg" />
+    <!-- <Content Include="Bitmaps\bannrbmp.jpg" /> -->
+    <!-- <Content Include="Bitmaps\dlgbmp.jpg" /> -->
     <Content Include="Bitmaps\rights.ico" />
     <Content Include="license.rtf" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
-  <!--
-	To modify your build process, add your task inside one of the targets below and uncomment it.
-	Other similar extension points exist, see Wix.targets.
-	<Target Name="BeforeBuild">
-	</Target>
-	<Target Name="AfterBuild">
-	</Target>
-	-->
 </Project>

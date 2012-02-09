@@ -35,6 +35,7 @@ namespace Views
             set {
                 mycase = value;
                 if (mycase != null) {
+                    mycase.Refresh();
                     nameEntry.Text = mycase.Name == null ? "" : mycase.Name;
                     affectedPeople.Text = mycase.AffectedPeople.ToString();
                     startDateSelector.setDate(mycase.start_date);

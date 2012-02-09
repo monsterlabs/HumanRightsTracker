@@ -6,6 +6,6 @@ class CreateHumanRightsViolationCategories < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :human_rights_violations
+    drop_table :human_rights_violation_categories
   end
 end

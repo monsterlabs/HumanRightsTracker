@@ -35,6 +35,8 @@ namespace Views
         protected void OnCaseSaved (object sender, System.EventArgs e)
         {
             caselist.ReloadStore();
+            show.Case = sender as Case;
+            show.Show();
         }
 
 

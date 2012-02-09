@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using HumanRightsTracker.Models;
 using Mono.Unix;
 
@@ -8,11 +9,9 @@ namespace Views
     public partial class PerpetratorActShow : Gtk.Bin
     {
         PerpetratorAct perpetratorAct;
-        bool isEditing;
+        bool isEditable;
 
-        public event EventHandler Unsaved;
         public event EventHandler Saved;
-        public event EventHandler Cancel;
 
         public PerpetratorActShow ()
         {
@@ -21,35 +20,22 @@ namespace Views
 
         public PerpetratorAct PerpetratorAct
         {
-            get {return perpetratorAct;}
+            get { return perpetratorAct; }
             set {
                 perpetratorAct = value;
                 humanRight.Active = value.HumanRightsViolation;
                 place.Active = value.ActPlace;
-                location.Buffer.Text = value.Location;
-
-                IsEditing = false;
+                location.Buffer.Text = value.Location ?? "";
+                IsEditable = false;
             }
         }
 
-        protected virtual void OnToggleEdit (object sender, System.EventArgs e)
+        public bool IsEditable
         {
-            IsEditing = !IsEditing;
-        }
-
-        public bool IsEditing
-        {
-            get { return this.isEditing; }
-            set
-            {
-                isEditing = value;
-                if (value) {
-                    editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
-                } else {
-                    editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
-                }
+            get { return this.isEditable; }
+            set {
+                isEditable = value;
+                saveButton.Visible = value;
                 humanRight.IsEditable = value;
                 place.IsEditable = value;
                 location.Editable = value;
@@ -58,19 +44,26 @@ namespace Views
 
         protected virtual void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = perpetratorAct.Id < 1 ? true : false;
             perpetratorAct.HumanRightsViolation = humanRight.Active as HumanRightsViolation;
             perpetratorAct.ActPlace = place.Active as ActPlace;
             perpetratorAct.Location = location.Buffer.Text;
 
-            if (perpetratorAct.Id < 1 || perpetratorAct.Perpetrator.Id < 1)
-            {
-                if (Unsaved != null)
-                    Unsaved (this.PerpetratorAct, e);
-                return;
-            } else {
-                perpetratorAct.Save();
+            if (perpetratorAct.IsValid()) {
+                if (newRow) {
+                    perpetratorAct.Perpetrator.PerpetratorActs.Add (PerpetratorAct);
+                }
+
+                if (perpetratorAct.Perpetrator.Id > 0) {
+                    perpetratorAct.Perpetrator.SaveAndFlush ();
+                }
+                this.IsEditable = false;
+
                 if (Saved != null)
-                    Saved (this.PerpetratorAct, e);
+                     Saved (this.PerpetratorAct, e);
+            }  else {
+                Console.WriteLine( String.Join(",", perpetratorAct.ValidationErrorMessages) );
+                new ValidationErrorsDialog (perpetratorAct.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
     }

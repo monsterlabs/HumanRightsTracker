@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using HumanRightsTracker.Models;
 using NHibernate.Criterion;
 
@@ -80,8 +82,9 @@ namespace Views
 
         public void ReloadStore ()
         {
-            if (perpetrator.Id > 0) {
-                perpetratorActs = PerpetratorAct.FindAllByProperty("Perpetrator", perpetrator);
+            if (perpetrator.PerpetratorActs != null) {
+                perpetratorActs = perpetrator.PerpetratorActs.Cast<PerpetratorAct>().ToArray ();
+
             } else {
                 perpetratorActs = new PerpetratorAct[0];
             }

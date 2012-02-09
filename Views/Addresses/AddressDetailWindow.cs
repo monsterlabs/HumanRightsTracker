@@ -3,30 +3,41 @@ using HumanRightsTracker.Models;
 
 namespace Views
 {
-    public partial class PerpetratorDetailWindow : Gtk.Window
+    public partial class AddressDetailWindow : Gtk.Window
     {
         public event EventHandler OnSaved = null;
 
-        public PerpetratorDetailWindow (Victim victim, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+
+        public AddressDetailWindow (Person p, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            Perpetrator p = new Perpetrator ();
-            p.Victim = victim;
-            show.Perpetrator = p;
+            Address a = new Address ();
+            a.Person = p;
+            show.Address = a;
             show.IsEditable = true;
         }
 
-        public PerpetratorDetailWindow (Perpetrator perpetrator, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
+        public AddressDetailWindow (Address a, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
-            show.Perpetrator = perpetrator;
+            show.Address = a;
             show.IsEditable = false;
+        }
+
+        public AddressDetailWindow (Address a, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
+        {
+            this.Build ();
+            this.Modal = true;
+            this.TransientFor = parent;
+            show.Address = a;
+            show.IsEditable = false;
+            show.HideActionButtons ();
         }
 
         protected void OnShowSaved (object sender, System.EventArgs e)
@@ -37,7 +48,7 @@ namespace Views
 
         protected void OnShowCanceled (object sender, System.EventArgs e)
         {
-            if (show.Perpetrator.Id < 1) {
+            if (show.Address.Id < 1) {
                 this.Destroy ();
             }
         }

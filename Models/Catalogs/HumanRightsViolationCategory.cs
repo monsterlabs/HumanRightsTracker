@@ -26,6 +26,9 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public String Name { get; set; }
 
+        [Property]
+        public String Notes { get; set; }
+
         private IList children = new ArrayList();
         [HasMany(typeof(HumanRightsViolationCategory),  Table="HumanRightsViolationCategories", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Children
