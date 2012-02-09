@@ -30,7 +30,7 @@ namespace HumanRightsTracker.Models
         public String Notes { get; set; }
 
         private IList children = new ArrayList();
-        [HasMany(typeof(HumanRightsViolationCategory),  Table="HumanRightsViolationCategories", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(HumanRightsViolationCategory),  Table="HumanRightsViolationCategories", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
         public IList Children
         {
             get { return children;}
@@ -39,8 +39,9 @@ namespace HumanRightsTracker.Models
 
         public static IList Parents()
         {
-            return (IList)HumanRightsViolationCategory.FindAll (new ICriterion[] { Restrictions.Or (Restrictions.IsNull("ParentId"),
-                                                                                                    Restrictions.Eq("ParentId",0)) });
+            return (IList)HumanRightsViolationCategory.FindAll (new Order[] { Order.Asc ("Name") },
+                                                                new ICriterion[] { Restrictions.Or (Restrictions.IsNull("ParentId"),
+                                                                                                     Restrictions.Eq("ParentId",0)) });
 
         }
     }

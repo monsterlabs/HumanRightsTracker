@@ -46,7 +46,7 @@ namespace Views
         }
 
         public void FilterByCategoryId(int category_id) {
-            HumanRightsViolation[] parents = HumanRightsViolation.FindAll(new ICriterion[] { Restrictions.Eq ("CategoryId", category_id) });
+            HumanRightsViolation[] parents = HumanRightsViolation.FindAllByCategoryId (category_id);
             store.Clear();
             foreach (HumanRightsViolation record in parents ) {
                 if (record.Children.Count > 0) {
