@@ -33,7 +33,7 @@ namespace Views
                 if (act != null) {
 
                     humanrightsviolationcategory.Active = act.HumanRightsViolationCategory;
-                    humanRightsViolation.Active = act.HumanRightsViolation;
+                    humanRightViolation.Active = act.HumanRightsViolation;
                     initialDate.setDate (act.start_date);
                     initialDate.setDateType (act.StartDateType);
                     finalDate.setDate (act.end_date);
@@ -65,7 +65,7 @@ namespace Views
             }
 
             act.HumanRightsViolationCategory = humanrightsviolationcategory.Active as HumanRightsViolationCategory;
-            act.HumanRightsViolation = humanRightsViolation.Active as HumanRightsViolation;
+            act.HumanRightsViolation = humanRightViolation.Active as HumanRightsViolation;
             act.end_date = finalDate.SelectedDate ();
             act.EndDateType = finalDate.SelectedDateType ();
             act.start_date = initialDate.SelectedDate ();
@@ -173,7 +173,7 @@ namespace Views
                 HumanRightsViolation h = o as HumanRightsViolation;
                 Console.WriteLine("Name: " + h.Name);
             }
-            humanRightsViolation.FilterBy (new ICriterion[] { Restrictions.Eq ("CategoryId", category.Id) }, category.Id);
+            humanRightViolation.FilterByCategoryId (category.Id);
         }
     }
 }

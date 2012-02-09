@@ -3279,6 +3279,7 @@ December</property>
           <widget class="Gtk.Expander" id="general_info_expander">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
+            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.Alignment" id="GtkAlignment13">
                 <property name="MemberName" />
@@ -3478,6 +3479,38 @@ December</property>
                       </packing>
                     </child>
                     <child>
+                      <widget class="Gtk.Expander" id="places_expander">
+                        <property name="MemberName" />
+                        <property name="CanFocus">True</property>
+                        <property name="Expanded">True</property>
+                        <child>
+                          <widget class="Views.EditableList" id="placeslist">
+                            <property name="MemberName" />
+                            <property name="Events">ButtonPressMask</property>
+                            <property name="Headers">Country
+State
+City</property>
+                            <property name="IsEditable">False</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="GtkLabel20">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">&lt;b&gt;Places&lt;/b&gt;</property>
+                            <property name="UseMarkup">True</property>
+                            <property name="UseUnderline">True</property>
+                          </widget>
+                          <packing>
+                            <property name="type">label_item</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                      </packing>
+                    </child>
+                    <child>
                       <widget class="Gtk.Expander" id="expander4">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
@@ -3501,7 +3534,7 @@ December</property>
                         </child>
                       </widget>
                       <packing>
-                        <property name="Position">1</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                       </packing>
                     </child>
@@ -3529,7 +3562,7 @@ December</property>
                         </child>
                       </widget>
                       <packing>
-                        <property name="Position">2</property>
+                        <property name="Position">3</property>
                         <property name="AutoSize">True</property>
                       </packing>
                     </child>
@@ -3548,37 +3581,6 @@ December</property>
                           <widget class="Gtk.Label" id="GtkLabel37">
                             <property name="MemberName" />
                             <property name="LabelProp" translatable="yes">&lt;b&gt;Observations&lt;/b&gt;</property>
-                            <property name="UseMarkup">True</property>
-                            <property name="UseUnderline">True</property>
-                          </widget>
-                          <packing>
-                            <property name="type">label_item</property>
-                          </packing>
-                        </child>
-                      </widget>
-                      <packing>
-                        <property name="Position">3</property>
-                        <property name="AutoSize">True</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Expander" id="places_expander">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <child>
-                          <widget class="Views.EditableList" id="placeslist">
-                            <property name="MemberName" />
-                            <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Country
-State
-City</property>
-                            <property name="IsEditable">False</property>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="Gtk.Label" id="GtkLabel20">
-                            <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">&lt;b&gt;Places&lt;/b&gt;</property>
                             <property name="UseMarkup">True</property>
                             <property name="UseUnderline">True</property>
                           </widget>
@@ -4872,7 +4874,7 @@ End date</property>
                         <child>
                           <widget class="Gtk.Table" id="table3">
                             <property name="MemberName" />
-                            <property name="NRows">7</property>
+                            <property name="NRows">6</property>
                             <property name="RowSpacing">6</property>
                             <property name="ColumnSpacing">6</property>
                             <property name="BorderWidth">8</property>
@@ -4883,35 +4885,12 @@ End date</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">6</property>
-                                <property name="BottomAttach">7</property>
+                                <property name="TopAttach">5</property>
+                                <property name="BottomAttach">6</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
                                 <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Views.CatalogSelector" id="humanRightsViolation">
-                                <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="OrderById">False</property>
-                                <property name="Model">HumanRightsViolation</property>
-                                <property name="IsEditable">False</property>
-                                <property name="HideAddButton">False</property>
-                                <property name="HideNoteButton">False</property>
-                              </widget>
-                              <packing>
-                                <property name="TopAttach">2</property>
-                                <property name="BottomAttach">3</property>
-                                <property name="AutoSize">False</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">True</property>
                                 <property name="XFill">True</property>
                                 <property name="XShrink">False</property>
                                 <property name="YExpand">False</property>
@@ -4938,36 +4917,34 @@ End date</property>
                               </packing>
                             </child>
                             <child>
+                              <widget class="Views.HumanRightViolationSelector" id="humanRightViolation">
+                                <property name="MemberName" />
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="IsEditable">False</property>
+                              </widget>
+                              <packing>
+                                <property name="TopAttach">1</property>
+                                <property name="BottomAttach">2</property>
+                                <property name="AutoSize">True</property>
+                                <property name="XOptions">Fill</property>
+                                <property name="XExpand">False</property>
+                                <property name="XFill">True</property>
+                                <property name="XShrink">False</property>
+                                <property name="YExpand">True</property>
+                                <property name="YFill">True</property>
+                                <property name="YShrink">False</property>
+                              </packing>
+                            </child>
+                            <child>
                               <widget class="Views.DateTypeAndDateSelector" id="initialDate">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">4</property>
-                                <property name="BottomAttach">5</property>
+                                <property name="TopAttach">3</property>
+                                <property name="BottomAttach">4</property>
                                 <property name="AutoSize">False</property>
-                                <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
-                                <property name="XExpand">False</property>
-                                <property name="XFill">True</property>
-                                <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
-                                <property name="YFill">True</property>
-                                <property name="YShrink">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Gtk.Label" id="label1">
-                                <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">&lt;b&gt;Act:&lt;/b&gt;</property>
-                                <property name="UseMarkup">True</property>
-                              </widget>
-                              <packing>
-                                <property name="TopAttach">1</property>
-                                <property name="BottomAttach">2</property>
-                                <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
                                 <property name="XExpand">False</property>
@@ -4986,8 +4963,8 @@ End date</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">3</property>
-                                <property name="BottomAttach">4</property>
+                                <property name="TopAttach">2</property>
+                                <property name="BottomAttach">3</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -5007,8 +4984,8 @@ End date</property>
                                 <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
-                                <property name="TopAttach">5</property>
-                                <property name="BottomAttach">6</property>
+                                <property name="TopAttach">4</property>
+                                <property name="BottomAttach">5</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
                                 <property name="YOptions">Fill</property>
@@ -5024,8 +5001,6 @@ End date</property>
                           <packing>
                             <property name="Position">0</property>
                             <property name="AutoSize">True</property>
-                            <property name="Expand">False</property>
-                            <property name="Fill">False</property>
                           </packing>
                         </child>
                       </widget>
@@ -5046,8 +5021,6 @@ End date</property>
               <packing>
                 <property name="Position">0</property>
                 <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
               </packing>
             </child>
             <child>
@@ -5583,17 +5556,30 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.ActDetailWindow" design-size="733 764">
+  <widget class="Gtk.Window" id="Views.ActDetailWindow" design-size="841 918">
     <property name="MemberName" />
     <property name="Title" translatable="yes">NewActWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <child>
-      <widget class="Views.ActsShow" id="show">
+      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
         <property name="MemberName" />
-        <property name="Events">ButtonPressMask</property>
-        <property name="IsEditable">False</property>
-        <signal name="Saved" handler="OnShowSaved" />
-        <signal name="Canceled" handler="OnShowCanceled" />
+        <property name="ShadowType">In</property>
+        <child>
+          <widget class="Gtk.Viewport" id="GtkViewport">
+            <property name="MemberName" />
+            <property name="ShadowType">None</property>
+            <child>
+              <widget class="Views.ActsShow" id="show">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="IsEditable">False</property>
+                <signal name="Saved" handler="OnShowSaved" />
+                <signal name="Canceled" handler="OnShowCanceled" />
+              </widget>
+            </child>
+          </widget>
+        </child>
       </widget>
     </child>
   </widget>
@@ -9780,9 +9766,37 @@ End date</property>
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <widget class="Gtk.VBox" id="vbox3">
+      <widget class="Gtk.Table" id="table1">
         <property name="MemberName" />
-        <property name="Spacing">6</property>
+        <property name="NRows">5</property>
+        <property name="RowSpacing">6</property>
+        <property name="ColumnSpacing">6</property>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.NodeView" id="nodeview">
+                <property name="MemberName" />
+                <property name="HeightRequest">120</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <signal name="RowActivated" handler="OnNodeviewRowActivated" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="TopAttach">4</property>
+            <property name="BottomAttach">5</property>
+            <property name="AutoSize">False</property>
+            <property name="XExpand">True</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">True</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
         <child>
           <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
@@ -9791,10 +9805,15 @@ End date</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
-            <property name="Position">0</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
+            <property name="XOptions">Fill</property>
+            <property name="YOptions">Fill</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
           </packing>
         </child>
         <child>
@@ -9803,13 +9822,19 @@ End date</property>
             <property name="Xalign">0</property>
             <property name="LabelProp" translatable="yes">name</property>
             <property name="Wrap">True</property>
-            <property name="MaxWidthChars">200</property>
+            <property name="Justify">Fill</property>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="TopAttach">1</property>
+            <property name="BottomAttach">2</property>
             <property name="AutoSize">False</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
+            <property name="YOptions">0</property>
+            <property name="XExpand">True</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">False</property>
+            <property name="YShrink">False</property>
           </packing>
         </child>
         <child>
@@ -9820,10 +9845,17 @@ End date</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="TopAttach">2</property>
+            <property name="BottomAttach">3</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
+            <property name="XOptions">Fill</property>
+            <property name="YOptions">Fill</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
           </packing>
         </child>
         <child>
@@ -9832,32 +9864,19 @@ End date</property>
             <property name="Xalign">0</property>
             <property name="LabelProp" translatable="yes">notes</property>
             <property name="Wrap">True</property>
-            <property name="MaxWidthChars">200</property>
+            <property name="Justify">Fill</property>
           </widget>
           <packing>
-            <property name="Position">3</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
-            <property name="MemberName" />
-            <property name="ShadowType">In</property>
-            <child>
-              <widget class="Gtk.NodeView" id="nodeview">
-                <property name="MemberName" />
-                <property name="HeightRequest">180</property>
-                <property name="CanFocus">True</property>
-                <property name="ShowScrollbars">True</property>
-                <signal name="RowActivated" handler="OnNodeviewRowActivated" />
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">4</property>
+            <property name="TopAttach">3</property>
+            <property name="BottomAttach">4</property>
             <property name="AutoSize">False</property>
+            <property name="YOptions">0</property>
+            <property name="XExpand">True</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">False</property>
+            <property name="YShrink">False</property>
           </packing>
         </child>
       </widget>
@@ -11964,6 +11983,127 @@ End date</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="Views.HumanRightViolationSelector" design-size="750 252">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.Table" id="table1">
+        <property name="MemberName" />
+        <property name="NRows">5</property>
+        <property name="RowSpacing">6</property>
+        <property name="ColumnSpacing">6</property>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.NodeView" id="nodeview">
+                <property name="MemberName" />
+                <property name="HeightRequest">120</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <signal name="RowActivated" handler="OnNodeviewRowActivated" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="TopAttach">4</property>
+            <property name="BottomAttach">5</property>
+            <property name="AutoSize">True</property>
+            <property name="XOptions">Fill</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">True</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Act:&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="AutoSize">True</property>
+            <property name="XOptions">Fill</property>
+            <property name="YOptions">Fill</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="name">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">name</property>
+            <property name="Wrap">True</property>
+            <property name="Justify">Fill</property>
+          </widget>
+          <packing>
+            <property name="TopAttach">1</property>
+            <property name="BottomAttach">2</property>
+            <property name="AutoSize">False</property>
+            <property name="YOptions">0</property>
+            <property name="XExpand">True</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">False</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="note_label">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Notes:&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="TopAttach">2</property>
+            <property name="BottomAttach">3</property>
+            <property name="AutoSize">True</property>
+            <property name="XOptions">Fill</property>
+            <property name="YOptions">Fill</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">True</property>
+            <property name="YShrink">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="notes">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">notes</property>
+            <property name="Wrap">True</property>
+            <property name="Justify">Fill</property>
+          </widget>
+          <packing>
+            <property name="TopAttach">3</property>
+            <property name="BottomAttach">4</property>
+            <property name="AutoSize">False</property>
+            <property name="YOptions">0</property>
+            <property name="XExpand">True</property>
+            <property name="XFill">True</property>
+            <property name="XShrink">False</property>
+            <property name="YExpand">False</property>
+            <property name="YFill">False</property>
+            <property name="YShrink">False</property>
           </packing>
         </child>
       </widget>

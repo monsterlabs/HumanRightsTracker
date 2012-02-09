@@ -247,6 +247,8 @@
     <Compile Include="gtk-gui\Views.AddressDetailWindow.cs" />
     <Compile Include="Addresses\AddressShow.cs" />
     <Compile Include="gtk-gui\Views.AddressShow.cs" />
+    <Compile Include="Widgets\HumanRightViolationSelector.cs" />
+    <Compile Include="gtk-gui\Views.HumanRightViolationSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
