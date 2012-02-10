@@ -50,11 +50,11 @@ namespace Views
                     fullname.Text = person.Fullname;
                     photo.Show ();
                     fullname.Show ();
-                    changeButton.Label = Catalog.GetString("Change");
+                    changeButton.Label = Catalog.GetString("Select");
                 } else {
                     photo.Hide ();
                     fullname.Hide ();
-                    changeButton.Label = Catalog.GetString("New");
+                    changeButton.Label = Catalog.GetString("Select");
                 }
             }
         }

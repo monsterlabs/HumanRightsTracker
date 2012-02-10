@@ -27,23 +27,19 @@ namespace Views
 
         public Victim Victim
         {
-            get {return victim;}
+            get { return victim; }
             set {
                 victim = value;
                 victimSelector.Person = victim.Person;
-                status1.Active = victim.VictimStatus;
-                characteristics.Text = victim.Characteristics;
+                status.Active = victim.VictimStatus;
+                characteristics.Text = victim.Characteristics ?? "";
 
-                HashSet<Perpetrator> perpetrators = new HashSet<Perpetrator>(new ARComparer<Perpetrator>());
-                IList victimPerpetrators = victim.Perpetrators;
-                if (victimPerpetrators != null) {
-                    foreach (Perpetrator perpetrator in victimPerpetrators)
-                    {
-                        perpetrators.Add(perpetrator);
-                    }
+                if (victim.Perpetrators != null) {
+                    perpetratorslist.Records = victim.Perpetrators.Cast<ListableRecord>().ToList ();
+                } else {
+                    victim.Perpetrators = new ArrayList ();
+                    perpetratorslist.Records = new List<ListableRecord>();
                 }
-
-                perpetratorslist.Records = victimPerpetrators.Cast<ListableRecord>().ToList ();
 
                 IsEditable = false;
             }
@@ -113,20 +109,26 @@ namespace Views
 
         protected virtual void OnSave (object sender, System.EventArgs e)
         {
+            bool newRow = victim.Id < 1 ? true : false;
             victim.Person = victimSelector.Person;
-            victim.VictimStatus = status1.Active as VictimStatus;
+            victim.VictimStatus = status.Active as VictimStatus;
             victim.Characteristics = characteristics.Text;
 
-            if (victim.Act.Id < 1)
-            {
-                if (Unsaved != null)
-                    Unsaved (this.Victim, e);
-                return;
-            } else {
-                victim.Save();
-                Victim = victim;
+            if (victim.IsValid ()) {
+                if (newRow) {
+                    victim.Act.Victims.Add (victim);
+                }
+
+                if (victim.Act.Id > 0) {
+                    victim.Act.SaveAndFlush ();
+                }
+
+                this.IsEditable = false;
                 if (Saved != null)
                     Saved (this.Victim, e);
+            } else {
+                Console.WriteLine( String.Join(",", victim.ValidationErrorMessages) );
+                new ValidationErrorsDialog (victim.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
         }
     }

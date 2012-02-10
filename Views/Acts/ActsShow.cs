@@ -39,17 +39,15 @@ namespace Views
 
                     affected.Text = act.AffectedPeopleNumber.ToString ();
                     placeselector1.SetPlace (act.Country, act.State, act.City);
-                    HashSet<Victim> victims = new HashSet<Victim>(new ARComparer<Victim>());
-
-                    IList actVictims = act.Victims;
-                    if (actVictims != null) {
-                        foreach (Victim victim in actVictims)
-                        {
-                            victims.Add(victim);
-                        }
-                    }
 
                     victimlist.Act = act;
+                    if (act.Victims == null || act.Victims.Count == 0) {
+                        Victim victim = new Victim ();
+                        victim.Act = act;
+                        victim.Perpetrators = new ArrayList ();
+                        victim.Act.Victims = victim.Act.Victims ?? new ArrayList ();
+                        victimshow.Victim = victim;
+                    }
                 }
                 IsEditable = false;
             }
@@ -57,11 +55,7 @@ namespace Views
 
         protected void OnSave (object sender, System.EventArgs e)
         {
-            bool newRow = false;
-            if (act.Id < 1) {
-                newRow = true;
-            }
-
+            bool newRow = act.Id < 1 ? true : false;
             act.HumanRightsViolationCategory = humanrightsviolationcategory.Active as HumanRightsViolationCategory;
             act.HumanRightsViolation = humanRightViolation.Active as HumanRightsViolation;
             act.end_date = finalDate.SelectedDate ();
@@ -76,12 +70,6 @@ namespace Views
 
             if (act.IsValid())
             {
-                List<Victim> victims = new List<Victim>();
-                foreach (Victim victim in victimlist.Victims)
-                {
-                    victims.Add(victim);
-                }
-                act.Victims = victims;
                 act.SaveAndFlush ();
 
                 if (newRow) {
@@ -120,12 +108,12 @@ namespace Views
                     editButton1.Label = Catalog.GetString("Cancel");
                     saveButton1.Visible = true;
                     addVictimButton.Visible = true;
-                    victimshow1.ReadOnlyMode(false);
+                    victimshow.ReadOnlyMode(false);
                 } else {
                     editButton1.Label = Catalog.GetString("Edit");
                     saveButton1.Visible = false;
                     addVictimButton.Visible = false;
-                    victimshow1.ReadOnlyMode(true);
+                    victimshow.ReadOnlyMode(true);
                 }
             }
         }
@@ -139,7 +127,8 @@ namespace Views
         {
             Victim v = sender as Victim;
             if (v != null) {
-                victimshow1.Victim = v;
+                victimshow.Victim = v;
+                victimshow.IsEditable = IsEditable;
             }
         }
 
@@ -154,10 +143,9 @@ namespace Views
             v.Act = act;
             victimlist.UnselectAll ();
 
-            victimshow1.Victim = v;
-            victimshow1.Show ();
-            victimshow1.IsEditable = true;
-            return;
+            victimshow.Victim = v;
+            victimshow.Show ();
+            victimshow.IsEditable = true;
         }
 
         protected void OnHumanrightsviolationcategoryCategorySelected (object sender, System.EventArgs e)
