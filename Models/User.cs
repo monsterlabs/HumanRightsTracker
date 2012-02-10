@@ -32,6 +32,25 @@ namespace HumanRightsTracker.Models
             return null;
         }
 
+        public static bool ChangePassword(String login, String new_password, String password_confirmation)
+        {
+            User u = User.FindOne (Expression.Eq ("Login", login));
+            if (u != null)
+            {
+                if ( ( new_password.Trim ().Length > 6 && password_confirmation.Trim ().Length > 6 ) &&
+                     ( new_password == password_confirmation ))
+                {
+                    u.Password = encrypt (new_password, u.Salt);
+                    u.SaveAndFlush ();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+
         private static String encrypt (String password, String salt)
         {
             byte[] bytes = Encoding.ASCII.GetBytes (password + salt);

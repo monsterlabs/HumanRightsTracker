@@ -9,7 +9,7 @@
     <widget-library name="../../bin/Debug/Views.dll" />
     <widget-library name="../../bin/Debug/HumanRightsTracker.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="LoginWindow" design-size="598 389">
+  <widget class="Gtk.Window" id="LoginWindow" design-size="616 389">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -80,7 +80,8 @@
             <child>
               <widget class="Gtk.Label" id="label4">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">User</property>
+                <property name="LabelProp" translatable="yes">&lt;b&gt;User&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
                 <property name="Justify">Fill</property>
               </widget>
               <packing>
@@ -98,7 +99,8 @@
             <child>
               <widget class="Gtk.Label" id="label5">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Password</property>
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Password&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -263,7 +265,7 @@ Copyright 2011 © i(dh)eas
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">1</property>
+        <property name="CurrentPage">3</property>
         <property name="TabPos">Left</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
@@ -280,7 +282,7 @@ Copyright 2011 © i(dh)eas
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="label59">
+              <widget class="Gtk.Label" id="label61">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Individual people&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -372,6 +374,25 @@ Copyright 2011 © i(dh)eas
           <widget class="Gtk.Label" id="label152">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">&lt;b&gt;Catalogs&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Views.ChangePasswordTab" id="changepasswordtab1">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label138">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Change password&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>

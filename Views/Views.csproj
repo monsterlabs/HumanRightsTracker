@@ -249,6 +249,8 @@
     <Compile Include="gtk-gui\Views.AddressShow.cs" />
     <Compile Include="Widgets\HumanRightViolationSelector.cs" />
     <Compile Include="gtk-gui\Views.HumanRightViolationSelector.cs" />
+    <Compile Include="ChangePassword\ChangePasswordTab.cs" />
+    <Compile Include="gtk-gui\Views.ChangePasswordTab.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -278,6 +280,7 @@
     <Folder Include="Places\" />
     <Folder Include="CaseRelationships\" />
     <Folder Include="Addresses\" />
+    <Folder Include="ChangePassword\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
