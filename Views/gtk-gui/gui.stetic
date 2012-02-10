@@ -3517,6 +3517,7 @@ City</property>
                         <child>
                           <widget class="Views.EditableTextView" id="description">
                             <property name="MemberName" />
+                            <property name="HeightRequest">300</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="IsEditable">False</property>
                           </widget>
@@ -3545,6 +3546,7 @@ City</property>
                         <child>
                           <widget class="Views.EditableTextView" id="summary">
                             <property name="MemberName" />
+                            <property name="HeightRequest">300</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="IsEditable">False</property>
                           </widget>
@@ -3573,6 +3575,7 @@ City</property>
                         <child>
                           <widget class="Views.EditableTextView" id="observations">
                             <property name="MemberName" />
+                            <property name="HeightRequest">300</property>
                             <property name="Events">ButtonPressMask</property>
                             <property name="IsEditable">False</property>
                           </widget>
