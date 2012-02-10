@@ -40,6 +40,7 @@ namespace HumanRightsTracker.Models
                 if ( ( new_password.Trim ().Length >= 6 && password_confirmation.Trim ().Length >= 6 ) &&
                      ( new_password == password_confirmation ))
                 {
+                    u.Salt = GetSalt(10);
                     u.Password = encrypt (new_password, u.Salt);
                     u.SaveAndFlush ();
                     return true;
@@ -66,6 +67,16 @@ namespace HumanRightsTracker.Models
             }
             
             return hex;
+        }
+
+        private static string GetSalt(int length)
+        {
+            byte[] randomArray = new byte[length];
+            string randomString;
+            Random rnd = new Random();
+            rnd.NextBytes(randomArray);
+            randomString = Convert.ToBase64String(randomArray);
+            return randomString;
         }
     }
 }
