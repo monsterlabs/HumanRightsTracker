@@ -31,10 +31,10 @@ namespace Views
 
                 perpetratoractlist.Perpetrator = perpetrator;
 
-                if (perpetrator.Id < 1 && perpetrator.PerpetratorActs == null) {
+                if (perpetrator.PerpetratorActs == null || perpetrator.PerpetratorActs.Count == 0) {
                     PerpetratorAct act = new PerpetratorAct ();
                     act.Perpetrator = perpetrator;
-                    act.Perpetrator.PerpetratorActs = new ArrayList ();
+                    act.Perpetrator.PerpetratorActs = act.Perpetrator.PerpetratorActs ?? new ArrayList ();
                     perpetratoractshow.PerpetratorAct = act;
                 }
 
@@ -72,25 +72,21 @@ namespace Views
 
         protected virtual void OnSave (object sender, System.EventArgs e)
         {
-            Console.WriteLine("On PerpetratorShow Save.");
-            bool newRow = false;
-            if (perpetrator.Id < 1) {
-                newRow = true;
-            }
-
+            bool newRow = perpetrator.Id < 1 ? true : false;
             perpetrator.Person = perpetratorSelector.Person;
             perpetrator.Institution = institution.Institution;
             perpetrator.Job = job.Active as Job;
 
             if (perpetrator.IsValid()) {
-                perpetrator.SaveAndFlush ();
-
                 if (newRow) {
                     perpetrator.Victim.Perpetrators.Add (Perpetrator);
+                }
+
+                if (perpetrator.Victim.Id > 0) {
                     perpetrator.Victim.SaveAndFlush ();
                 }
-                this.IsEditable = false;
 
+                this.IsEditable = false;
                 if (Saved != null)
                         Saved (this.Perpetrator, e);
             } else {

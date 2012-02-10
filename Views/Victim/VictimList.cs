@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using HumanRightsTracker.Models;
 using NHibernate.Criterion;
 
@@ -105,8 +107,8 @@ namespace Views
 
         public void ReloadStore ()
         {
-            if (act.Id > 1) {
-                victims = Victim.FindAllByProperty("Act", act);
+            if (act.Victims != null) {
+                victims = act.Victims.Cast<Victim>().ToArray();
             } else {
                 victims = new Victim[0];
             }
