@@ -12283,7 +12283,7 @@ End date</property>
             <property name="Size">1</property>
             <property name="LayoutStyle">Start</property>
             <child>
-              <widget class="Gtk.Button" id="button65">
+              <widget class="Gtk.Button" id="saveButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>

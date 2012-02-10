@@ -37,7 +37,7 @@ namespace HumanRightsTracker.Models
             User u = User.FindOne (Expression.Eq ("Login", login));
             if (u != null)
             {
-                if ( ( new_password.Trim ().Length > 6 && password_confirmation.Trim ().Length > 6 ) &&
+                if ( ( new_password.Trim ().Length >= 6 && password_confirmation.Trim ().Length >= 6 ) &&
                      ( new_password == password_confirmation ))
                 {
                     u.Password = encrypt (new_password, u.Salt);
