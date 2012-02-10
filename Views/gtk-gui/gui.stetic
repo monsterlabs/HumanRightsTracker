@@ -8719,7 +8719,7 @@ End date</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+          <widget class="Gtk.ScrolledWindow" id="scrollWindow">
             <property name="MemberName" />
             <property name="WidthRequest">250</property>
             <property name="HeightRequest">60</property>
@@ -8730,6 +8730,7 @@ End date</property>
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
                 <property name="Text" translatable="yes" />
+                <property name="WrapMode">WordChar</property>
               </widget>
             </child>
           </widget>
@@ -8741,7 +8742,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.TrackingShow" design-size="608 336">
+  <widget class="Gtk.Bin" id="Views.TrackingShow" design-size="957 490">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -8780,13 +8781,11 @@ End date</property>
                             <property name="BottomAttach">5</property>
                             <property name="LeftAttach">1</property>
                             <property name="RightAttach">2</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
+                            <property name="AutoSize">False</property>
+                            <property name="XExpand">True</property>
                             <property name="XFill">True</property>
                             <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
+                            <property name="YExpand">True</property>
                             <property name="YFill">True</property>
                             <property name="YShrink">False</property>
                           </packing>
@@ -8985,9 +8984,7 @@ End date</property>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
+                        <property name="AutoSize">False</property>
                       </packing>
                     </child>
                     <child>
@@ -9038,9 +9035,7 @@ End date</property>
           </widget>
           <packing>
             <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
+            <property name="AutoSize">False</property>
           </packing>
         </child>
         <child>
