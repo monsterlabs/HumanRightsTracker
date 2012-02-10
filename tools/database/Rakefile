@@ -49,7 +49,7 @@ task :seeds => :environment do
 
   State.destroy_all
   City.destroy_all
-  %w(MX GT HN NI SV).each do |code|
+  %w(MX GT HN NI SV CR PA).each do |code|
     @country = Country.find_by_code(code)
     CSV.foreach("seeds/states_#{code.downcase}.csv", :col_sep => "|") do |row|
       State.create(:name => row[0].strip, :country_id => @country.id)
