@@ -1,5 +1,6 @@
 using System;
 using HumanRightsTracker.Models;
+using Mono.Unix;
 
 namespace Views
 {
@@ -36,11 +37,26 @@ namespace Views
             return dateType.Active as DateType;
         }
 
-        public void setDate (DateTime? date) {
+        public void setDate (DateTime? date, DateType dateType) {
             datefield.CurrentDate = date;
             if (date.HasValue)
             {
-                label2.Text = date.Value.ToShortDateString ();
+
+                string date_string = date.Value.ToShortDateString ();
+
+                if (dateType != null) {
+                    setDateType(dateType);
+                    if (dateType.Id == 3)
+                    {
+                        date_string = date.Value.Month + " de " + date.Value.Year.ToString ();
+                    }
+                    else if (dateType.Id == 4)
+                    {
+                        date_string = date.Value.Year.ToString ();
+                    }
+                }
+
+                label2.Text = date_string;
             } else {
                 label2.Text = "";
             }

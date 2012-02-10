@@ -38,10 +38,8 @@ namespace Views
                     mycase.Refresh();
                     nameEntry.Text = mycase.Name == null ? "" : mycase.Name;
                     affectedPeople.Text = mycase.AffectedPeople.ToString();
-                    startDateSelector.setDate(mycase.start_date);
-                    startDateSelector.setDateType(mycase.StartDateType);
-                    endDateSelector.setDate(mycase.end_date);
-                    endDateSelector.setDateType(mycase.EndDateType);
+                    startDateSelector.setDate(mycase.start_date, mycase.StartDateType);
+                    endDateSelector.setDate(mycase.end_date, mycase.EndDateType);
 
                     description.Text = mycase.NarrativeDescription;
                     summary.Text = mycase.Summary;

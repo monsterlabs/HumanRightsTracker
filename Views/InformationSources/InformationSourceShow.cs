@@ -39,8 +39,7 @@ namespace Views
                         observations.Buffer.Text = information_source.Observations;
                         comments.Buffer.Text = information_source.Comments;
 
-                        datetypeanddateselector.setDate(information_source.Date);
-                        datetypeanddateselector.setDateType(information_source.DateType);
+                        datetypeanddateselector.setDate(information_source.Date, information_source.DateType);
 
                         reported_person_selector.Person = information_source.ReportedPerson;
                         reported_person_selector.Institution = information_source.ReportedInstitution;

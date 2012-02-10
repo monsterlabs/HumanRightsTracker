@@ -34,10 +34,8 @@ namespace Views
 
                     humanrightsviolationcategory.Active = act.HumanRightsViolationCategory;
                     humanRightViolation.Active = act.HumanRightsViolation;
-                    initialDate.setDate (act.start_date);
-                    initialDate.setDateType (act.StartDateType);
-                    finalDate.setDate (act.end_date);
-                    finalDate.setDateType (act.EndDateType);
+                    initialDate.setDate (act.start_date, act.StartDateType);
+                    finalDate.setDate (act.end_date, act.EndDateType);
 
                     affected.Text = act.AffectedPeopleNumber.ToString ();
                     placeselector1.SetPlace (act.Country, act.State, act.City);

@@ -30,8 +30,7 @@ namespace Views
                     } else {
                         record_id.Text = trackingInfo.RecordId.ToString ();
                     }
-                    date_of_receipt.setDate (trackingInfo.DateOfReceipt);
-                    date_of_receipt.setDateType (trackingInfo.DateType);
+                    date_of_receipt.setDate (trackingInfo.DateOfReceipt, trackingInfo.DateType);
                     title.Text = trackingInfo.Title;
                     status.Active = trackingInfo.CaseStatus;
                     comments.Text = trackingInfo.Comments;
