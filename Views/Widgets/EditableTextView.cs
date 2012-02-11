@@ -43,6 +43,7 @@ namespace Views
         public String Text {
             set {
                 string content = value ?? "";
+                buffer.Clear ();
                 TrackBufferArchiver.Deserialize (buffer, content);
                 this.text = buffer.Text;
             }

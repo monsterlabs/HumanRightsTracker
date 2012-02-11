@@ -4849,6 +4849,7 @@ End date</property>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.ActsShow" design-size="841 971">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6373,6 +6374,7 @@ End date</property>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.VictimShow" design-size="552 700">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
