@@ -8715,6 +8715,38 @@ End date</property>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.EditableTextView" design-size="422 200">
+    <action-group name="Default">
+      <action id="justifyLeftAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-justify-left</property>
+        <signal name="Activated" handler="OnJustifyLeftActivated" />
+      </action>
+      <action id="justifyRightAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-justify-right</property>
+        <signal name="Activated" handler="OnJustifyRightActivated" />
+      </action>
+      <action id="justifyFillAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-justify-fill</property>
+        <signal name="Activated" handler="OnJustifyFillActivated" />
+      </action>
+      <action id="boldAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-bold</property>
+        <signal name="Activated" handler="OnBoldActivated" />
+      </action>
+      <action id="italicAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-italic</property>
+        <signal name="Activated" handler="OnItalicActivated" />
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -8722,23 +8754,44 @@ End date</property>
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.ScrolledWindow" id="scrollWindow">
+          <widget class="Gtk.Toolbar" id="toolbar">
             <property name="MemberName" />
-            <property name="WidthRequest">250</property>
-            <property name="HeightRequest">60</property>
+            <property name="ShowArrow">False</property>
+            <property name="ButtonStyle">Icons</property>
+            <property name="IconSize">SmallToolbar</property>
+            <node name="toolbar" type="Toolbar">
+              <node type="Toolitem" action="boldAction" />
+              <node type="Toolitem" action="italicAction" />
+              <node type="Separator" />
+              <node type="Toolitem" action="justifyLeftAction" />
+              <node type="Toolitem" action="justifyRightAction" />
+              <node type="Toolitem" action="justifyFillAction" />
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="scrolledwindow">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
             <property name="ShadowType">In</property>
             <child>
-              <widget class="Gtk.TextView" id="textview">
+              <widget class="Gtk.Viewport" id="GtkViewport">
                 <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="ShowScrollbars">True</property>
-                <property name="Text" translatable="yes" />
-                <property name="WrapMode">WordChar</property>
+                <property name="ShadowType">None</property>
+                <child>
+                  <placeholder />
+                </child>
               </widget>
             </child>
           </widget>
           <packing>
-            <property name="Position">0</property>
+            <property name="Position">1</property>
             <property name="AutoSize">True</property>
           </packing>
         </child>
@@ -8746,6 +8799,7 @@ End date</property>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.TrackingShow" design-size="957 490">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
