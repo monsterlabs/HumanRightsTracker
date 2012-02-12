@@ -21,7 +21,7 @@ namespace Views
                 Restrictions.InsensitiveLike("Name", caseName.Text, MatchMode.Anywhere) };
             Case[] cases = Case.FindAll (criteria);
             CasesReportGenerator report = new CasesReportGenerator (cases);
-            report.SaveTo (Path.Combine(folderChooser.CurrentFolder, fileName.Text));
+            report.SaveTo (System.IO.Path.Combine(folderChooser.CurrentFolder, fileName.Text));
         }
     }
 }
