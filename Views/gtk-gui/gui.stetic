@@ -12365,11 +12365,30 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ReportsTab" design-size="300 300">
+  <widget class="Gtk.Bin" id="Views.ReportsTab" design-size="402 317">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <placeholder />
+      <widget class="Gtk.Notebook" id="notebook1">
+        <property name="MemberName" />
+        <property name="CanFocus">True</property>
+        <property name="CurrentPage">0</property>
+        <child>
+          <widget class="Views.CasesReportForm" id="casesreportform1">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">page1</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.ReportsTab" design-size="300 300">
@@ -12395,7 +12414,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="460 265">
+  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="460 285">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -12490,14 +12509,14 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label4">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Case Name&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
+                        <property name="AutoSize">False</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
+                        <property name="XExpand">True</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -12508,16 +12527,16 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label5">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Human Right&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
                         <property name="TopAttach">1</property>
                         <property name="BottomAttach">2</property>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
+                        <property name="AutoSize">False</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
+                        <property name="XExpand">True</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -12528,6 +12547,7 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label6">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Victim Name&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
@@ -12548,6 +12568,7 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label8">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;From Date&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
@@ -12568,6 +12589,7 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label9">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;To Date&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
@@ -12713,14 +12735,14 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label2">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Folder&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
+                        <property name="AutoSize">False</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
+                        <property name="XExpand">True</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -12731,6 +12753,7 @@ End date</property>
                     <child>
                       <widget class="Gtk.Label" id="label3">
                         <property name="MemberName" />
+                        <property name="Xalign">1</property>
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Name&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
                       </widget>
