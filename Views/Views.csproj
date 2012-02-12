@@ -242,7 +242,6 @@
     <Compile Include="gtk-gui\Views.CaseSummaryWindow.cs" />
     <Compile Include="Windows\ShowNoteWindow.cs" />
     <Compile Include="gtk-gui\Views.ShowNoteWindow.cs" />
-    <Compile Include="Cases\CaseReportWindow.cs" />
     <Compile Include="gtk-gui\Views.CaseReportWindow.cs" />
     <Compile Include="Widgets\NumberSelector.cs" />
     <Compile Include="gtk-gui\Views.NumberSelector.cs" />
@@ -254,6 +253,7 @@
     <Compile Include="gtk-gui\Views.HumanRightViolationSelector.cs" />
     <Compile Include="ChangePassword\ChangePasswordTab.cs" />
     <Compile Include="gtk-gui\Views.ChangePasswordTab.cs" />
+    <Compile Include="Reports\CaseReportWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -284,6 +284,7 @@
     <Folder Include="CaseRelationships\" />
     <Folder Include="Addresses\" />
     <Folder Include="ChangePassword\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
