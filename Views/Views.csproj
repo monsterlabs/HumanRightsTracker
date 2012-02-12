@@ -254,6 +254,10 @@
     <Compile Include="ChangePassword\ChangePasswordTab.cs" />
     <Compile Include="gtk-gui\Views.ChangePasswordTab.cs" />
     <Compile Include="Reports\CaseReportWindow.cs" />
+    <Compile Include="Reports\ReportsTab.cs" />
+    <Compile Include="gtk-gui\Views.ReportsTab.cs" />
+    <Compile Include="Reports\CasesReportForm.cs" />
+    <Compile Include="gtk-gui\Views.CasesReportForm.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
