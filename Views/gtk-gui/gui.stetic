@@ -4931,11 +4931,10 @@ End date</property>
                                 <property name="BottomAttach">2</property>
                                 <property name="AutoSize">True</property>
                                 <property name="XOptions">Fill</property>
-                                <property name="YOptions">Fill</property>
                                 <property name="XExpand">False</property>
                                 <property name="XFill">True</property>
                                 <property name="XShrink">False</property>
-                                <property name="YExpand">False</property>
+                                <property name="YExpand">True</property>
                                 <property name="YFill">True</property>
                                 <property name="YShrink">False</property>
                               </packing>
@@ -5517,7 +5516,6 @@ End date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">radiobutton2</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -12365,7 +12363,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ReportsTab" design-size="402 317">
+  <widget class="Gtk.Bin" id="Views.ReportsTab" design-size="599 317">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -12382,7 +12380,8 @@ End date</property>
         <child>
           <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">page1</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Case Report&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
           </widget>
           <packing>
             <property name="type">tab</property>
@@ -12391,30 +12390,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.ReportsTab" design-size="300 300">
-    <property name="MemberName" />
-    <property name="Visible">False</property>
-    <child>
-      <widget class="Gtk.Notebook" id="notebook1">
-        <property name="MemberName" />
-        <property name="CanFocus">True</property>
-        <property name="CurrentPage">0</property>
-        <child>
-          <placeholder />
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="label1">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">page1</property>
-          </widget>
-          <packing>
-            <property name="type">tab</property>
-          </packing>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="460 285">
+  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="554 297">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -12436,8 +12412,8 @@ End date</property>
                     <property name="MemberName" />
                     <property name="NRows">5</property>
                     <property name="NColumns">2</property>
-                    <property name="RowSpacing">6</property>
-                    <property name="ColumnSpacing">6</property>
+                    <property name="RowSpacing">8</property>
+                    <property name="ColumnSpacing">14</property>
                     <child>
                       <widget class="Gtk.Entry" id="caseName">
                         <property name="MemberName" />
@@ -12486,7 +12462,7 @@ End date</property>
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
                         <property name="OrderById">False</property>
-                        <property name="Model">HumanRightViolationCategory</property>
+                        <property name="Model">HumanRightsViolationCategory</property>
                         <property name="IsEditable">False</property>
                         <property name="HideAddButton">False</property>
                         <property name="HideNoteButton">False</property>
@@ -12515,8 +12491,9 @@ End date</property>
                       </widget>
                       <packing>
                         <property name="AutoSize">False</property>
+                        <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">True</property>
+                        <property name="XExpand">False</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -12535,8 +12512,9 @@ End date</property>
                         <property name="TopAttach">1</property>
                         <property name="BottomAttach">2</property>
                         <property name="AutoSize">False</property>
+                        <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">True</property>
+                        <property name="XExpand">False</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -12689,8 +12667,8 @@ End date</property>
                     <property name="MemberName" />
                     <property name="NRows">2</property>
                     <property name="NColumns">2</property>
-                    <property name="RowSpacing">6</property>
-                    <property name="ColumnSpacing">6</property>
+                    <property name="RowSpacing">8</property>
+                    <property name="ColumnSpacing">14</property>
                     <child>
                       <widget class="Gtk.Entry" id="fileName">
                         <property name="MemberName" />
@@ -12741,8 +12719,9 @@ End date</property>
                       </widget>
                       <packing>
                         <property name="AutoSize">False</property>
+                        <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
-                        <property name="XExpand">True</property>
+                        <property name="XExpand">False</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>

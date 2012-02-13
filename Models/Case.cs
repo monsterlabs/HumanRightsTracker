@@ -89,6 +89,36 @@ namespace HumanRightsTracker.Models
         public static Case[] FindAllOrderedByName() {
             return Case.FindAll(new Order[] { Order.Asc ("Name") });
         }
+
+        public String[] ToReportArray ()
+        {
+            string AffectedRight = "";
+            string Acts = "";
+            string Statuses = "";
+
+            foreach (Act act in this.Acts)
+            {
+                AffectedRight += act.HumanRightsViolationCategory.Name + ", ";
+                Acts += act.HumanRightsViolation.Name + ", ";
+                if (act.ActStatus != null)
+                    Statuses += act.ActStatus.Name + ", ";
+                else
+                    Statuses +=  "Ninguno, ";
+            }
+
+            string startDate = this.start_date == null ? "" : this.start_date.Value.ToShortDateString ();
+            string endDate = this.end_date == null ? "" : this.end_date.Value.ToShortDateString ();
+
+            return new String[] {
+                this.Name,
+                AffectedRight,
+                Acts,
+                Statuses,
+                this.victimList ().Count.ToString (),
+                startDate,
+                endDate
+            };
+        }
     }
 }
 

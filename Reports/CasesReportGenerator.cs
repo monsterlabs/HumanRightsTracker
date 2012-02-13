@@ -15,21 +15,10 @@ namespace Reports
     {
         public CasesReportGenerator (Case[] cases)
         {
-            /*
-            * Nombre del caso, incluir los lugares
-            * Derecho afectado
-            * Tipo de violación o acto, incluyendo lugar
-            * Número de perpetrador, tipos de perpetradores (jobs)
-            * Número de víctimas
-            * Estado del caso < El último estado en el seguimiento del caso
-            * Fechas de cada acto
-            * Fecha de inicio y termino del caso
-            */
-
-            AddHeader (0, new String[] {"Nombre del caso", "Número de Víctimas"});
-            for (int i = 1, max = cases.Length; i < max; i++) {
+            AddHeader (0, new String[] {"Nombre del caso", "Derecho afectado", "Tipo de actos", "Estado de los actos", "Número de Víctimas", "Fecha de inicio", "Fecha de término"});
+            for (int i = 0, max = cases.Length; i < max; i++) {
                 Case acase = cases[i];
-                AddRow (i, new String[] {acase.Name, acase.victimList ().Count.ToString ()});
+                AddRow (i+1, acase.ToReportArray ());
             }
         }
 

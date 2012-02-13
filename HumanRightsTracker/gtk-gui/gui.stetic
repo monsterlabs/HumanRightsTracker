@@ -502,6 +502,7 @@ Copyright 2011 © i(dh)eas
     </child>
   </widget>
   <widget class="Gtk.Window" id="HumanRightsTracker.MainWindow" design-size="1038 542">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -510,7 +511,7 @@ Copyright 2011 © i(dh)eas
       <widget class="Gtk.Notebook" id="notebook2">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">0</property>
+        <property name="CurrentPage">2</property>
         <property name="TabPos">Left</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
@@ -607,7 +608,7 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Views.CatalogTab" id="catalogtab">
+          <widget class="Views.ReportsTab" id="reportstab">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
           </widget>
@@ -616,9 +617,9 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label152">
+          <widget class="Gtk.Label" id="label158">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">&lt;b&gt;Catalogs&lt;/b&gt;</property>
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Reports&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
@@ -635,9 +636,28 @@ Copyright 2011 © i(dh)eas
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label138">
+          <widget class="Gtk.Label" id="label178">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">&lt;b&gt;Change password&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Views.CatalogTab" id="catalogtab">
+            <property name="MemberName" />
+            <property name="Events">ButtonPressMask</property>
+          </widget>
+          <packing>
+            <property name="Position">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label138">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Catalogs&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
           </widget>
           <packing>
