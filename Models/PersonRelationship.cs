@@ -4,7 +4,6 @@ using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using System.Collections;
 
-
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("person_relationships")]
@@ -38,7 +37,6 @@ namespace HumanRightsTracker.Models
 
         [Property("comments")]
         public String Comments { get; set;}
-
 
         public string[] ColumnData ()
         {
@@ -90,4 +88,3 @@ namespace HumanRightsTracker.Models
         }
     }
 }
-

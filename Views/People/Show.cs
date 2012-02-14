@@ -40,8 +40,10 @@ namespace Views.People
                         identification_frame.Destroy ();
                         if (this.person.Id == 0 ) {
                           address_frame.Hide ();
+                          relationships_list_frame.Hide ();
                         } else {
                            SetAddressList ();
+                           SetPersonRelationships ();
                         }
                     } else {
                         set_person_details_widgets ();
@@ -53,9 +55,11 @@ namespace Views.People
                             contact_info_frame.Hide ();
                             identification_frame.Hide ();
                             place_of_birth_frame.Hide ();
+                            relationships_list_frame.Hide ();
                         } else {
                             set_identification_widgets ();
                             SetAddressList ();
+                            SetPersonRelationships ();
                             contact_info_frame.Show ();
                             identification_frame.Show ();
                             place_of_birth_frame.Show ();
@@ -107,8 +111,10 @@ namespace Views.People
 
                 if ((this.person == null || this.person.Id == 0) && this.isImmigrant == false)  {
                     address_frame.Show ();
+                    //relationships_list_frame.Show ();
                 } else {
                     SetAddressList();
+                    SetPersonRelationships();
                 }
             }
         }
@@ -384,8 +390,8 @@ namespace Views.People
         }
 
         private void ReloadAddresses () {
-            List<ListableRecord> addresses = this.Person.Addresses.Cast<ListableRecord>().ToList ();
-            address_list.Records = addresses;
+            List<ListableRecord> addresses = this.person.Addresses.Cast<ListableRecord>().ToList ();
+            address_list.Records = addresses.Cast<ListableRecord>().ToList ();
         }
 
         public void ConnectAddressesHandlers() {
@@ -395,23 +401,58 @@ namespace Views.People
                 }, (Gtk.Window) this.Toplevel);
             };
             address_list.DeleteButtonPressed += (sender, e) => {
-                Address a = sender as Address;
-                this.Person.Addresses.Remove (a);
-                if (a.Id >= 1) {
-                    a.DeleteAndFlush ();
+                Address record = sender as Address;
+                this.Person.Addresses.Remove (record);
+                if (record.Id >= 1) {
+                    record.DeleteAndFlush ();
                 }
                 this.ReloadAddresses ();
             };
             address_list.DetailButtonPressed += (sender, e) => {
-                Address a = sender as Address;
-                new AddressDetailWindow(a, (o, args) => {
+                Address record = sender as Address;
+                new AddressDetailWindow(record, (o, args) => {
                     this.ReloadAddresses ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }
 
         public void SetPersonRelationships () {
-            person_relationship_list.Records = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
+            if (this.person != null && this.person.Id > 0) {
+                ConnectPersonRelationshipsHandlers();
+                person_relationship_list.Records = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
+            }
+            else
+            {
+                relationships_list_frame.Hide ();
+            }
         }
+
+        private void ReloadPersonRelationships () {
+            List<ListableRecord> person_relationships = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
+            person_relationship_list.Records = person_relationships.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ConnectPersonRelationshipsHandlers() {
+            person_relationship_list.NewButtonPressed += (sender, e) => {
+                new PersonRelationshipDetailWindow (this.Person, (o, args) => {
+                    this.ReloadPersonRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            person_relationship_list.DeleteButtonPressed += (sender, e) => {
+                PersonRelationship record = sender as PersonRelationship;
+                this.Person.PersonRelationships.Remove (record);
+                if (record.Id >= 1) {
+                    record.DeleteAndFlush ();
+                }
+                this.ReloadPersonRelationships ();
+            };
+            person_relationship_list.DetailButtonPressed += (sender, e) => {
+                PersonRelationship record = sender as PersonRelationship;
+                new PersonRelationshipDetailWindow (record, (o, args) => {
+                    this.ReloadPersonRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+        
     }
 }

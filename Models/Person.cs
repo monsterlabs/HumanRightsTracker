@@ -70,13 +70,8 @@ namespace HumanRightsTracker.Models
             set { immigration_attempts = value; }
         }
 
-        private IList addresses = new ArrayList();
         [HasMany(typeof(Address), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Addresses
-        {
-            get { return addresses; }
-            set { addresses = value; }
-        }
+        public IList Addresses { get; set; }
 
         private IList identifications = new ArrayList();
         [HasMany(typeof(Identification), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
@@ -143,14 +138,9 @@ namespace HumanRightsTracker.Models
             set { institution_and_job_as_supporters = value; }
         }
 
-        private  IList person_relationships = new ArrayList();
-        [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Lazy=true)]
-        public IList PersonRelationships
-        {
-            get { return person_relationships; }
-            set { person_relationships = value; }
-        }
-        
+        [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList PersonRelationships { get; set; }
+
         public String Fullname
         {
             get
