@@ -43,7 +43,7 @@ namespace Views
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
             OnSaved (sender, e);
-            this.Destroy ();
+            //this.Destroy ();
         }
 
         protected void OnShowCanceled (object sender, System.EventArgs e)
