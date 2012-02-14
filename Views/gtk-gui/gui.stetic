@@ -1911,6 +1911,103 @@ Municipality</property>
                     <property name="AutoSize">True</property>
                   </packing>
                 </child>
+                <child>
+                  <widget class="Gtk.Frame" id="address_list_frame1">
+                    <property name="MemberName" />
+                    <property name="ShadowType">In</property>
+                    <child>
+                      <widget class="Gtk.Alignment" id="GtkAlignment48">
+                        <property name="MemberName" />
+                        <property name="Xalign">0</property>
+                        <property name="Yalign">0</property>
+                        <property name="LeftPadding">12</property>
+                        <child>
+                          <widget class="Gtk.VBox" id="vbox7">
+                            <property name="MemberName" />
+                            <property name="Spacing">6</property>
+                            <child>
+                              <widget class="Gtk.Expander" id="expander2">
+                                <property name="MemberName" />
+                                <property name="CanFocus">True</property>
+                                <property name="BorderWidth">9</property>
+                                <child>
+                                  <widget class="Views.EditableList" id="person_relationship_list">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <property name="Headers">Person
+Relation type
+Related person
+Start date
+End date</property>
+                                    <property name="IsEditable">False</property>
+                                  </widget>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="GtkLabel59">
+                                    <property name="MemberName" />
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Individual or immigrant actors&lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                    <property name="UseUnderline">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="type">label_item</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="Position">0</property>
+                                <property name="AutoSize">False</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Gtk.Expander" id="expander4">
+                                <property name="MemberName" />
+                                <property name="CanFocus">True</property>
+                                <property name="BorderWidth">9</property>
+                                <child>
+                                  <placeholder />
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="GtkLabel60">
+                                    <property name="MemberName" />
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Organizations or Institutions &lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                    <property name="UseUnderline">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="type">label_item</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="Position">1</property>
+                                <property name="AutoSize">False</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="GtkLabel63">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Relationship between actors&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
+                      </widget>
+                      <packing>
+                        <property name="type">label_item</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="Position">8</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
                 <property name="X">125</property>
@@ -1968,7 +2065,7 @@ Municipality</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.VBox" id="vbox5">
+          <widget class="Gtk.VBox" id="vbox8">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
@@ -1986,17 +2083,6 @@ Municipality</property>
           </widget>
           <packing>
             <property name="Position">2</property>
-            <property name="AutoSize">False</property>
-            <property name="Expand">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Views.InstitutionAndJobPerPerson" id="institution_and_job_per_person">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-          </widget>
-          <packing>
-            <property name="Position">3</property>
             <property name="AutoSize">False</property>
             <property name="Expand">False</property>
           </packing>

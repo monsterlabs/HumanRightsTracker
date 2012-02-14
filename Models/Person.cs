@@ -143,6 +143,14 @@ namespace HumanRightsTracker.Models
             set { institution_and_job_as_supporters = value; }
         }
 
+        private  IList person_relationships = new ArrayList();
+        [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Lazy=true)]
+        public IList PersonRelationships
+        {
+            get { return person_relationships; }
+            set { person_relationships = value; }
+        }
+        
         public String Fullname
         {
             get

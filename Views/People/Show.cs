@@ -63,7 +63,7 @@ namespace Views.People
                     }
 
                     set_case_list();
-
+                    SetPersonRelationships ();
                     if (this.isImmigrant == false )
                         set_institution_and_job_list();
                 }
@@ -89,12 +89,12 @@ namespace Views.People
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
                     case_per_person.Hide ();
-                    institution_and_job_per_person.Hide ();
+                   // institution_and_job_per_person.Hide ();
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                     case_per_person.Show ();
-                    institution_and_job_per_person.Show ();
+                   // institution_and_job_per_person.Show ();
                 }
 
                 case_per_person.IsEditable = false;
@@ -102,7 +102,7 @@ namespace Views.People
                 this.editable_helper.SetAllEditable(value);
 
                 if (this.isImmigrant == true ) {
-                    institution_and_job_per_person.Hide ();
+                   // institution_and_job_per_person.Hide ();
                 }
 
                 if ((this.person == null || this.person.Id == 0) && this.isImmigrant == false)  {
@@ -249,7 +249,7 @@ namespace Views.People
         }
 
         protected void set_institution_and_job_list() {
-           institution_and_job_per_person.Person = person;
+           //institution_and_job_per_person.Person = person;
         }
 
         protected void person_detail_save ()
@@ -382,6 +382,7 @@ namespace Views.People
                 address_list_frame.Hide ();
            }
         }
+
         private void ReloadAddresses () {
             List<ListableRecord> addresses = this.Person.Addresses.Cast<ListableRecord>().ToList ();
             address_list.Records = addresses;
@@ -407,6 +408,10 @@ namespace Views.People
                     this.ReloadAddresses ();
                 }, (Gtk.Window) this.Toplevel);
             };
+        }
+
+        public void SetPersonRelationships () {
+            person_relationship_list.Records = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
         }
     }
 }
