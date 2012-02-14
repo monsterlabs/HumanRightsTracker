@@ -258,6 +258,8 @@
     <Compile Include="gtk-gui\Views.ReportsTab.cs" />
     <Compile Include="Reports\CasesReportForm.cs" />
     <Compile Include="gtk-gui\Views.CasesReportForm.cs" />
+    <Compile Include="Windows\VictimsWindow.cs" />
+    <Compile Include="gtk-gui\Views.VictimsWindow.cs" />
     <Compile Include="PersonRelationships\PersonRelationshipDetailWindow.cs" />
     <Compile Include="gtk-gui\Views.PersonRelationshipDetailWindow.cs" />
     <Compile Include="PersonRelationships\PersonRelationshipShow.cs" />

@@ -40,13 +40,8 @@ namespace Views
                     affected.Text = act.AffectedPeopleNumber.ToString ();
                     placeselector1.SetPlace (act.Country, act.State, act.City);
 
-                    victimlist.Act = act;
-                    if (act.Victims == null || act.Victims.Count == 0) {
-                        Victim victim = new Victim ();
-                        victim.Act = act;
-                        victim.Perpetrators = new ArrayList ();
-                        victim.Act.Victims = victim.Act.Victims ?? new ArrayList ();
-                        victimshow.Victim = victim;
+                    if (act.Id < 1) {
+                        victims_frame.Hide ();
                     }
                 }
                 IsEditable = false;
@@ -82,8 +77,8 @@ namespace Views
                 }
 
                 this.IsEditable = false;
-            } else
-            {
+                victims_frame.Show ();
+            } else {
                 Console.WriteLine( String.Join(",", act.ValidationErrorMessages) );
                 new ValidationErrorsDialog (act.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
@@ -107,13 +102,9 @@ namespace Views
                 if (value) {
                     editButton1.Label = Catalog.GetString("Cancel");
                     saveButton1.Visible = true;
-                    addVictimButton.Visible = true;
-                    victimshow.ReadOnlyMode(false);
                 } else {
                     editButton1.Label = Catalog.GetString("Edit");
                     saveButton1.Visible = false;
-                    addVictimButton.Visible = false;
-                    victimshow.ReadOnlyMode(true);
                 }
             }
         }
@@ -121,31 +112,6 @@ namespace Views
         public void HideActionButtons () {
             editButton1.Visible = false;
             saveButton1.Visible = false;
-        }
-
-        protected void OnVictimSelected (object sender, System.EventArgs e)
-        {
-            Victim v = sender as Victim;
-            if (v != null) {
-                victimshow.Victim = v;
-                victimshow.IsEditable = IsEditable;
-            }
-        }
-
-        protected void OnVictimSaved (object sender, System.EventArgs e)
-        {
-            victimlist.ReloadStore ();
-        }
-
-        protected void OnAddVictim (object sender, System.EventArgs e)
-        {
-            Victim v = new Victim ();
-            v.Act = act;
-            victimlist.UnselectAll ();
-
-            victimshow.Victim = v;
-            victimshow.Show ();
-            victimshow.IsEditable = true;
         }
 
         protected void OnHumanrightsviolationcategoryCategorySelected (object sender, System.EventArgs e)
@@ -160,6 +126,11 @@ namespace Views
                 Console.WriteLine("Name: " + h.Name);
             }
             humanRightViolation.FilterByCategoryId (category.Id);
+        }
+
+        protected void OnVictimsClicked (object sender, System.EventArgs e)
+        {
+            new VictimsWindow (act, (Gtk.Window) this.Toplevel);
         }
     }
 }
