@@ -52,10 +52,18 @@ namespace HumanRightsTracker.Models
         }
 
         public string ParentName () {
-            return HumanRightsViolationCategory.Find(this.CategoryId).Name;
+            return HumanRightsViolation.Find(this.ParentId).Name;
         }
 
         public string ParentModel () {
+            return "HumanRightsViolation";
+        }
+
+        public string CategoryName () {
+            return HumanRightsViolationCategory.Find(this.CategoryId).Name;
+        }
+
+        public string CategoryModel () {
             return "HumanRightsViolationCategory";
         }
     }

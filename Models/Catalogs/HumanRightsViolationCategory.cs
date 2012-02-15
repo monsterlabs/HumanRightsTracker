@@ -44,6 +44,14 @@ namespace HumanRightsTracker.Models
                                                                                                      Restrictions.Eq("ParentId",0)) });
 
         }
+
+        public string ParentName () {
+            return HumanRightsViolationCategory.Find(this.ParentId).Name;
+        }
+
+        public string ParentModel () {
+            return "HumanRightsViolationCategory";
+        }
     }
 }
 

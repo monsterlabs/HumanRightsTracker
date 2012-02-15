@@ -20,11 +20,27 @@ namespace Views
             MethodInfo parentMethod = mod.Type.GetMethod("ParentName");
             hasParent = parentMethod != null;
             if (hasParent) {
-                ParentName = parentMethod.Invoke (record, null) as String;
                 PropertyInfo parentProp =  mod.Type.GetProperty ("ParentId");
                 parentId = (parentProp.GetValue(record, null) as int?).Value;
+                if (parentId > 0)
+                    ParentName = parentMethod.Invoke (record, null) as String;
+                else
+                    ParentName = "";
             } else {
                 ParentName = "";
+            }
+
+            MethodInfo categoryMethod = mod.Type.GetMethod("CategoryName");
+            hasCategory = categoryMethod != null;
+            if (hasCategory) {
+                PropertyInfo categoryProp =  mod.Type.GetProperty ("CategoryId");
+                categoryId = (categoryProp.GetValue(record, null) as int?).Value;
+                if (categoryId > 0)
+                    CategoryName = categoryMethod.Invoke (record, null) as String;
+                else
+                    CategoryName = "";
+            } else {
+                CategoryName = "";
             }
 
             Selected = false;
@@ -35,6 +51,8 @@ namespace Views
         public int parentId;
         bool hasParent;
         public Object ParentRecord {get; set;}
+        public int categoryId;
+        bool hasCategory;
 
         [Gtk.TreeNodeValue (Column=0)]
         public bool Selected;
@@ -42,6 +60,8 @@ namespace Views
         public string Name;
         [Gtk.TreeNodeValue (Column=2)]
         public string ParentName;
+        [Gtk.TreeNodeValue (Column=3)]
+        public string CategoryName;
 
         public int ParentId {
             get {
@@ -121,13 +141,27 @@ namespace Views
                     //Gtk.CellRendererCombo parentCell = new Gtk.CellRendererCombo ();
 
                     string ParentClassName = modelMethod.Invoke (options.GetValue (0), null) as String;
-                    Type pt = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
+                    //Type pt = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
 
                     CellRendererCatalogSelector parentCell = new CellRendererCatalogSelector (ParentClassName);
                     parentCell.Changed += HandleParentChanged;
                     parentCell.Editable = true;
 
                     table.AppendColumn ("Parent", parentCell, "text", 2);
+                }
+
+                MethodInfo categoryModelMethod = t.GetMethod("CategoryModel");
+                if (categoryModelMethod != null) {
+                    //Gtk.CellRendererCombo parentCell = new Gtk.CellRendererCombo ();
+
+                    string CategoryClassName = modelMethod.Invoke (options.GetValue (0), null) as String;
+                    //Type pt = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
+
+                    CellRendererCatalogSelector categoryCell = new CellRendererCatalogSelector (CategoryClassName);
+                    categoryCell.Changed += HandleParentChanged;
+                    categoryCell.Editable = true;
+
+                    table.AppendColumn ("Category", categoryCell, "text", 3);
                 }
             }
         }
