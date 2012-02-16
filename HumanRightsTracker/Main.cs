@@ -29,8 +29,8 @@ namespace HumanRightsTracker
             ActiveRecordStarter.SessionFactoryHolderCreated += ActiveRecordStarter_SessionFactoryHolderCreated;
 			ActiveRecordStarter.Initialize(asm, config);
 
+            Environment.SetEnvironmentVariable ("LANGUAGE", "es");
             Mono.Unix.Catalog.Init("i8n1", "locale");
-
 			Application.Init ();
 			LoginWindow win = new LoginWindow ();
 			win.Show ();
