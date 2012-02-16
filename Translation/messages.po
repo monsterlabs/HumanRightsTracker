@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-16 01:01:46-0600\n"
-"PO-Revision-Date: 2012-02-16 01:01:47-0600\n"
-"Last-Translator: juanger\n"
+"POT-Creation-Date: 2012-02-16 11:32:56-0600\n"
+"PO-Revision-Date: 2012-02-16 11:32:58-0600\n"
+"Last-Translator: hector\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -285,7 +285,7 @@ msgid "State"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
-msgid "municipality"
+msgid "Municipality"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
@@ -714,7 +714,7 @@ msgid "Institution:"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-msgid "Job:"
+msgid "Perpetrator type:"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
@@ -830,7 +830,7 @@ msgid "<b>Institution:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
-msgid "<b>Job:</b>"
+msgid "<b>Affiliation type:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PersonOrInstitutionSelector.cs:1
@@ -877,6 +877,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.TrackingDetailWindow.cs:1
 msgid "TrackingDetailWindow"
+msgstr ""
+
+#: ../Views/Widgets/EditableList.cs:6
+msgid "Action(s)"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.EditableList.cs:1

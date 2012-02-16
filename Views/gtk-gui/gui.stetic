@@ -2187,7 +2187,7 @@ End date</property>
                 <child>
                   <widget class="Gtk.Label" id="city_label">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">municipality</property>
+                    <property name="LabelProp" translatable="yes">Municipality</property>
                   </widget>
                 </child>
                 <child>
@@ -3569,14 +3569,13 @@ December</property>
                       <widget class="Gtk.Expander" id="places_expander">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
-                        <property name="Expanded">True</property>
                         <child>
                           <widget class="Views.EditableList" id="placeslist">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Headers">Country
 State
-City</property>
+Municipality</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>

@@ -34,7 +34,7 @@ namespace Views
             set {
                 headers = value;
                 Array.Resize(ref headers, headers.Length + 1);
-                headers[headers.Length -1] = "Action(s)";
+                headers[headers.Length -1] = Catalog.GetString("Action(s)");
             }
         }
 
