@@ -28,7 +28,7 @@ namespace Views
                 perpetratorSelector.Person = perpetrator.Person;
                 perpetratorStatusSelector.Active = perpetrator.PerpetratorStatus;
                 institution.Institution = perpetrator.Institution;
-                job.Active = perpetrator.Job;
+                perpetratorTypeSelector.Active = perpetrator.PerpetratorType;
 
                 perpetratoractlist.Perpetrator = perpetrator;
 
@@ -57,7 +57,7 @@ namespace Views
                     saveButton1.Visible = false;
                 }
                 institution.IsEditable = value;
-                job.IsEditable = value;
+                perpetratorTypeSelector.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
                 perpetratorStatusSelector.IsEditable = value;
                 perpetratoractshow.IsEditable = value;
@@ -77,7 +77,7 @@ namespace Views
             bool newRow = perpetrator.Id < 1 ? true : false;
             perpetrator.Person = perpetratorSelector.Person;
             perpetrator.Institution = institution.Institution;
-            perpetrator.Job = job.Active as Job;
+            perpetrator.PerpetratorType = perpetratorTypeSelector.Active as PerpetratorType;
             perpetrator.PerpetratorStatus = perpetratorStatusSelector.Active as PerpetratorStatus;
 
             if (perpetrator.IsValid()) {

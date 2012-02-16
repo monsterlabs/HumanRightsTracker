@@ -19,8 +19,8 @@ namespace HumanRightsTracker.Models
         public Person Person { get; set; }
         [BelongsTo("institution_id"), ValidateNonEmpty]
         public Institution Institution { get; set; }
-        [BelongsTo("job_id")]
-        public Job Job { get; set; }
+        [BelongsTo("perpetrator_type_id")]
+        public PerpetratorType PerpetratorType { get; set; }
         [BelongsTo("perpetrator_status_id"), ValidateNonEmpty]
         public PerpetratorStatus PerpetratorStatus { get; set; }
 
@@ -36,8 +36,8 @@ namespace HumanRightsTracker.Models
                 ""
             };
 
-            if (this.Job != null) {
-                data[3] = this.Job.Name;
+            if (this.PerpetratorType != null) {
+                data[3] = this.PerpetratorType.Name;
             }
 
             return data;

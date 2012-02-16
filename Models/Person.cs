@@ -182,7 +182,7 @@ namespace HumanRightsTracker.Models
             foreach (Perpetrator p in InstitutionAndJobInPerpetrations) {
                 ArrayList institution_and_job = new ArrayList();
                 institution_and_job.Add (p.Institution as Institution);
-                institution_and_job.Add (p.Job as Job);
+                institution_and_job.Add (null);
                 institutions_and_jobs.Add (institution_and_job);
             }
 

@@ -117,7 +117,7 @@ namespace HumanRightsTracker.Models
                 if (p.Victim.Act.Case.Id == c.Id) {
                     ArrayList person_and_job = new ArrayList();
                     person_and_job.Add (p.Person as Person);
-                    person_and_job.Add (p.Job as Job);
+                    person_and_job.Add (null);
                     person_and_job_list.Add (person_and_job);
                 }
             }

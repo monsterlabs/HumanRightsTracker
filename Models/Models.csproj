@@ -129,6 +129,7 @@
     <Compile Include="PersonRelationship.cs" />
     <Compile Include="Catalogs\PersonRelationshipType.cs" />
     <Compile Include="Catalogs\PerpetratorStatus.cs" />
+    <Compile Include="Catalogs\PerpetratorType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
