@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127182600) do
+ActiveRecord::Schema.define(:version => 20120215233400) do
 
   create_table "act_places", :force => true do |t|
     t.string   "name"
@@ -120,11 +120,11 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
 
   create_table "documentary_sources", :force => true do |t|
     t.integer  "case_id"
-    t.string   "name"
+    t.text     "name"
     t.text     "additional_info"
     t.date     "date"
     t.integer  "source_information_type_id"
-    t.string   "site_name"
+    t.text     "site_name"
     t.string   "url"
     t.date     "access_date"
     t.integer  "language_id"
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.text     "observations"
     t.integer  "reported_person_id"
     t.integer  "reported_institution_id"
-    t.integer  "reported_job_id"
+    t.integer  "reported_affiliation_type_id"
     t.integer  "reliability_level_id"
     t.text     "comments"
     t.datetime "created_at"
@@ -156,11 +156,14 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
   create_table "human_rights_violation_categories", :force => true do |t|
     t.string  "name",      :null => false
     t.integer "parent_id"
+    t.text    "notes"
   end
 
   create_table "human_rights_violations", :force => true do |t|
     t.string  "name",        :null => false
     t.integer "category_id"
+    t.integer "parent_id"
+    t.text    "notes"
   end
 
   create_table "identification_types", :force => true do |t|
@@ -185,27 +188,19 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.binary  "icon"
   end
 
-  create_table "immigration_attempts", :force => true do |t|
-    t.integer  "person_id"
-    t.integer  "traveling_reason_id"
-    t.integer  "destination_country_id"
-    t.integer  "transit_country_id"
-    t.integer  "cross_border_attempts_transit_country"
-    t.integer  "expulsions_from_destination_country"
-    t.integer  "expulsions_from_transit_country"
+# Could not dump table "immigration_attempts" because of following StandardError
+#   Unknown type 'bool' for column 'is_traveling_companied'
+
+  create_table "indigenous_groups", :force => true do |t|
+    t.string   "name"
+    t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "time_spent_in_destination_country"
-    t.integer  "origin_country_id"
-    t.integer  "origin_state_id"
-    t.integer  "origin_city_id"
-    t.integer  "cross_border_attempts_destination_country"
-    t.integer  "travel_companion_id"
   end
 
   create_table "indigenous_languages", :force => true do |t|
     t.string   "name"
-    t.string   "notes"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "country_id"
@@ -215,10 +210,10 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.integer  "case_id"
     t.integer  "source_person_id"
     t.integer  "source_institution_id"
-    t.integer  "source_job_id"
+    t.integer  "source_affiliation_type_id"
     t.integer  "reported_person_id"
     t.integer  "reported_institution_id"
-    t.integer  "reported_job_id"
+    t.integer  "reported_affiliation_type_id"
     t.integer  "affiliation_type_id"
     t.integer  "date_type_id"
     t.date     "date"
@@ -281,10 +276,10 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.date     "date"
     t.integer  "interventor_id"
     t.integer  "interventor_institution_id"
-    t.integer  "interventor_job_id"
+    t.integer  "interventor_affiliation_type_id"
     t.integer  "supporter_id"
     t.integer  "supporter_institution_id"
-    t.integer  "supporter_job_id"
+    t.integer  "supporter_affiliation_type_id"
     t.text     "impact"
     t.text     "response"
     t.integer  "case_id"
@@ -319,9 +314,9 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.string  "firstname",         :null => false
     t.string  "lastname",          :null => false
     t.boolean "gender",            :null => false
-    t.date    "birthday",          :null => false
+    t.date    "birthday"
     t.integer "marital_status_id", :null => false
-    t.integer "country_id",        :null => false
+    t.integer "country_id"
     t.integer "state_id"
     t.integer "city_id"
     t.string  "settlement"
@@ -340,13 +335,29 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.datetime "updated_at"
   end
 
+  create_table "perpetrator_statuses", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "perpetrator_types", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "perpetrators", :force => true do |t|
     t.integer  "victim_id"
     t.integer  "person_id"
     t.integer  "institution_id"
-    t.integer  "job_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "perpetrator_status_id"
+    t.integer  "perpetrator_type_id"
   end
 
   create_table "person_details", :force => true do |t|
@@ -356,8 +367,24 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.integer "religion_id"
     t.integer "scholarity_level_id"
     t.integer "job_id"
-    t.string  "indigenous_group"
     t.boolean "is_spanish_speaker"
+    t.integer "indigenous_group_id"
+  end
+
+  create_table "person_relationship_types", :force => true do |t|
+    t.string "name",  :null => false
+    t.text   "notes"
+  end
+
+  create_table "person_relationships", :force => true do |t|
+    t.integer "person_id"
+    t.integer "related_person_id"
+    t.integer "person_relationship_type_id"
+    t.date    "start_date",                  :null => false
+    t.integer "start_date_type_id"
+    t.date    "end_date"
+    t.integer "end_date_type_id"
+    t.text    "comments"
   end
 
   create_table "places", :force => true do |t|
@@ -432,6 +459,7 @@ ActiveRecord::Schema.define(:version => 20120127182600) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "notes"
   end
 
   create_table "victims", :force => true do |t|
