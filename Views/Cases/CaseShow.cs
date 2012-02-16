@@ -309,13 +309,12 @@ namespace Views
 
             if (mycase.IsValid())
             {
-                mycase.Save ();
+                mycase.SaveAndFlush ();
 
                 this.IsEditing = false;
                 if (CaseSaved != null)
                     CaseSaved (mycase, e);
-            } else
-            {
+            } else {
                 Console.WriteLine( String.Join(",", mycase.ValidationErrorMessages) );
                 new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
