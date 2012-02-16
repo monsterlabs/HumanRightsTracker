@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-09 16:48:34-0600\n"
-"PO-Revision-Date: 2012-02-09 16:55:15-0600\n"
+"PO-Revision-Date: 2012-02-15 22:33:57-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -581,7 +581,7 @@ msgstr "<b>Nombre del padre</b>"
 
 #: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
 msgid "Parent value"
-msgstr ""
+msgstr "Valor del Padre"
 
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
 msgid "EditCatalogWindow"

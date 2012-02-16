@@ -236,7 +236,7 @@ namespace Views.People
         protected void set_address_widgets ()
         {
             person.Refresh();
-            if (person.Addresses.Count == 0) {
+            if (person.Addresses == null || person.Addresses.Count == 0) {
                 address = new Address ();
             } else {
                 address = (Address)person.Addresses[0];
@@ -376,7 +376,7 @@ namespace Views.People
         }
 
         private void SetAddressList () {
-            if (this.person.Addresses.Count > 0 ){
+            if (person.Addresses != null && this.person.Addresses.Count > 0 ){
                 ConnectAddressesHandlers ();
                 address_list.Records = this.person.Addresses.Cast<ListableRecord>().ToList ();
                 address_list_frame.Show ();
