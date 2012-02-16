@@ -1,11 +1,12 @@
 using System;
+using Mono.Unix;
 
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
     public partial class BooleanRadioButton : Gtk.Bin, IEditable
     {
-        String[] labels;
+        string[] labels;
         bool isEditable;
 
         public BooleanRadioButton ()
@@ -13,13 +14,13 @@ namespace Views
             this.Build ();
         }
 
-        public String[] Labels {
+        public string[] Labels {
             get { return this.labels; }
 
             set {
                 labels = value;
-                radiobutton_true.Label = labels[0];
-                radiobutton_false.Label = labels[1];
+                radiobutton_true.Label = Catalog.GetString(labels[0]);
+                radiobutton_false.Label = Catalog.GetString(labels[1]);
             }
         }
 
@@ -39,7 +40,7 @@ namespace Views
                 radiobutton_true.Visible = value;
                 radiobutton_false.Visible = value;
                 text.Visible = !value;
-                text.Text = radiobutton_true.Active ? labels[0] : labels[1];
+                text.Text = radiobutton_true.Active ? Catalog.GetString(labels[0]) : Catalog.GetString(labels[1]);
             }
         }
 
