@@ -139,8 +139,8 @@ task :seeds => :environment do
       end
     end
 
-    if !affected_right4.empty? and !@parent.nil?
-      if HumanRightsViolationCategory.exis<ts?(:name => affected_right4, :parent_id => @affected_right_parent.id)
+    if !affected_right4.empty? and !@affected_right_parent.nil?
+      if HumanRightsViolationCategory.exists?(:name => affected_right4, :parent_id => @affected_right_parent.id)
         @affected_right_parent = HumanRightsViolationCategory.where(:name => affected_right4, :parent_id => @affected_right_parent.id).first
       else
         @affected_right_parent = HumanRightsViolationCategory.create(:name => affected_right4, :parent_id => @affected_right_parent.id, :notes => affected_right_note)
@@ -188,8 +188,34 @@ task :seeds => :environment do
   end
   
   AffiliationType.destroy_all
-  CSV.foreach("seeds/affiliation_types.csv", :col_sep => "|") do |row|
-    AffiliationType.create(:name => row[0].strip, :notes => row[1].to_s.strip)
+  book = Spreadsheet.open "seeds/affiliation_types.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+    
+    affiliation_type1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affiliation_type2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affiliation_type_note = row[4].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @affiliation_type_parent = nil
+
+    unless affiliation_type1.empty?
+      if AffiliationType.exists?(:name => affiliation_type1)
+        @affiliation_type_parent = AffiliationType.find_by_name(affiliation_type1)
+      else
+        @affiliation_type_parent = AffiliationType.create(:name => affiliation_type1, :notes => affiliation_type_note)
+      end
+    else
+      next
+    end
+    
+    if !affiliation_type2.empty? and !@affiliation_type_parent.nil?
+      if AffiliationType.exists?(:name => affiliation_type2, :parent_id => @affiliation_type_parent.id)
+        @affiliation_type_parent = AffiliationType.where(:name => affiliation_type2, :parent_id => @affiliation_type_parent.id).first
+      else
+        @affiliation_type_parent = AffiliationType.create(:name => affiliation_type2, :parent_id => @affiliation_type_parent.id, :notes => affiliation_type_note)
+      end
+    end
   end
 
   ActStatus.destroy_all
@@ -223,10 +249,65 @@ task :seeds => :environment do
   end
 
   Job.destroy_all
-  CSV.foreach("seeds/jobs.csv", :col_sep => "|") do |row|
-    Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
-  end
+  book = Spreadsheet.open "seeds/jobs.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+    
+    job1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    job2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    job3 = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    job4 = row[3].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    job5 = row[4].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    job_note = row[5].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @job_parent = nil
 
+    unless job1.empty?
+      if Job.exists?(:name => job1)
+        @job_parent = Job.find_by_name(job1)
+      else
+        @job_parent = Job.create(:name => job1, :notes => job_note)
+      end
+    else
+      next
+    end
+    
+    if !job2.empty? and !@job_parent.nil?
+      if Job.exists?(:name => job2, :parent_id => @job_parent.id)
+        @job_parent = Job.where(:name => job2, :parent_id => @job_parent.id).first
+      else
+        @job_parent = Job.create(:name => job2, :parent_id => @job_parent.id, :notes => job_note)
+      end
+    end
+
+    if !job3.empty? and !@job_parent.nil?
+      if Job.exists?(:name => job3, :parent_id => @job_parent.id)
+        @job_parent= Job.where(:name => job3, :parent_id => @job_parent.id).first
+      else
+        @job_parent= Job.create(:name => job3, :parent_id => @job_parent.id, :notes => job_note)
+      end
+    end
+
+    if !job4.empty? and !@job_parent.nil?
+      if Job.exists?(:name => job4, :parent_id => @job_parent.id)
+        @job_parent = Job.where(:name => job4, :parent_id => @job_parent.id).first
+      else
+        @job_parent = Job.create(:name => job4, :parent_id => @job_parent.id, :notes => job_note)
+      end
+    end
+    
+    if !job5.empty? and !@job_parent.nil?
+      if Job.exists?(:name => job5, :parent_id => @job_parent.id)
+        @job_parent = Job.where(:name => job5, :parent_id => @job_parent.id).first
+      else
+        @job_parent = Job.create(:name => job5, :parent_id => @job_parent.id, :notes => job_note)
+      end
+    end
+    
+  end
+  
+  
   IdentificationType.destroy_all
   CSV.foreach("seeds/identification_types.csv") do |row|
     IdentificationType.create(:name =>  row[0].to_s.strip)
