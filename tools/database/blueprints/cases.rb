@@ -86,11 +86,11 @@ Intervention.blueprint do
 
   interventor_id { Person.all.sample.id }
   interventor_institution_id { Institution.all.sample.id }
-  interventor_job_id { Job.all.sample.id }
+  interventor_affiliation_type_id{ AffiliationType.all.sample.id }
 
   supporter_id { Person.all.sample.id }
   supporter_institution_id { Institution.all.sample.id }
-  supporter_job_id { Job.all.sample.id }
+  supporter_affiliation_type_id { AffiliationType.all.sample.id }
 
   date  { rand(10).months.ago }
   intervention_affected_people(rand(5))

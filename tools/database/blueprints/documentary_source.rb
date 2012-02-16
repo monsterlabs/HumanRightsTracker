@@ -7,7 +7,7 @@ DocumentarySource.blueprint do
   if rand(2) > 0
     reported_person_id { Person.all.sample.id }
     reported_institution_id { Institution.all.sample.id }
-    reported_job_id { Job.all.sample.id }
+    reported_affiliation_type_id { AffiliationType.all.sample.id }
   else
     reported_institution_id { Institution.all.sample.id }
   end

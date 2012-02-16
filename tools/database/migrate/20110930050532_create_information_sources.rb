@@ -5,11 +5,11 @@ class CreateInformationSources < ActiveRecord::Migration
 
       t.integer  :source_person_id
       t.integer  :source_institution_id
-      t.integer  :source_job_id
+      t.integer  :source_affiliation_type_id
 
       t.integer  :reported_person_id
       t.integer  :reported_institution_id
-      t.integer  :reported_job_id
+      t.integer  :reported_affiliation_type_id
 
       t.references :affiliation_type
       t.references :date_type

@@ -14,7 +14,7 @@ class CreateDocumentarySources < ActiveRecord::Migration
       t.text :observations
       t.integer :reported_person_id
       t.integer :reported_institution_id
-      t.integer :reported_job_id
+      t.integer :reported_affiliation_type_id
       t.references :reliability_level
       t.text :comments
 
