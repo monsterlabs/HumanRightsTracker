@@ -26,6 +26,10 @@ namespace Views.People
             this.Build ();
             this.editable_helper = new EditableHelper(this);
             this.IsEditing = false;
+            Catalog.GetString ("Male");
+            Catalog.GetString ("Female");
+            Catalog.GetString ("Yes");
+            Catalog.GetString ("No");
         }
 
         public Person Person {

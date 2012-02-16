@@ -1,24 +1,40 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-09 16:48:34-0600\n"
-"PO-Revision-Date: 2012-02-09 16:48:35-0600\n"
-"Last-Translator: alex\n"
+"POT-Creation-Date: 2012-02-16 01:01:46-0600\n"
+"PO-Revision-Date: 2012-02-16 01:01:47-0600\n"
+"Last-Translator: juanger\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: MonoDevelop Gettext addin\n"
 
-#: ../Views/People/Show.cs:13
+#: ../Views/People/Show.cs:4
+msgid "Male"
+msgstr ""
+
+#: ../Views/People/Show.cs:4
+msgid "Female"
+msgstr ""
+
+#: ../Views/People/Show.cs:4
+msgid "Yes"
+msgstr ""
+
+#: ../Views/People/Show.cs:4
+msgid "No"
+msgstr ""
+
+#: ../Views/People/Show.cs:12
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:6
 #: ../Views/Institutions/InstitutionShow.cs:6
-#: ../Views/Acts/ActsShow.cs:18
+#: ../Views/Acts/ActsShow.cs:16
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
 #: ../Views/Interventions/InterventionShow.cs:9
-#: ../Views/Victim/VictimShow.cs:12
+#: ../Views/Victim/VictimShow.cs:11
 #: ../Views/Perpetrator/PerpetratorShow.cs:8
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
@@ -26,20 +42,21 @@ msgstr ""
 #: ../Views/InformationSources/InformationSourceShow.cs:9
 #: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
 #: ../Views/Addresses/AddressShow.cs:8
+#: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
 msgid "Cancel"
 msgstr ""
 
-#: ../Views/People/Show.cs:13
+#: ../Views/People/Show.cs:12
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:6
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/Institutions/InstitutionShow.cs:6
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
-#: ../Views/Acts/ActsShow.cs:18
+#: ../Views/Acts/ActsShow.cs:16
 #: ../Views/Interventions/InterventionShow.cs:9
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
-#: ../Views/Victim/VictimShow.cs:12
+#: ../Views/Victim/VictimShow.cs:11
 #: ../Views/Perpetrator/PerpetratorShow.cs:8
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/TrackingInformation/TrackingShow.cs:6
@@ -51,6 +68,8 @@ msgstr ""
 #: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
 #: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
 #: ../Views/Addresses/AddressShow.cs:8
+#: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 msgid "Edit"
 msgstr ""
 
@@ -229,6 +248,18 @@ msgid "<b>Address List</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Individual or immigrant actors</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Organizations or Institutions </b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Relationship between actors</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
@@ -240,6 +271,8 @@ msgstr ""
 #: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 #: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+#: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 msgid "Save"
 msgstr ""
 
@@ -270,6 +303,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.CatalogSelector.cs:1
 #: ../Views/gtk-gui/Views.DateSelector.cs:1
 #: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+#: ../Views/People/PersonSelect.cs:5
 #: ../Views/gtk-gui/Views.PersonSelect.cs:1
 #: ../Views/gtk-gui/Views.InstitutionSelect.cs:1
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
@@ -312,6 +346,7 @@ msgid "Supporters"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Filters</b>"
 msgstr ""
 
@@ -345,10 +380,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
-#: ../Views/gtk-gui/Views.ActsShow.cs:1
 #: ../Views/gtk-gui/Views.PeopleSelector.cs:1
 #: ../Views/gtk-gui/Views.VictimSelector.cs:1
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+#: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Add"
 msgstr ""
 
@@ -419,6 +454,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 #: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Name</b>"
 msgstr ""
 
@@ -529,7 +565,12 @@ msgid "<b>Affected people and place</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
+msgid "Open Victims"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ActsShow.cs:1
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+#: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "<b>Victims</b>"
 msgstr ""
 
@@ -621,15 +662,6 @@ msgstr ""
 msgid "<b>Affected People</b>"
 msgstr ""
 
-#: ../Views/People/PersonSelect.cs:5
-msgid "Change"
-msgstr ""
-
-#: ../Views/People/PersonSelect.cs:5
-#: ../Views/gtk-gui/Views.EditableList.cs:1
-msgid "New"
-msgstr ""
-
 #: ../Views/gtk-gui/Views.InterventionDetailWindow.cs:1
 msgid "InterventionDetailWindow"
 msgstr ""
@@ -671,6 +703,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "Perpetrator:"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+msgid "Perpetrator status:"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
@@ -728,6 +764,7 @@ msgid "<b>Associated People</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Case Name</b>"
 msgstr ""
 
@@ -840,6 +877,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.TrackingDetailWindow.cs:1
 msgid "TrackingDetailWindow"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.EditableList.cs:1
+msgid "New"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.EditableListButtons.cs:1
@@ -1049,6 +1090,7 @@ msgid "<b>File name</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Folder</b>"
 msgstr ""
 
@@ -1061,6 +1103,7 @@ msgid "_Cancel"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "_Save"
 msgstr ""
 
@@ -1078,6 +1121,91 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 msgid "<b>Act:</b>"
+msgstr ""
+
+#: ../Views/ChangePassword/ChangePasswordTab.cs:5
+msgid "Your password has been changed!"
+msgstr ""
+
+#: ../Views/ChangePassword/ChangePasswordTab.cs:5
+msgid "Your new password has errors!"
+msgstr ""
+
+#: ../Views/ChangePassword/ChangePasswordTab.cs:5
+msgid "Your current password is incorrect!"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
+#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
+msgid "Wrong password"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
+msgid "<b>Current password</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
+msgid "<b>New password</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
+msgid "<b>Password confirmation</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.ReportsTab.cs:1
+msgid "<b>Case Report</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "<b>Human Right</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "<b>Victim Name</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "<b>From Date</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "<b>To Date</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "Select A Folder"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "<b>Destination</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.VictimsWindow.cs:1
+msgid "VictimsWindow"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PersonRelationshipDetailWindow.cs:1
+msgid "PersonRelationshipDetailWindow"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+msgid "<b>Related person:</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+msgid "<b>Relationship type:</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+msgid "<b>Start date:</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+msgid "<b>End date:</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+msgid "<b>Comments:</b>"
 msgstr ""
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
@@ -1102,6 +1230,14 @@ msgid "<b>Actors</b>"
 msgstr ""
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Reports</b>"
+msgstr ""
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
+msgid "<b>Change password</b>"
+msgstr ""
+
+#: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "<b>Catalogs</b>"
 msgstr ""
 
@@ -1119,9 +1255,5 @@ msgstr ""
 
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
-msgstr ""
-
-#: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
-msgid "Wrong password"
 msgstr ""
 
