@@ -70,7 +70,7 @@ end
 Perpetrator.blueprint do
   person_id { Person.all.sample.id }
   institution_id { Institution.all.sample.id }
-  job_id { Job.all.sample.id }
+  perpetrator_type_id { PerpetratorType.all.sample.id }
   perpetrator_acts(rand(5))
   perpetrator_status_id { PerpetratorStatus.all.sample.id }
 end
