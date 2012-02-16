@@ -21,8 +21,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("source_institution_id")]
         public Institution SourceInstitution { get; set; }
 
-        [BelongsTo("source_job_id")]
-        public Job SourceJob { get; set; }
+        [BelongsTo("source_affiliation_type_id")]
+        public AffiliationType SourceAffiliationType { get; set; }
 
         [BelongsTo("reported_person_id")]
         public Person ReportedPerson { get; set; }
@@ -30,8 +30,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("reported_institution_id")]
         public Institution ReportedInstitution { get; set; }
 
-        [BelongsTo("reported_job_id")]
-        public Job ReportedJob { get; set; }
+        [BelongsTo("reported_affiliation_type_id")]
+        public AffiliationType ReportedAffiliationType { get; set; }
 
         [BelongsTo("affiliation_type_id")]
         public AffiliationType AffiliationType { get; set; }

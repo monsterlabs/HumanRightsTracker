@@ -9,7 +9,7 @@ namespace Views
     {
         protected Person person;
         protected Institution institution;
-        protected Job job;
+        protected AffiliationType affiliation_type;
         protected Boolean allset = false;
         protected PersonAndInstitutionSelect personSelect;
         protected InstitutionSelect institutionSelect;
@@ -35,9 +35,9 @@ namespace Views
             set { person = value; }
         }
 
-         public Job Job {
-            get { return personSelect.Job; }
-            set { job = value; }
+         public AffiliationType AffiliationType {
+            get { return personSelect.AffiliationType; }
+            set { affiliation_type = value; }
         }
 
         public Boolean AllSet {
@@ -80,7 +80,7 @@ namespace Views
             personSelect = new PersonAndInstitutionSelect();
             personSelect.Person = this.person;
             personSelect.Institution = this.institution;
-            personSelect.Job = this.job;
+            personSelect.AffiliationType = this.affiliation_type;
             destroyVboxChildren ();
             vbox.PackEnd (personSelect);
             vbox.ShowAll ();

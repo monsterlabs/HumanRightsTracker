@@ -45,7 +45,7 @@ namespace Views
                             access_date.CurrentDate = documentary_source.AccessDate.Value;
 
                         person_or_institution_selector.Person = documentary_source.ReportedPerson;
-                        person_or_institution_selector.Job = documentary_source.ReportedJob;
+                        person_or_institution_selector.AffiliationType = documentary_source.ReportedAffiliationType;
                         person_or_institution_selector.Institution = documentary_source.ReportedInstitution;
                         person_or_institution_selector.AllSet = true;
                     }
@@ -92,7 +92,7 @@ namespace Views
 
             documentary_source.ReportedPerson = person_or_institution_selector.Person;
             documentary_source.ReportedInstitution = person_or_institution_selector.Institution;
-            documentary_source.ReportedJob = person_or_institution_selector.Job;
+            documentary_source.ReportedAffiliationType = person_or_institution_selector.AffiliationType;
 
             if (documentary_source.IsValid()) {
                 documentary_source.SaveAndFlush ();

@@ -28,9 +28,9 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public Institution InterventorInstitution { get; set; }
 
-        [BelongsTo("interventor_job_id")]
+        [BelongsTo("interventor_affiliation_type_id")]
         [ValidateNonEmpty]
-        public Job InterventorJob { get; set; }
+        public AffiliationType InterventorAffiliationType { get; set; }
 
         [BelongsTo("supporter_id")]
         [ValidateNonEmpty]
@@ -40,9 +40,9 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         public Institution SupporterInstitution { get; set; }
 
-        [BelongsTo("supporter_job_id")]
+        [BelongsTo("supporter_affiliation_type_id")]
         [ValidateNonEmpty]
-        public Job SupporterJob { get; set; }
+        public AffiliationType SupporterAffiliationType { get; set; }
 
         [Property]
         [ValidateNonEmpty]
@@ -63,8 +63,8 @@ namespace HumanRightsTracker.Models
             if (Interventor != null)
                 name = Interventor.Fullname;
 
-            if (InterventorJob != null)
-                name = " " + name + "(" + InterventorJob.Name + ")";
+            if (InterventorAffiliationType != null)
+                name = " " + name + "(" + InterventorAffiliationType.Name + ")";
 
             if (InterventorInstitution != null)
                 name = ", " + name + InterventorInstitution.Name;
@@ -78,8 +78,8 @@ namespace HumanRightsTracker.Models
             if (Supporter != null)
                 name = Supporter.Fullname;
 
-            if (SupporterJob != null)
-                name = " " + name + "(" + SupporterJob.Name + ")";
+            if (SupporterAffiliationType != null)
+                name = " " + name + "(" + SupporterAffiliationType.Name + ")";
 
             if (SupporterInstitution != null)
                 name = ", " + name + SupporterInstitution.Name;

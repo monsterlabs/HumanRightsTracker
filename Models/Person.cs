@@ -189,14 +189,14 @@ namespace HumanRightsTracker.Models
             foreach (Intervention i in InstitutionAndJobAsInterventors) {
                 ArrayList institution_and_job = new ArrayList();
                 institution_and_job.Add (i.InterventorInstitution as  Institution);
-                institution_and_job.Add (i.InterventorJob as Job);
+                institution_and_job.Add (null);
                 institutions_and_jobs.Add (institution_and_job);
             }
 
             foreach (Intervention s in InstitutionAndJobAsSupporters) {
                 ArrayList institution_and_job = new ArrayList();
                 institution_and_job.Add (s.SupporterInstitution as  Institution);
-                institution_and_job.Add (s.SupporterJob as Job);
+                institution_and_job.Add (null);
                 institutions_and_jobs.Add (institution_and_job);
             }
             return institutions_and_jobs;

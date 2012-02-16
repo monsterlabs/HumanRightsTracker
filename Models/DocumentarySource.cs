@@ -21,8 +21,8 @@ namespace HumanRightsTracker.Models
         [BelongsTo("reported_institution_id")]
         public Institution ReportedInstitution { get; set; }
 
-        [BelongsTo("reported_job_id")]
-        public Job ReportedJob { get; set; }
+        [BelongsTo("reported_affiliation_type_id")]
+        public AffiliationType ReportedAffiliationType { get; set; }
 
         [Property("name")]
         public String Name { get; set;}

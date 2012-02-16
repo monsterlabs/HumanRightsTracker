@@ -1,7 +1,6 @@
 using System;
 using HumanRightsTracker.Models;
 
-
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
@@ -34,13 +33,13 @@ namespace Views
             }
         }
 
-        public Job Job {
+        public AffiliationType AffiliationType {
             get {
-                return job.Active as Job;
+                return affiliation_type.Active as AffiliationType;
             }
 
             set {
-                job.Active = value;
+                affiliation_type.Active = value;
             }
         }
 
@@ -50,7 +49,7 @@ namespace Views
                   this.isEditable = value;
                   person.IsEditable = value;
                   institution.IsEditable = value;
-                  job.IsEditable = value;
+                  affiliation_type.IsEditable = value;
                 }
         }
     }

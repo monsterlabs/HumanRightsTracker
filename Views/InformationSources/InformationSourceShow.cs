@@ -29,7 +29,7 @@ namespace Views
                     if (information_source != null) {
                         source_person_selector.Person = information_source.SourcePerson;
                         source_person_selector.Institution = information_source.SourceInstitution;
-                        source_person_selector.Job = information_source.SourceJob;
+                        source_person_selector.AffiliationType = information_source.SourceAffiliationType;
                         source_person_selector.AllSet = true;
 
                         affiliation_type.Active = information_source.AffiliationType;
@@ -43,7 +43,7 @@ namespace Views
 
                         reported_person_selector.Person = information_source.ReportedPerson;
                         reported_person_selector.Institution = information_source.ReportedInstitution;
-                        reported_person_selector.Job = information_source.ReportedJob;
+                        reported_person_selector.AffiliationType = information_source.ReportedAffiliationType;
                         reported_person_selector.AllSet = true;
                     }
                     IsEditable = false;
@@ -75,7 +75,7 @@ namespace Views
 
             information_source.SourcePerson = source_person_selector.Person;
             information_source.SourceInstitution = source_person_selector.Institution;
-            information_source.SourceJob = source_person_selector.Job;
+            information_source.SourceAffiliationType = source_person_selector.AffiliationType;
 
             information_source.AffiliationType = affiliation_type.Active as AffiliationType;
             information_source.Language = language.Active as Language;
@@ -87,7 +87,7 @@ namespace Views
             information_source.DateType = datetypeanddateselector.SelectedDateType ();
             information_source.ReportedPerson = reported_person_selector.Person;
             information_source.ReportedInstitution = reported_person_selector.Institution;
-            information_source.ReportedJob = reported_person_selector.Job;
+            information_source.ReportedAffiliationType = reported_person_selector.AffiliationType;
 
             if (information_source.IsValid()) {
                 information_source.SaveAndFlush ();

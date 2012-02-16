@@ -131,7 +131,7 @@ namespace HumanRightsTracker.Models
                 if (i.Case.Id == c.Id) {
                     ArrayList person_and_job = new ArrayList();
                     person_and_job.Add (i.Interventor  as Person);
-                    person_and_job.Add (i.InterventorJob as Job);
+                    person_and_job.Add (null);
                     person_and_job_list.Add (person_and_job);
                 }
             }
@@ -145,7 +145,7 @@ namespace HumanRightsTracker.Models
                 if (s.Case.Id == c.Id) {
                     ArrayList person_and_job = new ArrayList();
                     person_and_job.Add (s.Supporter  as Person);
-                    person_and_job.Add (s.SupporterJob as Job);
+                    person_and_job.Add (null);
                     person_and_job_list.Add (person_and_job);
                 }
             }

@@ -5832,7 +5832,8 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InterventionShow" design-size="745 693">
+  <widget class="Gtk.Bin" id="Views.InterventionShow" design-size="745 757">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -8654,7 +8655,7 @@ End date</property>
               <widget class="Gtk.Label" id="label6">
                 <property name="MemberName" />
                 <property name="Xalign">0</property>
-                <property name="LabelProp" translatable="yes">&lt;b&gt;Job:&lt;/b&gt;</property>
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Affiliation type:&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
               </widget>
               <packing>
@@ -8665,11 +8666,11 @@ End date</property>
               </packing>
             </child>
             <child>
-              <widget class="Views.CatalogSelector" id="job">
+              <widget class="Views.CatalogSelector" id="affiliation_type">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
                 <property name="OrderById">False</property>
-                <property name="Model">Job</property>
+                <property name="Model">AffiliationType</property>
                 <property name="IsEditable">False</property>
                 <property name="HideAddButton">False</property>
                 <property name="HideNoteButton">False</property>

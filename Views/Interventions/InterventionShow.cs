@@ -34,11 +34,11 @@ namespace Views
 
                     interventorSelect.Person = intervention.Interventor;
                     interventorSelect.Institution = intervention.InterventorInstitution;
-                    interventorSelect.Job = intervention.InterventorJob;
+                    interventorSelect.AffiliationType = intervention.InterventorAffiliationType;
 
                     supporterSelect.Person = intervention.Supporter;
                     supporterSelect.Institution = intervention.SupporterInstitution;
-                    supporterSelect.Job = intervention.SupporterJob;
+                    supporterSelect.AffiliationType = intervention.SupporterAffiliationType;
 
                     // intervention affected people
                     HashSet<Person> affected = new HashSet<Person>(new ARComparer<Person>());
@@ -97,11 +97,11 @@ namespace Views
 
             intervention.Interventor = interventorSelect.Person;
             intervention.InterventorInstitution = interventorSelect.Institution;
-            intervention.InterventorJob = interventorSelect.Job;
+            intervention.InterventorAffiliationType = interventorSelect.AffiliationType;
 
             intervention.Supporter = supporterSelect.Person;
             intervention.SupporterInstitution = supporterSelect.Institution;
-            intervention.SupporterJob = supporterSelect.Job;
+            intervention.SupporterAffiliationType = supporterSelect.AffiliationType;
 
             if (intervention.IsValid())
             {
