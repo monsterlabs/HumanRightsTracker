@@ -277,6 +277,11 @@ task :seeds => :environment do
     IndigenousGroup.create(:name => row[0].strip, :notes => row[1].to_s.strip)
   end
 
+  VictimStatus.destroy_all
+  CSV.foreach("seeds/victim_statuses.csv") do |row|
+     VictimStatus.create(:name => row[0].strip, :notes => row[1].to_s.strip)
+  end
+
   PersonRelationshipType.destroy_all
   CSV.foreach("seeds/person_relationship_types.csv", :col_sep => "|") do |row|
     PersonRelationshipType.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip )
