@@ -188,8 +188,34 @@ task :seeds => :environment do
   end
   
   AffiliationType.destroy_all
-  CSV.foreach("seeds/affiliation_types.csv", :col_sep => "|") do |row|
-    AffiliationType.create(:name => row[0].strip, :notes => row[1].to_s.strip)
+  book = Spreadsheet.open "seeds/affiliation_types.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+    
+    affiliation_type1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affiliation_type2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    affiliation_type_note = row[4].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @affiliation_type_parent = nil
+
+    unless affiliation_type1.empty?
+      if AffiliationType.exists?(:name => affiliation_type1)
+        @affiliation_type_parent = AffiliationType.find_by_name(affiliation_type1)
+      else
+        @affiliation_type_parent = AffiliationType.create(:name => affiliation_type1, :notes => affiliation_type_note)
+      end
+    else
+      next
+    end
+    
+    if !affiliation_type2.empty? and !@affiliation_type_parent.nil?
+      if AffiliationType.exists?(:name => affiliation_type2, :parent_id => @affiliation_type_parent.id)
+        @affiliation_type_parent = AffiliationType.where(:name => affiliation_type2, :parent_id => @affiliation_type_parent.id).first
+      else
+        @affiliation_type_parent = AffiliationType.create(:name => affiliation_type2, :parent_id => @affiliation_type_parent.id, :notes => affiliation_type_note)
+      end
+    end
   end
 
   ActStatus.destroy_all
