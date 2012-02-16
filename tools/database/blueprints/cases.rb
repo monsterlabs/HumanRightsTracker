@@ -72,13 +72,13 @@ Perpetrator.blueprint do
   institution_id { Institution.all.sample.id }
   job_id { Job.all.sample.id }
   perpetrator_acts(rand(5))
+  perpetrator_status_id { PerpetratorStatus.all.sample.id }
 end
 
 PerpetratorAct.blueprint do
   human_rights_violation_id { HumanRightsViolation.all.sample.id }
   act_place_id { ActPlace.all.sample.id }
   location { Faker::Address.street_address }
-
 end
 
 Intervention.blueprint do

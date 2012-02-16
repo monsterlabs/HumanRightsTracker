@@ -21,6 +21,8 @@ namespace HumanRightsTracker.Models
         public Institution Institution { get; set; }
         [BelongsTo("job_id")]
         public Job Job { get; set; }
+        [BelongsTo("perpetrator_status_id"), ValidateNonEmpty]
+        public PerpetratorStatus PerpetratorStatus { get; set; }
 
         [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList PerpetratorActs { get; set; }

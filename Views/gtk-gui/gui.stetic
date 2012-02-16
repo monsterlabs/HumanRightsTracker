@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
@@ -6758,13 +6758,43 @@ Job</property>
                       </packing>
                     </child>
                     <child>
+                      <widget class="Gtk.Label" id="label7">
+                        <property name="MemberName" />
+                        <property name="Xalign">0</property>
+                        <property name="LabelProp" translatable="yes">Perpetrator status:</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">2</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.CatalogSelector" id="perpetratorStatusSelector">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="OrderById">False</property>
+                        <property name="Model">PerpetratorStatus</property>
+                        <property name="IsEditable">False</property>
+                        <property name="HideAddButton">False</property>
+                        <property name="HideNoteButton">False</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">3</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
                       <widget class="Gtk.Label" id="label2">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="LabelProp" translatable="yes">Institution:</property>
                       </widget>
                       <packing>
-                        <property name="Position">2</property>
+                        <property name="Position">4</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -6777,7 +6807,7 @@ Job</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>
-                        <property name="Position">3</property>
+                        <property name="Position">5</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -6790,7 +6820,7 @@ Job</property>
                         <property name="LabelProp" translatable="yes">Job:</property>
                       </widget>
                       <packing>
-                        <property name="Position">4</property>
+                        <property name="Position">6</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -6807,7 +6837,7 @@ Job</property>
                         <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
-                        <property name="Position">5</property>
+                        <property name="Position">7</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -6818,7 +6848,7 @@ Job</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel3">
+              <widget class="Gtk.Label" id="GtkLabel4">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6841,7 +6871,7 @@ Job</property>
             <property name="ShadowType">Out</property>
             <property name="BorderWidth">10</property>
             <child>
-              <widget class="Gtk.Alignment" id="GtkAlignment2">
+              <widget class="Gtk.Alignment" id="GtkAlignment3">
                 <property name="MemberName" />
                 <property name="Xalign">0</property>
                 <property name="Yalign">0</property>
@@ -6911,7 +6941,7 @@ Job</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel5">
+              <widget class="Gtk.Label" id="GtkLabel12">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrator Acts&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -6931,7 +6961,7 @@ Job</property>
             <property name="MemberName" />
             <property name="Size">2</property>
             <child>
-              <widget class="Gtk.Button" id="saveButton">
+              <widget class="Gtk.Button" id="saveButton1">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>

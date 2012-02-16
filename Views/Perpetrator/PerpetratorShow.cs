@@ -26,6 +26,7 @@ namespace Views
             set {
                 perpetrator = value;
                 perpetratorSelector.Person = perpetrator.Person;
+                perpetratorStatusSelector.Active = perpetrator.PerpetratorStatus;
                 institution.Institution = perpetrator.Institution;
                 job.Active = perpetrator.Job;
 
@@ -50,14 +51,15 @@ namespace Views
                 isEditable = value;
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
-                    saveButton.Visible = true;
+                    saveButton1.Visible = true;
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
-                    saveButton.Visible = false;
+                    saveButton1.Visible = false;
                 }
                 institution.IsEditable = value;
                 job.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
+                perpetratorStatusSelector.IsEditable = value;
                 perpetratoractshow.IsEditable = value;
             }
         }
@@ -76,6 +78,7 @@ namespace Views
             perpetrator.Person = perpetratorSelector.Person;
             perpetrator.Institution = institution.Institution;
             perpetrator.Job = job.Active as Job;
+            perpetrator.PerpetratorStatus = perpetratorStatusSelector.Active as PerpetratorStatus;
 
             if (perpetrator.IsValid()) {
                 if (newRow) {

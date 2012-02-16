@@ -5,8 +5,8 @@ using Castle.Components.Validator;
 
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("victim_statuses")]
-    public class VictimStatus : ActiveRecordValidationBase<VictimStatus>
+    [ActiveRecord("perpetrator_statuses")]
+    public class PerpetratorStatus : ActiveRecordValidationBase<PerpetratorStatus>
     {
 
         [PrimaryKey]
