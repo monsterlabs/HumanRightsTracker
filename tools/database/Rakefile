@@ -377,6 +377,12 @@ task :seeds => :environment do
     PersonRelationshipType.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip )
   end
   
+  InstitutionRelationshipType.destroy_all
+  CSV.foreach("seeds/institution_relationship_types.csv") do |row|
+     InstitutionRelationshipType.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip )
+  end
+  
+  
   require "./blueprints/machinist_helper.rb"
   Dir.glob("./blueprints/*.rb").each do |blueprint|
     require blueprint

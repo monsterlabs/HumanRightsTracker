@@ -6966,7 +6966,7 @@ Job</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InstitutionSelect" design-size="314 100">
+  <widget class="Gtk.Bin" id="Views.InstitutionSelect" design-size="306 48">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -8651,7 +8651,6 @@ End date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
