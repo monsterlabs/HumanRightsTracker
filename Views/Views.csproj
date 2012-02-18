@@ -264,6 +264,8 @@
     <Compile Include="gtk-gui\Views.PersonRelationshipDetailWindow.cs" />
     <Compile Include="PersonRelationships\PersonRelationshipShow.cs" />
     <Compile Include="gtk-gui\Views.PersonRelationshipShow.cs" />
+    <Compile Include="Widgets\CatalogSelectorAsTree.cs" />
+    <Compile Include="gtk-gui\Views.CatalogSelectorAsTree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

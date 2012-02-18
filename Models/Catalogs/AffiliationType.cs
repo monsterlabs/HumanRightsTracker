@@ -1,7 +1,11 @@
 using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
+using Castle.ActiveRecord.Queries;
 using Castle.Components.Validator;
+using NHibernate.Criterion;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace HumanRightsTracker.Models
 {
@@ -18,5 +22,20 @@ namespace HumanRightsTracker.Models
 
         [Property]
         public String Notes { get; set; }
+
+        [Property("parent_id")]
+        public int ParentId { get; set; }
+
+        [HasMany(typeof(AffiliationType),  Table="AffiliationTypes", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
+        public IList Children { get; set; }
+
+        public static IList Parents()
+        {
+            return (IList)AffiliationType.FindAll (new Order[] { Order.Asc ("Name") },
+                                                                new ICriterion[] { Restrictions.Or (Restrictions.IsNull("ParentId"),
+                                                                                                     Restrictions.Eq("ParentId",0)) });
+        }
+
+
     }
 }

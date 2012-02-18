@@ -10,6 +10,11 @@ namespace HumanRightsTracker.Models
         {
         }
 
+        public static Object FindFirst(Type t, ICriterion[] criteria)
+        {
+            return FindOne(t, criteria);
+        }
+
         public static Array All(Type t)
         {
             return FindAll(t);
