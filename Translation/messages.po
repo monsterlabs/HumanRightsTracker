@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-16 11:32:56-0600\n"
-"PO-Revision-Date: 2012-02-16 11:32:58-0600\n"
-"Last-Translator: hector\n"
+"POT-Creation-Date: 2012-02-18 03:54:02-0600\n"
+"PO-Revision-Date: 2012-02-18 03:54:04-0600\n"
+"Last-Translator: juanger\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../Views/People/Show.cs:12
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
-#: ../Views/Cases/CaseShow.cs:6
+#: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:6
 #: ../Views/Acts/ActsShow.cs:16
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../Views/People/Show.cs:12
 #: ../Views/gtk-gui/Views.People.Show.cs:1
-#: ../Views/Cases/CaseShow.cs:6
+#: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/Institutions/InstitutionShow.cs:6
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
@@ -179,10 +179,6 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Birthday</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.People.Show.cs:1
-msgid "<b>Settlement</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1

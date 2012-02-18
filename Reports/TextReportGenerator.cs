@@ -16,6 +16,11 @@ namespace Reports
         protected TextStyle BOLD_STYLE;
         protected TextStyle BOLD_UNDERLINE_STYLE;
 
+        //public event EventHandler OverrideConfirmation;
+        public delegate bool OverrideConfirmationDelegate (String name);
+
+        public OverrideConfirmationDelegate OverrideConfirmation;
+
         public TextReportGenerator ()
         {
             iTextSharp.text.Document.Compress = false;
@@ -83,10 +88,19 @@ namespace Reports
             document.Content.Add(paragraph);
         }
 
+        protected bool Save(String name) {
+            if (!File.Exists (name) || (OverrideConfirmation != null && OverrideConfirmation (name))) {
+                return true;
+            }
+            return false;
+        }
+
         public void SaveTo (String name)
         {
-            document.SaveTo (name + ".odt");
-            document.SaveTo (name + ".pdf", new PDFExporter ());
+            if (Save (name + ".odt"))
+                document.SaveTo (name + ".odt");
+            if (Save (name + ".pdf"))
+                document.SaveTo (name + ".pdf", new PDFExporter ());
         }
     }
 }

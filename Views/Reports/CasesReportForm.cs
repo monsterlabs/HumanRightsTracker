@@ -50,7 +50,23 @@ namespace Views
 
             Case[] cases = Case.FindAll (dC);
             CasesReportGenerator report = new CasesReportGenerator (cases);
+            report.OverrideConfirmation = HandleOverrideConfirmation;
             report.SaveTo (System.IO.Path.Combine(folderChooser.CurrentFolder, fileName.Text));
+        }
+
+
+        bool HandleOverrideConfirmation (String name)
+        {
+            Gtk.MessageDialog dialog = new Gtk.MessageDialog(this.Toplevel as Gtk.Window,
+                Gtk.DialogFlags.DestroyWithParent,
+                Gtk.MessageType.Question,
+                Gtk.ButtonsType.YesNo,
+                name + Mono.Unix.Catalog.GetString(" already exists.\n Do you want to override it?"));
+            dialog.Modal = true;
+            Gtk.ResponseType result = (Gtk.ResponseType)dialog.Run();
+            dialog.Destroy ();
+
+            return result == Gtk.ResponseType.Yes;
         }
     }
 }

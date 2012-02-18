@@ -56,7 +56,8 @@ namespace Reports
         public new void SaveTo (String name)
         {
             document.TableCollection.Add(table);
-            document.SaveTo (name + ".ods");
+            if (Save (name + ".ods"))
+                document.SaveTo (name + ".ods");
         }
 
     }
