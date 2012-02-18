@@ -99,6 +99,9 @@
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>..\lib\Mono.Data.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Components.Validator.resources">
+      <HintPath>..\lib\Castle\es\Castle.Components.Validator.resources.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">

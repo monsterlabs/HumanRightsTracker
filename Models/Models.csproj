@@ -59,14 +59,17 @@
     <Reference Include="Castle.ActiveRecord, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\lib\Castle\Castle.ActiveRecord.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
-      <HintPath>..\lib\Castle\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Components.Validator, Version=2.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\lib\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Components.Validator.resources">
+      <HintPath>..\lib\Castle\es\Castle.Components.Validator.resources.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

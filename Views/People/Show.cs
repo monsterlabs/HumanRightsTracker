@@ -30,6 +30,8 @@ namespace Views.People
             Catalog.GetString ("Female");
             Catalog.GetString ("Yes");
             Catalog.GetString ("No");
+            ConnectAddressesHandlers ();
+            ConnectPersonRelationshipsHandlers();
         }
 
         public Person Person {
@@ -138,15 +140,20 @@ namespace Views.People
             prepare_person_record ();
             if (person.IsValid())
             {
+                bool isNew = person.Id == 0;
                 person.SaveAndFlush ();
 
                 this.IsEditing = false;
                 if (PersonSaved != null) {
-                    address_save ();
                     if (this.isImmigrant == true ) {
                         person_detail_save ();
                         immigration_attempt_save ();
-                        identification_save ();
+                        if (!isNew) {
+                            identification_save ();
+                            address_save ();
+                        }
+                    } else {
+                        address_save ();
                     }
 
                     image_save ();
@@ -177,7 +184,6 @@ namespace Views.People
             marital_status.Active = person.MaritalStatus;
             citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
-            settlement.Text = person.Settlement == null ? "" : person.Settlement;
             imageselector1.Image = person.Photo.Image;
             if (person.Birthday.Year > 1) {
                 age.Active = DateTime.Now.Subtract(person.Birthday).Days/365;
@@ -366,7 +372,6 @@ namespace Views.People
             person.MaritalStatus = marital_status.Active as MaritalStatus;
             person.Citizen = citizen.Active as Country;
             person.Gender = gender.Value ();
-            person.Settlement = settlement.Text;
         }
 
         protected void image_save () {
@@ -381,7 +386,7 @@ namespace Views.People
 
         private void SetAddressList () {
             if (person.Addresses != null && this.person.Addresses.Count > 0 ){
-                ConnectAddressesHandlers ();
+                //ConnectAddressesHandlers ();
                 address_list.Records = this.person.Addresses.Cast<ListableRecord>().ToList ();
                 address_list_frame.Show ();
                 address_frame.Hide ();
@@ -421,8 +426,8 @@ namespace Views.People
         }
 
         public void SetPersonRelationships () {
-            if (this.person != null && this.person.Id > 0) {
-                ConnectPersonRelationshipsHandlers();
+            if (this.person != null && this.person.Id > 0 && this.person.PersonRelationships != null)  {
+                //ConnectPersonRelationshipsHandlers();
                 person_relationship_list.Records = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
             }
             else

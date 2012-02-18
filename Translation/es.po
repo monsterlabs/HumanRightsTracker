@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 11:32:56-0600\n"
-"PO-Revision-Date: 2012-02-16 11:33:46-0600\n"
+"POT-Creation-Date: 2012-02-16 01:01:46-0600\n"
+"PO-Revision-Date: 2012-02-17 21:14:16-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -290,7 +290,7 @@ msgid "State"
 msgstr "Estado"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
-msgid "Municipality"
+msgid "municipality"
 msgstr "Municipio"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
@@ -722,9 +722,8 @@ msgid "Institution:"
 msgstr "Organización o institución:"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-#, fuzzy
-msgid "Perpetrator type:"
-msgstr "Perpetrador"
+msgid "Job:"
+msgstr "Tipo:"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "<b>Perpetrator Acts</b>"
@@ -839,9 +838,8 @@ msgid "<b>Institution:</b>"
 msgstr "<b>Organización o institución</b>"
 
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
-#, fuzzy
-msgid "<b>Affiliation type:</b>"
-msgstr "Tipo de afiliación"
+msgid "<b>Job:</b>"
+msgstr "<b>Rol en la institución</b>"
 
 #: ../Views/gtk-gui/Views.PersonOrInstitutionSelector.cs:1
 msgid "Person"
@@ -888,10 +886,6 @@ msgstr "<b>Registros</b>"
 #: ../Views/gtk-gui/Views.TrackingDetailWindow.cs:1
 msgid "TrackingDetailWindow"
 msgstr "Detalles de la información de seguimiento el caso"
-
-#: ../Views/Widgets/EditableList.cs:6
-msgid "Action(s)"
-msgstr "Accion(es)"
 
 #: ../Views/gtk-gui/Views.EditableList.cs:1
 msgid "New"
@@ -1289,12 +1283,6 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
-
-#~ msgid "Job:"
-#~ msgstr "Tipo:"
-
-#~ msgid "<b>Job:</b>"
-#~ msgstr "<b>Rol en la institución</b>"
 
 #~ msgid "Change"
 #~ msgstr "Cambiar"

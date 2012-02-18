@@ -4,6 +4,12 @@ using HumanRightsTracker.Models;
 using Mono.Unix;
 using System.Linq;
 
+using System.Globalization;
+using System.Reflection;
+using System.Resources;
+using System.Threading;
+using Castle.Components.Validator;
+
 namespace Views
 {
     [System.ComponentModel.ToolboxItem(true)]
@@ -310,11 +316,15 @@ namespace Views
             if (mycase.IsValid())
             {
                 mycase.SaveAndFlush ();
-
                 this.IsEditing = false;
                 if (CaseSaved != null)
                     CaseSaved (mycase, e);
             } else {
+                ResourceManager mgr = new ResourceManager("Castle.Components.Validator.Messages", Assembly.GetAssembly(typeof(Castle.Components.Validator.CachedValidationRegistry)));
+                var runner = new ValidatorRunner(new CachedValidationRegistry(mgr));
+                if (runner.IsValid(mycase) || !runner.HasErrors(mycase)) return;
+                //var summary = runner.GetErrorSummary(mycase);
+
                 Console.WriteLine( String.Join(",", mycase.ValidationErrorMessages) );
                 new ValidationErrorsDialog (mycase.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);
             }
