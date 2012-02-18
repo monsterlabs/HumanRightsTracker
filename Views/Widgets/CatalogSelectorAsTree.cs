@@ -146,7 +146,7 @@ namespace Views
         public bool IsEditable {
             set {
                 this.isEditable = value;
-                if (this.isEditable)
+                if (this.isEditable == true)
                     nodeview.Visible = true;
                 else
                     nodeview.Visible = false;
