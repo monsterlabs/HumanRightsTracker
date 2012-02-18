@@ -1219,6 +1219,9 @@ No</property>
                                   <placeholder />
                                 </child>
                                 <child>
+                                  <placeholder />
+                                </child>
+                                <child>
                                   <widget class="Views.DateSelector" id="birthday">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
@@ -1229,8 +1232,6 @@ No</property>
                                   <packing>
                                     <property name="TopAttach">1</property>
                                     <property name="BottomAttach">2</property>
-                                    <property name="LeftAttach">1</property>
-                                    <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1246,22 +1247,13 @@ No</property>
                                   <widget class="Gtk.Fixed" id="fixed31">
                                     <property name="MemberName" />
                                     <property name="HasWindow">False</property>
-                                    <child>
-                                      <widget class="Gtk.Label" id="sexText">
-                                        <property name="MemberName" />
-                                        <property name="Xalign">0</property>
-                                        <property name="LabelProp" translatable="yes">&lt;b&gt;Birthday&lt;/b&gt;</property>
-                                        <property name="UseMarkup">True</property>
-                                      </widget>
-                                    </child>
                                   </widget>
                                   <packing>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
-                                    <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
-                                    <property name="XExpand">False</property>
+                                    <property name="XExpand">True</property>
                                     <property name="XFill">True</property>
                                     <property name="XShrink">False</property>
                                     <property name="YExpand">False</property>
@@ -1270,36 +1262,13 @@ No</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Gtk.Label" id="label33">
+                                  <widget class="Gtk.Label" id="sexText">
                                     <property name="MemberName" />
                                     <property name="Xalign">0</property>
-                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Settlement&lt;/b&gt;</property>
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Birthday&lt;/b&gt;</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="AutoSize">True</property>
-                                    <property name="XOptions">Fill</property>
-                                    <property name="YOptions">Fill</property>
-                                    <property name="XExpand">False</property>
-                                    <property name="XFill">True</property>
-                                    <property name="XShrink">False</property>
-                                    <property name="YExpand">False</property>
-                                    <property name="YFill">True</property>
-                                    <property name="YShrink">False</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <widget class="Views.EditableLabel" id="settlement">
-                                    <property name="MemberName" />
-                                    <property name="Events">ButtonPressMask</property>
-                                    <property name="WidthChars">0</property>
-                                    <property name="MaxLength">0</property>
-                                    <property name="OnlyNumbers">False</property>
-                                    <property name="IsEditable">False</property>
-                                  </widget>
-                                  <packing>
-                                    <property name="TopAttach">1</property>
-                                    <property name="BottomAttach">2</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1929,6 +1898,7 @@ Municipality</property>
                               <widget class="Gtk.Expander" id="expander2">
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
+                                <property name="Expanded">True</property>
                                 <property name="BorderWidth">9</property>
                                 <child>
                                   <widget class="Views.EditableList" id="person_relationship_list">

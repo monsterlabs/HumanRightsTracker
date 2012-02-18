@@ -37,7 +37,6 @@ namespace HumanRightsTracker.Models
         public String Settlement { get; set; }
 
         [Property("is_immigrant")]
-        [ValidateNonEmpty]
         public Boolean IsImmigrant { get; set; }
 
         [Property]
@@ -49,9 +48,9 @@ namespace HumanRightsTracker.Models
         public State State { get; set; }
         [BelongsTo("city_id")]
         public City City { get; set; }
-        [BelongsTo("marital_status_id"), ValidateNonEmpty]
+        [BelongsTo("marital_status_id")]
         public MaritalStatus MaritalStatus { get; set; }
-        [BelongsTo("citizen_id"), ValidateNonEmpty]
+        [BelongsTo("citizen_id")]
         public Country Citizen { get; set; }
 
         private IList details = new ArrayList();
