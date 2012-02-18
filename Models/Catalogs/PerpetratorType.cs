@@ -23,13 +23,11 @@ namespace HumanRightsTracker.Models
         [Property]
         public String Notes { get; set; }
 
-        private IList children = new ArrayList();
+        [Property("parent_id")]
+        public int ParentId { get; set; }
+
         [HasMany(typeof(PerpetratorType),  Table="PerpetratorTypes", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
-        public IList Children
-        {
-            get { return children;}
-            set { children = value; }
-        }
+        public IList Children { get; set; }
 
         public static IList Parents()
         {

@@ -36,6 +36,5 @@ namespace HumanRightsTracker.Models
                                                                                                      Restrictions.Eq("ParentId",0)) });
         }
 
-
     }
 }
