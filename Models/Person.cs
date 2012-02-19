@@ -53,89 +53,38 @@ namespace HumanRightsTracker.Models
         [BelongsTo("citizen_id")]
         public Country Citizen { get; set; }
 
-        private IList details = new ArrayList();
         [HasMany(typeof(PersonDetail), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList PersonDetails
-        {
-            get { return details; }
-            set { details = value; }
-        }
+        public IList PersonDetails { get; set; }
 
-        private IList immigration_attempts = new ArrayList();
         [HasMany(typeof(ImmigrationAttempt), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList ImmigrationAttempts
-        {
-            get { return immigration_attempts; }
-            set { immigration_attempts = value; }
-        }
+        public IList ImmigrationAttempts { get; set; }
 
         [HasMany(typeof(Address), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Addresses { get; set; }
 
-        private IList identifications = new ArrayList();
         [HasMany(typeof(Identification), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Identifications
-        {
-            get { return identifications; }
-            set { identifications = value; }
-        }
+        public IList Identifications { get; set;}
 
-        private IList victims = new ArrayList();
         [HasMany(typeof(Victim), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Victims
-        {
-            get { return victims; }
-            set { victims = value; }
-        }
+        public IList Victims { get; set; }
 
-        private IList perpetrators = new ArrayList();
-        
         [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Perpetrators
-        {
-            get { return perpetrators;}
-            set { perpetrators = value; }
-        }
+        public IList Perpetrators { get; set; }
 
-        private IList interventors = new ArrayList();
         [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Interventors
-        {
-            get { return interventors; }
-            set { interventors = value; }
-        }
+        public IList Interventors { get; set; }
 
-        private IList supporters = new ArrayList();
         [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Supporters
-        {
-            get { return supporters; }
-            set { supporters = value; }
-        }
+        public IList Supporters { get; set; }
 
-        private  IList institution_and_job_in_perpetrations = new ArrayList();
         [HasMany(typeof(Perpetrator), Table="Perpetrators", ColumnKey="person_id", Where = "institution_id IS NOT NULL", Lazy=true)]
-        public IList InstitutionAndJobInPerpetrations
-        {
-            get { return institution_and_job_in_perpetrations; }
-            set { institution_and_job_in_perpetrations = value; }
-        }
+        public IList InstitutionAndJobInPerpetrations { get; set; }
 
-        private  IList institution_and_job_as_interventors = new ArrayList();
         [HasMany(typeof(Intervention), Table="Interventions", ColumnKey="interventor_id", Where = "interventor_institution_id IS NOT NULL", Lazy=true)]
-        public IList InstitutionAndJobAsInterventors
-        {
-            get { return institution_and_job_as_interventors; }
-            set { institution_and_job_as_interventors = value; }
-        }
+        public IList InstitutionAndJobAsInterventors { get; set; }
 
-        private  IList institution_and_job_as_supporters = new ArrayList();
         [HasMany(typeof(Intervention), Table="Interventions", ColumnKey="supporter_id", Where = "supporter_institution_id IS NOT NULL", Lazy=true)]
-        public IList InstitutionAndJobAsSupporters
-        {
-            get { return institution_and_job_as_supporters; }
-            set { institution_and_job_as_supporters = value; }
-        }
+        public IList InstitutionAndJobAsSupporters { get; set; }
 
         [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList PersonRelationships { get; set; }
@@ -174,6 +123,7 @@ namespace HumanRightsTracker.Models
 
             return case_list;
         }
+
 
         public IList institutionAndJobList () {
             IList institutions_and_jobs = new ArrayList();
