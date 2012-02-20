@@ -54,30 +54,24 @@ namespace HumanRightsTracker.Models
         [BelongsTo("city_id")]
         public City City { get; set; }
 
-
-        private IList perpetrators = new ArrayList();
         [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Perpetrators
-        {
-            get { return perpetrators;}
-            set { perpetrators = value; }
-        }
+        public IList Perpetrators { get; set; }
 
-        private IList interventors = new ArrayList();
         [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Interventors
-        {
-            get { return interventors; }
-            set { interventors = value; }
-        }
+        public IList Interventors { get; set; }
 
-        private IList supporters = new ArrayList();
         [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
-        public IList Supporters
-        {
-            get { return supporters; }
-            set { supporters = value; }
-        }
+        public IList Supporters { get; set; }
+
+        [HasMany(typeof(DocumentarySource),  Table="DocumentarySource", ColumnKey="reported_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AsReportedPersonInDocumentarySources{ get; set; }
+
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="source_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AsSourceInInformationSources { get; set; }
+
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AsReportedPersonInInformationSources { get; set; }
+
 
         public Image Photo
         {
@@ -107,6 +101,31 @@ namespace HumanRightsTracker.Models
                 case_list.Add (s.Case);
 
             return case_list;
+        }
+
+        public IList AffiliatedPersonList ()
+        {
+            IList affiliated_people = new ArrayList();
+
+            foreach (Perpetrator p in Perpetrators)
+                affiliated_people.Add (p);
+
+            foreach (Intervention i in Interventors)
+                affiliated_people.Add (i);
+
+            foreach (Intervention i in Supporters)
+                affiliated_people.Add (i);
+
+            foreach (DocumentarySource ds in AsReportedPersonInDocumentarySources)
+                affiliated_people.Add (ds);
+
+            foreach (InformationSource infsrc in AsSourceInInformationSources)
+                affiliated_people.Add (infsrc);
+
+            foreach (InformationSource infsrc in AsReportedPersonInInformationSources)
+                affiliated_people.Add (infsrc);
+
+            return affiliated_people;
         }
 
 
