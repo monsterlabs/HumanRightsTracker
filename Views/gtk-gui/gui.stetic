@@ -7,7 +7,7 @@
   <import>
     <widget-library name="../../bin/Debug/Views.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="Views.People.Show" design-size="962 1763">
+  <widget class="Gtk.Bin" id="Views.People.Show" design-size="968 1763">
     <property name="MemberName" />
     <child>
       <widget class="Gtk.VBox" id="vbox2">
@@ -694,27 +694,37 @@ No</property>
                             <property name="MemberName" />
                             <property name="Spacing">6</property>
                             <child>
-                              <widget class="Gtk.Label" id="label48">
+                              <widget class="Gtk.Frame" id="frame1">
                                 <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">&lt;b&gt;Information about place of origin&lt;/b&gt;</property>
-                                <property name="UseMarkup">True</property>
+                                <property name="ShadowType">In</property>
+                                <child>
+                                  <widget class="Gtk.Alignment" id="GtkAlignment49">
+                                    <property name="MemberName" />
+                                    <property name="Xalign">0</property>
+                                    <property name="Yalign">0</property>
+                                    <property name="LeftPadding">12</property>
+                                    <child>
+                                      <widget class="Views.PlaceSelector" id="place_of_origin">
+                                        <property name="MemberName" />
+                                        <property name="Events">ButtonPressMask</property>
+                                        <property name="IsEditable">False</property>
+                                      </widget>
+                                    </child>
+                                  </widget>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="GtkLabel62">
+                                    <property name="MemberName" />
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Information about place of origin&lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="type">label_item</property>
+                                  </packing>
+                                </child>
                               </widget>
                               <packing>
                                 <property name="Position">0</property>
-                                <property name="AutoSize">True</property>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Views.PlaceSelector" id="place_of_origin">
-                                <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="IsEditable">False</property>
-                              </widget>
-                              <packing>
-                                <property name="Position">1</property>
                                 <property name="AutoSize">True</property>
                                 <property name="Expand">False</property>
                                 <property name="Fill">False</property>
@@ -741,8 +751,8 @@ No</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">4</property>
-                                    <property name="BottomAttach">5</property>
+                                    <property name="TopAttach">2</property>
+                                    <property name="BottomAttach">3</property>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
@@ -766,8 +776,8 @@ No</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">5</property>
-                                    <property name="BottomAttach">6</property>
+                                    <property name="TopAttach">3</property>
+                                    <property name="BottomAttach">4</property>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
@@ -791,8 +801,8 @@ No</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">5</property>
-                                    <property name="BottomAttach">6</property>
+                                    <property name="TopAttach">3</property>
+                                    <property name="BottomAttach">4</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -840,8 +850,8 @@ No</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">7</property>
-                                    <property name="BottomAttach">8</property>
+                                    <property name="TopAttach">5</property>
+                                    <property name="BottomAttach">6</property>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
@@ -865,8 +875,8 @@ No</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">7</property>
-                                    <property name="BottomAttach">8</property>
+                                    <property name="TopAttach">5</property>
+                                    <property name="BottomAttach">6</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -909,8 +919,8 @@ No</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">2</property>
-                                    <property name="BottomAttach">3</property>
+                                    <property name="TopAttach">6</property>
+                                    <property name="BottomAttach">7</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -951,8 +961,8 @@ No</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">6</property>
-                                    <property name="BottomAttach">7</property>
+                                    <property name="TopAttach">4</property>
+                                    <property name="BottomAttach">5</property>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
@@ -993,8 +1003,8 @@ No</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">6</property>
-                                    <property name="BottomAttach">7</property>
+                                    <property name="TopAttach">4</property>
+                                    <property name="BottomAttach">5</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1035,8 +1045,8 @@ No</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">4</property>
-                                    <property name="BottomAttach">5</property>
+                                    <property name="TopAttach">2</property>
+                                    <property name="BottomAttach">3</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1049,15 +1059,15 @@ No</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Gtk.Label" id="label58">
+                                  <widget class="Gtk.Label" id="label61">
                                     <property name="MemberName" />
                                     <property name="Xalign">0</property>
                                     <property name="LabelProp" translatable="yes">&lt;b&gt;Time Spent in Dest. Country&lt;/b&gt;</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">2</property>
-                                    <property name="BottomAttach">3</property>
+                                    <property name="TopAttach">6</property>
+                                    <property name="BottomAttach">7</property>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
@@ -1081,8 +1091,8 @@ No</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">3</property>
-                                    <property name="BottomAttach">4</property>
+                                    <property name="TopAttach">7</property>
+                                    <property name="BottomAttach">8</property>
                                     <property name="LeftAttach">1</property>
                                     <property name="RightAttach">2</property>
                                     <property name="AutoSize">True</property>
@@ -1131,8 +1141,8 @@ No</property>
                                     <property name="HideNoteButton">False</property>
                                   </widget>
                                   <packing>
-                                    <property name="TopAttach">3</property>
-                                    <property name="BottomAttach">4</property>
+                                    <property name="TopAttach">7</property>
+                                    <property name="BottomAttach">8</property>
                                     <property name="AutoSize">True</property>
                                     <property name="XOptions">Fill</property>
                                     <property name="YOptions">Fill</property>
@@ -1146,7 +1156,7 @@ No</property>
                                 </child>
                               </widget>
                               <packing>
-                                <property name="Position">2</property>
+                                <property name="Position">1</property>
                                 <property name="AutoSize">True</property>
                                 <property name="Expand">False</property>
                                 <property name="Fill">False</property>
@@ -2045,7 +2055,7 @@ Date</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.VBox" id="vbox8">
+          <widget class="Gtk.VBox" id="vbox9">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
