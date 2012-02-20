@@ -41,53 +41,51 @@ namespace Views.People
             get { return this.person; }
             set {
                 this.person = value;
-                if (person != null) {
-                    set_person_widgets ();
-                    set_address_widgets ();
-                    if (this.isImmigrant == false)  {
-                        migration_attempts_frame.Destroy ();
-                        identification_frame.Destroy ();
-                        if (this.person.Id < 1 ) {
-                          address_frame.Hide ();
-                          relationships_list_frame.Hide ();
-                            SetAddressList ();
-                        } else {
-                           SetAddressList ();
-                           SetPersonRelationships ();
-                        }
-                    } else {
-                        set_person_details_widgets ();
-                        set_immigration_details_widgets ();
-
-                        if (this.person.Id < 1 ) {
-                            address_frame.Hide ();
-                            address_list_frame.Hide ();
-                            contact_info_frame.Hide ();
-                            identification_frame.Hide ();
-                            place_of_birth_frame.Hide ();
-                            relationships_list_frame.Hide ();
-                        } else {
-                            set_identification_widgets ();
-                            SetAddressList ();
-                            SetPersonRelationships ();
-                            contact_info_frame.Show ();
-                            identification_frame.Show ();
-                            place_of_birth_frame.Show ();
-                        }
-                    }
-                    if (this.person.Id > 0 ) {
-                        SetAffiliationList();
-                        set_case_list();
-                        SetPersonRelationships ();
-
-                        if (this.isImmigrant == false )
-                            set_institution_and_job_list();
-                    }
-                }
-
+                SetWidgets ();
                 IsEditing = false;
             }
 
+        }
+
+        protected void SetWidgets ()
+        {
+            if (person != null && person.Id > 0)
+            {
+                set_person_widgets ();
+                set_address_widgets ();
+                if (this.isImmigrant == false)
+                {
+                    migration_attempts_frame.Destroy ();
+                    identification_frame.Destroy ();
+                    set_institution_and_job_list();
+                 }
+                 else
+                 {
+                    set_person_details_widgets ();
+                    set_immigration_details_widgets ();
+                    set_identification_widgets ();
+                    contact_info_frame.Show ();
+                    identification_frame.Show ();
+                    place_of_birth_frame.Show ();
+                 }
+                 SetAddressList ();
+                 SetPersonRelationships ();
+                 SetAffiliationList();
+                 set_case_list();
+            }
+            else
+            {
+              address_list_frame.Hide ();
+              relationships_list_frame.Hide ();
+              case_per_person.Hide ();
+
+              if (IsImmigrant == true) {
+                 place_of_birth_frame.Hide ();
+                 identification_frame.Hide ();
+                 contact_info_frame.Hide ();
+                 address_frame.Hide ();
+              }
+            }
         }
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
@@ -101,34 +99,19 @@ namespace Views.People
             set
             {
                 isEditing = value;
-
+                SetWidgets();
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
                     case_per_person.Hide ();
-                   // institution_and_job_per_person.Hide ();
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                     case_per_person.Show ();
-                   // institution_and_job_per_person.Show ();
                 }
 
                 case_per_person.IsEditable = false;
-
                 this.editable_helper.SetAllEditable(value);
-
-                if (this.isImmigrant == true ) {
-                   // institution_and_job_per_person.Hide ();
-                }
-
-                if ((this.person == null || this.person.Id == 0) && this.isImmigrant == false)  {
-                    address_frame.Show ();
-                    //relationships_list_frame.Show ();
-                } else {
-                    SetAddressList();
-                    SetPersonRelationships();
-                }
             }
         }
 
@@ -437,13 +420,9 @@ namespace Views.People
         }
 
         public void SetPersonRelationships () {
+            relationships_list_frame.Show ();
             if (this.person != null && this.person.Id > 0 && this.person.PersonRelationships != null)  {
-                //ConnectPersonRelationshipsHandlers();
                 person_relationship_list.Records = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
-            }
-            else
-            {
-                relationships_list_frame.Hide ();
             }
         }
 
