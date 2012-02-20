@@ -24,6 +24,11 @@ namespace Views
             set {
                 perpetratorAct = value;
                 humanRight.Active = value.HumanRightsViolation;
+                if (perpetratorAct.Id < 1) {
+                    humanRight.FilterByCategoryId (value.Perpetrator.Victim.Act.HumanRightsViolationCategory.Id);
+                } else {
+                    humanRight.FilterByCategoryId (value.HumanRightsViolation.CategoryId);
+                }
                 place.Active = value.ActPlace;
                 location.Buffer.Text = value.Location ?? "";
                 IsEditable = false;

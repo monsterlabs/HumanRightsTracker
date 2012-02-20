@@ -6807,274 +6807,287 @@ Job</property>
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <widget class="Gtk.VBox" id="vbox1">
+      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
         <property name="MemberName" />
-        <property name="Spacing">6</property>
+        <property name="ShadowType">In</property>
         <child>
-          <widget class="Gtk.Frame" id="frame2">
+          <widget class="Gtk.Viewport" id="GtkViewport">
             <property name="MemberName" />
-            <property name="ShadowType">Out</property>
-            <property name="BorderWidth">10</property>
+            <property name="ShadowType">None</property>
             <child>
-              <widget class="Gtk.Alignment" id="GtkAlignment1">
+              <widget class="Gtk.VBox" id="vbox1">
                 <property name="MemberName" />
-                <property name="Xalign">0</property>
-                <property name="Yalign">0</property>
-                <property name="LeftPadding">12</property>
-                <property name="BorderWidth">8</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.VBox" id="vbox2">
+                  <widget class="Gtk.Frame" id="frame2">
                     <property name="MemberName" />
-                    <property name="Spacing">6</property>
+                    <property name="ShadowType">Out</property>
+                    <property name="BorderWidth">10</property>
                     <child>
-                      <widget class="Gtk.Label" id="label1">
+                      <widget class="Gtk.Alignment" id="GtkAlignment1">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Perpetrator:</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">0</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Views.PersonSelect" id="perpetratorSelector">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">1</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="label7">
-                        <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Perpetrator status:</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">2</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Views.CatalogSelector" id="perpetratorStatusSelector">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="OrderById">False</property>
-                        <property name="Model">PerpetratorStatus</property>
-                        <property name="IsEditable">False</property>
-                        <property name="HideAddButton">False</property>
-                        <property name="HideNoteButton">False</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">3</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="label2">
-                        <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">Institution:</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">4</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Views.InstitutionSelect" id="institution">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">5</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Views.CatalogSelectorAsTree" id="perpetratorTypeSelector">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="Model">PerpetratorType</property>
-                        <property name="IsEditable">False</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">6</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                  </widget>
-                </child>
-              </widget>
-            </child>
-            <child>
-              <widget class="Gtk.Label" id="GtkLabel4">
-                <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
-                <property name="UseMarkup">True</property>
-              </widget>
-              <packing>
-                <property name="type">label_item</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Frame" id="perpetrator_acts_frame">
-            <property name="MemberName" />
-            <property name="ShadowType">Out</property>
-            <property name="BorderWidth">10</property>
-            <child>
-              <widget class="Gtk.Alignment" id="GtkAlignment3">
-                <property name="MemberName" />
-                <property name="Xalign">0</property>
-                <property name="Yalign">0</property>
-                <property name="LeftPadding">12</property>
-                <child>
-                  <widget class="Gtk.HPaned" id="hpaned1">
-                    <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="Position">190</property>
-                    <child>
-                      <widget class="Gtk.VBox" id="vbox5">
-                        <property name="MemberName" />
-                        <property name="Spacing">6</property>
+                        <property name="Yalign">0</property>
+                        <property name="LeftPadding">12</property>
+                        <property name="BorderWidth">8</property>
                         <child>
-                          <widget class="Views.PerpetratorActList" id="perpetratoractlist">
+                          <widget class="Gtk.VBox" id="vbox2">
                             <property name="MemberName" />
-                            <property name="Events">ButtonPressMask</property>
-                            <signal name="SelectionChanged" handler="OnPerpetratorActSelected" />
-                          </widget>
-                          <packing>
-                            <property name="Position">0</property>
-                            <property name="AutoSize">True</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
-                            <property name="MemberName" />
-                            <property name="Size">1</property>
+                            <property name="Spacing">6</property>
                             <child>
-                              <widget class="Gtk.Button" id="addPerpetratorActButton">
+                              <widget class="Gtk.Label" id="label1">
                                 <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="Type">TextAndIcon</property>
-                                <property name="Icon">stock:gtk-add Menu</property>
-                                <property name="Label" translatable="yes">Add</property>
-                                <property name="UseUnderline">True</property>
-                                <signal name="Clicked" handler="OnAddPerpetratorAct" />
+                                <property name="Xalign">0</property>
+                                <property name="LabelProp" translatable="yes">Perpetrator:</property>
                               </widget>
                               <packing>
+                                <property name="Position">0</property>
+                                <property name="AutoSize">True</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Views.PersonSelect" id="perpetratorSelector">
+                                <property name="MemberName" />
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="IsEditable">False</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">1</property>
+                                <property name="AutoSize">True</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Gtk.Label" id="label7">
+                                <property name="MemberName" />
+                                <property name="Xalign">0</property>
+                                <property name="LabelProp" translatable="yes">Perpetrator status:</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">2</property>
+                                <property name="AutoSize">True</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Views.CatalogSelector" id="perpetratorStatusSelector">
+                                <property name="MemberName" />
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="OrderById">False</property>
+                                <property name="Model">PerpetratorStatus</property>
+                                <property name="IsEditable">False</property>
+                                <property name="HideAddButton">False</property>
+                                <property name="HideNoteButton">False</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">3</property>
+                                <property name="AutoSize">True</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Gtk.Label" id="label2">
+                                <property name="MemberName" />
+                                <property name="Xalign">0</property>
+                                <property name="LabelProp" translatable="yes">Institution:</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">4</property>
+                                <property name="AutoSize">True</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Views.InstitutionSelect" id="institution">
+                                <property name="MemberName" />
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="IsEditable">False</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">5</property>
+                                <property name="AutoSize">True</property>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Views.CatalogSelectorAsTree" id="perpetratorTypeSelector">
+                                <property name="MemberName" />
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="Model">PerpetratorType</property>
+                                <property name="IsEditable">False</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">6</property>
+                                <property name="AutoSize">True</property>
                                 <property name="Expand">False</property>
                                 <property name="Fill">False</property>
                               </packing>
                             </child>
                           </widget>
-                          <packing>
-                            <property name="Position">1</property>
-                            <property name="AutoSize">True</property>
-                            <property name="Expand">False</property>
-                            <property name="Fill">False</property>
-                          </packing>
                         </child>
                       </widget>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="GtkLabel4">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
+                      </widget>
                       <packing>
-                        <property name="Resize">False</property>
+                        <property name="type">label_item</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Frame" id="perpetrator_acts_frame">
+                    <property name="MemberName" />
+                    <property name="ShadowType">Out</property>
+                    <property name="BorderWidth">10</property>
+                    <child>
+                      <widget class="Gtk.Alignment" id="GtkAlignment3">
+                        <property name="MemberName" />
+                        <property name="Xalign">0</property>
+                        <property name="Yalign">0</property>
+                        <property name="LeftPadding">12</property>
+                        <child>
+                          <widget class="Gtk.HPaned" id="hpaned1">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="Position">190</property>
+                            <child>
+                              <widget class="Gtk.VBox" id="vbox5">
+                                <property name="MemberName" />
+                                <property name="Spacing">6</property>
+                                <child>
+                                  <widget class="Views.PerpetratorActList" id="perpetratoractlist">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <signal name="SelectionChanged" handler="OnPerpetratorActSelected" />
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">0</property>
+                                    <property name="AutoSize">True</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+                                    <property name="MemberName" />
+                                    <property name="Size">1</property>
+                                    <child>
+                                      <widget class="Gtk.Button" id="addPerpetratorActButton">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Type">TextAndIcon</property>
+                                        <property name="Icon">stock:gtk-add Menu</property>
+                                        <property name="Label" translatable="yes">Add</property>
+                                        <property name="UseUnderline">True</property>
+                                        <signal name="Clicked" handler="OnAddPerpetratorAct" />
+                                      </widget>
+                                      <packing>
+                                        <property name="Expand">False</property>
+                                        <property name="Fill">False</property>
+                                      </packing>
+                                    </child>
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">1</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="Expand">False</property>
+                                    <property name="Fill">False</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="Resize">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Views.PerpetratorActShow" id="perpetratoractshow">
+                                <property name="MemberName" />
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="IsEditable">False</property>
+                                <signal name="Saved" handler="OnPerpetratorActSaved" />
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="GtkLabel12">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrator Acts&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
+                      </widget>
+                      <packing>
+                        <property name="type">label_item</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HButtonBox" id="hbuttonbox5">
+                    <property name="MemberName" />
+                    <property name="Size">2</property>
+                    <child>
+                      <widget class="Gtk.Button" id="saveButton1">
+                        <property name="MemberName" />
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">Save</property>
+                        <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnSave" />
+                      </widget>
+                      <packing>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Views.PerpetratorActShow" id="perpetratoractshow">
+                      <widget class="Gtk.Button" id="editButton">
                         <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="IsEditable">False</property>
-                        <signal name="Saved" handler="OnPerpetratorActSaved" />
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">Edit</property>
+                        <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnToggle" />
                       </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
                     </child>
                   </widget>
+                  <packing>
+                    <property name="Position">2</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
                 </child>
               </widget>
             </child>
-            <child>
-              <widget class="Gtk.Label" id="GtkLabel12">
-                <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrator Acts&lt;/b&gt;</property>
-                <property name="UseMarkup">True</property>
-              </widget>
-              <packing>
-                <property name="type">label_item</property>
-              </packing>
-            </child>
           </widget>
-          <packing>
-            <property name="Position">1</property>
-            <property name="AutoSize">True</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox5">
-            <property name="MemberName" />
-            <property name="Size">2</property>
-            <child>
-              <widget class="Gtk.Button" id="saveButton1">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Save</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnSave" />
-              </widget>
-              <packing>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="editButton">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Edit</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnToggle" />
-              </widget>
-              <packing>
-                <property name="Position">1</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">2</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
         </child>
       </widget>
     </child>
@@ -7148,7 +7161,7 @@ Job</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorActShow" design-size="607 449">
+  <widget class="Gtk.Bin" id="Views.PerpetratorActShow" design-size="607 490">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -7172,34 +7185,14 @@ Job</property>
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Label" id="label1">
+                      <widget class="Views.HumanRightViolationSelector" id="humanRight">
                         <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">&lt;b&gt;Human Right Violation:&lt;/b&gt;</property>
-                        <property name="UseMarkup">True</property>
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
                         <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Views.CatalogSelector" id="humanRight">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="OrderById">False</property>
-                        <property name="Model">HumanRightsViolation</property>
-                        <property name="IsEditable">False</property>
-                        <property name="HideAddButton">False</property>
-                        <property name="HideNoteButton">False</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">1</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
                       </packing>
                     </child>
                     <child>
@@ -7210,7 +7203,7 @@ Job</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="Position">2</property>
+                        <property name="Position">1</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -7227,7 +7220,7 @@ Job</property>
                         <property name="HideNoteButton">False</property>
                       </widget>
                       <packing>
-                        <property name="Position">3</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -7241,7 +7234,7 @@ Job</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="Position">4</property>
+                        <property name="Position">3</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -7261,7 +7254,7 @@ Job</property>
                         </child>
                       </widget>
                       <packing>
-                        <property name="Position">5</property>
+                        <property name="Position">4</property>
                         <property name="AutoSize">True</property>
                       </packing>
                     </child>
