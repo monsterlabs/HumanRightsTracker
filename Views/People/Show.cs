@@ -44,9 +44,10 @@ namespace Views.People
                     if (this.isImmigrant == false)  {
                         migration_attempts_frame.Destroy ();
                         identification_frame.Destroy ();
-                        if (this.person.Id == 0 ) {
+                        if (this.person.Id < 1 ) {
                           address_frame.Hide ();
                           relationships_list_frame.Hide ();
+                            SetAddressList ();
                         } else {
                            SetAddressList ();
                            SetPersonRelationships ();
@@ -55,7 +56,7 @@ namespace Views.People
                         set_person_details_widgets ();
                         set_immigration_details_widgets ();
 
-                        if (this.person.Id == 0 ) {
+                        if (this.person.Id < 1 ) {
                             address_frame.Hide ();
                             address_list_frame.Hide ();
                             contact_info_frame.Hide ();
@@ -71,11 +72,14 @@ namespace Views.People
                             place_of_birth_frame.Show ();
                         }
                     }
-                    SetAffiliationList();
-                    set_case_list();
-                    SetPersonRelationships ();
-                    if (this.isImmigrant == false )
-                        set_institution_and_job_list();
+                    if (this.person.Id > 0 ) {
+                        SetAffiliationList();
+                        set_case_list();
+                        SetPersonRelationships ();
+
+                        if (this.isImmigrant == false )
+                            set_institution_and_job_list();
+                    }
                 }
 
                 IsEditing = false;
@@ -195,7 +199,7 @@ namespace Views.People
         protected void set_person_details_widgets ()
         {
             person.Refresh();
-            if (person.PersonDetails.Count == 0) {
+            if (person.PersonDetails == null) {
                 person_details = new PersonDetail ();
             } else {
                 person_details = (PersonDetail)person.PersonDetails[0];
@@ -210,7 +214,7 @@ namespace Views.People
         protected void set_immigration_details_widgets ()
         {
             person.Refresh();
-            if (person.ImmigrationAttempts.Count == 0) {
+            if (person.ImmigrationAttempts == null || person.ImmigrationAttempts.Count == 0) {
                 immigration_attempt = new ImmigrationAttempt();
             } else {
                 immigration_attempt = (ImmigrationAttempt)person.ImmigrationAttempts[0];
@@ -234,7 +238,7 @@ namespace Views.People
         protected void set_identification_widgets()
         {
             person.Refresh();
-            if (person.Identifications.Count == 0) {
+            if (person.Identifications == null) {
                 identification = new Identification ();
             } else {
                 identification = (Identification)person.Identifications[0];
