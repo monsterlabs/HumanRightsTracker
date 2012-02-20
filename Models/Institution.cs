@@ -93,15 +93,20 @@ namespace HumanRightsTracker.Models
         public IList caseList () {
             IList case_list = new ArrayList();
 
-            foreach (Perpetrator p in Perpetrators)
-                case_list.Add (p.Victim.Act.Case);
+            if (Perpetrators != null ) {
+                foreach (Perpetrator p in Perpetrators)
+                  case_list.Add (p.Victim.Act.Case);
+            }
 
-            foreach (Intervention i in Interventors)
-                case_list.Add (i.Case);
+            if (Interventors != null ) {
+                foreach (Intervention i in Interventors)
+                   case_list.Add (i.Case);
+            }
 
-
-            foreach (Intervention s in Supporters)
-                case_list.Add (s.Case);
+            if (Supporters != null ) {
+                foreach (Intervention s in Supporters)
+                    case_list.Add (s.Case);
+            }
 
             return case_list;
         }
@@ -110,23 +115,35 @@ namespace HumanRightsTracker.Models
         {
             IList affiliated_people = new ArrayList();
 
-            foreach (Perpetrator p in Perpetrators)
-                affiliated_people.Add (p);
+            if (Perpetrators != null ) {
+                foreach (Perpetrator p in Perpetrators)
+                    affiliated_people.Add (p);
+            }
 
-            foreach (Intervention i in Interventors)
-                affiliated_people.Add (i);
+            if (Interventors != null ) {
+                foreach (Intervention i in Interventors)
+                    affiliated_people.Add (i);
+            }
 
-            foreach (Intervention i in Supporters)
-                affiliated_people.Add (i);
+            if (Supporters != null) {
+                foreach (Intervention i in Supporters)
+                    affiliated_people.Add (i);
+            }
 
-            foreach (DocumentarySource ds in AsReportedPersonInDocumentarySources)
-                affiliated_people.Add (ds);
+            if (AsReportedPersonInDocumentarySources != null) {
+                foreach (DocumentarySource ds in AsReportedPersonInDocumentarySources)
+                    affiliated_people.Add (ds);
+            }
 
-            foreach (InformationSource infsrc in AsSourceInInformationSources)
-                affiliated_people.Add (infsrc);
+            if (AsSourceInInformationSources != null) {
+                foreach (InformationSource infsrc in AsSourceInInformationSources)
+                    affiliated_people.Add (infsrc);
+            }
 
-            foreach (InformationSource infsrc in AsReportedPersonInInformationSources)
-                affiliated_people.Add (infsrc);
+            if (AsReportedPersonInInformationSources != null) {
+                foreach (InformationSource infsrc in AsReportedPersonInInformationSources)
+                    affiliated_people.Add (infsrc);
+            }
 
             return affiliated_people;
         }
@@ -185,6 +202,14 @@ namespace HumanRightsTracker.Models
 
         public static Institution[] FindAllOrderedByName() {
             return Institution.FindAll(new Order[] { Order.Asc ("Name") });
+        }
+
+        public Boolean HasRelateRecords {
+            get {
+                IList affiliations = AffiliatedPersonList ();
+                IList institution_relationships = InstitutionRelationships;
+                return (affiliations.Count > 0 || institution_relationships.Count > 0);
+            }
         }
     }
 }

@@ -139,6 +139,14 @@ namespace HumanRightsTracker.Models
             return affiliations;
         }
 
+        public Boolean HasRelateRecords {
+            get {
+                IList affiliations = AffiliationList ();
+                IList person_relationships = PersonRelationships;
+                return (affiliations.Count > 0 || person_relationships.Count > 0);
+            }
+        }
+
         public IList caseList () {
             IList case_list = new ArrayList();
 

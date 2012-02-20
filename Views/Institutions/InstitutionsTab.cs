@@ -55,8 +55,13 @@ namespace Views
         protected void OnRemoveButtonClicked (object sender, System.EventArgs e)
         {
             Institution i = show.Institution;
-            i.Delete();
-            institutionlist.ReloadStore();
+            if (i.HasRelateRecords == false) {
+                i.DeleteAndFlush();
+                institutionlist.ReloadStore();
+            } else {
+                 Console.WriteLine("We can't delete this collective actor because it is still associated to other records");
+                 new ValidationErrorsDialog ("We can't delete this collective actor because it is still associated to other records", (Gtk.Window)this.Toplevel);
+            }
             return;
         }
       

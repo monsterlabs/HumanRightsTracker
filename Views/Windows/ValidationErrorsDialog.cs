@@ -25,6 +25,16 @@ namespace Views
             }
         }
 
+         public ValidationErrorsDialog (String ErrorMessage, Gtk.Window parent)
+        {
+            this.Build ();
+            Gtk.Label label = new Gtk.Label (ErrorMessage);
+            vbox3.PackEnd (label);
+            vbox3.ShowAll ();
+            this.Modal = true;
+            this.TransientFor = parent;
+        }
+
         protected void OnOk (object sender, System.EventArgs e)
         {
             this.Destroy ();

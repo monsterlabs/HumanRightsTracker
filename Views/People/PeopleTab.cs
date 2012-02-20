@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using HumanRightsTracker.Models;
 
 namespace Views
@@ -58,8 +60,13 @@ namespace Views
         protected void onRemove (object sender, System.EventArgs e)
         {
             Person p = show.Person;
-            p.DeleteAndFlush();
-            peoplelist.ReloadStore ();
+            if (p.HasRelateRecords == false) {
+                p.DeleteAndFlush();
+                peoplelist.ReloadStore ();
+            } else {
+                Console.WriteLine("We can't delete this person because it is still associated to other records");
+                new ValidationErrorsDialog ("We can't delete this person because it is still associated to other records", (Gtk.Window)this.Toplevel);
+            }
             return;
         }
 
