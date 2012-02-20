@@ -114,7 +114,8 @@ namespace HumanRightsTracker.Models
                 affiliationTypeName = this.SupporterAffiliationType.Name;
                 institutionName = this.SupporterInstitution.Name;
             }
-            else if (this.Interventor != null)
+
+            if (this.Interventor != null)
             {
                 roleName = Catalog.GetString("Interventor");
                 affiliationTypeName = this.InterventorAffiliationType.Name;
@@ -149,7 +150,8 @@ namespace HumanRightsTracker.Models
                 affiliationTypeName = this.SupporterAffiliationType.Name;
                 institutionName = this.SupporterInstitution.Name;
             }
-            else if (this.Interventor != null)
+
+            if (this.Interventor != null)
             {
                 personName = this.Interventor.Fullname;
                 roleName = Catalog.GetString("Interventor");
@@ -159,9 +161,9 @@ namespace HumanRightsTracker.Models
 
             string[] data = {
                 personName,
-                roleName,
                 affiliationTypeName,
                 institutionName,
+                roleName,
                 this.Case.Name,
                 "",
             };

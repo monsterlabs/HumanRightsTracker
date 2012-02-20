@@ -14,6 +14,7 @@ namespace Views
 
         List<ListableRecord> records;
         List<AffiliableRecord> affiliable_records;
+        List<AffiliatedRecord> affiliated_records;
 
         public event EventHandler NewButtonPressed;
         public event EventHandler DeleteButtonPressed;
@@ -35,8 +36,6 @@ namespace Views
             }
             set {
                 headers = value;
-                //Array.Resize(ref headers, headers.Length + 1);
-                //headers[headers.Length -1] = Catalog.GetString("Action(s)");
             }
         }
 
@@ -102,6 +101,45 @@ namespace Views
                 table.Resize ((uint) (affiliable_records.Count + 1), (uint) (headers.Length+1));
                 for (uint i = 0; i < affiliable_records.Count; i++) {
                     string[] data = affiliable_records[(int) i].AffiliationColumnData ();
+                    uint j = 0;
+                    for (; j < (headers.Length); j++) {
+                        Label l = new Label (data[j]);
+                        //l.MaxWidthChars = 20;
+                        l.LineWrap = true;
+                        l.Wrap = true;
+                        l.Justify = Justification.Fill;
+                        l.SingleLineMode = false;
+
+                        Gtk.Frame f = new Gtk.Frame ();
+                        f.Add(l);
+                        f.ShadowType = Gtk.ShadowType.In;
+
+                        table.Attach (f, j, j+1, i+1,i+2);
+                        table.SetColSpacing(j, 0);
+                    }
+                    table.SetRowSpacing(i, 0);
+                }
+                table.ShowAll ();
+                this.editable_helper.UpdateEditableWidgets ();
+                this.editable_helper.SetAllEditable (false);
+                newButton.Visible = false;
+            }
+        }
+
+        public List<AffiliatedRecord> AffiliatedRecords {
+            get {
+                return this.affiliated_records;
+            }
+            set {
+                affiliated_records = value;
+
+                this.DestroyTableChildren ();
+                this.columnHeaders = (string[])headers.Clone ();
+                this.BuildTableHeaders ();
+
+                table.Resize ((uint) (affiliated_records.Count + 1), (uint) (headers.Length+1));
+                for (uint i = 0; i < affiliated_records.Count; i++) {
+                    string[] data = affiliated_records[(int) i].AffiliatedColumnData ();
                     uint j = 0;
                     for (; j < (headers.Length); j++) {
                         Label l = new Label (data[j]);

@@ -144,9 +144,9 @@ namespace HumanRightsTracker.Models
 
             string[] data = {
                 personName,
-                roleName,
                 affiliationTypeName,
                 institutionName,
+                roleName,
                 this.Case.Name,
                 "",
             };

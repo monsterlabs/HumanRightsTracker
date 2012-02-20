@@ -153,7 +153,8 @@ namespace HumanRightsTracker.Models
                 affiliationTypeName = this.ReportedAffiliationType.Name;
                 institutionName = this.ReportedInstitution.Name;
             }
-            else if (this.SourcePerson != null)
+
+            if (this.SourcePerson != null)
             {
                 personName = this.SourcePerson.Fullname;
                 roleName = Catalog.GetString("As source in source information");
@@ -163,9 +164,9 @@ namespace HumanRightsTracker.Models
 
             string[] data = {
                 personName,
-                roleName,
                 affiliationTypeName,
                 institutionName,
+                roleName,
                 this.Case.Name,
                 "",
             };

@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Mono.Unix;
+using System.Linq;
 
 namespace Views
 {
@@ -39,6 +41,7 @@ namespace Views
                     email.Text = institution.Email == null ? "" : institution.Email;
                     url.Text = institution.Url == null ? "" : institution.Url;
                     case_per_institution.Institution = institution;
+                    SetAffiliatedActorList ();
                 }
                 IsEditing = false;
             }
@@ -61,6 +64,8 @@ namespace Views
                 this.editable_helper.SetAllEditable(value);
                 if (institution == null || institution.Id == 0) {
                     case_per_institution.Hide ();
+                    related_institutions_expander.Hide ();
+                    affiliated_actors_expander.Hide ();
                 }
                 case_per_institution.IsEditable = false;
             }
@@ -111,6 +116,10 @@ namespace Views
         protected void OnEditButtonClicked (object sender, System.EventArgs e)
         {
             IsEditing = !IsEditing;
+        }
+
+        private void SetAffiliatedActorList () {
+            affiliated_actor_list.AffiliatedRecords = this.institution.AffiliatedPersonList().Cast<AffiliatedRecord>().ToList ();
         }
     }
 }

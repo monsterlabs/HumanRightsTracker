@@ -9,7 +9,7 @@ using Mono.Unix;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("perpetrators")]
-    public class Perpetrator : ActiveRecordValidationBase<Perpetrator>, ListableRecord, AffiliableRecord
+    public class Perpetrator : ActiveRecordValidationBase<Perpetrator>, ListableRecord, AffiliableRecord, AffiliatedRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -98,9 +98,9 @@ namespace HumanRightsTracker.Models
 
             string[] data = {
                 personName,
-                roleName,
                 perpetratorTypeName,
                 institutionName,
+                roleName,
                 this.Victim.Act.Case.Name,
                 "",
             };

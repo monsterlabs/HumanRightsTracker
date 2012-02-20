@@ -1,6 +1,7 @@
 using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
+using Castle.ActiveRecord.Queries;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
 using System.Collections;
