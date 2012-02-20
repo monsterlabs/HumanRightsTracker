@@ -8,7 +8,7 @@ using Mono.Unix;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("interventions")]
-    public class Intervention : ActiveRecordValidationBase<Intervention>, ListableRecord, AffiliableRecord
+    public class Intervention : ActiveRecordValidationBase<Intervention>, ListableRecord, AffiliableRecord, AffiliatedRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -131,6 +131,43 @@ namespace HumanRightsTracker.Models
 
             if (this.Date.HasValue)
                 data[4] = this.Date.Value.ToShortDateString ();
+
+            return data;
+        }
+
+
+        public string[] AffiliatedColumnData ()
+        {
+            string personName = "";
+            string roleName = Catalog.GetString("Not defined role in intervention record");
+            string affiliationTypeName = Catalog.GetString("Not defined affiliation type in intervention record");
+            string institutionName = "";
+
+            if (this.Supporter != null) {
+                personName = this.Supporter.Fullname;
+                roleName = Catalog.GetString("Supporter");
+                affiliationTypeName = this.SupporterAffiliationType.Name;
+                institutionName = this.SupporterInstitution.Name;
+            }
+            else if (this.Interventor != null)
+            {
+                personName = this.Interventor.Fullname;
+                roleName = Catalog.GetString("Interventor");
+                affiliationTypeName = this.InterventorAffiliationType.Name;
+                institutionName = this.InterventorInstitution.Name;
+            }
+
+            string[] data = {
+                personName,
+                roleName,
+                affiliationTypeName,
+                institutionName,
+                this.Case.Name,
+                "",
+            };
+
+            if (this.Date.HasValue)
+                data[5] = this.Date.Value.ToShortDateString ();
 
             return data;
         }

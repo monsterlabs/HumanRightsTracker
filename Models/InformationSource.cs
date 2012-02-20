@@ -8,7 +8,7 @@ using Mono.Unix;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("information_sources")]
-    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>, AffiliableRecord
+    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>, AffiliableRecord, AffiliatedRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -137,5 +137,44 @@ namespace HumanRightsTracker.Models
 
             return data;
         }
+
+
+        public string[] AffiliatedColumnData ()
+        {
+            string personName = "";
+            string roleName = Catalog.GetString("Not defined role in information source record");
+            string affiliationTypeName = Catalog.GetString("Not defined affiliation type in information source record");
+            string institutionName = "";
+
+            if (this.ReportedPerson != null)
+            {
+                personName = this.ReportedPerson.Fullname;
+                roleName = Catalog.GetString("Reported person in source information");
+                affiliationTypeName = this.ReportedAffiliationType.Name;
+                institutionName = this.ReportedInstitution.Name;
+            }
+            else if (this.SourcePerson != null)
+            {
+                personName = this.SourcePerson.Fullname;
+                roleName = Catalog.GetString("As source in source information");
+                affiliationTypeName = this.SourceAffiliationType.Name;
+                institutionName = this.SourceInstitution.Name;
+            }
+
+            string[] data = {
+                personName,
+                roleName,
+                affiliationTypeName,
+                institutionName,
+                this.Case.Name,
+                "",
+            };
+
+            if (this.Date.HasValue)
+                data[5] = this.Date.Value.ToShortDateString ();
+
+            return data;
+        }
+
    }
 }

@@ -8,7 +8,7 @@ using Mono.Unix;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("documentary_sources")]
-    public class DocumentarySource : ActiveRecordValidationBase<DocumentarySource>, ListableRecord, IComparable<DocumentarySource>, AffiliableRecord
+    public class DocumentarySource : ActiveRecordValidationBase<DocumentarySource>, ListableRecord, IComparable<DocumentarySource>, AffiliableRecord, AffiliatedRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -124,6 +124,35 @@ namespace HumanRightsTracker.Models
 
             if (this.Date.HasValue)
                 data[4] = this.Date.Value.ToShortDateString ();
+
+            return data;
+        }
+
+        public string[] AffiliatedColumnData ()
+        {
+            string personName = "";
+            string roleName = Catalog.GetString("Not defined role in documentary source record");
+            string affiliationTypeName = Catalog.GetString("Not defined affiliation type in  documentary source record");
+            string institutionName = "";
+
+            if (this.ReportedPerson!= null) {
+                personName = this.ReportedPerson.Fullname;
+                roleName = Catalog.GetString("Reported person in documentary source");
+                affiliationTypeName = this.ReportedAffiliationType.Name;
+                institutionName = this.ReportedInstitution.Name;
+            }
+
+            string[] data = {
+                personName,
+                roleName,
+                affiliationTypeName,
+                institutionName,
+                this.Case.Name,
+                "",
+            };
+
+            if (this.Date.HasValue)
+                data[5] = this.Date.Value.ToShortDateString ();
 
             return data;
         }

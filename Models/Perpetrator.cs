@@ -73,5 +73,43 @@ namespace HumanRightsTracker.Models
 
             return data;
         }
+
+
+        public string[] AffiliatedColumnData ()
+        {
+            string personName = "";
+            string roleName = Catalog.GetString("Perpetrator");
+            string perpetratorTypeName = Catalog.GetString("Not defined perpetrator type in perpetrator record");
+            string institutionName = "";
+
+            if (this.Person != null) {
+                personName = this.Person.Fullname;
+            }
+
+            if (this.PerpetratorType != null)
+            {
+                perpetratorTypeName = PerpetratorType.Name;
+            }
+
+            if (this.Institution != null)
+            {
+                institutionName = this.Institution.Name;
+            }
+
+            string[] data = {
+                personName,
+                roleName,
+                perpetratorTypeName,
+                institutionName,
+                this.Victim.Act.Case.Name,
+                "",
+            };
+
+            if (this.Victim.Act.start_date != null)
+                data[5] = this.Victim.Act.start_date.Value.ToShortDateString ();
+
+            return data;
+        }
+
     }
 }
