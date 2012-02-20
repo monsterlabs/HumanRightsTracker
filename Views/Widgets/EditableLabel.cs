@@ -72,7 +72,8 @@ namespace Views
 
         public String Text {
             set {
-                this.text_string = value;
+                string content = value ?? "";
+                this.text_string = content;
                 label.Text = this.text_string;
                 entry.Text = this.text_string;
             }
