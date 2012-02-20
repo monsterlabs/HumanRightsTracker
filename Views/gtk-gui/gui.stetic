@@ -892,8 +892,8 @@ No</property>
                                   <widget class="Views.BooleanRadioButton" id="is_traveling_companied">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="Labels">Yes
-No</property>
+                                    <property name="Labels">Companied
+Alone</property>
                                     <property name="IsEditable">False</property>
                                     <property name="Activate">False</property>
                                   </widget>

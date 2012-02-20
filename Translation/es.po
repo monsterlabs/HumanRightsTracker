@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-18 10:22:48-0600\n"
-"PO-Revision-Date: 2012-02-18 11:50:36-0600\n"
+"POT-Creation-Date: 2012-02-20 01:38:35-0600\n"
+"PO-Revision-Date: 2012-02-20 01:48:53-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -28,7 +28,15 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-#: ../Views/People/Show.cs:12
+#: ../Views/People/Show.cs:4
+msgid "Companied"
+msgstr "Acompañado"
+
+#: ../Views/People/Show.cs:4
+msgid "Alone"
+msgstr "No acompañado"
+
+#: ../Views/People/Show.cs:13
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:6
@@ -45,10 +53,11 @@ msgstr "No"
 #: ../Views/DocumentarySources/DocumentarySourceShow.cs:9
 #: ../Views/Addresses/AddressShow.cs:8
 #: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
+#: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../Views/People/Show.cs:12
+#: ../Views/People/Show.cs:13
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -72,6 +81,8 @@ msgstr "Cancelar"
 #: ../Views/Addresses/AddressShow.cs:8
 #: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+#: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "Edit"
 msgstr "Modificar"
 
@@ -251,7 +262,7 @@ msgstr "<b>Actores individuales o inmigrantes</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Organizations or Institutions </b>"
-msgstr "<b>Organizaciones e instituciones</b>"
+msgstr "<b>Actores colectivos</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Relationship between actors</b>"
@@ -271,6 +282,7 @@ msgstr "<b>Relación entre actores</b>"
 #: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
 #: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "Save"
 msgstr "Guardar"
 
@@ -523,16 +535,16 @@ msgid "<b>Additional Information</b>"
 msgstr "<b>Información adicional</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
-msgid "<b>Abbreviation</b>"
-msgstr "<b>Siglás</b>"
+msgid "<b>Institution category</b>"
+msgstr "<b>Categoría</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Institution type</b>"
-msgstr "<b>Tipo de institución</b>"
+msgstr "<b>Tipo de actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
-msgid "<b>Institution category</b>"
-msgstr "<b>Categoría</b>"
+msgid "<b>Abbreviation</b>"
+msgstr "<b>Siglás</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Home Page</b>"
@@ -545,6 +557,15 @@ msgstr "<b>Fax</b>"
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Contact Information</b>"
 msgstr "<b>Información de contacto</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Related institutions</b>"
+msgstr "<b>Relación entre actores colectivos</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+#, fuzzy
+msgid "<b>Affiliated actors</b>"
+msgstr "Tipo de afiliación"
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 msgid "<b>Initial Date:</b>"
@@ -709,7 +730,7 @@ msgstr "Estado del Perpetrador"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "Institution:"
-msgstr "Organización o institución:"
+msgstr "Actor colectivo:"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "<b>Perpetrator Acts</b>"
@@ -721,11 +742,7 @@ msgstr "Nombre"
 
 #: ../Views/gtk-gui/Views.InstitutionSelectorWindow.cs:1
 msgid "InstitutionSelectorWindow"
-msgstr "Selector de instituciones"
-
-#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
-msgid "<b>Human Right Violation:</b>"
-msgstr "<b>Acto:</b>"
+msgstr "Selector de actores colectivos"
 
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Place:</b>"
@@ -779,7 +796,7 @@ msgstr "Regresar"
 #: ../Views/gtk-gui/Views.InstitutionAndJobRow.cs:1
 #: ../Views/gtk-gui/Views.PersonAndJobRow.cs:1
 msgid "institution_name"
-msgstr "Nombre de institución"
+msgstr "Nombre de actor colectivo"
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobRow.cs:1
 #: ../Views/gtk-gui/Views.PersonAndJobRow.cs:1
@@ -788,7 +805,7 @@ msgstr "Tipo"
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Institution Logo</b>"
-msgstr "<b>Logo de institución</b>"
+msgstr "<b>Logo de actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Institution</b>"
@@ -801,7 +818,7 @@ msgstr "<b>Tipo de puesto</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Jobs at Institutions</b>"
-msgstr "<b>Puesto en la institución</b>"
+msgstr "<b>Puesto en el actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
 msgid "<b>Photo</b>"
@@ -821,7 +838,7 @@ msgstr "<b>Persona:</b>"
 
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
 msgid "<b>Institution:</b>"
-msgstr "<b>Organización o institución</b>"
+msgstr "<b>Actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.PersonOrInstitutionSelector.cs:1
 msgid "Person"
@@ -869,7 +886,7 @@ msgstr "<b>Registros</b>"
 msgid "TrackingDetailWindow"
 msgstr "Detalles de la información de seguimiento el caso"
 
-#: ../Views/Widgets/EditableList.cs:6
+#: ../Views/Widgets/EditableList.cs:7
 msgid "Action(s)"
 msgstr "Accion(es)"
 
@@ -1199,18 +1216,22 @@ msgid "<b>Related person:</b>"
 msgstr "<b>Persona relacionada:</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>Relationship type:</b>"
 msgstr "<b>Tipo de relación</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>Start date:</b>"
 msgstr "Fecha Inicial"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>End date:</b>"
 msgstr "Fecha Final"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>Comments:</b>"
 msgstr "<b>Comentarios</b>"
 
@@ -1223,6 +1244,82 @@ msgstr "<b>Código postal</b>"
 msgid "<b>Title:</b>"
 msgstr "<b>Título:</b>"
 
+#: ../Views/gtk-gui/Views.InstitutionRelationshipDetailWindow.cs:1
+msgid "InstitutionRelationshipDetailWindow"
+msgstr "Ventana de la relación de personas"
+
+#: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+msgid "<b>Related institution:</b>"
+msgstr "<b>Actores colectivos relacionados</b>"
+
+#: ../Models/Intervention.cs:27
+#: ../Models/Intervention.cs:34
+msgid "Not defined role in intervention record"
+msgstr ""
+
+#: ../Models/Intervention.cs:27
+#: ../Models/Intervention.cs:34
+msgid "Not defined affiliation type in intervention record"
+msgstr ""
+
+#: ../Models/Intervention.cs:28
+#: ../Models/Intervention.cs:35
+#, fuzzy
+msgid "Supporter"
+msgstr "Persona que soporta la intervención"
+
+#: ../Models/Intervention.cs:29
+#: ../Models/Intervention.cs:36
+#, fuzzy
+msgid "Interventor"
+msgstr "Interventores"
+
+#: ../Models/InformationSource.cs:23
+#: ../Models/InformationSource.cs:29
+msgid "Not defined role in information source record"
+msgstr ""
+
+#: ../Models/InformationSource.cs:23
+#: ../Models/InformationSource.cs:29
+msgid "Not defined affiliation type in information source record"
+msgstr ""
+
+#: ../Models/InformationSource.cs:24
+#: ../Models/InformationSource.cs:30
+msgid "Reported person in source information"
+msgstr ""
+
+#: ../Models/InformationSource.cs:24
+#: ../Models/InformationSource.cs:31
+msgid "As source in source information"
+msgstr ""
+
+#: ../Models/Perpetrator.cs:7
+#: ../Models/Perpetrator.cs:14
+#, fuzzy
+msgid "Perpetrator"
+msgstr "Perpetradores"
+
+#: ../Models/Perpetrator.cs:7
+#: ../Models/Perpetrator.cs:14
+msgid "Not defined perpetrator type in perpetrator record"
+msgstr ""
+
+#: ../Models/DocumentarySource.cs:27
+#: ../Models/DocumentarySource.cs:32
+msgid "Not defined role in documentary source record"
+msgstr ""
+
+#: ../Models/DocumentarySource.cs:27
+#: ../Models/DocumentarySource.cs:32
+msgid "Not defined affiliation type in  documentary source record"
+msgstr ""
+
+#: ../Models/DocumentarySource.cs:28
+#: ../Models/DocumentarySource.cs:33
+msgid "Reported person in documentary source"
+msgstr ""
+
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "MainWindow"
@@ -1234,11 +1331,11 @@ msgstr "<b>Actor individual</b>"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "<b>Immigrant people</b>"
-msgstr "<b>Persona migrante</b>"
+msgstr "<b>Actor migrante</b>"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "<b>Institutions</b>"
-msgstr "<b>Organizaciones o instituciones</b>"
+msgstr "<b>Actores colectivos</b>"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "<b>Actors</b>"
@@ -1272,13 +1369,12 @@ msgstr "Contraseña"
 msgid "Login"
 msgstr "Entrar"
 
+#~ msgid "<b>Human Right Violation:</b>"
+#~ msgstr "<b>Acto:</b>"
+
 #, fuzzy
 #~ msgid "Perpetrator type:"
 #~ msgstr "Perpetrador"
-
-#, fuzzy
-#~ msgid "<b>Affiliation type:</b>"
-#~ msgstr "Tipo de afiliación"
 
 #~ msgid "<b>Settlement</b>"
 #~ msgstr "<b>Colonia</b>"

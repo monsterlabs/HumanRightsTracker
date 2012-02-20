@@ -30,6 +30,9 @@ namespace Views.People
             Catalog.GetString ("Female");
             Catalog.GetString ("Yes");
             Catalog.GetString ("No");
+            Catalog.GetString ("Companied");
+            Catalog.GetString ("Alone");
+
             ConnectAddressesHandlers ();
             ConnectPersonRelationshipsHandlers();
         }
