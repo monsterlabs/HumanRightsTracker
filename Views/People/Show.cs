@@ -99,7 +99,7 @@ namespace Views.People
             set
             {
                 isEditing = value;
-
+                SetWidgets();
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
