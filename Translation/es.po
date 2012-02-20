@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-20 04:10:16-0600\n"
-"PO-Revision-Date: 2012-02-20 04:10:55-0600\n"
+"PO-Revision-Date: 2012-02-20 05:49:02-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -395,7 +395,7 @@ msgstr "registros"
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Add"
-msgstr "Agregar un actor nuevo"
+msgstr "Agregar"
 
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
