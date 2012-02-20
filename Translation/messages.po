@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-20 01:46:36-0600\n"
-"PO-Revision-Date: 2012-02-20 01:46:37-0600\n"
+"POT-Creation-Date: 2012-02-20 02:41:07-0600\n"
+"PO-Revision-Date: 2012-02-20 02:41:09-0600\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -520,6 +520,10 @@ msgid "<b>Documentary sources</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Personal information sources</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
 msgid "<b>Information sources</b>"
 msgstr ""
 
@@ -1016,7 +1020,7 @@ msgid "Indigenous language"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
-msgid "Affiliation type"
+msgid "Source type"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1

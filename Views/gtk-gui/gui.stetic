@@ -3891,7 +3891,7 @@ Date</property>
                             <child>
                               <widget class="Gtk.Label" id="GtkLabel33">
                                 <property name="MemberName" />
-                                <property name="LabelProp" translatable="yes">&lt;b&gt;Information sources&lt;/b&gt;</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Personal information sources&lt;/b&gt;</property>
                                 <property name="UseMarkup">True</property>
                                 <property name="UseUnderline">True</property>
                               </widget>
@@ -8757,7 +8757,6 @@ End date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -10358,7 +10357,7 @@ End date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InformationSourceShow" design-size="719 390">
+  <widget class="Gtk.Bin" id="Views.InformationSourceShow" design-size="793 390">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -10668,7 +10667,7 @@ End date</property>
               <widget class="Gtk.Label" id="label9">
                 <property name="MemberName" />
                 <property name="Xalign">0</property>
-                <property name="LabelProp" translatable="yes">Affiliation type</property>
+                <property name="LabelProp" translatable="yes">Source type</property>
               </widget>
               <packing>
                 <property name="AutoSize">False</property>
@@ -10759,7 +10758,7 @@ End date</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel11">
+              <widget class="Gtk.Label" id="GtkLabel16">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Reported Person/Institution&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>

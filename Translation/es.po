@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 01:38:35-0600\n"
-"PO-Revision-Date: 2012-02-20 01:48:53-0600\n"
+"POT-Creation-Date: 2012-02-20 02:41:07-0600\n"
+"PO-Revision-Date: 2012-02-20 02:49:05-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -386,7 +386,7 @@ msgstr "Borrar"
 #: ../Views/Institutions/InstitutionList.cs:13
 #: ../Views/Institutions/InstitutionList.cs:16
 msgid "records"
-msgstr ""
+msgstr "registros"
 
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
@@ -522,8 +522,12 @@ msgid "<b>Documentary sources</b>"
 msgstr "<b>Fuente documental</b>"
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
+msgid "<b>Personal information sources</b>"
+msgstr "<b>Fuentes de información personal</b>"
+
+#: ../Views/gtk-gui/Views.CaseShow.cs:1
 msgid "<b>Information sources</b>"
-msgstr "<b>Lugar de origen</b>"
+msgstr "<b>Fuentes de información</b>"
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
@@ -563,9 +567,8 @@ msgid "<b>Related institutions</b>"
 msgstr "<b>Relación entre actores colectivos</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
-#, fuzzy
 msgid "<b>Affiliated actors</b>"
-msgstr "Tipo de afiliación"
+msgstr "Actores relacionados"
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 msgid "<b>Initial Date:</b>"
@@ -1012,15 +1015,15 @@ msgstr "Observaciones"
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 msgid "Date"
-msgstr "Fecha de publicación"
+msgstr "Fecha"
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 msgid "Indigenous language"
 msgstr "Lengua indígena"
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
-msgid "Affiliation type"
-msgstr "Tipo de afiliación"
+msgid "Source type"
+msgstr "Tipo de fuente"
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 #: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
@@ -1255,70 +1258,67 @@ msgstr "<b>Actores colectivos relacionados</b>"
 #: ../Models/Intervention.cs:27
 #: ../Models/Intervention.cs:34
 msgid "Not defined role in intervention record"
-msgstr ""
+msgstr "Sin rol definido en intervenciones"
 
 #: ../Models/Intervention.cs:27
 #: ../Models/Intervention.cs:34
 msgid "Not defined affiliation type in intervention record"
-msgstr ""
+msgstr "Sin afiliación definida en intervenciones"
 
 #: ../Models/Intervention.cs:28
 #: ../Models/Intervention.cs:35
-#, fuzzy
 msgid "Supporter"
 msgstr "Persona que soporta la intervención"
 
 #: ../Models/Intervention.cs:29
 #: ../Models/Intervention.cs:36
-#, fuzzy
 msgid "Interventor"
-msgstr "Interventores"
+msgstr "Interventor"
 
 #: ../Models/InformationSource.cs:23
 #: ../Models/InformationSource.cs:29
 msgid "Not defined role in information source record"
-msgstr ""
+msgstr "Sin role defiido en fuente de información personal"
 
 #: ../Models/InformationSource.cs:23
 #: ../Models/InformationSource.cs:29
 msgid "Not defined affiliation type in information source record"
-msgstr ""
+msgstr "Sin afiliación definida en fuente de información personal"
 
 #: ../Models/InformationSource.cs:24
 #: ../Models/InformationSource.cs:30
 msgid "Reported person in source information"
-msgstr ""
+msgstr "Persona reportada en información personal"
 
 #: ../Models/InformationSource.cs:24
 #: ../Models/InformationSource.cs:31
 msgid "As source in source information"
-msgstr ""
+msgstr "Fuente de información en información personal"
 
 #: ../Models/Perpetrator.cs:7
 #: ../Models/Perpetrator.cs:14
-#, fuzzy
 msgid "Perpetrator"
-msgstr "Perpetradores"
+msgstr "Perpetrador"
 
 #: ../Models/Perpetrator.cs:7
 #: ../Models/Perpetrator.cs:14
 msgid "Not defined perpetrator type in perpetrator record"
-msgstr ""
+msgstr "Sin tipo de perpetrado definido en actos"
 
 #: ../Models/DocumentarySource.cs:27
 #: ../Models/DocumentarySource.cs:32
 msgid "Not defined role in documentary source record"
-msgstr ""
+msgstr "Sin rol definido en fuente documental"
 
 #: ../Models/DocumentarySource.cs:27
 #: ../Models/DocumentarySource.cs:32
 msgid "Not defined affiliation type in  documentary source record"
-msgstr ""
+msgstr "Sin afiliación o tipo definido en fuente de información documental"
 
 #: ../Models/DocumentarySource.cs:28
 #: ../Models/DocumentarySource.cs:33
 msgid "Reported person in documentary source"
-msgstr ""
+msgstr "Persona reportada en fuente de información documental"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
@@ -1368,6 +1368,9 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#~ msgid "Affiliation type"
+#~ msgstr "Tipo de afiliación"
 
 #~ msgid "<b>Human Right Violation:</b>"
 #~ msgstr "<b>Acto:</b>"
