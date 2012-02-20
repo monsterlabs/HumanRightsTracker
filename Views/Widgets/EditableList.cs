@@ -56,11 +56,11 @@ namespace Views
                 this.AddActionColumnToHeaders();
                 this.BuildTableHeaders ();
 
-                table.Resize ((uint) (records.Count + 1), (uint) (headers.Length));
+                table.Resize ((uint) (records.Count + 1), (uint) (columnHeaders.Length));
                 for (uint i = 0; i < records.Count; i++) {
                     string[] data = records[(int) i].ColumnData ();
                     uint j = 0;
-                    for (; j < (headers.Length -1); j++) {
+                    for (; j < (columnHeaders.Length -1); j++) {
                         Label l = new Label (data[j]);
                         //l.MaxWidthChars = 20;
                         l.LineWrap = true;

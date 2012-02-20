@@ -19,6 +19,7 @@ namespace Views
             this.Build ();
             this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
+            ConnectInstitutionRelationshipsHandlers ();
         }
 
         public Institution Institution {
@@ -41,6 +42,7 @@ namespace Views
                     email.Text = institution.Email == null ? "" : institution.Email;
                     url.Text = institution.Url == null ? "" : institution.Url;
                     case_per_institution.Institution = institution;
+                    SetInstitutionRelationships ();
                     SetAffiliatedActorList ();
                 }
                 IsEditing = false;
@@ -121,5 +123,44 @@ namespace Views
         private void SetAffiliatedActorList () {
             affiliated_actor_list.AffiliatedRecords = this.institution.AffiliatedPersonList().Cast<AffiliatedRecord>().ToList ();
         }
+
+         public void SetInstitutionRelationships () {
+            if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionRelationships != null)  {
+                //ConnectPersonRelationshipsHandlers();
+                related_institution_list.Records = this.institution.InstitutionRelationships.Cast<ListableRecord>().ToList ();
+            }
+            else
+            {
+                related_institutions_expander.Hide ();
+            }
+        }
+
+        private void ReloadInstitutionRelationships () {
+            List<ListableRecord> institution_relationships = this.institution.InstitutionRelationships.Cast<ListableRecord>().ToList ();
+            related_institution_list.Records = institution_relationships.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ConnectInstitutionRelationshipsHandlers() {
+            related_institution_list.NewButtonPressed += (sender, e) => {
+                new InstitutionRelationshipDetailWindow (this.Institution, (o, args) => {
+                    this.ReloadInstitutionRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            related_institution_list.DeleteButtonPressed += (sender, e) => {
+                InstitutionRelationship record = sender as InstitutionRelationship;
+                this.Institution.InstitutionRelationships.Remove (record);
+                if (record.Id >= 1) {
+                    record.DeleteAndFlush ();
+                }
+                this.ReloadInstitutionRelationships ();
+            };
+            related_institution_list.DetailButtonPressed += (sender, e) => {
+                InstitutionRelationship record = sender as InstitutionRelationship;
+                new InstitutionRelationshipDetailWindow(record, (o, args) => {
+                    this.ReloadInstitutionRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
     }
 }

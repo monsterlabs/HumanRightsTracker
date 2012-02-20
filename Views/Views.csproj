@@ -266,6 +266,10 @@
     <Compile Include="gtk-gui\Views.PersonRelationshipShow.cs" />
     <Compile Include="Widgets\CatalogSelectorAsTree.cs" />
     <Compile Include="gtk-gui\Views.CatalogSelectorAsTree.cs" />
+    <Compile Include="InstitutionRelationships\InstitutionRelationshipDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionRelationshipDetailWindow.cs" />
+    <Compile Include="InstitutionRelationships\InstitutionRelationshipShow.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionRelationshipShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -298,6 +302,7 @@
     <Folder Include="ChangePassword\" />
     <Folder Include="Reports\" />
     <Folder Include="PersonRelationships\" />
+    <Folder Include="InstitutionRelationships\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
