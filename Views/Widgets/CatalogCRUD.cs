@@ -42,6 +42,16 @@ namespace Views
             } else {
                 CategoryName = "";
             }
+			
+            MethodInfo notesMethod = mod.Type.GetMethod("Notes");
+            hasNotes = notesMethod != null;
+            if (hasNotes) {
+                PropertyInfo notesProp =  mod.Type.GetProperty ("Notes");
+                Notes = (notesProp.GetValue(record, null) as String);
+            } else {
+                Notes = "";
+            }
+			
 
             Selected = false;
         }
@@ -51,8 +61,10 @@ namespace Views
         public int parentId;
         bool hasParent;
         public Object ParentRecord {get; set;}
+        public Object CategoryRecord {get; set;}
         public int categoryId;
         bool hasCategory;
+        bool hasNotes;
 
         [Gtk.TreeNodeValue (Column=0)]
         public bool Selected;
@@ -62,6 +74,8 @@ namespace Views
         public string ParentName;
         [Gtk.TreeNodeValue (Column=3)]
         public string CategoryName;
+        [Gtk.TreeNodeValue (Column=4)]
+        public string Notes;
 
         public int ParentId {
             get {
@@ -78,6 +92,15 @@ namespace Views
                 PropertyInfo parentIdProp =  mod.Type.GetProperty ("ParentId");
                 PropertyInfo idParentProp = ParentRecord.GetType ().GetProperty ("Id");
                 parentIdProp.SetValue (Record, idParentProp.GetValue (ParentRecord, null), null);
+            }
+            if (hasCategory) {
+                PropertyInfo categoryIdProp =  mod.Type.GetProperty ("CategaryId");
+                PropertyInfo idCategoryProp = CategoryRecord.GetType ().GetProperty ("Id");
+                categoryIdProp.SetValue (Record, idCategoryProp.GetValue (CategoryRecord, null), null);
+            }
+            if (hasNotes) {
+                PropertyInfo notesProp =  mod.PropertyDictionary["Notes"].Property;
+                notesProp.SetValue (Record, Notes, null);
             }
             ActiveRecordMetaBase.Save (Record);
 
@@ -158,10 +181,18 @@ namespace Views
                     //Type pt = asm.GetType ("HumanRightsTracker.Models." + ParentClassName);
 
                     CellRendererCatalogSelector categoryCell = new CellRendererCatalogSelector (CategoryClassName);
-                    categoryCell.Changed += HandleParentChanged;
+                    categoryCell.Changed += HandleCategoryChanged;
                     categoryCell.Editable = true;
 
                     table.AppendColumn ("Category", categoryCell, "text", 3);
+                }
+
+                MethodInfo notesMethod = t.GetMethod("Notes");
+                if (notesMethod != null) {
+                    Gtk.CellRendererText notesCell = new Gtk.CellRendererText ();
+                    notesCell.Editable = true;
+                    notesCell.Edited += HandleNotesCellEdited;
+                    table.AppendColumn ("Notes", notesCell, "text", 4);
                 }
             }
         }
@@ -218,10 +249,37 @@ namespace Views
 
         }
 
+        void HandleCategoryChanged (object o, ComboSelectionChangedArgs args)
+        {
+            RecordNode node = store.GetNode(new Gtk.TreePath(args.Path)) as RecordNode;
+
+            CatalogSelector selector = o as CatalogSelector;
+            Object category = selector.Active;
+            if (category != null)
+            {
+                node.CategoryRecord = category;
+                PropertyInfo CategoryNameProp = category.GetType ().GetProperty ("Name");
+                //parentIdProp.SetValue (Record, idParentProp.GetValue (ParentRecord, null), null);
+                selector.Combobox.Entry.Text = CategoryNameProp.GetValue (category, null) as String;
+                node.CategoryName = CategoryNameProp.GetValue (category, null) as String;
+                // tell node to save the value
+                node.SaveRecord ();
+            }
+
+        }
+
         void HandleNameCellEdited (object o, Gtk.EditedArgs args)
         {
             RecordNode node = store.GetNode(new Gtk.TreePath(args.Path)) as RecordNode;
             node.Name = args.NewText;
+            // tell node to save the value
+            node.SaveRecord ();
+        }
+
+        void HandleNotesCellEdited (object o, Gtk.EditedArgs args)
+        {
+            RecordNode node = store.GetNode(new Gtk.TreePath(args.Path)) as RecordNode;
+            node.Notes = args.NewText;
             // tell node to save the value
             node.SaveRecord ();
         }
