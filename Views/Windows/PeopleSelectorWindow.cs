@@ -38,14 +38,32 @@ namespace Views
             this.Destroy ();
         }
 
-        protected void OnAdd (object sender, System.EventArgs e)
-        {
-             new PersonCreateWindow (OnPersonCreated, (Gtk.Window)this.Toplevel);
-        }
-
         protected void OnPersonCreated (object sender, EventArgs args)
         {
+            // Fix it: Reload only one list
             peoplelist1.ReloadStore();
+            peoplelist2.ReloadStore();
+        }
+
+        protected void OnChangeTab (object o, Gtk.SwitchPageArgs args)
+        {
+            int pageNum = (int) args.PageNum;
+            if (pageNum == 0) {
+                peoplelist1.ReloadStore();
+            } else {
+                peoplelist2.ReloadStore();
+            }
+
+        }
+
+        protected void OnAdd (object sender, System.EventArgs e)
+        {
+            new PersonCreateWindow (OnPersonCreated, false, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnAddImmigrant (object sender, System.EventArgs e)
+        {
+            new PersonCreateWindow (OnPersonCreated, true, (Gtk.Window)this.Toplevel);
         }
     }
 }

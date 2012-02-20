@@ -5479,49 +5479,123 @@ Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="400 257">
+  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="409 401">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PeopleSelectionWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <child>
-      <widget class="Gtk.VBox" id="vbox2">
+      <widget class="Gtk.Notebook" id="notebook1">
         <property name="MemberName" />
-        <property name="Spacing">6</property>
+        <property name="CanFocus">True</property>
+        <property name="CurrentPage">1</property>
+        <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
-          <widget class="Views.PeopleList" id="peoplelist1">
+          <widget class="Gtk.VBox" id="vbox2">
             <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-            <property name="IsImmigrant">False</property>
-            <signal name="SelectionWithDoubleClick" handler="OnSelection" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Views.PeopleList" id="peoplelist1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsImmigrant">False</property>
+                <signal name="SelectionWithDoubleClick" handler="OnSelection" />
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.VButtonBox" id="vbuttonbox1">
+                <property name="MemberName" />
+                <property name="Size">1</property>
+                <child>
+                  <widget class="Gtk.Button" id="addButton">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextAndIcon</property>
+                    <property name="Icon">stock:gtk-add Menu</property>
+                    <property name="Label" translatable="yes">_Add</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnAdd" />
+                  </widget>
+                  <packing>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Individual person&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
           </widget>
           <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
+            <property name="type">tab</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.VButtonBox" id="vbuttonbox1">
+          <widget class="Gtk.VBox" id="vbox6">
             <property name="MemberName" />
-            <property name="Size">1</property>
+            <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Button" id="addButton">
+              <widget class="Views.PeopleList" id="peoplelist2">
                 <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextAndIcon</property>
-                <property name="Icon">stock:gtk-add Menu</property>
-                <property name="Label" translatable="yes">_Add</property>
-                <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnAdd" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="IsImmigrant">True</property>
+                <signal name="SelectionWithDoubleClick" handler="OnSelection" />
               </widget>
               <packing>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.VButtonBox" id="vbuttonbox2">
+                <property name="MemberName" />
+                <property name="Size">1</property>
+                <child>
+                  <widget class="Gtk.Button" id="addButton1">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextAndIcon</property>
+                    <property name="Icon">stock:gtk-add Menu</property>
+                    <property name="Label" translatable="yes">_Add</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnAddImmigrant" />
+                  </widget>
+                  <packing>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
               </packing>
             </child>
           </widget>
           <packing>
             <property name="Position">1</property>
-            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">&lt;b&gt;Immigrant People&lt;/b&gt;</property>
+            <property name="UseMarkup">True</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
           </packing>
         </child>
       </widget>

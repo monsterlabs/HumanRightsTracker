@@ -6,16 +6,20 @@ namespace Views
     {
         public event EventHandler OnRecordSaved = null;
 
-        public PersonCreateWindow (EventHandler OnSaveButtonClicked, Gtk.Window parent) :
+        public PersonCreateWindow (EventHandler OnSaveButtonClicked, bool isImmigrant, Gtk.Window parent) :
                 base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             this.OnRecordSaved = OnSaveButtonClicked;
             this.TransientFor = parent;
-            show1.Person = new HumanRightsTracker.Models.Person ();
+            HumanRightsTracker.Models.Person person = new HumanRightsTracker.Models.Person ();
+            person.IsImmigrant = isImmigrant;
+            show1.Person = person;
+            show1.isImmigrant = isImmigrant;
             show1.IsEditing = true;
         }
+
 
         protected void OnSave (object sender, System.EventArgs e)
         {

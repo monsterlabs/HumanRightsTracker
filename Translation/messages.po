@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-20 03:01:20-0600\n"
-"PO-Revision-Date: 2012-02-20 03:01:21-0600\n"
+"POT-Creation-Date: 2012-02-20 04:10:16-0600\n"
+"PO-Revision-Date: 2012-02-20 04:10:17-0600\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -598,6 +598,14 @@ msgstr ""
 msgid "PeopleSelectionWindow"
 msgstr ""
 
+#: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+msgid "<b>Individual person</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+msgid "<b>Immigrant People</b>"
+msgstr ""
+
 #: ../Views/gtk-gui/Views.PersonRow.cs:1
 #: ../Views/gtk-gui/Views.PersonSelect.cs:1
 #: ../Views/gtk-gui/Views.VictimRow.cs:1
@@ -887,24 +895,6 @@ msgstr ""
 msgid "TrackingDetailWindow"
 msgstr ""
 
-#: ../Views/Widgets/EditableList.cs:5
-msgid "<b>Relation type</b>"
-msgstr ""
-
-#: ../Views/Widgets/EditableList.cs:5
-msgid "<b>Related institution</b>"
-msgstr ""
-
-#: ../Views/Widgets/EditableList.cs:5
-#: ../Views/gtk-gui/Views.CaseSelect.cs:1
-msgid "<b>Start date</b>"
-msgstr ""
-
-#: ../Views/Widgets/EditableList.cs:5
-#: ../Views/gtk-gui/Views.CaseSelect.cs:1
-msgid "<b>End date</b>"
-msgstr ""
-
 #: ../Views/Widgets/EditableList.cs:7
 msgid "Action(s)"
 msgstr ""
@@ -939,6 +929,10 @@ msgid "New Record"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>End date</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
 #: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 #: ../Views/gtk-gui/Views.CatalogSelectorAsTree.cs:1
@@ -947,6 +941,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
 msgid "<b>Case name</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>Start date</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseSelectorWindow.cs:1

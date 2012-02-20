@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 03:01:20-0600\n"
-"PO-Revision-Date: 2012-02-20 03:01:46-0600\n"
+"POT-Creation-Date: 2012-02-20 04:10:16-0600\n"
+"PO-Revision-Date: 2012-02-20 04:10:55-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -84,7 +84,7 @@ msgstr "Cancelar"
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "Edit"
-msgstr "Modificar"
+msgstr "Editar"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Marital status</b>"
@@ -395,7 +395,7 @@ msgstr "registros"
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Add"
-msgstr "Agregar"
+msgstr "Agregar un actor nuevo"
 
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
@@ -476,7 +476,7 @@ msgstr "<b>Fecha Inicial</b>"
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>End Date</b>"
-msgstr "<b>Fecha Final</b>"
+msgstr "<b>Fecha de termino</b>"
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
@@ -599,6 +599,14 @@ msgstr "<b>Víctimas</b>"
 #: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
 msgid "PeopleSelectionWindow"
 msgstr "Selección de personas"
+
+#: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+msgid "<b>Individual person</b>"
+msgstr "<b>Actor individual</b>"
+
+#: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+msgid "<b>Immigrant People</b>"
+msgstr "<b>Actor migrante</b>"
 
 #: ../Views/gtk-gui/Views.PersonRow.cs:1
 #: ../Views/gtk-gui/Views.PersonSelect.cs:1
@@ -889,24 +897,6 @@ msgstr "<b>Registros</b>"
 msgid "TrackingDetailWindow"
 msgstr "Detalles de la información de seguimiento el caso"
 
-#: ../Views/Widgets/EditableList.cs:5
-msgid "<b>Relation type</b>"
-msgstr "<b>Tipo de relación</b>"
-
-#: ../Views/Widgets/EditableList.cs:5
-msgid "<b>Related institution</b>"
-msgstr "<b>Relación entre actores colectivos</b>"
-
-#: ../Views/Widgets/EditableList.cs:5
-#: ../Views/gtk-gui/Views.CaseSelect.cs:1
-msgid "<b>Start date</b>"
-msgstr "Fecha Inicial"
-
-#: ../Views/Widgets/EditableList.cs:5
-#: ../Views/gtk-gui/Views.CaseSelect.cs:1
-msgid "<b>End date</b>"
-msgstr "Fecha Final"
-
 #: ../Views/Widgets/EditableList.cs:7
 msgid "Action(s)"
 msgstr "Accion(es)"
@@ -934,11 +924,15 @@ msgstr "Guardar documento"
 
 #: ../Views/Documents/DocumentList.cs:10
 msgid "Add New Document"
-msgstr "Agregar nuewvo documento"
+msgstr "Agregar nuevo documento"
 
 #: ../Views/gtk-gui/Views.DocumentList.cs:1
 msgid "New Record"
 msgstr "Nuevo registro"
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>End date</b>"
+msgstr "<b>Fecha de término</b>"
 
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
@@ -950,6 +944,10 @@ msgstr "Nombre"
 #: ../Views/gtk-gui/Views.CaseSelect.cs:1
 msgid "<b>Case name</b>"
 msgstr "<b>Nombre del caso</b>"
+
+#: ../Views/gtk-gui/Views.CaseSelect.cs:1
+msgid "<b>Start date</b>"
+msgstr "<b>Fecha Inicial</b>"
 
 #: ../Views/gtk-gui/Views.CaseSelectorWindow.cs:1
 msgid "CaseSelectorWindow"
@@ -1236,12 +1234,12 @@ msgstr "<b>Tipo de relación</b>"
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>Start date:</b>"
-msgstr "Fecha Inicial"
+msgstr "<b>Fecha Inicial</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>End date:</b>"
-msgstr "Fecha Final"
+msgstr "<b>Fecha de término</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
@@ -1378,6 +1376,12 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#~ msgid "<b>Relation type</b>"
+#~ msgstr "<b>Tipo de relación</b>"
+
+#~ msgid "<b>Related institution</b>"
+#~ msgstr "<b>Relación entre actores colectivos</b>"
 
 #~ msgid "Affiliation type"
 #~ msgstr "Tipo de afiliación"
