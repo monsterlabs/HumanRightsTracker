@@ -87,7 +87,12 @@ namespace Views
             institution.Country = place.Country as Country;
             institution.State = place.State as State;
             institution.City = place.City as City;
-            institution.ZipCode =  Int32.Parse(zipcode.Text);
+
+            int zipCode;
+            bool isNum = int.TryParse(zipcode.Text, out zipCode);
+            if (isNum) {
+                institution.ZipCode =  zipCode;
+            }
 
             institution.Phone = phone.Text;
             institution.Fax = fax.Text;
