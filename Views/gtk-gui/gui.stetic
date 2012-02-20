@@ -1935,9 +1935,19 @@ End date</property>
                               <widget class="Gtk.Expander" id="expander4">
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
+                                <property name="Expanded">True</property>
                                 <property name="BorderWidth">9</property>
                                 <child>
-                                  <placeholder />
+                                  <widget class="Views.EditableList" id="affiliation_list">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <property name="Headers">Role
+Affiliation Type
+Institution
+Case name
+Date</property>
+                                    <property name="IsEditable">False</property>
+                                  </widget>
                                 </child>
                                 <child>
                                   <widget class="Gtk.Label" id="GtkLabel60">
@@ -8651,6 +8661,7 @@ End date</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>

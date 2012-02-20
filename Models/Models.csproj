@@ -71,6 +71,7 @@
     <Reference Include="Castle.Components.Validator.resources">
       <HintPath>..\lib\Castle\es\Castle.Components.Validator.resources.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Posix" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catalogs\City.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Catalogs\PerpetratorStatus.cs" />
     <Compile Include="Catalogs\PerpetratorType.cs" />
     <Compile Include="Catalogs\InstitutionRelationshipType.cs" />
+    <Compile Include="AffiliableRecord.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

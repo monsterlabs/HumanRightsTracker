@@ -4,11 +4,12 @@ using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
 using System.Collections;
+using Mono.Unix;
 
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("perpetrators")]
-    public class Perpetrator : ActiveRecordValidationBase<Perpetrator>, ListableRecord
+    public class Perpetrator : ActiveRecordValidationBase<Perpetrator>, ListableRecord, AffiliableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -43,5 +44,34 @@ namespace HumanRightsTracker.Models
             return data;
         }
 
+        public string[] AffiliationColumnData ()
+        {
+            string roleName = Catalog.GetString("Perpetrator");
+            string perpetratorTypeName = Catalog.GetString("Not defined perpetrator type in perpetrator record");
+            string institutionName = "";
+
+            if (this.PerpetratorType != null)
+            {
+                perpetratorTypeName = PerpetratorType.Name;
+            }
+
+            if (this.Institution != null)
+            {
+                institutionName = this.Institution.Name;
+            }
+
+            string[] data = {
+                roleName,
+                perpetratorTypeName,
+                institutionName,
+                this.Victim.Act.Case.Name,
+                "",
+            };
+
+            if (this.Victim.Act.start_date != null)
+                data[4] = this.Victim.Act.start_date.Value.ToShortDateString ();
+
+            return data;
+        }
     }
 }

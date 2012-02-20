@@ -89,6 +89,16 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList PersonRelationships { get; set; }
 
+        [HasMany(typeof(DocumentarySource), Table="DocumentarySources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AsReportedPersonInDocumentarySources { get; set; }
+
+
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="source_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AsSourceInInformationSources { get; set; }
+
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList AsReportedPersonInInformationSources { get; set; }
+
         public String Fullname
         {
             get
@@ -104,6 +114,30 @@ namespace HumanRightsTracker.Models
                 return new Photo (this.Id, "Person");
             }
 
+        }
+
+        public IList AffiliationList() {
+            IList affiliations = new ArrayList ();
+
+             foreach (Perpetrator p in Perpetrators)
+               affiliations.Add (p);
+
+            foreach (Intervention i in InstitutionAndJobAsInterventors)
+                affiliations.Add (i);
+
+            foreach (Intervention i in InstitutionAndJobAsSupporters)
+                affiliations.Add (i);
+
+            foreach (DocumentarySource ds in AsReportedPersonInDocumentarySources)
+                affiliations.Add (ds);
+
+            foreach (InformationSource infs in AsSourceInInformationSources)
+                affiliations.Add (infs);
+
+            foreach (InformationSource infs in AsReportedPersonInInformationSources)
+                affiliations.Add (infs);
+
+            return affiliations;
         }
 
         public IList caseList () {
@@ -123,7 +157,6 @@ namespace HumanRightsTracker.Models
 
             return case_list;
         }
-
 
         public IList institutionAndJobList () {
             IList institutions_and_jobs = new ArrayList();

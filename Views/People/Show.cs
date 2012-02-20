@@ -71,7 +71,7 @@ namespace Views.People
                             place_of_birth_frame.Show ();
                         }
                     }
-
+                    SetAffiliationList();
                     set_case_list();
                     SetPersonRelationships ();
                     if (this.isImmigrant == false )
@@ -396,6 +396,10 @@ namespace Views.People
                 }
                 address_list_frame.Hide ();
            }
+        }
+
+        private void SetAffiliationList () {
+            affiliation_list.AffiliableRecords = this.person.AffiliationList().Cast<AffiliableRecord>().ToList ();
         }
 
         private void ReloadAddresses () {

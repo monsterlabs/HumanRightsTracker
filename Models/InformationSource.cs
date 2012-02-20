@@ -3,11 +3,12 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using System.Collections;
+using Mono.Unix;
 
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("information_sources")]
-    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>
+    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>, AffiliableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -101,6 +102,40 @@ namespace HumanRightsTracker.Models
             DateTime timeX = this.Date.Value;
             DateTime timeY = other.Date.Value;
             return timeY.CompareTo(timeX);
+        }
+
+
+        public string[] AffiliationColumnData ()
+        {
+            string roleName = Catalog.GetString("Not defined role in information source record");
+            string affiliationTypeName = Catalog.GetString("Not defined affiliation type in information source record");
+            string institutionName = "";
+
+            if (this.ReportedPerson != null)
+            {
+                roleName = Catalog.GetString("Reported person in source information");
+                affiliationTypeName = this.ReportedAffiliationType.Name;
+                institutionName = this.ReportedInstitution.Name;
+            }
+            else if (this.SourcePerson != null)
+            {
+                roleName = Catalog.GetString("As source in source information");
+                affiliationTypeName = this.SourceAffiliationType.Name;
+                institutionName = this.SourceInstitution.Name;
+            }
+
+            string[] data = {
+                roleName,
+                affiliationTypeName,
+                institutionName,
+                this.Case.Name,
+                "",
+            };
+
+            if (this.Date.HasValue)
+                data[4] = this.Date.Value.ToShortDateString ();
+
+            return data;
         }
    }
 }
