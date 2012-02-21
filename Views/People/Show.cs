@@ -55,9 +55,8 @@ namespace Views.People
                 set_address_widgets ();
                 if (this.isImmigrant == false)
                 {
-                    migration_attempts_frame.Destroy ();
-                    identification_frame.Destroy ();
-                    set_institution_and_job_list();
+                    migration_attempts_frame.Hide ();
+                    identification_frame.Hide ();
                  }
                  else
                  {
@@ -254,9 +253,6 @@ namespace Views.People
            case_per_person.Person = person;
         }
 
-        protected void set_institution_and_job_list() {
-           //institution_and_job_per_person.Person = person;
-        }
 
         protected void person_detail_save ()
         {
