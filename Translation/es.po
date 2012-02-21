@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 23:00:44-0600\n"
-"PO-Revision-Date: 2012-02-20 23:19:59-0600\n"
+"POT-Creation-Date: 2012-02-21 01:15:43-0600\n"
+"PO-Revision-Date: 2012-02-21 01:16:48-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -36,7 +36,7 @@ msgstr "Acompañado"
 msgid "Alone"
 msgstr "No acompañado"
 
-#: ../Views/People/Show.cs:11
+#: ../Views/People/Show.cs:14
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:6
@@ -57,7 +57,7 @@ msgstr "No acompañado"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../Views/People/Show.cs:11
+#: ../Views/People/Show.cs:14
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -734,16 +734,17 @@ msgid "VictimWindow"
 msgstr "Víctima"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-msgid "Perpetrator:"
-msgstr "Perpetrador"
+msgid "<b>Perpetrator:</b>"
+msgstr "<b>Perpetrador:</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-msgid "Perpetrator status:"
-msgstr "Estado del Perpetrador"
+msgid "<b>Perpetrator status:</b>"
+msgstr "<b>Actos del perpetrador</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-msgid "Institution:"
-msgstr "Actor colectivo:"
+#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+msgid "<b>Institution:</b>"
+msgstr "<b>Actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "<b>Perpetrator Acts</b>"
@@ -848,10 +849,6 @@ msgstr "<b>Nombre(s) de quiene soportan el caso</b>"
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
 msgid "<b>Person:</b>"
 msgstr "<b>Persona:</b>"
-
-#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
-msgid "<b>Institution:</b>"
-msgstr "<b>Actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.PersonOrInstitutionSelector.cs:1
 msgid "Person"
@@ -1214,7 +1211,6 @@ msgid "<b>File name</b>"
 msgstr "<b>Nombre completo</b>"
 
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
-#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Folder</b>"
 msgstr "<b>Filtros</b>"
 
@@ -1277,7 +1273,7 @@ msgid "<b>Password confirmation</b>"
 msgstr "<b>Confirmación de Clave</b>"
 
 #: ../Views/Reports/CaseReportWindow.cs:6
-#: ../Views/Reports/CasesReportForm.cs:11
+#: ../Views/Reports/CasesReportForm.cs:12
 msgid ""
 " already exists.\n"
 " Do you want to override it?"
@@ -1290,12 +1286,8 @@ msgid "<b>Case Report</b>"
 msgstr "<b>Reporte de caso</b>"
 
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
-msgid "<b>Human Right</b>"
-msgstr "<b>Derecho afectado</b>"
-
-#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
-msgid "<b>Victim Name</b>"
-msgstr "<b>Nombre de la Víctima</b>"
+msgid "Select A Folder"
+msgstr "Seleccione un folder"
 
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>From Date</b>"
@@ -1306,12 +1298,12 @@ msgid "<b>To Date</b>"
 msgstr "<b>Hasta la fecha</b>"
 
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
-msgid "Select A Folder"
-msgstr "Seleccione un folder"
+msgid "<b>Destination folder</b>"
+msgstr "<b>Directorio destino</b>"
 
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
-msgid "<b>Destination</b>"
-msgstr "<b>Destino</b>"
+msgid "<b>Victim Name</b>"
+msgstr "<b>Nombre de la Víctima</b>"
 
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "VictimsWindow"
@@ -1475,6 +1467,18 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#~ msgid "Perpetrator:"
+#~ msgstr "Perpetrador"
+
+#~ msgid "Perpetrator status:"
+#~ msgstr "Estado del Perpetrador"
+
+#~ msgid "Institution:"
+#~ msgstr "Actor colectivo:"
+
+#~ msgid "<b>Human Right</b>"
+#~ msgstr "<b>Derecho afectado</b>"
 
 #~ msgid "<b>Relation type</b>"
 #~ msgstr "<b>Tipo de relación</b>"
