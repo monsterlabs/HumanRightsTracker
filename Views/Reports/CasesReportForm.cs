@@ -44,7 +44,9 @@ namespace Views
 
             if (humanRight.Active != null) {
                 DetachedCriteria dA = dC.CreateCriteria("Acts");
-                HumanRightsViolationCategory hr = humanRight.Active as HumanRightsViolationCategory;
+                HumanRightsViolation hrv = humanRight.Active as HumanRightsViolation;
+
+                HumanRightsViolationCategory hr = HumanRightsViolationCategory.FindOne(new ICriterion[] { Restrictions.Eq ("Id", hrv.CategoryId)});
                 dA.Add (Restrictions.Eq ("HumanRightsViolationCategory", hr));
             }
 
@@ -67,6 +69,12 @@ namespace Views
             dialog.Destroy ();
 
             return result == Gtk.ResponseType.Yes;
+        }
+
+        protected void OnAffectedRightCategorySelected (object sender, System.EventArgs e)
+        {
+            HumanRightsViolationCategory category = sender as HumanRightsViolationCategory;
+            humanRight.FilterByCategoryId(category.Id);
         }
     }
 }
