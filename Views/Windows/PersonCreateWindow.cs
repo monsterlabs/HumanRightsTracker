@@ -15,8 +15,8 @@ namespace Views
             this.TransientFor = parent;
             HumanRightsTracker.Models.Person person = new HumanRightsTracker.Models.Person ();
             person.IsImmigrant = isImmigrant;
-            show1.Person = person;
             show1.isImmigrant = isImmigrant;
+            show1.Person = person;
             show1.IsEditing = true;
         }
 
