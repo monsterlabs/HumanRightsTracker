@@ -131,6 +131,16 @@ namespace Views.People
                     SetAddressList();
                     SetPersonRelationships();
                 }
+
+                EnableActionButtons ();
+            }
+        }
+
+        public void EnableActionButtons () {
+            if (Person == null) {
+                buttons.Hide ();
+            } else {
+                buttons.Show();
             }
         }
 

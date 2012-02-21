@@ -27,6 +27,7 @@ namespace Views
                 hasLoaded = true;
                 Console.WriteLine("People Tab Complete.");
                 show.IsEditing = false;
+                show.EnableActionButtons ();
             }
         }
 
