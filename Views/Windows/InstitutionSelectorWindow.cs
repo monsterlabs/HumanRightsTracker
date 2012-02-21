@@ -40,6 +40,22 @@ namespace Views
             this.TransientFor = null;
             this.Hide ();
         }
+
+        protected void OnAdd (object sender, System.EventArgs e)
+        {
+            new InstitutionCreateWindow (OnInstitutionCreated, (Gtk.Window)this.Toplevel);
+        }
+
+        protected void OnInstitutionCreated (object sender, EventArgs args)
+        {
+            // Fix it: Reload only one list
+            Institution i = sender as Institution;
+            OnSelect (this, new InstitutionEventArgs(i));
+            this.Modal = false;
+            this.TransientFor = null;
+            this.Hide ();
+        }
+
     }
 }
 

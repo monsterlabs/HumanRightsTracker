@@ -270,6 +270,8 @@
     <Compile Include="gtk-gui\Views.InstitutionRelationshipDetailWindow.cs" />
     <Compile Include="InstitutionRelationships\InstitutionRelationshipShow.cs" />
     <Compile Include="gtk-gui\Views.InstitutionRelationshipShow.cs" />
+    <Compile Include="Windows\InstitutionCreateWindow.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionCreateWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
