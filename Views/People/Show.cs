@@ -1,3 +1,4 @@
+// FIXIT: We should separate this class in two, one for each kind of actor
 using System;
 using System.Collections.Generic;
 using HumanRightsTracker.Models;
@@ -41,50 +42,47 @@ namespace Views.People
             get { return this.person; }
             set {
                 this.person = value;
-                SetWidgets ();
+                if (person != null) {
+                    set_person_widgets ();
+                    set_address_widgets ();
+                    if (this.isImmigrant == false)  {
+                        migration_attempts_frame.Hide ();
+                        identification_frame.Hide ();
+                        if (this.person.Id < 1 ) {
+                          address_frame.Hide ();
+                          relationships_list_frame.Hide ();
+                        }
+                    } else {
+                        set_person_details_widgets ();
+                        set_immigration_details_widgets ();
+
+                        if (this.person.Id < 1 ) {
+                            address_frame.Hide ();
+                            address_list_frame.Hide ();
+                            contact_info_frame.Hide ();
+                            identification_frame.Hide ();
+                            place_of_birth_frame.Hide ();
+                            relationships_list_frame.Hide ();
+                        } else {
+                            set_identification_widgets ();
+                            contact_info_frame.Show ();
+                            identification_frame.Show ();
+                            place_of_birth_frame.Show ();
+                        }
+                    }
+
+                    if (this.person.Id > 0 ) {
+                        SetAffiliationList();
+                        set_case_list();
+                        SetAddressList ();
+                        SetPersonRelationships ();
+
+                    }
+                }
+
                 IsEditing = false;
             }
 
-        }
-
-        protected void SetWidgets ()
-        {
-            if (person != null && person.Id > 0)
-            {
-                set_person_widgets ();
-                set_address_widgets ();
-                if (this.isImmigrant == false)
-                {
-                    migration_attempts_frame.Hide ();
-                    identification_frame.Hide ();
-                 }
-                 else
-                 {
-                    set_person_details_widgets ();
-                    set_immigration_details_widgets ();
-                    set_identification_widgets ();
-                    contact_info_frame.Show ();
-                    identification_frame.Show ();
-                    place_of_birth_frame.Show ();
-                 }
-                 SetAddressList ();
-                 SetPersonRelationships ();
-                 SetAffiliationList();
-                 set_case_list();
-            }
-            else
-            {
-              address_list_frame.Hide ();
-              relationships_list_frame.Hide ();
-              case_per_person.Hide ();
-
-              if (IsImmigrant == true) {
-                 place_of_birth_frame.Hide ();
-                 identification_frame.Hide ();
-                 contact_info_frame.Hide ();
-                 address_frame.Hide ();
-              }
-            }
         }
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
@@ -98,19 +96,41 @@ namespace Views.People
             set
             {
                 isEditing = value;
-                SetWidgets();
+
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
                     case_per_person.Hide ();
+                   // institution_and_job_per_person.Hide ();
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                     case_per_person.Show ();
+                   // institution_and_job_per_person.Show ();
                 }
 
                 case_per_person.IsEditable = false;
+
                 this.editable_helper.SetAllEditable(value);
+
+                if (this.isImmigrant == false ) {
+                     migration_attempts_frame.Hide();
+                     identification_frame.Hide ();
+                } else {
+                    migration_attempts_frame.Show();
+                    identification_frame.Show ();
+                }
+
+                if (this.person == null || this.person.Id < 1)   {
+                    if (this.isImmigrant == false) {
+                        address_frame.Show ();
+                    }
+                    relationships_list_frame.Hide ();
+                    address_list_frame.Hide ();
+                } else {
+                    SetAddressList();
+                    SetPersonRelationships();
+                }
             }
         }
 
@@ -129,22 +149,17 @@ namespace Views.People
             prepare_person_record ();
             if (person.IsValid())
             {
-                bool isNew = person.Id == 0;
                 person.SaveAndFlush ();
 
                 this.IsEditing = false;
                 if (PersonSaved != null) {
+                    person_detail_save ();
                     if (this.isImmigrant == true ) {
-                        person_detail_save ();
                         immigration_attempt_save ();
-                        if (!isNew) {
-                            identification_save ();
-                            address_save ();
-                        }
+                        identification_save ();
                     } else {
                         address_save ();
                     }
-
                     image_save ();
                     PersonSaved (person, e);
                 }
@@ -184,7 +199,7 @@ namespace Views.People
         protected void set_person_details_widgets ()
         {
             person.Refresh();
-            if (person.PersonDetails == null) {
+            if (person.PersonDetails == null ||person.PersonDetails.Count == 0) {
                 person_details = new PersonDetail ();
             } else {
                 person_details = (PersonDetail)person.PersonDetails[0];
@@ -199,7 +214,7 @@ namespace Views.People
         protected void set_immigration_details_widgets ()
         {
             person.Refresh();
-            if (person.ImmigrationAttempts == null || person.ImmigrationAttempts.Count == 0) {
+            if (person.ImmigrationAttempts == null || person.ImmigrationAttempts.Count == 0 ) {
                 immigration_attempt = new ImmigrationAttempt();
             } else {
                 immigration_attempt = (ImmigrationAttempt)person.ImmigrationAttempts[0];
@@ -223,7 +238,7 @@ namespace Views.People
         protected void set_identification_widgets()
         {
             person.Refresh();
-            if (person.Identifications == null) {
+            if (person.Identifications == null || person.Identifications.Count == 0 ) {
                 identification = new Identification ();
             } else {
                 identification = (Identification)person.Identifications[0];
@@ -253,9 +268,15 @@ namespace Views.People
            case_per_person.Person = person;
         }
 
+        protected void set_institution_and_job_list() {
+           //institution_and_job_per_person.Person = person;
+        }
 
         protected void person_detail_save ()
         {
+            if (person_details == null) {
+                person_details = new PersonDetail();
+            }
             person_details.NumberOfSons = number_of_sons.Active;
             person_details.ScholarityLevel = scholarity_level.Active as ScholarityLevel;
             //person_details.Religion = religion.Active as Religion;
@@ -303,6 +324,9 @@ namespace Views.People
 
         protected void identification_save ()
         {
+           if (identification == null ) {
+                identification = new Identification();
+           }
            identification.IdentificationType = identification_type.Active as IdentificationType;
            identification.IdentificationNumber = identification_number.Text;
 
@@ -371,17 +395,12 @@ namespace Views.People
         }
 
         private void SetAddressList () {
+            address_list_frame.Show ();
             if (person.Addresses != null && this.person.Addresses.Count > 0 ){
                 //ConnectAddressesHandlers ();
                 address_list.Records = this.person.Addresses.Cast<ListableRecord>().ToList ();
-                address_list_frame.Show ();
                 address_frame.Hide ();
-            } else {
-                if (this.isImmigrant == false && (this.person != null || this.person.Id > 0)) {
-                    address_frame.Show ();
-                }
-                address_list_frame.Hide ();
-           }
+            }
         }
 
         private void SetAffiliationList () {
@@ -416,9 +435,14 @@ namespace Views.People
         }
 
         public void SetPersonRelationships () {
-            relationships_list_frame.Show ();
             if (this.person != null && this.person.Id > 0 && this.person.PersonRelationships != null)  {
+                //ConnectPersonRelationshipsHandlers();
+                relationships_list_frame.Show ();
                 person_relationship_list.Records = this.person.PersonRelationships.Cast<ListableRecord>().ToList ();
+            }
+            else
+            {
+                relationships_list_frame.Hide ();
             }
         }
 
