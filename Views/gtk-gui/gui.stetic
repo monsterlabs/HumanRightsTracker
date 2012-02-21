@@ -4885,10 +4885,10 @@ End date</property>
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Headers">Institution
-Relation type
-Related Institution
-Start date
-End date</property>
+Tipo de relación
+Actor colectivo relacionado
+Fecha de inicio
+Fecha de término</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
@@ -4918,10 +4918,10 @@ End date</property>
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Headers">Person
-Affiliation type
-Institution
-Role
-Case
+Tipo de afiliación
+Actor colectivo
+Rol
+Caso
 Date</property>
                             <property name="IsEditable">False</property>
                           </widget>
