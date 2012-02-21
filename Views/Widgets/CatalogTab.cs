@@ -9,7 +9,7 @@ namespace Views
         {
             this.Build ();
 
-            String[] catalogs = {
+            String[] localizedCatalogs = {
                 Mono.Unix.Catalog.GetString("ActPlace"),
                 Mono.Unix.Catalog.GetString("Language"),
                 Mono.Unix.Catalog.GetString("HumanRightsViolationCategory"),
@@ -39,7 +39,35 @@ namespace Views
                 Mono.Unix.Catalog.GetString("AddressType")
             };
 
-
+            String[] catalogs = {
+                "ActPlace",
+                "Language",
+                "HumanRightsViolationCategory",
+                "HumanRightsViolation",
+                "LocationType",
+                "City",
+                "State",
+                "Country",
+                "AffiliationType",
+                "IdentificationType",
+                "SourceInformationType",
+                "MaritalStatus",
+                "TravelCompanion",
+                "CaseStatus",
+                "IndigenousLanguage",
+                "RelationshipType",
+                "TravelingReason",
+                "InstitutionCategory",
+                "ReliabilityLevel",
+                "VictimStatus",
+                "InstitutionType",
+                "Religion",
+                "InterventionType",
+                "EthnicGroup",
+                "Job",
+                "ScholarityLevel",
+                "AddressType"
+            };
 
             notebook1.Remove (notebook1.Children[0]);
 
@@ -51,7 +79,7 @@ namespace Views
 
                 // Notebook tab
                 Gtk.Label label = new Gtk.Label ();
-                label.LabelProp = catalog;
+                label.LabelProp = Mono.Unix.Catalog.GetString(catalog);
                 notebook1.SetTabLabel (catalogcrud, label);
                 label.ShowAll ();
             }
