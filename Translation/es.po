@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-20 04:10:16-0600\n"
-"PO-Revision-Date: 2012-02-20 05:49:02-0600\n"
+"POT-Creation-Date: 2012-02-20 23:00:44-0600\n"
+"PO-Revision-Date: 2012-02-20 23:19:59-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -36,7 +36,7 @@ msgstr "Acompañado"
 msgid "Alone"
 msgstr "No acompañado"
 
-#: ../Views/People/Show.cs:13
+#: ../Views/People/Show.cs:11
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:6
@@ -57,7 +57,7 @@ msgstr "No acompañado"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../Views/People/Show.cs:13
+#: ../Views/People/Show.cs:11
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -254,7 +254,7 @@ msgstr "<b>Dirección</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Address List</b>"
-msgstr "<b>Dirección</b>"
+msgstr "<b>Direcciones</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Individual or immigrant actors</b>"
@@ -287,10 +287,12 @@ msgid "Save"
 msgstr "Guardar"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+#: ../Views/Widgets/CatalogTab.cs:2
 msgid "Country"
 msgstr "País"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+#: ../Views/Widgets/CatalogTab.cs:2
 msgid "State"
 msgstr "Estado"
 
@@ -476,7 +478,7 @@ msgstr "<b>Fecha Inicial</b>"
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "<b>End Date</b>"
-msgstr "<b>Fecha de termino</b>"
+msgstr "<b>Fecha de término</b>"
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
@@ -548,7 +550,7 @@ msgstr "<b>Tipo de actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Abbreviation</b>"
-msgstr "<b>Siglás</b>"
+msgstr "<b>Siglas</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Home Page</b>"
@@ -710,7 +712,7 @@ msgstr "<b>Victíma</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 msgid "<b>Status:</b>"
-msgstr "<b>Status</b>"
+msgstr "<b>Estado</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 msgid "<b>Characteristics:</b>"
@@ -757,7 +759,7 @@ msgstr "Selector de actores colectivos"
 
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Place:</b>"
-msgstr "<b>Tipo de lugar</b>"
+msgstr "<b>Lugar</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Location:</b>"
@@ -869,7 +871,7 @@ msgstr "<b>Fecha de recepción</b>"
 
 #: ../Views/gtk-gui/Views.TrackingShow.cs:1
 msgid "<b>Status</b>"
-msgstr "<b>Status</b>"
+msgstr "<b>Estado</b>"
 
 #: ../Views/gtk-gui/Views.TrackingShow.cs:1
 #: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
@@ -957,6 +959,107 @@ msgstr "Selector de casos"
 msgid "_Remove"
 msgstr "Borrar"
 
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "ActPlace"
+msgstr "Lugar de Acto"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
+msgid "Language"
+msgstr "Idioma"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "HumanRightsViolationCategory"
+msgstr "Violación a derecho humano"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "HumanRightsViolation"
+msgstr "Acto"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "LocationType"
+msgstr "Tipo de Dirección"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "City"
+msgstr "Ciudad"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "AffiliationType"
+msgstr "Tipo de afiliación"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "IdentificationType"
+msgstr "Tipo de identificación"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "SourceInformationType"
+msgstr "Tipo de fuente de información"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "MaritalStatus"
+msgstr "Estado civil"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "TravelCompanion"
+msgstr "Acompanante de viaje"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "CaseStatus"
+msgstr "Estado de Caso"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "IndigenousLanguage"
+msgstr "Lengua indígena"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "RelationshipType"
+msgstr "Tipo de relación"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "TravelingReason"
+msgstr "Motivo del viaje"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "InstitutionCategory"
+msgstr "Categoría de actor colectivo"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "ReliabilityLevel"
+msgstr "Ninvel de Confiabilidad"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "VictimStatus"
+msgstr "Estado de Victíma"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "InstitutionType"
+msgstr "Tipo de actor colectivo"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "Religion"
+msgstr "Religión"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "InterventionType"
+msgstr "Tipo de Intervención"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "EthnicGroup"
+msgstr "Grupo indígena"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "Job"
+msgstr "Trabajo"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "ScholarityLevel"
+msgstr "Nivel de escolaridad"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "AddressType"
+msgstr "Tipo de dirección"
+
 #: ../Views/gtk-gui/Views.CatalogTab.cs:1
 msgid "page1"
 msgstr "Página"
@@ -971,7 +1074,7 @@ msgstr "Detalles del lugar"
 
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
 msgid "<b>Affected Human Right:</b>"
-msgstr "<b>Derechos afectados y actos</b>"
+msgstr "<b>Derecho afectado</b>"
 
 #: ../Views/gtk-gui/Views.HumanRightsViolationCategorySelector.cs:1
 #: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
@@ -1004,10 +1107,6 @@ msgstr "<b>Tipo de relación</b>"
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 msgid "<b>Source Information</b>"
 msgstr "<b>Fuente de información personal</b>"
-
-#: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
-msgid "Language"
-msgstr "Idioma"
 
 #: ../Views/gtk-gui/Views.InformationSourceShow.cs:1
 msgid "Reliability Level"
@@ -1121,7 +1220,7 @@ msgstr "<b>Filtros</b>"
 
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
 msgid "<b>Select where to save your report</b>"
-msgstr "Seleeccionar el directorio donde guardará el reporte"
+msgstr "<b>Seleccionar el directorio donde guardará el reporte</b>"
 
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
 msgid "_Cancel"
@@ -1142,7 +1241,7 @@ msgstr "Detalles del caso"
 
 #: ../Views/gtk-gui/Views.AddressShow.cs:1
 msgid "<b>Adress type</b>"
-msgstr "<b>Dirección</b>"
+msgstr "<b>Tipo de Dirección</b>"
 
 #: ../Views/gtk-gui/Views.HumanRightViolationSelector.cs:1
 msgid "<b>Act:</b>"
@@ -1383,9 +1482,6 @@ msgstr "Entrar"
 #~ msgid "<b>Related institution</b>"
 #~ msgstr "<b>Relación entre actores colectivos</b>"
 
-#~ msgid "Affiliation type"
-#~ msgstr "Tipo de afiliación"
-
 #~ msgid "<b>Human Right Violation:</b>"
 #~ msgstr "<b>Acto:</b>"
 
@@ -1396,26 +1492,14 @@ msgstr "Entrar"
 #~ msgid "<b>Settlement</b>"
 #~ msgstr "<b>Colonia</b>"
 
-#~ msgid "Job:"
-#~ msgstr "Tipo:"
-
 #~ msgid "<b>Job:</b>"
 #~ msgstr "<b>Rol en la institución</b>"
 
 #~ msgid "Change"
 #~ msgstr "Cambiar"
 
-#~ msgid "<b>Human Rights Violation:</b>"
-#~ msgstr "<b>Acto</b>"
-
 #~ msgid "Human Right"
 #~ msgstr "Derecho afectado"
-
-#~ msgid "Place"
-#~ msgstr "Lucar"
-
-#~ msgid "Location"
-#~ msgstr "Dirección"
 
 #~ msgid "PerpetratorActWindow"
 #~ msgstr "Acto del perpetrador"

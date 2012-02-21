@@ -6913,7 +6913,8 @@ Job</property>
                               <widget class="Gtk.Label" id="label1">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Perpetrator:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrator:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="Position">0</property>
@@ -6939,7 +6940,8 @@ Job</property>
                               <widget class="Gtk.Label" id="label7">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Perpetrator status:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Perpetrator status:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="Position">2</property>
@@ -6969,7 +6971,8 @@ Job</property>
                               <widget class="Gtk.Label" id="label2">
                                 <property name="MemberName" />
                                 <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">Institution:</property>
+                                <property name="LabelProp" translatable="yes">&lt;b&gt;Institution:&lt;/b&gt;</property>
+                                <property name="UseMarkup">True</property>
                               </widget>
                               <packing>
                                 <property name="Position">4</property>

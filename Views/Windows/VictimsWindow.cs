@@ -11,8 +11,8 @@ namespace Views
         public VictimsWindow (Act act, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            this.Modal = true;
             this.TransientFor = parent;
+            this.Modal = true;
             this.act = act;
             Initialize ();
         }

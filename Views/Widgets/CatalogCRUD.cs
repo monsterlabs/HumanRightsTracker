@@ -42,9 +42,8 @@ namespace Views
             } else {
                 CategoryName = "";
             }
-			
-            MethodInfo notesMethod = mod.Type.GetMethod("Notes");
-            hasNotes = notesMethod != null;
+
+            hasNotes = mod.PropertyDictionary.ContainsKey ("Notes");
             if (hasNotes) {
                 PropertyInfo notesProp =  mod.Type.GetProperty ("Notes");
                 Notes = (notesProp.GetValue(record, null) as String);
@@ -70,11 +69,11 @@ namespace Views
         public bool Selected;
         [Gtk.TreeNodeValue (Column=1)]
         public string Name;
-        [Gtk.TreeNodeValue (Column=2)]
+        [Gtk.TreeNodeValue (Column=4)]
         public string ParentName;
         [Gtk.TreeNodeValue (Column=3)]
         public string CategoryName;
-        [Gtk.TreeNodeValue (Column=4)]
+        [Gtk.TreeNodeValue (Column=2)]
         public string Notes;
 
         public int ParentId {
@@ -170,7 +169,7 @@ namespace Views
                     parentCell.Changed += HandleParentChanged;
                     parentCell.Editable = true;
 
-                    table.AppendColumn ("Parent", parentCell, "text", 2);
+                    table.AppendColumn ("Parent", parentCell, "text", 4);
                 }
 
                 MethodInfo categoryModelMethod = t.GetMethod("CategoryModel");
@@ -187,12 +186,11 @@ namespace Views
                     table.AppendColumn ("Category", categoryCell, "text", 3);
                 }
 
-                MethodInfo notesMethod = t.GetMethod("Notes");
-                if (notesMethod != null) {
+                if (mod.PropertyDictionary.ContainsKey ("Notes")) {
                     Gtk.CellRendererText notesCell = new Gtk.CellRendererText ();
                     notesCell.Editable = true;
                     notesCell.Edited += HandleNotesCellEdited;
-                    table.AppendColumn ("Notes", notesCell, "text", 4);
+                    table.AppendColumn ("Notes", notesCell, "text", 2);
                 }
             }
         }
