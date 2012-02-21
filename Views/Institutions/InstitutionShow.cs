@@ -41,16 +41,20 @@ namespace Views
                     fax.Text = institution.Fax == null ? "" : institution.Fax;
                     email.Text = institution.Email == null ? "" : institution.Email;
                     url.Text = institution.Url == null ? "" : institution.Url;
-                    if (institution.Id > 0 ) {
-                        case_per_institution.Institution = institution;
-                        SetInstitutionRelationships ();
-                        SetAffiliatedActorList ();
-                    }
+                    ShowAssociatedRecordList ();
                 }
                 IsEditing = false;
             }
         }
 
+        public void ShowAssociatedRecordList () {
+            if (institution.Id > 0 ) {
+                case_per_institution.Show ();
+                case_per_institution.Institution = institution;
+                SetInstitutionRelationships ();
+                SetAffiliatedActorList ();
+             }
+        }
         public bool IsEditing
         {
             get { return this.isEditing; }
@@ -66,10 +70,12 @@ namespace Views
                 }
 
                 this.editable_helper.SetAllEditable(value);
-                if (institution == null || institution.Id == 0) {
+                if (institution == null || institution.Id < 1) {
                     case_per_institution.Hide ();
                     related_institutions_expander.Hide ();
                     affiliated_actors_expander.Hide ();
+                } else {
+                    ShowAssociatedRecordList ();
                 }
                 case_per_institution.IsEditable = false;
             }
@@ -127,17 +133,14 @@ namespace Views
         }
 
         private void SetAffiliatedActorList () {
+            affiliated_actors_expander.Show ();
             affiliated_actor_list.AffiliatedRecords = this.institution.AffiliatedPersonList().Cast<AffiliatedRecord>().ToList ();
         }
 
          public void SetInstitutionRelationships () {
+            related_institutions_expander.Show ();
             if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionRelationships != null)  {
-                //ConnectPersonRelationshipsHandlers();
                 related_institution_list.Records = this.institution.InstitutionRelationships.Cast<ListableRecord>().ToList ();
-            }
-            else
-            {
-                related_institutions_expander.Hide ();
             }
         }
 
