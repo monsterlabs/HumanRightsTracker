@@ -1864,8 +1864,8 @@ Alone</property>
                           <widget class="Views.EditableList" id="address_list">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Address type
-Location
+                            <property name="Headers">Tipo
+Ubicación
 Country
 State
 Municipality</property>
@@ -1915,10 +1915,10 @@ Municipality</property>
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
                                     <property name="Headers">Person
-Relation type
-Related person
-Start date
-End date</property>
+Tipo de relación
+Persona relacionada
+Fecha de inicio
+Fecha de término</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                 </child>
@@ -1951,10 +1951,10 @@ End date</property>
                                   <widget class="Views.EditableList" id="affiliation_list">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="Headers">Role
-Affiliation Type
+                                    <property name="Headers">Rol
+Tipo de afiliación
 Institution
-Case name
+Nombre del caso
 Date</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
