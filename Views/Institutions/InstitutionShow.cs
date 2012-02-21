@@ -90,6 +90,7 @@ namespace Views
                 buttons.Show();
             }
         }
+
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
             institution.Name = name.Text;
