@@ -78,9 +78,18 @@ namespace Views
                     ShowAssociatedRecordList ();
                 }
                 case_per_institution.IsEditable = false;
+
+                EnableActionButtons ();
             }
         }
 
+        public void EnableActionButtons () {
+            if (Institution == null) {
+                buttons.Hide ();
+            } else {
+                buttons.Show();
+            }
+        }
         protected void OnSaveButtonClicked (object sender, System.EventArgs e)
         {
             institution.Name = name.Text;
