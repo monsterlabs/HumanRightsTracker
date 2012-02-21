@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-21 01:15:43-0600\n"
-"PO-Revision-Date: 2012-02-21 01:16:48-0600\n"
+"PO-Revision-Date: 2012-02-21 01:33:54-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -297,6 +297,7 @@ msgid "State"
 msgstr "Estado"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
+#, fuzzy
 msgid "Municipality"
 msgstr "Municipio"
 
