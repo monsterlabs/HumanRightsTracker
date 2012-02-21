@@ -10,7 +10,6 @@
     <RootNamespace>HumanRightsTracker</RootNamespace>
     <AssemblyName>HumanRightsTracker</AssemblyName>
     <newfilesearch>OnLoad</newfilesearch>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +39,7 @@
     <Optimize>false</Optimize>
     <OutputPath>..\bin\bin</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <DefineConstants>WIN32;</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows|x86' ">
     <DebugType>none</DebugType>
@@ -47,6 +47,7 @@
     <OutputPath>..\bin\bin</OutputPath>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>WIN32;</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugType>none</DebugType>
