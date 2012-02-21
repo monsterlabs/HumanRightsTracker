@@ -10,9 +10,9 @@ namespace Views
         public PerpetratorDetailWindow (Victim victim, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
+            this.Modal = true;
             Perpetrator p = new Perpetrator ();
             p.Victim = victim;
             show.Perpetrator = p;
@@ -22,9 +22,9 @@ namespace Views
         public PerpetratorDetailWindow (Perpetrator perpetrator, EventHandler OnSave, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            this.Modal = true;
             this.OnSaved = OnSave;
             this.TransientFor = parent;
+            this.Modal = true;
             show.Perpetrator = perpetrator;
             show.IsEditable = false;
         }
