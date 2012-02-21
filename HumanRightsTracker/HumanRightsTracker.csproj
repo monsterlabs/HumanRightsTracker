@@ -10,6 +10,7 @@
     <RootNamespace>HumanRightsTracker</RootNamespace>
     <AssemblyName>HumanRightsTracker</AssemblyName>
     <newfilesearch>OnLoad</newfilesearch>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
