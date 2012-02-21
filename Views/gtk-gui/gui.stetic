@@ -3563,9 +3563,9 @@ December</property>
                           <widget class="Views.EditableList" id="placeslist">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Country
-State
-Municipality</property>
+                            <property name="Headers">Pais
+Estado
+Municipio</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
@@ -3682,8 +3682,8 @@ Municipality</property>
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Headers">ID
-Title
-Date of Receipt</property>
+Título
+Fecha de recibo</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
@@ -3744,10 +3744,10 @@ Date of Receipt</property>
                       <widget class="Views.EditableList" id="act_list">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="Headers">Human Right
-Act
-Start Date
-End Date</property>
+                        <property name="Headers">Derecho humano
+Acto
+Fecha de inicio
+Fecha de término</property>
                         <property name="IsEditable">False</property>
                       </widget>
                     </child>
@@ -3777,10 +3777,10 @@ End Date</property>
                       <widget class="Views.EditableList" id="interventionlist">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="Headers">Supporter
+                        <property name="Headers">Persona que soporta la intervención
 Interventor
-Intervention type
-Date</property>
+Tipo de intervención
+Fecha</property>
                         <property name="IsEditable">False</property>
                       </widget>
                     </child>
@@ -3849,10 +3849,10 @@ Date</property>
                               <widget class="Views.EditableList" id="documentarysourcelist">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="Headers">Name
-Source type
-Publication date
-Access date</property>
+                                <property name="Headers">Nombre
+Tipo de fuente
+Fecha de publicación
+Fecha de acceso</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                             </child>
@@ -3883,9 +3883,9 @@ Access date</property>
                               <widget class="Views.EditableList" id="informationsourcelist">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="Headers">Name
-Affiliation type
-Date</property>
+                                <property name="Headers">Nombre
+Tipo de afiliación
+Fecha</property>
                                 <property name="IsEditable">False</property>
                               </widget>
                             </child>
@@ -3936,11 +3936,11 @@ Date</property>
                       <widget class="Views.EditableList" id="case_relationship_list">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="Headers">Case
-Relation type
-Related case
-Start date
-End date</property>
+                        <property name="Headers">Caso
+Tipo de relación
+Caso relacionado
+Fecha de inicio
+Fecha de término</property>
                         <property name="IsEditable">False</property>
                       </widget>
                     </child>
@@ -4886,7 +4886,7 @@ End date</property>
                           <widget class="Views.EditableList" id="related_institution_list">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Institution
+                            <property name="Headers">Institución
 Tipo de relación
 Actor colectivo relacionado
 Fecha de inicio
@@ -4919,7 +4919,7 @@ Fecha de término</property>
                           <widget class="Views.EditableList" id="affiliated_actor_list">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Person
+                            <property name="Headers">Persona
 Tipo de afiliación
 Actor colectivo
 Rol
@@ -6709,10 +6709,10 @@ Date</property>
                   <widget class="Views.EditableList" id="perpetratorslist">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="Headers">Last Name
-First Name
-Institution
-Job</property>
+                    <property name="Headers">Apellido
+Nombres
+Institución
+Trabajo</property>
                     <property name="IsEditable">False</property>
                   </widget>
                 </child>
@@ -7634,9 +7634,9 @@ Job</property>
                           <widget class="Views.EditableList" id="placeslist">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Country
-State
-City</property>
+                            <property name="Headers">País
+Estado
+Ciudad</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
@@ -7676,10 +7676,10 @@ City</property>
                                   <widget class="Views.EditableList" id="act_list">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="Headers">Human Right
-Act
-Start Date
-End Date</property>
+                                    <property name="Headers">Derecho humano
+Acto
+Fecha de inicio
+Fecha de término</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                 </child>
@@ -7710,10 +7710,10 @@ End Date</property>
                                   <widget class="Views.EditableList" id="interventionlist">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="Headers">Supporter
+                                    <property name="Headers">Persona que soporta la intervención
 Interventor
-Intervention type
-Date</property>
+Tipo de intervención
+Fecha</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                 </child>
@@ -7809,11 +7809,11 @@ Date</property>
                           <widget class="Views.EditableList" id="case_relationship_list">
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
-                            <property name="Headers">Case
-Relation type
-Related case
-Start date
-End date</property>
+                            <property name="Headers">Caso
+Tipo de Relación
+Caso Relacionado
+Fecha de inicio
+Fecha de término</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>
