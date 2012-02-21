@@ -61,6 +61,10 @@ namespace Views
                     label.Visible = false;
                     entry.Visible = true;
                 } else {
+                    if (label.Text.Trim().Length == 0)
+                    {
+                        label.Text = "";
+                    }
                     label.Visible = true;
                     entry.Visible = false;
                 }
