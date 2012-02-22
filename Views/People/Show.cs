@@ -113,7 +113,7 @@ namespace Views.People
 
                 this.editable_helper.SetAllEditable(value);
 
-                if (this.isImmigrant == false ) {
+                if (isImmigrant == false ) {
                      migration_attempts_frame.Hide();
                      identification_frame.Hide ();
                 } else {
@@ -122,8 +122,11 @@ namespace Views.People
                 }
 
                 if (this.person == null || this.person.Id < 1)   {
-                    if (this.isImmigrant == false) {
+                    if (isImmigrant == false) {
                         address_frame.Show ();
+                    } else {
+                        address_frame.Hide ();
+                        contact_info_frame.Hide ();
                     }
                     relationships_list_frame.Hide ();
                     address_list_frame.Hide ();
@@ -307,6 +310,9 @@ namespace Views.People
 
         protected void immigration_attempt_save ()
         {
+            if (immigration_attempt == null) {
+                immigration_attempt = new ImmigrationAttempt ();
+            }
             immigration_attempt.OriginCountry = place_of_origin.Country;
             immigration_attempt.OriginState = place_of_origin.State;
             immigration_attempt.OriginCity = place_of_origin.City;

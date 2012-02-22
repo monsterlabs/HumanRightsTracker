@@ -383,29 +383,29 @@ task :seeds => :environment do
   end
   
   # COMMENT this section to build your database for production environment
-  require "./blueprints/machinist_helper.rb"
-  Dir.glob("./blueprints/*.rb").each do |blueprint|
-    require blueprint
-  end
-
-  Person.make!(60)
-  Person.find_by_sql("UPDATE people SET is_immigrant = 0 WHERE is_immigrant = 'f'")
-  Person.find_by_sql("UPDATE people SET is_immigrant = 1 WHERE is_immigrant = 't'")
-  Person.find_by_sql("UPDATE people SET gender = 0 WHERE gender = 'f'")
-  Person.find_by_sql("UPDATE people SET gender = 1 WHERE gender = 't'")
-  Institution.make!(30)
-  InstitutionPerson.make!(10)
-  Case.make!(20)
-  InformationSource.make!(100)
-  DocumentarySource.make!(50)
-  CaseRelationship.make!(50)
-  PersonRelationship.make!(50)
-  InstitutionRelationship.make!(50)
-  
-  Case.all.each do |c|
-    c.record_count = c.tracking_information.count
-    c.save
-  end  
+  # require "./blueprints/machinist_helper.rb"
+  # Dir.glob("./blueprints/*.rb").each do |blueprint|
+  #   require blueprint
+  # end
+  # 
+  # Person.make!(60)
+  # Person.find_by_sql("UPDATE people SET is_immigrant = 0 WHERE is_immigrant = 'f'")
+  # Person.find_by_sql("UPDATE people SET is_immigrant = 1 WHERE is_immigrant = 't'")
+  # Person.find_by_sql("UPDATE people SET gender = 0 WHERE gender = 'f'")
+  # Person.find_by_sql("UPDATE people SET gender = 1 WHERE gender = 't'")
+  # Institution.make!(30)
+  # InstitutionPerson.make!(10)
+  # Case.make!(20)
+  # InformationSource.make!(100)
+  # DocumentarySource.make!(50)
+  # CaseRelationship.make!(50)
+  # PersonRelationship.make!(50)
+  # InstitutionRelationship.make!(50)
+  # 
+  # Case.all.each do |c|
+  #   c.record_count = c.tracking_information.count
+  #   c.save
+  # end  
   # /COMMENT
 end
 

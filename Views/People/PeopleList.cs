@@ -239,7 +239,5 @@ namespace Views
             return (victims_checkbutton.Active || perpetrators_checkbutton.Active || interventors_checkbutton.Active ||
                     supporters_checkbutton.Active );
         }
-
     }
 }
-
