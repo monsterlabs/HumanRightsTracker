@@ -69,6 +69,7 @@ namespace Views
         }
 
         protected void FillNodeStore () {
+            store.Clear();
             tree.NodeStore.Clear ();
             foreach (Person p in personList)
                 tree.NodeStore.AddNode (new PersonNode (p));
@@ -150,6 +151,7 @@ namespace Views
 
         public void FillStore ()
         {
+            store.Clear ();
             people = Person.FindAllByPersonType(this.isImmigrant);
 
             foreach (Person p in people) {

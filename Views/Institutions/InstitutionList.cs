@@ -77,6 +77,7 @@ namespace Views
         }
 
         public void FillStore() {
+            store.Clear ();
             institutionNodeView.NodeStore.Clear ();
 
             foreach (Institution i in institutions)
