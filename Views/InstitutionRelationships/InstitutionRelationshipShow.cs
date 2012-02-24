@@ -87,7 +87,9 @@ namespace Views
 
         protected void OnToggle (object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException ();
+            IsEditable = !IsEditable;
+            if (!IsEditable && Canceled != null)
+                Canceled (sender, e);
         }
     }
 }
