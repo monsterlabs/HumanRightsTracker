@@ -1909,7 +1909,6 @@ Municipality</property>
                               <widget class="Gtk.Expander" id="expander2">
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
-                                <property name="Expanded">True</property>
                                 <property name="BorderWidth">9</property>
                                 <child>
                                   <widget class="Views.EditableList" id="person_relationship_list">
@@ -1946,7 +1945,6 @@ Fecha de término</property>
                               <widget class="Gtk.Expander" id="expander4">
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
-                                <property name="Expanded">True</property>
                                 <property name="BorderWidth">9</property>
                                 <child>
                                   <widget class="Views.EditableList" id="affiliation_list">

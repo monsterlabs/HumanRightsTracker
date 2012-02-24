@@ -127,6 +127,7 @@ namespace Views.People
                     } else {
                         address_frame.Hide ();
                         contact_info_frame.Hide ();
+                        identification_frame.Hide ();
                     }
                     relationships_list_frame.Hide ();
                     address_list_frame.Hide ();
