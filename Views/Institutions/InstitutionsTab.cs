@@ -25,6 +25,7 @@ namespace Views
                 hasLoaded = true;
                 Console.WriteLine("Institutions Tab Complete.");
                 show.IsEditing = false;
+                show.EnableActionButtons ();
             }
         }
 

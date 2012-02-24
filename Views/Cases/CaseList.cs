@@ -54,6 +54,7 @@ namespace Views
         }
 
         public void FillStore() {
+            store.Clear ();
             CaseNodeView.NodeStore.Clear ();
 
             foreach (Case c in cases)

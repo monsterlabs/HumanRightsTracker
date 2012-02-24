@@ -3825,7 +3825,6 @@ Fecha</property>
           <widget class="Gtk.Expander" id="additional_info_expander">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox9">
                 <property name="MemberName" />
@@ -3930,7 +3929,6 @@ Fecha</property>
                   <widget class="Gtk.Expander" id="expander7">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="Expanded">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
                       <widget class="Views.EditableList" id="case_relationship_list">
@@ -3989,8 +3987,7 @@ Fecha de término</property>
               <widget class="Gtk.Button" id="saveButton">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="Type">TextAndIcon</property>
-                <property name="Icon">stock:gtk-add Menu</property>
+                <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Save</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnSaveButtonClicked" />
@@ -4965,7 +4962,7 @@ Date</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox1">
+          <widget class="Gtk.HButtonBox" id="buttons">
             <property name="MemberName" />
             <property name="Size">2</property>
             <child>

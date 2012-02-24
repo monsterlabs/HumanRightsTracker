@@ -96,6 +96,17 @@ namespace Views
                 }
 
                 this.editable_helper.SetAllEditable (value);
+                EnableActionButtons ();
+            }
+        }
+
+        public void EnableActionButtons () {
+            if (Case == null) {
+                button14.Hide ();
+                hbuttonbox9.Hide ();
+            } else {
+                button14.Show ();
+                hbuttonbox9.Show();
             }
         }
 

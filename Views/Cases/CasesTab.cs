@@ -29,6 +29,7 @@ namespace Views
                 hasLoaded = true;
                 Console.WriteLine("Cases Tab Complete.");
                 show.IsEditing = false;
+                show.EnableActionButtons ();
             }
         }
 
