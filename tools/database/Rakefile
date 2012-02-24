@@ -391,7 +391,7 @@ task :seeds => :environment do
     
     involvement_degree1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
     involvement_degree2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
-    involvement_degree_note = row[4].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    involvement_degree_note = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
     @involvement_degree_parent = nil
 
     unless involvement_degree1.empty?
@@ -413,30 +413,41 @@ task :seeds => :environment do
     end
   end
 
+  StayType.destroy_all
+  book = Spreadsheet.open "seeds/stay_types.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+    stay_type_name = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    stay_type_note = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    StayType.create(:name => stay_type_name, :notes => stay_type_note)
+  end  
+  
   # COMMENT this section to build your database for production environment
-  # require "./blueprints/machinist_helper.rb"
-  # Dir.glob("./blueprints/*.rb").each do |blueprint|
-  #   require blueprint
-  # end
-  # 
-  # Person.make!(60)
-  # Person.find_by_sql("UPDATE people SET is_immigrant = 0 WHERE is_immigrant = 'f'")
-  # Person.find_by_sql("UPDATE people SET is_immigrant = 1 WHERE is_immigrant = 't'")
-  # Person.find_by_sql("UPDATE people SET gender = 0 WHERE gender = 'f'")
-  # Person.find_by_sql("UPDATE people SET gender = 1 WHERE gender = 't'")
-  # Institution.make!(30)
-  # InstitutionPerson.make!(10)
-  # Case.make!(20)
-  # InformationSource.make!(100)
-  # DocumentarySource.make!(50)
-  # CaseRelationship.make!(50)
-  # PersonRelationship.make!(50)
-  # InstitutionRelationship.make!(50)
-  # 
-  # Case.all.each do |c|
-  #   c.record_count = c.tracking_information.count
-  #   c.save
-  # end  
+  require "./blueprints/machinist_helper.rb"
+  Dir.glob("./blueprints/*.rb").each do |blueprint|
+    require blueprint
+  end
+  
+  Person.make!(60)
+  Person.find_by_sql("UPDATE people SET is_immigrant = 0 WHERE is_immigrant = 'f'")
+  Person.find_by_sql("UPDATE people SET is_immigrant = 1 WHERE is_immigrant = 't'")
+  Person.find_by_sql("UPDATE people SET gender = 0 WHERE gender = 'f'")
+  Person.find_by_sql("UPDATE people SET gender = 1 WHERE gender = 't'")
+  Institution.make!(30)
+  InstitutionPerson.make!(10)
+  Case.make!(20)
+  InformationSource.make!(100)
+  DocumentarySource.make!(50)
+  CaseRelationship.make!(50)
+  PersonRelationship.make!(50)
+  InstitutionRelationship.make!(50)
+  
+  Case.all.each do |c|
+    c.record_count = c.tracking_information.count
+    c.save
+  end  
   # /COMMENT
 end
 

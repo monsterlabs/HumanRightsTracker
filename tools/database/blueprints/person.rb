@@ -58,6 +58,7 @@ ImmigrationAttempt.blueprint do
     expulsions_from_destination_country { rand(3) }
     expulsions_from_transit_country { rand(3) }
     is_traveling_companied { rand(2) > 0 ? true : false }
+    stay_type_id { StayType.all.sample.id }
 end
 
 Address.blueprint do
