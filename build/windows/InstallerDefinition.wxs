@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Change per release -->
-<?define ProductVersion = "1.0.0" ?>
-<?define ProductVersionText = "1.0.0" ?>
+<?define ProductVersion = "1.0.1" ?>
+<?define ProductVersionText = "1.0.1" ?>
 
 <!-- Should not be changed -->
 <?define ProductShortName = "HumanRightsTracker" ?>
