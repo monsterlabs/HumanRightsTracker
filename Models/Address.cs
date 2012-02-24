@@ -12,7 +12,6 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
         [Property("location")]
-        [ValidateNonEmpty]
         public String Location { get; set; }
         [Property("phone")]
         public String Phone { get; set; }

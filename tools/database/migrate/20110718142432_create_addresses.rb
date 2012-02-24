@@ -1,7 +1,7 @@
 class CreateAddresses < ActiveRecord::Migration
   def self.up
     create_table :addresses do |t|
-      t.string :location, :null => false
+      t.string :location
       t.references :country, :state, :city
       t.references :person
       t.string :phone, :mobile, :zipcode

@@ -12,14 +12,12 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
         [Property("identification_number")]
-        [ValidateNonEmpty]
         public String IdentificationNumber { get; set; }
 
         [BelongsTo("person_id")]
         public Person Person { get; set; }
 
         [BelongsTo("identification_type_id")]
-        [ValidateNonEmpty]
         public IdentificationType IdentificationType { get; set; }
     }
 }

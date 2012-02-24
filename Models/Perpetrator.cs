@@ -18,7 +18,7 @@ namespace HumanRightsTracker.Models
         public Victim Victim { get; set; }
         [BelongsTo("person_id"), ValidateNonEmpty]
         public Person Person { get; set; }
-        [BelongsTo("institution_id"), ValidateNonEmpty]
+        [BelongsTo("institution_id")]
         public Institution Institution { get; set; }
         [BelongsTo("perpetrator_type_id")]
         public PerpetratorType PerpetratorType { get; set; }
@@ -35,9 +35,14 @@ namespace HumanRightsTracker.Models
             string[] data = {
                 this.Person.Lastname,
                 this.Person.Firstname,
-                this.Institution.Name,
+                "",
                 ""
             };
+
+            if (this.Institution != null)
+            {
+                data[2] = this.Institution.Name;
+            }
 
             if (this.PerpetratorType != null) {
                 data[3] = this.PerpetratorType.Name;
