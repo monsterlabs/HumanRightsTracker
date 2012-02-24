@@ -8810,7 +8810,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PersonAndInstitutionSelect" design-size="326 390">
+  <widget class="Gtk.Bin" id="Views.PersonAndInstitutionSelect" design-size="316 92">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -8851,42 +8851,73 @@ Fecha de término</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="label5">
+              <widget class="Gtk.Expander" id="expander1">
                 <property name="MemberName" />
-                <property name="Xalign">0</property>
-                <property name="LabelProp" translatable="yes">&lt;b&gt;Institution:&lt;/b&gt;</property>
-                <property name="UseMarkup">True</property>
+                <property name="CanFocus">True</property>
+                <child>
+                  <widget class="Gtk.VBox" id="vbox3">
+                    <property name="MemberName" />
+                    <property name="Spacing">6</property>
+                    <child>
+                      <widget class="Gtk.Label" id="label5">
+                        <property name="MemberName" />
+                        <property name="Xalign">0</property>
+                        <property name="LabelProp" translatable="yes">&lt;b&gt;Institution:&lt;/b&gt;</property>
+                        <property name="UseMarkup">True</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.InstitutionSelect" id="institution">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="IsEditable">False</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.CatalogSelectorAsTree" id="affiliation_type">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="Model">AffiliationType</property>
+                        <property name="IsEditable">False</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">2</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="GtkLabel2">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">&lt;b&gt;Institution&lt;/b&gt;</property>
+                    <property name="UseMarkup">True</property>
+                    <property name="UseUnderline">True</property>
+                  </widget>
+                  <packing>
+                    <property name="type">label_item</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
+                <property name="PackType">End</property>
                 <property name="Position">2</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Views.InstitutionSelect" id="institution">
-                <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
-                <property name="IsEditable">False</property>
-              </widget>
-              <packing>
-                <property name="Position">3</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Views.CatalogSelectorAsTree" id="affiliation_type">
-                <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
-                <property name="Model">AffiliationType</property>
-                <property name="IsEditable">False</property>
-              </widget>
-              <packing>
-                <property name="Position">4</property>
-                <property name="AutoSize">False</property>
                 <property name="Fill">False</property>
               </packing>
             </child>
