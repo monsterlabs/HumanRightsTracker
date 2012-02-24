@@ -1059,10 +1059,10 @@ Alone</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Gtk.Label" id="label61">
+                                  <widget class="Gtk.Label" id="label63">
                                     <property name="MemberName" />
                                     <property name="Xalign">0</property>
-                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Time Spent in Dest. Country&lt;/b&gt;</property>
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Stay type&lt;/b&gt;</property>
                                     <property name="UseMarkup">True</property>
                                   </widget>
                                   <packing>
@@ -1082,13 +1082,14 @@ Alone</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="Views.EditableLabel" id="time_spent_in_destination_country">
+                                  <widget class="Views.CatalogSelector" id="stay_type">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="WidthChars">0</property>
-                                    <property name="MaxLength">0</property>
-                                    <property name="OnlyNumbers">False</property>
+                                    <property name="OrderById">False</property>
+                                    <property name="Model">StayType</property>
                                     <property name="IsEditable">False</property>
+                                    <property name="HideAddButton">False</property>
+                                    <property name="HideNoteButton">False</property>
                                   </widget>
                                   <packing>
                                     <property name="TopAttach">7</property>
@@ -1167,7 +1168,7 @@ Alone</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel31">
+                      <widget class="Gtk.Label" id="GtkLabel33">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Migration Attempts&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1303,7 +1304,7 @@ Alone</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel39">
+                      <widget class="Gtk.Label" id="GtkLabel41">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Birth Place&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1431,7 +1432,7 @@ Alone</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel42">
+                      <widget class="Gtk.Label" id="GtkLabel44">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Identification&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1616,7 +1617,7 @@ Alone</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel43">
+                      <widget class="Gtk.Label" id="GtkLabel45">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Contact Info&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1833,7 +1834,7 @@ Alone</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel52">
+                      <widget class="Gtk.Label" id="GtkLabel54">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Address&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -1855,7 +1856,7 @@ Alone</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment47">
+                      <widget class="Gtk.Alignment" id="GtkAlignment50">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -1895,7 +1896,7 @@ Municipality</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment48">
+                      <widget class="Gtk.Alignment" id="GtkAlignment51">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -6967,11 +6968,11 @@ Trabajo</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="Gtk.Label" id="label2">
+                              <widget class="Views.CatalogSelectorAsTree" id="involvementDegreeSelector">
                                 <property name="MemberName" />
-                                <property name="Xalign">0</property>
-                                <property name="LabelProp" translatable="yes">&lt;b&gt;Institution:&lt;/b&gt;</property>
-                                <property name="UseMarkup">True</property>
+                                <property name="Events">ButtonPressMask</property>
+                                <property name="Model">InvolvementDegree</property>
+                                <property name="IsEditable">False</property>
                               </widget>
                               <packing>
                                 <property name="Position">4</property>
@@ -6981,27 +6982,70 @@ Trabajo</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="Views.InstitutionSelect" id="institution">
+                              <widget class="Gtk.Expander" id="expander1">
                                 <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="IsEditable">False</property>
+                                <property name="CanFocus">True</property>
+                                <child>
+                                  <widget class="Gtk.VBox" id="vbox7">
+                                    <property name="MemberName" />
+                                    <property name="Spacing">6</property>
+                                    <child>
+                                      <widget class="Gtk.Label" id="label2">
+                                        <property name="MemberName" />
+                                        <property name="Xalign">0</property>
+                                        <property name="LabelProp" translatable="yes">&lt;b&gt;Institution:&lt;/b&gt;</property>
+                                        <property name="UseMarkup">True</property>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">0</property>
+                                        <property name="AutoSize">True</property>
+                                        <property name="Expand">False</property>
+                                        <property name="Fill">False</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <widget class="Views.InstitutionSelect" id="institution">
+                                        <property name="MemberName" />
+                                        <property name="Events">ButtonPressMask</property>
+                                        <property name="IsEditable">False</property>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">1</property>
+                                        <property name="AutoSize">True</property>
+                                        <property name="Expand">False</property>
+                                        <property name="Fill">False</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <widget class="Views.CatalogSelectorAsTree" id="perpetratorTypeSelector">
+                                        <property name="MemberName" />
+                                        <property name="Events">ButtonPressMask</property>
+                                        <property name="Model">PerpetratorType</property>
+                                        <property name="IsEditable">False</property>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">2</property>
+                                        <property name="AutoSize">True</property>
+                                        <property name="Expand">False</property>
+                                        <property name="Fill">False</property>
+                                      </packing>
+                                    </child>
+                                  </widget>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="GtkLabel13">
+                                    <property name="MemberName" />
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Institution&lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                    <property name="UseUnderline">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="type">label_item</property>
+                                  </packing>
+                                </child>
                               </widget>
                               <packing>
                                 <property name="Position">5</property>
-                                <property name="AutoSize">True</property>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Views.CatalogSelectorAsTree" id="perpetratorTypeSelector">
-                                <property name="MemberName" />
-                                <property name="Events">ButtonPressMask</property>
-                                <property name="Model">PerpetratorType</property>
-                                <property name="IsEditable">False</property>
-                              </widget>
-                              <packing>
-                                <property name="Position">6</property>
                                 <property name="AutoSize">True</property>
                                 <property name="Expand">False</property>
                                 <property name="Fill">False</property>

@@ -27,6 +27,7 @@ namespace Views
                 perpetrator = value;
                 perpetratorSelector.Person = perpetrator.Person;
                 perpetratorStatusSelector.Active = perpetrator.PerpetratorStatus;
+                involvementDegreeSelector.Active = perpetrator.InvolvementDegree;
                 institution.Institution = perpetrator.Institution;
                 perpetratorTypeSelector.Active = perpetrator.PerpetratorType;
 
@@ -58,6 +59,7 @@ namespace Views
                 }
                 institution.IsEditable = value;
                 perpetratorTypeSelector.IsEditable = value;
+                involvementDegreeSelector.IsEditable = value;
                 perpetratorSelector.IsEditable = value;
                 perpetratorStatusSelector.IsEditable = value;
                 perpetratoractshow.IsEditable = value;
@@ -76,6 +78,7 @@ namespace Views
         {
             bool newRow = perpetrator.Id < 1 ? true : false;
             perpetrator.Person = perpetratorSelector.Person;
+            perpetrator.InvolvementDegree = involvementDegreeSelector.Active as InvolvementDegree;
             perpetrator.Institution = institution.Institution;
             perpetrator.PerpetratorType = perpetratorTypeSelector.Active as PerpetratorType;
             perpetrator.PerpetratorStatus = perpetratorStatusSelector.Active as PerpetratorStatus;

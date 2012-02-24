@@ -49,5 +49,8 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("person_id")]
         public Person Person { get; set; }
+
+        [BelongsTo("stay_type_id")]
+        public StayType StayType { get; set; }
     }
 }

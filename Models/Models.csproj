@@ -135,6 +135,8 @@
     <Compile Include="AffiliableRecord.cs" />
     <Compile Include="AffiliatedRecord.cs" />
     <Compile Include="InstitutionRelationship.cs" />
+    <Compile Include="Catalogs\InvolvementDegree.cs" />
+    <Compile Include="Catalogs\StayType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

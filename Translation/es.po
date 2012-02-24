@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-21 01:15:43-0600\n"
-"PO-Revision-Date: 2012-02-21 01:33:54-0600\n"
+"POT-Creation-Date: 2012-02-24 00:48:59-0600\n"
+"PO-Revision-Date: 2012-02-24 00:50:11-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -183,8 +183,8 @@ msgid "<b>Cross border attempts transit country</b>"
 msgstr "<b>Intentos De Cruce Por El País De Tránsito.</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
-msgid "<b>Time Spent in Dest. Country</b>"
-msgstr "<b>Tipo de estancia en el país destino</b>"
+msgid "<b>Stay type</b>"
+msgstr "<b>Tipo de estancia</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Migration Attempts</b>"
@@ -372,6 +372,7 @@ msgstr "Número de registros"
 
 #: ../Views/gtk-gui/Views.PeopleTab.cs:1
 #: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionSelectorWindow.cs:1
 #: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
 msgid "_Add"
 msgstr "Agregar"
@@ -748,6 +749,11 @@ msgid "<b>Institution:</b>"
 msgstr "<b>Actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+msgid "<b>Institution</b>"
+msgstr "<b>Actor colectivo</b>"
+
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "<b>Perpetrator Acts</b>"
 msgstr "<b>Actos del perpetrador</b>"
 
@@ -821,10 +827,6 @@ msgstr "Tipo"
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Institution Logo</b>"
 msgstr "<b>Logo de actor colectivo</b>"
-
-#: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
-msgid "<b>Institution</b>"
-msgstr "<b>Actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
@@ -1355,6 +1357,11 @@ msgstr "Ventana de la relación de personas"
 msgid "<b>Related institution:</b>"
 msgstr "<b>Actores colectivos relacionados</b>"
 
+#: ../Views/gtk-gui/Views.InstitutionCreateWindow.cs:1
+#, fuzzy
+msgid "InstitutionCreateWindow"
+msgstr "Selector de actores colectivos"
+
 #: ../Models/Intervention.cs:27
 #: ../Models/Intervention.cs:34
 msgid "Not defined role in intervention record"
@@ -1468,6 +1475,9 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#~ msgid "<b>Time Spent in Dest. Country</b>"
+#~ msgstr "<b>Tipo de estancia en el país destino</b>"
 
 #~ msgid "Perpetrator:"
 #~ msgstr "Perpetrador"

@@ -240,12 +240,13 @@ namespace Views.People
             is_traveling_companied.Activate = immigration_attempt.Id != 0 ? immigration_attempt.IsTravelingCompanied : true;
 
             destination_country.Active = immigration_attempt.DestinationCountry as Country;
+            stay_type.Active = immigration_attempt.StayType as StayType;
             expulsions_from_destination_country.Active = immigration_attempt.ExpulsionsFromDestinationCountry;
             transit_country.Active = immigration_attempt.TransitCountry as Country;
             expulsions_from_transit_country.Active = immigration_attempt.ExpulsionsFromTransitCountry;
             cross_border_attempts_transit_country.Active = immigration_attempt.CrossBorderAttemptsTransitCountry;
             cross_border_attempts_destination_country.Active = immigration_attempt.CrossBorderAttemptsDestinationCountry;
-            time_spent_in_destination_country.Text = immigration_attempt.TimeSpentInDestinationCountry ?? "";
+            //time_spent_in_destination_country.Text = immigration_attempt.TimeSpentInDestinationCountry ?? "";
         }
 
         protected void set_identification_widgets()
@@ -320,14 +321,14 @@ namespace Views.People
             immigration_attempt.CrossBorderAttemptsDestinationCountry = cross_border_attempts_destination_country.Active;
 
             immigration_attempt.IsTravelingCompanied = is_traveling_companied.Value ();
-            immigration_attempt.TimeSpentInDestinationCountry = time_spent_in_destination_country.Text;
+            //immigration_attempt.TimeSpentInDestinationCountry = time_spent_in_destination_country.Text;
             immigration_attempt.DestinationCountry = destination_country.Active as Country;
             immigration_attempt.TransitCountry = transit_country.Active as Country;
 
             immigration_attempt.ExpulsionsFromDestinationCountry = expulsions_from_destination_country.Active;
             immigration_attempt.ExpulsionsFromTransitCountry = expulsions_from_transit_country.Active;
             immigration_attempt.IsTravelingCompanied = is_traveling_companied.Value ();
-
+            immigration_attempt.StayType = stay_type.Active as StayType;
             immigration_attempt.Person = person;
 
             if (immigration_attempt.IsValid()) {
