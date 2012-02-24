@@ -13,7 +13,7 @@ namespace Views
         public InstitutionNode (Institution institution)
         {
             Institution = institution;
-            if (institution.Photo != null)
+            if (institution.Photo != null && institution.Photo.Icon != null)
                 Photo = new Gdk.Pixbuf (institution.Photo.Icon);
             else
                 Photo = Gdk.Pixbuf.LoadFromResource ("Views.images.MissingInstitutionIcon.jpg");

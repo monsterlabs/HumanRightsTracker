@@ -12,7 +12,7 @@ namespace Views
         public VictimNode (Victim victim)
         {
             Victim = victim;
-            if (victim.Person.Photo != null)
+            if (victim.Person.Photo != null && victim.Person.Photo.Icon != null)
                 Photo = new Gdk.Pixbuf (victim.Person.Photo.Icon);
             else
                 Photo = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");

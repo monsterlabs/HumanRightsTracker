@@ -18,7 +18,7 @@ namespace Views
         public void set_widgets() {
             if (institution != null ) {
                institution_name.Text = institution.Name;
-               if (institution.Photo != null)
+               if (institution.Photo != null && institution.Photo.Icon != null)
                   image.Pixbuf = new Gdk.Pixbuf (institution.Photo.Icon);
                else
                   image.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.MissingInstitutionIcon.jpg");

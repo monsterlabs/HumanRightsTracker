@@ -40,7 +40,7 @@ namespace Views
                 if (institution != null)
                 {
                     Console.WriteLine(institution.Photo);
-                    if (institution.Photo.Icon != null)
+                    if (institution.Photo != null && institution.Photo.Icon != null)
                     {
                         photo.Pixbuf = new Gdk.Pixbuf (institution.Photo.Icon);
                     } else {

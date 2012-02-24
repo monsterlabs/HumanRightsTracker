@@ -40,7 +40,7 @@ namespace Views
                 victim = value;
                 if (victim != null)
                 {
-                    if (victim.Person.Photo != null)
+                    if (victim.Person.Photo != null && victim.Person.Photo.Icon != null)
                     {
                         photo.Pixbuf = new Gdk.Pixbuf (victim.Person.Photo.Icon);
                     }

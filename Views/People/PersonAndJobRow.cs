@@ -20,7 +20,7 @@ namespace Views
         public void set_widgets() {
             if (person != null ) {
                person_fullname.Text = person.Fullname;
-               if (person.Photo != null)
+               if (person.Photo != null && person.Photo.Icon != null)
                 image.Pixbuf = new Gdk.Pixbuf (person.Photo.Icon);
                else
                 image.Pixbuf = Gdk.Pixbuf.LoadFromResource ("Views.images.Missing.jpg");

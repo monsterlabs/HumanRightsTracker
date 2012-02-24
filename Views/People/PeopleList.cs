@@ -151,7 +151,9 @@ namespace Views
 
         public void FillStore ()
         {
-            store.Clear ();
+            if (store != null) {
+                store.Clear ();
+            }
             people = Person.FindAllByPersonType(this.isImmigrant);
 
             foreach (Person p in people) {
