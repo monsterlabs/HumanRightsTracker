@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-24 01:32:40-0600\n"
-"PO-Revision-Date: 2012-02-24 01:32:40-0600\n"
+"POT-Creation-Date: 2012-02-24 06:03:18-0600\n"
+"PO-Revision-Date: 2012-02-24 06:03:19-0600\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -747,6 +747,7 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
 msgid "<b>Institution</b>"
 msgstr ""
 
@@ -1351,10 +1352,6 @@ msgstr ""
 msgid "<b>Comments:</b>"
 msgstr ""
 
-#: ../Views/Widgets/CatalogSelectorAsTree.cs:14
-msgid "<b>\" + model + \"</b>"
-msgstr ""
-
 #: ../Views/gtk-gui/Views.CatalogSelectorAsTree.cs:1
 msgid "<b>Title:</b>"
 msgstr ""
@@ -1411,13 +1408,13 @@ msgstr ""
 msgid "As source in source information"
 msgstr ""
 
-#: ../Models/Perpetrator.cs:7
-#: ../Models/Perpetrator.cs:14
+#: ../Models/Perpetrator.cs:8
+#: ../Models/Perpetrator.cs:15
 msgid "Perpetrator"
 msgstr ""
 
-#: ../Models/Perpetrator.cs:7
-#: ../Models/Perpetrator.cs:14
+#: ../Models/Perpetrator.cs:8
+#: ../Models/Perpetrator.cs:15
 msgid "Not defined perpetrator type in perpetrator record"
 msgstr ""
 

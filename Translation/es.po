@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-24 01:32:40-0600\n"
-"PO-Revision-Date: 2012-02-24 01:34:41-0600\n"
+"POT-Creation-Date: 2012-02-24 06:03:18-0600\n"
+"PO-Revision-Date: 2012-02-24 06:12:51-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -14,11 +14,11 @@ msgstr ""
 
 #: ../Views/People/Show.cs:4
 msgid "Male"
-msgstr "Masculino"
+msgstr "Hombre"
 
 #: ../Views/People/Show.cs:4
 msgid "Female"
-msgstr "Femenino"
+msgstr "Mujer"
 
 #: ../Views/People/Show.cs:4
 msgid "Yes"
@@ -258,7 +258,7 @@ msgstr "<b>Direcciones</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Individual or immigrant actors</b>"
-msgstr "<b>Actores individuales o inmigrantes</b>"
+msgstr "<b>Actores individuales o migrantes</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Organizations or Institutions </b>"
@@ -750,6 +750,7 @@ msgstr "<b>Actor colectivo</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
+#: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
 msgid "<b>Institution</b>"
 msgstr "<b>Actor colectivo</b>"
 
@@ -982,7 +983,7 @@ msgstr "Tipo de Dirección"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "City"
-msgstr "Ciudad"
+msgstr "Municipio"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "AffiliationType"
@@ -1356,11 +1357,6 @@ msgstr "<b>Fecha de término</b>"
 msgid "<b>Comments:</b>"
 msgstr "<b>Comentarios</b>"
 
-#: ../Views/Widgets/CatalogSelectorAsTree.cs:14
-#, fuzzy
-msgid "<b>\" + model + \"</b>"
-msgstr "<b>Código postal</b>"
-
 #: ../Views/gtk-gui/Views.CatalogSelectorAsTree.cs:1
 msgid "<b>Title:</b>"
 msgstr "<b>Título:</b>"
@@ -1418,13 +1414,13 @@ msgstr "Persona reportada en información personal"
 msgid "As source in source information"
 msgstr "Fuente de información en información personal"
 
-#: ../Models/Perpetrator.cs:7
-#: ../Models/Perpetrator.cs:14
+#: ../Models/Perpetrator.cs:8
+#: ../Models/Perpetrator.cs:15
 msgid "Perpetrator"
 msgstr "Perpetrador"
 
-#: ../Models/Perpetrator.cs:7
-#: ../Models/Perpetrator.cs:14
+#: ../Models/Perpetrator.cs:8
+#: ../Models/Perpetrator.cs:15
 msgid "Not defined perpetrator type in perpetrator record"
 msgstr "Sin tipo de perpetrado definido en actos"
 
@@ -1491,6 +1487,10 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#, fuzzy
+#~ msgid "<b>\" + model + \"</b>"
+#~ msgstr "<b>Código postal</b>"
 
 #~ msgid "<b>Time Spent in Dest. Country</b>"
 #~ msgstr "<b>Tipo de estancia en el país destino</b>"
