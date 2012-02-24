@@ -64,9 +64,19 @@ namespace Reports
                     addField ("\t\tCaracterísticas", victim.Characteristics);
                     if (victim.VictimStatus != null)
                         addField ("\t\tEstado", victim.VictimStatus.Name);
+                    addField ("\t\tIntentos de inmigración", victim.Person.ImmigrationAttempts.ToString());
                     addBold ("\t\tPerpetradares");
                     foreach (Perpetrator perpetrator in victim.Perpetrators) {
                         addField ("\t\t\tPerpetrador", perpetrator.Person.Fullname);
+                        if (perpetrator.Institution != null) {
+                            addField ("\t\t\tInstitución", perpetrator.Institution.Name);
+                        }
+                        if (perpetrator.PerpetratorType != null)
+                            addField ("\t\t\tTipo de perpetrador", perpetrator.PerpetratorType.Name);
+                        if (perpetrator.PerpetratorStatus != null)
+                            addField ("\t\t\tEstado del perpetrador", perpetrator.PerpetratorStatus.Name);
+                        if (perpetrator.InvolvementDegree != null)
+                            addField ("\t\t\tGrado de involucramiento", perpetrator.InvolvementDegree.Name);
                     }
                 }
 
