@@ -73,6 +73,7 @@ Perpetrator.blueprint do
   perpetrator_type_id { PerpetratorType.all.sample.id }
   perpetrator_acts(rand(5))
   perpetrator_status_id { PerpetratorStatus.all.sample.id }
+  involvement_degree_id { InvolvementDegree.all.sample.id }
 end
 
 PerpetratorAct.blueprint do
