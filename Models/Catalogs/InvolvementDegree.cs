@@ -35,5 +35,13 @@ namespace HumanRightsTracker.Models
                                                    new ICriterion[] { Restrictions.Or (Restrictions.IsNull("ParentId"),
                                                                                        Restrictions.Eq("ParentId",0)) });
         }
+
+        public string ParentName () {
+            return InvolvementDegree.Find(this.ParentId).Name;
+        }
+
+        public string ParentModel () {
+            return "InvolvementDegree";
+        }
     }
 }

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-24 00:48:59-0600\n"
-"PO-Revision-Date: 2012-02-24 00:49:00-0600\n"
+"POT-Creation-Date: 2012-02-24 01:32:40-0600\n"
+"PO-Revision-Date: 2012-02-24 01:32:40-0600\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1055,6 +1055,22 @@ msgstr ""
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "AddressType"
+msgstr ""
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "StayType"
+msgstr ""
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "PerpetratorType"
+msgstr ""
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "PerpetratorStatus"
+msgstr ""
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "InvolvementDegree"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CatalogTab.cs:1

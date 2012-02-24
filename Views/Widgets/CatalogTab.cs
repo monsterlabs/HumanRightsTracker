@@ -36,7 +36,11 @@ namespace Views
                 Mono.Unix.Catalog.GetString("EthnicGroup"),
                 Mono.Unix.Catalog.GetString("Job"),
                 Mono.Unix.Catalog.GetString("ScholarityLevel"),
-                Mono.Unix.Catalog.GetString("AddressType")
+                Mono.Unix.Catalog.GetString("AddressType"),
+                Mono.Unix.Catalog.GetString("StayType"),
+                Mono.Unix.Catalog.GetString("PerpetratorType"),
+                Mono.Unix.Catalog.GetString("PerpetratorStatus"),
+                Mono.Unix.Catalog.GetString("InvolvementDegree")
             };
 
             String[] catalogs = {
@@ -66,7 +70,11 @@ namespace Views
                 "EthnicGroup",
                 "Job",
                 "ScholarityLevel",
-                "AddressType"
+                "AddressType",
+                "StayType",
+                "PerpetratorType",
+                "PerpetratorStatus",
+                "InvolvementDegree"
             };
 
             notebook1.Remove (notebook1.Children[0]);

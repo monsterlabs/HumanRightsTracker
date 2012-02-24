@@ -65,7 +65,7 @@ namespace Views
                 t = asm.GetType ("HumanRightsTracker.Models." + model);
                 mod = ActiveRecordModel.GetModel(t);
                 nodeview.NodeStore = Store;
-                title_label.Text = Catalog.GetString("<b>" + model + "</b>");
+                title_label.Text = "<b>" + Catalog.GetString(model) + "</b>";
                 title_label.UseMarkup = true;
             }
         }

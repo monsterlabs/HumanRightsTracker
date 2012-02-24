@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-24 00:48:59-0600\n"
-"PO-Revision-Date: 2012-02-24 00:50:11-0600\n"
+"POT-Creation-Date: 2012-02-24 01:32:40-0600\n"
+"PO-Revision-Date: 2012-02-24 01:34:41-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -641,7 +641,7 @@ msgstr "Acto"
 
 #: ../Views/gtk-gui/Views.EditableLabel.cs:1
 msgid "label5"
-msgstr ""
+msgstr " "
 
 #: ../Views/gtk-gui/Views.EditCatalogRecord.cs:1
 msgid "<b>Notes</b>"
@@ -1059,6 +1059,22 @@ msgstr "Nivel de escolaridad"
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "AddressType"
 msgstr "Tipo de dirección"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "StayType"
+msgstr "Tipo de estancia"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "PerpetratorType"
+msgstr "Tipo de perpetrador"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "PerpetratorStatus"
+msgstr "Estado del Perpetrador"
+
+#: ../Views/Widgets/CatalogTab.cs:2
+msgid "InvolvementDegree"
+msgstr "Grado de involucramiento"
 
 #: ../Views/gtk-gui/Views.CatalogTab.cs:1
 msgid "page1"
@@ -1482,9 +1498,6 @@ msgstr "Entrar"
 #~ msgid "Perpetrator:"
 #~ msgstr "Perpetrador"
 
-#~ msgid "Perpetrator status:"
-#~ msgstr "Estado del Perpetrador"
-
 #~ msgid "Institution:"
 #~ msgstr "Actor colectivo:"
 
@@ -1499,10 +1512,6 @@ msgstr "Entrar"
 
 #~ msgid "<b>Human Right Violation:</b>"
 #~ msgstr "<b>Acto:</b>"
-
-#, fuzzy
-#~ msgid "Perpetrator type:"
-#~ msgstr "Perpetrador"
 
 #~ msgid "<b>Settlement</b>"
 #~ msgstr "<b>Colonia</b>"
