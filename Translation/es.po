@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-24 06:03:18-0600\n"
-"PO-Revision-Date: 2012-02-24 06:12:51-0600\n"
+"PO-Revision-Date: 2012-02-27 10:24:30-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -741,7 +741,7 @@ msgstr "<b>Perpetrador:</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 msgid "<b>Perpetrator status:</b>"
-msgstr "<b>Actos del perpetrador</b>"
+msgstr "<b>Status del perpetrador</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1

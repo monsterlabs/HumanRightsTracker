@@ -3824,7 +3824,6 @@ Fecha</property>
           <widget class="Gtk.Expander" id="additional_info_expander">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <child>
               <widget class="Gtk.VBox" id="vbox9">
                 <property name="MemberName" />
@@ -3844,7 +3843,6 @@ Fecha</property>
                           <widget class="Gtk.Expander" id="expander8">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Expanded">True</property>
                             <property name="BorderWidth">9</property>
                             <child>
                               <widget class="Views.EditableList" id="documentarysourcelist">
@@ -3879,7 +3877,6 @@ Fecha de acceso</property>
                           <widget class="Gtk.Expander" id="expander9">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
-                            <property name="Expanded">True</property>
                             <property name="BorderWidth">9</property>
                             <child>
                               <widget class="Views.EditableList" id="informationsourcelist">
@@ -6709,10 +6706,10 @@ Date</property>
                   <widget class="Views.EditableList" id="perpetratorslist">
                     <property name="MemberName" />
                     <property name="Events">ButtonPressMask</property>
-                    <property name="Headers">Apellido
-Nombres
+                    <property name="Headers">Apellido(s)
+Nombre(s)
 Institución
-Trabajo</property>
+Tipo de Afiliación</property>
                     <property name="IsEditable">False</property>
                   </widget>
                 </child>
