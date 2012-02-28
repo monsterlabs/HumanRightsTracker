@@ -22,8 +22,10 @@ namespace Reports
             addField ("Nombre del caso", acase.Name);
             addField ("Personas afectadas", acase.AffectedPeople.ToString ());
 
-            addField ("Fecha de inicio", acase.start_date.Value.ToShortDateString ());
-            addField ("Fecha de término", acase.end_date.Value.ToShortDateString ());
+            if (acase.start_date != null)
+                addField ("Fecha de inicio", acase.start_date.Value.ToShortDateString ());
+            if (acase.end_date != null)
+                addField ("Fecha de término", acase.end_date.Value.ToShortDateString ());
             foreach (Place place in acase.Places)
             {
 
@@ -44,8 +46,10 @@ namespace Reports
             {
                 addField ("Clave", info.RecordId.ToString ());
                 addField ("Título", info.Title);
-                addField ("Fecha de recepción", info.DateOfReceipt.Value.ToShortDateString ());
-                addField ("Estado", info.CaseStatus.Name);
+                if (info.DateOfReceipt != null)
+                    addField ("Fecha de recepción", info.DateOfReceipt.Value.ToShortDateString ());
+                if (info.CaseStatus != null)
+                    addField ("Estado", info.CaseStatus.Name);
                 addField ("Comentarios", info.Comments);
                 addNewline();
             }
@@ -53,13 +57,15 @@ namespace Reports
             addTitle ("Núcleo de casos");
 
             foreach (Act act in acase.Acts) {
-                addBold ("\t" + act.HumanRightsViolation.Name);
+                if (act.HumanRightsViolation != null)
+                    addBold ("\t" + act.HumanRightsViolation.Name);
                 addNewline ();
                 if (act.ActStatus != null)
                     addField ("Estado",act.ActStatus.Name);
                 addField ("\tNo. afectados", act.AffectedPeopleNumber.ToString ());
                 addField ("\tResumen", act.Summary);
-                addField ("\tFecha de inicio", act.start_date.Value.ToShortDateString ());
+                if (act.start_date != null)
+                    addField ("\tFecha de inicio", act.start_date.Value.ToShortDateString ());
                 if (act.end_date != null)
                     addField ("\tFecha de término", act.end_date.Value.ToShortDateString ());
                 addField ("\tObservaciones de la victima", act.VictimObservations);
@@ -71,10 +77,12 @@ namespace Reports
                     addField ("\t\tCaracterísticas", victim.Characteristics);
                     if (victim.VictimStatus != null)
                         addField ("\t\tEstado", victim.VictimStatus.Name);
-                    addField ("\t\tIntentos de inmigración", victim.Person.ImmigrationAttempts.ToString());
+                    if (victim.Person != null)
+                        addField ("\t\tIntentos de inmigración", victim.Person.ImmigrationAttempts.ToString());
                     addBold ("\t\tPerpetradares");
                     foreach (Perpetrator perpetrator in victim.Perpetrators) {
-                        addField ("\t\t\tPerpetrador", perpetrator.Person.Fullname);
+                        if (perpetrator.Person != null)
+                            addField ("\t\t\tPerpetrador", perpetrator.Person.Fullname);
                         if (perpetrator.Institution != null) {
                             addField ("\t\t\tInstitución", perpetrator.Institution.Name);
                         }
@@ -93,13 +101,16 @@ namespace Reports
             addTitle ("Intervenciones");
 
             foreach (Intervention intervention in acase.Interventions) {
-                addField("Interventor", intervention.Interventor.Fullname);
-                addField("Institición", intervention.InterventorInstitution.Name);
+                if (intervention.Interventor != null)
+                    addField("Interventor", intervention.Interventor.Fullname);
+                if (intervention.InterventorInstitution != null)
+                    addField("Institición", intervention.InterventorInstitution.Name);
                 if (intervention.InterventorAffiliationType != null)
                     addField("Afiliación", intervention.InterventorAffiliationType.Name);
-
-                addField("Persona que soporta la intervención", intervention.Supporter.Fullname);
-                addField("Institición", intervention.SupporterInstitution.Name);
+                if (intervention.Supporter != null)
+                    addField("Persona que soporta la intervención", intervention.Supporter.Fullname);
+                if (intervention.SupporterInstitution != null)
+                    addField("Institición", intervention.SupporterInstitution.Name);
                 if (intervention.SupporterAffiliationType != null)
                     addField("Afiliación", intervention.SupporterAffiliationType.Name);
 
@@ -114,8 +125,10 @@ namespace Reports
             foreach (DocumentarySource docSource in acase.DocumentarySources) {
                 addField ("Nombre", docSource.Name);
                 //addField ("Tipo", docSource.ty);
-                addField ("Fecha de publicación", docSource.Date.Value.ToShortDateString ());
-                addField ("Fecha de acceso", docSource.AccessDate.Value.ToShortDateString ());
+                if (docSource.Date != null)
+                    addField ("Fecha de publicación", docSource.Date.Value.ToShortDateString ());
+                if (docSource.AccessDate != null)
+                    addField ("Fecha de acceso", docSource.AccessDate.Value.ToShortDateString ());
                 if (docSource.AdditionalInfo != null)
                     addField ("Información adicional", docSource.AdditionalInfo);
                 if (docSource.ReliabilityLevel != null)
@@ -127,10 +140,13 @@ namespace Reports
             addTitle ("Fuentes de información personal");
 
             foreach (InformationSource infoSource in acase.InformationSources) {
-                addField ("Nombre", infoSource.SourcePerson.Fullname);
-                addField ("Fecha", infoSource.Date.Value.ToShortDateString ());
+                if (infoSource.SourcePerson != null)
+                    addField ("Nombre", infoSource.SourcePerson.Fullname);
+                if (infoSource.Date != null)
+                    addField ("Fecha", infoSource.Date.Value.ToShortDateString ());
 
-                addField ("Tipo de filiación", infoSource.SourceAffiliationType.Name);
+                if (infoSource.SourceAffiliationType != null)
+                    addField ("Tipo de filiación", infoSource.SourceAffiliationType.Name);
 
                 addField ("Observaciones", infoSource.Observations);
                 addNewline ();
@@ -139,11 +155,17 @@ namespace Reports
             addTitle ("Relación entre casos");
 
             foreach (CaseRelationship relation in acase.CaseRelationships) {
-                addField("Caso", relation.Case.Name);
-                addField ("Tipo de relación", relation.RelationshipType.Name);
-                addField("Caso relacionado", relation.RelatedCase.Name);
-                addField("Fecha de inicio", relation.RelatedCase.start_date.Value.ToShortDateString ());
-                addField("Fecha de término", relation.RelatedCase.end_date.Value.ToShortDateString ());
+                if (relation.Case != null)
+                    addField("Caso", relation.Case.Name);
+                if (relation.RelationshipType != null)
+                    addField ("Tipo de relación", relation.RelationshipType.Name);
+                if (relation.RelatedCase != null) {
+                    addField("Caso relacionado", relation.RelatedCase.Name);
+                    if (relation.RelatedCase.start_date != null)
+                        addField("Fecha de inicio", relation.RelatedCase.start_date.Value.ToShortDateString ());
+                    if (relation.RelatedCase.end_date != null)
+                        addField("Fecha de término", relation.RelatedCase.end_date.Value.ToShortDateString ());
+                }
                 addNewline ();
             }
         }
