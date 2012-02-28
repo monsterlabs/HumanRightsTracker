@@ -126,6 +126,9 @@ namespace Reports
                 addTitle ("Intervenciones");
 
                 foreach (Intervention intervention in acase.Interventions) {
+                    if (intervention.Date != null)
+                        addField ("Fecha de la intervención", intervention.Date.Value.ToShortDateString ());
+
                     if (intervention.Interventor != null)
                         addField("Interventor", intervention.Interventor.Fullname);
 
@@ -146,6 +149,16 @@ namespace Reports
 
                     addField("Impacto", intervention.Impact);
                     addField("Respuesta", intervention.Response);
+
+                    if (intervention.AffectedPeople.Count > 0)
+                    {
+                        addBold("Personas por las que se intervino");
+                        foreach(InterventionAffectedPeople interventionAffectedPeople in intervention.AffectedPeople)
+                        {
+                            if (interventionAffectedPeople != null)
+                                addField ("\t", interventionAffectedPeople.Person.Fullname);
+                        }
+                    }
                     addNewline();
                 }
 

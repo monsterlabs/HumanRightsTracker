@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-24 06:03:18-0600\n"
-"PO-Revision-Date: 2012-02-27 10:24:30-0600\n"
+"PO-Revision-Date: 2012-02-28 09:34:06-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -694,7 +694,7 @@ msgstr "<b>Interventores</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Affected People</b>"
-msgstr "<b>Personas afectadas</b>"
+msgstr "<b>Personas por las que se interviene</b>"
 
 #: ../Views/gtk-gui/Views.InterventionDetailWindow.cs:1
 msgid "InterventionDetailWindow"
