@@ -29,7 +29,7 @@ namespace Views
                 } else {
                     humanRight.FilterByCategoryId (value.HumanRightsViolation.CategoryId);
                 }
-                place.Active = value.ActPlace;
+                place.Active = perpetratorAct.ActPlace;
                 location.Buffer.Text = value.Location ?? "";
                 IsEditable = false;
             }

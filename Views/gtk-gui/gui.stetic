@@ -7330,7 +7330,7 @@ Tipo de Afiliación</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.PerpetratorActShow" design-size="607 490">
+  <widget class="Gtk.Bin" id="Views.PerpetratorActShow" design-size="607 664">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -7365,31 +7365,14 @@ Tipo de Afiliación</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="label2">
+                      <widget class="Views.CatalogSelectorAsTree" id="place">
                         <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">&lt;b&gt;Place:&lt;/b&gt;</property>
-                        <property name="UseMarkup">True</property>
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="Model">ActPlace</property>
+                        <property name="IsEditable">False</property>
                       </widget>
                       <packing>
                         <property name="Position">1</property>
-                        <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Views.CatalogSelector" id="place">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="OrderById">False</property>
-                        <property name="Model">ActPlace</property>
-                        <property name="IsEditable">False</property>
-                        <property name="HideAddButton">False</property>
-                        <property name="HideNoteButton">False</property>
-                      </widget>
-                      <packing>
-                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -7403,14 +7386,14 @@ Tipo de Afiliación</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="Position">3</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
                         <property name="MemberName" />
                         <property name="ShadowType">In</property>
                         <child>
@@ -7423,7 +7406,7 @@ Tipo de Afiliación</property>
                         </child>
                       </widget>
                       <packing>
-                        <property name="Position">4</property>
+                        <property name="Position">3</property>
                         <property name="AutoSize">True</property>
                       </packing>
                     </child>

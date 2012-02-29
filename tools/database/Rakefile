@@ -331,10 +331,45 @@ task :seeds => :environment do
   CSV.foreach("seeds/indigenous_languages.csv", :col_sep => "|") do |row|
     IndigenousLanguage.create(:name => row[0].strip, :notes => row[1].to_s.strip)
   end
-
+  
   ActPlace.destroy_all
-  CSV.foreach("seeds/act_places.csv") do |row|
-    ActPlace.create(:name => row[0].to_s.strip)
+  book = Spreadsheet.open "seeds/act_places.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+
+    act_place1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act_place2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act_place3 = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    act_place_note = row[3].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @act_place_parent = nil
+
+    unless act_place1.empty?
+      if ActPlace.exists?(:name => act_place1)
+        @act_place_parent = ActPlace.find_by_name(act_place1)
+      else
+        @act_place_parent = ActPlace.create(:name => act_place1, :notes => act_place_note)
+      end
+    else
+      next
+    end
+    
+    if !act_place2.empty? and !@act_place_parent.nil?
+      if ActPlace.exists?(:name => act_place2, :parent_id => @act_place_parent.id)
+        @act_place_parent = ActPlace.where(:name => act_place2, :parent_id => @act_place_parent.id).first
+      else
+        @act_place_parent = ActPlace.create(:name => act_place2, :parent_id => @act_place_parent.id, :notes => act_place_note)
+      end
+    end
+    
+    if !act_place3.empty? and !@act_place_parent.nil?
+      if ActPlace.exists?(:name => act_place3, :parent_id => @act_place_parent.id)
+        @act_place_parent = ActPlace.where(:name => act_place3, :parent_id => @act_place_parent.id).first
+      else
+        @act_place_parent = ActPlace.create(:name => act_place3, :parent_id => @act_place_parent.id, :notes => act_place_note)
+      end
+    end    
   end
 
   SourceInformationType.destroy_all
@@ -358,7 +393,7 @@ task :seeds => :environment do
   end
 
   IndigenousGroup.destroy_all
-  CSV.foreach("seeds/indigenous_groups.csv", :col_sep => "|") do |row|
+  CSV.foreach("seeds/indigenous_groups.csv") do |row|
     IndigenousGroup.create(:name => row[0].strip, :notes => row[1].to_s.strip)
   end
 
