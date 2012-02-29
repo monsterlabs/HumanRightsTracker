@@ -101,14 +101,16 @@ namespace Reports
                                 {
                                     if (perpetrator.Person != null)
                                         addField (String.Format ("{0} {1}", "\t\t\t\tPerpetrador", perpetrator_counter), perpetrator.Person.Fullname);
-                                    if (perpetrator.Institution != null)
-                                        addField ("\t\t\t\tInstitución", perpetrator.Institution.Name);
                                     if (perpetrator.PerpetratorType != null)
                                         addField ("\t\t\t\tTipo de perpetrador", perpetrator.PerpetratorType.Name);
                                     if (perpetrator.PerpetratorStatus != null)
                                         addField ("\t\t\t\tEstado del perpetrador", perpetrator.PerpetratorStatus.Name);
                                     if (perpetrator.InvolvementDegree != null)
                                         addField ("\t\t\t\tGrado de involucramiento", perpetrator.InvolvementDegree.Name);
+                                    if (perpetrator.Institution != null)
+                                        addField ("\t\t\t\tInstitución", perpetrator.Institution.Name);
+                                    if (perpetrator.AffiliationType != null)
+                                        addField ("\t\t\t\tTipo de afiliación", perpetrator.AffiliationType.Name);
                                     addNewline();
                                     perpetrator_counter++;
                                 }

@@ -26,6 +26,8 @@ namespace HumanRightsTracker.Models
         public PerpetratorStatus PerpetratorStatus { get; set; }
         [BelongsTo("involvement_degree_id"), ValidateNonEmpty]
         public InvolvementDegree InvolvementDegree { get; set; }
+        [BelongsTo("affiliation_type_id")]
+        public AffiliationType AffiliationType { get; set; }
 
         [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList PerpetratorActs { get; set; }
