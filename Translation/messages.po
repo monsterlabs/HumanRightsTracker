@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-02-28 09:33:05-0600\n"
-"PO-Revision-Date: 2012-02-28 09:33:07-0600\n"
+"POT-Creation-Date: 2012-03-02 11:22:47-0600\n"
+"PO-Revision-Date: 2012-03-02 11:22:49-0600\n"
 "Last-Translator: alex\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
 #: ../Views/Interventions/InterventionShow.cs:9
 #: ../Views/Victim/VictimShow.cs:11
-#: ../Views/Perpetrator/PerpetratorShow.cs:8
+#: ../Views/Perpetrator/PerpetratorShow.cs:7
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
 #: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
@@ -66,7 +66,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/Victim/VictimShow.cs:11
-#: ../Views/Perpetrator/PerpetratorShow.cs:8
+#: ../Views/Perpetrator/PerpetratorShow.cs:7
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
@@ -761,10 +761,6 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionSelectorWindow.cs:1
 msgid "InstitutionSelectorWindow"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
-msgid "<b>Place:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1

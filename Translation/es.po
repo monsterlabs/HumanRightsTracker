@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-24 06:03:18-0600\n"
-"PO-Revision-Date: 2012-02-28 09:34:06-0600\n"
+"POT-Creation-Date: 2012-03-02 11:22:47-0600\n"
+"PO-Revision-Date: 2012-03-02 11:35:37-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -45,7 +45,7 @@ msgstr "No acompañado"
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
 #: ../Views/Interventions/InterventionShow.cs:9
 #: ../Views/Victim/VictimShow.cs:11
-#: ../Views/Perpetrator/PerpetratorShow.cs:8
+#: ../Views/Perpetrator/PerpetratorShow.cs:7
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
 #: ../Views/CaseRelationships/CaseRelationshipShow.cs:7
@@ -68,7 +68,7 @@ msgstr "Cancelar"
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/Victim/VictimShow.cs:11
-#: ../Views/Perpetrator/PerpetratorShow.cs:8
+#: ../Views/Perpetrator/PerpetratorShow.cs:7
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/TrackingInformation/TrackingShow.cs:6
 #: ../Views/Places/PlaceShow.cs:6
@@ -297,7 +297,6 @@ msgid "State"
 msgstr "Estado"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
-#, fuzzy
 msgid "Municipality"
 msgstr "Municipio"
 
@@ -568,7 +567,7 @@ msgstr "<b>Información de contacto</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Related institutions</b>"
-msgstr "<b>Relación entre actores colectivos</b>"
+msgstr "<b>Relación entre entidades</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Affiliated actors</b>"
@@ -610,7 +609,7 @@ msgstr "<b>Actor individual</b>"
 
 #: ../Views/gtk-gui/Views.PeopleSelectorWindow.cs:1
 msgid "<b>Immigrant People</b>"
-msgstr "<b>Actor migrante</b>"
+msgstr "<b>Actor transmigrante</b>"
 
 #: ../Views/gtk-gui/Views.PersonRow.cs:1
 #: ../Views/gtk-gui/Views.PersonSelect.cs:1
@@ -765,10 +764,6 @@ msgstr "Nombre"
 #: ../Views/gtk-gui/Views.InstitutionSelectorWindow.cs:1
 msgid "InstitutionSelectorWindow"
 msgstr "Selector de actores colectivos"
-
-#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
-msgid "<b>Place:</b>"
-msgstr "<b>Lugar</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Location:</b>"
@@ -1367,7 +1362,7 @@ msgstr "Ventana de la relación de personas"
 
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>Related institution:</b>"
-msgstr "<b>Actores colectivos relacionados</b>"
+msgstr "<b>Entidad relacionada</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionCreateWindow.cs:1
 #, fuzzy
@@ -1450,7 +1445,7 @@ msgstr "<b>Actor individual</b>"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "<b>Immigrant people</b>"
-msgstr "<b>Actor migrante</b>"
+msgstr "<b>Actor transmigrante</b>"
 
 #: ../HumanRightsTracker/gtk-gui/HumanRightsTracker.MainWindow.cs:1
 msgid "<b>Institutions</b>"
@@ -1487,6 +1482,9 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#~ msgid "<b>Place:</b>"
+#~ msgstr "<b>Lugar</b>"
 
 #, fuzzy
 #~ msgid "<b>\" + model + \"</b>"
