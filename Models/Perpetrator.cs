@@ -88,16 +88,16 @@ namespace HumanRightsTracker.Models
         {
             string personName = "";
             string roleName = Catalog.GetString("Perpetrator");
-            string perpetratorTypeName = Catalog.GetString("Not defined perpetrator type in perpetrator record");
+            string affiliationTypeName = Catalog.GetString("Not defined affiliation type in perpetrator record");
             string institutionName = "";
 
             if (this.Person != null) {
                 personName = this.Person.Fullname;
             }
 
-            if (this.PerpetratorType != null)
+            if (this.AffiliationType != null)
             {
-                perpetratorTypeName = PerpetratorType.Name;
+                affiliationTypeName = AffiliationType.Name;
             }
 
             if (this.Institution != null)
@@ -107,7 +107,7 @@ namespace HumanRightsTracker.Models
 
             string[] data = {
                 personName,
-                perpetratorTypeName,
+                affiliationTypeName,
                 institutionName,
                 roleName,
                 this.Victim.Act.Case.Name,
