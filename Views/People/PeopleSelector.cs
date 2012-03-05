@@ -58,7 +58,7 @@ namespace Views
 
         protected void OnAddClicked (object sender, System.EventArgs e)
         {
-            new PeopleSelectorWindow (OnPersonSelected);
+            new PeopleSelectorWindow (OnPersonSelected, (Gtk.Window) this.Toplevel);
         }
 
         protected void OnRemoved (object sender, System.EventArgs e)
