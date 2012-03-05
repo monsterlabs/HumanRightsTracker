@@ -68,7 +68,7 @@ namespace Views
 
         protected void OnChangeClicked (object sender, System.EventArgs e)
         {
-            new PeopleSelectorWindow (OnPersonSelected);
+            new PeopleSelectorWindow (OnPersonSelected, (Gtk.Window) this.Toplevel);
         }
     }
 }

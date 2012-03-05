@@ -24,11 +24,12 @@ namespace Views
 
         public event PersonEventHandler OnSelect = null;
 
-        public PeopleSelectorWindow (PersonEventHandler handler) : base(Gtk.WindowType.Toplevel)
+        public PeopleSelectorWindow (PersonEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             OnSelect = handler;
+            this.TransientFor = parent;
         }
 
         protected void OnSelection (object sender, System.EventArgs e)
