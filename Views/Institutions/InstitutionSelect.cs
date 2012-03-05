@@ -65,7 +65,7 @@ namespace Views
 
         protected void OnChangeClicked (object sender, System.EventArgs e)
         {
-            new InstitutionSelectorWindow (OnInstitutionSelected);
+            new InstitutionSelectorWindow (OnInstitutionSelected, (Gtk.Window) this.Toplevel);
         }
     }
 }

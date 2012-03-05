@@ -25,11 +25,12 @@ namespace Views
 
         public event InstitutionEventHandler OnSelect = null;
 
-        public InstitutionSelectorWindow (InstitutionEventHandler handler) : base(Gtk.WindowType.Toplevel)
+        public InstitutionSelectorWindow (InstitutionEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
             this.Modal = true;
             OnSelect = handler;
+            this.TransientFor = parent;
         }
 
         protected void OnSelection (object sender, System.EventArgs e)
