@@ -30,6 +30,7 @@ namespace Views
             this.TransientFor = parent;
             this.Modal = true;
             this.OnSelect = handler;
+            this.ActivateFocus ();
         }
 
         protected void OnSelection (object sender, System.EventArgs e)

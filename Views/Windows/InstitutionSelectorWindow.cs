@@ -31,6 +31,7 @@ namespace Views
             this.Modal = true;
             this.TransientFor = parent;
             this.OnSelect = handler;
+            this.ActivateFocus ();
         }
 
         protected void OnAdd (object sender, System.EventArgs e)
