@@ -11,7 +11,7 @@ Licensed under GPL 2.1. See LICENSE.txt for detail
 * SQLite3
 * Ruby and gems
 
-## Requeriments to build Database and the application for Mac
+## Requeriments to build the database and the application for Mac
 
 * RVM (Ruby Version Manager)
 * ruby 1.9.2-p290
