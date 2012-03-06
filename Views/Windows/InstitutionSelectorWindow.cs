@@ -37,10 +37,9 @@ namespace Views
         {
             Institution i = sender as Institution;
             OnSelect (this, new InstitutionEventArgs(i));
-            this.Modal = false;
             this.TransientFor = null;
-            this.Hide ();
-        }
+            this.Modal = false;
+            this.Hide ();        }
 
         protected void OnAdd (object sender, System.EventArgs e)
         {

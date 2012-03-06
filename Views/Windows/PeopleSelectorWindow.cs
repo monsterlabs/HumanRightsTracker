@@ -27,8 +27,8 @@ namespace Views
         public PeopleSelectorWindow (PersonEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            this.Modal = true;
             this.TransientFor = parent;
+            this.Modal = true;
             this.OnSelect = handler;
         }
 
@@ -36,8 +36,8 @@ namespace Views
         {
             Person p = sender as Person;
             OnSelect (this, new PersonEventArgs(p));
-            this.Modal = false;
             this.TransientFor = null;
+            this.Modal = false;
             this.Hide ();
         }
 
