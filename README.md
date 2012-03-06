@@ -22,11 +22,9 @@ Licensed under GPL 2.1. See LICENSE.txt for detail
 
 Before to compile the application you must build the database executing the following commands.
 
-$ cd tools/database
-
-$ rake migrate
-
-$ rake seeds  
+	$ cd tools/database
+	$ rake migrate
+	$ rake seeds  
 
 Note: You can comment some lines at the end of the Rakefile file to generate an empty database.
 
@@ -34,8 +32,7 @@ Note: You can comment some lines at the end of the Rakefile file to generate an 
 
 After you build your application in Monodevelop, you can build your app bundle with the following commands.
 
-$ cd tools/appifier
-
-$ ./appifier appify
+	$ cd tools/appifier
+	$ ./appifier appify
 
 ## How to build the msi package for windows
