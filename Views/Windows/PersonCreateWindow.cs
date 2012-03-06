@@ -25,7 +25,7 @@ namespace Views
         {
             if (OnRecordSaved != null)
             {
-                OnRecordSaved (this, null);
+                OnRecordSaved (sender, null);
                 this.Destroy ();
             }
         }

@@ -41,9 +41,9 @@ namespace Views
 
         protected void OnPersonCreated (object sender, EventArgs args)
         {
-            // Fix it: Reload only one list
-            peoplelist1.ReloadStore();
-            peoplelist2.ReloadStore();
+            Person p = sender as Person;
+            OnSelect (this, new PersonEventArgs(p));
+            this.Destroy ();
         }
 
         protected void OnChangeTab (object o, Gtk.SwitchPageArgs args)

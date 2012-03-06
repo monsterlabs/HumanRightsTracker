@@ -5504,7 +5504,7 @@ Date</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="409 401">
+  <widget class="Gtk.Window" id="Views.PeopleSelectorWindow" design-size="411 475">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PeopleSelectionWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -5552,7 +5552,9 @@ Date</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
-                <property name="AutoSize">True</property>
+                <property name="AutoSize">False</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
