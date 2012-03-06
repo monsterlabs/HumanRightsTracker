@@ -29,8 +29,8 @@ namespace Views
         {
             this.Build ();
             this.Modal = true;
-            OnSelect = handler;
             this.TransientFor = parent;
+            this.OnSelect = handler;
         }
 
         protected void OnSelection (object sender, System.EventArgs e)

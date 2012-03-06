@@ -28,15 +28,17 @@ namespace Views
         {
             this.Build ();
             this.Modal = true;
-            OnSelect = handler;
             this.TransientFor = parent;
+            this.OnSelect = handler;
         }
 
         protected void OnSelection (object sender, System.EventArgs e)
         {
             Person p = sender as Person;
             OnSelect (this, new PersonEventArgs(p));
-            this.Destroy ();
+            this.Modal = false;
+            this.TransientFor = null;
+            this.Hide ();
         }
 
         protected void OnPersonCreated (object sender, EventArgs args)
