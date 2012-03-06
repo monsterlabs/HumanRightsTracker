@@ -20,11 +20,14 @@ Licensed under GPL 2.1. See LICENSE.txt for detail
 
 ## How to build the database
 
-Before to compile the application you must build the database executing the following commands.
+Before to compile the application you must build the database executing the following commands:
 
 	$ cd tools/database
 	$ rake migrate
 	$ rake seeds  
+
+If you want to populate your database for demo, you can run this rake task:
+	$ rake seeds_demo
 
 Note: You can comment some lines at the end of the Rakefile file to generate an empty database.
 
