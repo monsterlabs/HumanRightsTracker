@@ -4,6 +4,7 @@ require "yaml"
 require "active_support"
 require "active_record"
 require "active_record/railtie"
+require "active_support"
 require "csv"
 Bundler.setup
 Bundler.require :default
@@ -61,41 +62,37 @@ task :seeds => :environment do
     end
   end
 
-  MaritalStatus.destroy_all
-  CSV.foreach("seeds/marital_statuses.csv", :col_sep => "|") do |row|
-    MaritalStatus.create(:name => row[0].strip)
+  [ MaritalStatus, Religion, EthnicGroup, ScholarityLevel, DateType, CaseStatus, InstitutionType,
+    ActStatus, InterventionType, LocationType, VictimStatus, TravelingReason, IdentificationType,
+    ReliabilityLevel, Language, TravelCompanion, RelationshipType, AddressType ].each do |class_name|
+    class_name.send :destroy_all
+    csv_file = ActiveSupport::Inflector.pluralize(class_name.to_s).underscore + '.csv'
+    CSV.foreach("seeds/#{csv_file}") do |row|
+      class_name.create(:name => row[0].strip)
+    end
   end
 
-  Religion.destroy_all
-  CSV.foreach("seeds/religions.csv", :col_sep => "|") do |row|
-    Religion.create(:name => row[0].strip)
+  [ IndigenousGroup, VictimStatus,  PerpetratorStatus, InstitutionRelationshipType ].each do |class_name|
+    class_name.send :destroy_all
+    csv_file = ActiveSupport::Inflector.pluralize(class_name.to_s).underscore + '.csv'
+    CSV.foreach("seeds/#{csv_file}") do |row|
+      class_name.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
+    end
   end
 
-  EthnicGroup.destroy_all
-  CSV.foreach("seeds/ethnic_groups.csv", :col_sep => "|") do |row|
-    EthnicGroup.create(:name => row[0].strip)
+  [ Job, PersonRelationshipType, IndigenousLanguage,  InstitutionCategory ].each do |class_name|
+    class_name.send :destroy_all
+    csv_file = ActiveSupport::Inflector.pluralize(class_name.to_s).underscore + '.csv'
+    CSV.foreach("seeds/#{csv_file}", :col_sep => "|") do |row|
+      class_name.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
+    end
   end
 
-  ScholarityLevel.destroy_all
-  CSV.foreach("seeds/scholarity_levels.csv", :col_sep => "|") do |row|
-    ScholarityLevel.create(:name => row[0].strip)
+  SourceInformationType.destroy_all
+  CSV.foreach("seeds/source_information_types.csv") do |row|
+    SourceInformationType.create(:name => row[0].strip, :parent_id  => row[1].to_i)
   end
 
-  DateType.destroy_all
-  CSV.foreach("seeds/date_types.csv") do |row|
-    DateType.create(:name => row[0].strip)
-  end
-
-  CaseStatus.destroy_all
-  CSV.foreach("seeds/case_statuses.csv") do |row|
-    CaseStatus.create(:name => row[0].strip)
-  end
-
-  InstitutionType.destroy_all
-  CSV.foreach("seeds/institution_types.csv") do |row|
-    InstitutionType.create(:name => row[0].strip)
-  end
-    
   HumanRightsViolation.destroy_all 
   HumanRightsViolationCategory.destroy_all  
   require 'spreadsheet'
@@ -218,35 +215,6 @@ task :seeds => :environment do
     end
   end
 
-  ActStatus.destroy_all
-  CSV.foreach("seeds/act_statuses.csv") do |row|
-    ActStatus.create(:name => row[0].strip)
-  end
-
-  InterventionType.destroy_all
-  CSV.foreach("seeds/intervention_types.csv") do |row|
-    InterventionType.create(:name => row[0].strip)
-  end
-
-  LocationType.destroy_all
-  CSV.foreach("seeds/location_types.csv") do |row|
-    LocationType.create(:name => row[0].strip)
-  end
-
-  VictimStatus.destroy_all
-  CSV.foreach("seeds/victim_statuses.csv") do |row|
-    VictimStatus.create(:name => row[0].strip)
-  end
-
-  InstitutionCategory.destroy_all
-  CSV.foreach("seeds/institution_categories.csv", :col_sep => "|") do |row|
-    InstitutionCategory.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
-  end
-
-  TravelingReason.destroy_all
-  CSV.foreach("seeds/traveling_reasons.csv") do |row|
-    TravelingReason.create(:name => row[0].to_s.strip)
-  end
 
   PerpetratorType.destroy_all
   book = Spreadsheet.open "seeds/perpetrator_types.xls"
@@ -307,31 +275,6 @@ task :seeds => :environment do
     
   end  
 
-  Job.destroy_all
-  CSV.foreach("seeds/jobs.csv", :col_sep => "|") do |row|
-   Job.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip)
-  end
-    
-  IdentificationType.destroy_all
-  CSV.foreach("seeds/identification_types.csv") do |row|
-    IdentificationType.create(:name =>  row[0].to_s.strip)
-  end
-
-  ReliabilityLevel.destroy_all
-  CSV.foreach("seeds/reliability_levels.csv") do |row|
-    ReliabilityLevel.create(:name => row[0].strip)
-  end
-
-  Language.destroy_all
-  CSV.foreach("seeds/languages.csv") do |row|
-    Language.create(:name => row[0].strip)
-  end
-
-  IndigenousLanguage.destroy_all
-  CSV.foreach("seeds/indigenous_languages.csv", :col_sep => "|") do |row|
-    IndigenousLanguage.create(:name => row[0].strip, :notes => row[1].to_s.strip)
-  end
-  
   ActPlace.destroy_all
   book = Spreadsheet.open "seeds/act_places.xls"
   sheet = book.worksheet 0
@@ -369,54 +312,10 @@ task :seeds => :environment do
       else
         @act_place_parent = ActPlace.create(:name => act_place3, :parent_id => @act_place_parent.id, :notes => act_place_note)
       end
-    end    
+    end
   end
 
-  SourceInformationType.destroy_all
-  CSV.foreach("seeds/source_information_types.csv") do |row|
-    SourceInformationType.create(:name => row[0].strip, :parent_id  => row[1].to_i)
-  end
 
-  TravelCompanion.destroy_all
-  CSV.foreach("seeds/travel_companions.csv") do |row|
-    TravelCompanion.create(:name => row[0].to_s.strip)
-  end
-
-  RelationshipType.destroy_all
-  CSV.foreach("seeds/relationship_types.csv") do |row|
-    RelationshipType.create(:name => row[0].to_s.strip)
-  end
-
-  AddressType.destroy_all
-  CSV.foreach("seeds/address_types.csv") do |row|
-    AddressType.create(:name => row[0].to_s.strip)
-  end
-
-  IndigenousGroup.destroy_all
-  CSV.foreach("seeds/indigenous_groups.csv") do |row|
-    IndigenousGroup.create(:name => row[0].strip, :notes => row[1].to_s.strip)
-  end
-
-  VictimStatus.destroy_all
-  CSV.foreach("seeds/victim_statuses.csv") do |row|
-     VictimStatus.create(:name => row[0].strip, :notes => row[1].to_s.strip)
-  end
-
-  PerpetratorStatus.destroy_all
-  CSV.foreach("seeds/perpetrator_statuses.csv") do |row|
-      PerpetratorStatus.create(:name => row[0].strip, :notes => row[1].to_s.strip)
-  end
-
-  PersonRelationshipType.destroy_all
-  CSV.foreach("seeds/person_relationship_types.csv", :col_sep => "|") do |row|
-    PersonRelationshipType.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip )
-  end
-  
-  InstitutionRelationshipType.destroy_all
-  CSV.foreach("seeds/institution_relationship_types.csv") do |row|
-     InstitutionRelationshipType.create(:name => row[0].to_s.strip, :notes => row[1].to_s.strip )
-  end
-  
   InvolvementDegree.destroy_all
   book = Spreadsheet.open "seeds/involvement_degrees.xls"
   sheet = book.worksheet 0
@@ -457,9 +356,12 @@ task :seeds => :environment do
     stay_type_name = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
     stay_type_note = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
     StayType.create(:name => stay_type_name, :notes => stay_type_note)
-  end  
-  
-  # COMMENT this section to build your database for production environment
+  end
+
+end
+
+desc "Load seeds in to the database for demo application."
+task :seeds_demo => :environment do
   require "./blueprints/machinist_helper.rb"
   Dir.glob("./blueprints/*.rb").each do |blueprint|
     require blueprint
@@ -483,7 +385,7 @@ task :seeds => :environment do
     c.record_count = c.tracking_information.count
     c.save
   end  
-  # /COMMENT
+
 end
 
 task :environment do
