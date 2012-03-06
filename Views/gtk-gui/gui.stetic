@@ -4136,6 +4136,7 @@ Fecha de término</property>
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="ShowScrollbars">True</property>
+                    <signal name="RowActivated" handler="OnRowActivated" />
                   </widget>
                 </child>
               </widget>
@@ -5511,7 +5512,7 @@ Date</property>
       <widget class="Gtk.Notebook" id="notebook1">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">1</property>
+        <property name="CurrentPage">0</property>
         <signal name="SwitchPage" handler="OnChangeTab" />
         <child>
           <widget class="Gtk.VBox" id="vbox2">
@@ -7314,7 +7315,7 @@ Tipo de Afiliación</property>
           <widget class="Views.InstitutionList" id="institutionlist1">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
-            <signal name="SelectionChanged" handler="OnSelection" />
+            <signal name="SelectionWithDoubleClick" handler="OnSelectionWithDoubleClick" />
           </widget>
           <packing>
             <property name="Position">0</property>

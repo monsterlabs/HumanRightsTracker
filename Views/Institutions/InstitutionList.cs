@@ -34,6 +34,7 @@ namespace Views
         Institution[] institutions;
 
         public event EventHandler SelectionChanged;
+        public event EventHandler SelectionWithDoubleClick;
         public InstitutionList ()
         {
             this.Build ();
@@ -127,6 +128,16 @@ namespace Views
                 Gtk.NodeSelection selection = (Gtk.NodeSelection)sender;
                 LetterNode node = (LetterNode) selection.SelectedNode;
                 Search(node.Letter);
+            }
+        }
+
+        protected void OnRowActivated (object o, Gtk.RowActivatedArgs args)
+        {
+            if (SelectionWithDoubleClick != null)
+            {
+                Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
+                Institution i = ((InstitutionNode)selection.SelectedNode).Institution;
+                SelectionWithDoubleClick (i, args);
             }
         }
     }

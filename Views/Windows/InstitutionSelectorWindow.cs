@@ -33,14 +33,6 @@ namespace Views
             this.OnSelect = handler;
         }
 
-        protected void OnSelection (object sender, System.EventArgs e)
-        {
-            Institution i = sender as Institution;
-            OnSelect (this, new InstitutionEventArgs(i));
-            this.TransientFor = null;
-            this.Modal = false;
-            this.Hide ();        }
-
         protected void OnAdd (object sender, System.EventArgs e)
         {
             new InstitutionCreateWindow (OnInstitutionCreated, (Gtk.Window)this.Toplevel);
@@ -56,6 +48,14 @@ namespace Views
             this.Hide ();
         }
 
+        protected void OnSelectionWithDoubleClick (object sender, System.EventArgs e)
+        {
+            Institution i = sender as Institution;
+            OnSelect (this, new InstitutionEventArgs(i));
+            this.TransientFor = null;
+            this.Modal = false;
+            this.Hide ();
+        }
     }
 }
 
