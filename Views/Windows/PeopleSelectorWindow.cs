@@ -36,9 +36,7 @@ namespace Views
         {
             Person p = sender as Person;
             OnSelect (this, new PersonEventArgs(p));
-            this.TransientFor = null;
-            this.Modal = false;
-            this.Hide ();
+            this.Destroy ();
         }
 
         protected void OnPersonCreated (object sender, EventArgs args)

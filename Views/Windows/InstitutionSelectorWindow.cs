@@ -43,18 +43,14 @@ namespace Views
             // Fix it: Reload only one list
             Institution i = sender as Institution;
             OnSelect (this, new InstitutionEventArgs(i));
-            this.Modal = false;
-            this.TransientFor = null;
-            this.Hide ();
+            this.Destroy();
         }
 
         protected void OnSelectionWithDoubleClick (object sender, System.EventArgs e)
         {
             Institution i = sender as Institution;
             OnSelect (this, new InstitutionEventArgs(i));
-            this.TransientFor = null;
-            this.Modal = false;
-            this.Hide ();
+            this.Destroy();
         }
     }
 }
