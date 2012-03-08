@@ -134,6 +134,7 @@ namespace Views.People
                 } else {
                     SetAddressList();
                     SetPersonRelationships();
+                    affiliation_list.IsEditable = false;
                 }
 
                 EnableActionButtons ();
