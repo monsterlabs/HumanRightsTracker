@@ -1942,10 +1942,43 @@ Fecha de término</property>
                               </packing>
                             </child>
                             <child>
+                              <widget class="Gtk.Expander" id="affiliated_people_expander">
+                                <property name="MemberName" />
+                                <property name="CanFocus">True</property>
+                                <property name="BorderWidth">9</property>
+                                <child>
+                                  <widget class="Views.EditableList" id="affiliated_person_list">
+                                    <property name="MemberName" />
+                                    <property name="Events">ButtonPressMask</property>
+                                    <property name="Headers">Persona
+Tipo de afiliación
+Actor colectivo
+Fecha de Inicio
+Fecha de término</property>
+                                    <property name="IsEditable">False</property>
+                                  </widget>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="GtkLabel67">
+                                    <property name="MemberName" />
+                                    <property name="LabelProp" translatable="yes">&lt;b&gt;Affiliated institutions&lt;/b&gt;</property>
+                                    <property name="UseMarkup">True</property>
+                                    <property name="UseUnderline">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="type">label_item</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="Position">1</property>
+                                <property name="AutoSize">True</property>
+                              </packing>
+                            </child>
+                            <child>
                               <widget class="Gtk.Expander" id="expander4">
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
-                                <property name="Expanded">True</property>
                                 <property name="BorderWidth">9</property>
                                 <child>
                                   <widget class="Views.EditableList" id="affiliation_list">
@@ -1972,10 +2005,9 @@ Date</property>
                                 </child>
                               </widget>
                               <packing>
-                                <property name="Position">1</property>
-                                <property name="AutoSize">False</property>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
+                                <property name="PackType">End</property>
+                                <property name="Position">2</property>
+                                <property name="AutoSize">True</property>
                               </packing>
                             </child>
                           </widget>

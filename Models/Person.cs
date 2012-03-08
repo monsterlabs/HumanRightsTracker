@@ -98,6 +98,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList AsReportedPersonInInformationSources { get; set; }
 
+        [HasMany(typeof(InstitutionPerson), Table="InstitutionPeople", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList InstitutionPeople { get; set; }
+
         public String Fullname
         {
             get
@@ -143,7 +146,8 @@ namespace HumanRightsTracker.Models
             get {
                 IList affiliations = AffiliationList ();
                 IList person_relationships = PersonRelationships;
-                return (affiliations.Count > 0 || person_relationships.Count > 0);
+                IList institution_people = InstitutionPeople;
+                return (affiliations.Count > 0 || person_relationships.Count > 0 || institution_people.Count > 0);
             }
         }
 

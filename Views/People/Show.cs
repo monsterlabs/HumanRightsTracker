@@ -35,7 +35,8 @@ namespace Views.People
             Catalog.GetString ("Alone");
 
             ConnectAddressesHandlers ();
-            ConnectPersonRelationshipsHandlers();
+            ConnectPersonRelationshipsHandlers ();
+            ConnectInstitutionPeopleHandlers ();
         }
 
         public Person Person {
@@ -73,6 +74,7 @@ namespace Views.People
 
                     if (this.person.Id > 0 ) {
                         SetAffiliationList();
+                        SetInstitutionPeople();
                         set_case_list();
                         SetAddressList ();
                         SetPersonRelationships ();
@@ -133,6 +135,7 @@ namespace Views.People
                     address_list_frame.Hide ();
                 } else {
                     SetAddressList();
+                    SetInstitutionPeople();
                     SetPersonRelationships();
                     affiliation_list.IsEditable = false;
                 }
@@ -491,6 +494,42 @@ namespace Views.People
                 }, (Gtk.Window) this.Toplevel);
             };
         }
-        
+
+       public void SetInstitutionPeople() {
+            affiliated_people_expander.Show ();
+            if (this.person != null && this.person.Id > 0 && this.person.InstitutionPeople != null)  {
+                affiliated_person_list.Records = this.person.InstitutionPeople.Cast<ListableRecord>().ToList ();
+            }
+        }
+
+        private void ReloadInstitutionPeople () {
+            List<ListableRecord> institution_people = this.person.InstitutionPeople.Cast<ListableRecord>().ToList ();
+            affiliated_person_list.Records = institution_people.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ConnectInstitutionPeopleHandlers() {
+            affiliated_person_list.NewButtonPressed += (sender, e) => {
+                new InstitutionPersonDetailWindow (this.Person, (o, args) => {
+                    this.ReloadInstitutionPeople ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+
+            affiliated_person_list.DeleteButtonPressed += (sender, e) => {
+                InstitutionPerson record = sender as InstitutionPerson;
+                this.Person.InstitutionPeople.Remove (record);
+                if (record.Id >= 1) {
+                    record.DeleteAndFlush ();
+                }
+                this.ReloadInstitutionPeople ();
+            };
+
+            affiliated_person_list.DetailButtonPressed += (sender, e) => {
+                InstitutionPerson record = sender as InstitutionPerson;
+                new InstitutionPersonDetailWindow(record, (o, args) => {
+                    this.ReloadInstitutionPeople ();
+                }, (Gtk.Window) this.Toplevel, true);
+            };
+        }
+
     }
 }

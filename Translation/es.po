@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-02 11:22:47-0600\n"
-"PO-Revision-Date: 2012-03-02 11:35:37-0600\n"
+"POT-Creation-Date: 2012-03-07 22:04:44-0600\n"
+"PO-Revision-Date: 2012-03-07 22:10:46-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -54,6 +54,7 @@ msgstr "No acompañado"
 #: ../Views/Addresses/AddressShow.cs:8
 #: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
+#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:8
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -83,6 +84,8 @@ msgstr "Cancelar"
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:8
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "Edit"
 msgstr "Editar"
 
@@ -261,8 +264,12 @@ msgid "<b>Individual or immigrant actors</b>"
 msgstr "<b>Actores individuales o migrantes</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
-msgid "<b>Organizations or Institutions </b>"
-msgstr "<b>Actores colectivos</b>"
+msgid "<b>Affiliated institutions</b>"
+msgstr "<b>Relación entre entidades</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Organizations or Institutions through cases</b>"
+msgstr "<b>Relación entre entidades a través de casos</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Relationship between actors</b>"
@@ -283,6 +290,7 @@ msgstr "<b>Relación entre actores</b>"
 #: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "Save"
 msgstr "Guardar"
 
@@ -570,8 +578,12 @@ msgid "<b>Related institutions</b>"
 msgstr "<b>Relación entre entidades</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
-msgid "<b>Affiliated actors</b>"
-msgstr "<b>Actores relacionados</b>"
+msgid "<b>Affiliated people</b>"
+msgstr "<b>Actores afiliados a esta entidad</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Affiliated actors through cases</b>"
+msgstr "<b>Actores afiliados a través de casos</b>"
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 msgid "<b>Initial Date:</b>"
@@ -744,6 +756,7 @@ msgstr "<b>Status del perpetrador</b>"
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Institution:</b>"
 msgstr "<b>Actor colectivo</b>"
 
@@ -846,6 +859,7 @@ msgid "<b>Supporters</b>"
 msgstr "<b>Nombre(s) de quiene soportan el caso</b>"
 
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Person:</b>"
 msgstr "<b>Persona:</b>"
 
@@ -1339,16 +1353,19 @@ msgstr "<b>Tipo de relación</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Start date:</b>"
 msgstr "<b>Fecha Inicial</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>End date:</b>"
 msgstr "<b>Fecha de término</b>"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Comments:</b>"
 msgstr "<b>Comentarios</b>"
 
@@ -1365,9 +1382,12 @@ msgid "<b>Related institution:</b>"
 msgstr "<b>Entidad relacionada</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionCreateWindow.cs:1
-#, fuzzy
 msgid "InstitutionCreateWindow"
-msgstr "Selector de actores colectivos"
+msgstr "Selector de actores "
+
+#: ../Views/gtk-gui/Views.InstitutionPersonDetailWindow.cs:1
+msgid "InstitutionPersonDetailWindow"
+msgstr "Ventana de la relación de personas"
 
 #: ../Models/Intervention.cs:27
 #: ../Models/Intervention.cs:34
@@ -1415,9 +1435,12 @@ msgid "Perpetrator"
 msgstr "Perpetrador"
 
 #: ../Models/Perpetrator.cs:8
-#: ../Models/Perpetrator.cs:15
 msgid "Not defined perpetrator type in perpetrator record"
 msgstr "Sin tipo de perpetrado definido en actos"
+
+#: ../Models/Perpetrator.cs:15
+msgid "Not defined affiliation type in perpetrator record"
+msgstr "Sin afiliación definida en  relación como perpetrador"
 
 #: ../Models/DocumentarySource.cs:27
 #: ../Models/DocumentarySource.cs:32

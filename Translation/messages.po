@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-02 11:22:47-0600\n"
-"PO-Revision-Date: 2012-03-02 11:22:49-0600\n"
-"Last-Translator: alex\n"
+"POT-Creation-Date: 2012-03-07 22:08:04-0600\n"
+"PO-Revision-Date: 2012-03-07 22:08:04-0600\n"
+"Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -52,6 +52,7 @@ msgstr ""
 #: ../Views/Addresses/AddressShow.cs:8
 #: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
+#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:8
 msgid "Cancel"
 msgstr ""
 
@@ -81,6 +82,8 @@ msgstr ""
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:8
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "Edit"
 msgstr ""
 
@@ -259,7 +262,11 @@ msgid "<b>Individual or immigrant actors</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
-msgid "<b>Organizations or Institutions </b>"
+msgid "<b>Affiliated institutions</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Organizations or Institutions through cases</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
@@ -281,6 +288,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.ChangePasswordTab.cs:1
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "Save"
 msgstr ""
 
@@ -568,7 +576,11 @@ msgid "<b>Related institutions</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
-msgid "<b>Affiliated actors</b>"
+msgid "<b>Affiliated people</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Affiliated actors through cases</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
@@ -742,6 +754,7 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Institution:</b>"
 msgstr ""
 
@@ -844,6 +857,7 @@ msgid "<b>Supporters</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Person:</b>"
 msgstr ""
 
@@ -1335,16 +1349,19 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Start date:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>End date:</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "<b>Comments:</b>"
 msgstr ""
 
@@ -1362,6 +1379,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionCreateWindow.cs:1
 msgid "InstitutionCreateWindow"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.InstitutionPersonDetailWindow.cs:1
+msgid "InstitutionPersonDetailWindow"
 msgstr ""
 
 #: ../Models/Intervention.cs:27
@@ -1410,8 +1431,11 @@ msgid "Perpetrator"
 msgstr ""
 
 #: ../Models/Perpetrator.cs:8
-#: ../Models/Perpetrator.cs:15
 msgid "Not defined perpetrator type in perpetrator record"
+msgstr ""
+
+#: ../Models/Perpetrator.cs:15
+msgid "Not defined affiliation type in perpetrator record"
 msgstr ""
 
 #: ../Models/DocumentarySource.cs:27

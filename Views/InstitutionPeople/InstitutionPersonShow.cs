@@ -58,6 +58,11 @@ namespace Views
             usingInstitution = true;
        }
 
+       public void PersonReadOnly () {
+            personSelector.IsEditable = false;
+            usingInstitution = false;
+       }
+
        public void HideActionButtons () {
             editButton.Visible = false;
             saveButton.Visible = false;
@@ -85,6 +90,9 @@ namespace Views
                     if ( usingInstitution ) {
                         institution_person.Institution.InstitutionPeople.Add (InstitutionPerson);
                         institution_person.Institution.SaveAndFlush ();
+                    } else {
+                        institution_person.Person.InstitutionPeople.Add (InstitutionPerson);
+                        institution_person.Person.SaveAndFlush ();
                     }
                 }
                 this.IsEditable = false;

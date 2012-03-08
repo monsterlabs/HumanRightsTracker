@@ -184,7 +184,6 @@ namespace Views
             };
         }
 
-
        public void SetInstitutionPeople() {
             affiliated_people_expander.Show ();
             if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionPeople != null)  {
