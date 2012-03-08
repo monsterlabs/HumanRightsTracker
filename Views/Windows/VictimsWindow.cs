@@ -50,6 +50,18 @@ namespace Views
         protected void OnShowSaved (object sender, System.EventArgs e)
         {
             victimlist.ReloadStore ();
+            Victim v = sender as Victim;
+            show.Victim = v;
+            show.Show ();
+            show.IsEditable = false;
+        }
+
+        protected void OnRemove (object sender, System.EventArgs e)
+        {
+            Victim v = show.Victim as Victim;
+            v.Act.Victims.Remove(v);
+            v.DeleteAndFlush ();
+            victimlist.ReloadStore ();
         }
     }
 }

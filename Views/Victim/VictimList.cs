@@ -107,11 +107,13 @@ namespace Views
 
         public void ReloadStore ()
         {
-            if (act.Victims != null) {
+            act.Refresh ();
+            if (act.Victims != null ) {
                 victims = act.Victims.Cast<Victim>().ToArray();
             } else {
                 victims = new Victim[0];
             }
+
             store.Clear ();
 
             foreach (Victim v in victims)

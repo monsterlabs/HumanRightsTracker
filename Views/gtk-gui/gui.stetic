@@ -13216,7 +13216,7 @@ Fecha de término</property>
                         <child>
                           <widget class="Gtk.HButtonBox" id="hbuttonbox7">
                             <property name="MemberName" />
-                            <property name="Size">1</property>
+                            <property name="Size">2</property>
                             <child>
                               <widget class="Gtk.Button" id="addVictimButton">
                                 <property name="MemberName" />
@@ -13228,6 +13228,22 @@ Fecha de término</property>
                                 <signal name="Clicked" handler="OnAddVictim" />
                               </widget>
                               <packing>
+                                <property name="Expand">False</property>
+                                <property name="Fill">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Gtk.Button" id="removeVictimButton">
+                                <property name="MemberName" />
+                                <property name="CanFocus">True</property>
+                                <property name="Type">TextAndIcon</property>
+                                <property name="Icon">stock:gtk-remove Menu</property>
+                                <property name="Label" translatable="yes">Remove</property>
+                                <property name="UseUnderline">True</property>
+                                <signal name="Clicked" handler="OnRemove" />
+                              </widget>
+                              <packing>
+                                <property name="Position">1</property>
                                 <property name="Expand">False</property>
                                 <property name="Fill">False</property>
                               </packing>
