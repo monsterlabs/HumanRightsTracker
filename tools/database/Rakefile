@@ -373,7 +373,7 @@ task :seeds_demo => :environment do
   Person.find_by_sql("UPDATE people SET gender = 0 WHERE gender = 'f'")
   Person.find_by_sql("UPDATE people SET gender = 1 WHERE gender = 't'")
   Institution.make!(30)
-  InstitutionPerson.make!(10)
+  InstitutionPerson.make!(30)
   Case.make!(20)
   InformationSource.make!(100)
   DocumentarySource.make!(50)
