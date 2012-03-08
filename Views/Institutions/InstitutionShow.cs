@@ -20,6 +20,7 @@ namespace Views
             this.editable_helper = new EditableHelper(this);
             this.isEditing = false;
             ConnectInstitutionRelationshipsHandlers ();
+            ConnectInstitutionPeopleHandlers ();
         }
 
         public Institution Institution {
@@ -52,6 +53,7 @@ namespace Views
                 case_per_institution.Show ();
                 case_per_institution.Institution = institution;
                 SetInstitutionRelationships ();
+                SetInstitutionPeople ();
                 SetAffiliatedActorList ();
              }
         }
@@ -74,6 +76,7 @@ namespace Views
                     case_per_institution.Hide ();
                     related_institutions_expander.Hide ();
                     affiliated_actors_expander.Hide ();
+                    affiliated_people_expander.Hide ();
                 } else {
                     ShowAssociatedRecordList ();
                 }
@@ -147,7 +150,7 @@ namespace Views
             affiliated_actor_list.AffiliatedRecords = this.institution.AffiliatedPersonList().Cast<AffiliatedRecord>().ToList ();
         }
 
-         public void SetInstitutionRelationships () {
+        public void SetInstitutionRelationships () {
             related_institutions_expander.Show ();
             if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionRelationships != null)  {
                 related_institution_list.Records = this.institution.InstitutionRelationships.Cast<ListableRecord>().ToList ();
@@ -177,6 +180,41 @@ namespace Views
                 InstitutionRelationship record = sender as InstitutionRelationship;
                 new InstitutionRelationshipDetailWindow(record, (o, args) => {
                     this.ReloadInstitutionRelationships ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+        }
+
+
+       public void SetInstitutionPeople() {
+            affiliated_people_expander.Show ();
+            if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionPeople != null)  {
+                affiliated_person_list.Records = this.institution.InstitutionPeople.Cast<ListableRecord>().ToList ();
+            }
+        }
+
+        private void ReloadInstitutionPeople () {
+            List<ListableRecord> institution_people = this.institution.InstitutionPeople.Cast<ListableRecord>().ToList ();
+             affiliated_person_list.Records = institution_people.Cast<ListableRecord>().ToList ();
+        }
+
+        public void ConnectInstitutionPeopleHandlers() {
+            affiliated_person_list.NewButtonPressed += (sender, e) => {
+                new InstitutionPersonDetailWindow (this.Institution, (o, args) => {
+                    this.ReloadInstitutionPeople ();
+                }, (Gtk.Window) this.Toplevel);
+            };
+            affiliated_person_list.DeleteButtonPressed += (sender, e) => {
+                InstitutionPerson record = sender as InstitutionPerson;
+                this.Institution.InstitutionPeople.Remove (record);
+                if (record.Id >= 1) {
+                    record.DeleteAndFlush ();
+                }
+                this.ReloadInstitutionPeople ();
+            };
+            affiliated_person_list.DetailButtonPressed += (sender, e) => {
+                InstitutionPerson record = sender as InstitutionPerson;
+                new InstitutionPersonDetailWindow(record, (o, args) => {
+                    this.ReloadInstitutionPeople ();
                 }, (Gtk.Window) this.Toplevel);
             };
         }

@@ -76,6 +76,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(InstitutionRelationship), Table="InstitutionRelationships", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList InstitutionRelationships { get; set; }
 
+        [HasMany(typeof(InstitutionPerson), Table="InstitutionPeople", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        public IList InstitutionPeople { get; set; }
+
         public Image Photo
         {
             get

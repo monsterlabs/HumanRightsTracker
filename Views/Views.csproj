@@ -272,6 +272,10 @@
     <Compile Include="gtk-gui\Views.InstitutionRelationshipShow.cs" />
     <Compile Include="Windows\InstitutionCreateWindow.cs" />
     <Compile Include="gtk-gui\Views.InstitutionCreateWindow.cs" />
+    <Compile Include="InstitutionPeople\InstitutionPersonDetailWindow.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionPersonDetailWindow.cs" />
+    <Compile Include="InstitutionPeople\InstitutionPersonShow.cs" />
+    <Compile Include="gtk-gui\Views.InstitutionPersonShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -305,6 +309,7 @@
     <Folder Include="Reports\" />
     <Folder Include="PersonRelationships\" />
     <Folder Include="InstitutionRelationships\" />
+    <Folder Include="InstitutionPeople\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">

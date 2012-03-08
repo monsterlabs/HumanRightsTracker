@@ -137,6 +137,7 @@
     <Compile Include="InstitutionRelationship.cs" />
     <Compile Include="Catalogs\InvolvementDegree.cs" />
     <Compile Include="Catalogs\StayType.cs" />
+    <Compile Include="InstitutionPerson.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
