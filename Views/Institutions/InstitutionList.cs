@@ -83,6 +83,7 @@ namespace Views
 
             foreach (Institution i in institutions)
                 institutionNodeView.NodeStore.AddNode (new InstitutionNode (i));
+
             if (institutions.Length > 0)
                 institutionNodeView.NodeSelection.SelectPath(new Gtk.TreePath("0"));
             total.Text = institutions.Length.ToString() + " " + Catalog.GetString("records");

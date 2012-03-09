@@ -57,6 +57,7 @@ namespace Views
                 SetAffiliatedActorList ();
              }
         }
+
         public bool IsEditing
         {
             get { return this.isEditing; }

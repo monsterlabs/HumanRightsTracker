@@ -44,14 +44,16 @@ namespace Views
                 child.Destroy();
             }
 
-            foreach (Case c in i.caseList ())
-            {
-                case_vbox.PackStart (new CaseAndPeopleRow (c));
+            if (i != null)  {
+                foreach (Case c in i.caseList ())
 
+                {
+                    case_vbox.PackStart (new CaseAndPeopleRow (c));
+                }
+                case_vbox.ShowAll ();
+                this.editable_helper.UpdateEditableWidgets();
+                this.editable_helper.SetAllEditable (false);
             }
-            case_vbox.ShowAll ();
-            this.editable_helper.UpdateEditableWidgets();
-            this.editable_helper.SetAllEditable (false);
         }
 
 

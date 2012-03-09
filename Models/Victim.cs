@@ -23,7 +23,7 @@ namespace HumanRightsTracker.Models
         [Property("characteristics")]
         public String Characteristics { get; set; }
 
-        [HasMany(typeof(Perpetrator), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(Perpetrator), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
         public IList Perpetrators { get; set; }
 
     }
