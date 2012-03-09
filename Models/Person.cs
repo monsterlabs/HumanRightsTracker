@@ -89,6 +89,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.All, Lazy=true)]
         public IList PersonRelationships { get; set; }
 
+        [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="related_person_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
+        public IList PersonRelationshipsAsRelatedPerson { get; set; }
+
         [HasMany(typeof(DocumentarySource), Table="DocumentarySources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsReportedPersonInDocumentarySources { get; set; }
 
@@ -145,9 +148,9 @@ namespace HumanRightsTracker.Models
         public Boolean HasRelateRecords {
             get {
                 IList affiliations = AffiliationList ();
-                IList person_relationships = PersonRelationships;
-                IList institution_people = InstitutionPeople;
-                return (affiliations.Count > 0 || person_relationships.Count > 0 || institution_people.Count > 0);
+                IList personRelationships = PersonRelationships;
+                IList relationshipsAsRelatedPerson = PersonRelationshipsAsRelatedPerson;
+                return (affiliations.Count > 0 || personRelationships.Count > 0 ||relationshipsAsRelatedPerson.Count > 0);
             }
         }
 

@@ -76,6 +76,9 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(InstitutionRelationship), Table="InstitutionRelationships", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList InstitutionRelationships { get; set; }
 
+        [HasMany(typeof(InstitutionRelationship), Table="InstitutionRelationships", ColumnKey="related_institution_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
+        public IList InstitutionRelationshipsAsRelatedInstitution { get; set; }
+
         [HasMany(typeof(InstitutionPerson), Table="InstitutionPeople", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList InstitutionPeople { get; set; }
 
@@ -210,8 +213,8 @@ namespace HumanRightsTracker.Models
         public Boolean HasRelateRecords {
             get {
                 IList affiliations = AffiliatedPersonList ();
-                IList institution_relationships = InstitutionRelationships;
-                return (affiliations.Count > 0 || institution_relationships.Count > 0);
+                IList institutionRelationshipsAsRelatedInstitution = InstitutionRelationshipsAsRelatedInstitution;
+                return (affiliations.Count > 0 || institutionRelationshipsAsRelatedInstitution.Count > 0);
             }
         }
     }
