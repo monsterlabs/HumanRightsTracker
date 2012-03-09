@@ -1951,8 +1951,8 @@ Fecha de término</property>
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
                                     <property name="Headers">Persona
-Tipo de afiliación
-Actor colectivo
+Tipo de relación
+Actor colectivo relacionado
 Fecha de Inicio
 Fecha de término</property>
                                     <property name="IsEditable">False</property>
@@ -1984,11 +1984,12 @@ Fecha de término</property>
                                   <widget class="Views.EditableList" id="affiliation_list">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="Headers">Rol
-Tipo de afiliación
-Institution
-Nombre del caso
-Date</property>
+                                    <property name="Headers">Persona
+Tipo de Relación
+Actor colectivo relacionado
+Rol
+Caso
+Fecha del caso</property>
                                     <property name="IsEditable">False</property>
                                   </widget>
                                 </child>
@@ -4972,8 +4973,8 @@ Fecha de término</property>
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Headers">Persona
-Tipo de afiliación
-Actor colectivo
+Tipo de relación
+Actor colectivo relacionado
 Fecha de Inicio
 Fecha de término</property>
                             <property name="IsEditable">False</property>
@@ -5005,11 +5006,11 @@ Fecha de término</property>
                             <property name="MemberName" />
                             <property name="Events">ButtonPressMask</property>
                             <property name="Headers">Persona
-Tipo de afiliación
-Actor colectivo
+Tipo de relación
+Actor colectivo relacionado
 Rol
 Caso
-Date</property>
+Fecha del caso</property>
                             <property name="IsEditable">False</property>
                           </widget>
                         </child>

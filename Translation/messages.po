@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-07 22:08:04-0600\n"
-"PO-Revision-Date: 2012-03-07 22:08:04-0600\n"
+"POT-Creation-Date: 2012-03-09 00:11:12-0600\n"
+"PO-Revision-Date: 2012-03-09 00:11:13-0600\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr ""
 #: ../Views/People/Show.cs:14
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
-#: ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/Institutions/InstitutionShow.cs:7
 #: ../Views/Acts/ActsShow.cs:16
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
@@ -60,7 +60,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
-#: ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/Institutions/InstitutionShow.cs:7
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 #: ../Views/Acts/ActsShow.cs:16
 #: ../Views/Interventions/InterventionShow.cs:9
@@ -385,6 +385,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.PeopleTab.cs:1
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
+#: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Remove"
 msgstr ""
 
@@ -392,8 +393,8 @@ msgstr ""
 #: ../Views/People/PeopleList.cs:26
 #: ../Views/Cases/CaseList.cs:11
 #: ../Views/Cases/CaseList.cs:19
-#: ../Views/Institutions/InstitutionList.cs:13
-#: ../Views/Institutions/InstitutionList.cs:16
+#: ../Views/Institutions/InstitutionList.cs:14
+#: ../Views/Institutions/InstitutionList.cs:17
 msgid "records"
 msgstr ""
 
@@ -1431,11 +1432,8 @@ msgid "Perpetrator"
 msgstr ""
 
 #: ../Models/Perpetrator.cs:8
-msgid "Not defined perpetrator type in perpetrator record"
-msgstr ""
-
 #: ../Models/Perpetrator.cs:15
-msgid "Not defined affiliation type in perpetrator record"
+msgid "Not defined affiiliation type in perpetrator record"
 msgstr ""
 
 #: ../Models/DocumentarySource.cs:27

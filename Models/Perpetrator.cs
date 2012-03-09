@@ -55,40 +55,9 @@ namespace HumanRightsTracker.Models
 
         public string[] AffiliationColumnData ()
         {
-            string roleName = Catalog.GetString("Perpetrator");
-            string perpetratorTypeName = Catalog.GetString("Not defined perpetrator type in perpetrator record");
-            string institutionName = "";
-
-            if (this.PerpetratorType != null)
-            {
-                perpetratorTypeName = PerpetratorType.Name;
-            }
-
-            if (this.Institution != null)
-            {
-                institutionName = this.Institution.Name;
-            }
-
-            string[] data = {
-                roleName,
-                perpetratorTypeName,
-                institutionName,
-                this.Victim.Act.Case.Name,
-                "",
-            };
-
-            if (this.Victim.Act.start_date != null)
-                data[4] = this.Victim.Act.start_date.Value.ToShortDateString ();
-
-            return data;
-        }
-
-
-        public string[] AffiliatedColumnData ()
-        {
             string personName = "";
             string roleName = Catalog.GetString("Perpetrator");
-            string affiliationTypeName = Catalog.GetString("Not defined affiliation type in perpetrator record");
+            string affiliationName = Catalog.GetString("Not defined affiiliation type in perpetrator record");
             string institutionName = "";
 
             if (this.Person != null) {
@@ -97,7 +66,7 @@ namespace HumanRightsTracker.Models
 
             if (this.AffiliationType != null)
             {
-                affiliationTypeName = AffiliationType.Name;
+                affiliationName = AffiliationType.Name;
             }
 
             if (this.Institution != null)
@@ -107,7 +76,43 @@ namespace HumanRightsTracker.Models
 
             string[] data = {
                 personName,
-                affiliationTypeName,
+                affiliationName,
+                institutionName,
+                roleName,
+                this.Victim.Act.Case.Name,
+                "",
+            };
+
+            if (this.Victim.Act.start_date != null)
+                data[5] = this.Victim.Act.start_date.Value.ToShortDateString ();
+            return data;
+        }
+
+
+        public string[] AffiliatedColumnData ()
+        {
+            string personName = "";
+            string roleName = Catalog.GetString("Perpetrator");
+            string affiliationName = Catalog.GetString("Not defined affiiliation type in perpetrator record");
+            string institutionName = "";
+
+            if (this.Person != null) {
+                personName = this.Person.Fullname;
+            }
+
+            if (this.AffiliationType != null)
+            {
+                affiliationName = AffiliationType.Name;
+            }
+
+            if (this.Institution != null)
+            {
+                institutionName = this.Institution.Name;
+            }
+
+            string[] data = {
+                personName,
+                affiliationName,
                 institutionName,
                 roleName,
                 this.Victim.Act.Case.Name,

@@ -107,6 +107,7 @@ namespace HumanRightsTracker.Models
 
         public string[] AffiliationColumnData ()
         {
+            string personName = "";
             string roleName = Catalog.GetString("Not defined role in information source record");
             string affiliationTypeName = Catalog.GetString("Not defined affiliation type in information source record");
             string institutionName = "";
@@ -116,24 +117,27 @@ namespace HumanRightsTracker.Models
                 roleName = Catalog.GetString("Reported person in source information");
                 affiliationTypeName = this.ReportedAffiliationType.Name;
                 institutionName = this.ReportedInstitution.Name;
+                personName = this.ReportedPerson.Fullname;
             }
             else if (this.SourcePerson != null)
             {
                 roleName = Catalog.GetString("As source in source information");
                 affiliationTypeName = this.SourceAffiliationType.Name;
                 institutionName = this.SourceInstitution.Name;
+                personName = this.SourcePerson.Fullname;
             }
 
             string[] data = {
-                roleName,
+                personName,
                 affiliationTypeName,
                 institutionName,
+                roleName,
                 this.Case.Name,
                 "",
             };
 
             if (this.Date.HasValue)
-                data[4] = this.Date.Value.ToShortDateString ();
+                data[5] = this.Date.Value.ToShortDateString ();
 
             return data;
         }

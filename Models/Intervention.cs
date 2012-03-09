@@ -105,6 +105,7 @@ namespace HumanRightsTracker.Models
 
         public string[] AffiliationColumnData ()
         {
+            string personName = "";
             string roleName = Catalog.GetString("Not defined role in intervention record");
             string affiliationTypeName = Catalog.GetString("Not defined affiliation type in intervention record");
             string institutionName = "";
@@ -113,6 +114,7 @@ namespace HumanRightsTracker.Models
                 roleName = Catalog.GetString("Supporter");
                 affiliationTypeName = this.SupporterAffiliationType.Name;
                 institutionName = this.SupporterInstitution.Name;
+                personName = this.Supporter.Fullname;
             }
 
             if (this.Interventor != null)
@@ -120,18 +122,20 @@ namespace HumanRightsTracker.Models
                 roleName = Catalog.GetString("Interventor");
                 affiliationTypeName = this.InterventorAffiliationType.Name;
                 institutionName = this.InterventorInstitution.Name;
+                personName = this.Interventor.Fullname;
             }
 
             string[] data = {
-                roleName,
+                personName,
                 affiliationTypeName,
                 institutionName,
+                roleName,
                 this.Case.Name,
                 "",
             };
 
             if (this.Date.HasValue)
-                data[4] = this.Date.Value.ToShortDateString ();
+                data[5] = this.Date.Value.ToShortDateString ();
 
             return data;
         }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-07 22:04:44-0600\n"
-"PO-Revision-Date: 2012-03-07 22:10:46-0600\n"
+"POT-Creation-Date: 2012-03-09 00:11:12-0600\n"
+"PO-Revision-Date: 2012-03-09 00:16:55-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -39,7 +39,7 @@ msgstr "No acompañado"
 #: ../Views/People/Show.cs:14
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
-#: ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/Institutions/InstitutionShow.cs:7
 #: ../Views/Acts/ActsShow.cs:16
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 #: ../Views/gtk-gui/Views.EditCatalogWindow.cs:1
@@ -62,7 +62,7 @@ msgstr "Cancelar"
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
-#: ../Views/Institutions/InstitutionShow.cs:6
+#: ../Views/Institutions/InstitutionShow.cs:7
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 #: ../Views/Acts/ActsShow.cs:16
 #: ../Views/Interventions/InterventionShow.cs:9
@@ -261,15 +261,15 @@ msgstr "<b>Direcciones</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Individual or immigrant actors</b>"
-msgstr "<b>Actores individuales o migrantes</b>"
+msgstr "<b>Actores individuales o transmigrantes</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Affiliated institutions</b>"
-msgstr "<b>Relación entre entidades</b>"
+msgstr "<b>Actores colectivos</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Organizations or Institutions through cases</b>"
-msgstr "<b>Relación entre entidades a través de casos</b>"
+msgstr "<b>Relación entre actores a través de casos</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Relationship between actors</b>"
@@ -387,6 +387,7 @@ msgstr "Agregar"
 #: ../Views/gtk-gui/Views.PeopleTab.cs:1
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
+#: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Remove"
 msgstr "Borrar"
 
@@ -394,8 +395,8 @@ msgstr "Borrar"
 #: ../Views/People/PeopleList.cs:26
 #: ../Views/Cases/CaseList.cs:11
 #: ../Views/Cases/CaseList.cs:19
-#: ../Views/Institutions/InstitutionList.cs:13
-#: ../Views/Institutions/InstitutionList.cs:16
+#: ../Views/Institutions/InstitutionList.cs:14
+#: ../Views/Institutions/InstitutionList.cs:17
 msgid "records"
 msgstr "registros"
 
@@ -575,15 +576,15 @@ msgstr "<b>Información de contacto</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Related institutions</b>"
-msgstr "<b>Relación entre entidades</b>"
+msgstr "<b>Actores colectivos</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Affiliated people</b>"
-msgstr "<b>Actores afiliados a esta entidad</b>"
+msgstr "<b>Actores inviduales o transmigrantes</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Affiliated actors through cases</b>"
-msgstr "<b>Actores afiliados a través de casos</b>"
+msgstr "<b>Relación entre actores a través de casos</b>"
 
 #: ../Views/gtk-gui/Views.ActsShow.cs:1
 msgid "<b>Initial Date:</b>"
@@ -1435,11 +1436,9 @@ msgid "Perpetrator"
 msgstr "Perpetrador"
 
 #: ../Models/Perpetrator.cs:8
-msgid "Not defined perpetrator type in perpetrator record"
-msgstr "Sin tipo de perpetrado definido en actos"
-
 #: ../Models/Perpetrator.cs:15
-msgid "Not defined affiliation type in perpetrator record"
+#, fuzzy
+msgid "Not defined affiiliation type in perpetrator record"
 msgstr "Sin afiliación definida en  relación como perpetrador"
 
 #: ../Models/DocumentarySource.cs:27
@@ -1505,6 +1504,9 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#~ msgid "Not defined perpetrator type in perpetrator record"
+#~ msgstr "Sin tipo de perpetrado definido en actos"
 
 #~ msgid "<b>Place:</b>"
 #~ msgstr "<b>Lugar</b>"
