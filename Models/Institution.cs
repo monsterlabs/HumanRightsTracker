@@ -58,19 +58,19 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(Perpetrator),  Table="Perpetrators", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Perpetrators { get; set; }
 
-        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="interventor_institution_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList Interventors { get; set; }
 
-        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(Intervention),  Table="Interventions", ColumnKey="supporter_institution_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList Supporters { get; set; }
 
-        [HasMany(typeof(DocumentarySource),  Table="DocumentarySource", ColumnKey="reported_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(DocumentarySource),  Table="DocumentarySource", ColumnKey="reported_institution_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsReportedPersonInDocumentarySources{ get; set; }
 
-        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="source_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="source_institution_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsSourceInInformationSources { get; set; }
 
-        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_institution_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsReportedPersonInInformationSources { get; set; }
 
         [HasMany(typeof(InstitutionRelationship), Table="InstitutionRelationships", ColumnKey="institution_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]

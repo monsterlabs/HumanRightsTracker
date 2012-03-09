@@ -49,7 +49,6 @@ namespace HumanRightsTracker.Models
 
         [BelongsTo("end_date_type_id")]
         public DateType EndDateType { get; set; }
-
         [HasMany(typeof(TrackingInformation), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList TrackingInformation { get; set; }
 
@@ -70,6 +69,9 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(CaseRelationship), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList CaseRelationships { get; set; }
+
+        [HasMany(typeof(CaseRelationship),  Table="CaseRelationships", ColumnKey="related_case_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
+        public IList CaseRelationshipsAsRelatedCase { get; set; }
 
         public IList victimList () {
              IList victim_list = new ArrayList();
@@ -119,6 +121,15 @@ namespace HumanRightsTracker.Models
                 endDate
             };
         }
+
+           public Boolean HasRelateRecords {
+            get {
+                //IList cases = CaseRelationships;
+                IList case_as_related_cases = CaseRelationshipsAsRelatedCase;
+                return (case_as_related_cases.Count > 0);
+            }
+        }
+
     }
 }
 

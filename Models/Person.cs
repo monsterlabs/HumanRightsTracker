@@ -86,19 +86,19 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(Intervention), Table="Interventions", ColumnKey="supporter_id", Where = "supporter_institution_id IS NOT NULL", Lazy=true)]
         public IList InstitutionAndJobAsSupporters { get; set; }
 
-        [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(PersonRelationship), Table="PersonRelationships", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.All, Lazy=true)]
         public IList PersonRelationships { get; set; }
 
-        [HasMany(typeof(DocumentarySource), Table="DocumentarySources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(DocumentarySource), Table="DocumentarySources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsReportedPersonInDocumentarySources { get; set; }
 
-        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="source_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="source_person_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsSourceInInformationSources { get; set; }
 
-        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(InformationSource), Table="InformationSources", ColumnKey="reported_person_id", Cascade=ManyRelationCascadeEnum.None, Lazy=true)]
         public IList AsReportedPersonInInformationSources { get; set; }
 
-        [HasMany(typeof(InstitutionPerson), Table="InstitutionPeople", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(InstitutionPerson), Table="InstitutionPeople", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.All, Lazy=true)]
         public IList InstitutionPeople { get; set; }
 
         public String Fullname

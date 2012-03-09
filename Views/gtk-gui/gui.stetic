@@ -3170,6 +3170,7 @@ December</property>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.CasesTab" design-size="930 595">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
