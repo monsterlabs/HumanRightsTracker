@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-09 00:11:12-0600\n"
-"PO-Revision-Date: 2012-03-09 00:38:16-0600\n"
+"POT-Creation-Date: 2012-03-09 15:05:28-0600\n"
+"PO-Revision-Date: 2012-03-09 15:06:05-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -272,6 +272,7 @@ msgid "<b>Organizations or Institutions through cases</b>"
 msgstr "<b>Relación entre actores a través de casos</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Relationship between actors</b>"
 msgstr "<b>Relación entre actores</b>"
 
@@ -1437,7 +1438,6 @@ msgstr "Perpetrador"
 
 #: ../Models/Perpetrator.cs:8
 #: ../Models/Perpetrator.cs:15
-#, fuzzy
 msgid "Not defined affiiliation type in perpetrator record"
 msgstr "Sin afiliación definida en  relación como perpetrador"
 

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-09 00:11:12-0600\n"
-"PO-Revision-Date: 2012-03-09 00:11:13-0600\n"
-"Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
+"POT-Creation-Date: 2012-03-09 15:05:28-0600\n"
+"PO-Revision-Date: 2012-03-09 15:05:29-0600\n"
+"Last-Translator: alex\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -270,6 +270,7 @@ msgid "<b>Organizations or Institutions through cases</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Relationship between actors</b>"
 msgstr ""
 
