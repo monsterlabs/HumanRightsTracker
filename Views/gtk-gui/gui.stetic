@@ -6545,7 +6545,7 @@ Fecha del caso</property>
         <child>
           <widget class="Gtk.HButtonBox" id="hbuttonbox3">
             <property name="MemberName" />
-            <property name="Size">1</property>
+            <property name="Size">2</property>
             <child>
               <widget class="Gtk.Button" id="changeButton">
                 <property name="MemberName" />
@@ -6556,6 +6556,22 @@ Fecha del caso</property>
                 <signal name="Clicked" handler="OnChangeClicked" />
               </widget>
               <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="deleteButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="UseStock">True</property>
+                <property name="Type">StockItem</property>
+                <property name="StockId">gtk-delete</property>
+                <signal name="Clicked" handler="OnPersonDeleted" />
+                <property name="label">gtk-delete</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
               </packing>
@@ -7349,7 +7365,7 @@ Tipo de Afiliación</property>
         <child>
           <widget class="Gtk.HButtonBox" id="hbuttonbox3">
             <property name="MemberName" />
-            <property name="Size">1</property>
+            <property name="Size">2</property>
             <child>
               <widget class="Gtk.Button" id="changeButton">
                 <property name="MemberName" />
@@ -7360,6 +7376,22 @@ Tipo de Afiliación</property>
                 <signal name="Clicked" handler="OnChangeClicked" />
               </widget>
               <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="deleteButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="UseStock">True</property>
+                <property name="Type">StockItem</property>
+                <property name="StockId">gtk-delete</property>
+                <signal name="Clicked" handler="OnInstitutionDeleted" />
+                <property name="label">gtk-delete</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
               </packing>

@@ -39,6 +39,7 @@ namespace Views
             set
             {
                 person = value;
+                deleteButton.Visible = person != null;
                 if (person != null)
                 {
                     if (person.Photo != null && person.Photo.Icon != null)
@@ -69,6 +70,11 @@ namespace Views
         protected void OnChangeClicked (object sender, System.EventArgs e)
         {
             new PeopleSelectorWindow (OnPersonSelected, (Gtk.Window) this.Toplevel);
+        }
+
+        protected void OnPersonDeleted (object sender, System.EventArgs e)
+        {
+            Person = null;
         }
     }
 }

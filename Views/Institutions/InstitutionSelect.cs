@@ -37,6 +37,7 @@ namespace Views
             set
             {
                 institution = value;
+                deleteButton.Visible = institution != null;
                 if (institution != null)
                 {
                     Console.WriteLine(institution.Photo);
@@ -66,6 +67,11 @@ namespace Views
         protected void OnChangeClicked (object sender, System.EventArgs e)
         {
             new InstitutionSelectorWindow (OnInstitutionSelected, (Gtk.Window) this.Toplevel);
+        }
+
+        protected void OnInstitutionDeleted (object sender, System.EventArgs e)
+        {
+            Institution = null;
         }
     }
 }
