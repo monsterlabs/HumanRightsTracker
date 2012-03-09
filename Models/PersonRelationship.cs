@@ -22,14 +22,12 @@ namespace HumanRightsTracker.Models
         public PersonRelationshipType PersonRelationshipType { get; set; }
 
         [BelongsTo("start_date_type_id")]
-        [ValidateNonEmpty]
         public DateType StartDateType { get; set; }
 
         [BelongsTo("end_date_type_id")]
         public DateType EndDateType { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public DateTime? start_date { get; set; }
 
         [Property]
