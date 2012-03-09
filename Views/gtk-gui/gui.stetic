@@ -3810,7 +3810,7 @@ Fecha de término</property>
                       <widget class="Views.EditableList" id="interventionlist">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="Headers">Persona que soporta la intervención
+                        <property name="Headers">Receptor de la intervención
 Interventor
 Tipo de intervención
 Fecha</property>

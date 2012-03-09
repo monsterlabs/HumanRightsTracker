@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-09 00:11:12-0600\n"
-"PO-Revision-Date: 2012-03-09 00:16:55-0600\n"
+"PO-Revision-Date: 2012-03-09 00:38:16-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -363,7 +363,7 @@ msgstr "Perpetradores"
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
 msgid "Supporters"
-msgstr "Persona que soporta la intervención"
+msgstr "Receptor de la intervención"
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
@@ -693,7 +693,7 @@ msgstr "<b>En respuesta</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Supporter</b>"
-msgstr "<b>Persona quien soporta la intervención</b>"
+msgstr "<b>Receptor de la intervención</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Interventor</b>"
@@ -1403,7 +1403,7 @@ msgstr "Sin afiliación definida en intervenciones"
 #: ../Models/Intervention.cs:28
 #: ../Models/Intervention.cs:35
 msgid "Supporter"
-msgstr "Persona que soporta la intervención"
+msgstr "Receptor de la información"
 
 #: ../Models/Intervention.cs:29
 #: ../Models/Intervention.cs:36
