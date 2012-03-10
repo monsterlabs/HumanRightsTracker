@@ -4929,7 +4929,7 @@ Fecha de término</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Frame" id="frame4">
+                  <widget class="Gtk.Frame" id="relationship_lists_frame">
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>

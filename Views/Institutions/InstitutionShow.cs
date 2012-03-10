@@ -75,10 +75,12 @@ namespace Views
                 this.editable_helper.SetAllEditable(value);
                 if (institution == null || institution.Id < 1) {
                     case_per_institution.Hide ();
+                    relationship_lists_frame.Hide ();
                     related_institutions_expander.Hide ();
                     affiliated_actors_expander.Hide ();
                     affiliated_people_expander.Hide ();
                 } else {
+                    relationship_lists_frame.Show ();
                     ShowAssociatedRecordList ();
                 }
                 case_per_institution.IsEditable = false;
