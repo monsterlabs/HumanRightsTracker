@@ -112,6 +112,8 @@ namespace Views
         public void HideActionButtons () {
             editButton1.Visible = false;
             saveButton1.Visible = false;
+            button74.Visible = false;
+            victims_frame.Hide ();
         }
 
         protected void OnHumanrightsviolationcategoryCategorySelected (object sender, System.EventArgs e)
