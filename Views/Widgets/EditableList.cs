@@ -28,6 +28,7 @@ namespace Views
             this.Build ();
             this.editable_helper = new EditableHelper(table);
             this.IsEditable = false;
+            this.DestroyTableChildren ();
         }
 
         public string[] Headers {
@@ -55,33 +56,38 @@ namespace Views
                 this.columnHeaders = (string[])headers.Clone ();
                 this.AddActionColumnToHeaders();
                 this.BuildTableHeaders ();
+                table.Resize (1, (uint) (headers.Length+1));
+                if (records != null && records.Count > 0) {
+                    table.Resize ((uint) (records.Count + 1), (uint) (columnHeaders.Length));
+                    for (uint i = 0; i < records.Count; i++) {
+                        string[] data = records[(int) i].ColumnData ();
+                        uint j = 0;
+                        for (; j < (columnHeaders.Length -1); j++) {
+                            Label l = new Label (data[j]);
+                            //l.MaxWidthChars = 20;
+                            l.LineWrap = true;
+                            l.Wrap = true;
+                            l.Justify = Justification.Fill;
+                            l.SingleLineMode = false;
 
-                table.Resize ((uint) (records.Count + 1), (uint) (columnHeaders.Length));
-                for (uint i = 0; i < records.Count; i++) {
-                    string[] data = records[(int) i].ColumnData ();
-                    uint j = 0;
-                    for (; j < (columnHeaders.Length -1); j++) {
-                        Label l = new Label (data[j]);
-                        //l.MaxWidthChars = 20;
-                        l.LineWrap = true;
-                        l.Wrap = true;
-                        l.Justify = Justification.Fill;
-                        l.SingleLineMode = false;
+                            Gtk.Frame f = new Gtk.Frame ();
+                            f.Add(l);
+                            f.ShadowType = Gtk.ShadowType.In;
 
-                        Gtk.Frame f = new Gtk.Frame ();
-                        f.Add(l);
-                        f.ShadowType = Gtk.ShadowType.In;
-
-                        table.Attach (f, j, j+1, i+1,i+2);
-                        table.SetColSpacing(j, 0);
+                            table.Attach (f, j, j+1, i+1,i+2);
+                            table.SetColSpacing(j, 0);
+                        }
+                        EditableListButtons buttons = new EditableListButtons (records[(int) i]);
+                        buttons.DeletePressed += OnDelete;
+                        buttons.DetailPressed += OnDetail;
+                        table.Attach (buttons, j, j+1, i+1,i+2);
+                        table.SetRowSpacing(i, 0);
                     }
-                    EditableListButtons buttons = new EditableListButtons (records[(int) i]);
-                    buttons.DeletePressed += OnDelete;
-                    buttons.DetailPressed += OnDetail;
-                    table.Attach (buttons, j, j+1, i+1,i+2);
-                    table.SetRowSpacing(i, 0);
+                    table.ShowAll ();
+                } else {
+                    table.Hide ();
                 }
-                table.ShowAll ();
+
                 this.editable_helper.UpdateEditableWidgets ();
                 this.editable_helper.SetAllEditable (isEditable);
             }
@@ -98,28 +104,34 @@ namespace Views
                 this.columnHeaders = (string[])headers.Clone ();
                 this.BuildTableHeaders ();
 
-                table.Resize ((uint) (affiliable_records.Count + 1), (uint) (headers.Length+1));
-                for (uint i = 0; i < affiliable_records.Count; i++) {
-                    string[] data = affiliable_records[(int) i].AffiliationColumnData ();
-                    uint j = 0;
-                    for (; j < (headers.Length); j++) {
-                        Label l = new Label (data[j]);
-                        //l.MaxWidthChars = 20;
-                        l.LineWrap = true;
-                        l.Wrap = true;
-                        l.Justify = Justification.Fill;
-                        l.SingleLineMode = false;
+                if (affiliable_records != null && affiliable_records.Count > 0) {
 
-                        Gtk.Frame f = new Gtk.Frame ();
-                        f.Add(l);
-                        f.ShadowType = Gtk.ShadowType.In;
+                    table.Resize ((uint) (affiliable_records.Count + 1), (uint) (headers.Length+1));
+                    for (uint i = 0; i < affiliable_records.Count; i++) {
+                        string[] data = affiliable_records[(int) i].AffiliationColumnData ();
+                        uint j = 0;
+                        for (; j < (headers.Length); j++) {
+                            Label l = new Label (data[j]);
+                            //l.MaxWidthChars = 20;
+                            l.LineWrap = true;
+                            l.Wrap = true;
+                            l.Justify = Justification.Fill;
+                            l.SingleLineMode = false;
 
-                        table.Attach (f, j, j+1, i+1,i+2);
-                        table.SetColSpacing(j, 0);
+                            Gtk.Frame f = new Gtk.Frame ();
+                            f.Add(l);
+                            f.ShadowType = Gtk.ShadowType.In;
+
+                            table.Attach (f, j, j+1, i+1,i+2);
+                            table.SetColSpacing(j, 0);
+                        }
+                        table.SetRowSpacing(i, 0);
                     }
-                    table.SetRowSpacing(i, 0);
+                    table.ShowAll ();
+                } else {
+                   table.Hide ();
                 }
-                table.ShowAll ();
+
                 this.editable_helper.UpdateEditableWidgets ();
                 this.editable_helper.SetAllEditable (false);
                 newButton.Visible = false;
@@ -137,28 +149,33 @@ namespace Views
                 this.columnHeaders = (string[])headers.Clone ();
                 this.BuildTableHeaders ();
 
-                table.Resize ((uint) (affiliated_records.Count + 1), (uint) (headers.Length+1));
-                for (uint i = 0; i < affiliated_records.Count; i++) {
-                    string[] data = affiliated_records[(int) i].AffiliatedColumnData ();
-                    uint j = 0;
-                    for (; j < (headers.Length); j++) {
-                        Label l = new Label (data[j]);
-                        //l.MaxWidthChars = 20;
-                        l.LineWrap = true;
-                        l.Wrap = true;
-                        l.Justify = Justification.Fill;
-                        l.SingleLineMode = false;
+                if (affiliated_records != null && affiliated_records.Count > 0) {
+                    table.Resize ((uint) (affiliated_records.Count + 1), (uint) (headers.Length+1));
+                    for (uint i = 0; i < affiliated_records.Count; i++) {
+                        string[] data = affiliated_records[(int) i].AffiliatedColumnData ();
+                        uint j = 0;
+                        for (; j < (headers.Length); j++) {
+                            Label l = new Label (data[j]);
+                            //l.MaxWidthChars = 20;
+                            l.LineWrap = true;
+                            l.Wrap = true;
+                            l.Justify = Justification.Fill;
+                            l.SingleLineMode = false;
 
-                        Gtk.Frame f = new Gtk.Frame ();
-                        f.Add(l);
-                        f.ShadowType = Gtk.ShadowType.In;
+                            Gtk.Frame f = new Gtk.Frame ();
+                            f.Add(l);
+                            f.ShadowType = Gtk.ShadowType.In;
 
-                        table.Attach (f, j, j+1, i+1,i+2);
-                        table.SetColSpacing(j, 0);
+                            table.Attach (f, j, j+1, i+1,i+2);
+                            table.SetColSpacing(j, 0);
+                        }
+                        table.SetRowSpacing(i, 0);
                     }
-                    table.SetRowSpacing(i, 0);
+                    table.ShowAll ();
+                } else {
+                    table.Hide ();
                 }
-                table.ShowAll ();
+
                 this.editable_helper.UpdateEditableWidgets ();
                 this.editable_helper.SetAllEditable (false);
                 newButton.Visible = false;
