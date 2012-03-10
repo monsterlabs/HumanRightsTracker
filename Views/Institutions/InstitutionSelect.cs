@@ -29,6 +29,7 @@ namespace Views
             set {
                 isEditable = value;
                 changeButton.Visible = value;
+                deleteButton.Visible = value;
             }
         }
         public Institution Institution
