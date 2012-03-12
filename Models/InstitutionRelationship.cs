@@ -13,12 +13,15 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
         [BelongsTo("institution_id")]
+        [ValidateNonEmpty]
         public Institution Institution { get; set; }
 
         [BelongsTo("related_institution_id")]
+        [ValidateNonEmpty]
         public Institution RelatedInstitution { get; set; }
 
         [BelongsTo("institution_relationship_type_id")]
+        [ValidateNonEmpty]
         public InstitutionRelationshipType InstitutionRelationshipType { get; set; }
 
         [BelongsTo("start_date_type_id")]

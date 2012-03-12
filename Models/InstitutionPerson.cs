@@ -13,23 +13,24 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
         [BelongsTo("institution_id")]
+        [ValidateNonEmpty]
         public Institution Institution { get; set; }
 
         [BelongsTo("person_id")]
+        [ValidateNonEmpty]
         public Person Person { get; set; }
 
         [BelongsTo("affiliation_type_id")]
+        [ValidateNonEmpty]
         public AffiliationType AffiliationType { get; set; }
 
         [BelongsTo("start_date_type_id")]
-        [ValidateNonEmpty]
         public DateType StartDateType { get; set; }
 
         [BelongsTo("end_date_type_id")]
         public DateType EndDateType { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public DateTime? start_date { get; set; }
 
         [Property]
