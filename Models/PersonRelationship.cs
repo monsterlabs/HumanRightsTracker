@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("person_relationships")]
-    public class PersonRelationship : ActiveRecordValidationBase<PersonRelationship>, ListableRecord, IComparable<PersonRelationship>
+    public class PersonRelationship : ActiveRecordValidationBase<PersonRelationship>, ListableRecord, IComparable<PersonRelationship>, AffiliableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -40,7 +40,26 @@ namespace HumanRightsTracker.Models
         {
             string[] data = {
                 this.Person.Fullname,
-                this.PersonRelationshipType.Name,
+                (this.PersonRelationshipType.Name + " de "),
+                this.RelatedPerson.Fullname,
+                "",
+                ""
+            };
+
+            if (this.start_date.HasValue)
+                data[3] = this.StartDateAsString ();
+            if (this.end_date.HasValue)
+                data[4] = this.EndDateAsString ();
+
+            return data;
+        }
+
+
+        public string[] AffiliationColumnData ()
+        {
+            string[] data = {
+                this.Person.Fullname,
+                (this.PersonRelationshipType.Name + " de "),
                 this.RelatedPerson.Fullname,
                 "",
                 ""

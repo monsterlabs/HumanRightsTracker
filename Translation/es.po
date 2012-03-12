@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-09 15:05:28-0600\n"
-"PO-Revision-Date: 2012-03-09 15:06:05-0600\n"
+"POT-Creation-Date: 2012-03-12 12:16:13-0600\n"
+"PO-Revision-Date: 2012-03-12 12:39:27-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -258,6 +258,14 @@ msgstr "<b>Dirección</b>"
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Address List</b>"
 msgstr "<b>Direcciones</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Person relationships</b>"
+msgstr "<b>Relación con otros actores</b>"
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Cited as related person</b>"
+msgstr "<b>Citado como persona relacionada</b>"
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Individual or immigrant actors</b>"
@@ -1504,6 +1512,10 @@ msgstr "Contraseña"
 #: ../HumanRightsTracker/gtk-gui/LoginWindow.cs:2
 msgid "Login"
 msgstr "Entrar"
+
+#, fuzzy
+#~ msgid "<b>Relación con otros actores</b>"
+#~ msgstr "<b>Relación entre actores</b>"
 
 #~ msgid "Not defined perpetrator type in perpetrator record"
 #~ msgstr "Sin tipo de perpetrado definido en actos"

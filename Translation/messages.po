@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-09 15:05:28-0600\n"
-"PO-Revision-Date: 2012-03-09 15:05:29-0600\n"
+"POT-Creation-Date: 2012-03-12 12:38:24-0600\n"
+"PO-Revision-Date: 2012-03-12 12:38:25-0600\n"
 "Last-Translator: alex\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -255,6 +255,14 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Address List</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Person relationships</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+msgid "<b>Cited as related person</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1

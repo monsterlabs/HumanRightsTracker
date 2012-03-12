@@ -1911,15 +1911,79 @@ Municipality</property>
                                 <property name="CanFocus">True</property>
                                 <property name="BorderWidth">9</property>
                                 <child>
-                                  <widget class="Views.EditableList" id="person_relationship_list">
+                                  <widget class="Gtk.VBox" id="vbox10">
                                     <property name="MemberName" />
-                                    <property name="Events">ButtonPressMask</property>
-                                    <property name="Headers">Person
+                                    <property name="Spacing">6</property>
+                                    <child>
+                                      <widget class="Gtk.Expander" id="expander5">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Expanded">True</property>
+                                        <property name="BorderWidth">6</property>
+                                        <child>
+                                          <widget class="Views.EditableList" id="person_relationship_list">
+                                            <property name="MemberName" />
+                                            <property name="Events">ButtonPressMask</property>
+                                            <property name="Headers">Person
 Tipo de relación
 Persona relacionada
 Fecha de inicio
 Fecha de término</property>
-                                    <property name="IsEditable">False</property>
+                                            <property name="IsEditable">False</property>
+                                          </widget>
+                                        </child>
+                                        <child>
+                                          <widget class="Gtk.Label" id="GtkLabel66">
+                                            <property name="MemberName" />
+                                            <property name="LabelProp" translatable="yes">&lt;b&gt;Person relationships&lt;/b&gt;</property>
+                                            <property name="UseMarkup">True</property>
+                                            <property name="UseUnderline">True</property>
+                                          </widget>
+                                          <packing>
+                                            <property name="type">label_item</property>
+                                          </packing>
+                                        </child>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">0</property>
+                                        <property name="AutoSize">True</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <widget class="Gtk.Expander" id="expander6">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Expanded">True</property>
+                                        <property name="BorderWidth">6</property>
+                                        <child>
+                                          <widget class="Views.EditableList" id="relationship_as_relatedperson">
+                                            <property name="MemberName" />
+                                            <property name="Events">ButtonPressMask</property>
+                                            <property name="Headers">Person
+Tipo de relación
+Persona relacionada
+Fecha de inicio
+Fecha de término</property>
+                                            <property name="IsEditable">False</property>
+                                          </widget>
+                                        </child>
+                                        <child>
+                                          <widget class="Gtk.Label" id="GtkLabel70">
+                                            <property name="MemberName" />
+                                            <property name="LabelProp" translatable="yes">&lt;b&gt;Cited as related person&lt;/b&gt;</property>
+                                            <property name="UseMarkup">True</property>
+                                            <property name="UseUnderline">True</property>
+                                          </widget>
+                                          <packing>
+                                            <property name="type">label_item</property>
+                                          </packing>
+                                        </child>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">1</property>
+                                        <property name="AutoSize">True</property>
+                                      </packing>
+                                    </child>
                                   </widget>
                                 </child>
                                 <child>
@@ -7456,7 +7520,6 @@ Tipo de Afiliación</property>
           <widget class="Views.InstitutionList" id="institutionlist1">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
-            <signal name="SelectionWithDoubleClick" handler="OnSelectionWithDoubleClick" />
           </widget>
           <packing>
             <property name="Position">0</property>

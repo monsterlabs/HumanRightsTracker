@@ -32,6 +32,7 @@ namespace Views
                 deleteButton.Visible = value;
             }
         }
+
         public Institution Institution
         {
             get {return institution;}

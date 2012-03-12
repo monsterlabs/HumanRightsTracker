@@ -148,9 +148,8 @@ namespace HumanRightsTracker.Models
         public Boolean HasRelateRecords {
             get {
                 IList affiliations = AffiliationList ();
-                IList personRelationships = PersonRelationships;
                 IList relationshipsAsRelatedPerson = PersonRelationshipsAsRelatedPerson;
-                return (affiliations.Count > 0 || personRelationships.Count > 0 ||relationshipsAsRelatedPerson.Count > 0);
+                return (affiliations.Count > 0 ||relationshipsAsRelatedPerson.Count > 0);
             }
         }
 

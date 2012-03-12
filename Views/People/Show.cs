@@ -78,6 +78,7 @@ namespace Views.People
                         set_case_list();
                         SetAddressList ();
                         SetPersonRelationships ();
+                        SetRelationshipAsRelatedPerson ();
 
                     }
                 }
@@ -138,6 +139,7 @@ namespace Views.People
                     SetInstitutionPeople();
                     SetPersonRelationships();
                     affiliation_list.IsEditable = false;
+                    relationship_as_relatedperson.IsEditable = false;
                 }
 
                 EnableActionButtons ();
@@ -427,6 +429,10 @@ namespace Views.People
 
         private void SetAffiliationList () {
             affiliation_list.AffiliableRecords = this.person.AffiliationList().Cast<AffiliableRecord>().ToList ();
+        }
+
+        private void SetRelationshipAsRelatedPerson () {
+            relationship_as_relatedperson.AffiliableRecords = this.person.PersonRelationshipsAsRelatedPerson.Cast<AffiliableRecord>().ToList();
         }
 
         private void ReloadAddresses () {
