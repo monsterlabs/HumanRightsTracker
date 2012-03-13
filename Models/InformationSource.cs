@@ -115,16 +115,29 @@ namespace HumanRightsTracker.Models
             if (this.ReportedPerson != null)
             {
                 roleName = Catalog.GetString("Reported person in source information");
-                affiliationTypeName = this.ReportedAffiliationType.Name;
-                institutionName = this.ReportedInstitution.Name;
                 personName = this.ReportedPerson.Fullname;
+
+                if (this.ReportedAffiliationType != null) {
+                    affiliationTypeName = this.ReportedAffiliationType.Name;
+                }
+
+                if (this.ReportedInstitution != null) {
+                    institutionName = this.ReportedInstitution.Name;
+                }
+
             }
             else if (this.SourcePerson != null)
             {
                 roleName = Catalog.GetString("As source in source information");
-                affiliationTypeName = this.SourceAffiliationType.Name;
-                institutionName = this.SourceInstitution.Name;
                 personName = this.SourcePerson.Fullname;
+
+                if (this.SourceAffiliationType != null) {
+                    affiliationTypeName = this.SourceAffiliationType.Name;
+                }
+
+                if (this.SourceInstitution != null) {
+                    institutionName = this.SourceInstitution.Name;
+                }
             }
 
             string[] data = {
@@ -154,16 +167,28 @@ namespace HumanRightsTracker.Models
             {
                 personName = this.ReportedPerson.Fullname;
                 roleName = Catalog.GetString("Reported person in source information");
-                affiliationTypeName = this.ReportedAffiliationType.Name;
-                institutionName = this.ReportedInstitution.Name;
-            }
+                if (this.ReportedAffiliationType != null) {
+                    affiliationTypeName = this.ReportedAffiliationType.Name;
+                }
 
-            if (this.SourcePerson != null)
+                if (this.ReportedInstitution != null) {
+                    institutionName = this.ReportedInstitution.Name;
+                }
+
+            }
+            else if (this.SourcePerson != null)
             {
                 personName = this.SourcePerson.Fullname;
                 roleName = Catalog.GetString("As source in source information");
-                affiliationTypeName = this.SourceAffiliationType.Name;
-                institutionName = this.SourceInstitution.Name;
+
+                if (this.SourceAffiliationType != null) {
+                    affiliationTypeName = this.SourceAffiliationType.Name;
+                }
+
+                if (this.SourceInstitution != null) {
+                    institutionName = this.SourceInstitution.Name;
+                }
+
             }
 
             string[] data = {
