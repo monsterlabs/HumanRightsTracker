@@ -7520,6 +7520,7 @@ Tipo de Afiliación</property>
           <widget class="Views.InstitutionList" id="institutionlist1">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
+            <signal name="SelectionWithDoubleClick" handler="OnSelectionWithDoubleClick" />
           </widget>
           <packing>
             <property name="Position">0</property>
