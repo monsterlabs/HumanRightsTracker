@@ -109,13 +109,19 @@ namespace HumanRightsTracker.Models
             string affiliationTypeName = Catalog.GetString("Not defined affiliation type in  documentary source record");
             string institutionName = "";
 
-            if (this.ReportedPerson!= null) {
+            if (this.ReportedPerson != null) {
                 roleName = Catalog.GetString("Reported person in documentary source");
-                affiliationTypeName = this.ReportedAffiliationType.Name;
-                institutionName = this.ReportedInstitution.Name;
                 personName = this.ReportedPerson.Fullname;
             }
 
+            if (this.ReportedAffiliationType != null) {
+                affiliationTypeName = this.ReportedAffiliationType.Name;
+            }
+
+            if (this.ReportedInstitution != null) {
+                institutionName = this.ReportedInstitution.Name;
+            }
+            
             string[] data = {
                 personName,
                 affiliationTypeName,
