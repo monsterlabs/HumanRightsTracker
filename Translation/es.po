@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-12 12:16:13-0600\n"
-"PO-Revision-Date: 2012-03-12 12:39:27-0600\n"
+"POT-Creation-Date: 2012-03-12 23:46:41-0600\n"
+"PO-Revision-Date: 2012-03-12 23:47:42-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -404,8 +404,8 @@ msgstr "Borrar"
 #: ../Views/People/PeopleList.cs:26
 #: ../Views/Cases/CaseList.cs:11
 #: ../Views/Cases/CaseList.cs:19
-#: ../Views/Institutions/InstitutionList.cs:14
-#: ../Views/Institutions/InstitutionList.cs:17
+#: ../Views/Institutions/InstitutionList.cs:15
+#: ../Views/Institutions/InstitutionList.cs:18
 msgid "records"
 msgstr "registros"
 
@@ -582,6 +582,14 @@ msgstr "<b>Fax</b>"
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Contact Information</b>"
 msgstr "<b>Información de contacto</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Related collective actors</b> "
+msgstr "<b>Actores colectivos relacionados</b>"
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Cited as related actor</b>"
+msgstr "<b>Citado como actor colectivo relacionado</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Related institutions</b>"

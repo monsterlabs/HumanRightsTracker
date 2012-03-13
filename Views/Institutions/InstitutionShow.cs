@@ -53,6 +53,7 @@ namespace Views
                 case_per_institution.Show ();
                 case_per_institution.Institution = institution;
                 SetInstitutionRelationships ();
+                SetRelationshipsAsRelatedInstitution ();
                 SetInstitutionPeople ();
                 SetAffiliatedActorList ();
              }
@@ -83,6 +84,7 @@ namespace Views
                     relationship_lists_frame.Show ();
                     ShowAssociatedRecordList ();
                 }
+                relatedActorList.IsEditable = false;
                 case_per_institution.IsEditable = false;
 
                 EnableActionButtons ();
@@ -131,7 +133,7 @@ namespace Views
                     photo.SaveAndFlush ();
                 }
 
-
+                institution.Refresh ();
                 if (InstitutionSaved != null)
                     InstitutionSaved (institution, e);
                 this.IsEditing = false;
@@ -157,6 +159,12 @@ namespace Views
             related_institutions_expander.Show ();
             if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionRelationships != null)  {
                 related_institution_list.Records = this.institution.InstitutionRelationships.Cast<ListableRecord>().ToList ();
+            }
+        }
+
+        public void SetRelationshipsAsRelatedInstitution () {
+            if (this.institution != null && this.institution.Id > 0 && this.institution.InstitutionRelationshipsAsRelatedInstitution != null)  {
+                relatedActorList.AffiliableRecords = this.institution.InstitutionRelationshipsAsRelatedInstitution.Cast<AffiliableRecord>().ToList();
             }
         }
 

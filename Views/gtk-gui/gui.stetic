@@ -1919,7 +1919,7 @@ Municipality</property>
                                         <property name="MemberName" />
                                         <property name="CanFocus">True</property>
                                         <property name="Expanded">True</property>
-                                        <property name="BorderWidth">6</property>
+                                        <property name="BorderWidth">12</property>
                                         <child>
                                           <widget class="Views.EditableList" id="person_relationship_list">
                                             <property name="MemberName" />
@@ -1954,7 +1954,7 @@ Fecha de término</property>
                                         <property name="MemberName" />
                                         <property name="CanFocus">True</property>
                                         <property name="Expanded">True</property>
-                                        <property name="BorderWidth">6</property>
+                                        <property name="BorderWidth">12</property>
                                         <child>
                                           <widget class="Views.EditableList" id="relationship_as_relatedperson">
                                             <property name="MemberName" />
@@ -4362,7 +4362,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InstitutionShow" design-size="914 667">
+  <widget class="Gtk.Bin" id="Views.InstitutionShow" design-size="914 719">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -5011,15 +5011,78 @@ Fecha de término</property>
                                 <property name="MemberName" />
                                 <property name="CanFocus">True</property>
                                 <child>
-                                  <widget class="Views.EditableList" id="related_institution_list">
+                                  <widget class="Gtk.VBox" id="vbox8">
                                     <property name="MemberName" />
-                                    <property name="Events">ButtonPressMask</property>
-                                    <property name="Headers">Institución
+                                    <property name="Spacing">6</property>
+                                    <child>
+                                      <widget class="Gtk.Expander" id="expander2">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Expanded">True</property>
+                                        <property name="BorderWidth">6</property>
+                                        <child>
+                                          <widget class="Views.EditableList" id="related_institution_list">
+                                            <property name="MemberName" />
+                                            <property name="Events">ButtonPressMask</property>
+                                            <property name="Headers">Institución
 Tipo de relación
 Actor colectivo relacionado
 Fecha de inicio
 Fecha de término</property>
-                                    <property name="IsEditable">False</property>
+                                            <property name="IsEditable">False</property>
+                                          </widget>
+                                        </child>
+                                        <child>
+                                          <widget class="Gtk.Label" id="GtkLabel21">
+                                            <property name="MemberName" />
+                                            <property name="LabelProp" translatable="yes">&lt;b&gt;Related collective actors&lt;/b&gt; </property>
+                                            <property name="UseMarkup">True</property>
+                                          </widget>
+                                          <packing>
+                                            <property name="type">label_item</property>
+                                          </packing>
+                                        </child>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">0</property>
+                                        <property name="AutoSize">True</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <widget class="Gtk.Expander" id="expander3">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Expanded">True</property>
+                                        <property name="BorderWidth">6</property>
+                                        <child>
+                                          <widget class="Views.EditableList" id="relatedActorList">
+                                            <property name="MemberName" />
+                                            <property name="Events">ButtonPressMask</property>
+                                            <property name="Headers">Institución
+Tipo de relación
+Actor colectivo relacionado
+Fecha de inicio
+Fecha de término</property>
+                                            <property name="IsEditable">False</property>
+                                          </widget>
+                                        </child>
+                                        <child>
+                                          <widget class="Gtk.Label" id="GtkLabel24">
+                                            <property name="MemberName" />
+                                            <property name="LabelProp" translatable="yes">&lt;b&gt;Cited as related actor&lt;/b&gt;</property>
+                                            <property name="UseMarkup">True</property>
+                                            <property name="UseUnderline">True</property>
+                                          </widget>
+                                          <packing>
+                                            <property name="type">label_item</property>
+                                          </packing>
+                                        </child>
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">1</property>
+                                        <property name="AutoSize">True</property>
+                                      </packing>
+                                    </child>
                                   </widget>
                                 </child>
                                 <child>

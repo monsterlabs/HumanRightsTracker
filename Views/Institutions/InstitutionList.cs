@@ -54,6 +54,10 @@ namespace Views
                 Institution i = null;
                 if (node != null)
                     i = node.Institution;
+
+                if (i != null)
+                    i.Refresh ();
+                
                 SelectionChanged (i, args);
             }
         }

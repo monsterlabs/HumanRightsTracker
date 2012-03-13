@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-12 12:38:24-0600\n"
-"PO-Revision-Date: 2012-03-12 12:38:25-0600\n"
-"Last-Translator: alex\n"
+"POT-Creation-Date: 2012-03-12 23:46:41-0600\n"
+"PO-Revision-Date: 2012-03-12 23:46:43-0600\n"
+"Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -402,8 +402,8 @@ msgstr ""
 #: ../Views/People/PeopleList.cs:26
 #: ../Views/Cases/CaseList.cs:11
 #: ../Views/Cases/CaseList.cs:19
-#: ../Views/Institutions/InstitutionList.cs:14
-#: ../Views/Institutions/InstitutionList.cs:17
+#: ../Views/Institutions/InstitutionList.cs:15
+#: ../Views/Institutions/InstitutionList.cs:18
 msgid "records"
 msgstr ""
 
@@ -579,6 +579,14 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Contact Information</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Related collective actors</b> "
+msgstr ""
+
+#: ../Views/gtk-gui/Views.InstitutionShow.cs:1
+msgid "<b>Cited as related actor</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1

@@ -7,7 +7,7 @@ using System.Collections;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("institution_relationships")]
-    public class InstitutionRelationship : ActiveRecordValidationBase<InstitutionRelationship>, ListableRecord, IComparable<InstitutionRelationship>
+    public class InstitutionRelationship : ActiveRecordValidationBase<InstitutionRelationship>, ListableRecord, IComparable<InstitutionRelationship>, AffiliableRecord
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -43,8 +43,26 @@ namespace HumanRightsTracker.Models
         {
             string[] data = {
                 this.Institution.Name,
-                this.InstitutionRelationshipType.Name,
+                (this.InstitutionRelationshipType.Name+ " de "),
                 this.RelatedInstitution.Name,
+                "",
+                ""
+            };
+
+            if (this.start_date.HasValue)
+                data[3] = this.StartDateAsString ();
+            if (this.end_date.HasValue)
+                data[4] = this.EndDateAsString ();
+
+            return data;
+        }
+
+        public string[] AffiliationColumnData ()
+        {
+            string[] data = {
+                this.Institution.Name,
+                (this.InstitutionRelationshipType.Name+ " de "),
+                 this.RelatedInstitution.Name,
                 "",
                 ""
             };
