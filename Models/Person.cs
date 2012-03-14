@@ -31,7 +31,7 @@ namespace HumanRightsTracker.Models
         public String Alias { get; set; }
 
         [Property]
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
 
         [Property]
         public String Settlement { get; set; }

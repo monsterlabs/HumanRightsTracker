@@ -216,8 +216,8 @@ namespace Views.People
             citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
             imageselector1.Image = person.Photo.Image;
-            if (person.Birthday.Year > 1) {
-                age.Active = DateTime.Now.Subtract(person.Birthday).Days/365;
+            if (person.Birthday != null) {
+                age.Active = DateTime.Now.Subtract(person.Birthday.Value).Days/365;
             } else {
                 age.Active = -1;
             }
@@ -399,11 +399,12 @@ namespace Views.People
             person.Email = email.Text;
             person.IsImmigrant = this.isImmigrant;
 
-            if (birthday.CurrentDate.Year != 1) {
+            if (birthday.CurrentDate != null) {
                 person.Birthday = birthday.CurrentDate;
             } else {
                 int numAge = age.Active;
-                person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(numAge*365, 0, 0, 0)).Year, 1, 1);
+                if (numAge > 0)
+                    person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(numAge*365, 0, 0, 0)).Year, 1, 1);
             }
 
             person.Country = birthplace.Country as Country;

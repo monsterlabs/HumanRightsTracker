@@ -4,7 +4,7 @@ namespace Views
     [System.ComponentModel.ToolboxItem(true)]
     public partial class DateSelector : Gtk.Bin, IEditable
     {
-        DateTime currentDate;
+        DateTime? currentDate;
         bool isEditable;
 
         public event EventHandler Changed;
@@ -14,14 +14,13 @@ namespace Views
             this.Build ();
         }
 
-        public DateTime CurrentDate {
+        public DateTime? CurrentDate {
             get { return currentDate; }
             set {
-                if (value != default(DateTime)) {
-                    currentDate = value;
-                    dateEntry.Text = value.ToLongDateString ();
+                currentDate = value;
+                if (value != null) {
+                    dateEntry.Text = value.Value.ToLongDateString ();
                 } else {
-                    currentDate = default(DateTime);
                     dateEntry.Text = "";
                 }
             }
@@ -32,14 +31,14 @@ namespace Views
             int x, y;
             this.TranslateCoordinates(this.Toplevel, 0, 0, out x, out y);
 
-            DateTime selectedDate = currentDate;
+            DateTime? selectedDate = currentDate;
 
-            if (currentDate.Year == 1)
+            if (currentDate == null)
             {
                 selectedDate = new DateTime(1975, 1, 1);
             }
 
-            DateSelectorWindow selector = new DateSelectorWindow (x, y, selectedDate, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
+            DateSelectorWindow selector = new DateSelectorWindow (x, y, selectedDate.Value, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
             selector.TransientFor = (Gtk.Window)this.Toplevel;
             selector.Modal = true;
         }
