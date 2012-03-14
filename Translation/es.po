@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-12 23:46:41-0600\n"
-"PO-Revision-Date: 2012-03-12 23:47:42-0600\n"
+"PO-Revision-Date: 2012-03-13 23:08:35-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -327,7 +327,7 @@ msgstr "<b>Estado</b>"
 
 #: ../Views/gtk-gui/Views.PlaceSelector.cs:1
 msgid "<b>Municipality</b>"
-msgstr "Municipio"
+msgstr "<b>Municipio</b>"
 
 #: ../Views/gtk-gui/Views.CatalogSelector.cs:1
 #: ../Views/gtk-gui/Views.DateSelector.cs:1
