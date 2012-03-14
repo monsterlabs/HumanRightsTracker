@@ -147,7 +147,11 @@ namespace Views
 
         protected void OnEditButtonClicked (object sender, System.EventArgs e)
         {
-            IsEditing = !IsEditing;
+            if (IsEditing) {
+                Institution = institution;
+            } else {
+                IsEditing = !IsEditing;
+            }
         }
 
         private void SetAffiliatedActorList () {

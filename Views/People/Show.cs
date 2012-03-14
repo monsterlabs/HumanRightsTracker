@@ -93,7 +93,11 @@ namespace Views.People
 
         protected virtual void OnToggleEdit (object sender, System.EventArgs e)
         {
-            IsEditing = !IsEditing;
+            if (IsEditing) {
+                Person = person;
+            } else {
+                IsEditing = !IsEditing;
+            }
         }
 
         public bool IsEditing

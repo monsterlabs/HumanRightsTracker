@@ -343,7 +343,11 @@ namespace Views
 
         protected void OnToggleEdit (object sender, System.EventArgs e)
         {
-            IsEditing = !IsEditing;
+            if (IsEditing) {
+                Case = mycase;
+            } else {
+                IsEditing = !IsEditing;
+            }
         }
 
         protected void OnExport (object sender, System.EventArgs e)
