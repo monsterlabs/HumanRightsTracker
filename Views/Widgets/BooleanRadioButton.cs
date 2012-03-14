@@ -49,12 +49,10 @@ namespace Views
                 return Value ();
             }
             set {
-                bool state = value;
-                if (state) {
-                    radiobutton_true.Active = true;
-                } else {
-                    radiobutton_false.Active = true;
-                }
+               bool state = value;
+               // Console.WriteLine("Radio button value {0} for {1}", state, this.Name);
+               radiobutton_true.Active = value;
+               radiobutton_false.Active = !value;
             }
         }
     }

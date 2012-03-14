@@ -46,6 +46,9 @@ namespace Views.People
                 if (person != null) {
                     set_person_widgets ();
                     set_address_widgets ();
+                    set_person_details_widgets ();
+                    set_immigration_details_widgets ();
+                    
                     if (this.isImmigrant == false)  {
                         migration_attempts_frame.Hide ();
                         identification_frame.Hide ();
