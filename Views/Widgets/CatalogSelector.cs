@@ -290,8 +290,8 @@ namespace Views
             int x, y;
             this.TranslateCoordinates(this.Toplevel, 0, 0, out x, out y);
             ShowNoteWindow note_window = new ShowNoteWindow(x, y, NoteString(), (Gtk.Window)this.Toplevel);
-            note_window.TransientFor = (Gtk.Window)this.Toplevel;
-            note_window.Modal = true;
+            //note_window.TransientFor = (Gtk.Window)this.Toplevel;
+            //note_window.Modal = true;
         }
     }
 }
