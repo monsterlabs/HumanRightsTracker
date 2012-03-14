@@ -22,8 +22,8 @@ namespace Views
             InstitutionPerson ip = new InstitutionPerson();
             ip.Institution = i;
             show.InstitutionPerson = ip;
-            show.IsEditable = true;
             show.InstitutionReadOnly ();
+            show.IsEditable = true;
         }
 
         public InstitutionPersonDetailWindow (InstitutionPerson ip, EventHandler OnSave, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
@@ -33,8 +33,8 @@ namespace Views
             this.OnSaved = OnSave;
             this.TransientFor = parent;
             show.InstitutionPerson = ip;
-            show.IsEditable = false;
             show.InstitutionReadOnly ();
+            show.IsEditable = false;
         }
 
         public InstitutionPersonDetailWindow (InstitutionPerson ip, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)
@@ -56,8 +56,8 @@ namespace Views
             InstitutionPerson ip = new InstitutionPerson();
             ip.Person = p;
             show.InstitutionPerson = ip;
-            show.IsEditable = true;
             show.PersonReadOnly ();
+            show.IsEditable = true;
         }
 
         public InstitutionPersonDetailWindow (InstitutionPerson ip, EventHandler OnSave, Gtk.Window parent, bool usingPerson) :  base(Gtk.WindowType.Toplevel)
@@ -67,8 +67,8 @@ namespace Views
             this.OnSaved = OnSave;
             this.TransientFor = parent;
             show.InstitutionPerson = ip;
-            show.IsEditable = false;
             show.PersonReadOnly ();
+            show.IsEditable = false;
         }
 
         protected void OnShowSaved (object sender, System.EventArgs e)

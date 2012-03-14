@@ -1236,7 +1236,6 @@ Alone</property>
                                   <widget class="Views.DateSelector" id="birthday">
                                     <property name="MemberName" />
                                     <property name="Events">ButtonPressMask</property>
-                                    <property name="CurrentDate">0</property>
                                     <property name="IsEditable">False</property>
                                     <signal name="Changed" handler="OnBirthdayChanged" />
                                   </widget>
@@ -11387,7 +11386,6 @@ Fecha de término</property>
                       <widget class="Views.DateSelector" id="access_date">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="CurrentDate">0</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>
@@ -11774,7 +11772,6 @@ Fecha de término</property>
                       <widget class="Views.DateSelector" id="publication_date">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="CurrentDate">0</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>
@@ -13140,7 +13137,6 @@ Fecha de término</property>
                       <widget class="Views.DateSelector" id="fromDate">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="CurrentDate">0</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>
@@ -13304,7 +13300,6 @@ Fecha de término</property>
                       <widget class="Views.DateSelector" id="toDate">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
-                        <property name="CurrentDate">0</property>
                         <property name="IsEditable">False</property>
                       </widget>
                       <packing>

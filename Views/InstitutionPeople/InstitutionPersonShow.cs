@@ -10,6 +10,8 @@ namespace Views
         InstitutionPerson institution_person;
         bool isEditable;
         bool usingInstitution = false;
+        bool usingPerson = true;
+
         private EditableHelper editable_helper;
 
         public event EventHandler Saved;
@@ -50,16 +52,30 @@ namespace Views
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                 }
+
+                if (usingInstitution == true) {
+                   personSelector.IsEditable = value;
+                   institutionSelector.IsEditable = false;
+                    Console.WriteLine("POR ACA ESTOY");
+                }
+
+                if (usingPerson == true) {
+                   institutionSelector.IsEditable = value;
+                   personSelector.IsEditable = false;
+                }
+
             }
         }
 
        public void InstitutionReadOnly () {
             institutionSelector.IsEditable = false;
             usingInstitution = true;
+            usingPerson = false;
        }
 
        public void PersonReadOnly () {
             personSelector.IsEditable = false;
+            usingPerson = true;
             usingInstitution = false;
        }
 

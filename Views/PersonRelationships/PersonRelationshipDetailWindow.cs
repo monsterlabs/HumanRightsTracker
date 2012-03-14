@@ -31,7 +31,7 @@ namespace Views
             this.OnSaved = OnSave;
             this.TransientFor = parent;
             show.PersonRelationship = pr;
-            show.IsEditable = true;
+            show.IsEditable = false;
         }
 
         public PersonRelationshipDetailWindow (PersonRelationship pr, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)

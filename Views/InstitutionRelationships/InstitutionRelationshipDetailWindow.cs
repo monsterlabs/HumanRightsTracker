@@ -32,7 +32,7 @@ namespace Views
             this.OnSaved = OnSave;
             this.TransientFor = parent;
             show.InstitutionRelationship = ir;
-            show.IsEditable = true;
+            show.IsEditable = false;
         }
 
         public InstitutionRelationshipDetailWindow (InstitutionRelationship ir, Gtk.Window parent) :  base(Gtk.WindowType.Toplevel)

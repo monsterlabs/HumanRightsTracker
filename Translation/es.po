@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-12 23:46:41-0600\n"
-"PO-Revision-Date: 2012-03-13 23:08:35-0600\n"
+"POT-Creation-Date: 2012-03-14 12:22:59-0600\n"
+"PO-Revision-Date: 2012-03-14 12:26:30-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -54,7 +54,7 @@ msgstr "No acompañado"
 #: ../Views/Addresses/AddressShow.cs:8
 #: ../Views/PersonRelationships/PersonRelationshipShow.cs:6
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
-#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:8
+#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:9
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -84,7 +84,7 @@ msgstr "Cancelar"
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 #: ../Views/InstitutionRelationships/InstitutionRelationshipShow.cs:6
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
-#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:8
+#: ../Views/InstitutionPeople/InstitutionPersonShow.cs:9
 #: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
 msgid "Edit"
 msgstr "Editar"
@@ -1358,7 +1358,7 @@ msgstr "Ventana de Víctimas"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipDetailWindow.cs:1
 msgid "PersonRelationshipDetailWindow"
-msgstr "Ventana de la relación de personas"
+msgstr "Relación entre actores individuales"
 
 #: ../Views/gtk-gui/Views.PersonRelationshipShow.cs:1
 msgid "<b>Related person:</b>"
@@ -1393,7 +1393,7 @@ msgstr "<b>Título:</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionRelationshipDetailWindow.cs:1
 msgid "InstitutionRelationshipDetailWindow"
-msgstr "Ventana de la relación de personas"
+msgstr "Relación entre actores colectivos"
 
 #: ../Views/gtk-gui/Views.InstitutionRelationshipShow.cs:1
 msgid "<b>Related institution:</b>"
@@ -1405,7 +1405,7 @@ msgstr "Selector de actores "
 
 #: ../Views/gtk-gui/Views.InstitutionPersonDetailWindow.cs:1
 msgid "InstitutionPersonDetailWindow"
-msgstr "Ventana de la relación de personas"
+msgstr "Relación entre actor individual y actor colectivo"
 
 #: ../Models/Intervention.cs:27
 #: ../Models/Intervention.cs:34
@@ -1428,22 +1428,22 @@ msgid "Interventor"
 msgstr "Interventor"
 
 #: ../Models/InformationSource.cs:23
-#: ../Models/InformationSource.cs:29
+#: ../Models/InformationSource.cs:34
 msgid "Not defined role in information source record"
 msgstr "Sin role defiido en fuente de información personal"
 
 #: ../Models/InformationSource.cs:23
-#: ../Models/InformationSource.cs:29
+#: ../Models/InformationSource.cs:34
 msgid "Not defined affiliation type in information source record"
 msgstr "Sin afiliación definida en fuente de información personal"
 
 #: ../Models/InformationSource.cs:24
-#: ../Models/InformationSource.cs:30
+#: ../Models/InformationSource.cs:35
 msgid "Reported person in source information"
 msgstr "Persona reportada en información personal"
 
-#: ../Models/InformationSource.cs:24
-#: ../Models/InformationSource.cs:31
+#: ../Models/InformationSource.cs:27
+#: ../Models/InformationSource.cs:37
 msgid "As source in source information"
 msgstr "Fuente de información en información personal"
 
@@ -1458,17 +1458,17 @@ msgid "Not defined affiiliation type in perpetrator record"
 msgstr "Sin afiliación definida en  relación como perpetrador"
 
 #: ../Models/DocumentarySource.cs:27
-#: ../Models/DocumentarySource.cs:32
+#: ../Models/DocumentarySource.cs:33
 msgid "Not defined role in documentary source record"
 msgstr "Sin rol definido en fuente documental"
 
 #: ../Models/DocumentarySource.cs:27
-#: ../Models/DocumentarySource.cs:32
+#: ../Models/DocumentarySource.cs:33
 msgid "Not defined affiliation type in  documentary source record"
 msgstr "Sin afiliación o tipo definido en fuente de información documental"
 
 #: ../Models/DocumentarySource.cs:28
-#: ../Models/DocumentarySource.cs:33
+#: ../Models/DocumentarySource.cs:34
 msgid "Reported person in documentary source"
 msgstr "Persona reportada en fuente de información documental"
 
