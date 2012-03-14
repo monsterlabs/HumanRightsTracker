@@ -204,7 +204,7 @@ namespace Views.People
             alias.Text = person.Alias == null ? "" : person.Alias;
             email.Text = person.Email == null ? "" : person.Email;
             birthday.CurrentDate = person.Birthday;
-            gender.Activate = person.Id != 0 ? person.Gender : true;
+            gender.Activate = person.Id < 1 ? true : person.Gender;
             marital_status.Active = person.MaritalStatus;
             citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
@@ -227,7 +227,7 @@ namespace Views.People
             number_of_sons.Active = person_details.NumberOfSons;
             scholarity_level.Active = person_details.ScholarityLevel;
             most_recent_job.Active = person_details.MostRecentJob;
-            is_spanish_speaker.Activate = person.Id != 0 ? person_details.IsSpanishSpeaker : true;
+            is_spanish_speaker.Activate = person_details.Id < 1 ? true : person_details.IsSpanishSpeaker;
             indigenous_group.Active = person_details.IndigenousGroup;
         }
 
@@ -244,7 +244,7 @@ namespace Views.People
                 immigration_attempt.OriginCity);
 
             traveling_reason.Active = immigration_attempt.TravelingReason;
-            is_traveling_companied.Activate = immigration_attempt.Id != 0 ? immigration_attempt.IsTravelingCompanied : true;
+            is_traveling_companied.Activate = immigration_attempt.Id < 1 ? true : immigration_attempt.IsTravelingCompanied;
 
             destination_country.Active = immigration_attempt.DestinationCountry as Country;
             stay_type.Active = immigration_attempt.StayType as StayType;
