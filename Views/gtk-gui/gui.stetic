@@ -13906,11 +13906,12 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.InstitutionRelationshipDetailWindow" design-size="528 427">
+  <widget class="Gtk.Window" id="Views.InstitutionRelationshipDetailWindow" design-size="564 463">
     <action-group name="Default" />
     <property name="MemberName" />
     <property name="Title" translatable="yes">InstitutionRelationshipDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="BorderWidth">9</property>
     <child>
       <widget class="Views.InstitutionRelationshipShow" id="show">
         <property name="MemberName" />
@@ -13921,7 +13922,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InstitutionRelationshipShow" design-size="528 427">
+  <widget class="Gtk.Bin" id="Views.InstitutionRelationshipShow" design-size="546 445">
     <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -14742,11 +14743,12 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.InstitutionPersonDetailWindow" design-size="528 675">
+  <widget class="Gtk.Window" id="Views.InstitutionPersonDetailWindow" design-size="546 693">
     <action-group name="Default" />
     <property name="MemberName" />
     <property name="Title" translatable="yes">InstitutionPersonDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="BorderWidth">9</property>
     <child>
       <widget class="Views.InstitutionPersonShow" id="show">
         <property name="MemberName" />
@@ -14757,7 +14759,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InstitutionPersonShow" design-size="528 695">
+  <widget class="Gtk.Bin" id="Views.InstitutionPersonShow" design-size="528 707">
     <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -14839,8 +14841,8 @@ Fecha de término</property>
                 <property name="IsEditable">False</property>
               </widget>
               <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -14860,8 +14862,6 @@ Fecha de término</property>
                 <property name="UseMarkup">True</property>
               </widget>
               <packing>
-                <property name="TopAttach">3</property>
-                <property name="BottomAttach">4</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -14944,6 +14944,8 @@ Fecha de término</property>
                 <property name="UseMarkup">True</property>
               </widget>
               <packing>
+                <property name="TopAttach">3</property>
+                <property name="BottomAttach">4</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -14962,8 +14964,8 @@ Fecha de término</property>
                 <property name="IsEditable">False</property>
               </widget>
               <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
