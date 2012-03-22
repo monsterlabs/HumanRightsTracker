@@ -224,12 +224,7 @@ namespace Views.People
             citizen.Active = person.Citizen;
             birthplace.SetPlace(person.Country, person.State, person.City);
             imageselector1.Image = person.Photo.Image;
-            if (person.Id > 0 && person.Birthday != null) {
-                age.Active = DateTime.Now.Subtract(person.Birthday.Value).Days/365;
-            }
-            else {
-                age.Active = 0;
-            }
+            age.Active = person.Age;
         }
 
         protected void set_person_details_widgets ()
@@ -411,11 +406,11 @@ namespace Views.People
 
             if (birthday.CurrentDate != null) {
                 person.Birthday = birthday.CurrentDate;
-            } else {
-                int numAge = age.Active;
-                if (numAge > 0)
-                    person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(numAge*365, 0, 0, 0)).Year, 1, 1);
             }
+            int numAge = age.Active;
+            person.Age = numAge;
+                //if (numAge > 0)
+                //    person.Birthday = new DateTime(DateTime.Now.Subtract(new TimeSpan(numAge*365, 0, 0, 0)).Year, 1, 1);
 
             person.Country = birthplace.Country as Country;
             person.State = birthplace.State as State;
