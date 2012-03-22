@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-22 11:19:00-0600\n"
-"PO-Revision-Date: 2012-03-22 11:50:23-0600\n"
+"PO-Revision-Date: 2012-03-22 12:38:40-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -561,7 +561,7 @@ msgstr "<b>Información adicional</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Institution category</b>"
-msgstr "<b>Categoría</b>"
+msgstr "<b>Actividad</b>"
 
 #: ../Views/gtk-gui/Views.InstitutionShow.cs:1
 msgid "<b>Institution type</b>"
@@ -1018,11 +1018,11 @@ msgstr "Tipo de identificación"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "SourceInformationType"
-msgstr "Tipo de fuente de información"
+msgstr "Tipo de fuente (fuente de información personal)"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "DocumentarySourceType"
-msgstr "Tipo de fuente"
+msgstr "Tipo de fuente (fuente de información documental)"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "MaritalStatus"
@@ -1050,7 +1050,7 @@ msgstr "Motivo del viaje"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "InstitutionCategory"
-msgstr "Categoría de actor colectivo"
+msgstr "Actividad de actor colectivo"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "ReliabilityLevel"
