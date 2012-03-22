@@ -1,8 +1,11 @@
 using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
+using Castle.ActiveRecord.Queries;
 using Castle.Components.Validator;
+using NHibernate.Criterion;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace HumanRightsTracker.Models
 {
@@ -26,5 +29,19 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(DocumentarySourceType),  Table="DocumentarySourceTypes", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
         public IList Children { get; set; }
 
+        public static IList Parents()
+        {
+            return (IList)DocumentarySourceType.FindAll (new Order[] { Order.Asc ("Name") },
+                                                                new ICriterion[] { Restrictions.Or (Restrictions.IsNull("ParentId"),
+                                                                                                     Restrictions.Eq("ParentId",0)) });
+        }
+
+        public string ParentName () {
+            return DocumentarySourceType.Find(this.ParentId).Name;
+        }
+
+        public string ParentModel () {
+            return "DocumentarySourceType";
+        }
     }
 }
