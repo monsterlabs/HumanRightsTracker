@@ -1,5 +1,6 @@
 // FIXIT: We should separate this class in two, one for each kind of actor
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using HumanRightsTracker.Models;
 using Mono.Unix;
@@ -60,18 +61,18 @@ namespace Views.People
                         set_person_details_widgets ();
                         set_immigration_details_widgets ();
 
-                        if (this.person.Id < 1 ) {
+                        if (this.person.Id > 0 && this.person.AffiliationList().Count > 0 ) {
+                            set_identification_widgets ();
+                            contact_info_frame.Show ();
+                            identification_frame.Show ();
+                            place_of_birth_frame.Show ();
+                        } else {
                             address_frame.Hide ();
                             address_list_frame.Hide ();
                             contact_info_frame.Hide ();
                             identification_frame.Hide ();
                             place_of_birth_frame.Hide ();
                             relationships_list_frame.Hide ();
-                        } else {
-                            set_identification_widgets ();
-                            contact_info_frame.Show ();
-                            identification_frame.Show ();
-                            place_of_birth_frame.Show ();
                         }
                     }
 
@@ -147,6 +148,13 @@ namespace Views.People
                     SetPersonRelationships();
                     affiliation_list.IsEditable = false;
                     relationship_as_relatedperson.IsEditable = false;
+                    person.Refresh ();
+                    if (IsImmigrant == true && this.person.AffiliationList().Count < 1 ) {
+                        address_list_frame.Hide ();
+                        contact_info_frame.Hide ();
+                        identification_frame.Hide ();
+                    }
+                    address_frame.Hide ();
                 }
 
                 EnableActionButtons ();
