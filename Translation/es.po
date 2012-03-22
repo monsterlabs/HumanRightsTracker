@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-14 12:22:59-0600\n"
-"PO-Revision-Date: 2012-03-14 12:26:30-0600\n"
+"PO-Revision-Date: 2012-03-22 01:00:17-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -874,7 +874,7 @@ msgstr "<b>Nombre completo</b>"
 
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
 msgid "<b>Supporters</b>"
-msgstr "<b>Nombre(s) de quiene soportan el caso</b>"
+msgstr "<b>Receptores</b>"
 
 #: ../Views/gtk-gui/Views.PersonAndInstitutionSelect.cs:1
 #: ../Views/gtk-gui/Views.InstitutionPersonShow.cs:1
