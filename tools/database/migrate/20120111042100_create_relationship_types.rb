@@ -1,5 +1,5 @@
-  def self.up
 class CreateRelationshipTypes < ActiveRecord::Migration
+  def self.up
     create_table :relationship_types do |t|
       t.string :name, :null => false
       t.text   :notes
