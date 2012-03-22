@@ -32,7 +32,7 @@ namespace Views
                         source_person_selector.AffiliationType = information_source.SourceAffiliationType;
                         source_person_selector.AllSet = true;
 
-                        affiliation_type.Active = information_source.AffiliationType;
+                        source_information_type.Active = information_source.SourceInformationType;
                         language.Active = information_source.Language;
                         indigenous_language.Active = information_source.IndigenousLanguage;
                         reliability_level.Active = information_source.ReliabilityLevel;
@@ -77,7 +77,7 @@ namespace Views
             information_source.SourceInstitution = source_person_selector.Institution;
             information_source.SourceAffiliationType = source_person_selector.AffiliationType;
 
-            information_source.AffiliationType = affiliation_type.Active as AffiliationType;
+            information_source.SourceInformationType = source_information_type.Active as SourceInformationType;
             information_source.Language = language.Active as Language;
             information_source.IndigenousLanguage = indigenous_language.Active as IndigenousLanguage;
             information_source.ReliabilityLevel = reliability_level.Active as ReliabilityLevel;

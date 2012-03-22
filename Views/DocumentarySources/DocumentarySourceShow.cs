@@ -29,7 +29,8 @@ namespace Views
                 if (documentary_source != null) {
                     name.Text = documentary_source.Name;
                     additional_info.Text = documentary_source.AdditionalInfo;
-                    source_information_type.Active = documentary_source.SourceInformationType;
+                    documentarySourceType.Active = documentary_source.DocumentarySourceType;
+
                     url.Text = documentary_source.Url;
                     language.Active = documentary_source.Language;
                     indigenous_language.Active = documentary_source.IndigenousLanguage;
@@ -79,7 +80,7 @@ namespace Views
 
             documentary_source.Name = name.Text;
             documentary_source.AdditionalInfo = additional_info.Text;
-            documentary_source.SourceInformationType = source_information_type.Active as SourceInformationType;
+            documentary_source.DocumentarySourceType = documentarySourceType.Active as DocumentarySourceType;
             documentary_source.Date = publication_date.CurrentDate;
             documentary_source.Url = url.Text;
             documentary_source.AccessDate = access_date.CurrentDate;

@@ -9249,7 +9249,6 @@ Fecha de término</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -10923,30 +10922,6 @@ Fecha de término</property>
               <placeholder />
             </child>
             <child>
-              <widget class="Views.CatalogSelector" id="affiliation_type">
-                <property name="MemberName" />
-                <property name="Events">ButtonPressMask</property>
-                <property name="OrderById">False</property>
-                <property name="Model">AffiliationType</property>
-                <property name="IsEditable">False</property>
-                <property name="HideAddButton">False</property>
-                <property name="HideNoteButton">False</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Views.DateTypeAndDateSelector" id="datetypeanddateselector">
                 <property name="MemberName" />
                 <property name="Events">ButtonPressMask</property>
@@ -11236,6 +11211,30 @@ Fecha de término</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>
+            <child>
+              <widget class="Views.CatalogSelector" id="source_information_type">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="OrderById">False</property>
+                <property name="Model">SourceInformationType</property>
+                <property name="IsEditable">False</property>
+                <property name="HideAddButton">False</property>
+                <property name="HideNoteButton">False</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">1</property>
@@ -11354,6 +11353,7 @@ Fecha de término</property>
     </child>
   </widget>
   <widget class="Gtk.Bin" id="Views.DocumentarySourceShow" design-size="798 408">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -11438,6 +11438,27 @@ Fecha de término</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">True</property>
+                        <property name="YFill">True</property>
+                        <property name="YShrink">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Views.CatalogSelectorAsTree" id="documentarySourceType">
+                        <property name="MemberName" />
+                        <property name="Events">ButtonPressMask</property>
+                        <property name="Model">DocumentarySourceType</property>
+                        <property name="IsEditable">False</property>
+                      </widget>
+                      <packing>
+                        <property name="TopAttach">3</property>
+                        <property name="BottomAttach">4</property>
+                        <property name="AutoSize">True</property>
+                        <property name="XOptions">Fill</property>
+                        <property name="YOptions">Fill</property>
+                        <property name="XExpand">False</property>
+                        <property name="XFill">True</property>
+                        <property name="XShrink">False</property>
+                        <property name="YExpand">False</property>
                         <property name="YFill">True</property>
                         <property name="YShrink">False</property>
                       </packing>
@@ -11815,30 +11836,6 @@ Fecha de término</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Views.CatalogSelector" id="source_information_type">
-                        <property name="MemberName" />
-                        <property name="Events">ButtonPressMask</property>
-                        <property name="OrderById">False</property>
-                        <property name="Model">SourceInformationType</property>
-                        <property name="IsEditable">False</property>
-                        <property name="HideAddButton">False</property>
-                        <property name="HideNoteButton">False</property>
-                      </widget>
-                      <packing>
-                        <property name="TopAttach">3</property>
-                        <property name="BottomAttach">4</property>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
-                        <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
-                        <property name="XFill">True</property>
-                        <property name="XShrink">False</property>
-                        <property name="YExpand">False</property>
-                        <property name="YFill">True</property>
-                        <property name="YShrink">False</property>
-                      </packing>
-                    </child>
-                    <child>
                       <widget class="Views.EditableTextView" id="url">
                         <property name="MemberName" />
                         <property name="Events">ButtonPressMask</property>
@@ -11869,7 +11866,7 @@ Fecha de término</property>
                     <property name="MemberName" />
                     <property name="ShadowType">In</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment4">
+                      <widget class="Gtk.Alignment" id="GtkAlignment6">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -11885,7 +11882,7 @@ Fecha de término</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel12">
+                      <widget class="Gtk.Label" id="GtkLabel15">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;Reported Person/Institution&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>

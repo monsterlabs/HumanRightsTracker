@@ -3,10 +3,11 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
 using Castle.Components.Validator;
 using System.Collections;
+
 namespace HumanRightsTracker.Models
 {
-    [ActiveRecord("source_information_types")]
-    public class SourceInformationType : ActiveRecordValidationBase<SourceInformationType>
+    [ActiveRecord("documentary_source_types")]
+    public class DocumentarySourceType : ActiveRecordValidationBase<DocumentarySourceType>
     {
 
         [PrimaryKey]
@@ -22,7 +23,7 @@ namespace HumanRightsTracker.Models
         [Property("parent_id")]
         public int ParentId { get; set; }
 
-        [HasMany(typeof(SourceInformationType),  Table="SourceInformationTypes", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
+        [HasMany(typeof(DocumentarySourceType),  Table="DocumentarySourceTypes", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
         public IList Children { get; set; }
 
     }

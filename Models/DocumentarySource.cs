@@ -34,8 +34,8 @@ namespace HumanRightsTracker.Models
         [Property("date")]
         public DateTime? Date { get; set; }
 
-        [BelongsTo("source_information_type_id")]
-        public SourceInformationType SourceInformationType { get; set; }
+        [BelongsTo("documentary_source_type_id")]
+        public DocumentarySourceType DocumentarySourceType { get; set; }
 
         [Property("site_name")]
         public String SiteName { get; set;}
@@ -78,7 +78,7 @@ namespace HumanRightsTracker.Models
         {
             string[] data = {
                 this.Name,
-                this.SourceInformationType.Name,
+                this.DocumentarySourceType.Name,
                 "",
                 "",
             };

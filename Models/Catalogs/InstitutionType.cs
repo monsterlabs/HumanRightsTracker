@@ -15,6 +15,9 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         [ValidateIsUnique]
         public String Name { get; set; }
+
+        [Property]
+        public String Notes { get; set; }
     }
 }
 
