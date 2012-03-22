@@ -11,7 +11,7 @@ class CreateInformationSources < ActiveRecord::Migration
       t.integer  :reported_institution_id
       t.integer  :reported_affiliation_type_id
 
-      t.references :affiliation_type
+      t.references :source_information_type
       t.references :date_type
       t.date :date
       t.references :language
