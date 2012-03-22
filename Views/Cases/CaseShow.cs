@@ -50,6 +50,7 @@ namespace Views
                     description.Text = mycase.NarrativeDescription;
                     summary.Text = mycase.Summary;
                     observations.Text = mycase.Observations;
+                    mycase.Refresh ();
                     if (mycase.Id > 0 ) {
                         act_list.Records = value.Acts.Cast<ListableRecord>().ToList();
                         case_relationship_list.Records = value.CaseRelationships.Cast<ListableRecord>().ToList();
@@ -81,18 +82,19 @@ namespace Views
                 if (value) {
                     editButton.Label = Catalog.GetString("Cancel");
                     saveButton.Visible = true;
-                    if (mycase.Id > 0 ) {
-                        places_expander.Visible = true;
-                        tracking_info_expander.Visible = true;
-                        core_expander.Visible = true;
-                        additional_info_expander.Visible = true;
-                    }
                 } else {
                     editButton.Label = Catalog.GetString("Edit");
                     saveButton.Visible = false;
                     if (mycase != null && mycase.Id == 0) {
                         this.Hide();
                     }
+                }
+
+                if (mycase != null && mycase.Id > 0 ) {
+                    places_expander.Show ();
+                    tracking_info_expander.Show ();
+                    core_expander.Show ();
+                    additional_info_expander.Show ();
                 }
 
                 this.editable_helper.SetAllEditable (value);
