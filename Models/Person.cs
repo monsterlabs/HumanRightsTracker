@@ -34,6 +34,9 @@ namespace HumanRightsTracker.Models
         public DateTime? Birthday { get; set; }
 
         [Property]
+        public int Age { get; set; }
+
+        [Property]
         public String Settlement { get; set; }
 
         [Property("is_immigrant")]
