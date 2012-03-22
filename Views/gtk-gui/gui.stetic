@@ -3957,7 +3957,6 @@ Fecha</property>
                   <widget class="Gtk.Expander" id="expander6">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="Expanded">True</property>
                     <property name="BorderWidth">9</property>
                     <child>
                       <widget class="Gtk.VBox" id="vbox11">
@@ -4008,7 +4007,7 @@ Fecha de acceso</property>
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
                                 <property name="Headers">Nombre
-Tipo de afiliación
+Tipo de fuente
 Fecha</property>
                                 <property name="IsEditable">False</property>
                               </widget>
@@ -9249,6 +9248,7 @@ Fecha de término</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -11352,7 +11352,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DocumentarySourceShow" design-size="798 408">
+  <widget class="Gtk.Bin" id="Views.DocumentarySourceShow" design-size="779 675">
     <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -11376,6 +11376,9 @@ Fecha de término</property>
                     <property name="NColumns">2</property>
                     <property name="RowSpacing">6</property>
                     <property name="ColumnSpacing">6</property>
+                    <child>
+                      <placeholder />
+                    </child>
                     <child>
                       <placeholder />
                     </child>
@@ -11562,27 +11565,6 @@ Fecha de término</property>
                       <packing>
                         <property name="LeftAttach">1</property>
                         <property name="RightAttach">2</property>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
-                        <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
-                        <property name="XFill">True</property>
-                        <property name="XShrink">False</property>
-                        <property name="YExpand">False</property>
-                        <property name="YFill">True</property>
-                        <property name="YShrink">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="label3">
-                        <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">&lt;b&gt;Source Information Type &lt;/b&gt;</property>
-                        <property name="UseMarkup">True</property>
-                      </widget>
-                      <packing>
-                        <property name="TopAttach">2</property>
-                        <property name="BottomAttach">3</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>

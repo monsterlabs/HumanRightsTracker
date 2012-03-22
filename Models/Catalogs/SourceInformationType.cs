@@ -24,6 +24,5 @@ namespace HumanRightsTracker.Models
 
         [HasMany(typeof(SourceInformationType),  Table="SourceInformationTypes", ColumnKey="parent_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true, OrderBy="Name Asc")]
         public IList Children { get; set; }
-
     }
 }
