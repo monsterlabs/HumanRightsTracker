@@ -334,6 +334,7 @@ namespace Views.People
             immigration_attempt.OriginCity = place_of_origin.City;
             immigration_attempt.CrossBorderAttemptsTransitCountry = cross_border_attempts_transit_country.Active;
             immigration_attempt.CrossBorderAttemptsDestinationCountry = cross_border_attempts_destination_country.Active;
+            immigration_attempt.TravelingReason = traveling_reason.Active as TravelingReason;
 
             immigration_attempt.IsTravelingCompanied = is_traveling_companied.Value ();
             //immigration_attempt.TimeSpentInDestinationCountry = time_spent_in_destination_country.Text;
