@@ -71,6 +71,7 @@ namespace Views
             {
                 show.Show();
                 Case mycase = (Case) sender;
+                mycase.Refresh ();
                 show.Case = mycase;
                 removeButton.Sensitive = true;
             } else {

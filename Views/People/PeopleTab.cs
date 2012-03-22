@@ -38,6 +38,7 @@ namespace Views
             {
                 show.Show();
                 Person person = (Person) sender;
+                person.Refresh ();
                 show.Person = person;
                 removeButton.Sensitive = true;
             } else {
