@@ -1,7 +1,8 @@
 class CreateInstitutionTypes < ActiveRecord::Migration
-  def self.up
+  def self.up  
     create_table :institution_types do |t|
       t.string :name, :null => false
+      t.text :notes
     end
   end
 

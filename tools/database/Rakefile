@@ -62,7 +62,7 @@ task :seeds => :environment do
     end
   end
 
-  [ MaritalStatus, Religion, EthnicGroup, ScholarityLevel, DateType, CaseStatus, InstitutionType,
+  [ MaritalStatus, Religion, EthnicGroup, ScholarityLevel, DateType, CaseStatus,
     ActStatus, InterventionType, LocationType, VictimStatus, TravelingReason, IdentificationType,
     Language, TravelCompanion, AddressType ].each do |class_name|
     class_name.send :destroy_all
@@ -72,7 +72,8 @@ task :seeds => :environment do
     end
   end
 
-  [ IndigenousGroup, VictimStatus,  PerpetratorStatus, InstitutionRelationshipType, ReliabilityLevel, RelationshipType, SourceInformationType ].each do |class_name|
+  [ IndigenousGroup, VictimStatus,  PerpetratorStatus, InstitutionRelationshipType, ReliabilityLevel, 
+    RelationshipType, InstitutionType, SourceInformationType ].each do |class_name|
     class_name.send :destroy_all
     csv_file = ActiveSupport::Inflector.pluralize(class_name.to_s).underscore + '.csv'
     CSV.foreach("seeds/#{csv_file}") do |row|
