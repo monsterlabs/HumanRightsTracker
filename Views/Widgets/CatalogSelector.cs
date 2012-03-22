@@ -36,6 +36,7 @@ namespace Views
             combobox.Entry.Completion.InlineCompletion = false;
             combobox.Entry.Completion.MatchSelected += OnMatchSelected;
             combobox.Entry.FocusOutEvent += OnFocusOutEvent;
+            combobox.FocusOutEvent += OnFocusOutEvent;
         }
 
         public Gtk.ComboBoxEntry Combobox {
@@ -86,16 +87,20 @@ namespace Views
         private void OnFocusOutEvent (object sender, Gtk.FocusOutEventArgs args)
         {
              PropertyInfo nameProp =  mod.PropertyDictionary[AttributeName()].Property;
+             int i = 0;
+
              foreach (Object o in collection)
              {
                 String oName = nameProp.GetValue(o, null) as String;
                 if (oName == combobox.Entry.Text)
                 {
                     matched = true;
+                    combobox.Active = i;
                     break;
                 } else {
                     matched = false;
                 }
+                i++;
             }
 
             if (matched != true)  {

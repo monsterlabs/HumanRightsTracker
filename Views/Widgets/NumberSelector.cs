@@ -22,6 +22,7 @@ namespace Views
             combobox.Entry.Completion.InlineCompletion = false;
             combobox.Entry.Completion.MatchSelected += OnMatchSelected;
             combobox.Entry.FocusOutEvent += OnFocusOutEvent;
+            combobox.FocusOutEvent += OnFocusOutEvent;
         }
 
         public void BuildArray ()
@@ -87,6 +88,8 @@ namespace Views
             if ( isNum != true || Num < this.min || Num > this.max) {
                 combobox.Entry.Text = "";
                 combobox.Active = -1;
+            } else {
+                combobox.Active = Num;
             }
         }
     }

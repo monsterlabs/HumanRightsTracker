@@ -34,6 +34,7 @@ namespace Views
             if (sender != null){
                 Institution institution = sender as Institution;
                 show.Institution = institution;
+                institution.Refresh ();
                 show.Show();
                 removeButton.Sensitive = true;
             } else {
