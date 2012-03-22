@@ -34,7 +34,7 @@ namespace HumanRightsTracker.Models
         [BelongsTo("reported_affiliation_type_id")]
         public AffiliationType ReportedAffiliationType { get; set; }
 
-        [BelongsTo("information_source_type_id")]
+        [BelongsTo("source_information_type_id")]
         public SourceInformationType SourceInformationType { get; set; }
 
         [Property("date")]
