@@ -60,10 +60,10 @@ namespace HumanRightsTracker.Models
                 name = Interventor.Fullname;
 
             if (InterventorAffiliationType != null)
-                name = " " + name + "(" + InterventorAffiliationType.Name + ")";
+                name = name + " (" + InterventorAffiliationType.Name + ")";
 
             if (InterventorInstitution != null)
-                name = ", " + name + InterventorInstitution.Name;
+                name =  name + ", " + InterventorInstitution.Name;
 
             return name;
         }
@@ -75,10 +75,10 @@ namespace HumanRightsTracker.Models
                 name = Supporter.Fullname;
 
             if (SupporterAffiliationType != null)
-                name = " " + name + "(" + SupporterAffiliationType.Name + ")";
+                name = name + " (" + SupporterAffiliationType.Name + ")";
 
             if (SupporterInstitution != null)
-                name = ", " + name + SupporterInstitution.Name;
+                name = name + ", " +  SupporterInstitution.Name;
 
             return name;
         }
