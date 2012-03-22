@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-22 11:19:00-0600\n"
-"PO-Revision-Date: 2012-03-22 12:38:40-0600\n"
+"PO-Revision-Date: 2012-03-22 13:17:00-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -1411,7 +1411,7 @@ msgstr "Sin rol definido en intervenciones"
 #: ../Models/Intervention.cs:27
 #: ../Models/Intervention.cs:34
 msgid "Not defined affiliation type in intervention record"
-msgstr "Sin afiliación definida en intervenciones"
+msgstr "Sin relación definida con algún actor colectivo en intervención"
 
 #: ../Models/Intervention.cs:28
 #: ../Models/Intervention.cs:35
@@ -1431,7 +1431,9 @@ msgstr "Sin role defiido en fuente de información personal"
 #: ../Models/InformationSource.cs:23
 #: ../Models/InformationSource.cs:34
 msgid "Not defined affiliation type in information source record"
-msgstr "Sin afiliación definida en fuente de información personal"
+msgstr ""
+"Sin relación definida con algún actor colectivo en fuente de información "
+"individual"
 
 #: ../Models/InformationSource.cs:24
 #: ../Models/InformationSource.cs:35
@@ -1451,7 +1453,8 @@ msgstr "Perpetrador"
 #: ../Models/Perpetrator.cs:8
 #: ../Models/Perpetrator.cs:15
 msgid "Not defined affiiliation type in perpetrator record"
-msgstr "Sin afiliación definida en  relación como perpetrador"
+msgstr ""
+"Sin relación definida con algún actor colectivo en un acto como perpetrador"
 
 #: ../Models/DocumentarySource.cs:27
 #: ../Models/DocumentarySource.cs:33
@@ -1461,7 +1464,9 @@ msgstr "Sin rol definido en fuente documental"
 #: ../Models/DocumentarySource.cs:27
 #: ../Models/DocumentarySource.cs:33
 msgid "Not defined affiliation type in  documentary source record"
-msgstr "Sin afiliación o tipo definido en fuente de información documental"
+msgstr ""
+"Sin relación definida con algún actor colectivo en fuente de información "
+"documental"
 
 #: ../Models/DocumentarySource.cs:28
 #: ../Models/DocumentarySource.cs:34
