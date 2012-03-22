@@ -20,7 +20,8 @@ InformationSource.blueprint do
     reported_institution_id { Institution.all.sample.id }
   end
 
-  affiliation_type_id { AffiliationType.all.sample.id }
+  source_information_type_id { SourceInformationType.all.sample.id }
+
   date_type_id { DateType.all.sample.id }
   date { Date.today }
   language_id { Language.all.sample.id }

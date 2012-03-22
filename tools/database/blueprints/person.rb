@@ -16,7 +16,13 @@ Person.blueprint do
   firstname { Faker::Name.first_name}
   lastname  { Faker::Name.first_name}
   gender    { (rand(2) > 0 ? true : false) }
-  birthday  { 24.years.ago }
+
+  if rand(2) > 0
+    birthday  { 24.years.ago }
+  else
+    age { rand(100) }
+  end
+
   marital_status_id { MaritalStatus.first.id }
 
   @country = Country.find_by_name('México')
@@ -32,7 +38,7 @@ Person.blueprint do
     is_immigrant { true }
     immigration_attempt
   else
-    is_immigrant { false }  
+    is_immigrant { false }
   end
 
   person_detail
