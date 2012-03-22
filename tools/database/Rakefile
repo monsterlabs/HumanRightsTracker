@@ -311,7 +311,6 @@ task :seeds => :environment do
     end
   end
 
-
   InvolvementDegree.destroy_all
   book = Spreadsheet.open "seeds/involvement_degrees.xls"
   sheet = book.worksheet 0
@@ -354,6 +353,36 @@ task :seeds => :environment do
     StayType.create(:name => stay_type_name, :notes => stay_type_note)
   end
 
+  DocumentarySourceType.destroy_all
+  book = Spreadsheet.open "seeds/documentary_source_types.xls"
+  sheet = book.worksheet 0
+  total_of_rows = sheet.row_count
+  Range.new(1, (total_of_rows -1)).to_a.each do |i|
+    row  = sheet.row(i)
+    
+    source_type1 = row[0].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    source_type2 = row[1].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    source_type_note = row[2].to_s.sub(/^\"\s/,'').sub(/\s\"$/,'').strip
+    @source_type_parent = nil
+
+    unless  source_type1.empty?
+      if DocumentarySourceType.exists?(:name => source_type1)
+        @source_type_parent = DocumentarySourceType.find_by_name(source_type1)
+      else
+        @source_type_parent = DocumentarySourceType.create(:name => source_type1, :notes => source_type_note)
+      end
+    else
+      next
+    end
+
+    if !source_type2.empty? and !@source_type_parent.nil?
+      if DocumentarySourceType.exists?(:name => DocumentarySourceType, :parent_id => @source_type_parent.id)
+        @source_type_parent = DocumentarySourceType.where(:name => source_type2, :parent_id => @source_type_parent.id).first
+      else
+        @source_type_parent = DocumentarySourceType.create(:name => source_type2, :parent_id => @source_type_parent.id, :notes => source_type_note)
+      end
+    end
+  end
 end
 
 desc "Load seeds in to the database for demo application."

@@ -5,7 +5,6 @@ class CreateDocumentarySources < ActiveRecord::Migration
       t.text :name
       t.text :additional_info
       t.date :date
-      t.references :source_information_type
       t.text :site_name
       t.string :url
       t.date :access_date
