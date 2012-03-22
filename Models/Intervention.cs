@@ -26,23 +26,18 @@ namespace HumanRightsTracker.Models
         public Person Interventor { get; set; }
 
         [BelongsTo("interventor_institution_id")]
-        [ValidateNonEmpty]
         public Institution InterventorInstitution { get; set; }
 
         [BelongsTo("interventor_affiliation_type_id")]
-        [ValidateNonEmpty]
         public AffiliationType InterventorAffiliationType { get; set; }
 
         [BelongsTo("supporter_id")]
-        [ValidateNonEmpty]
         public Person Supporter { get; set; }
 
         [BelongsTo("supporter_institution_id")]
-        [ValidateNonEmpty]
         public Institution SupporterInstitution { get; set; }
 
         [BelongsTo("supporter_affiliation_type_id")]
-        [ValidateNonEmpty]
         public AffiliationType SupporterAffiliationType { get; set; }
 
         [Property]
