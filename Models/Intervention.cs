@@ -107,16 +107,29 @@ namespace HumanRightsTracker.Models
 
             if (this.Supporter != null) {
                 roleName = Catalog.GetString("Supporter");
-                affiliationTypeName = this.SupporterAffiliationType.Name;
-                institutionName = this.SupporterInstitution.Name;
+
+                if (this.SupporterAffiliationType != null) {
+                    affiliationTypeName = this.SupporterAffiliationType.Name;
+                }
+
+                if (this.SupporterInstitution != null) {
+                    institutionName = this.SupporterInstitution.Name;
+                }
+
                 personName = this.Supporter.Fullname;
             }
 
             if (this.Interventor != null)
             {
                 roleName = Catalog.GetString("Interventor");
-                affiliationTypeName = this.InterventorAffiliationType.Name;
-                institutionName = this.InterventorInstitution.Name;
+                if (this.InterventorAffiliationType != null) {
+                    affiliationTypeName = this.InterventorAffiliationType.Name;
+                }
+
+                if (this.InterventorInstitution != null) {
+                    institutionName = this.InterventorInstitution.Name;
+                }
+
                 personName = this.Interventor.Fullname;
             }
 
@@ -146,16 +159,28 @@ namespace HumanRightsTracker.Models
             if (this.Supporter != null) {
                 personName = this.Supporter.Fullname;
                 roleName = Catalog.GetString("Supporter");
-                affiliationTypeName = this.SupporterAffiliationType.Name;
-                institutionName = this.SupporterInstitution.Name;
+
+                if (this.SupporterAffiliationType != null) {
+                    affiliationTypeName = this.SupporterAffiliationType.Name;
+                }
+
+                if (this.SupporterInstitution != null) {
+                    institutionName = this.SupporterInstitution.Name;
+                }
             }
 
             if (this.Interventor != null)
             {
                 personName = this.Interventor.Fullname;
                 roleName = Catalog.GetString("Interventor");
-                affiliationTypeName = this.InterventorAffiliationType.Name;
-                institutionName = this.InterventorInstitution.Name;
+
+                if (this.InterventorAffiliationType != null) {
+                    affiliationTypeName = this.InterventorAffiliationType.Name;
+                }
+
+                if (this.InterventorInstitution != null) {
+                    institutionName = this.InterventorInstitution.Name;
+                }
             }
 
             string[] data = {
