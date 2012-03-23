@@ -97,21 +97,62 @@ namespace HumanRightsTracker.Models
         }
 
         public IList caseList () {
-            IList case_list = new ArrayList();
-
+            HashSet<Case> caseList = new HashSet<Case>(new ARComparer<Case>());
+            caseList.Clear();
             if (Perpetrators != null ) {
                 foreach (Perpetrator p in Perpetrators)
-                  case_list.Add (p.Victim.Act.Case);
+                  caseList.Add (p.Victim.Act.Case);
             }
 
             if (Interventors != null ) {
                 foreach (Intervention i in Interventors)
-                   case_list.Add (i.Case);
+                   caseList.Add (i.Case);
             }
 
             if (Supporters != null ) {
                 foreach (Intervention s in Supporters)
-                    case_list.Add (s.Case);
+                    caseList.Add (s.Case);
+            }
+
+            if (AsReportedPersonInDocumentarySources != null) {
+                foreach (DocumentarySource ds in AsReportedPersonInDocumentarySources)
+                    caseList.Add (ds.Case);
+            }
+
+            if (AsSourceInInformationSources != null) {
+                foreach (InformationSource infsrc in AsSourceInInformationSources)
+                    caseList.Add (infsrc.Case);
+            }
+
+            if (AsReportedPersonInInformationSources != null) {
+                foreach (InformationSource infsrc in AsReportedPersonInInformationSources)
+                    caseList.Add (infsrc.Case);
+            }
+
+            foreach (Case c in this.caseListFromChildren()) {
+                caseList.Add (c);
+            }
+
+            IList case_list = new ArrayList();
+            foreach (Case c in caseList) {
+                case_list.Add (c);
+            }
+
+            return case_list;
+        }
+
+        public IList caseListFromChildren () {
+            HashSet<Case> caseList = new HashSet<Case>(new ARComparer<Case>());
+
+            foreach (InstitutionRelationship ir in InstitutionRelationships) {
+                foreach (Case c in ir.RelatedInstitution.caseList ()) {
+                    caseList.Add(c);
+                }
+            }
+
+            IList case_list = new ArrayList();
+            foreach (Case c in caseList) {
+                case_list.Add (c);
             }
 
             return case_list;
