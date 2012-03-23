@@ -157,19 +157,34 @@ namespace HumanRightsTracker.Models
         }
 
         public IList caseList () {
-            IList case_list = new ArrayList();
+            HashSet<Case> caseList = new HashSet<Case>(new ARComparer<Case>());
+            caseList.Clear();
 
             foreach (Victim v in Victims)
-                case_list.Add (v.Act.Case);
+                caseList.Add (v.Act.Case);
 
             foreach (Perpetrator p in Perpetrators)
-                case_list.Add (p.Victim.Act.Case);
+                caseList.Add (p.Victim.Act.Case);
 
             foreach (Intervention i in Interventors)
-                case_list.Add (i.Case);
+                caseList.Add (i.Case);
 
             foreach (Intervention s in Supporters)
-                case_list.Add (s.Case);
+                caseList.Add (s.Case);
+
+            foreach (DocumentarySource ds in AsReportedPersonInDocumentarySources)
+                caseList.Add (ds.Case);
+
+            foreach (InformationSource infs in AsSourceInInformationSources)
+                caseList.Add (infs.Case);
+
+            foreach (InformationSource infs in AsReportedPersonInInformationSources)
+                caseList.Add (infs.Case);
+
+            IList case_list = new ArrayList();
+            foreach (Case c in caseList) {
+                case_list.Add (c);
+            }
 
             return case_list;
         }
