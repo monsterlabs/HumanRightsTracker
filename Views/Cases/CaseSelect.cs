@@ -39,7 +39,10 @@ namespace Views
                 if (c != null) {
                     name.Text = c.Name;
                     start_date.Text = c.start_date.Value.ToShortDateString ();
-                    end_date.Text = c.end_date.Value.ToShortDateString ();
+                    if (c.end_date != null)
+                        end_date.Text = c.end_date.Value.ToShortDateString ();
+                    else
+                        end_date.Text = "";
                 }
             }
         }

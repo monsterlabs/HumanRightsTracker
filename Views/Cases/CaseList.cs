@@ -25,6 +25,7 @@ namespace Views
         Case[] cases;
 
         public event EventHandler SelectionChanged;
+        public event EventHandler SelectionWithDoubleClick;
 
         public CaseList ()
         {
@@ -123,6 +124,16 @@ namespace Views
                 FillStore ();
             }
 
+        }
+
+        protected void OnRowActivated (object o, Gtk.RowActivatedArgs args)
+        {
+            if (SelectionWithDoubleClick != null)
+            {
+                Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
+                Person p = ((PersonNode)selection.SelectedNode).Person;
+                SelectionWithDoubleClick (p, args);
+            }
         }
    }
 }
