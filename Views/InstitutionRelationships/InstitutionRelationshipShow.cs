@@ -69,7 +69,7 @@ namespace Views
             institution_relationship.EndDateType = endDateSelector.SelectedDateType ();
             institution_relationship.Comments = comments.Text;
 
-            if (institution_relationship.IsValid ()) {
+            if (institution_relationship.IsValid () && institution_relationship.Institution != institution_relationship.RelatedInstitution ) {
                 institution_relationship.SaveAndFlush ();
                 if (newRow) {
                     institution_relationship.Institution.InstitutionRelationships.Add (InstitutionRelationship);

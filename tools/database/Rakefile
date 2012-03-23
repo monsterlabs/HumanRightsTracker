@@ -402,9 +402,9 @@ task :seeds_demo => :environment do
   Case.make!(20)
   InformationSource.make!(100)
   DocumentarySource.make!(50)
-  CaseRelationship.make!(50)
+  CaseRelationship.make!(10)
   PersonRelationship.make!(50)
-  InstitutionRelationship.make!(50)
+  InstitutionRelationship.make!(10)
   
   Case.all.each do |c|
     c.record_count = c.tracking_information.count
