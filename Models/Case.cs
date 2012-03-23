@@ -1,12 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
+using Castle.ActiveRecord.Queries;
 using Castle.Components.Validator;
 using NHibernate.Criterion;
-
-
+using System.Collections;
+using System.Collections.Generic;
 namespace HumanRightsTracker.Models
 {
     [ActiveRecord("cases")]
@@ -74,13 +73,92 @@ namespace HumanRightsTracker.Models
         public IList CaseRelationshipsAsRelatedCase { get; set; }
 
         public IList victimList () {
-             IList victim_list = new ArrayList();
-             foreach (Act act in Acts)
-                foreach (Victim victim in act.Victims)
-                    victim_list.Add (victim.Person);
+            HashSet<Person> list = new HashSet<Person>(new ARComparer<Person>());
+            list.Clear();
 
-            return victim_list;
+            foreach (Act act in Acts)
+                foreach (Victim victim in act.Victims)
+                    list.Add (victim.Person);
+
+            return personIList(list);
         }
+
+        public IList personIList(HashSet<Person> personList) {
+            IList list = new ArrayList();
+            foreach (Person p in personList) {
+                list.Add (p);
+            }
+            return list;
+        }
+
+        public IList perpetratorList () {
+            HashSet<Person> list = new HashSet<Person>(new ARComparer<Person>());
+            list.Clear();
+
+            foreach (Act act in Acts)
+                foreach (Victim victim in act.Victims)
+                    foreach (Perpetrator p in victim.Perpetrators)
+                        list.Add (p.Person);
+
+            return  personIList(list);
+        }
+
+        public IList interventorList () {
+            HashSet<Person> list = new HashSet<Person>(new ARComparer<Person>());
+            list.Clear();
+
+            foreach (Intervention i in Interventions) {
+                if (i.Interventor != null) {
+                    list.Add (i.Interventor);
+                }
+            }
+
+            return personIList(list);
+        }
+
+        public IList supporterList () {
+            HashSet<Person> list = new HashSet<Person>(new ARComparer<Person>());
+            list.Clear();
+
+            foreach (Intervention i in Interventions) {
+                if (i.Supporter != null) {
+                    list.Add (i.Supporter);
+                }
+            }
+
+            return personIList(list);
+        }
+
+
+        public IList informationSourceList () {
+            HashSet<Person> list = new HashSet<Person>(new ARComparer<Person>());
+            list.Clear();
+
+            foreach (InformationSource i in InformationSources) {
+                if (i.ReportedPerson != null) {
+                    list.Add (i.ReportedPerson);
+                }
+
+                if (i.SourcePerson != null) {
+                    list.Add (i.SourcePerson);
+                }
+            }
+
+            return personIList(list);
+        }
+
+        public IList documentarySourceList() {
+            HashSet<Person> list = new HashSet<Person>(new ARComparer<Person>());
+            list.Clear();
+
+            foreach (DocumentarySource ds in DocumentarySources) {
+                if (ds.ReportedPerson != null) {
+                    list.Add (ds.ReportedPerson);
+                }
+            }
+            return personIList(list);
+        }
+
 
         public static Case[] SimpleSearch(String searchString) {
             return Case.FindAll (new Order[] { Order.Asc ("Name") },

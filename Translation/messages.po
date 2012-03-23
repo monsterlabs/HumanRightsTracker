@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-22 13:15:01-0600\n"
-"PO-Revision-Date: 2012-03-22 13:15:03-0600\n"
+"POT-Creation-Date: 2012-03-22 20:44:22-0600\n"
+"PO-Revision-Date: 2012-03-22 20:44:23-0600\n"
 "Last-Translator: alex\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -537,10 +537,12 @@ msgid "<b>Core of the case</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
 msgid "<b>Documentary sources</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
 msgid "<b>Personal information sources</b>"
 msgstr ""
 
@@ -854,20 +856,11 @@ msgid "<b>Institution Logo</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
-#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
 msgid "<b>Job</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Jobs at Institutions</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
-msgid "<b>Photo</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
-msgid "<b>Fullname</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1

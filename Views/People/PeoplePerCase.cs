@@ -24,6 +24,11 @@ namespace Views
             {
                 c = value;
                 ReloadVictimList ();
+                ReloadPerpetratorList ();
+                ReloadInterventorList ();
+                ReloadSupporterList ();
+                ReloadInformationSourceList ();
+                ReloadDocumentarySourceList();
             }
         }
 
@@ -33,59 +38,51 @@ namespace Views
             set
             {
                 i = value;
+                ReloadVictimList ();
                 ReloadPerpetratorList ();
                 ReloadInterventorList ();
                 ReloadSupporterList ();
+                ReloadInformationSourceList ();
+                ReloadDocumentarySourceList();
+
             }
         }
 
         public void ReloadVictimList ()
         {
-            foreach (Gtk.Widget w in victims_vbox.Children)
-                w.Destroy ();
-
-            foreach (Person person in c.victimList ())
-            {
-                victims_vbox.PackStart (new PersonAndJobRow (person, null));
-            }
-           victims_vbox.ShowAll ();
+           FillVbox(victims_vbox, c.victimList());
         }
 
 
         public void ReloadPerpetratorList ()
         {
-            foreach (Gtk.Widget w in perpetrators_vbox.Children)
-                w.Destroy ();
-
-            foreach (ArrayList a in i.perpetratorAndJobPerCase (c))
-            {
-                perpetrators_vbox.PackStart (new PersonAndJobRow((Person)a[0], (Job)a[1]));
-            }
-           perpetrators_vbox.ShowAll ();
+           FillVbox(perpetrators_vbox, c.perpetratorList ());
         }
 
         public void ReloadInterventorList ()
         {
-            foreach (Gtk.Widget w in interventors_vbox.Children)
-                w.Destroy ();
-
-            foreach (ArrayList a in i.interventorAndJobPerCase (c))
-            {
-                interventors_vbox.PackStart (new PersonAndJobRow((Person)a[0], (Job)a[1]));
-            }
-           interventors_vbox.ShowAll ();
+           FillVbox(interventors_vbox, c.interventorList());
         }
 
         public void ReloadSupporterList ()
         {
-            foreach (Gtk.Widget w in supporters_vbox.Children)
-                w.Destroy ();
+            FillVbox(supporters_vbox, c.supporterList());
+        }
 
-            foreach (ArrayList a in i.supporterAndJobPerCase (c))
+        public void ReloadInformationSourceList() {
+            FillVbox(supporters_vbox1, c.informationSourceList());
+        }
+
+        public void ReloadDocumentarySourceList() {
+            FillVbox(supporters_vbox2, c.documentarySourceList ());
+        }
+
+        public void FillVbox(Gtk.VBox vbox, IList people) {
+            foreach (Person p in people)
             {
-                supporters_vbox.PackStart (new PersonAndJobRow((Person)a[0], (Job)a[1]));
+                vbox.PackStart (new PersonAndJobRow(p, null));
             }
-           supporters_vbox.ShowAll ();
+            vbox.ShowAll ();
         }
     }
 }
