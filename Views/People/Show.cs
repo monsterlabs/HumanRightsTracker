@@ -86,7 +86,7 @@ namespace Views.People
 
                     }
                 }
-
+                affiliation_list_expander.Hide ();
                 IsEditing = false;
             }
 
@@ -156,7 +156,8 @@ namespace Views.People
                     }
                     address_frame.Hide ();
                 }
-
+                // FIX IT: Remove all code related to affiliation_list_expander
+                affiliation_list_expander.Hide ();
                 EnableActionButtons ();
             }
         }

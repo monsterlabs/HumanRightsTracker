@@ -87,6 +87,8 @@ namespace Views
                 relatedActorList.IsEditable = false;
                 case_per_institution.IsEditable = false;
 
+                // FIX IT: Remove all code related to affiliated_actors_expander
+                affiliated_actors_expander.Hide ();
                 EnableActionButtons ();
             }
         }

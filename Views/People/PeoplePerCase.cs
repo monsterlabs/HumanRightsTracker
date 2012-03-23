@@ -38,12 +38,14 @@ namespace Views
             set
             {
                 i = value;
+                /*
                 ReloadVictimList ();
                 ReloadPerpetratorList ();
                 ReloadInterventorList ();
                 ReloadSupporterList ();
                 ReloadInformationSourceList ();
                 ReloadDocumentarySourceList();
+                */
 
             }
         }
