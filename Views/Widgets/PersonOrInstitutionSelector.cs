@@ -22,7 +22,7 @@ namespace Views
 
         public Institution Institution {
             get {
-                  if (personSelect.Person == null)
+                  if (personSelect.Person == null && institutionSelect.Institution != null)
                     return institutionSelect.Institution;
                   else
                     return personSelect.Institution;
