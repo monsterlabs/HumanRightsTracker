@@ -87,12 +87,12 @@ namespace Views
         public void SaveRecord () {
             PropertyInfo nameProp =  mod.PropertyDictionary["Name"].Property;
             nameProp.SetValue (Record, Name, null);
-            if (hasParent) {
+            if (hasParent && ParentRecord != null) {
                 PropertyInfo parentIdProp =  mod.Type.GetProperty ("ParentId");
                 PropertyInfo idParentProp = ParentRecord.GetType ().GetProperty ("Id");
                 parentIdProp.SetValue (Record, idParentProp.GetValue (ParentRecord, null), null);
             }
-            if (hasCategory) {
+            if (hasCategory && CategoryRecord != null) {
                 PropertyInfo categoryIdProp =  mod.Type.GetProperty ("CategaryId");
                 PropertyInfo idCategoryProp = CategoryRecord.GetType ().GetProperty ("Id");
                 categoryIdProp.SetValue (Record, idCategoryProp.GetValue (CategoryRecord, null), null);
