@@ -131,7 +131,7 @@ namespace Views
             if (SelectionWithDoubleClick != null)
             {
                 Gtk.NodeSelection selection = ((Gtk.NodeView)o).NodeSelection;
-                Person p = ((PersonNode)selection.SelectedNode).Person;
+                Case p = ((CaseNode)selection.SelectedNode).Case;
                 SelectionWithDoubleClick (p, args);
             }
         }
