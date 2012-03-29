@@ -72,8 +72,8 @@ namespace Views
             if (person_relationship.IsValid ()) {
                 person_relationship.SaveAndFlush ();
                 if (newRow) {
-                    person_relationship.Person.PersonRelationships.Add (PersonRelationship);
-                    person_relationship.Person.SaveAndFlush ();
+                    //person_relationship.Person.PersonRelationships.Add (PersonRelationship);
+                    //person_relationship.Person.SaveAndFlush ();
                 }
                 this.IsEditable = false;
 

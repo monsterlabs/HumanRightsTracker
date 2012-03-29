@@ -104,11 +104,11 @@ namespace Views
                 institution_person.SaveAndFlush ();
                 if (newRow) {
                     if ( usingInstitution ) {
-                        institution_person.Institution.InstitutionPeople.Add (InstitutionPerson);
-                        institution_person.Institution.SaveAndFlush ();
+                        //institution_person.Institution.InstitutionPeople.Add (InstitutionPerson);
+                        //institution_person.Institution.SaveAndFlush ();
                     } else {
-                        institution_person.Person.InstitutionPeople.Add (InstitutionPerson);
-                        institution_person.Person.SaveAndFlush ();
+                        //institution_person.Person.InstitutionPeople.Add (InstitutionPerson);
+                        //institution_person.Person.SaveAndFlush ();
                     }
                 }
                 this.IsEditable = false;

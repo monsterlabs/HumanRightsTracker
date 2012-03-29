@@ -7011,8 +7011,8 @@ Fecha del caso</property>
                     <property name="Events">ButtonPressMask</property>
                     <property name="Headers">Apellido(s)
 Nombre(s)
-Institución
-Tipo de Afiliación</property>
+Institución/Organización
+Tipo de Perpetrador</property>
                     <property name="IsEditable">False</property>
                   </widget>
                 </child>
