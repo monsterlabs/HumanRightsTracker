@@ -8,8 +8,9 @@ using System.Collections;
 using System.Collections.Generic;
 namespace HumanRightsTracker.Models
 {
+    using Mixins;
     [ActiveRecord("cases")]
-    public class Case : ActiveRecordValidationBase<Case>
+    public class Case : ActiveRecordValidationBase<Case>, IDateExtension
     {
         protected IList acts;
 
@@ -186,25 +187,34 @@ namespace HumanRightsTracker.Models
                     Statuses +=  "Ninguno, ";
             }
 
-            string startDate = this.start_date == null ? "" : this.start_date.Value.ToShortDateString ();
-            string endDate = this.end_date == null ? "" : this.end_date.Value.ToShortDateString ();
-
             return new String[] {
                 this.Name,
                 AffectedRight,
                 Acts,
                 Statuses,
                 this.victimList ().Count.ToString (),
-                startDate,
-                endDate
+                StartDateAsString,
+                EndDateAsString
             };
         }
 
-           public Boolean HasRelateRecords {
+        public Boolean HasRelateRecords {
             get {
                 //IList cases = CaseRelationships;
                 IList case_as_related_cases = CaseRelationshipsAsRelatedCase;
                 return (case_as_related_cases.Count > 0);
+            }
+        }
+
+        public string StartDateAsString {
+            get {
+                return this.DateAsString(StartDateType, start_date);
+            }
+        }
+
+        public string EndDateAsString {
+            get {
+                return this.DateAsString(EndDateType, end_date);
             }
         }
 

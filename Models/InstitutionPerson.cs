@@ -6,8 +6,10 @@ using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
+    using Mixins;
+
     [ActiveRecord("institution_people")]
-    public class InstitutionPerson : ActiveRecordValidationBase<InstitutionPerson>, ListableRecord, IComparable<InstitutionPerson>
+    public class InstitutionPerson : ActiveRecordValidationBase<InstitutionPerson>, ListableRecord, IComparable<InstitutionPerson>, IDateExtension
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -50,34 +52,11 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.start_date.HasValue)
-                data[3] = this.StartDateAsString ();
+                data[3] = this.StartDateAsString;
             if (this.end_date.HasValue)
-                data[4] = this.EndDateAsString ();
+                data[4] = this.EndDateAsString;
 
             return data;
-        }
-
-        public string StartDateAsString() {
-            return (string)DateAsString (StartDateType, start_date);
-        }
-
-        public string EndDateAsString() {
-            return (string)DateAsString (EndDateType, end_date);
-        }
-
-        public string DateAsString(DateType dateType, DateTime? date) {
-            string date_string = date.Value.ToShortDateString ();
-            if (dateType != null) {
-                if (dateType.Id == 3)
-                {
-                    date_string = date.Value.Month + " de " + date.Value.Year.ToString ();
-                }
-                else if (dateType.Id == 4)
-                {
-                    date_string = date.Value.Year.ToString ();
-                }
-            }
-            return date_string;
         }
 
         public int CompareTo(InstitutionPerson other)
@@ -87,5 +66,18 @@ namespace HumanRightsTracker.Models
             DateTime timeY = other.start_date.Value;
             return timeY.CompareTo(timeX);
         }
+
+        public string StartDateAsString {
+            get {
+                return this.DateAsString(StartDateType, start_date);
+            }
+        }
+
+        public string EndDateAsString {
+            get {
+                return this.DateAsString(EndDateType, end_date);
+            }
+        }
+
     }
 }

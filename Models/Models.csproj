@@ -139,6 +139,8 @@
     <Compile Include="Catalogs\StayType.cs" />
     <Compile Include="InstitutionPerson.cs" />
     <Compile Include="Catalogs\DocumentarySourceType.cs" />
+    <Compile Include="IDateExtension.cs" />
+    <Compile Include="Mixins.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -6,8 +6,9 @@ using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
+    using Mixins;
     [ActiveRecord("person_relationships")]
-    public class PersonRelationship : ActiveRecordValidationBase<PersonRelationship>, ListableRecord, IComparable<PersonRelationship>, AffiliableRecord
+    public class PersonRelationship : ActiveRecordValidationBase<PersonRelationship>, ListableRecord, IComparable<PersonRelationship>, AffiliableRecord, IDateExtension
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -50,13 +51,12 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.start_date.HasValue)
-                data[3] = this.StartDateAsString ();
+                data[3] = this.StartDateAsString;
             if (this.end_date.HasValue)
-                data[4] = this.EndDateAsString ();
+                data[4] = this.EndDateAsString;
 
             return data;
         }
-
 
         public string[] AffiliationColumnData ()
         {
@@ -69,34 +69,23 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.start_date.HasValue)
-                data[3] = this.StartDateAsString ();
+                data[3] = this.StartDateAsString;
             if (this.end_date.HasValue)
-                data[4] = this.EndDateAsString ();
+                data[4] = this.EndDateAsString;
 
             return data;
         }
 
-        public string StartDateAsString() {
-            return (string)DateAsString (StartDateType, start_date);
-        }
-
-        public string EndDateAsString() {
-            return (string)DateAsString (EndDateType, end_date);
-        }
-
-        public string DateAsString(DateType dateType, DateTime? date) {
-            string date_string = date.Value.ToShortDateString ();
-            if (dateType != null) {
-                if (dateType.Id == 3)
-                {
-                    date_string = date.Value.Month + " de " + date.Value.Year.ToString ();
-                }
-                else if (dateType.Id == 4)
-                {
-                    date_string = date.Value.Year.ToString ();
-                }
+        public string StartDateAsString {
+            get {
+                return this.DateAsString(StartDateType, start_date);
             }
-            return date_string;
+        }
+
+        public string EndDateAsString {
+            get {
+                return this.DateAsString(EndDateType, end_date);
+            }
         }
 
         public int CompareTo(PersonRelationship other)

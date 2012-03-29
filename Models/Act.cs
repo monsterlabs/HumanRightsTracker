@@ -6,8 +6,10 @@ using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
+    using Mixins;
+
     [ActiveRecord("acts")]
-    public class Act : ActiveRecordValidationBase<Act>, ListableRecord, IComparable<Act>
+    public class Act : ActiveRecordValidationBase<Act>, ListableRecord, IComparable<Act>, IDateExtension
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -80,20 +82,33 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.start_date.HasValue)
-                data[2] = this.start_date.Value.ToShortDateString ();
+                data[2] = StartDateAsString;
             if (this.end_date.HasValue)
-                data[3] = this.end_date.Value.ToShortDateString ();
+                data[3] = EndDateAsString;
 
             return data;
         }
 
-         public int CompareTo(Act other)
+        public int CompareTo(Act other)
         {
             if (other == null) return 1;
             DateTime timeX = this.start_date.Value;
             DateTime timeY = other.start_date.Value;
             return timeY.CompareTo(timeX);
         }
+
+        public string StartDateAsString {
+            get {
+                return this.DateAsString(StartDateType, start_date);
+            }
+        }
+
+        public string EndDateAsString {
+            get {
+                return this.DateAsString(EndDateType, end_date);
+            }
+        }
+
     }
 }
 
