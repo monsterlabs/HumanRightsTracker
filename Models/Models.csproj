@@ -141,6 +141,7 @@
     <Compile Include="Catalogs\DocumentarySourceType.cs" />
     <Compile Include="IDateExtension.cs" />
     <Compile Include="Mixins.cs" />
+    <Compile Include="ISimpleDateExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

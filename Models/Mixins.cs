@@ -2,16 +2,31 @@ using System;
 using HumanRightsTracker.Models;
 namespace Mixins
 {
-    public static class DateExtension {
+    public static class DateExtension
+    {
 
-        public static string DateAsString(this IDateExtension leftObject, DateType dateType, DateTime? date) {
+        public static string DateAsString(this IDateExtension leftObject, DateType dateType, DateTime? date)
+        {
+            return DateTypeAndDateToString(dateType, date);
+        }
+
+        public static string SimpleDateAsString(this ISimpleDateExtension leftObject, DateType dateType, DateTime? date)
+        {
+            return DateTypeAndDateToString(dateType, date);
+        }
+
+        private static string DateTypeAndDateToString(DateType dateType, DateTime? date)
+        {
             string date_string = "";
 
-            if (date != null ) {
+            if (date != null )
+            {
 
                 date_string = date.Value.ToShortDateString ();
 
-                if (dateType != null) {
+                if (dateType != null)
+                {
+
                     if (dateType.Id == 3)
                     {
                         // YearMonth
@@ -26,7 +41,6 @@ namespace Mixins
 
             return date_string;
         }
-
 
     }
 }

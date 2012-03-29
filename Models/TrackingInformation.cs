@@ -6,8 +6,9 @@ using System.Collections;
 
 namespace HumanRightsTracker.Models
 {
+    using Mixins;
     [ActiveRecord("tracking_information")]
-    public class TrackingInformation : ActiveRecordValidationBase<TrackingInformation>, ListableRecord, IComparable<TrackingInformation>
+    public class TrackingInformation : ActiveRecordValidationBase<TrackingInformation>, ListableRecord, IComparable<TrackingInformation>, ISimpleDateExtension
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -51,7 +52,7 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.DateOfReceipt.HasValue)
-                data[2] = this.DateOfReceipt.Value.ToShortDateString ();
+                data[2] = this.DateAsString;
 
             return data;
         }
@@ -62,6 +63,12 @@ namespace HumanRightsTracker.Models
             DateTime timeX = this.DateOfReceipt.Value;
             DateTime timeY = other.DateOfReceipt.Value;
             return timeY.CompareTo(timeX);
+        }
+
+        public string DateAsString {
+            get {
+                return this.SimpleDateAsString(DateType, DateOfReceipt);
+            }
         }
     }
 }

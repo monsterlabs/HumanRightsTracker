@@ -7,8 +7,10 @@ using Mono.Unix;
 
 namespace HumanRightsTracker.Models
 {
+    using Mixins;
+
     [ActiveRecord("information_sources")]
-    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>, AffiliableRecord, AffiliatedRecord
+    public class InformationSource : ActiveRecordValidationBase<InformationSource>, ListableRecord, IComparable<InformationSource>, AffiliableRecord, AffiliatedRecord, ISimpleDateExtension
     {
         [PrimaryKey]
         public int Id { get; protected set; }
@@ -91,7 +93,7 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.Date.HasValue)
-                data[2] = this.Date.Value.ToShortDateString ();
+                data[2] = this.DateAsString;
 
             return data;
         }
@@ -150,7 +152,7 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.Date.HasValue)
-                data[5] = this.Date.Value.ToShortDateString ();
+                data[5] = this.DateAsString;
 
             return data;
         }
@@ -201,9 +203,15 @@ namespace HumanRightsTracker.Models
             };
 
             if (this.Date.HasValue)
-                data[5] = this.Date.Value.ToShortDateString ();
+                data[5] = this.DateAsString;
 
             return data;
+        }
+
+        public string DateAsString {
+            get {
+                return this.SimpleDateAsString(DateType, Date);
+            }
         }
 
    }
