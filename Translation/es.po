@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 20:44:22-0600\n"
-"PO-Revision-Date: 2012-03-29 01:23:12-0600\n"
+"POT-Creation-Date: 2012-03-30 13:23:55-0600\n"
+"PO-Revision-Date: 2012-03-30 13:25:13-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -36,7 +36,7 @@ msgstr "Acompañado"
 msgid "Alone"
 msgstr "No acompañado"
 
-#: ../Views/People/Show.cs:14
+#: ../Views/People/Show.cs:13
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:7
@@ -58,7 +58,7 @@ msgstr "No acompañado"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../Views/People/Show.cs:14
+#: ../Views/People/Show.cs:13
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -372,7 +372,7 @@ msgstr "Perpetradores"
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
 msgid "Supporters"
-msgstr "Receptor de la intervención"
+msgstr "Receptor"
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
@@ -421,7 +421,7 @@ msgstr "Agregar"
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
-msgid "Select A File"
+msgid "Select a File"
 msgstr "Seleccione un archivo"
 
 #: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
@@ -712,7 +712,7 @@ msgstr "<b>En respuesta</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Supporter</b>"
-msgstr "<b>Receptor de la intervención</b>"
+msgstr "<b>Receptor</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Interventor</b>"
@@ -1314,7 +1314,7 @@ msgid ""
 " already exists.\n"
 " Do you want to override it?"
 msgstr ""
-"ya existe.\n"
+" ya existe.\n"
 "¿Quieres sobreescribirlo?"
 
 #: ../Views/gtk-gui/Views.ReportsTab.cs:1
@@ -1397,44 +1397,44 @@ msgid "InstitutionPersonDetailWindow"
 msgstr "Relación entre actor individual y actor colectivo"
 
 #: ../Models/Intervention.cs:27
-#: ../Models/Intervention.cs:34
+#: ../Models/Intervention.cs:39
 msgid "Not defined role in intervention record"
 msgstr "Sin rol definido en intervenciones"
 
 #: ../Models/Intervention.cs:27
-#: ../Models/Intervention.cs:34
+#: ../Models/Intervention.cs:39
 msgid "Not defined affiliation type in intervention record"
 msgstr "Sin relación definida con algún actor colectivo en intervención"
 
 #: ../Models/Intervention.cs:28
-#: ../Models/Intervention.cs:35
+#: ../Models/Intervention.cs:40
 msgid "Supporter"
-msgstr "Receptor de la información"
+msgstr "Receptor"
 
-#: ../Models/Intervention.cs:29
-#: ../Models/Intervention.cs:36
+#: ../Models/Intervention.cs:32
+#: ../Models/Intervention.cs:43
 msgid "Interventor"
 msgstr "Interventor"
 
-#: ../Models/InformationSource.cs:23
-#: ../Models/InformationSource.cs:34
+#: ../Models/InformationSource.cs:24
+#: ../Models/InformationSource.cs:35
 msgid "Not defined role in information source record"
 msgstr "Sin role defiido en fuente de información personal"
 
-#: ../Models/InformationSource.cs:23
-#: ../Models/InformationSource.cs:34
+#: ../Models/InformationSource.cs:24
+#: ../Models/InformationSource.cs:35
 msgid "Not defined affiliation type in information source record"
 msgstr ""
 "Sin relación definida con algún actor colectivo en fuente de información "
 "individual"
 
-#: ../Models/InformationSource.cs:24
-#: ../Models/InformationSource.cs:35
+#: ../Models/InformationSource.cs:25
+#: ../Models/InformationSource.cs:36
 msgid "Reported person in source information"
 msgstr "Persona reportada en información personal"
 
-#: ../Models/InformationSource.cs:27
-#: ../Models/InformationSource.cs:37
+#: ../Models/InformationSource.cs:28
+#: ../Models/InformationSource.cs:38
 msgid "As source in source information"
 msgstr "Fuente de información en información personal"
 

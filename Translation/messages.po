@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-22 20:44:22-0600\n"
-"PO-Revision-Date: 2012-03-22 20:44:23-0600\n"
-"Last-Translator: alex\n"
+"POT-Creation-Date: 2012-03-30 13:23:55-0600\n"
+"PO-Revision-Date: 2012-03-30 13:23:56-0600\n"
+"Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Alone"
 msgstr ""
 
-#: ../Views/People/Show.cs:14
+#: ../Views/People/Show.cs:13
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:7
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../Views/People/Show.cs:14
+#: ../Views/People/Show.cs:13
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -419,7 +419,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
-msgid "Select A File"
+msgid "Select a File"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
@@ -1393,42 +1393,42 @@ msgid "InstitutionPersonDetailWindow"
 msgstr ""
 
 #: ../Models/Intervention.cs:27
-#: ../Models/Intervention.cs:34
+#: ../Models/Intervention.cs:39
 msgid "Not defined role in intervention record"
 msgstr ""
 
 #: ../Models/Intervention.cs:27
-#: ../Models/Intervention.cs:34
+#: ../Models/Intervention.cs:39
 msgid "Not defined affiliation type in intervention record"
 msgstr ""
 
 #: ../Models/Intervention.cs:28
-#: ../Models/Intervention.cs:35
+#: ../Models/Intervention.cs:40
 msgid "Supporter"
 msgstr ""
 
-#: ../Models/Intervention.cs:29
-#: ../Models/Intervention.cs:36
+#: ../Models/Intervention.cs:32
+#: ../Models/Intervention.cs:43
 msgid "Interventor"
-msgstr ""
-
-#: ../Models/InformationSource.cs:23
-#: ../Models/InformationSource.cs:34
-msgid "Not defined role in information source record"
-msgstr ""
-
-#: ../Models/InformationSource.cs:23
-#: ../Models/InformationSource.cs:34
-msgid "Not defined affiliation type in information source record"
 msgstr ""
 
 #: ../Models/InformationSource.cs:24
 #: ../Models/InformationSource.cs:35
+msgid "Not defined role in information source record"
+msgstr ""
+
+#: ../Models/InformationSource.cs:24
+#: ../Models/InformationSource.cs:35
+msgid "Not defined affiliation type in information source record"
+msgstr ""
+
+#: ../Models/InformationSource.cs:25
+#: ../Models/InformationSource.cs:36
 msgid "Reported person in source information"
 msgstr ""
 
-#: ../Models/InformationSource.cs:27
-#: ../Models/InformationSource.cs:37
+#: ../Models/InformationSource.cs:28
+#: ../Models/InformationSource.cs:38
 msgid "As source in source information"
 msgstr ""
 
