@@ -7,12 +7,14 @@ namespace Views
     {
         DateTime? currentDate;
         bool isEditable;
+        bool hideChangeButton;
 
         public event EventHandler Changed;
 
         public DetailedDateSelector ()
         {
             this.Build ();
+            this.hideChangeButton = false;
         }
 
         public DateTime? CurrentDate {
@@ -36,11 +38,13 @@ namespace Views
             change.Visible = true;
             month.Visible = true;
             year.Visible = true;
+            hideChangeButton = false;
         }
 
         public void WithoutDay () {
             day.Visible = false;
             change.Visible = false;
+            hideChangeButton = true;
             month.Visible = true;
             year.Visible = true;
         }
@@ -48,6 +52,7 @@ namespace Views
         public void YearOnly () {
             day.Visible = false;
             change.Visible = false;
+            hideChangeButton = true;
             month.Visible = false;
             year.Visible = true;
         }
@@ -80,7 +85,10 @@ namespace Views
             }
             set {
                 isEditable = value;
-                change.Visible = value;
+                if (hideChangeButton)
+                    change.Hide ();
+                else
+                    change.Show ();
             }
         }
 

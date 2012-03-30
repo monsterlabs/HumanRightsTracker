@@ -2970,7 +2970,7 @@ Fecha del caso</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="484 31">
+  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="510 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>

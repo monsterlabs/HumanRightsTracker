@@ -17,16 +17,24 @@ namespace Views
         protected void OnChangeType (object sender, System.EventArgs e)
         {
             DateType type = dateType.Active as DateType;
-            if (type.Name == "Fecha exacta" || type.Name == "Fecha aproximada")
-            {
-                datefield.Full ();
-            } else if (type.Name == "Se desconoce el día")
-            {
-                datefield.WithoutDay ();
-            } else if (type.Name == "Se desconoce el día y el mes")
-            {
-                datefield.YearOnly ();
-            }
+            SetDateField(type);
+        }
+
+        protected void SetDateField(DateType type)
+        {
+           if (type != null)
+           {
+                if (type.Name == "Fecha exacta" || type.Name == "Fecha aproximada")
+                {
+                    datefield.Full ();
+                } else if (type.Name == "Se desconoce el día")
+                {
+                    datefield.WithoutDay ();
+                } else if (type.Name == "Se desconoce el día y el mes")
+                {
+                    datefield.YearOnly ();
+                }
+           }
         }
 
         public DateTime? SelectedDate () {
@@ -48,7 +56,7 @@ namespace Views
                     setDateType(dateType);
                     if (dateType.Id == 3)
                     {
-                        date_string = date.Value.Month + " de " + date.Value.Year.ToString ();
+                        date_string = String.Format("{0:y}", date);
                     }
                     else if (dateType.Id == 4)
                     {
@@ -72,6 +80,8 @@ namespace Views
             }
             set {
                 dateType.IsEditable = value;
+                datefield.IsEditable = value;
+                SetDateField(dateType.Active as  DateType);
                 isEditable = value;
                 hbox5.Visible = value;
                 label2.Visible = !value;

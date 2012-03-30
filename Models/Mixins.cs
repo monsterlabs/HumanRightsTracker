@@ -30,7 +30,7 @@ namespace Mixins
                     if (dateType.Id == 3)
                     {
                         // YearMonth
-                        date_string =String.Format("{0:y}", date);
+                        date_string = String.Format("{0:y}", date);
                     }
                     else if (dateType.Id == 4)
                     {
