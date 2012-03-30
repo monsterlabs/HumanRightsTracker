@@ -139,6 +139,7 @@ namespace Views.People
                         address_frame.Hide ();
                         contact_info_frame.Hide ();
                         identification_frame.Hide ();
+                        place_of_birth_frame.Hide ();
                     }
                     relationships_list_frame.Hide ();
                     address_list_frame.Hide ();
