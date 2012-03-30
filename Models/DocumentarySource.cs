@@ -79,15 +79,16 @@ namespace HumanRightsTracker.Models
             string[] data = {
                 this.Name,
                 this.DocumentarySourceType.Name,
+                this.reportedName,
                 "",
                 "",
             };
 
             if (this.Date.HasValue)
-                data[2] = this.Date.Value.ToShortDateString ();
+                data[3] = this.Date.Value.ToShortDateString ();
 
             if (this.AccessDate.HasValue)
-                data[3] = this.AccessDate.Value.ToShortDateString ();
+                data[4] = this.AccessDate.Value.ToShortDateString ();
 
             return data;
         }

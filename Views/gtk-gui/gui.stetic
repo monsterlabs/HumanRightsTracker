@@ -3974,8 +3974,9 @@ Fecha</property>
                               <widget class="Views.EditableList" id="documentarysourcelist">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="Headers">Nombre
+                                <property name="Headers">Nombre de la fuente
 Tipo de fuente
+Actor reportado
 Fecha de publicación
 Fecha de acceso</property>
                                 <property name="IsEditable">False</property>
@@ -4008,8 +4009,9 @@ Fecha de acceso</property>
                               <widget class="Views.EditableList" id="informationsourcelist">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
-                                <property name="Headers">Nombre
+                                <property name="Headers">Nombre de la fuente
 Tipo de fuente
+Actor reportado
 Fecha</property>
                                 <property name="IsEditable">False</property>
                               </widget>

@@ -89,11 +89,12 @@ namespace HumanRightsTracker.Models
             string[] data = {
                 this.sourceName,
                 this.SourceInformationType.Name,
+                this.reportedName,
                 ""
             };
 
             if (this.Date.HasValue)
-                data[2] = this.DateAsString;
+                data[3] = this.DateAsString;
 
             return data;
         }
