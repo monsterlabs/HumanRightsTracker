@@ -50,6 +50,10 @@ namespace Views
                         person_or_institution_selector.Institution = documentary_source.ReportedInstitution;
                         person_or_institution_selector.AllSet = true;
                     }
+                    else {
+                        publication_date.CurrentDateForCalendar = DateTime.Now;
+                        access_date.CurrentDateForCalendar = DateTime.Now;
+                    }
                 }
                 IsEditable = false;
             }

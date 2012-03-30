@@ -26,6 +26,12 @@ namespace Views
             }
         }
 
+        public DateTime? CurrentDateForCalendar {
+            set {
+                currentDate = value;
+            }
+        }
+
         protected virtual void openSelector (object sender, System.EventArgs e)
         {
             int x, y;
