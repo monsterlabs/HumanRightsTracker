@@ -14,6 +14,7 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
         [BelongsTo("case_id")]
+        [ValidateNonEmpty]
         public Case Case { get; set;}
 
         [BelongsTo("reported_person_id")]
@@ -26,6 +27,7 @@ namespace HumanRightsTracker.Models
         public AffiliationType ReportedAffiliationType { get; set; }
 
         [Property("name")]
+        [ValidateNonEmpty]
         public String Name { get; set;}
 
         [Property("additional_info")]
@@ -35,6 +37,7 @@ namespace HumanRightsTracker.Models
         public DateTime? Date { get; set; }
 
         [BelongsTo("documentary_source_type_id")]
+        [ValidateNonEmpty]
         public DocumentarySourceType DocumentarySourceType { get; set; }
 
         [Property("site_name")]
@@ -56,6 +59,7 @@ namespace HumanRightsTracker.Models
         public String Observations { get; set;}
 
         [BelongsTo("reliability_level_id")]
+        [ValidateNonEmpty]
         public ReliabilityLevel ReliabilityLevel { get; set; }
 
         [Property("comments")]

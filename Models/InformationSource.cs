@@ -16,6 +16,7 @@ namespace HumanRightsTracker.Models
         public int Id { get; protected set; }
 
         [BelongsTo("case_id")]
+        [ValidateNonEmpty]
         public Case Case { get; set;}
 
         [BelongsTo("source_person_id")]
@@ -37,6 +38,7 @@ namespace HumanRightsTracker.Models
         public AffiliationType ReportedAffiliationType { get; set; }
 
         [BelongsTo("source_information_type_id")]
+        [ValidateNonEmpty]
         public SourceInformationType SourceInformationType { get; set; }
 
         [Property("date")]
@@ -55,6 +57,7 @@ namespace HumanRightsTracker.Models
         public String Observations { get; set;}
 
         [BelongsTo("reliability_level_id")]
+        [ValidateNonEmpty]
         public ReliabilityLevel ReliabilityLevel { get; set; }
 
         [Property("comments")]

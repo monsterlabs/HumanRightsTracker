@@ -92,8 +92,10 @@ namespace Views
             documentary_source.Comments = comments.Text;
 
             documentary_source.ReportedPerson = person_or_institution_selector.Person;
-            documentary_source.ReportedInstitution = person_or_institution_selector.Institution;
-            documentary_source.ReportedAffiliationType = person_or_institution_selector.AffiliationType;
+            if (person_or_institution_selector.Institution != null) {
+                documentary_source.ReportedInstitution = person_or_institution_selector.Institution;
+                documentary_source.ReportedAffiliationType = person_or_institution_selector.AffiliationType;
+            }
 
             if (documentary_source.IsValid()) {
                 documentary_source.SaveAndFlush ();
