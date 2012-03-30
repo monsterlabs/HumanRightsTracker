@@ -22,9 +22,9 @@ namespace Reports
             addField ("Nombre del caso", acase.Name);
             addField ("Personas afectadas", acase.AffectedPeople.ToString ());
             if (acase.start_date != null)
-                addField ("Fecha de inicio", acase.start_date.Value.ToShortDateString ());
+                addField ("Fecha de inicio", acase.StartDateAsString);
             if (acase.end_date != null)
-                addField ("Fecha de término", acase.end_date.Value.ToShortDateString ());
+                addField ("Fecha de término", acase.EndDateAsString);
 
             if (acase.Places.Count > 0 ) {
                 addTitle ("Lugares");
@@ -34,6 +34,9 @@ namespace Reports
                                   place.City.Name, place.State.Name, place.Country.Name));
                 }
             }
+
+            addTitle ("Descripción");
+            addField ("", acase.NarrativeDescription);
 
             addTitle ("Resumen");
             addField ("", acase.Summary);
@@ -52,7 +55,7 @@ namespace Reports
                     addField ("Clave", info.RecordId.ToString ());
                     addField ("Título", info.Title);
                     if (info.DateOfReceipt != null)
-                        addField ("Fecha de recepción", info.DateOfReceipt.Value.ToShortDateString ());
+                        addField ("Fecha de recepción", info.DateAsString);
                     if (info.CaseStatus != null)
                         addField ("Estado", info.CaseStatus.Name);
                     addField ("Comentarios", info.Comments);
@@ -73,9 +76,9 @@ namespace Reports
                     addField ("\tNo. afectados", act.AffectedPeopleNumber.ToString ());
                     addField ("\tResumen", act.Summary);
                     if (act.start_date != null)
-                        addField ("\tFecha de inicio", act.start_date.Value.ToShortDateString ());
+                        addField ("\tFecha de inicio", act.StartDateAsString);
                     if (act.end_date != null)
-                        addField ("\tFecha de término", act.end_date.Value.ToShortDateString ());
+                        addField ("\tFecha de término", act.EndDateAsString);
 
                     if (act.Victims.Count > 0)
                     {
@@ -196,7 +199,7 @@ namespace Reports
                     if (infoSource.SourcePerson != null)
                         addField ("Nombre", infoSource.SourcePerson.Fullname);
                     if (infoSource.Date != null)
-                        addField ("Fecha", infoSource.Date.Value.ToShortDateString ());
+                        addField ("Fecha", infoSource.DateAsString);
                     if (infoSource.SourceAffiliationType != null)
                         addField ("Tipo de afiliación", infoSource.SourceAffiliationType.Name);
                     addField ("Observaciones", infoSource.Observations);
@@ -216,9 +219,9 @@ namespace Reports
                     if (relation.RelatedCase != null) {
                         addField("Caso relacionado", relation.RelatedCase.Name);
                         if (relation.RelatedCase.start_date != null)
-                            addField("Fecha de inicio", relation.RelatedCase.start_date.Value.ToShortDateString ());
+                            addField("Fecha de inicio", relation.RelatedCase.StartDateAsString);
                         if (relation.RelatedCase.end_date != null)
-                            addField("Fecha de término", relation.RelatedCase.end_date.Value.ToShortDateString ());
+                            addField("Fecha de término", relation.RelatedCase.EndDateAsString);
                     }
                     addNewline ();
                 }
