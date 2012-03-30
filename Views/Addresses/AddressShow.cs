@@ -73,11 +73,9 @@ namespace Views
             address.City = address_place.City;
 
             if (address.IsValid ()) {
+
                 address.SaveAndFlush ();
-                if (newRow) {
-                    address.Person.Addresses.Add (Address);
-                    address.Person.SaveAndFlush ();
-                }
+                address.Person.Refresh();
                 this.IsEditable = false;
 
                 if (Saved != null)
