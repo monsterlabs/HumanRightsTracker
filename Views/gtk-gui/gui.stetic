@@ -2505,6 +2505,7 @@ Fecha del caso</property>
             <property name="CanFocus">True</property>
             <property name="DisplayOptions">35</property>
             <signal name="DaySelectedDoubleClick" handler="OnSelect" />
+            <signal name="DaySelected" handler="OnCalDaySelected" />
           </widget>
           <packing>
             <property name="Position">0</property>

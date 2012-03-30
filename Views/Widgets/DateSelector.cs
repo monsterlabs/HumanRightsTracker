@@ -19,7 +19,7 @@ namespace Views
             set {
                 currentDate = value;
                 if (value != null) {
-                    dateEntry.Text = value.Value.ToLongDateString ();
+                    dateEntry.Text = String.Format("{0:dd/MM/yyyy}", value);
                 } else {
                     dateEntry.Text = "";
                 }

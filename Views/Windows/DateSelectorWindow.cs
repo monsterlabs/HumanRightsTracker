@@ -57,6 +57,9 @@ namespace Views
             _parent.Modal = true;
             this.Destroy();
         }
+
+        protected void OnCalDaySelected (object sender, System.EventArgs e)
+        {
+        }
     }
 }
-
