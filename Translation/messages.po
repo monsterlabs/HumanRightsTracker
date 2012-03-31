@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-30 13:23:55-0600\n"
-"PO-Revision-Date: 2012-03-30 13:23:56-0600\n"
+"POT-Creation-Date: 2012-03-30 17:58:40-0600\n"
+"PO-Revision-Date: 2012-03-30 17:58:41-0600\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -709,16 +709,11 @@ msgid "<b>Response</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
-msgid "<b>Supporter</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Interventor</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
-#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
-msgid "<b>Interventors</b>"
+msgid "<b>Supporter</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
@@ -751,7 +746,6 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>General</b>"
 msgstr ""
 
@@ -798,6 +792,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Location:</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+msgid "<b>Information per act</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
@@ -861,6 +859,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Jobs at Institutions</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Interventors</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1

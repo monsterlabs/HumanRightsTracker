@@ -7719,7 +7719,7 @@ Tipo de Perpetrador</property>
             <child>
               <widget class="Gtk.Label" id="GtkLabel3">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
+                <property name="LabelProp" translatable="yes">&lt;b&gt;Information per act&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
               </widget>
               <packing>
@@ -11866,7 +11866,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="Views.PerpetratorDetailWindow" design-size="855 703">
+  <widget class="Gtk.Window" id="Views.PerpetratorDetailWindow" design-size="897 798">
     <property name="MemberName" />
     <property name="Title" translatable="yes">PerpetratorWindow</property>
     <property name="WindowPosition">CenterOnParent</property>

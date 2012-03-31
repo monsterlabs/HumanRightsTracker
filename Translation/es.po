@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-30 13:23:55-0600\n"
-"PO-Revision-Date: 2012-03-30 13:25:13-0600\n"
+"POT-Creation-Date: 2012-03-30 17:55:46-0600\n"
+"PO-Revision-Date: 2012-03-30 17:59:22-0600\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -711,17 +711,12 @@ msgid "<b>Response</b>"
 msgstr "<b>En respuesta</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
-msgid "<b>Supporter</b>"
-msgstr "<b>Receptor</b>"
-
-#: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Interventor</b>"
 msgstr "<b>Interventor</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
-#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
-msgid "<b>Interventors</b>"
-msgstr "<b>Interventores</b>"
+msgid "<b>Supporter</b>"
+msgstr "<b>Receptor</b>"
 
 #: ../Views/gtk-gui/Views.InterventionShow.cs:1
 msgid "<b>Affected People</b>"
@@ -753,7 +748,6 @@ msgstr "<b>Características de la víctima</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
-#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>General</b>"
 msgstr "<b>Información general</b>"
 
@@ -801,6 +795,10 @@ msgstr "Selector de actores colectivos"
 #: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
 msgid "<b>Location:</b>"
 msgstr "<b>Ubicación</b>"
+
+#: ../Views/gtk-gui/Views.PerpetratorActShow.cs:1
+msgid "<b>Information per act</b>"
+msgstr "<b>Información por acto</b>"
 
 #: ../Views/gtk-gui/Views.CaseRow.cs:1
 msgid "affected_people"
@@ -864,6 +862,10 @@ msgstr "<b>Tipo de puesto</b>"
 #: ../Views/gtk-gui/Views.InstitutionAndJobPerPerson.cs:1
 msgid "<b>Jobs at Institutions</b>"
 msgstr "<b>Puesto en el actor colectivo</b>"
+
+#: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
+msgid "<b>Interventors</b>"
+msgstr "<b>Interventores</b>"
 
 #: ../Views/gtk-gui/Views.PeoplePerCase.cs:1
 msgid "<b>Supporters</b>"
