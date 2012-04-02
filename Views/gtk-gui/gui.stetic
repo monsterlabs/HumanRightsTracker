@@ -3098,6 +3098,7 @@ December</property>
                 <property name="MaxLength">4</property>
                 <property name="InvisibleChar">●</property>
                 <signal name="Activated" handler="OnChangeYear" />
+                <signal name="TextInserted" handler="OnYearTextInserted" />
               </widget>
               <packing>
                 <property name="Position">3</property>
@@ -9166,6 +9167,7 @@ Fecha de término</property>
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Person</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>

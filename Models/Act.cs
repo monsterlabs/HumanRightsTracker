@@ -26,7 +26,7 @@ namespace HumanRightsTracker.Models
         [Property("settlement")]
         public String Settlement { get; set; }
 
-        [Property("affected_people_number"), ValidateNonEmpty]
+        [Property("affected_people_number")]
         public int AffectedPeopleNumber { get; set; }
 
         [Property("summary")]
@@ -40,11 +40,11 @@ namespace HumanRightsTracker.Models
         [Property("victim_observations")]
         public String VictimObservations { get; set; }
 
-        [Property]
+        [Property("start_date")]
         [ValidateNonEmpty]
         public DateTime? start_date { get; set; }
 
-        [Property]
+        [Property("end_date")]
         public DateTime? end_date { get; set; }
 
         [BelongsTo("start_date_type_id")]

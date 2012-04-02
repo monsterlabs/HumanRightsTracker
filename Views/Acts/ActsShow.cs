@@ -57,15 +57,22 @@ namespace Views
             act.EndDateType = finalDate.SelectedDateType ();
             act.start_date = initialDate.SelectedDate ();
             act.StartDateType = initialDate.SelectedDateType ();
-
-            act.AffectedPeopleNumber = Convert.ToInt32(affected.Text);
             act.Country = placeselector1.Country;
             act.State = placeselector1.State;
             act.City = placeselector1.City;
+            int affectedPeopleNumber;
+            bool isNum = int.TryParse(affected.Text, out affectedPeopleNumber);
+            if (isNum) {
+                act.AffectedPeopleNumber = Convert.ToInt32(affectedPeopleNumber);
+            }
 
             if (act.IsValid())
             {
                 act.SaveAndFlush ();
+
+                initialDate.setDate (act.start_date, act.StartDateType);
+                finalDate.setDate (act.end_date, act.EndDateType);
+                affected.Text = act.AffectedPeopleNumber.ToString ();
 
                 if (newRow) {
                     act.Case.Acts.Add (Act);
