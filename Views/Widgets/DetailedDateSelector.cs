@@ -138,6 +138,28 @@ namespace Views
             if (Changed != null)
                 Changed(this, e);
         }
+
+        protected void OnYearEditingDone (object sender, System.EventArgs e)
+        {
+            DateTime defaultTime = DateTime.Now;
+            currentDate = new DateTime (Convert.ToInt32 (year.Text), defaultTime.Month, defaultTime.Day);
+        }
+
+        protected void OnYearTextInserted (object o, Gtk.TextInsertedArgs args)
+        {
+            DateTime defaultTime = DateTime.Now;
+            int y;
+            bool isNum = int.TryParse(year.Text, out y);
+            if (!isNum) {
+                y = defaultTime.Year;
+            }
+
+            if (month.Active > 0) {
+                currentDate = new DateTime (y, month.Active + 1 , defaultTime.Day);
+            } else {
+                currentDate = new DateTime (y, defaultTime.Month, defaultTime.Day);
+            }
+        }
     }
 }
 
