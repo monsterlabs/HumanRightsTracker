@@ -22,9 +22,10 @@ namespace Views
         public delegate void CaseEventHandler (object sender, CaseEventArgs args);
         public event CaseEventHandler OnSelect = null;
 
-        public CaseSelectorWindow (CaseEventHandler handler) : base(Gtk.WindowType.Toplevel)
+        public CaseSelectorWindow (CaseEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
+            this.TransientFor = parent;
             this.Modal = true;
             OnSelect = handler;
         }
@@ -33,10 +34,7 @@ namespace Views
         {
             Case c = sender as Case;
             OnSelect (this, new CaseEventArgs(c));
-            this.Modal = false;
-            this.TransientFor = null;
-            this.Hide ();
-
+            this.Destroy();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Views
                 base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
+            this.TransientFor = parent;
             this.Modal = true;
             this.OnRecordSaved = OnSaveButtonClicked;
-            this.TransientFor = parent;
             HumanRightsTracker.Models.Person person = new HumanRightsTracker.Models.Person ();
             person.IsImmigrant = isImmigrant;
             show1.isImmigrant = isImmigrant;

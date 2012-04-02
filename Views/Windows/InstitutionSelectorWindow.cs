@@ -28,8 +28,8 @@ namespace Views
         public InstitutionSelectorWindow (InstitutionEventHandler handler, Gtk.Window parent) : base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
-            this.Modal = true;
             this.TransientFor = parent;
+            this.Modal = true;
             this.OnSelect = handler;
             this.ActivateFocus ();
         }

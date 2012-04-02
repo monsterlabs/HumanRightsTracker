@@ -49,7 +49,7 @@ namespace Views
 
         protected void OnSelectButtonClicked (object sender, System.EventArgs e)
         {
-            new CaseSelectorWindow (OnCaseSelected);
+            new CaseSelectorWindow (OnCaseSelected, (Gtk.Window) this.Toplevel);
         }
 
         protected void OnCaseSelected (object sender, CaseEventArgs args)

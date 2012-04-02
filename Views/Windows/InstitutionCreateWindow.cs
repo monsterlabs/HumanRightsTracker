@@ -10,9 +10,9 @@ namespace Views
                 base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
+            this.TransientFor = parent;
             this.Modal = true;
             this.OnRecordSaved = OnSaveButtonClicked;
-            this.TransientFor = parent;
             HumanRightsTracker.Models.Institution institution = new HumanRightsTracker.Models.Institution ();
             institutionshow.Institution = institution;
             institutionshow.IsEditing = true;
