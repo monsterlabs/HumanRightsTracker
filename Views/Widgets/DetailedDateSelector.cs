@@ -154,11 +154,22 @@ namespace Views
                 y = defaultTime.Year;
             }
 
+            int m;
             if (month.Active > 0) {
+                m = month.Active + 1;
                 currentDate = new DateTime (y, month.Active + 1 , defaultTime.Day);
             } else {
+                m =  defaultTime.Month;
+
                 currentDate = new DateTime (y, defaultTime.Month, defaultTime.Day);
             }
+
+            int d;
+            bool dayIsNum = int.TryParse(day.Text, out d);
+            if (!dayIsNum) {
+                d = defaultTime.Day;
+            }
+            currentDate = new DateTime (y, m, d);
         }
     }
 }
