@@ -15,6 +15,8 @@ namespace Views
         public CasesReportForm ()
         {
             this.Build ();
+            fromDate.CurrentDateForCalendar = DateTime.Now;
+            toDate.CurrentDateForCalendar = DateTime.Now;
         }
 
         protected void OnSave (object sender, System.EventArgs e)
