@@ -175,23 +175,25 @@ namespace HumanRightsTracker.Models
         {
             string AffectedRight = "";
             string Acts = "";
-            string Statuses = "";
+            string PerpetratorTypes = "";
 
             foreach (Act act in this.Acts)
             {
                 AffectedRight += act.HumanRightsViolationCategory.Name + ", ";
                 Acts += act.HumanRightsViolation.Name + ", ";
-                if (act.ActStatus != null)
-                    Statuses += act.ActStatus.Name + ", ";
-                else
-                    Statuses +=  "Ninguno, ";
+                foreach (Victim victim in act.Victims) {
+                    foreach (Perpetrator perpetrator in victim.Perpetrators) {
+                        PerpetratorTypes += perpetrator.PerpetratorType.Name + ", ";
+                    }
+                }
+
             }
 
             return new String[] {
                 this.Name,
                 AffectedRight,
                 Acts,
-                Statuses,
+                PerpetratorTypes,
                 this.victimList ().Count.ToString (),
                 StartDateAsString,
                 EndDateAsString
