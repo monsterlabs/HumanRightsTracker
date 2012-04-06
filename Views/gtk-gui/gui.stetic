@@ -7357,7 +7357,7 @@ Tipo de Perpetrador</property>
                       </widget>
                     </child>
                     <child>
-                      <widget class="Gtk.Label" id="GtkLabel4">
+                      <widget class="Gtk.Label" id="GtkLabel6">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
                         <property name="UseMarkup">True</property>
@@ -7378,7 +7378,7 @@ Tipo de Perpetrador</property>
                     <property name="ShadowType">Out</property>
                     <property name="BorderWidth">10</property>
                     <child>
-                      <widget class="Gtk.Alignment" id="GtkAlignment3">
+                      <widget class="Gtk.Alignment" id="GtkAlignment5">
                         <property name="MemberName" />
                         <property name="Xalign">0</property>
                         <property name="Yalign">0</property>
@@ -7400,13 +7400,13 @@ Tipo de Perpetrador</property>
                                   </widget>
                                   <packing>
                                     <property name="Position">0</property>
-                                    <property name="AutoSize">True</property>
+                                    <property name="AutoSize">False</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <widget class="Gtk.HButtonBox" id="hbuttonbox2">
                                     <property name="MemberName" />
-                                    <property name="Size">1</property>
+                                    <property name="Size">2</property>
                                     <child>
                                       <widget class="Gtk.Button" id="addPerpetratorActButton">
                                         <property name="MemberName" />
@@ -7418,6 +7418,22 @@ Tipo de Perpetrador</property>
                                         <signal name="Clicked" handler="OnAddPerpetratorAct" />
                                       </widget>
                                       <packing>
+                                        <property name="Expand">False</property>
+                                        <property name="Fill">False</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <widget class="Gtk.Button" id="button10">
+                                        <property name="MemberName" />
+                                        <property name="CanFocus">True</property>
+                                        <property name="Type">TextAndIcon</property>
+                                        <property name="Icon">stock:gtk-remove Menu</property>
+                                        <property name="Label" translatable="yes">Remove</property>
+                                        <property name="UseUnderline">True</property>
+                                        <signal name="Clicked" handler="OnRemovePerpetratorAct" />
+                                      </widget>
+                                      <packing>
+                                        <property name="Position">1</property>
                                         <property name="Expand">False</property>
                                         <property name="Fill">False</property>
                                       </packing>

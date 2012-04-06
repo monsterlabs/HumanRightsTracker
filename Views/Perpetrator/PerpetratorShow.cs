@@ -127,6 +127,16 @@ namespace Views
             perpetratoractshow.IsEditable = true;
             perpetratoractshow.Show ();
           }
+
+        protected void OnRemovePerpetratorAct (object sender, System.EventArgs e)
+        {
+            PerpetratorAct a = perpetratoractshow.PerpetratorAct;
+            perpetrator.PerpetratorActs.Remove(a);
+            if (a.Id > 0) {
+                a.DeleteAndFlush();
+            }
+            perpetratoractlist.ReloadStore ();
+        }
     }
 }
 

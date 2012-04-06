@@ -29,7 +29,7 @@ namespace HumanRightsTracker.Models
         [BelongsTo("affiliation_type_id")]
         public AffiliationType AffiliationType { get; set; }
 
-        [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.All)]
+        [HasMany(typeof(PerpetratorAct), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan)]
         public IList PerpetratorActs { get; set; }
 
         public string[] ColumnData ()
