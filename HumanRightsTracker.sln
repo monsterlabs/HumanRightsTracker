@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AODL.pdf.exporter", "AODL.p
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanRightsTracker", "HumanRightsTracker\HumanRightsTracker.csproj", "{583E9FFC-F2E7-4195-A213-CA5538F750CA}"
 EndProject
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{7E07A109-CA90-405C-8CC9-8C4E04AD6415}"
+EndProject
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{CBC26465-827A-4B34-9D0C-13C9F72A9A44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -55,6 +59,10 @@ Global
 		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Windows|Any CPU.Build.0 = Windows|Any CPU
 		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Windows|x86.ActiveCfg = Windows|x86
 		{6C536DE8-180D-4278-AB43-C5C4882E41F5}.Windows|x86.Build.0 = Windows|x86
+		{7E07A109-CA90-405C-8CC9-8C4E04AD6415}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E07A109-CA90-405C-8CC9-8C4E04AD6415}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E07A109-CA90-405C-8CC9-8C4E04AD6415}.Windows|Any CPU.ActiveCfg = Windows|Any CPU
+		{7E07A109-CA90-405C-8CC9-8C4E04AD6415}.Windows|x86.ActiveCfg = Windows|Any CPU
 		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Debug|x86.Build.0 = Debug|Any CPU
 		{89E926D3-3471-47C8-8D34-01FF2AF72F71}.Release|x86.ActiveCfg = Release|Any CPU
@@ -79,6 +87,10 @@ Global
 		{C56BF470-8394-49EB-8D73-75A94EFB42CA}.Windows|Any CPU.Build.0 = Windows|Any CPU
 		{C56BF470-8394-49EB-8D73-75A94EFB42CA}.Windows|x86.ActiveCfg = Windows|x86
 		{C56BF470-8394-49EB-8D73-75A94EFB42CA}.Windows|x86.Build.0 = Windows|x86
+		{CBC26465-827A-4B34-9D0C-13C9F72A9A44}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CBC26465-827A-4B34-9D0C-13C9F72A9A44}.Release|x86.ActiveCfg = Release|Any CPU
+		{CBC26465-827A-4B34-9D0C-13C9F72A9A44}.Windows|Any CPU.ActiveCfg = Windows|Any CPU
+		{CBC26465-827A-4B34-9D0C-13C9F72A9A44}.Windows|x86.ActiveCfg = Windows|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = HumanRightsTracker\HumanRightsTracker.csproj

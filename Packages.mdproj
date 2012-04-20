@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ItemType>PackagingProject</ItemType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBC26465-827A-4B34-9D0C-13C9F72A9A44}</ProjectGuid>
+    <Packages>
+      <Packages>
+        <Package name="Tarball">
+          <Builder TargetDirectory="." DefaultConfiguration="Debug|x86" ctype="TarballDeployTarget">
+            <ChildEntries>
+              <SolutionItemReference path="Views\Views.csproj" />
+              <SolutionItemReference path="Models\Models.csproj" />
+              <SolutionItemReference path="Translation\Translation.mdproj" />
+              <SolutionItemReference path="Reports\Reports.csproj" />
+              <SolutionItemReference path="AODL\AODL.csproj" />
+              <SolutionItemReference path="AODL.pdf.exporter\AODL.pdf.exporter.csproj" />
+              <SolutionItemReference path="HumanRightsTracker\HumanRightsTracker.csproj" />
+            </ChildEntries>
+            <RootEntry path="HumanRightsTracker.sln" id=":root:" />
+          </Builder>
+        </Package>
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+</Project>
