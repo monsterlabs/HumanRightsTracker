@@ -29,12 +29,21 @@ class App < Thor
       FileUtils.cd DST_SOURCE_CODE
       system "automake"
     end
+
+    FileUtils.cd ".."
+    puts "Building the tarball #{PKG_TARBALL}"
+    system "tar cfz #{PKG_TARBALL} #{PKG_NAME}"
+    FileUtils.rm_rf PKG_NAME if Dir.exists? PKG_NAME
   end
 
   desc "clean", "Deletes the tarball for linux"
   def clean
     if Dir.exists? PKG_NAME
       FileUtils.rm_rf PKG_NAME
+    end
+
+    if File.exists? PKG_TARBALL
+      FileUtils.rm_rf PKG_TARBALL
     end
   end
 end
