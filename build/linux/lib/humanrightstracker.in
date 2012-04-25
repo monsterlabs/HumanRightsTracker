@@ -4,7 +4,7 @@ MONO_PREFIX=/opt/mono-2.10
 GNOME_PREFIX=/usr
 DIR=$(cd "$(dirname "$0")"; pwd)
 
-libdir=/usr/lib
+libdir=@prefix@/lib
 exec_asm="HumanRightsTracker.exe"
 
 MONO_EXE="$libdir/humanrightstracker/$exec_asm"
@@ -22,7 +22,7 @@ export PATH=$MONO_PREFIX/bin:$PATH
 export MONO_GAC_PREFIX=$MONO_PREFIX:/usr:/usr/local
 
 # Finally - environment is set up, time to run our beloved
-exec_args="-a $HUMAN_RIGHTS_TRACKER_EXEC_NAME $MONO_PREFIX/bin/mono $MONO_OPTIONS $MONO_EXE "
+exec_args=" $HUMAN_RIGHTS_TRACKER_EXEC_NAME $MONO_PREFIX/bin/mono $MONO_OPTIONS $MONO_EXE "
 
 if [ -z "$HUMAN_RIGHTS_TRACKER_REDIRECT_LOG" ]; then
 	exec $exec_args "$@"

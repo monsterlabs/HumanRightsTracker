@@ -1,0 +1,4 @@
+rvm use ruby-1.9.3-p125@human_rights_tracker
+if [ -f ~/.irbrc.gems ]; then
+  rvm gemset import ~/.irbrc.gems
+fi
