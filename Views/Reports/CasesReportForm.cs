@@ -78,5 +78,42 @@ namespace Views
             HumanRightsViolationCategory category = sender as HumanRightsViolationCategory;
             humanRight.FilterByCategoryId(category.Id);
         }
+
+        protected void OnCaseNameDelete (object sender, System.EventArgs e)
+        {
+            caseName.Text = "";
+        }
+
+        protected void OnToDateDelete (object sender, System.EventArgs e)
+        {
+            toDate.CurrentDate = null;
+        }
+
+        protected void OnClear (object sender, System.EventArgs e)
+        {
+            fromDate.CurrentDate = null;
+            toDate.CurrentDate = null;
+            caseName.Text = "";
+            victimName.Text = "";
+            humanRight.Active = null;
+            AffectedRight.Active = null;
+            fileName.Text = "";
+            folderChooser.SetCurrentFolder ("");
+        }
+
+        protected void OnFromNameDelete (object sender, System.EventArgs e)
+        {
+            fromDate.CurrentDate = null;
+        }
+
+        protected void OnVictimNameDelete (object sender, System.EventArgs e)
+        {
+            victimName.Text = "";
+        }
+
+        protected void OnFileNameDelete (object sender, System.EventArgs e)
+        {
+            fileName.Text = "";
+        }
     }
 }

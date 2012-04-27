@@ -144,7 +144,7 @@ namespace Reports
                         addField("Afiliación", intervention.InterventorAffiliationType.Name);
 
                     if (intervention.Supporter != null)
-                        addField("Persona que soporta la intervención", intervention.Supporter.Fullname);
+                        addField("Receptor", intervention.Supporter.Fullname);
 
                     if (intervention.SupporterInstitution != null)
                         addField("Institución", intervention.SupporterInstitution.Name);
