@@ -6,6 +6,7 @@ require "active_record"
 require "active_record/railtie"
 require "active_support"
 require "csv"
+require "fileutils"
 Bundler.setup
 Bundler.require :default
 
@@ -411,6 +412,14 @@ task :seeds_demo => :environment do
     c.save
   end  
 
+end
+
+desc "Drop database"
+task :drop_db do
+  database = YAML::load(File.open('config/database.yml'))['database']
+  if File.exist? database
+    FileUtils.rm_rf database
+  end
 end
 
 task :environment do
