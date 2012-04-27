@@ -1,6 +1,6 @@
 using System;
 using Gtk;
-using Castle.ActiveRecord;
+using HumanRightsTracker.DataBase;
 using HumanRightsTracker.Models;
 
 public partial class LoginWindow : Gtk.Window
@@ -15,8 +15,10 @@ public partial class LoginWindow : Gtk.Window
 		Application.Quit ();
 		a.RetVal = true;
 	}
-	protected virtual void authenticate (object sender, System.EventArgs e)
+
+    protected virtual void authenticate (object sender, System.EventArgs e)
 	{
+
 		User u = User.authenticate(login.Text, password.Text);
 		Console.WriteLine("Authenticating " + login.Text);
 		if (u != null)
@@ -30,6 +32,4 @@ public partial class LoginWindow : Gtk.Window
 		}
 	}
 	
-	
 }
-

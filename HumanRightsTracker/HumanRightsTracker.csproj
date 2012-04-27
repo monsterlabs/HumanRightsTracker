@@ -71,36 +71,10 @@
     <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="Castle.ActiveRecord">
-      <HintPath>..\lib\Castle\Castle.ActiveRecord.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.ActiveRecord.Web">
-      <HintPath>..\lib\Castle\Castle.ActiveRecord.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Components.Validator">
-      <HintPath>..\lib\Castle\Castle.Components.Validator.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Core">
-      <HintPath>..\lib\Castle\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\lib\Castle\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\lib\Castle\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\lib\Castle\NHibernate.ByteCode.Castle.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.Search">
-      <HintPath>..\lib\Castle\NHibernate.Search.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Data.Sqlite">
-      <HintPath>..\lib\Mono.Data.Sqlite.dll</HintPath>
-    </Reference>
+    <Reference Include="Mono.Data.Sqlite" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -115,9 +89,9 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="LoginWindow.cs" />
-    <Compile Include="Sqlite\MonoSqliteDriver.cs" />
     <Compile Include="gtk-gui\HumanRightsTracker.MainWindow.cs" />
     <Compile Include="gtk-gui\LoginWindow.cs" />
+    <Compile Include="MonoSqlite\Driver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -126,18 +100,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Sqlite\" />
     <Folder Include="images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Config\ARConfig.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="db\human_rights_tracker.sqlite3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Gettext-ScanForTranslations>false</Gettext-ScanForTranslations>
-    </None>
+    <Folder Include="MonoSqlite\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
@@ -151,6 +115,14 @@
     <ProjectReference Include="..\Views\Views.csproj">
       <Project>{0D986191-8BA2-473F-9659-43A545D0594B}</Project>
       <Name>Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBase\DataBase.csproj">
+      <Project>{284B31C0-539B-410C-B184-42B4A65BB561}</Project>
+      <Name>DataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoSqlite\MonoSqlite.csproj">
+      <Project>{CC202734-40DF-4A54-96ED-EEC8B2E36F9E}</Project>
+      <Name>MonoSqlite</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
