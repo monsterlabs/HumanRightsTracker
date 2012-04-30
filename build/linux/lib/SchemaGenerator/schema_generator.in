@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+MONO_PREFIX=/opt/mono-2.10
+GNOME_PREFIX=/usr
+DIR=$(cd "$(dirname "$0")"; pwd)
+
+libdir=@prefix@/lib
+exec_asm="SchemaGenerator.exe"
+
+MONO_EXE="$libdir/humanrightstracker/$exec_asm"
+
+#Workaround for Unity gnome shell
+export UBUNTU_MENUPROXY=0
+
+export LANG=es
+export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
+export LD_LIBRARY_PATH=$libdir/humanrigthstracker:$MONO_PREFIX/lib:/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+export C_INCLUDE_PATH=$MONO_PREFIX/include:$GNOME_PREFIX/include
+export ACLOCAL_PATH=$MONO_PREFIX/share/aclocal
+export PKG_CONFIG_PATH=$MONO_PREFIX/lib/pkgconfig:$GNOME_PREFIX/lib/pkgconfig
+export PATH=$MONO_PREFIX/bin:$PATH
+export MONO_GAC_PREFIX=$MONO_PREFIX:/usr:/usr/local
+
+# Finally - environment is set up, time to run our beloved
+exec_args=" $HUMAN_RIGHTS_TRACKER_EXEC_NAME $MONO_PREFIX/bin/mono $MONO_OPTIONS $MONO_EXE "
+
+if [ -z "$HUMAN_RIGHTS_TRACKER_REDIRECT_LOG" ]; then
+	exec $exec_args "$@"
+else
+	mkdir -p `dirname "$HUMAN_RIGHTS_TRACKER_REDIRECT_LOG"`
+	(echo "exec $exec_args " "$@"; echo; exec $exec_args "$@") &> $HUMAN_RIGHTS_TRACKER_REDIRECT_LOG
+fi

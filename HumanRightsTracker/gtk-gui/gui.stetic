@@ -9,7 +9,7 @@
     <widget-library name="../../bin/Debug/Views.dll" />
     <widget-library name="../../bin/Debug/HumanRightsTracker.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="LoginWindow" design-size="616 389">
+  <widget class="Gtk.Window" id="LoginWindow" design-size="600 427">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
