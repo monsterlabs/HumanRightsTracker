@@ -1,0 +1,37 @@
+#!/bin/sh
+
+
+if [ "$1" = configure ]; then
+    # Make sure the administrative user exists
+    if ! getent passwd humanrightstracker > /dev/null; then
+        adduser --system --quiet --home /usr/lib/humanrightstracker --no-create-home \
+            --shell /bin/bash --group --gecos "Human Rights Tracker Administrator" humanrightstracker
+    fi
+
+    # check validity of humanrightstracker user and group
+    if [ "`id -u humanrightstracker`" -eq 0 ]; then
+        echo "The humanrightstracker system user must not have uid 0 (root).
+Please fix this and reinstall this package." >&2
+        exit 1
+    fi
+    if [ "`id -g humanrightstracker`" -eq 0 ]; then
+        echo "The humanrightstracker system user must not have root as primary group.
+Please fix this and reinstall this package." >&2
+        exit 1
+    fi
+
+    # ensure home directory ownership
+    mkdir -p /var/lib/humanrightstracker
+    chown -R humanrightstracker:humanrightstracker /usr/lib/humanrightstracker
+
+    chown humanrightstracker:humanrightstracker /usr/bin/humanrightstracker
+    chown humanrightstracker:humanrightstracker /usr/bin/schema_generator
+
+    chmod ug+s /usr/bin/humanrightstracker
+    chmod ug+s /usr/bin/schema_generator
+
+fi
+
+
+#DEBHELPER#
+

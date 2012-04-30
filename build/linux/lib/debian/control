@@ -17,7 +17,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
   mono-tools-2.6,
   mono-debugger-2.6,
   libgdiplus-2.10,
-  libsqlite3-dev-3.7
+  libsqlite3-dev
 Description: Desktop application for tracking human rights cases
   Tool for tracking human rights cases in Mexico and Latin America
 

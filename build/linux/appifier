@@ -82,7 +82,8 @@ class App < Thor
       FileUtils.rm_rf file
     end
 
-    %w(changelog control copyright).each do |file|
+    %w(changelog control copyright 
+       humanrightstracker.postinst).each do |file|
       FileUtils.copy_file(File.join(debian_src_dir,file),
                           File.join(debian_dir, file))
     end
