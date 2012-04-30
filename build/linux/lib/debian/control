@@ -1,0 +1,23 @@
+Source: humanrightstracker
+Section: misc
+Priority: extra
+Maintainer: Alejandro Juarez <juarlex@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev
+Standards-Version: 3.9.2
+Homepage: https://github.com/monsterlabs/HumanRightsTracker
+Vcs-Git: git://github.com/monsterlabs/HumanRightsTracker.git
+Vcs-Browser: https://github.com/monsterlabs/HumanRightsTracker.git
+
+Package: humanrightstracker
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+  gtk-sharp-2.12 (>= 2.12.11),
+  mono-addins-2.6,
+  gnome-sharp-2.6,
+  mono-tools-2.6,
+  mono-debugger-2.6,
+  libgdiplus-2.10,
+  libsqlite3-dev-3.7
+Description: Desktop application for tracking human rights cases
+  Tool for tracking human rights cases in Mexico and Latin America
+
