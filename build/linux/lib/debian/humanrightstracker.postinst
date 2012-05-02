@@ -30,8 +30,8 @@ Please fix this and reinstall this package." >&2
     chmod ug+s /usr/bin/humanrightstracker
     chmod ug+s /usr/bin/schema_generator
 
+    su -c "/usr/bin/schema_generator" humanrightstracker
+    chown -R humanrightstracker:humanrightstracker /usr/lib/humanrightstracker
 fi
 
-
 #DEBHELPER#
-

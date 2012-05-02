@@ -1,0 +1,6 @@
+NOTES
+
+The binares installed into /usr/bin directory must be executed as
+root because the setuid bit is not working in linux. See:
+
+http://unix.stackexchange.com/questions/364/allow-setuid-on-shell-scripts
