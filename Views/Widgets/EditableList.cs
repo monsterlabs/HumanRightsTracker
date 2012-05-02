@@ -182,6 +182,10 @@ namespace Views
             }
         }
 
+        public void ClearTable() {
+            this.DestroyTableChildren ();
+        }
+
         protected void BuildTableHeaders () {
             table.Resize (1, (uint) (columnHeaders.Length));
             for (uint i = 0; i < columnHeaders.Length; i++) {

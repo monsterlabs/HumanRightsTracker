@@ -435,10 +435,14 @@ namespace Views.People
 
         private void SetAddressList () {
             address_list_frame.Show ();
-            if (person.Addresses != null && this.person.Addresses.Count > 0 ){
+
+            if (this.person.Addresses != null && this.person.Addresses.Count > 0 ) {
+
                 //ConnectAddressesHandlers ();
                 address_list.Records = this.person.Addresses.Cast<ListableRecord>().ToList ();
                 address_frame.Hide ();
+            } else {
+                address_list.ClearTable ();
             }
         }
 
@@ -451,8 +455,9 @@ namespace Views.People
         }
 
         private void ReloadAddresses () {
-            List<ListableRecord> addresses = this.person.Addresses.Cast<ListableRecord>().ToList ();
-            address_list.Records = addresses.Cast<ListableRecord>().ToList ();
+            //List<ListableRecord> addresses = this.person.Addresses.Cast<ListableRecord>().ToList ();
+            //address_list.Records = addresses.Cast<ListableRecord>().ToList ();
+            address_list.Records = this.person.Addresses.Cast<ListableRecord>().ToList ();
         }
 
         public void ConnectAddressesHandlers() {

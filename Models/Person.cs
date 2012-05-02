@@ -62,7 +62,7 @@ namespace HumanRightsTracker.Models
         [HasMany(typeof(ImmigrationAttempt), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList ImmigrationAttempts { get; set; }
 
-        [HasMany(typeof(Address), Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
+        [HasMany(typeof(Address), Table="Addresses", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
         public IList Addresses { get; set; }
 
         [HasMany(typeof(Identification), Table="Identifications", ColumnKey="person_id", Cascade=ManyRelationCascadeEnum.AllDeleteOrphan, Lazy=true)]
