@@ -46,7 +46,7 @@ Project -> Create Package, after that you will need to execute the
 following instructions:
 
 	$ cd build/linux
-	$ ./appifier clean
+  $ ./appifier clean
   $ ./appifier tarball
   $ ./appifier build_pkg
 
