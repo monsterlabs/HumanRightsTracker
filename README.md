@@ -23,7 +23,7 @@ Licensed under GPL 2.1. See LICENSE.txt for detail
 Before to compile the application you must build the database executing the following commands:
 
 	$ cd tools/database
-  $ rake drop_db
+	$ rake drop_db
 	$ rake migrate
 	$ rake seeds  
 
@@ -46,9 +46,9 @@ Project -> Create Package, after that you will need to execute the
 following instructions:
 
 	$ cd build/linux
-  $ ./appifier clean
-  $ ./appifier tarball
-  $ ./appifier build_pkg
+	$ ./appifier clean
+	$ ./appifier tarball
+	$ ./appifier build_pkg
 
 ## How to build the msi package for windows
 
