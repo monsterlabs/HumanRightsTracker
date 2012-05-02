@@ -1,0 +1,17 @@
+# Requirements
+
+Install monodevelop 2.8.x or Higher from:
+https://launchpad.net/~ermshiperete/+archive/monodevelop
+
+# Installing from sources
+./configure
+make 
+make install
+
+# Installing ubuntu package
+sudo dpkg --install humanrightstracker_1.0.12.i386.deb
+sudo humanrightracker
+
+# Enter to the system
+Default user: admin
+Default password: qw12..
