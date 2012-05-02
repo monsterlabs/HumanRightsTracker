@@ -35,7 +35,7 @@
       <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\Mono.framework\Libraries\mono\gac\Mono.Data.Sqlite\2.0.0.0__0738eb9f132ed756\Mono.Data.Sqlite.dll</HintPath>
+      <HintPath>..\lib\Mono.Data.Sqlite.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
