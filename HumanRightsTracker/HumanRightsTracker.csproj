@@ -74,7 +74,6 @@
     <Reference Include="NHibernate">
       <HintPath>..\lib\Castle\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Data.Sqlite" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
