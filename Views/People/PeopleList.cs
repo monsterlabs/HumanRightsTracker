@@ -99,14 +99,30 @@ namespace Views
 
         protected void SearchWithFilters(string searchString) {
             personList.Clear();
-            if (victims_checkbutton.Active)
+            if (victims_checkbutton.Active) {
+                perpetrators_checkbutton.Active = false;
+                interventors_checkbutton.Active = false;
+                supporters_checkbutton.Active = false;
                 FindVictims (searchString);
-            else if (perpetrators_checkbutton.Active)
+            }
+            else if (perpetrators_checkbutton.Active) {
+                victims_checkbutton.Active = false;
+                interventors_checkbutton.Active = false;
+                supporters_checkbutton.Active = false;
                 FindPerpetrators (searchString);
-            else if (interventors_checkbutton.Active)
+            }
+            else if (interventors_checkbutton.Active) {
+                victims_checkbutton.Active = false;
+                perpetrators_checkbutton.Active = false;
+                supporters_checkbutton.Active = false;
                 FindInterventors (searchString);
-            else if (interventors_checkbutton.Active)
+            }
+            else if (supporters_checkbutton.Active) {
+                victims_checkbutton.Active = false;
+                perpetrators_checkbutton.Active = false;
+                interventors_checkbutton.Active = false;
                 FindSupporters (searchString);
+            }
             else
                 ReloadStore ();
         }

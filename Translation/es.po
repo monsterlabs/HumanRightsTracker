@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-02 23:32:11-0500\n"
-"PO-Revision-Date: 2012-05-02 23:37:12-0500\n"
+"PO-Revision-Date: 2012-05-03 13:02:56-0500\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -379,7 +379,7 @@ msgstr "Perpetradores"
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
 msgid "Supporters"
-msgstr "Receptor"
+msgstr "Receptores"
 
 #: ../Views/gtk-gui/Views.PeopleList.cs:1
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1

@@ -231,7 +231,7 @@ namespace HumanRightsTracker.Models
         }
 
         public static ArrayList FindSupporters(Boolean IsImmigrant, String searchString) {
-            String hql = "select p from Person p inner join p.Interventors as i where p.IsImmigrant = :IsImmigrant and p.Id in i.Supporter.Id";
+            String hql = "select p from Person p inner join p.Supporters as i where p.IsImmigrant = :IsImmigrant and p.Id in i.Supporter.Id";
             return (ArrayList)ExecuteFilter (hql, IsImmigrant, searchString);
         }
 
