@@ -28,6 +28,7 @@ Before to compile the application you must build the database executing the foll
 	$ rake seeds  
 
 If you want to populate your database for demo, you can run this rake task:
+
 	$ rake seeds_demo
 
 Note: You can comment some lines at the end of the Rakefile file to generate an empty database.
@@ -64,3 +65,12 @@ LoginWindows.cs view to make it and save the file)
   * Edit the files  Installer.wixproj and InstallerDefinition.wxs
   * Execute the build-installer.js script (Doing double click under this
 file).
+
+## Authors
+
+  * [Alejandro Juárez Robles] (https://github.com/juarlex)
+  * [Juan G. Castañeda Echevarria] (https://github.com/juanger)
+  * [Hector E. Gómez Morales] (https://github.com/hectoregm)
+
+## Sponsored By
+  * [Idheas, Litigio Estratégico en Derechos Humanos, A.C.] (http://www.idheas.org/)
