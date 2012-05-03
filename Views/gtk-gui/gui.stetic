@@ -2441,7 +2441,7 @@ Fecha del caso</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateSelector" design-size="222 26">
+  <widget class="Gtk.Bin" id="Views.DateSelector" design-size="294 28">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -2478,6 +2478,24 @@ Fecha del caso</property>
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="clearButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-remove Menu</property>
+                <property name="Label" translatable="yes">_Remove</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnClear" />
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -2971,7 +2989,7 @@ Fecha del caso</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="510 31">
+  <widget class="Gtk.Bin" id="Views.DateTypeAndDateSelector" design-size="592 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -3021,7 +3039,7 @@ Fecha del caso</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.DetailedDateSelector" design-size="265 31">
+  <widget class="Gtk.Bin" id="Views.DetailedDateSelector" design-size="321 31">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -3103,6 +3121,24 @@ December</property>
               <packing>
                 <property name="Position">3</property>
                 <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="button11">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-remove Menu</property>
+                <property name="Label" translatable="yes">_Remove</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnClear" />
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">4</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
               </packing>
             </child>
           </widget>
@@ -13026,32 +13062,6 @@ Fecha de término</property>
                             <property name="Fill">False</property>
                           </packing>
                         </child>
-                        <child>
-                          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
-                            <property name="MemberName" />
-                            <property name="Size">1</property>
-                            <property name="LayoutStyle">Start</property>
-                            <child>
-                              <widget class="Gtk.Button" id="button11">
-                                <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="Type">TextAndIcon</property>
-                                <property name="Icon">stock:gtk-remove Menu</property>
-                                <property name="Label" translatable="yes">_Remove</property>
-                                <property name="UseUnderline">True</property>
-                                <signal name="Clicked" handler="OnFromNameDelete" />
-                              </widget>
-                              <packing>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="Position">1</property>
-                            <property name="AutoSize">True</property>
-                          </packing>
-                        </child>
                       </widget>
                       <packing>
                         <property name="TopAttach">3</property>
@@ -13082,32 +13092,6 @@ Fecha de término</property>
                             <property name="AutoSize">True</property>
                             <property name="Expand">False</property>
                             <property name="Fill">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.HButtonBox" id="hbuttonbox3">
-                            <property name="MemberName" />
-                            <property name="Size">1</property>
-                            <property name="LayoutStyle">Start</property>
-                            <child>
-                              <widget class="Gtk.Button" id="button12">
-                                <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="Type">TextAndIcon</property>
-                                <property name="Icon">stock:gtk-remove Menu</property>
-                                <property name="Label" translatable="yes">_Remove</property>
-                                <property name="UseUnderline">True</property>
-                                <signal name="Clicked" handler="OnToDateDelete" />
-                              </widget>
-                              <packing>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="Position">1</property>
-                            <property name="AutoSize">True</property>
                           </packing>
                         </child>
                       </widget>
@@ -13447,7 +13431,7 @@ Fecha de término</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel7">
+              <widget class="Gtk.Label" id="GtkLabel9">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Filters&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>

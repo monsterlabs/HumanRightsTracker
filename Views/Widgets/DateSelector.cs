@@ -68,6 +68,11 @@ namespace Views
                 text.Text = dateEntry.Text;
             }
         }
+
+        protected void OnClear (object sender, System.EventArgs e)
+        {
+            this.CurrentDate = null;
+        }
     }
 }
 

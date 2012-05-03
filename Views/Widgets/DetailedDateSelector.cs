@@ -171,6 +171,11 @@ namespace Views
             }
             currentDate = new DateTime (y, m, d);
         }
+
+        protected void OnClear (object sender, System.EventArgs e)
+        {
+            this.CurrentDate = null;
+        }
     }
 }
 
