@@ -78,10 +78,20 @@ namespace Views
         protected void OnSave (object sender, System.EventArgs e)
         {
             bool newRow = false;
-            if (trackingInfo.Id < 1) {
+
+
+            int recordId;
+            bool isNum = int.TryParse(record_id.Text, out recordId);
+            if (isNum) {
+                trackingInfo.RecordId = recordId;
+            } else {
                 trackingInfo.RecordId = trackingInfo.Case.RecordCount + 1;
+            }
+
+            if (trackingInfo.Id < 1 ) {
                 newRow = true;
             }
+
             trackingInfo.DateOfReceipt = date_of_receipt.SelectedDate ();
             trackingInfo.DateType = date_of_receipt.SelectedDateType ();
             trackingInfo.Title = title.Text;
@@ -91,15 +101,15 @@ namespace Views
             if (trackingInfo.IsValid()) {
                 trackingInfo.SaveAndFlush ();
                 if (newRow) {
-                    TrackingInfo.Case.RecordCount += 1;
-                    TrackingInfo.Case.TrackingInformation.Add (TrackingInfo);
-                    TrackingInfo.Case.SaveAndFlush ();
+                    trackingInfo.Case.RecordCount += 1;
+                    trackingInfo.Case.TrackingInformation.Add (TrackingInfo);
+                    trackingInfo.Case.SaveAndFlush ();
                 }
                 this.SaveDocuments ();
                 this.IsEditable = false;
 
                 if (Saved != null)
-                        Saved (this.TrackingInfo, e);
+                    Saved (this.TrackingInfo, e);
             } else {
                 Console.WriteLine( String.Join(",", trackingInfo.ValidationErrorMessages) );
                 new ValidationErrorsDialog (trackingInfo.PropertiesValidationErrorMessages, (Gtk.Window)this.Toplevel);

@@ -9539,10 +9539,13 @@ Fecha de término</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.Label" id="record_id">
+                          <widget class="Views.EditableLabel" id="record_id">
                             <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">&lt;b&gt;Num&lt;/b&gt;</property>
-                            <property name="UseMarkup">True</property>
+                            <property name="Events">ButtonPressMask</property>
+                            <property name="WidthChars">0</property>
+                            <property name="MaxLength">0</property>
+                            <property name="OnlyNumbers">False</property>
+                            <property name="IsEditable">False</property>
                           </widget>
                           <packing>
                             <property name="LeftAttach">1</property>
@@ -9628,7 +9631,7 @@ Fecha de término</property>
                           </widget>
                         </child>
                         <child>
-                          <widget class="Gtk.Label" id="GtkLabel6">
+                          <widget class="Gtk.Label" id="GtkLabel10">
                             <property name="MemberName" />
                             <property name="LabelProp" translatable="yes">&lt;b&gt;Records&lt;/b&gt;</property>
                             <property name="UseMarkup">True</property>
@@ -9651,7 +9654,7 @@ Fecha de término</property>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel7">
+              <widget class="Gtk.Label" id="GtkLabel11">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt;Tracking Information&lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
