@@ -18,12 +18,12 @@ namespace Views
                 base(Gtk.WindowType.Toplevel)
         {
             this.Build ();
+            this.TransientFor = parent;
             this.Modal = true;
             this.model = model;
             this.mod = mod;
             this.record = (ActiveRecordBase)record;
             this.OnRecordSaved = OnSaveButtonClicked;
-            this.TransientFor = parent;
             this.WindowPosition = Gtk.WindowPosition.CenterAlways;
             this.Title = model + " creation";
 
