@@ -45,6 +45,9 @@ namespace HumanRightsTracker.Models
         [Property]
         public String Email { get; set; }
 
+        [Property("comments")]
+        public String Comments { get; set;}
+
         [BelongsTo("country_id")]
         public Country Country { get; set; }
         [BelongsTo("state_id")]

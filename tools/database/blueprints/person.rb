@@ -36,6 +36,7 @@ Person.blueprint do
 
   if rand(2) > 0
     is_immigrant { true }
+    comments { Faker::Lorem.paragraph(rand(6)) }
     immigration_attempt
   else
     is_immigrant { false }

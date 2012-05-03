@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-05-03 01:23:46-0500\n"
-"PO-Revision-Date: 2012-05-03 01:23:47-0500\n"
-"Last-Translator: juanger\n"
+"POT-Creation-Date: 2012-05-03 17:15:38-0500\n"
+"PO-Revision-Date: 2012-05-03 17:15:41-0500\n"
+"Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Alone"
 msgstr ""
 
-#: ../Views/People/Show.cs:13
+#: ../Views/People/Show.cs:12
 #: ../Views/gtk-gui/Views.DateSelectorWindow.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/Institutions/InstitutionShow.cs:7
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../Views/People/Show.cs:13
+#: ../Views/People/Show.cs:12
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 #: ../Views/Cases/CaseShow.cs:7
 #: ../Views/gtk-gui/Views.CaseShow.cs:1
@@ -189,6 +189,13 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
 msgid "<b>Migration Attempts</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.People.Show.cs:1
+#: ../Views/gtk-gui/Views.TrackingShow.cs:1
+#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
+#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
+msgid "<b>Comments</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.People.Show.cs:1
@@ -427,7 +434,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
-msgid "Select A File"
+msgid "Select a File"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
@@ -903,21 +910,11 @@ msgid "<b>Status</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.TrackingShow.cs:1
-#: ../Views/gtk-gui/Views.CaseRelationshipShow.cs:1
-#: ../Views/gtk-gui/Views.DocumentarySourceShow.cs:1
-msgid "<b>Comments</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.TrackingShow.cs:1
 msgid "<b>Record ID</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.TrackingShow.cs:1
 msgid "<b>Title</b>"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.TrackingShow.cs:1
-msgid "<b>Num</b>"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.TrackingShow.cs:1
@@ -1313,7 +1310,7 @@ msgid "<b>Password confirmation</b>"
 msgstr ""
 
 #: ../Views/Reports/CaseReportWindow.cs:6
-#: ../Views/Reports/CasesReportForm.cs:12
+#: ../Views/Reports/CasesReportForm.cs:14
 msgid ""
 " already exists.\n"
 " Do you want to override it?"

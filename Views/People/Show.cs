@@ -57,10 +57,11 @@ namespace Views.People
                           address_frame.Hide ();
                           relationships_list_frame.Hide ();
                         }
+                        comments_frame.Hide ();
                     } else {
                         set_person_details_widgets ();
                         set_immigration_details_widgets ();
-
+                        comments_frame.Show ();
                         if (this.person.Id > 0 && this.person.AffiliationList().Count > 0 ) {
                             set_identification_widgets ();
                             contact_info_frame.Show ();
@@ -132,6 +133,7 @@ namespace Views.People
                     identification_frame.Show ();
                 }
 
+                comments_frame.Visible = IsImmigrant;
                 if (this.person == null || this.person.Id < 1)   {
                     if (isImmigrant == false) {
                         address_frame.Show ();
@@ -150,6 +152,8 @@ namespace Views.People
                     affiliation_list.IsEditable = false;
                     relationship_as_relatedperson.IsEditable = false;
                     person.Refresh ();
+
+
                     if (IsImmigrant == true && this.person.AffiliationList().Count < 1 ) {
                         address_list_frame.Hide ();
                         contact_info_frame.Hide ();
@@ -227,6 +231,7 @@ namespace Views.People
             birthplace.SetPlace(person.Country, person.State, person.City);
             imageselector1.Image = person.Photo.Image;
             age.Active = person.Age;
+            comments.Text = person.Comments;
         }
 
         protected void set_person_details_widgets ()
@@ -423,6 +428,7 @@ namespace Views.People
             person.MaritalStatus = marital_status.Active as MaritalStatus;
             person.Citizen = citizen.Active as Country;
             person.Gender = gender.Value ();
+            person.Comments = comments.Text;
         }
 
         protected void image_save () {
@@ -558,6 +564,5 @@ namespace Views.People
                 }, (Gtk.Window) this.Toplevel, true);
             };
         }
-
     }
 }
