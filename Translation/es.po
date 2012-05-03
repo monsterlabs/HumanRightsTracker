@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-03 00:40:55-0500\n"
-"PO-Revision-Date: 2012-03-30 17:59:22-0600\n"
+"POT-Creation-Date: 2012-05-02 23:32:11-0500\n"
+"PO-Revision-Date: 2012-05-02 23:37:12-0500\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -728,7 +728,7 @@ msgstr "<b>Estado</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 msgid "<b>Characteristics:</b>"
-msgstr "<b>Características de la víctima</b>"
+msgstr "<b>Comentarios sobre víctimas y perpetradores</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
@@ -1323,11 +1323,7 @@ msgstr "<b>Nombre de la Víctima</b>"
 
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "_Clear"
-msgstr ""
-
-#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
-msgid "Clear act and right selection"
-msgstr ""
+msgstr "Limpiar filtros"
 
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "VictimsWindow"

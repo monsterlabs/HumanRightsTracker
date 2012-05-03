@@ -89,7 +89,7 @@ namespace Reports
                         foreach (Victim victim in act.Victims)
                         {
                             addField (String.Format ("{0} {1}", "\t\t\tVíctima", victim_counter), victim.Person.Fullname);
-                            addField ("\t\t\tCaracterísticas", victim.Characteristics);
+                            addField ("\t\t\tComentarios sobre víctimas y perpetradores", victim.Characteristics);
                             if (victim.VictimStatus != null)
                                 addField ("\t\t\tEstado", victim.VictimStatus.Name);
                             /*
