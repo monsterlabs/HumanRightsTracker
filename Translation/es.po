@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-30 17:55:46-0600\n"
-"PO-Revision-Date: 2012-03-30 17:59:22-0600\n"
+"POT-Creation-Date: 2012-05-02 23:32:11-0500\n"
+"PO-Revision-Date: 2012-05-02 23:37:12-0500\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -340,6 +340,13 @@ msgid "Select"
 msgstr "Seleccionar"
 
 #: ../Views/gtk-gui/Views.DateSelector.cs:1
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "_Remove"
+msgstr "Borrar"
+
+#: ../Views/gtk-gui/Views.DateSelector.cs:1
 msgid "label4"
 msgstr "etiqueta4"
 
@@ -396,6 +403,7 @@ msgstr "Agregar"
 #: ../Views/gtk-gui/Views.PeopleTab.cs:1
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Remove"
 msgstr "Borrar"
@@ -744,7 +752,7 @@ msgstr "<b>Estado</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 msgid "<b>Characteristics:</b>"
-msgstr "<b>Características de la víctima</b>"
+msgstr "<b>Comentarios sobre víctimas y perpetradores</b>"
 
 #: ../Views/gtk-gui/Views.VictimShow.cs:1
 #: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
@@ -977,10 +985,6 @@ msgstr "<b>Fecha Inicial</b>"
 #: ../Views/gtk-gui/Views.CaseSelectorWindow.cs:1
 msgid "CaseSelectorWindow"
 msgstr "Selector de casos"
-
-#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
-msgid "_Remove"
-msgstr "Borrar"
 
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "ActPlace"
@@ -1342,6 +1346,10 @@ msgstr "<b>Directorio destino</b>"
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Victim Name</b>"
 msgstr "<b>Nombre de la Víctima</b>"
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "_Clear"
+msgstr "Limpiar filtros"
 
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "VictimsWindow"

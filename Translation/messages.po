@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-03-30 17:58:40-0600\n"
-"PO-Revision-Date: 2012-03-30 17:58:41-0600\n"
+"POT-Creation-Date: 2012-05-02 23:32:21-0500\n"
+"PO-Revision-Date: 2012-05-02 23:32:21-0500\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -338,6 +338,13 @@ msgid "Select"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.DateSelector.cs:1
+#: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
+#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "_Remove"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.DateSelector.cs:1
 msgid "label4"
 msgstr ""
 
@@ -394,6 +401,7 @@ msgstr ""
 #: ../Views/gtk-gui/Views.PeopleTab.cs:1
 #: ../Views/gtk-gui/Views.CasesTab.cs:1
 #: ../Views/gtk-gui/Views.InstitutionsTab.cs:1
+#: ../Views/gtk-gui/Views.PerpetratorShow.cs:1
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "Remove"
 msgstr ""
@@ -976,10 +984,6 @@ msgstr ""
 msgid "CaseSelectorWindow"
 msgstr ""
 
-#: ../Views/gtk-gui/Views.CatalogCRUD.cs:1
-msgid "_Remove"
-msgstr ""
-
 #: ../Views/Widgets/CatalogTab.cs:2
 msgid "ActPlace"
 msgstr ""
@@ -1337,6 +1341,10 @@ msgstr ""
 
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "<b>Victim Name</b>"
+msgstr ""
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "_Clear"
 msgstr ""
 
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
