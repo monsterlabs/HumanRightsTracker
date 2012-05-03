@@ -15,8 +15,8 @@ namespace Views
         public CasesReportForm ()
         {
             this.Build ();
-            fromDate.CurrentDateForCalendar = DateTime.Now;
-            toDate.CurrentDateForCalendar = DateTime.Now;
+            fromDate.CurrentDateForCalendar = null;
+            toDate.CurrentDateForCalendar = null;
         }
 
         protected void OnSave (object sender, System.EventArgs e)
@@ -26,11 +26,11 @@ namespace Views
             if (caseName.Text != null && caseName.Text.Length > 0)
                 dC.Add(Restrictions.InsensitiveLike("Name", caseName.Text, MatchMode.Anywhere));
 
-            if (fromDate.CurrentDate > DateTime.MinValue) {
+            if (fromDate.CurrentDate.HasValue) {
                 dC.Add (Restrictions.Ge ("start_date", fromDate.CurrentDate));
             }
 
-            if (toDate.CurrentDate > DateTime.MinValue) {
+            if (toDate.CurrentDate.HasValue) {
                 dC.Add (Restrictions.Le ("start_date", toDate.CurrentDate));
             }
 
@@ -48,8 +48,13 @@ namespace Views
                 DetachedCriteria dA = dC.CreateCriteria("Acts");
                 HumanRightsViolation hrv = humanRight.Active as HumanRightsViolation;
 
-                HumanRightsViolationCategory hr = HumanRightsViolationCategory.FindOne(new ICriterion[] { Restrictions.Eq ("Id", hrv.CategoryId)});
-                dA.Add (Restrictions.Eq ("HumanRightsViolationCategory", hr));
+
+                dA.Add (Restrictions.Eq ("HumanRightsViolation", hrv));
+
+                //if (AffectedRight.Active != null) {
+                //    HumanRightsViolationCategory hr = HumanRightsViolationCategory.FindOne(new ICriterion[] { Restrictions.Eq ("Id", hrv.CategoryId)});
+                //    dA.Add (Restrictions.Eq ("HumanRightsViolationCategory", hr));
+                //}
             }
 
             Case[] cases = Case.FindAll (dC);
@@ -114,6 +119,12 @@ namespace Views
         protected void OnFileNameDelete (object sender, System.EventArgs e)
         {
             fileName.Text = "";
+        }
+
+        protected void OnClearActAndRight (object sender, System.EventArgs e)
+        {
+            humanRight.Active = null;
+            AffectedRight.Active = null;
         }
     }
 }

@@ -91,6 +91,9 @@ namespace Views
                 this.human_right_violation = value;
                 if (this.human_right_violation != null) {
                     SetWidgets ();
+                } else {
+                    name.Text = "";
+                    notes.Text = "";
                 }
             }
         }

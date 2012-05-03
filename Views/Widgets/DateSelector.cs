@@ -66,6 +66,7 @@ namespace Views
                 button1.Visible = value;
                 text.Visible = !value;
                 text.Text = dateEntry.Text;
+                clearButton.Visible = value;
             }
         }
 

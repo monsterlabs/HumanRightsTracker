@@ -12982,7 +12982,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="731 908">
+  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="731 852">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -13451,7 +13451,7 @@ Fecha de término</property>
         <child>
           <widget class="Gtk.HButtonBox" id="hbuttonbox1">
             <property name="MemberName" />
-            <property name="Size">2</property>
+            <property name="Size">3</property>
             <child>
               <widget class="Gtk.Button" id="button3">
                 <property name="MemberName" />
@@ -13479,6 +13479,22 @@ Fecha de término</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="button697">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-clear Menu</property>
+                <property name="Label" translatable="yes">Clear act and right selection</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnClearActAndRight" />
+              </widget>
+              <packing>
+                <property name="Position">2</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
               </packing>

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-02 23:32:11-0500\n"
-"PO-Revision-Date: 2012-05-03 13:02:56-0500\n"
+"POT-Creation-Date: 2012-05-03 01:23:46-0500\n"
+"PO-Revision-Date: 2012-05-03 01:24:15-0500\n"
 "Last-Translator: juanger\n"
 "Language-Team: \n"
 "Language: \n"
@@ -429,7 +429,7 @@ msgstr "Agregar"
 #: ../Views/gtk-gui/Views.ImageSelector.cs:1
 #: ../Views/gtk-gui/Views.DocumentChooser.cs:1
 #: ../Views/gtk-gui/Views.CaseReportWindow.cs:1
-msgid "Select a File"
+msgid "Select A File"
 msgstr "Seleccione un archivo"
 
 #: ../Views/gtk-gui/Views.DetailedDateSelector.cs:1
@@ -1350,6 +1350,10 @@ msgstr "<b>Nombre de la Víctima</b>"
 #: ../Views/gtk-gui/Views.CasesReportForm.cs:1
 msgid "_Clear"
 msgstr "Limpiar filtros"
+
+#: ../Views/gtk-gui/Views.CasesReportForm.cs:1
+msgid "Clear act and right selection"
+msgstr "Borrar selección de acto y derecho"
 
 #: ../Views/gtk-gui/Views.VictimsWindow.cs:1
 msgid "VictimsWindow"

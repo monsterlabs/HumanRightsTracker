@@ -89,6 +89,7 @@ namespace Views
                     change.Hide ();
                 else
                     change.Show ();
+                button11.Visible = value;
             }
         }
 
