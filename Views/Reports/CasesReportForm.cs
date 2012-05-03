@@ -115,5 +115,11 @@ namespace Views
         {
             fileName.Text = "";
         }
+
+        protected void OnClearActAndRight (object sender, System.EventArgs e)
+        {
+            humanRight.Active = null;
+            AffectedRight.Active = null;
+        }
     }
 }
