@@ -55,16 +55,23 @@ following instructions:
 
 Basic requeriments are: Windows7, .Net 3.5, MonoDevelop, CYGWIN and Git.
 
-  * Build your project in mac or linux to generate the DLL files and po
-files.
+  * Build your project in mac or linux to generate the DLL files and compiled po (.mo) files.
+
   * Clone the project from this repository into the windows machine
-  * Compile the project in MonoDevelop (Change the size of
-LoginWindows.cs view to make it and save the file)
+
+  	$ git clone  git://github.com/monsterlabs/HumanRightsTracker.git
+  
+  * Clone the set of libraries from the windows-binaries repository in to the bin directory and name this as bin
+
+  	$ cd bin
+	$ git clone git://github.com/monsterlabs/windows-binaries.git bin
+	
+  * Copy the compiled po (.mo) file in to the directory bin/bin/locale/po/LC_MESSAGES  
+  * Compile the project in MonoDevelop (Change the size of LoginWindows.cs view to make it and save the file)
   * Copy the compiled DLL and po files to bin/bin directory
   * Run the application in MonoDevelop and verify that its working well
-  * Edit the files  Installer.wixproj and InstallerDefinition.wxs
-  * Execute the build-installer.js script (Doing double click under this
-file).
+  * Edit the files  Installer.wixproj and InstallerDefinition.wxs to set the packager version.
+  * Execute the build-installer.js script (Doing double click under this file).
 
 ## Authors
 
