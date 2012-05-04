@@ -179,19 +179,31 @@ namespace HumanRightsTracker.Models
 
             foreach (Act act in this.Acts)
             {
-                AffectedRight += act.HumanRightsViolationCategory.Name + ", ";
-                Acts += act.HumanRightsViolation.Name + ", ";
+                //(Fecha inicio: 01/03/2010, Fecha Término:01/03/2012, No de victímas: N, Perpetradores: Nombre1, Nombre2,Nombre3),
+                Acts += act.HumanRightsViolationCategory.Name + ": ";
+                Acts += "Acto: " + act.HumanRightsViolation.Name + "( ";
+                Acts += "Fecha inicio: " + act.start_date.Value.ToShortDateString() + ", ";
+                Acts += "Fecha término: " + act.end_date.Value.ToShortDateString() + ", ";
+                Acts += "No de víctimas: " + act.Victims.Count + ", ";
+                Acts += "Perpetradores: ";
+
+                List<String> perpetrators = new List<String>();
+
                 foreach (Victim victim in act.Victims) {
                     foreach (Perpetrator perpetrator in victim.Perpetrators) {
                         PerpetratorTypes += perpetrator.PerpetratorType.Name + ", ";
+                        perpetrators.Add(perpetrator.Person.Fullname);
                     }
                 }
+
+                Acts += String.Join(", ", perpetrators.ToArray());
+
+                Acts += ")";
 
             }
 
             return new String[] {
                 this.Name,
-                AffectedRight,
                 Acts,
                 PerpetratorTypes,
                 this.victimList ().Count.ToString (),

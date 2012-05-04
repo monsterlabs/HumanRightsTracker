@@ -45,16 +45,22 @@ namespace Views
             }
 
             if (humanRight.Active != null) {
+                // Only filter by act when both right and act are selected
+                // because otherwise the right (HumanRightsViolationCategory)
+                // may hide cases with that act selected but not the same right.
                 DetachedCriteria dA = dC.CreateCriteria("Acts");
                 HumanRightsViolation hrv = humanRight.Active as HumanRightsViolation;
 
 
                 dA.Add (Restrictions.Eq ("HumanRightsViolation", hrv));
 
-                //if (AffectedRight.Active != null) {
-                //    HumanRightsViolationCategory hr = HumanRightsViolationCategory.FindOne(new ICriterion[] { Restrictions.Eq ("Id", hrv.CategoryId)});
-                //    dA.Add (Restrictions.Eq ("HumanRightsViolationCategory", hr));
-                //}
+
+            } else {
+                // Only a right is selected, filter by it.
+                if (AffectedRight.Active != null) {
+                    HumanRightsViolationCategory hr = AffectedRight.Active as HumanRightsViolationCategory;
+                    dA.Add (Restrictions.Eq ("HumanRightsViolationCategory", hr));
+                }
             }
 
             Case[] cases = Case.FindAll (dC);
