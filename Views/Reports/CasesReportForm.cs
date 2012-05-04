@@ -58,6 +58,7 @@ namespace Views
             } else {
                 // Only a right is selected, filter by it.
                 if (AffectedRight.Active != null) {
+                    DetachedCriteria dA = dC.CreateCriteria("Acts");
                     HumanRightsViolationCategory hr = AffectedRight.Active as HumanRightsViolationCategory;
                     dA.Add (Restrictions.Eq ("HumanRightsViolationCategory", hr));
                 }
