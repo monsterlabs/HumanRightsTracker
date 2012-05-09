@@ -1,0 +1,6 @@
+* Clean up the Views/People/Show.cs widget into separated widgets for invidiual
+  and immigrant actors.
+* Develop a wizard for PostgreSQL cliente configuraation.
+* Include support for PostgreSQL and SQLite3 into the DataBase subproject.
+* Scripts to build a package with PostgreSQL support.
+

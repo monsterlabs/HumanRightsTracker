@@ -82,3 +82,11 @@ Basic requeriments are: Windows7, .Net 3.5, MonoDevelop, CYGWIN and Git.
 
 ## Sponsored By
   * [Idheas, Litigio Estratégico en Derechos Humanos, A.C.] (http://www.idheas.org/)
+
+## Download binary and source packages
+
+  * [Windows](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.14.msi)
+  * [MacOs](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.14.zip)
+  * [Linux Ubuntu 1.10](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker_1.0.14-1_i386.deb)
+  * [Source code](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker-1.0.14.tar.gz)
+  
