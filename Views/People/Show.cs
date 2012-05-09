@@ -291,8 +291,6 @@ namespace Views.People
             person.Refresh();
             if (person.Addresses == null || person.Addresses.Count == 0) {
                 address = new Address ();
-                address.AddressType = AddressType.FindFirst ();
-                address.Country = Country.FindDefault ();
             } else {
                 address = (Address)person.Addresses[0];
             }

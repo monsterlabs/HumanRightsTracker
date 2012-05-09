@@ -1,9 +1,7 @@
 using System;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework;
-using Castle.ActiveRecord.Queries;
 using Castle.Components.Validator;
-using NHibernate.Criterion;
 
 namespace HumanRightsTracker.Models
 {
@@ -27,9 +25,5 @@ namespace HumanRightsTracker.Models
         [ValidateNonEmpty]
         [ValidateIsUnique]
         public String Code { get; set; }
-
-        public static Country FindDefault () {
-            return  Country.FindOne (new ICriterion[] { Restrictions.Eq("Code", "MX") });
-        }
     }
 }
