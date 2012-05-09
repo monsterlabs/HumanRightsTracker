@@ -89,4 +89,8 @@ Basic requeriments are: Windows7, .Net 3.5, MonoDevelop, CYGWIN and Git.
   * [MacOs](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.14.zip)
   * [Linux Ubuntu 1.10](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker_1.0.14-1_i386.deb)
   * [Source code](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker-1.0.14.tar.gz)
-  
+
+## Default user
+
+  * User: admin
+  * Password: qw12..
