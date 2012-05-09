@@ -1,4 +1,4 @@
-* Clean up the Views/People/Show.cs widget into separated widgets for individual
+* Clean up the Views/People/Show.cs widget and split this class into separated widgets for individual
   and immigrant actors.
 * Develop a wizard for PostgreSQL client configuration.
 * Include support for PostgreSQL and SQLite3 into the DataBase subproject.
