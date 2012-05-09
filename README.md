@@ -59,12 +59,13 @@ Basic requeriments are: Windows7, .Net 3.5, MonoDevelop, CYGWIN and Git.
 
   * Clone the project from this repository into the windows machine
 
-  	$ git clone  git://github.com/monsterlabs/HumanRightsTracker.git
+    $ git clone  git://github.com/monsterlabs/HumanRightsTracker.git
   
   * Clone the set of libraries from the windows-binaries repository in to the bin directory and name this as bin
 
-  	$ cd bin
-	$ git clone git://github.com/monsterlabs/windows-binaries.git bin
+    $ cd bin
+
+    $ git clone git://github.com/monsterlabs/windows-binaries.git bin
 	
   * Copy the compiled po (.mo) file in to the directory bin/bin/locale/po/LC_MESSAGES  
   * Compile the project in MonoDevelop (Change the size of LoginWindows.cs view to make it and save the file)
