@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-05-03 17:15:38-0500\n"
-"PO-Revision-Date: 2012-05-03 17:15:41-0500\n"
+"POT-Creation-Date: 2012-05-08 20:58:42-0500\n"
+"PO-Revision-Date: 2012-05-08 20:58:43-0500\n"
 "Last-Translator: Alejandro Juarez <alex@monsterlabs.com.mx>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1310,7 +1310,7 @@ msgid "<b>Password confirmation</b>"
 msgstr ""
 
 #: ../Views/Reports/CaseReportWindow.cs:6
-#: ../Views/Reports/CasesReportForm.cs:14
+#: ../Views/Reports/CasesReportForm.cs:15
 msgid ""
 " already exists.\n"
 " Do you want to override it?"
