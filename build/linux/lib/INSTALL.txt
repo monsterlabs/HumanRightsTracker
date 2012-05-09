@@ -9,7 +9,7 @@ make
 make install
 
 # Installing ubuntu package
-sudo dpkg --install humanrightstracker_1.0.13-1_i386.deb
+sudo dpkg --install humanrightstracker_1.0.14-1_i386.deb
 sudo humanrightracker
 
 # Enter to the system
