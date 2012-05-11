@@ -38,6 +38,7 @@ namespace Views.People
             ConnectAddressesHandlers ();
             ConnectPersonRelationshipsHandlers ();
             ConnectInstitutionPeopleHandlers ();
+            birthday.CurrentDateForCalendar = new DateTime(1975,1,1);
         }
 
         public Person Person {

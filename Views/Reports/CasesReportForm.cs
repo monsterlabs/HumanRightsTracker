@@ -15,8 +15,6 @@ namespace Views
         public CasesReportForm ()
         {
             this.Build ();
-            fromDate.CurrentDateForCalendar = null;
-            toDate.CurrentDateForCalendar = null;
         }
 
         protected void OnSave (object sender, System.EventArgs e)
@@ -32,16 +30,6 @@ namespace Views
 
             if (toDate.CurrentDate.HasValue) {
                 dC.Add (Restrictions.Le ("start_date", toDate.CurrentDate));
-            }
-
-            if (victimName.Text != null && victimName.Text.Length > 0) {
-                DetachedCriteria dA = dC.CreateCriteria("Acts");
-                DetachedCriteria dV = dA.CreateCriteria("Victims");
-                DetachedCriteria dP = dV.CreateCriteria("Person");
-                dP.Add (Restrictions.Or (
-                    Restrictions.InsensitiveLike("Firstname", victimName.Text, MatchMode.Anywhere),
-                    Restrictions.InsensitiveLike("Lastname", victimName.Text, MatchMode.Anywhere)
-                ));
             }
 
             if (humanRight.Active != null) {
@@ -106,7 +94,6 @@ namespace Views
             fromDate.CurrentDate = null;
             toDate.CurrentDate = null;
             caseName.Text = "";
-            victimName.Text = "";
             humanRight.Active = null;
             AffectedRight.Active = null;
             fileName.Text = "";
@@ -116,11 +103,6 @@ namespace Views
         protected void OnFromNameDelete (object sender, System.EventArgs e)
         {
             fromDate.CurrentDate = null;
-        }
-
-        protected void OnVictimNameDelete (object sender, System.EventArgs e)
-        {
-            victimName.Text = "";
         }
 
         protected void OnFileNameDelete (object sender, System.EventArgs e)

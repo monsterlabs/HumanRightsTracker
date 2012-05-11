@@ -198,7 +198,7 @@ namespace HumanRightsTracker.Models
 
                 Acts += String.Join(", ", perpetrators.ToArray());
 
-                Acts += ")";
+                Acts += ")\n";
 
             }
 

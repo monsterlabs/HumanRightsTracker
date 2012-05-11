@@ -5,6 +5,7 @@ namespace Views
     public partial class DateSelector : Gtk.Bin, IEditable
     {
         DateTime? currentDate;
+        DateTime? defaultDateForCalendar;
         bool isEditable;
 
         public event EventHandler Changed;
@@ -12,6 +13,7 @@ namespace Views
         public DateSelector ()
         {
             this.Build ();
+            CurrentDateForCalendar = DateTime.Now;
         }
 
         public DateTime? CurrentDate {
@@ -28,7 +30,7 @@ namespace Views
 
         public DateTime? CurrentDateForCalendar {
             set {
-                currentDate = value;
+                defaultDateForCalendar = value;
             }
         }
 
@@ -39,9 +41,9 @@ namespace Views
 
             DateTime? selectedDate = currentDate;
 
-            if (currentDate == null)
+            if (selectedDate == null)
             {
-                selectedDate = new DateTime(1975, 1, 1);
+                selectedDate = defaultDateForCalendar;
             }
 
             DateSelectorWindow selector = new DateSelectorWindow (x, y, selectedDate.Value, OnPopupDateChanged, (Gtk.Window)this.Toplevel);
