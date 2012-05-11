@@ -13026,7 +13026,7 @@ Fecha de término</property>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="731 852">
+  <widget class="Gtk.Bin" id="Views.CasesReportForm" design-size="731 794">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -13046,7 +13046,7 @@ Fecha de término</property>
                 <child>
                   <widget class="Gtk.Table" id="table2">
                     <property name="MemberName" />
-                    <property name="NRows">14</property>
+                    <property name="NRows">12</property>
                     <property name="RowSpacing">8</property>
                     <property name="ColumnSpacing">14</property>
                     <child>
@@ -13062,26 +13062,6 @@ Fecha de término</property>
                         <property name="AutoSize">False</property>
                         <property name="YOptions">Fill</property>
                         <property name="XExpand">True</property>
-                        <property name="XFill">True</property>
-                        <property name="XShrink">False</property>
-                        <property name="YExpand">False</property>
-                        <property name="YFill">True</property>
-                        <property name="YShrink">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.FileChooserButton" id="folderChooser">
-                        <property name="MemberName" />
-                        <property name="Title" translatable="yes">Select A Folder</property>
-                        <property name="Action">SelectFolder</property>
-                      </widget>
-                      <packing>
-                        <property name="TopAttach">11</property>
-                        <property name="BottomAttach">12</property>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
-                        <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
                         <property name="XFill">True</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
@@ -13216,11 +13196,10 @@ Fecha de término</property>
                         <property name="MemberName" />
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Gtk.Entry" id="victimName">
+                          <widget class="Gtk.FileChooserButton" id="folderChooser">
                             <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="IsEditable">True</property>
-                            <property name="InvisibleChar">●</property>
+                            <property name="Title" translatable="yes">Select A Folder</property>
+                            <property name="Action">SelectFolder</property>
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -13230,23 +13209,8 @@ Fecha de término</property>
                         <child>
                           <widget class="Gtk.HButtonBox" id="hbuttonbox5">
                             <property name="MemberName" />
-                            <property name="Size">1</property>
+                            <property name="Size">0</property>
                             <property name="LayoutStyle">Start</property>
-                            <child>
-                              <widget class="Gtk.Button" id="button15">
-                                <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="Type">TextAndIcon</property>
-                                <property name="Icon">stock:gtk-remove Menu</property>
-                                <property name="Label" translatable="yes">_Remove</property>
-                                <property name="UseUnderline">True</property>
-                                <signal name="Clicked" handler="OnVictimNameDelete" />
-                              </widget>
-                              <packing>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
                           </widget>
                           <packing>
                             <property name="Position">1</property>
@@ -13314,8 +13278,8 @@ Fecha de término</property>
                         </child>
                       </widget>
                       <packing>
-                        <property name="TopAttach">13</property>
-                        <property name="BottomAttach">14</property>
+                        <property name="TopAttach">11</property>
+                        <property name="BottomAttach">12</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -13415,8 +13379,8 @@ Fecha de término</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">10</property>
-                        <property name="BottomAttach">11</property>
+                        <property name="TopAttach">8</property>
+                        <property name="BottomAttach">9</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
@@ -13436,29 +13400,8 @@ Fecha de término</property>
                         <property name="UseMarkup">True</property>
                       </widget>
                       <packing>
-                        <property name="TopAttach">12</property>
-                        <property name="BottomAttach">13</property>
-                        <property name="AutoSize">True</property>
-                        <property name="XOptions">Fill</property>
-                        <property name="YOptions">Fill</property>
-                        <property name="XExpand">False</property>
-                        <property name="XFill">True</property>
-                        <property name="XShrink">False</property>
-                        <property name="YExpand">False</property>
-                        <property name="YFill">True</property>
-                        <property name="YShrink">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="label6">
-                        <property name="MemberName" />
-                        <property name="Xalign">0</property>
-                        <property name="LabelProp" translatable="yes">&lt;b&gt;Victim Name&lt;/b&gt;</property>
-                        <property name="UseMarkup">True</property>
-                      </widget>
-                      <packing>
-                        <property name="TopAttach">8</property>
-                        <property name="BottomAttach">9</property>
+                        <property name="TopAttach">10</property>
+                        <property name="BottomAttach">11</property>
                         <property name="AutoSize">True</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
