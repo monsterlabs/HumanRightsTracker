@@ -1,4 +1,4 @@
-# Human Rights Tracker 1.x
+# Human Rights Tracker 1.0.15
 
 ##. License
 
@@ -85,10 +85,18 @@ Basic requeriments are: Windows7, .Net 3.5, MonoDevelop, CYGWIN and Git.
 
 ## Download binary and source packages
 
-  * [Windows](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.14.msi)
-  * [MacOs](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.14.zip)
-  * [Linux Ubuntu 1.10](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker_1.0.14-1_i386.deb)
-  * [Source code](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker-1.0.14.tar.gz)
+  * [Windows](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.15.msi)
+  * [MacOs](https://github.com/downloads/monsterlabs/HumanRightsTracker/HumanRightsTracker-1.0.15.zip)
+  * [Linux Ubuntu 1.10](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker_1.0.15-1_i386.deb)
+  * [Source code](https://github.com/downloads/monsterlabs/HumanRightsTracker/humanrightstracker-1.0.15.tar.gz)
+
+##Requeriments for binary package installation
+
+  * [Windows XP/Vista](http://www.microsoft.com/en-us/download/details.aspx?id=25150)
+  * [MacOS](http://download.mono-project.com/archive/2.10.9/macos-10-x86/10/MonoFramework-MRE-2.10.9_10.macos10.xamarin.x86.dmg)
+  * [Linux Ubuntu 1.10]:
+
+    $ sudo apt-get install gtk-sharp
 
 ## Default user
 
