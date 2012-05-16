@@ -87,6 +87,7 @@ namespace Views
 
             if (perpetrator.IsValid()) {
                 if (newRow) {
+                    perpetrator.Victim.Perpetrators.Remove (Perpetrator);
                     perpetrator.Victim.Perpetrators.Add (Perpetrator);
                 }
 

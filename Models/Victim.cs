@@ -17,7 +17,7 @@ namespace HumanRightsTracker.Models
         public Person Person { get; set; }
         [BelongsTo("act_id"), ValidateNonEmpty]
         public Act Act { get; set; }
-        [BelongsTo("victim_status_id"), ValidateNonEmpty]
+        [BelongsTo("victim_status_id")]
         public VictimStatus VictimStatus { get; set; }
 
         [Property("characteristics")]
