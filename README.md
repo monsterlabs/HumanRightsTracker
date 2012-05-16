@@ -94,7 +94,7 @@ Basic requeriments are: Windows7, .Net 3.5, MonoDevelop, CYGWIN and Git.
 
   * [Windows XP/Vista](http://www.microsoft.com/en-us/download/details.aspx?id=25150)
   * [MacOS](http://download.mono-project.com/archive/2.10.9/macos-10-x86/10/MonoFramework-MRE-2.10.9_10.macos10.xamarin.x86.dmg)
-  * [Linux Ubuntu 1.10]:
+  * Linux Ubuntu 1.10
 
     $ sudo apt-get install gtk-sharp
 
