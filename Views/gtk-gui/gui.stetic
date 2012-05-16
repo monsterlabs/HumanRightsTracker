@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
-    <images-root-path>..</images-root-path>
+    <images-root-path>../../Views</images-root-path>
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
@@ -14876,20 +14876,34 @@ Fecha de término</property>
   <widget class="Gtk.Window" id="Views.InstitutionPersonDetailWindow" design-size="546 693">
     <action-group name="Default" />
     <property name="MemberName" />
+    <property name="CanDefault">True</property>
     <property name="Title" translatable="yes">InstitutionPersonDetailWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="BorderWidth">9</property>
     <child>
-      <widget class="Views.InstitutionPersonShow" id="show">
+      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
         <property name="MemberName" />
-        <property name="Events">ButtonPressMask</property>
-        <property name="IsEditable">False</property>
-        <signal name="Saved" handler="OnShowSaved" />
-        <signal name="Canceled" handler="OnShowCanceled" />
+        <property name="ShadowType">In</property>
+        <child>
+          <widget class="Gtk.Viewport" id="GtkViewport">
+            <property name="MemberName" />
+            <property name="ShadowType">None</property>
+            <child>
+              <widget class="Views.InstitutionPersonShow" id="show">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="IsEditable">False</property>
+                <signal name="Saved" handler="OnShowSaved" />
+                <signal name="Canceled" handler="OnShowCanceled" />
+              </widget>
+            </child>
+          </widget>
+        </child>
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Views.InstitutionPersonShow" design-size="528 707">
+  <widget class="Gtk.Bin" id="Views.InstitutionPersonShow" design-size="610 707">
     <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -15130,9 +15144,7 @@ Fecha de término</property>
           </widget>
           <packing>
             <property name="Position">0</property>
-            <property name="AutoSize">False</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
+            <property name="AutoSize">True</property>
           </packing>
         </child>
         <child>
